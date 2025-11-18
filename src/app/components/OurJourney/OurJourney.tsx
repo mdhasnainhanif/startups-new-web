@@ -1,0 +1,67 @@
+"use client";
+
+import Image from "next/image";
+import { OurJourneyProps } from "../../types/types";
+import Container from "../Container";
+import styles from "./OurJourney.module.css";
+
+export default function OurJourney({
+  items,
+  className = "",
+}: OurJourneyProps) {
+  // Map items to steps format with alternating sides
+  const steps = items.map((item) => ({
+    id: item.id,
+    num: item.number,
+    title: item.title,
+    subtitle: item.subtitle,
+    desc: item.description,
+    side: item.imagePosition || "right",
+  }));
+
+  return (
+    <section className={`${styles.wrap} ${className}`}>
+      <h2 className="mx-auto max-w-7xl text-3xl text-center font-extrabold leading-tight tracking-tight text-white sm:text-4xl md:text-5xl lg:mb-30 mb-6 lg:text-6xl">
+        Our <span className="text-[#0fdac2]">Journey</span>
+      </h2>
+      <div className={styles.list}>
+        {steps.map((s, i) => (
+          <div
+            key={s.id}
+            className={`${styles.item} ${styles[s.side]}`}
+            data-side={s.side}
+          >
+            <div className={`${styles.ring} ${styles[s.side]}`}>
+              <div className={styles.ringInner}>
+                <img
+                  src="/assets/images/journey1.webp"
+                  alt={s.title}
+                  className={styles.iconImage}
+                />
+              </div>
+            </div>
+
+            <div className={styles.content}>
+              <div className={styles.contentHeader}>
+                <span className={styles.badge}>{s.num}</span>
+                <h3 className={styles.title}>{s.title}</h3>
+              </div>
+              <h4 className={styles.subtitle}>{s.subtitle}</h4>
+              <p className={styles.desc}>{s.desc}</p>
+            </div>
+            {i < steps.length - 1 && (
+              <div
+                className={`${styles.line} ${styles[`line_${s.side}`]}`}
+                aria-hidden
+              >
+                <span className={styles.lineTrack} />
+                <span className={styles.lineFill} />
+                <span className={styles.lineEdgeGlow} />
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import localFont from "next/font/local";
 import Image from "next/image";
+import Script from "next/script";
 import "./globals.css";
 import TopHeader from "./components/TopHeader";
 import Header from "./components/Header";
@@ -43,6 +44,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+          crossOrigin="anonymous"
+          referrerPolicy="no-referrer"
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${wfVisualSans.variable} ${graphikRegular.variable} antialiased relative`}
       >

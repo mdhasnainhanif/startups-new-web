@@ -1,0 +1,150 @@
+.section {
+  position: relative;
+  border-radius: 24px;
+  overflow: visible;
+  z-index: 10;
+}
+
+.counterGrid {
+  position: relative;
+  z-index: 5;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3rem;
+  align-items: center;
+  justify-items: center;
+  max-width: 1120px;
+  margin: -80px auto;
+  background:url('/assets/images/counterbanner.webp') no-repeat center center;
+  background-size: cover;
+  padding: 2rem;
+  border-radius: 24px;
+}
+.counterItem {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.counterValue {
+  position: relative;
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #0fdac2;
+  line-height: 1;
+  margin: 0;
+}
+.counterValue:before {
+  content: "";
+  position: absolute;
+  top: 30%;
+  right:-30%;
+  width: 1px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.counterItem:last-child .counterValue::before {
+  display: none;
+}
+
+.counterLabel {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #ffffff;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .counterGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+    margin: 0;
+    padding: 1.75rem;
+  }
+
+  .counterValue {
+    font-size: 3rem;
+  }
+
+  .counterLabel {
+    font-size: 1.0625rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    margin-top: -2rem;
+    margin-bottom: -2rem;
+  }
+
+  .counterGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin: 0;
+    padding: 1.5rem;
+  }
+
+  .counterValue {
+    font-size: 2.5rem;
+  }
+
+  .counterLabel {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .counterGrid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+    margin: -30px auto;
+    padding: 1.25rem;
+  }
+
+  .counterValue {
+    font-size: 2.25rem;
+  }
+
+  .counterLabel {
+    font-size: 0.9375rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .counterValue::before {
+    display: none;
+  }
+
+  .counterGrid {
+    margin: -20px auto;
+    padding: 1rem;
+  }
+
+  .counterValue {
+    font-size: 2rem;
+  }
+
+  .counterLabel {
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .counterGrid {
+    margin: -15px auto;
+    padding: 0.875rem;
+  }
+
+  .counterValue {
+    font-size: 1.75rem;
+  }
+
+  .counterLabel {
+    font-size: 0.8125rem;
+  }
+}
+

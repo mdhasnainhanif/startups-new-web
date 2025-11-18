@@ -1,0 +1,150 @@
+.videoWrapper {
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.videoWrapper:hover {
+  transform: translateY(-4px);
+}
+
+.videoCard {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 18px #1e365c;
+  transition: all 0.3s ease;
+}
+
+.videoWrapper:hover .videoCard {
+  box-shadow: 0 0 30px rgba(100, 59, 255, 0.4), 0 0 60px rgba(100, 59, 255, 0.2),
+    inset 0 0 20px rgba(100, 59, 255, 0.05);
+}
+
+.videoThumbnail {
+  position: relative;
+  /* aspect-ratio: 14 / 10; */
+  background: linear-gradient(135deg, #1a1a2e 0%, #0a0a1a 100%);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.videoImageWrapper {
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  display: inline-block;
+  width: 100%;
+}
+
+.videoImageWrapper:hover {
+  transform: translateY(-4px);
+}
+
+.videoImageWrapper:hover .playButton {
+  transform: scale(1.1);
+  box-shadow: 0 15px 40px rgba(100, 59, 255, 0.7);
+}
+
+.videoImage{
+  max-width: 26rem;
+  margin: 0 auto;
+  display: block;
+  box-shadow: 0 2px 18px #1e365c;
+  border-radius: 1.4rem;
+  width: 100%;
+}
+
+.videoMain{
+  background-color: #21164c;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.personImageContainer {
+  position: relative;
+  width: fit-content;
+  height: 100%;
+  display: block;
+}
+
+.personImage {
+  position: relative !important;
+  width: 90% !important;
+  height: auto !important;
+  object-fit: cover;
+  margin: 0 auto;
+  display: block;
+}
+
+.personImageOverlay {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(2, 0, 22, 0.6) 0%,
+    transparent 100%
+  );
+}
+
+.rocketImage{
+    width:100px
+}
+.text-white{
+  color: #ffffff;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .videoCard {
+    border-radius: 12px;
+  }
+
+  .videoImage {
+    max-width: 22rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .videoCard {
+    border-radius: 10px;
+  }
+
+  .videoImage {
+    max-width: 100%;
+    border-radius: 1rem;
+  }
+
+  .videoMain {
+    padding: 1rem;
+  }
+
+  .personImage {
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .videoCard {
+    border-radius: 8px;
+  }
+
+  .videoImage {
+    border-radius: 0.75rem;
+  }
+
+  .videoMain {
+    padding: 0.75rem;
+    border-radius: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .rocketImage {
+    width: 80px;
+  }
+}

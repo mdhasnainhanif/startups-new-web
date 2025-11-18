@@ -6,6 +6,7 @@ import Container from "./Container";
 import Button from "./Button";
 import Image from "next/image";
 import { ArrowRightIcon } from "./icons";
+import Link from "next/link";
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -43,11 +44,25 @@ export default function Header() {
   return (
     <>
       {/* Mobile Header - Fixed when scrolled on mobile only */}
-      <header className={`${isScrolled && isMobile ? "fixed top-0" : "relative md:absolute md:top-12"} left-0 right-0 z-[100] flex items-center justify-center w-full py-4 bg-transparent md:bg-transparent transition-all duration-300`} style={{ willChange: "transform" }}>
+      <header
+        className={`${
+          isScrolled && isMobile
+            ? "fixed top-0"
+            : "relative md:absolute md:top-12"
+        } left-0 right-0 z-[100] flex items-center justify-center w-full py-4 bg-transparent md:bg-transparent transition-all duration-300`}
+        style={{ willChange: "transform" }}
+      >
         <Container maxWidth="xl" className="px-0">
-          <nav className="flex items-center justify-between w-full rounded-full px-4 md:px-6 py-4 bg-[#02001c] backdrop-blur-md shadow-xl border border-[#4e4989] relative" style={{ minHeight: "64px" }}>
+          <nav
+            className="flex items-center justify-between w-full rounded-full px-4 md:px-6 py-4 bg-[#02001c] backdrop-blur-md shadow-xl border border-[#4e4989] relative"
+            style={{ minHeight: "64px" }}
+          >
             <div className="flex items-center gap-2">
-              <div className="flex flex-col relative" style={{ width: 100, height: 40 }}>
+              <div
+                className="flex flex-col relative"
+                style={{ width: 100, height: 40 }}
+              >
+                <Link href="/" className="cursor-pointer">
                 <Image
                   src={COMPANY_INFO.logo}
                   alt="Logo"
@@ -56,6 +71,7 @@ export default function Header() {
                   priority
                   style={{ objectFit: "contain" }}
                 />
+                </Link>
               </div>
             </div>
 
@@ -125,23 +141,38 @@ export default function Header() {
         <div className="flex flex-col h-full">
           {/* Sidebar Header */}
           <div className="flex items-center justify-between p-4 border-b border-[#1a1a2e]/50">
-            <div className="flex flex-col relative" style={{ width: 100, height: 40 }}>
-              <Image
-                src={COMPANY_INFO.logo}
-                alt="Logo"
-                width={100}
-                height={40}
-                priority
-                style={{ objectFit: "contain" }}
-              />
+            <div
+              className="flex flex-col relative"
+              style={{ width: 100, height: 40 }}
+            >
+              <Link href="/" className="cursor-pointer">
+                <Image
+                  src={COMPANY_INFO.logo}
+                  alt="Logo"
+                  width={100}
+                  height={40}
+                  priority
+                  style={{ objectFit: "contain" }}
+                />
+              </Link>
             </div>
             <button
               onClick={() => setIsMobileMenuOpen(false)}
               className="p-2 text-white hover:text-[#0fdac2] transition-colors"
               aria-label="Close menu"
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
               </svg>
             </button>
           </div>

@@ -50,8 +50,8 @@ export default function GrowthSlider({ items }: { items: Guide[] }) {
     <section className={`${styles.section} sectionPadding`}>
       <Container maxWidth="xl">
         <div className={styles.header}>
-          <h2 className={styles.heading}>
-            Growth <span className={styles.titleGradient}>Guides</span>
+          <h2 className={`${styles.heading} ${styles.headingText}`}>
+            Growth <span className={`${styles.titleGradient} ${styles.textLight}`}>Guides</span>
           </h2>
         </div>
 
