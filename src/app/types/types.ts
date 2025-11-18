@@ -44,7 +44,6 @@ export interface HeroBannerProps {
   className?: string;
 }
 
-<<<<<<< HEAD
 // AboutUsBanner Types
 export interface AboutUsBannerProps {
   heading: {
@@ -151,7 +150,6 @@ export interface CounterProps {
   className?: string;
 }
 
-=======
 // ContactForm Types
 export interface FormFieldConfig {
   id: string;
@@ -220,8 +218,3 @@ export interface ContactFormAddressConfig {
 export interface ContactFormAddressProps {
   config: ContactFormAddressConfig;
 }
-
-
-
-
->>>>>>> 82f994b265fa895ad6e09cb649fccc226f3e0606
