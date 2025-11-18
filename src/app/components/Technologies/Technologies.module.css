@@ -1,6 +1,5 @@
 .section {
   background: #050321;
-  padding: 80px 0;
   position: relative;
   overflow: hidden;
   mask-image: linear-gradient(to right, #fff0 0%, #000000 25%, #000000 75%, #fff0 100%);
@@ -18,8 +17,8 @@
   font-weight: 800;
   line-height: 1.2;
   margin-bottom: 20px;
-  width:1000px;
   margin: 0 auto 30px;
+  max-width: 62rem;
 }
 
 .description {
@@ -208,28 +207,29 @@
 
   .tabsContainer {
     flex-direction: column;
-    gap: 0;
+    gap: 8px;
     background:#0b0038;
     border-radius: 100px;
+    padding: 12px;
+    width: 100%;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .tab {
     width: 100%;
-    border-right: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 0;
+    padding: 12px 20px;
+    font-size: 0.9rem;
+    margin: 0;
+    min-width: auto;
+    text-align: center;
   }
 
-  .tab:first-child {
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
+  .tabsContainer .tab:nth-child(2) {
+    margin-left: 0;
   }
 
-  .tab:last-child {
-    border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 8px;
-    border-bottom: none;
-  }
 
   .categoryTitle {
     font-size: 20px;
@@ -245,6 +245,9 @@
 }
 
 @media (max-width: 640px) {
+  .tabsContainer{
+    background-color: transparent;
+  }
   .heading {
     font-size: 28px;
   }
@@ -255,6 +258,9 @@
 
   .categoryTitle {
     font-size: 18px;
+  }
+  .tab::before{
+    content: none;
   }
 }
 

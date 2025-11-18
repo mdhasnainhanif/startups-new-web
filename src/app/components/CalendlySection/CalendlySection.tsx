@@ -44,7 +44,7 @@ const CalendlySection = ({
   }, [calendlyUrl]);
 
   return (
-    <section className={`${styles.calendlySection} ${className}`}>
+    <section className={`${styles.calendlySection} ${className} sectionPadding`}>
       <Container maxWidth="xl">
         <div className={styles.contentWrapper}>
           {/* Left Section */}
@@ -58,7 +58,7 @@ const CalendlySection = ({
             <p className={styles.description}>{description}</p>
 
             <div className={styles.buttonWrapper}>
-              <Button href={buttonHref} variant="secondary" size="lg">
+              <Button href={buttonHref} variant="secondary" size="lg" className={styles.ctaButton}>
                 <span>{buttonText}</span>
                 <div className={styles.playIconContainer}>
                   <svg

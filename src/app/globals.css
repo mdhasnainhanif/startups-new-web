@@ -35,8 +35,8 @@ body {
 
 
 .sectionPadding {
-  padding-top: 6.25rem;
-  padding-bottom: 6.25rem;
+  padding-top: 5.25rem;
+  padding-bottom: 5.25rem;
 }
 
 .bottomZero {
@@ -149,4 +149,38 @@ img {
 .calendly-header,
 .calendly-popup-content-header {
   display: none !important;
+}
+
+h2.headingSize {
+  font-size: 3rem !important;
+  font-weight: 700 !important;
+}
+
+.sectionPaddingCase.pt-0{
+  padding-top: 0 !important;
+}
+
+@media screen and (max-width: 768px)
+{
+  .topPara {
+    font-size: 0.875rem;
+  }
+}
+
+@media screen and (max-width: 576px)
+{
+  .sectionPadding {
+    padding-top: 4.25rem;
+    padding-bottom: 4.25rem;
+  }
+  .topPara {
+    font-size: 0.655rem;
+  }
+  h2.headingSize{
+    font-size: 2rem !important;
+  }
+  .tabSection .px-4{
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
 }

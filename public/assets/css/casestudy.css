@@ -27,15 +27,18 @@
   }
 }
 
-@media (max-width: 36rem) {
+@media (max-width: 576) {
   .stack-cards__item {
     height: auto;
+  }
+  .sectionPaddingCase.pt-0 {
+    padding-top: 0 !important;
   }
 }
 
 @media (max-width: 650px) {
   .mobile-padding-bottom-0 {
-    padding-bottom: 0 !important;
+    padding-bottom: 1rem !important;
   }
 }
 

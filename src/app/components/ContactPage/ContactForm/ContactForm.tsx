@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 "use client";
 
 import React, { useState } from "react";
@@ -90,6 +91,10 @@ const ContactForm: React.FC<ContactFormProps> = ({ config = contactFormData }) =
       setLoading(false);
     }
   };
+=======
+import { LinkedInIcon } from '@/app/Icons'
+import React from 'react'
+>>>>>>> e2b268aca8d3892bf67e4d5354bddeb7e789725a
 
   return (
     <div className={`${styles.contactFormContainer} ${config.className || ""}`}>
