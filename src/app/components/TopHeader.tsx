@@ -11,7 +11,7 @@ export default function TopHeader() {
   return (
     <div className="relative md:absolute md:top-0 left-0 right-0 z-50 flex items-center justify-center w-full py-2 bg-transparent backdrop-blur-sm" style={{ willChange: "transform" }}>
       <Container maxWidth="2xl" className="px-0">
-        <div className="flex items-center justify-between w-full rounded-full lg:px-4 py-2 backdrop-blur-sm">
+        <div className="flex items-center justify-between w-full rounded-full lg:px-4 py-2">
           <div className="flex items-center gap-2 flex-1 justify-center">
             <span className="text-2xl">{TOP_BANNER.emoji}</span>
             <p className="text-white lg:text-sm md:text-base font-medium topPara">
@@ -23,7 +23,6 @@ export default function TopHeader() {
               size="sm"
               icon={<ArrowRightIcon />}
               iconPosition="right"
-              className="whitespace-nowrap ml-2"
             >
               {TOP_BANNER.buttonText.replace(" →", "")}
             </Button>
