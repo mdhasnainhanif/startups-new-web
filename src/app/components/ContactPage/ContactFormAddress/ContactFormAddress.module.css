@@ -1,0 +1,301 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2.5rem 0;
+  gap: 4rem;
+
+  /* background-color: #0a0a0a;
+  padding-left: 3rem;
+  padding-right: 3rem; */
+}
+
+.itemsWrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  flex: 1;
+  align-items: center;
+  padding-right: 2.5rem;
+ 
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+border-right: 1px solid #ffffff1f;
+}
+
+.iconWrapper {
+  border-radius: 50%;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 56px;
+  height: 56px;
+  min-width: 56px;
+  display: flex;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.icon {
+  width: 28px;
+  height: 28px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #00d4aa;
+  text-transform: capitalize;
+  letter-spacing: 0.01em;
+}
+
+.value {
+  font-size: 0.9rem;
+  color: #ffffff;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.value a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.value a:hover {
+  color: #00d4aa;
+}
+
+.socialLinksWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  align-items: center;
+  justify-content: start;
+  flex: 0 1 auto;
+  width: auto;
+  max-width: 180px;
+  row-gap: 0.8rem;
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.socialLink:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.socialIcon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Responsive Design */
+@media (max-width: 1280px) {
+  .container {
+    padding: 2rem;
+    gap: 2rem;
+  }
+
+  .itemsWrapper {
+    gap: 2.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .item {
+    gap: 1rem;
+  }
+
+  .iconWrapper {
+    width: 60px;
+    height: 60px;
+    min-width: 60px;
+  }
+
+  .icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .label {
+    font-size: 0.875rem;
+  }
+
+  .value {
+    font-size: 0.875rem;
+  }
+
+  .socialLink {
+    width: 48px;
+    height: 48px;
+  }
+
+  .socialIcon {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .container {
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .itemsWrapper {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    padding-right: 1rem;
+  }
+
+  .item {
+    gap: 0.75rem;
+  }
+
+  .iconWrapper {
+    width: 55px;
+    height: 55px;
+    min-width: 55px;
+  }
+
+  .icon {
+    width: 26px;
+    height: 26px;
+  }
+
+  .label {
+    font-size: 0.8125rem;
+  }
+
+  .value {
+    font-size: 0.8125rem;
+  }
+
+  .socialLinksWrapper {
+    gap: 1rem;
+  }
+
+  .socialLink {
+    width: 45px;
+    height: 45px;
+  }
+
+  .socialIcon {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .itemsWrapper {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    width: 100%;
+    padding-right: 0;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    padding-bottom: 1.5rem;
+  }
+
+  .item {
+    gap: 0.75rem;
+  }
+
+  .iconWrapper {
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+  }
+
+  .icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .socialLinksWrapper {
+    width: 100%;
+    justify-content: center;
+    padding-left: 0;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .itemsWrapper {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .item {
+    gap: 0.75rem;
+  }
+
+  .iconWrapper {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+  }
+
+  .icon {
+    width: 22px;
+    height: 22px;
+  }
+
+  .label {
+    font-size: 0.75rem;
+  }
+
+  .value {
+    font-size: 0.75rem;
+  }
+
+  .socialLink {
+    width: 42px;
+    height: 42px;
+  }
+
+  .socialIcon {
+    width: 20px;
+    height: 20px;
+  }
+}

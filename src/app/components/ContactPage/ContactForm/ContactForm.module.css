@@ -1,0 +1,205 @@
+.contactFormContainer {
+  background: linear-gradient(135deg, #1a0e3f 0%, #2d1b5e 100%);
+  border-radius: 1.5rem;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.formWrapper {
+  display: flex;
+  gap: 2rem;
+  align-items: stretch;
+}
+
+.formSection {
+  flex: 1;
+  min-width: 0;
+  padding: 3rem 2.5rem;
+}
+
+.mapSection {
+  flex: 1;
+  min-width: 0;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.heading {
+font-size: 2.875rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 2rem;
+  color: #ffffff;
+}
+
+.highlight {
+  color: #00d4aa;
+  font-weight: 700;
+}
+
+.formFields {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.inputGroup {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.inputGroup.full {
+  flex-direction: column;
+  flex-basis: 100%;
+}
+
+.inputGroup.twoColumn {
+  flex: 0 1 calc(50% - 0.5rem);
+}
+
+.formInput {
+  width: 100%;
+  padding: 0.875rem 1.25rem;
+  background-color: rgba(255, 255, 255, 0.95);
+  border: none;
+ border-radius: 1.55rem;
+  font-size: 0.9375rem;
+  color: #1a0e3f;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.formInput::placeholder {
+  color: #999999;
+}
+
+.formInput:focus {
+  outline: none;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(0, 212, 170, 0.2);
+}
+
+.formTextarea {
+  resize: vertical;
+  min-height: 120px;
+  max-height: 200px;
+}
+
+.submitButton {
+     color: #fff;
+    cursor: pointer;
+    background: #0fdac2;
+    border: none;
+    border-radius: 100px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    margin-top: 8px;
+    padding: 16px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background .3s, transform .2s;
+    display: flex;
+}
+
+.submitButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 212, 170, 0.3);
+}
+
+.submitButton:active {
+  transform: translateY(0);
+}
+
+.submitButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.successMessage {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  border-left: 4px solid #28a745;
+}
+
+.errorMessage {
+  background-color: #f8d7da;
+  color: #721c24;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  border-left: 4px solid #f5222d;
+}
+
+.loadingSpinner {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid rgba(26, 14, 63, 0.2);
+  border-top-color: #1a0e3f;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.mapPlaceholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f0f0;
+  color: #999;
+  font-size: 0.9375rem;
+}
+
+@media (max-width: 768px) {
+  .contactFormContainer {
+    padding: 2rem 1.5rem;
+  }
+
+  .formWrapper {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  /* .mapSection {
+    min-height: 300px;
+  } */
+
+  .heading {
+    font-size: 1.5rem;
+  }
+
+  .inputGroup {
+    flex-direction: column;
+  }
+
+  .inputGroup.half {
+    flex: 1 1 100%;
+  }
+}
+
+/* Add these to ContactForm.module.css */
+.inputGroupRow {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.inputGroup.half {
+  flex: 0 1 calc(50% - 0.5rem);
+}
