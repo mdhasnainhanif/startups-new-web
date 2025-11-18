@@ -23,7 +23,7 @@ export default function WhyChoose({
   };
 
   return (
-    <section className={`${styles.section} ${className}`}>
+    <section className={`${styles.section} sectionPadding ${className}`}>
       <Container maxWidth="xl" className="px-0">
         <div className={styles.contentWrapper}>
           {/* Left Section - Image */}
@@ -52,7 +52,9 @@ export default function WhyChoose({
                 <div key={item.id} className={styles.accordionItem}>
                   <button
                     onClick={() => toggleItem(index)}
-                    className={styles.accordionButton}
+                    className={`${styles.accordionButton} ${
+                      openIndex === index ? styles.accordionButtonActive : ""
+                    }`}
                   >
                     <span className={styles.accordionTitle}>{item.title}</span>
                     <span className={styles.accordionIcon}>

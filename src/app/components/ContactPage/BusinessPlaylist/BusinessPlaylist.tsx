@@ -2,6 +2,8 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import Button from "../../Button";
+import { ArrowRightIcon } from "../../icons";
 import styles from "./BusinessPlaylist.module.css";
 
 type PlaylistItem = {
@@ -51,7 +53,7 @@ const BusinessPlaylist: React.FC<BusinessPlaylistProps> = ({
   };
 
   return (
-    <section className={`${styles.section} py-16`}>
+    <section className={`${styles.section} sectionPadding`}>
       <div className="max-w-7xl mx-auto px-4">
         {/* Main Heading */}
         <div className="text-center mb-12">
@@ -189,6 +191,7 @@ const BusinessPlaylist: React.FC<BusinessPlaylistProps> = ({
             </div>
           </div>
         </div>
+
       </div>
     </section>
   );

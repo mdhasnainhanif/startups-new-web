@@ -17,7 +17,7 @@ export default function AboutUsBanner({
       className={`${styles.bannerBackground} relative sectionPadding overflow-hidden ${className}`}
     >
       <Container maxWidth="xl" className="px-0">
-        <div className="flex flex-col items-center text-center gap-6 md:gap-8 pt-20">
+        <div className={`flex flex-col items-center text-center gap-6 md:gap-8 pt-20 ${styles.pt100}`}>
           <h1 className={`text-4xl md:text-5xl lg:text-6xl font-extrabold ${styles.heading}`}>
             <span className="text-white">{heading.part1} </span>
             <span className="text-[#0fdac2]">{heading.highlight}</span>
@@ -36,14 +36,8 @@ export default function AboutUsBanner({
             {description}
           </p>
           <div className="mt-4">
-            <Button
-              href={ctaButton.href}
-              variant={ctaButton.variant || "secondary"}
-              size="lg"
-              icon={<ArrowRightIcon />}
-              iconPosition="right"
-              className={styles.ctaButton}
-            >
+           
+            <Button href="#" variant="primary" icon={<ArrowRightIcon style={{ fill: "#fff" }} />} iconPosition="right">
               {ctaButton.text}
             </Button>
           </div>

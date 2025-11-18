@@ -10,7 +10,7 @@ export default function OurCoreValue({
   className = "",
 }: OurCoreValueProps) {
   return (
-    <section className={`${styles.section} ${className}`}>
+    <section className={`${styles.section} sectionPadding ${className}`}>
       <Container maxWidth="xl" className="px-0">
         <div className={styles.cardsContainer}>
           {cards.map((card) => (

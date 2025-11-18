@@ -258,7 +258,7 @@ export const OUR_JOURNEY = {
   items: [
     {
       id: "1",
-      number: "01",
+      number: "01.",
       title: "The Vision Begins",
       subtitle: "Identifying What's Possible With AI",
       description:
@@ -267,7 +267,7 @@ export const OUR_JOURNEY = {
     },
     {
       id: "2",
-      number: "02",
+      number: "02.",
       title: "Building Intelligent Foundations",
       subtitle: "Designing Your AI-Powered Blueprint",
       description:
@@ -276,7 +276,7 @@ export const OUR_JOURNEY = {
     },
     {
       id: "3",
-      number: "03",
+      number: "03.",
       title: "Launching Real AI Impact",
       subtitle: "Deploying Advanced Agents & Automations",
       description:
@@ -285,7 +285,7 @@ export const OUR_JOURNEY = {
     },
     {
       id: "4",
-      number: "04",
+      number: "04.",
       title: "Evolving Beyond Limits",
       subtitle: "Continuous Optimization, Training & Scaling",
       description:

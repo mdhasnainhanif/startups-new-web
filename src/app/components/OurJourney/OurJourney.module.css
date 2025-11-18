@@ -1,11 +1,12 @@
+
 .wrap {
     position: relative;
     background: #080523;
-    padding: 8.25rem 0 6.25rem;
     border-radius: 24px;
     overflow: visible;
     width: 100%;
     box-sizing: border-box;
+    padding-top:9.25rem
 }
 .wrap::before {
     content: "";
@@ -39,41 +40,6 @@
     margin-top: -3.05rem;
     padding: 2.5rem;
 }
-
-.item[data-side="right"]::before {
-    content: "";
-    --a: 254deg;
-    aspect-ratio: unset;
-    box-sizing: border-box;
-    width: 100%;
-    height: 100%;
-    -webkit-mask: linear-gradient(rgba(0, 0, 0, 0) 0 0) content-box intersect, conic-gradient(from 270deg, #000 var(--a), rgba(0, 0, 0, 0) 0);
-    mask: linear-gradient(rgba(0, 0, 0, 0) 0 0) content-box intersect, conic-gradient(from 360deg, #000 var(--a), rgba(0, 0, 0, 0) 0);
-    background: #272582;
-    border-radius: 8rem;
-    padding: 5px;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-.item[data-side="left"]::before {
-    content: "";
-    --a: 259deg;
-    aspect-ratio: unset;
-    box-sizing: border-box;
-    width: 100%;
-    height: 100%;
-    -webkit-mask: linear-gradient(rgba(0, 0, 0, 0) 0 0) content-box intersect, conic-gradient(from 90deg, #000 var(--a), rgba(0, 0, 0, 0) 0);
-    mask: linear-gradient(rgba(0, 0, 0, 0) 0 0) content-box intersect, conic-gradient(from 175deg, #000 var(--a), rgba(0, 0, 0, 0) 0);
-    background: #272582;
-    border-radius: 8rem;
-    padding: 5px;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
 .contentHeader {
     display: flex;
     align-items: center;
@@ -90,7 +56,26 @@
 .item.right {
     grid-template-columns: 1fr 220px;
 }
-
+.left
+{
+    position: relative;
+    border-left:2px solid #fff;
+    border-top-left-radius: 200px;
+    border-bottom-left-radius: 200px;
+}
+.left01
+{
+    position: relative;
+}
+.left01:before
+{
+    content: "";
+    border-bottom: 2px solid #fff;
+    width: 78%;
+    position: absolute;
+    bottom: 0;
+    left: 11%;
+}
 .left .ring {
     order: 0;
 }
@@ -106,6 +91,33 @@
 
 .right .content {
     order: 0;
+}
+
+/* Border styling for right side items (02 and 04) */
+.item.right {
+    border-right: 2px solid #fff;
+    border-top-right-radius: 200px;
+    border-bottom-right-radius: 200px;
+}
+
+.item:first-child {
+    border-top: 2px solid #fff;
+}
+.item:last-child {
+    border-right: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    border-top-right-radius: 200px;
+    border-bottom-right-radius: 200px;
+}
+
+/* If last item is right side, add border radius on right */
+.item.right:last-child {
+    border-bottom-right-radius: 200px;
+}
+
+/* If last item is left side, add border radius on left */
+.item.left:last-child {
+    border-bottom-left-radius: 200px;
 }
 
 .title {
@@ -140,7 +152,8 @@
     display: inline-grid;
     place-items: center;
     color: #fff;
-    font-size: 1.5rem;
+    font-size: 1.9rem;
+    font-weight:600;
 }
 
 .ring {
@@ -189,7 +202,6 @@
     }
 
     .wrap {
-        padding: 4rem 0;
         width: 100%;
         margin: 0;
         border-radius: 0;
@@ -297,7 +309,6 @@
 
 @media (max-width: 768px) {
     .wrap {
-        padding: 3rem 0;
         width: 100%;
         border-radius: 0;
     }

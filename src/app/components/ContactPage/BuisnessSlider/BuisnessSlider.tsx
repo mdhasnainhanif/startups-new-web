@@ -8,6 +8,8 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import styles from "./BuisnessSlider.module.css";
+import Button from "../../Button";
+import { ArrowRightIcon } from "../../icons";
 
 const videos = [
   { img: "/assets/images/man.png" },
@@ -85,12 +87,9 @@ const BusinessSlider: React.FC = () => {
 
         {/* CTA Button */}
         <div className="mt-10 text-center">
-         <button
-  style={{ backgroundColor: "#643bff" }}
-  className="hover:bg-[#5230cc] transition px-8 py-3 rounded-full font-medium text-white"
->
-  See More →
-</button>
+        <Button href="#" variant="primary" icon={<ArrowRightIcon style={{ fill: "#fff" }} />} iconPosition="right">
+          Book A Demo
+        </Button>
         </div>
       </div>
     </section>

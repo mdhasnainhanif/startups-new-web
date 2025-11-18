@@ -9,6 +9,7 @@ import styles from "./GrowthSlider.module.css";
 import "swiper/css";
 import "swiper/css/navigation";
 import { ArrowRightIcon } from "../icons";
+import Button from "../Button";
 
 type Guide = {
   id: string;
@@ -133,9 +134,9 @@ export default function GrowthSlider({ items }: { items: Guide[] }) {
                   <p className={styles.excerpt}>{it.excerpt}</p>
 
                   <div className={styles.readButtonWrapper}>
-                    <a href={it.href} className={styles.readButton}>
-                      Read Now &nbsp; <ArrowRightIcon />
-                    </a>
+                  <Button href="#" variant="primary" icon={<ArrowRightIcon style={{ fill: "#fff" }} />} iconPosition="right">
+                    Read More
+                  </Button>
                   </div>
                 </article>
               </SwiperSlide>

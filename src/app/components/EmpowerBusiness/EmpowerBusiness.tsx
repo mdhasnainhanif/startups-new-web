@@ -14,7 +14,7 @@ export default function EmpowerBusiness({
   className = "",
 }: EmpowerBusinessProps) {
   return (
-    <section className={`${styles.section} ${className}`}>
+    <section className={`${styles.section} sectionPadding ${className}`}>
       <Container maxWidth="xl" className="px-0">
         <div className={styles.contentWrapper}>
           {/* Left Section - Image */}
@@ -33,15 +33,12 @@ export default function EmpowerBusiness({
             <h2 className={styles.heading}>{heading}</h2>
             <p className={styles.description}>{description}</p>
             <div className={styles.buttonWrapper}>
-              <Button
-                href={ctaButton.href}
-                variant={ctaButton.variant || "secondary"}
-                size="lg"
-                icon={<ArrowRightIcon />}
-                iconPosition="right"
-              >
-                {ctaButton.text}
+             
+
+              <Button href="#" variant="primary" icon={<ArrowRightIcon style={{ fill: "#fff" }} />} iconPosition="right">
+              {ctaButton.text}
               </Button>
+              
             </div>
           </div>
         </div>
