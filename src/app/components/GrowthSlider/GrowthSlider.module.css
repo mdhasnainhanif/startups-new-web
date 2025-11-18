@@ -40,6 +40,10 @@
     margin-bottom: 20px;
   }
 
+.headingText {
+  color: #fff;
+}
+
 .navButton {
   position: absolute;
   top: 50%;

@@ -129,3 +129,192 @@ export const TECHNOLOGIES_SECTION = {
   },
 };
 
+export const ABOUT_US_BANNER = {
+  heading: {
+    part1: "Shaping the",
+    highlight: "Future",
+    part2: "with",
+    highlight2: "AI",
+  },
+  description:
+    "Startsup Advisory is a digital company specializing in AI, data analytics, and innovative technology solutions. We partner with businesses to design and implement smart systems that drive efficiency, reduce costs, and accelerate growth. Our approach combines technical expertise with real-world impact, making AI accessible and transformative across industries.",
+  ctaButton: {
+    text: "Book a Free Call to See How It Works",
+    href: "/contact-us",
+    variant: "secondary" as const,
+  },
+};
+
+export const OUR_CORE_VALUES = {
+  cards: [
+    {
+      id: "1",
+      number: "01",
+      icon: null, // Will be set in component
+      heading: "Innovation First",
+      description:
+        "We continuously push the boundaries of AI and digital technologies to create smarter, future-ready solutions.",
+    },
+    {
+      id: "2",
+      number: "02",
+      icon: null, // Will be set in component
+      heading: "Secure & Reliable",
+      description:
+        "Our systems are built with enterprise-grade security, ensuring trust, safety, and long-term stability.",
+    },
+    {
+      id: "3",
+      number: "03",
+      icon: null, // Will be set in component
+      heading: "Global Perspective",
+      description:
+        "With a worldwide outlook, we design solutions that scale seamlessly and adapt to diverse markets.",
+    },
+  ],
+};
+
+export const WHY_CHOOSE_US = {
+  heading: {
+    part1: "Why Choose",
+    highlight: "US",
+  },
+  description:
+    "We combine your business insight with our AI expertise to create systems that work with you, streamline your workflow, and drive consistent growth. Together, we build a smarter operation that keeps learning, improving, and delivering stronger results over time.",
+  items: [
+    {
+      id: "1",
+      title: "Expertise That Drives Innovation",
+      description:
+        "Our team of AI engineers, data scientists, and strategists use deep cross-industry experience to build reliable, high-impact AI systems aligned with your business goals.",
+      isOpen: true,
+    },
+    {
+      id: "2",
+      title: "Custom-Built AI Solutions",
+      description:
+        "Every business is unique. We design and develop AI solutions tailored to your specific needs, industry requirements, and growth objectives, ensuring maximum impact and ROI.",
+      isOpen: false,
+    },
+    {
+      id: "3",
+      title: "End-to-End Implementation",
+      description:
+        "From initial strategy and design to deployment and ongoing optimization, we handle every aspect of your AI transformation, ensuring seamless integration with your existing systems.",
+      isOpen: false,
+    },
+    {
+      id: "4",
+      title: "Transparent & Ethical AI",
+      description:
+        "We build AI systems with transparency, fairness, and ethical considerations at the core. Our solutions are explainable, accountable, and designed to build trust with your customers and stakeholders.",
+      isOpen: false,
+    },
+  ],
+};
+
+export const DEDICATED_TEAM = {
+  heading: {
+    part1: "Our",
+    highlight: "Dedicated Team",
+    part2: "of Professionals",
+  },
+  members: [
+    {
+      id: "1",
+      name: "Michael Turner",
+      title: "Digital Consultant",
+      image: "/assets/images/slider01.webp",
+    },
+    {
+      id: "2",
+      name: "James Williams",
+      title: "Digital Consultant",
+      image: "/assets/images/slider02.webp",
+    },
+    {
+      id: "3",
+      name: "Sophia Martinez",
+      title: "Digital Consultant",
+      image: "/assets/images/slider03.webp",
+    },
+  ],
+};
+
+export const EMPOWER_BUSINESS = {
+  heading: "Empower your business growth with AI today.",
+  description:
+    "Empower your business growth with AI technologies today by leveraging intelligent solutions designed to optimize operations, enhance decision-making, and drive innovation.",
+  ctaButton: {
+    text: "Get Started Now",
+    href: "/get-started",
+    variant: "secondary" as const,
+  },
+};
+
+export const OUR_JOURNEY = {
+  items: [
+    {
+      id: "1",
+      number: "01",
+      title: "The Vision Begins",
+      subtitle: "Identifying What's Possible With AI",
+      description:
+        "We started by understanding your challenges and defining how AI can meaningfully transform your operations, growth, and customer experience.",
+      imagePosition: "left" as const,
+    },
+    {
+      id: "2",
+      number: "02",
+      title: "Building Intelligent Foundations",
+      subtitle: "Designing Your AI-Powered Blueprint",
+      description:
+        "Our team created a tailored AI strategy — mapping workflows, automation points, and the systems required to scale your business using intelligent technology.",
+      imagePosition: "right" as const,
+    },
+    {
+      id: "3",
+      number: "03",
+      title: "Launching Real AI Impact",
+      subtitle: "Deploying Advanced Agents & Automations",
+      description:
+        "We rolled out AI agents, automations, and integrations that streamline processes, reduce workload, and unlock measurable business growth.",
+      imagePosition: "left" as const,
+    },
+    {
+      id: "4",
+      number: "04",
+      title: "Evolving Beyond Limits",
+      subtitle: "Continuous Optimization, Training & Scaling",
+      description:
+        "Your AI ecosystem keeps improving with performance insights, new capabilities, and proactive enhancements to ensure long-term growth and efficiency.",
+      imagePosition: "right" as const,
+    },
+  ],
+};
+
+export const COUNTER_DATA = {
+  items: [
+    {
+      id: "1",
+      value: "298+",
+      label: "Seamless Integration",
+    },
+    {
+      id: "2",
+      value: "978+",
+      label: "AI Projects Delivered",
+    },
+    {
+      id: "3",
+      value: "300%",
+      label: "Handled by AI Bots",
+    },
+    {
+      id: "4",
+      value: "95X",
+      label: "Faster Time to Market",
+    },
+  ],
+};
+
