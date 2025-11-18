@@ -44,6 +44,7 @@ export interface HeroBannerProps {
   className?: string;
 }
 
+<<<<<<< HEAD
 // AboutUsBanner Types
 export interface AboutUsBannerProps {
   heading: {
@@ -150,3 +151,77 @@ export interface CounterProps {
   className?: string;
 }
 
+=======
+// ContactForm Types
+export interface FormFieldConfig {
+  id: string;
+  name: string;
+  type: "text" | "email" | "tel" | "textarea";
+  placeholder: string;
+  required?: boolean;
+  validation?: {
+    pattern?: string;
+    message?: string;
+  };
+}
+
+export interface ContactFormConfig {
+  heading: string;
+  headingHighlight?: string;
+  description?: string;
+  fields: FormFieldConfig[];
+  submitButtonText: string;
+  submitButtonIcon?: string;
+  successMessage?: string;
+  errorMessage?: string;
+  mapLocation?: {
+    city: string;
+    country: string;
+    latitude?: number;
+    longitude?: number;
+  };
+  showMap?: boolean;
+  className?: string;
+}
+
+export interface ContactFormProps {
+  config: ContactFormConfig;
+}
+
+export interface FormData {
+  [key: string]: string;
+}
+
+// ContactFormAddress Types
+export interface SocialLink {
+  id: string;
+  icon: string; // Icon name or component path
+  url: string;
+  label: string;
+  bgColor?: string; // Tailwind bg color class
+}
+
+export interface ContactItem {
+  id: string;
+  icon: string; // Icon name
+  label: string;
+  value: string;
+  bgColor?: string; // Tailwind bg color
+  href?: string; // Optional link for email/phone
+}
+
+export interface ContactFormAddressConfig {
+  items: ContactItem[];
+  socialLinks?: SocialLink[];
+  className?: string;
+  backgroundColor?: string;
+}
+
+export interface ContactFormAddressProps {
+  config: ContactFormAddressConfig;
+}
+
+
+
+
+>>>>>>> 82f994b265fa895ad6e09cb649fccc226f3e0606

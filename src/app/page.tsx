@@ -4,12 +4,13 @@ import FAQ from "./components/FAQ/FAQ";
 import Contact from "./components/Contact/Contact";
 import Reviews from "./components/Reviews/Reviews";
 import Technologies from "./components/Technologies/Technologies";
-import { HERO_BANNER, FAQ_DATA, FAQ_SECTION, CALENDLY_SECTION, GROWTH_GUIDES } from "./constants";
+import { HERO_BANNER, FAQ_DATA, FAQ_SECTION, CALENDLY_SECTION, GROWTH_GUIDES,  } from "./constants";
 import ProfessionalOnline from "./components/ProfessionalOnline/ProfessionalOnline";
 import CTABanner from "./components/CTABanner/CTABanner";
 import CalendlySection from "./components/CalendlySection/CalendlySection";
 import AiTeamSection from "./components/AiTeamSection/AiTeamSection";
 import CaseStudySection from "./components/CaseStudySection";
+import { FAQ_CONTACT } from "./components/Home/data";
 
 export default function Home() {
   return (
@@ -23,7 +24,7 @@ export default function Home() {
       <CalendlySection {...CALENDLY_SECTION}/>
       <Reviews />
       <GrowthSlider items={GROWTH_GUIDES} />
-      <FAQ faqs={FAQ_DATA} sectionData={FAQ_SECTION} />
+      <FAQ faqs={FAQ_CONTACT} sectionData={FAQ_SECTION} />
       <Contact />
     </main>
   );

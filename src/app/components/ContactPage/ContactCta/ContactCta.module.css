@@ -1,0 +1,158 @@
+/* components/ContactPage/ContactCta/ContactCta.module.css */
+
+.ctaBox {
+  /* background: radial-gradient(circle at top left, #23204a 0%, #17133a 60%); */
+  background: #1d0e57;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Rocket shapes / abstract pattern */
+.ctaBox::before,
+.ctaBox::after {
+  content: "";
+  position: absolute;
+  background-image: url("/assets/cta-bg-pattern.png"); /* optional image */
+  background-repeat: no-repeat;
+  background-size: 300px;
+  opacity: 0.08;
+}
+
+/* left side pattern */
+.ctaBox::before {
+  top: -30px;
+  left: -50px;
+  width: 300px;
+  height: 300px;
+}
+
+/* right side pattern */
+.ctaBox::after {
+  bottom: -20px;
+  right: -40px;
+  width: 320px;
+  height: 320px;
+}
+
+.rocket1 {
+     width: 211px;
+    position: absolute;
+    top: 38px;
+    left: -53px;
+
+}
+
+.rocket2 {
+       width: 211px;
+    position: absolute;
+    top: 38px;
+    right: -74px;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .rocket1,
+  .rocket2 {
+    width: 180px;
+  }
+
+  .rocket1 {
+    left: -40px;
+  }
+
+  .rocket2 {
+    right: -60px;
+  }
+
+  .ctaBox::before,
+  .ctaBox::after {
+    background-size: 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  .rocket1,
+  .rocket2 {
+    width: 150px;
+    top: 20px;
+  }
+
+  .rocket1 {
+    left: -30px;
+  }
+
+  .rocket2 {
+    right: -50px;
+  }
+
+  .ctaBox::before {
+    width: 200px;
+    height: 200px;
+    top: -20px;
+    left: -30px;
+  }
+
+  .ctaBox::after {
+    width: 220px;
+    height: 220px;
+    bottom: -15px;
+    right: -30px;
+  }
+
+  .ctaBox::before,
+  .ctaBox::after {
+    background-size: 200px;
+  }
+}
+
+@media (max-width: 640px) {
+  .rocket1,
+  .rocket2 {
+    width: 120px;
+    top: 10px;
+  }
+
+  .rocket1 {
+    left: -20px;
+  }
+
+  .rocket2 {
+    right: -40px;
+  }
+
+  .ctaBox::before {
+    width: 150px;
+    height: 150px;
+  }
+
+  .ctaBox::after {
+    width: 170px;
+    height: 170px;
+  }
+
+  .ctaBox::before,
+  .ctaBox::after {
+    background-size: 150px;
+    opacity: 0.05;
+  }
+}
+
+@media (max-width: 480px) {
+  .rocket1,
+  .rocket2 {
+    width: 100px;
+  }
+
+  .rocket1 {
+    left: -15px;
+  }
+
+  .rocket2 {
+    right: -30px;
+  }
+
+  .ctaBox::before,
+  .ctaBox::after {
+    display: none;
+  }
+}

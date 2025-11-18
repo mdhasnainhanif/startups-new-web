@@ -152,7 +152,21 @@
 }
 
 /* Responsive Styles */
-@media (max-width: 767px) {
+@media (max-width: 1024px) {
+  .section {
+    padding: 5rem 0;
+  }
+
+  .heading {
+    font-size: 2.5rem;
+  }
+
+  .swiperWrapper {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
   .section {
     padding: 4rem 0;
   }
@@ -161,24 +175,29 @@
     font-size: 2rem;
   }
 
+  .header {
+    margin-bottom: 2rem;
+  }
+
   .navButton {
     width: 2.5rem;
     height: 2.5rem;
+  }
+
+  .navButton i {
     font-size: 1.25rem;
   }
 
-  .navButtonLeft {
-    left: 0;
-    transform: translate(-50%, -50%);
+  .swiperWrapper {
+    min-height: 350px;
   }
 
-  .navButtonRight {
-    right: 0;
-    transform: translate(50%, -50%);
+  .swiperContainer {
+    min-height: 350px;
   }
 
   .card {
-    padding: 1.25rem;
+    padding: 1.25rem 1.25rem 0 1.25rem;
   }
 
   .memberName {
@@ -190,9 +209,61 @@
   }
 }
 
-@media (min-width: 768px) and (max-width: 1023px) {
+@media (max-width: 640px) {
+  .section {
+    padding: 3rem 0;
+  }
+
   .heading {
-    font-size: 2.5rem;
+    font-size: 1.75rem;
+  }
+
+  .navButton {
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+
+  .navButton i {
+    font-size: 1.125rem;
+  }
+
+  .swiperWrapper {
+    min-height: 300px;
+  }
+
+  .swiperContainer {
+    min-height: 300px;
+  }
+
+  .card {
+    padding: 1rem 1rem 0 1rem;
+  }
+
+  .memberName {
+    font-size: 1rem;
+  }
+
+  .memberTitle {
+    font-size: 0.8125rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 2.5rem 0;
+  }
+
+  .heading {
+    font-size: 1.5rem;
+  }
+
+  .navButton {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .navButton i {
+    font-size: 1rem;
   }
 }
 

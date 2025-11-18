@@ -1,0 +1,100 @@
+"use client";
+
+import React from "react";
+import Image from "next/image";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import styles from "./BuisnessSlider.module.css";
+
+const videos = [
+  { img: "/assets/images/man.png" },
+  { img: "/assets/images/man.png" },
+  { img: "/assets/images/man.png" },
+  { img: "/assets/images/man.png" },
+  { img: "/assets/images/man.png" },
+  { img: "/assets/images/man.png" },
+];
+
+const BusinessSlider: React.FC = () => {
+  return (
+    <section className={`${styles.section} sectionPadding`}>
+      {/* Background Image */}
+      <div className={styles.rocketWrapper}>
+  {/* <Image
+    src="/assets/images/rocket1.webp"
+    alt="Rocket"
+    fill
+    className={styles.rocketImage}
+  /> */}
+</div>
+
+
+      <div className="max-w-7xl mx-auto px-4 relative z-10">
+        {/* Heading */}
+        <div className="text-center mb-12">
+          <h2 className="text-4xl md:text-5xl font-bold text-white">
+            Local <span className="text-teal-400">Businesses</span> Struggle to Stay Visible
+          </h2>
+          <p className="mt-4 text-gray-300 max-w-2xl mx-auto">
+            You’re great at what you do, but your marketing falls behind. Agencies cost a fortune. Freelancers disappear.
+          </p>
+        </div>
+
+        {/* Swiper Slider */}
+        <Swiper
+          modules={[Navigation, Pagination]}
+          spaceBetween={30}
+          slidesPerView={1}
+          navigation
+          pagination={{ clickable: true }}
+          breakpoints={{
+            640: { slidesPerView: 1 },
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+          }}
+        >
+          {videos.map((video, index) => (
+            <SwiperSlide key={index}>
+              <div className="bg-[#181339] rounded-xl p-4 flex flex-col items-center relative group">
+                <div className={`relative w-full h-64 md:h-72 rounded-lg overflow-hidden mb-4 ${styles.videoCard}`}>
+                  <Image
+                    src={video.img}
+                    alt="Video"
+                    fill
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center opacity-80 hover:opacity-100 transition">
+                      <svg
+                        className="w-8 h-8 text-white"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M8 5v14l11-7z"></path>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+
+        {/* CTA Button */}
+        <div className="mt-10 text-center">
+         <button
+  style={{ backgroundColor: "#643bff" }}
+  className="hover:bg-[#5230cc] transition px-8 py-3 rounded-full font-medium text-white"
+>
+  See More →
+</button>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default BusinessSlider;
