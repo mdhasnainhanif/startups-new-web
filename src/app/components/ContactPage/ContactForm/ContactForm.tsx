@@ -1,4 +1,4 @@
-import { LinkedInIcon } from '@/app/icons'
+import { LinkedInIcon } from '@/app/Icons'
 import React from 'react'
 
 const ContactForm = () => {

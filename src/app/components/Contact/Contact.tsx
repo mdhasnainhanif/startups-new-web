@@ -5,7 +5,7 @@ import styles from "./Contact.module.css";
 
 export default function Contact() {
   return (
-    <section className={styles.contactSection}>
+    <section className={`${styles.contactSection} sectionPadding`}>
       <Container maxWidth="xl" className="px-0">
         <div className={styles.contactCard}>
           {/* Left Section - Information */}

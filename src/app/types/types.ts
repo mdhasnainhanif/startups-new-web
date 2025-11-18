@@ -1,7 +1,7 @@
 import { ReactNode, ButtonHTMLAttributes, AnchorHTMLAttributes } from "react";
 
 // Button Types
-export type ButtonVariant = "primary" | "secondary" | "outline" | "dark" | "light";
+export type ButtonVariant = "primary" | "secondary" | "outline" | "dark" | "light" | "purple" | "green";
 export type ButtonSize = "sm" | "md" | "lg";
 
 export interface BaseButtonProps {

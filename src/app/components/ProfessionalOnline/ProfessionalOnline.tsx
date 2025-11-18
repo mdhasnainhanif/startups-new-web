@@ -12,7 +12,7 @@ const ProfessionalOnline = () => {
 
   return (
     <>
-      <section className={styles.section}>
+      <section className={styles.section + " sectionPadding"}>
         <Container maxWidth="xl">
           <div className={styles.contentWrapper}>
             {/* Left Section */}

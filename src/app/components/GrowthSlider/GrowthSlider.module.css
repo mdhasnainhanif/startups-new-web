@@ -1,7 +1,5 @@
 .section {
-  padding-top: 6.25rem;
-  padding-bottom: 6.25rem;
-  background: #0d0a1c;
+  background: #050321;
   position: relative;
 }
 
@@ -21,7 +19,7 @@
 }
 
 .titleGradient {
-  background: #0FDAC2;
+  background: #0fdac2;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -30,15 +28,14 @@
 .swiperWrapper {
   position: relative;
   width: 100%;
-  min-height: 500px;
 }
 
 .heading {
-    font-size: 48px;
-    font-weight: 800;
-    line-height: 1.2;
-    margin-bottom: 20px;
-  }
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
 
 .navButton {
   position: absolute;
@@ -100,7 +97,6 @@
   margin: 0;
   opacity: 0;
   transition: opacity 0.3s ease;
-  min-height: 500px;
 }
 
 .swiperContainer.swiperReady {
@@ -131,8 +127,9 @@
   background: linear-gradient(to bottom, #0d0a1c, rgba(13, 10, 28, 0.8));
   border-radius: 1rem;
   padding: 1rem;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  border: 1px solid rgba(93, 81, 175, 0.2);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  border: 1px solid #494482;
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
@@ -218,14 +215,16 @@
   padding: 0.5rem 1.25rem;
   border-radius: 9999px;
   font-size: 0.875rem;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
   text-decoration: none;
   transition: all 0.3s ease;
 }
 
 .readButton:hover {
   transform: translateY(-1px);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
 /* Swiper Navigation Customization */
@@ -281,3 +280,8 @@
   }
 }
 
+@media (max-width: 576px) {
+  .heading {
+    font-size: 2rem;
+  }
+}

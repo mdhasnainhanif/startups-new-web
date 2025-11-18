@@ -1,6 +1,5 @@
 .section {
-  background: #110f29;
-  padding: 80px 0 40px;
+  background: #02001c;
   position: relative;
   overflow: hidden;
 }
@@ -26,6 +25,9 @@
   margin-bottom: 40px;
   position: relative;
   z-index: 1;
+  max-width: 60rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .heading {
@@ -91,11 +93,10 @@
   justify-content: center;
   height: 20px;
 }
-.badge
-{
-    background: #110f29;
-    border: 1px solid #4e4989;
-    color:#fff;
+.badge {
+  background: #110f29;
+  border: 1px solid #4e4989;
+  color: #fff;
 }
 .trustpilotLogo,
 .googleLogo,
@@ -130,7 +131,7 @@
 }
 
 .reviewCardContent {
-  background: #1a0a2e;
+  background: #110f29;
   border: 1px solid #4e4989;
   border-radius: 8px;
   padding: 20px;
@@ -138,9 +139,8 @@
   box-sizing: border-box;
 }
 
-.videoElement
-{
-    height:300px !important;
+.videoElement {
+  height: 300px !important;
 }
 /* .highlightedCard .reviewCardContent {
   border: 5px solid #643bff !important;
@@ -246,10 +246,6 @@
 }
 
 @media (max-width: 768px) {
-  .section {
-    padding: 60px 0;
-  }
-
   .heading {
     font-size: 36px;
   }
@@ -277,9 +273,6 @@
 }
 
 @media (max-width: 640px) {
-  .section {
-    padding: 40px 0;
-  }
 
   .header {
     margin-bottom: 32px;
@@ -315,7 +308,6 @@
   }
 
   .reviewCard {
-    padding: 20px;
+    padding: 0px;
   }
 }
-

@@ -17,12 +17,12 @@ export default function Technologies() {
   const toolsRow3 = [...currentTools, ...currentTools, ...currentTools];
 
   return (
-    <section className={styles.section}>
-      <Container maxWidth="full" className="px-0">
+    <section className={styles.section + " sectionPadding"}>
+      <Container maxWidth="2xl" className="px-0">
         {/* Header Section */}
         <div className={styles.header}>
           <h2 className={styles.heading}>
-            <span className="text-white">{TECHNOLOGIES_SECTION.heading.part1}</span>{" "}
+            <span className="text-white">{TECHNOLOGIES_SECTION.heading.part1}</span>
             <span className="text-[#0fdac2]">{TECHNOLOGIES_SECTION.heading.part2}</span>
             <span className="text-[#0fdac2]">{TECHNOLOGIES_SECTION.heading.part3}</span>
           </h2>
@@ -47,7 +47,7 @@ export default function Technologies() {
         {/* Tools Category Header */}
         <div className={styles.categoryHeader}>
           <h3 className={styles.categoryTitle}>
-            {currentTab?.label} Tools ({" "}
+            {currentTab?.label} Tools (
             <span className="text-[#0fdac2]">{currentTab?.value}</span> )
           </h3>
         </div>
