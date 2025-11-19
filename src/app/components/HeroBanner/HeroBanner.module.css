@@ -45,3 +45,9 @@ section.bottomZero {
     padding-top: 0rem;
   }
 }
+
+@media screen and (max-width: 768px){
+  .heroBackground {
+    background: none;
+    }
+}

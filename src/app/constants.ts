@@ -20,7 +20,7 @@ export const TOP_BANNER = {
   show: true,
   emoji: "🚀",
   text: "Big News: We are now a Public Company",
-  buttonText: "Know More →",
+  buttonText: "Know More",
   buttonLink: "/big-news",
 };
 

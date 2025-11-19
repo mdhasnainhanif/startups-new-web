@@ -57,10 +57,11 @@
   top: 1.5rem;
   right: 1.5rem;
   font-size: 2.5rem;
-  font-weight: 800;
-  color: #ffffff;
+  font-weight: 600;
+  color: var(--color-purple);
   opacity: 0.8;
   line-height: 1;
+  font-family: var(--font-wf-visual-sans);
 }
 
 .cardIcon {
@@ -90,7 +91,7 @@
 
 .cardHeading {
   font-size: 2.3rem;
-  font-weight: 800;
+  font-weight: 600;
   color: #ffffff;
   line-height: 1.2;
   margin: 0;
@@ -145,6 +146,7 @@
 
   .cardHeading {
     font-size: 1.5rem;
+    margin-top: 1rem;
   }
 
   .cardDescription {

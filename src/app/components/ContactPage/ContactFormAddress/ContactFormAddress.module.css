@@ -17,14 +17,13 @@
   flex: 1;
   align-items: center;
   padding-right: 2.5rem;
- 
 }
 
 .item {
   display: flex;
   align-items: center;
   gap: 1.25rem;
-border-right: 1px solid #ffffff1f;
+  border-right: 1px solid #ffffff1f;
 }
 
 .iconWrapper {
@@ -297,5 +296,19 @@ border-right: 1px solid #ffffff1f;
   .socialIcon {
     width: 20px;
     height: 20px;
+  }
+
+  .item {
+    border-right: none;
+    border-bottom: none;
+  }
+  .itemsWrapper {
+    border-bottom: none;
+  }
+  .socialLinksWrapper {
+    max-width: 100%;
+  }
+  .container {
+    margin-top: 1rem;
   }
 }

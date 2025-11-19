@@ -24,7 +24,7 @@ export default function Reviews() {
               <p className={styles.subtitle}>{REVIEWS_SECTION.subtitle}</p>
             </div>
             <p className={styles.ctaText}>
-              See how
+              See how &nbsp;
               <span className="text-[#0fdac2]">Smart Marketing AI Teams</span>&nbsp;
               turned invisibility into daily inquiries
             </p>

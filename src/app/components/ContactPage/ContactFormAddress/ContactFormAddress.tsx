@@ -80,7 +80,7 @@ const ContactFormAddress: React.FC<ContactFormAddressProps> = ({
             <div
               className={styles.iconWrapper}
               style={{
-                background: "linear-gradient(135deg, #7C3AED 0%, #6D28D9 100%)",
+                background: "#643BFF",
               }}
             >
               <IconComponent icon={item.icon} />

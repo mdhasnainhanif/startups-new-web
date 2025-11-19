@@ -4,8 +4,12 @@ import React, { useState } from "react";
 import { ContactFormProps, FormData, FormFieldConfig } from "@/app/types/types";
 import { contactFormData } from "./data";
 import styles from "./ContactForm.module.css";
+import Button from "../../Button";
+import Container from "../../Container";
 
-const ContactForm: React.FC<ContactFormProps> = ({ config = contactFormData }) => {
+const ContactForm: React.FC<ContactFormProps> = ({
+  config = contactFormData,
+}) => {
   const [formData, setFormData] = useState<FormData>(
     config.fields.reduce((acc, field) => {
       acc[field.name] = "";
@@ -63,7 +67,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ config = contactFormData }) =
     // - Netlify Forms
     // - EmailJS: https://www.emailjs.com
     // - Or your own backend API
-    
+
     setTimeout(() => {
       setSuccessMessage(
         config.successMessage || "Thank you! Your message has been sent."
@@ -99,14 +103,17 @@ const ContactForm: React.FC<ContactFormProps> = ({ config = contactFormData }) =
   };
 
   return (
+    <Container maxWidth="xl" className="px-0">
     <div className={`${styles.contactFormContainer} ${config.className || ""}`}>
       <div className={styles.formWrapper}>
         {/* Form Section */}
         <div className={styles.formSection}>
           <h2 className={styles.heading}>
-            {config.heading}{" "}
+            {config.heading}
             {config.headingHighlight && (
-              <span className={styles.highlight}>{config.headingHighlight}</span>
+              <span className={styles.highlight}>
+                {config.headingHighlight}
+              </span>
             )}
           </h2>
 
@@ -121,7 +128,10 @@ const ContactForm: React.FC<ContactFormProps> = ({ config = contactFormData }) =
             {/* --- FIRST 2 FIELDS (SIDE BY SIDE) --- */}
             <div className={styles.inputGroupRow}>
               {config.fields.slice(0, 2).map((field) => (
-                <div key={field.id} className={`${styles.inputGroup} ${styles.half}`}>
+                <div
+                  key={field.id}
+                  className={`${styles.inputGroup} ${styles.half}`}
+                >
                   <input
                     id={field.id}
                     type={field.type}
@@ -174,17 +184,14 @@ const ContactForm: React.FC<ContactFormProps> = ({ config = contactFormData }) =
               );
             })}
 
-            <button
+            <Button
+              variant="green"
               type="submit"
               disabled={loading}
-              className={styles.submitButton}
+              className="w-full text-center justify-center items-center"
             >
-              {loading && <span className={styles.loadingSpinner} />}
               {config.submitButtonText}
-              {!loading && config.submitButtonIcon && (
-                <span>{config.submitButtonIcon}</span>
-              )}
-            </button>
+            </Button>
           </form>
         </div>
 
@@ -204,6 +211,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ config = contactFormData }) =
         )}
       </div>
     </div>
+    </Container>
   );
 };
 

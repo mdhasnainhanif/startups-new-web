@@ -6,7 +6,7 @@ const HomenewBanner = () => {
   return (
   <section className={`sectionPadding ${styles.extraPaddingTop} md:px-16 lg:flex lg:items-center lg:justify-between`}>
        <div className="max-w-xl">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-4">
           Your AI-Powered Design Team <br className="hidden md:block" /> Ready From Day One
         </h1>
         <p className="text-white-700 text-lg mb-6">

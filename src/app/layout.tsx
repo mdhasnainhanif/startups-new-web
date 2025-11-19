@@ -33,8 +33,11 @@ const graphikRegular = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Startups ADVISORY.Ai",
+  title: "Startups Advisory",
   description: "AI-powered advisory for startups",
+  icons: {
+    icon: "/assets/images/favicon.svg",
+  },
 };
 
 export default function RootLayout({
@@ -65,10 +68,10 @@ export default function RootLayout({
             priority
             quality={90}
             sizes="100vw"
-            style={{ objectFit: "cover" }}
+            style={{ objectFit: "cover", zIndex: 1 }}
           />
-          {/* Overlay for better text readability */}
-          <div className="absolute inset-0 bg-[#020016]/70"></div>
+          {/* Overlay for better text readability - lighter on mobile to show hero image behind header */}
+          <div className="absolute inset-0 bg-[#020016]/50 md:bg-[#020016]/70"></div>
         </div>
 
         {/* Content with higher z-index */}

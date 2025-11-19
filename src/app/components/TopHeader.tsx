@@ -58,10 +58,9 @@ export default function TopHeader() {
               href="#"
               variant="secondary"
               size="sm"
-              icon={<ArrowRightIcon />}
               iconPosition="right"
             >
-              {TOP_BANNER.buttonText.replace(" →", "")}
+              {TOP_BANNER.buttonText}
             </Button>
           </div>
         </div>
