@@ -25,6 +25,26 @@
   overflow: hidden;
 }
 
+.ctaBanner::before,
+.ctaBanner::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 250px;    /* bigger shadow */
+  height: 100%;
+  pointer-events: none;
+}
+
+.ctaBanner::before {
+  left: 0;
+  background: linear-gradient(to right, rgba(33, 22, 76, 0.9), transparent);
+}
+
+.ctaBanner::after {
+  right: 0;
+  background: linear-gradient(to left, rgba(33, 22, 76, 0.9), transparent);
+}
+
 .scrolling-text {
   overflow: hidden;
   width: 100%;
@@ -39,7 +59,7 @@
 
 .rail h4 {
   white-space: nowrap;
-  font-size: 60px; /* Thoda kam text ke liye */
+  font-size: 60px;
   font-weight: 900;
   line-height: 1em;
   margin-right: 30px;
