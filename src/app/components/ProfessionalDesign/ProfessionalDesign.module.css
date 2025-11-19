@@ -179,7 +179,7 @@
 }
 
 .videoImage{
-  max-width: 26rem;
+  max-width: 100%;
   display: block;
   box-shadow: 0 2px 18px #1e365c;
   border-radius: 1.4rem;
