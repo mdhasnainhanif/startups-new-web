@@ -1,16 +1,26 @@
 "use client";
 
 import React, { useEffect } from "react";
-import styles from "./TextSlider1.module.css";
+import styles from "./TextSlider.module.css";
 import gsap from "gsap";
 
-const TextSlider1: React.FC = () => {
+type SliderItem = {
+  text: string;
+  highlight: string;
+  price: string;
+};
+
+interface TextSlider1Props {
+  data: SliderItem[];
+}
+
+const TextSlider1: React.FC<TextSlider1Props> = ({ data }) => {
   useEffect(() => {
     const scrollingText = gsap.utils.toArray<HTMLElement>(`.${styles.rail} h4`);
 
     horizontalLoop(scrollingText, {
       repeat: -1,
-      speed: 0.4, // Adjust speed here (lower = slower, higher = faster)
+      speed: 0.4,
       paddingRight: 30,
     });
 
@@ -19,8 +29,8 @@ const TextSlider1: React.FC = () => {
       config = config || {};
       let tl = gsap.timeline({
           repeat: config.repeat,
-          paused: false, // Auto start
-          defaults: { ease: "none" }
+          paused: false,
+          defaults: { ease: "none" },
         }),
         length = items.length,
         startX = items[0].offsetLeft,
@@ -77,35 +87,37 @@ const TextSlider1: React.FC = () => {
             duration: distanceToLoop / pixelsPerSecond,
           },
           0
-        )
-          .fromTo(
-            item,
-            {
-              xPercent: snap(
-                ((curX - distanceToLoop + totalWidth) / widths[i]) * 100
-              ),
-            },
-            {
-              xPercent: xPercents[i],
-              duration:
-                (curX - distanceToLoop + totalWidth - curX) / pixelsPerSecond,
-              immediateRender: false,
-            },
-            distanceToLoop / pixelsPerSecond
-          );
+        ).fromTo(
+          item,
+          {
+            xPercent: snap(
+              ((curX - distanceToLoop + totalWidth) / widths[i]) * 100
+            ),
+          },
+          {
+            xPercent: xPercents[i],
+            duration:
+              (curX - distanceToLoop + totalWidth - curX) / pixelsPerSecond,
+            immediateRender: false,
+          },
+          distanceToLoop / pixelsPerSecond
+        );
       }
 
       return tl;
     }
-  }, []);
+  }, [data]);
 
   return (
     <section className={styles.ctaBanner}>
       <div className={styles.scrollingText}>
         <div className={styles.rail}>
-          <h4>Hiring a <span className="text-[#0fdac2]">design team</span> in the US would cost: $85,000+ a year</h4>
-          <h4>Hiring a <span className="text-[#0fdac2]">design team</span> in the US would cost: $85,000+ a year</h4>
-          <h4>Hiring a <span className="text-[#0fdac2]">design team</span> in the US would cost: $85,000+ a year</h4>
+          {data.map((item, idx) => (
+            <h4 key={idx}>
+              {item.text}
+              <span className="text-[#0fdac2]">{item.highlight}</span> in the US would cost: {item.price}
+            </h4>
+          ))}
         </div>
       </div>
     </section>
