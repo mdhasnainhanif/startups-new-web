@@ -28,7 +28,7 @@ export default function OurJourney({
         {steps.map((s, i) => (
           <div
             key={s.id}
-            className={`${styles.item} ${styles[s.side]} ${i === 0 ? styles.left01 : ''}`}
+            className={`${styles.item} ${styles[s.side]} ${styles[`line0${i + 1}`]}`}
             data-side={s.side}
           >
             <div className={`${styles.ring} ${styles[s.side]}`}>

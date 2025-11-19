@@ -59,22 +59,117 @@
 .left
 {
     position: relative;
-    border-left:2px solid #fff;
-    border-top-left-radius: 200px;
-    border-bottom-left-radius: 200px;
 }
-.left01
+.line01
 {
     position: relative;
 }
-.left01:before
+.line01:before
 {
     content: "";
-    border-bottom: 2px solid #fff;
-    width: 78%;
+    border-top: 5px solid #bfbfbf;
+    border-bottom: 5px solid #bfbfbf;
+    width: 76.8%;
+    height: 100%;
     position: absolute;
-    bottom: 0;
-    left: 11%;
+    top: 50%;
+    left: 49.6%;
+    transform: translate(-50%, -50%);
+}
+.line01:after
+{
+    content: "";
+    border-top: 5px solid #bfbfbf;
+    border-bottom: 5px solid #bfbfbf;
+    border-left: 5px solid #bfbfbf;
+    border-top-left-radius: 200px;
+    border-bottom-left-radius: 200px;
+    width: 137px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: -6px;
+}
+.line02
+{
+    position: relative;
+}
+.line02:before
+{
+    content: "";
+    border-top: 5px solid #bfbfbf;
+    border-bottom: 5px solid #bfbfbf;
+    border-right: 5px solid #bfbfbf;
+    border-top-right-radius: 200px;
+    border-bottom-right-radius: 200px;
+    width: 137px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: -6px;
+
+}
+
+.line03
+{
+    position: relative;
+}
+.line03:before
+{
+    content: "";
+    border-top: 5px solid #bfbfbf;
+    border-bottom: 5px solid #bfbfbf;
+    width: 76.8%;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50.0%;
+    transform: translate(-50%, -50%);
+}
+.line03:after
+{
+    content: "";
+    border-top: 5px solid #bfbfbf;
+    border-bottom: 5px solid #bfbfbf;
+    border-left: 5px solid #bfbfbf;
+    border-top-left-radius: 200px;
+    border-bottom-left-radius: 200px;
+    width: 137px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: -6px;
+}
+
+.line04
+{
+    position: relative;
+}
+.line04:before
+{
+    content: "";
+    border-top-right-radius: 200px;
+    border-bottom-right-radius: 200px;
+    width: 137px;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    right: -6px;
+    border-top: 5px solid rgb(191, 191, 191);
+    border-bottom: 5px solid rgb(191, 191, 191);
+    border-right: 5px solid rgb(191, 191, 191);
+}
+.line04:after
+{
+    content: "";
+    border-top: 5px solid #bfbfbf;
+    border-bottom: 5px solid #bfbfbf;
+    width: 75.5%;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50.5%;
+    transform: translate(-50%, -50%);
 }
 .left .ring {
     order: 0;
@@ -91,33 +186,6 @@
 
 .right .content {
     order: 0;
-}
-
-/* Border styling for right side items (02 and 04) */
-.item.right {
-    border-right: 2px solid #fff;
-    border-top-right-radius: 200px;
-    border-bottom-right-radius: 200px;
-}
-
-.item:first-child {
-    border-top: 2px solid #fff;
-}
-.item:last-child {
-    border-right: 2px solid #fff;
-    border-bottom: 2px solid #fff;
-    border-top-right-radius: 200px;
-    border-bottom-right-radius: 200px;
-}
-
-/* If last item is right side, add border radius on right */
-.item.right:last-child {
-    border-bottom-right-radius: 200px;
-}
-
-/* If last item is left side, add border radius on left */
-.item.left:last-child {
-    border-bottom-left-radius: 200px;
 }
 
 .title {
