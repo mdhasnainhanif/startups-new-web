@@ -22,9 +22,12 @@ export default function homenew() {
       <HomenewBanner />
       <TextSlider1 data={sliderData1}/>
       <Technologies />
+      <TextSlider1 data={sliderData2}/>
       <ProfessionalDesign />
+      <TextSlider1 data={sliderData3}/>
       <Reviews/>
       <AiPowerDesign/>
+      <Technologies />
       <CompleteBusinessSetup/>
       <GuessWorkAdvertising/>
       <RealCost/>
@@ -32,6 +35,7 @@ export default function homenew() {
       <GrowthSlider items={GROWTH_GUIDES} />
       <FAQ faqs={FAQ_DATA} sectionData={FAQ_SECTION} />
       <ContactTwo/>
+
 
     </section>
   )
