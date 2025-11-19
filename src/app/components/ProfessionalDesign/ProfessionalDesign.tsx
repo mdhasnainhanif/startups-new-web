@@ -6,19 +6,19 @@ import Container from "../Container";
 import VideoPopup from "../VideoPopup/VideoPopup";
 import styles from "./ProfessionalDesign.module.css";
 
-// 💡 تصویر سے مماثل مکمل مواد (Content)
 const PROFESSIONAL_ONLINE = {
   heading: {
-    part1: "Good Design Is Not",
-    part2: " Decoration. It Is A",
-    part3: " Financial Driver.",
+    part1: "Good Design",
+    part2: " Is Not Decoration. It is A Financial Driver.",
   },
-  description:
-    "Customers judge your business in the first 3 seconds. They judge your professionalism, pricing, and reliability by how your brand looks. Strong design creates instant trust, higher perceived value, and more people choosing you over a competitor",
+  description: {
+    text1: "Customers judge your business in the first 3 seconds. They judge your professionalism, pricing, and reliability by how your brand looks. Strong design creates instant trust, higher perceived value, and more people choosing you over a ",
+    highlight: "competitor",
+  },
   factsHeading: "Facts About U.S. Local Businesses Benefiting From Design:",
   factsList: [
     "Local service businesses with updated branding see an average revenue increase of 15-25 percent within the first 12 months",
-    "Contractors who refreshed their brand identity reported paying 20–40 percent less in ad spend for the same number of leads.",
+    "Contractors who refreshed their brand identity reported paying 20-40 percent less in ad spend for the same number of leads.",
     "Local businesses with consistent visual design closed up to 30 percent more jobs.",
     "Companies that invested in brand design increased their lifetime customer value by 28 percent.",
   ],
@@ -29,8 +29,10 @@ const PROFESSIONAL_ONLINE = {
   },
   rightSectionFact:
     "Home-service businesses using professional design saw a 2-3x improvement in lead conversion after updating visuals.",
+  videoOverlayText:
+    "Your Smart Marketing AI Team operate a behind-the-scenes planning promotions, creating visuals.",
   video: {
-    videoUrl: "YOUR_VIDEO_URL_HERE", // Replace with actual video URL
+    videoUrl: "YOUR_VIDEO_URL_HERE",
     videoTitle: "Smart Marketing AI Team Demo",
   },
 };
@@ -47,17 +49,17 @@ const ProfessionalDesign = () => {
             <div className={styles.leftSection}>
               <h2 className={styles.heading}>
                 <span className={styles.headingPart1}>
-                  {PROFESSIONAL_ONLINE.heading.part1}
+                  {PROFESSIONAL_ONLINE.heading.part1} 
                 </span>
                 <span className={styles.headingPart2}>
                   {PROFESSIONAL_ONLINE.heading.part2}
                 </span>
-                <span className={styles.headingPart3}>
-                  {PROFESSIONAL_ONLINE.heading.part3}
-                </span>
               </h2>
               <p className={styles.description}>
-                {PROFESSIONAL_ONLINE.description}
+                {PROFESSIONAL_ONLINE.description.text1}
+                <span className={styles.descriptionHighlight}>
+                  {PROFESSIONAL_ONLINE.description.highlight}
+                </span>
               </p>
 
               {/* FACTS SECTION - Left side list matching the image */}
@@ -75,32 +77,29 @@ const ProfessionalDesign = () => {
 
             {/* Right Section - Video Player & Callout */}
             <div className={styles.rightSectionMain}>
-              
-              {/* This div applies the background/card styling */}
-              <div className={styles.videoMain}> 
-                
+              <div className={styles.videoMain}>
                 {/* Video Image Wrapper */}
                 <div
                   className={styles.videoImageWrapper}
                   onClick={() => setIsPopupOpen(true)}
                 >
-                    <img
-                      className={styles.videoImage}
-                      src="/assets/images/man.png"
-                      alt="Video Thumbnail"
-                    />
-                    {/* Play Button Icon */}
-                    <div className={styles.playButtonContainer}>
-                      <div className={styles.playButton}>
-                        <svg
-                          className={styles.playIcon}
-                          fill="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path d="M8 5v14l11-7z" />
-                        </svg>
-                      </div>
+                  <img
+                    className={styles.videoImage}
+                    src="/assets/images/man.png"
+                    alt="Video Thumbnail"
+                  />
+                  {/* Play Button Icon */}
+                  <div className={styles.playButtonContainer}>
+                    <div className={styles.playButton}>
+                      <svg
+                        className={styles.playIcon}
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
                     </div>
+                  </div>
                 </div>
 
                 {/* Bottom Heading Wrapper */}
@@ -115,19 +114,16 @@ const ProfessionalDesign = () => {
                     <span className={styles.bottomHeadingPart3}>
                       {PROFESSIONAL_ONLINE.bottomHeading.part3}
                     </span>
-                  </h3>
+                  </h3>                  
                 </div>
               </div>
-              
-              
-              
-            </div>
-           
+
               <ul className={styles.rightFactsList}>
                 <li className={styles.rightFactsListItem}>
                   {PROFESSIONAL_ONLINE.rightSectionFact}
                 </li>
               </ul>
+            </div>
           </div>
         </Container>
 

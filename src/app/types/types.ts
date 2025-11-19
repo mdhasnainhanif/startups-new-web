@@ -226,5 +226,5 @@ type SliderItem = {
 };
 
 interface TextSlider1Props {
-  data: SliderItem[];
+  data?: SliderItem[];
 }

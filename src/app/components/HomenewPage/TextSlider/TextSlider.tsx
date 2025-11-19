@@ -11,10 +11,10 @@ type SliderItem = {
 };
 
 interface TextSlider1Props {
-  data: SliderItem[];
+  data?: SliderItem[];
 }
 
-const TextSlider1: React.FC<TextSlider1Props> = ({ data }) => {
+const TextSlider1: React.FC<TextSlider1Props> = ({ data = [] }) => {
   useEffect(() => {
     const scrollingText = gsap.utils.toArray<HTMLElement>(`.${styles.rail} h4`);
 
