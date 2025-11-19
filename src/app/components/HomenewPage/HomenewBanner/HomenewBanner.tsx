@@ -31,7 +31,7 @@ const HomenewBanner = () => {
          </div>
 
          <Button href="#" variant="primary" icon={<ArrowRightIcon style={{ fill: "#fff" }} />} iconPosition="right">
-           Book a Free Call to See How It Works →
+           Book a Free Call to See How It Works
          </Button>
        </div>
 

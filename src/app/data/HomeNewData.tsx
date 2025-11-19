@@ -17,3 +17,4 @@ export const sliderData3 = [
   { text: "Outsourcing a ", highlight: "developer team", price: "$65,000+ a year" },
   { text: "Hiring a ", highlight: "UI/UX team", price: "$75,000+ a year" },
 ];
+

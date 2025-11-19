@@ -1,0 +1,264 @@
+.section {
+  background: radial-gradient(
+    circle at top left,
+    #1a0b3f 0,
+    #05001a 40%,
+    #020014 100%
+  );
+  min-height: 100vh;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.headline {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+}
+.highlighted
+{
+  color: #0fdac2;  
+}
+.headline .highlighted {
+  color: #0fdac2;
+}
+
+.description {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: #ffffff;
+  opacity: 0.9;
+}
+
+.mainContentBox {
+  background: #21164c;
+  border-radius: 1.5rem;
+  padding: 2.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  min-height: 600px;
+}
+
+.leftSection {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.tabsContainer {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.5rem;
+}
+
+.tab {
+  padding: 0.875rem 1.75rem;
+  background: rgba(29, 14, 87, 0.6);
+  border: 1px solid rgba(101, 59, 255, 0.3);
+  border-radius: 0.5rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  outline: none;
+  white-space: nowrap;
+}
+
+.tab:hover {
+  background: rgba(101, 59, 255, 0.4);
+  border-color: rgba(101, 59, 255, 0.6);
+  color: rgba(255, 255, 255, 0.95);
+  transform: translateY(-1px);
+}
+
+.tab:active {
+  transform: translateY(0);
+}
+
+.activeTab {
+  background: #653bff;
+  border-color: #653bff;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(101, 59, 255, 0.4);
+}
+
+.activeTab:hover {
+  background: #7c52ff;
+  border-color: #7c52ff;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(101, 59, 255, 0.5);
+}
+
+.deliverablesSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.deliverablesTitle {
+  color: #fff;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0.75rem;
+}
+
+.gridItem {
+  color: #fff;
+    text-align: center;
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+    background: #110f2a;
+    border-radius: 0;
+    padding: .75rem;
+    font-size: .875rem;
+    transition: all .3s;
+    position: relative;
+}
+
+.gridItem:hover {
+  background: rgba(101, 59, 255, 0.4);
+  border-color: rgba(101, 59, 255, 0.6);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(101, 59, 255, 0.3);
+}
+
+.gridItem:active {
+  transform: translateY(0);
+}
+
+.gridItemActive {
+  background: #653bff;
+  border-color: #653bff;
+  box-shadow: 0 4px 12px rgba(101, 59, 255, 0.4);
+}
+
+.gridItemActive:hover {
+  background: #7c52ff;
+  border-color: #7c52ff;
+  box-shadow: 0 6px 16px rgba(101, 59, 255, 0.5);
+}
+
+.lifetimeValue {
+  margin-top: 1rem;
+}
+
+.lifetimeValueHeading {
+  color: #0fdac2;
+  margin-bottom: .5rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.lifetimeValueText {
+  color: #ffffffe6;
+  font-size: 1.3rem;
+  line-height: 1.6;
+}
+
+.rightSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imageWrapper {
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  background: #110f29;
+  border-radius: 13px;
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .mainContentBox {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .rightSection {
+    min-height: 400px;
+  }
+
+  .gridContainer {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .headline {
+    font-size: 1.875rem;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+
+  .mainContentBox {
+    padding: 1.5rem;
+  }
+
+  .gridContainer {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+  }
+
+  .gridItem {
+    padding: 0.5rem;
+    font-size: 0.75rem;
+  }
+
+  .tabsContainer {
+    gap: 0.5rem;
+  }
+
+  .tab {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .gridContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
