@@ -10,7 +10,7 @@ const TextSlider1: React.FC = () => {
 
     horizontalLoop(scrollingText, {
       repeat: -1,
-      speed: 0.8, // Adjust speed here (lower = slower, higher = faster)
+      speed: 0.4, // Adjust speed here (lower = slower, higher = faster)
       paddingRight: 30,
     });
 

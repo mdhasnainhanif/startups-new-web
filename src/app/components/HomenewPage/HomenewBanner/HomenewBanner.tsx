@@ -38,7 +38,7 @@ const HomenewBanner = () => {
          <img
            src="/assets/images/homenewbanner-img.webp"
            alt="AI Design Team Character"
-           className="w-full max-w-sm mx-auto"
+           className={`w-full max-w-sm mx-aut ${styles.homenewbanner1}`}
          />
        </div>
      </div>
