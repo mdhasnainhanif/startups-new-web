@@ -46,6 +46,8 @@ const PROVEN_SUCCESS_DATA: ProvenSuccessData = {
         '/assets/images/aipower1.png',
         '/assets/images/aipower1.png',
         '/assets/images/aipower1.png',
+        '/assets/images/aipower1.png',
+        '/assets/images/aipower1.png',
       ],
       gridItems: [
         { id: '1', label: 'Logo Design' },
@@ -78,6 +80,8 @@ const PROVEN_SUCCESS_DATA: ProvenSuccessData = {
       id: 'logo-design',
       label: 'Logo Design',
       images: [
+        '/assets/images/aipower1.png',
+        '/assets/images/aipower1.png',
         '/assets/images/aipower1.png',
         '/assets/images/aipower1.png',
         '/assets/images/aipower1.png',
@@ -122,6 +126,8 @@ const PROVEN_SUCCESS_DATA: ProvenSuccessData = {
         '/assets/images/aipower1.png',
         '/assets/images/aipower1.png',
         '/assets/images/aipower1.png',
+        '/assets/images/aipower1.png',
+        '/assets/images/aipower1.png',
       ],
       gridItems: [
         { id: '1', label: 'Facebook Post' },
@@ -154,6 +160,8 @@ const PROVEN_SUCCESS_DATA: ProvenSuccessData = {
       id: 'stationary',
       label: 'Stationary',
       images: [
+        '/assets/images/aipower1.png',
+        '/assets/images/aipower1.png',
         '/assets/images/aipower1.png',
         '/assets/images/aipower1.png',
         '/assets/images/aipower1.png',

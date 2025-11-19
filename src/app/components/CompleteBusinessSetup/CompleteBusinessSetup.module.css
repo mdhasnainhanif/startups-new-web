@@ -1,0 +1,44 @@
+/* Swiper Customization */
+.brandingKitsSwiper :global(.swiper) {
+  overflow: visible;
+}
+
+.brandingKitsSwiper :global(.swiper-wrapper) {
+  align-items: flex-start;
+}
+
+.brandingKitsSwiper :global(.swiper-slide) {
+  height: auto;
+}
+
+/* Hide default navigation */
+.brandingKitsSwiper :global(.swiper-button-prev),
+.brandingKitsSwiper :global(.swiper-button-next) {
+  display: none;
+}
+.sliderwrapper
+{
+    position: relative;
+    background:#050321;
+    justify-content: center;
+    border-radius: 20px;
+}
+.brandingKitsTitle
+{
+    color: #fff;
+    width: fit-content;
+    display: block;
+    margin: 0 auto;
+}
+.highlighted
+{
+    color:#0fdac2;
+}
+.navButton
+{
+    background:#0d0934;
+    width:40px;
+    height:40px;
+    border-radius:100px;
+    color:#fff;
+}

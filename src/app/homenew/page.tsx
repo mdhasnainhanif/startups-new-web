@@ -10,6 +10,10 @@ import Reviews from '../components/Reviews/Reviews';
 import ProfessionalDesign from '../components/ProfessionalDesign/ProfessionalDesign';
 import AiPowerDesign from '../components/AiPowerDesign/AiPowerDesign';
 import ProvenSuccess from '../components/ProvenSuccess/ProvenSuccess';
+import RealCost from '../components/RealCost/RealCost';
+import CompleteBusinessSetup from '../components/CompleteBusinessSetup/CompleteBusinessSetup';
+import Contact from '../components/Contact/Contact';
+import GuessWorkAdvertising from '../components/GuessWorkAdvertising/GuessWorkAdvertising';
 
 export default function homenew() {
   return (
@@ -23,11 +27,15 @@ export default function homenew() {
 
       <AiPowerDesign/>
       <Technologies />
+      <CompleteBusinessSetup/>
+      <GuessWorkAdvertising/>
+      <RealCost/>
       <ProvenSuccess/>
 
       <GrowthSlider items={GROWTH_GUIDES} />
 
       <FAQ faqs={FAQ_DATA} sectionData={FAQ_SECTION} />
+
     </section>
   )
 }
