@@ -1,5 +1,4 @@
 .section {
-  padding: 6.25rem 0 9.25rem;
   background: #02001c;
   position: relative;
 }
@@ -19,6 +18,7 @@
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
   align-items: center;
+  padding-bottom:4.25rem;
 }
 
 .imageSection {
@@ -118,6 +118,19 @@
 .accordionContent.accordionOpen {
   max-height: 500px;
   padding: 0 1.5rem 1.5rem 1.5rem;
+ 
+}
+.accordionContent
+{
+  background:#2a1f5a;  
+}
+
+.accordionButton {
+  background: #110f29;
+}
+
+.accordionButtonActive {
+  background: #2a1f5a;
 }
 
 .accordionDescription {
@@ -130,10 +143,6 @@
 
 /* Responsive Styles */
 @media (max-width: 1024px) {
-  .section {
-    padding: 5rem 0 7rem;
-  }
-
   .section::before {
     width: 300px;
     height: 400px;
@@ -158,10 +167,6 @@
 }
 
 @media (max-width: 768px) {
-  .section {
-    padding: 4rem 0 6rem;
-  }
-
   .section::before {
     width: 250px;
     height: 350px;
@@ -193,10 +198,6 @@
 }
 
 @media (max-width: 640px) {
-  .section {
-    padding: 3rem 0 4rem;
-  }
-
   .contentWrapper {
     gap: 1.5rem;
   }
@@ -223,10 +224,6 @@
 }
 
 @media (max-width: 480px) {
-  .section {
-    padding: 2.5rem 0 3rem;
-  }
-
   .heading {
     font-size: 1.5rem;
   }

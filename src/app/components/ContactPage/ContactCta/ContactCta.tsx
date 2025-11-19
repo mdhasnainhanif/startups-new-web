@@ -23,7 +23,7 @@ const ContactCta: React.FC<ContactCtaProps> = ({
   buttons,
 }) => {
   return (
-    <section className="py-16 ">
+    <section className="sectionPadding">
       <div
         className={`${styles.ctaBox} max-w-4xl mx-auto rounded-2xl px-8 py-12 text-center relative`}
       >

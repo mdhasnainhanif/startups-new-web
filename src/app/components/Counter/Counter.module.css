@@ -30,10 +30,11 @@
 .counterValue {
   position: relative;
   font-size: 3.5rem;
-  font-weight: 800;
+  font-weight: 700;
   color: #0fdac2;
   line-height: 1;
   margin: 0;
+  font-family: var(--font-wf-visual-sans), sans-serif !important;
 }
 .counterValue:before {
   content: "";

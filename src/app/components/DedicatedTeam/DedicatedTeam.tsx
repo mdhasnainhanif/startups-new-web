@@ -42,7 +42,7 @@ export default function DedicatedTeam({
   }, []);
 
   return (
-    <section className={`${styles.section} ${className}`}>
+    <section className={`${styles.section} sectionPadding ${className}`}>
       <Container maxWidth="xl" className="px-0">
         <div className={styles.header}>
           <h2 className={styles.heading}>

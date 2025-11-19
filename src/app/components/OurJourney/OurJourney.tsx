@@ -20,7 +20,7 @@ export default function OurJourney({
   }));
 
   return (
-    <section className={`${styles.wrap} ${className}`}>
+    <section className={`${styles.wrap} sectionPadding ${className}`}>
       <h2 className="mx-auto max-w-7xl text-3xl text-center font-extrabold leading-tight tracking-tight text-white sm:text-4xl md:text-5xl lg:mb-30 mb-6 lg:text-6xl">
         Our <span className="text-[#0fdac2]">Journey</span>
       </h2>
@@ -28,7 +28,7 @@ export default function OurJourney({
         {steps.map((s, i) => (
           <div
             key={s.id}
-            className={`${styles.item} ${styles[s.side]}`}
+            className={`${styles.item} ${styles[s.side]} ${i === 0 ? styles.left01 : ''}`}
             data-side={s.side}
           >
             <div className={`${styles.ring} ${styles[s.side]}`}>
@@ -41,7 +41,7 @@ export default function OurJourney({
               </div>
             </div>
 
-            <div className={styles.content}>
+            <div className={`${styles.content}`}>
               <div className={styles.contentHeader}>
                 <span className={styles.badge}>{s.num}</span>
                 <h3 className={styles.title}>{s.title}</h3>

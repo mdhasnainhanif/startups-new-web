@@ -1,6 +1,7 @@
 .section {
   background: #080523;
   position: relative;
+  padding-bottom:0px;
 }
 
 .mainHeading {
