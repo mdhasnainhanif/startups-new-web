@@ -49,7 +49,7 @@ export default function Header() {
           isScrolled && isMobile
             ? "fixed top-0"
             : "relative md:absolute md:top-12"
-        } left-0 right-0 z-[100] flex items-center justify-center w-full py-4 bg-transparent md:bg-transparent transition-all duration-300`}
+        } left-0 right-0 z-100 flex items-center justify-center w-full py-4 bg-transparent md:bg-transparent transition-all duration-300`}
         style={{ willChange: "transform" }}
       >
         <Container maxWidth="xl" className="px-0">

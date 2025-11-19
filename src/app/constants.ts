@@ -39,8 +39,8 @@ export const FOOTER_LINKS = {
   column1: [
     { label: "Digital Consultation", href: "/digital-consultation" },
     { label: "Staff Augmentation", href: "/staff-augmentation" },
-    { label: "About", href: "/about" },
-    { label: "Contact", href: "/contact" },
+    { label: "About", href: "/about-us" },
+    { label: "Contact", href: "/contact-us" },
   ],
   column2: [
     { label: "How it works", href: "/how-it-works" },
@@ -68,7 +68,7 @@ export const SOCIAL_MEDIA_LINKS = [
 
 export const TECHNOLOGIES_SECTION = {
   heading: {
-    part1: "The Smart Marketing",
+    part1: "The Smart Marketing ",
     part2: "AI Stack",
     part3: " — $48,000+ Worth of Tools Working for You",
   },

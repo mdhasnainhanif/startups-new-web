@@ -20,8 +20,8 @@ export default function HeroBanner({
       className={`${styles.heroBackground} relative sectionPadding pb-0 overflow-hidden ${className}`}
     >
       <Container maxWidth="2xl" className={`${styles.content} relative z-10`}>
-        <div className="flex flex-col items-center text-center gap-6 md:gap-8 lg:pt-32 pt-10">
-          <h1 className={`text-4xl md:text-5xl lg:text-6xl font-bold ${styles.heading}`}>
+        <div className="flex flex-col items-center text-center gap-6 md:gap-8 lg:pt-40 pt-10">
+          <h1 className={`text-4xl md:text-5xl lg:text-6xl font-semibold ${styles.heading}`}>
             <span className="text-white">{headline}</span>
             {headlineHighlight && (
               <>
@@ -34,7 +34,7 @@ export default function HeroBanner({
               </>
             )}
           </h1>
-          <p className="text-base md:text-lg lg:text-xl text-white/80 max-w-3xl leading-relaxed">
+          <p className="text-base md:text-lg lg:text-xl text-white/80 max-w-4xl leading-relaxed">
             {description}
           </p>
           <div className="mt-4">
