@@ -10,8 +10,8 @@ export default function homenew() {
   return (
     <section className="sectionPadding">
       <HomenewBanner />
-      <Technologies />
       <TextSlider1/>
+      <Technologies />
       <GrowthSlider items={GROWTH_GUIDES} />
       <FAQ faqs={FAQ_DATA} sectionData={FAQ_SECTION} />
     </section>

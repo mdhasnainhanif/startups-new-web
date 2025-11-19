@@ -3,29 +3,15 @@
 import React, { useEffect } from "react";
 import styles from "./TextSlider1.module.css";
 import gsap from "gsap";
-import { Observer } from "gsap/Observer";
-
-gsap.registerPlugin(Observer);
 
 const TextSlider1: React.FC = () => {
   useEffect(() => {
     const scrollingText = gsap.utils.toArray<HTMLElement>(`.${styles.rail} h4`);
 
-    const tl = horizontalLoop(scrollingText, {
+    horizontalLoop(scrollingText, {
       repeat: -1,
+      speed: 0.8, // Adjust speed here (lower = slower, higher = faster)
       paddingRight: 30,
-    });
-
-    Observer.create({
-      onChangeY(self) {
-        let factor = 2.5;
-        if (self.deltaY < 0) factor *= -1;
-
-        gsap
-          .timeline({ defaults: { ease: "none" } })
-          .to(tl, { timeScale: factor * 2.5, duration: 0.2, overwrite: true })
-          .to(tl, { timeScale: factor / 2.5, duration: 1 }, "+=0.3");
-      },
     });
 
     function horizontalLoop(items: HTMLElement[], config: any) {
@@ -33,17 +19,14 @@ const TextSlider1: React.FC = () => {
       config = config || {};
       let tl = gsap.timeline({
           repeat: config.repeat,
-          paused: config.paused,
-          defaults: { ease: "none" },
-          onReverseComplete: () =>
-            tl.totalTime(tl.rawTime() + tl.duration() * 100),
+          paused: false, // Auto start
+          defaults: { ease: "none" }
         }),
         length = items.length,
         startX = items[0].offsetLeft,
         times: number[] = [],
         widths: number[] = [],
         xPercents: number[] = [],
-        curIndex = 0,
         pixelsPerSecond = (config.speed || 1) * 100,
         snap =
           config.snap === false
@@ -109,10 +92,7 @@ const TextSlider1: React.FC = () => {
               immediateRender: false,
             },
             distanceToLoop / pixelsPerSecond
-          )
-          .add("label" + i, distanceToStart / pixelsPerSecond);
-
-        times[i] = distanceToStart / pixelsPerSecond;
+          );
       }
 
       return tl;
@@ -123,10 +103,9 @@ const TextSlider1: React.FC = () => {
     <section className={styles.ctaBanner}>
       <div className={styles.scrollingText}>
         <div className={styles.rail}>
-          <h4>Animate Anything...</h4>
-          <h4>Delivering silky-smooth performance</h4>
-          <h4>so you can focus on the fun stuff.</h4>
-          <h4>Hiring a design team in the US would cost: $85,000+ a year</h4>
+          <h4>Hiring a <span className="text-[#0fdac2]">design team</span> in the US would cost: $85,000+ a year</h4>
+          <h4>Hiring a <span className="text-[#0fdac2]">design team</span> in the US would cost: $85,000+ a year</h4>
+          <h4>Hiring a <span className="text-[#0fdac2]">design team</span> in the US would cost: $85,000+ a year</h4>
         </div>
       </div>
     </section>

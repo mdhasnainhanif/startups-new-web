@@ -22,6 +22,7 @@
   padding: 2rem 0;
   background: url('/assets/images/cta-banner.webp') no-repeat center center;
   background-size: cover;
+  overflow: hidden;
 }
 
 .scrolling-text {
@@ -38,7 +39,7 @@
 
 .rail h4 {
   white-space: nowrap;
-  font-size: 100px;
+  font-size: 60px; /* Thoda kam text ke liye */
   font-weight: 900;
   line-height: 1em;
   margin-right: 30px;
