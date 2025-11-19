@@ -364,11 +364,7 @@ export const GROWTH_GUIDES = [
 ];
 
 export const CALENDLY_SECTION = {
-  heading: {
-    part1: "Let's Talk About Taking",
-    part2: "Marketing",
-    part3: "Off Your Plate",
-  },
+  heading: "Let's Talk About Taking [Marketing] Off Your Plate",
   description:
     "Book a quick video call to see how your Smart Marketing AI Team can free you to run jobs while your digital presence runs itself",
   buttonText: "Free Up Your Time",

@@ -9,9 +9,10 @@ const HomenewBanner = () => {
     <Container maxWidth="xl">
      <div className="lg:flex lg:items-center lg:justify-between">
        <div className="max-w-xl">
-         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-white">
-           Your <span className="text-[#0fdac2]">AI-Powered</span> <span className="text-[#0fdac2]">Design</span> Team <br className="hidden md:block" /> Ready From Day One
-         </h1>
+         <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-4 text-white">
+  Your <span className="text-[#0fdac2]">AI-Powered</span> <span className="text-[#0fdac2]">Design</span> Team <br className="hidden md:block" /> Ready From Day One
+</h1>
+
          <p className="text-white text-lg mb-6">
            Everything your business needs to look professional, trusted, and ready to serve — handled by your own design team powered by AI and real experts
          </p>

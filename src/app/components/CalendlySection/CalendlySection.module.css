@@ -22,7 +22,7 @@
 
 .heading {
   font-size: 3rem;
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.2;
   color: white;
   margin: 0;
@@ -42,6 +42,10 @@
   color: white;
 }
 
+.heading span {
+  display: contents;
+}
+
 .description {
   font-size: 1.125rem;
   line-height: 1.7;
@@ -54,27 +58,6 @@
   margin-top: 1rem;
 }
 
-.ctaButton {
-  display: inline-flex;
-  align-items: center;
-  gap: 1rem;
-  background: linear-gradient(135deg, #7c5aff 0%, #643bff 100%);
-  border: none;
-  padding: 1rem 2rem;
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: white;
-  text-decoration: none;
-  border-radius: 2rem;
-  box-shadow: 0 8px 24px rgba(100, 59, 255, 0.3);
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-
-.ctaButton:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(100, 59, 255, 0.4);
-}
 
 .playIconContainer {
   width: 2.5rem;
@@ -85,11 +68,6 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-}
-
-.ctaButton{
-  padding: 0.625rem 0.825rem;
-  padding-left: 1.425rem;
 }
 
 .playIcon {

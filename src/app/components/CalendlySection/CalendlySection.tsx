@@ -7,7 +7,7 @@ import styles from "./CalendlySection.module.css";
 import Button from "../Button";
 
 interface CalendlySectionProps {
-  heading?: {
+  heading?: string | {
     part1: string;
     part2: string;
     part3: string;
@@ -21,14 +21,10 @@ interface CalendlySectionProps {
 }
 
 const CalendlySection = ({
-  heading = {
-    part1: "Let's Talk About Taking",
-    part2: "Marketing",
-    part3: "Off Your Plate",
-  },
+  heading = "Let's Talk About Taking [Marketing] Off Your Plate",
   description = "Book a quick video call to see how your Smart Marketing AI Team can free you to run jobs while your digital presence runs itself",
   buttonText = "Free Up Your Time",
-  buttonHref = "/get-started",
+  buttonHref = "#",
   calendlyUrl = "https://calendly.com/md-hasnain-developer/30min?month=2025-11",
   calendlyText = "In minutes, you'll see examples of what your team can handle — ads, social, website, graphics — and how it all works together seamlessly",
   className = "",
@@ -43,6 +39,58 @@ const CalendlySection = ({
     }
   }, [calendlyUrl]);
 
+  // Parse heading to handle [Highlighted Word] format
+  const renderHeading = () => {
+    // If heading is object (old format), use it
+    if (typeof heading === 'object' && heading !== null && 'part1' in heading) {
+      return (
+        <>
+          <span className={styles.headingPart1}>{heading.part1}</span>
+          <span className={styles.headingPart2}>{heading.part2}</span>
+          <span className={styles.headingPart3}>{heading.part3}</span>
+        </>
+      );
+    }
+
+    // If heading is string, parse [Highlighted Word] format
+    if (typeof heading === 'string') {
+      const parts: React.ReactElement[] = [];
+      const regex = /\[([^\]]+)\]/g;
+      let lastIndex = 0;
+      let match;
+      let key = 0;
+
+      while ((match = regex.exec(heading)) !== null) {
+        // Add text before the match
+        if (match.index > lastIndex) {
+          parts.push(
+            <span key={key++} className={styles.headingPart1}>
+              {heading.substring(lastIndex, match.index)}
+            </span>
+          );
+        }
+        // Add highlighted text
+        parts.push(
+          <span key={key++} className={styles.headingPart2} style={{ color: '#0FDAC2' }}>
+            {match[1]}
+          </span>
+        );
+        lastIndex = regex.lastIndex;
+      }
+      // Add remaining text
+      if (lastIndex < heading.length) {
+        parts.push(
+          <span key={key++} className={styles.headingPart1}>
+            {heading.substring(lastIndex)}
+          </span>
+        );
+      }
+      return parts;
+    }
+
+    return null;
+  };
+
   return (
     <section className={`${styles.calendlySection} ${className} sectionPadding`}>
       <Container maxWidth="xl">
@@ -50,15 +98,13 @@ const CalendlySection = ({
           {/* Left Section */}
           <div className={styles.leftSection}>
             <h2 className={styles.heading}>
-              <span className={styles.headingPart1}>{heading.part1}</span>
-              <span className={styles.headingPart2}>{heading.part2}</span>
-              <span className={styles.headingPart3}>{heading.part3}</span>
+              {renderHeading()}
             </h2>
 
             <p className={styles.description}>{description}</p>
 
             <div className={styles.buttonWrapper}>
-              <Button href={buttonHref} variant="secondary" size="lg" className={styles.ctaButton}>
+              <Button href={buttonHref} variant="purple" size="lg" className={styles.ctaButton}>
                 <span>{buttonText}</span>
                 <div className={styles.playIconContainer}>
                   <svg

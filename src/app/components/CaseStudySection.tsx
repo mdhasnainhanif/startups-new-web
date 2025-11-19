@@ -8,6 +8,8 @@ import "../../../public/assets/css/casestudy.css";
 import "../../../public/assets/css/casestudythree.css";
 import "../../../public/assets/css/casestudytwo.css";
 import Container from "./Container";
+import Button from "./Button";
+import { ArrowRightIcon } from "./icons";
 
 // Card data structure
 interface CardData {
@@ -809,7 +811,7 @@ const CaseStudySection = () => {
 
       // Get the bounding rect of the last card
       const lastCardRect = lastCard.getBoundingClientRect();
-      
+
       // Get the entire cards container
       const cardsListRect = cardsList.getBoundingClientRect();
 
@@ -817,7 +819,7 @@ const CaseStudySection = () => {
       // At this point, unstick tabs so they scroll up naturally with the page
       // This ensures tabs scroll up smoothly, not hide
       const viewportHeight = window.innerHeight;
-      
+
       // When last card's bottom is above viewport bottom (cards finishing), tabs scroll up
       // This makes tabs naturally scroll up as cards finish, not hide
       const shouldUnstick = lastCardRect.bottom < viewportHeight;
@@ -853,7 +855,7 @@ const CaseStudySection = () => {
   return (
     <div className="pb_8 sectionPadding bg-cover mobile-padding-bottom-0">
       <section className="sectionPaddingCase pt-0 mobile-padding-bottom-0">
-        <Container maxWidth="2xl" >
+        <Container maxWidth="2xl">
           <div className="row align-items-center justify-content-center">
             <div className="col-md-6 text-center section-heading-para mb-10">
               <h2 className="mb-5 text-white text-center headingSize max-w-2xl mx-auto">
@@ -874,7 +876,7 @@ const CaseStudySection = () => {
             <div
               className={`${
                 shouldStick ? "sticky" : ""
-              } top-10 z-50 py-3 rounded-full w-fit mx-auto md:bg-[#0b0038] px-4 flex items-end justify-center gap-0 mb-8 flex-wrap`}
+              } top-10 z-50 py-3 rounded-lg w-fit mx-auto md:bg-[#0b0038] px-4 flex items-end justify-center gap-0 mb-8 flex-wrap`}
             >
               <button
                 onClick={() => {
@@ -884,7 +886,7 @@ const CaseStudySection = () => {
                   );
                   if (firstCreativeCard) setActiveTab(firstCreativeCard.id);
                 }}
-                className={`px-10 py-3 rounded-4xl text-base font-semibold transition-all relative ${
+                className={`px-10 py-3 rounded-lg text-base font-semibold transition-all relative ${
                   activeCategory === "creative"
                     ? "bg-[#643bff] text-white"
                     : "text-[#6b7280] hover:text-[#9ca3af]"
@@ -908,7 +910,7 @@ const CaseStudySection = () => {
                   );
                   if (firstMarketingCard) setActiveTab(firstMarketingCard.id);
                 }}
-                className={`px-10 py-3 rounded-4xl text-base font-semibold transition-all ${
+                className={`px-10 py-3 rounded-lg text-base font-semibold transition-all ${
                   activeCategory === "marketing"
                     ? "bg-[#643bff] text-white"
                     : "text-[#6b7280] hover:text-[#9ca3af]"
@@ -932,7 +934,7 @@ const CaseStudySection = () => {
                   );
                   if (firstDevCard) setActiveTab(firstDevCard.id);
                 }}
-                className={`px-10 py-3 rounded-4xl text-base font-semibold transition-all ${
+                className={`px-10 py-3 rounded-lg text-base font-semibold transition-all ${
                   activeCategory === "development"
                     ? "bg-[#643bff] text-white"
                     : "text-[#6b7280] hover:text-[#9ca3af]"
@@ -956,7 +958,7 @@ const CaseStudySection = () => {
                   );
                   if (firstGrowthCard) setActiveTab(firstGrowthCard.id);
                 }}
-                className={`px-10 py-3 rounded-4xl text-base font-semibold transition-all ${
+                className={`px-10 py-3 rounded-lg text-base font-semibold transition-all ${
                   activeCategory === "keygrowth"
                     ? "bg-[#643bff] text-white"
                     : "text-[#6b7280] hover:text-[#9ca3af]"
@@ -996,9 +998,16 @@ const CaseStudySection = () => {
                                   <span key={tagIndex}>{tag}</span>
                                 ))}
                               </div>
-                              <Link href="#" className="btn-primary">
-                                {card.buttonText} &nbsp; &#8594;
-                              </Link>
+                              <Button
+                                variant="green"
+                                href="#"
+                                icon={
+                                  <ArrowRightIcon style={{ fill: "#000" }} />
+                                }
+                                iconPosition="right"
+                              >
+                                {card.buttonText}
+                              </Button>
                             </div>
                             <div className="text-center">
                               <Image
