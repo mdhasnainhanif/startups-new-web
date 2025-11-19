@@ -218,3 +218,13 @@ export interface ContactFormAddressConfig {
 export interface ContactFormAddressProps {
   config: ContactFormAddressConfig;
 }
+
+type SliderItem = {
+  text: string;
+  highlight: string;
+  price: string;
+};
+
+interface TextSlider1Props {
+  data?: SliderItem[];
+}

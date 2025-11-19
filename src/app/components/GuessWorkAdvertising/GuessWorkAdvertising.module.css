@@ -1,0 +1,61 @@
+.section {
+  position: relative;
+}
+
+.section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/assets/images/rocket-bg.png');
+  background-size: contain;
+  background-position: top right;
+  background-repeat: no-repeat;
+  opacity: 0.1;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.inputWrapper {
+  width: 100%;
+}
+
+.inputField {
+  font-size: 1rem;
+  border: 2px solid #0fdac2;
+  border-radius: 100px;
+}
+
+.inputField:focus {
+  box-shadow: 0 0 0 3px rgba(15, 218, 194, 0.1);
+  border-color: #0fdac2;
+}
+
+.submitButton {
+  box-shadow: 0 4px 12px rgba(100, 59, 255, 0.3);
+  border: none;
+  border-radius: 100px;
+}
+
+.submitButton:hover {
+  box-shadow: 0 6px 16px rgba(100, 59, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+.image {
+  border-radius: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .inputField {
+    font-size: 0.9rem;
+  }
+  
+  .submitButton {
+    width: 100%;
+  }
+}
+

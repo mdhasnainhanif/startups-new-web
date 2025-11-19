@@ -1,7 +1,20 @@
+.HomenewBanner
+{
+  background: url("/assets/images/homenewbanner.png") no-repeat center center; 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.homenewbanner1
+{
+  height: 760px;
+  object-fit: cover;
+  max-width: 100%;
+  margin-bottom: -90px;
+}
 .extraPaddingTop {
   padding-top: 120px; /* 30 * 4 = 120px */
 }
-
 .experienceBox {
   position: relative;
   background-color: rgba(29, 14, 87, 0.5); /* Transparent overlay */
@@ -38,7 +51,7 @@
   top: 0.1rem;
   width: 18px;
   height: 18px;
-  background-image: url('/assets/images/tickbox1.png');
+  background-image: url('/assets/images/tick.png');
   background-size: contain;
   background-repeat: no-repeat;
  
