@@ -15,7 +15,7 @@
   background-color: #311F77;
   border: 0 solid rgba(0, 0, 0, 0);
   border-bottom-width: 4px;
-  border-radius: 36px;
+  border-radius: 0.5rem;
   outline: none;
   width: -moz-fit-content;
   width: fit-content;
@@ -27,6 +27,7 @@
   color: #fff !important;
   position: relative;
   gap: 0.5rem;
+  align-items: center;
 }
 
 /* Size variants */
@@ -52,7 +53,7 @@
   background-clip: padding-box;
   background-color: #643BFF;
   border: solid transparent;
-  border-radius: 36px;
+  border-radius: 0.5rem;
   border-width: 0 0 4px;
   bottom: -4px;
   content: "";
@@ -108,7 +109,7 @@
   appearance: button;
   background-color: #5633DC;
   border: solid transparent;
-  border-radius: 36px;
+  border-radius: 0.5rem;
   border-width: 0 0 4px;
   box-sizing: border-box;
   color: #ffffff;
@@ -137,7 +138,7 @@
   background-clip: padding-box;
   background-color: #311F77;
   border: solid transparent;
-  border-radius: 36px;
+  border-radius: 0.5rem;
   border-width: 0 0 4px;
   bottom: -4px;
   content: "";
@@ -172,7 +173,7 @@
   appearance: button;
   background-color: #0FDAC2;
   border: solid transparent;
-  border-radius: 36px;
+  border-radius: 0.5rem;
   border-width: 0 0 4px;
   box-sizing: border-box;
   color: #ffffff !important;
@@ -201,7 +202,7 @@
   background-clip: padding-box;
   background-color: #039F8D;
   border: solid transparent;
-  border-radius: 36px;
+  border-radius: 0.5rem;
   border-width: 0 0 4px;
   bottom: -4px;
   content: "";

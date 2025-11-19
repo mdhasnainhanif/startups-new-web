@@ -13,11 +13,11 @@
   gap: 3rem;
   align-items: center;
   justify-items: center;
-  max-width: 1120px;
+  max-width: 70rem;
   margin: -80px auto;
   background:url('/assets/images/counterbanner.webp') no-repeat center center;
   background-size: cover;
-  padding: 2rem;
+  padding: 3rem 2rem;
   border-radius: 24px;
 }
 .counterItem {
@@ -99,11 +99,11 @@
 }
 
 @media (max-width: 640px) {
-  .counterGrid {
+  div.counterGrid {
     grid-template-columns: 1fr;
-    gap: 1.75rem;
+    gap: 2.225rem;
     margin: -30px auto;
-    padding: 1.25rem;
+    padding: 3rem 0rem;
   }
 
   .counterValue {

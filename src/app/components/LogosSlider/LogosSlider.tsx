@@ -16,7 +16,7 @@ const LogosSlider = ({ className }: { className?: string }) => {
   }
 
   return (
-    <section className={`${styles.logosSliderSection} sectionPadding ${className}`}>
+    <section className={`${styles.logosSliderSection} ${className}`}>
       <div className={`${styles.heroBrand} overflow-hidden whitespace-nowrap relative w-full mx-auto`}>
         <div className={`${styles.logoItems} inline-flex`}>
           {duplicatedLogos.map((logo, index) => (
