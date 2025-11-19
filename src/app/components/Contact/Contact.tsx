@@ -1,5 +1,6 @@
 "use client";
 
+import Button from "../Button";
 import Container from "../Container";
 import styles from "./Contact.module.css";
 
@@ -132,7 +133,7 @@ export default function Contact() {
                 </div>
 
                 {/* Submit Button */}
-                <button type="submit" className={styles.submitButton}>
+                <Button variant="green" type="submit" className="w-full text-center justify-center items-center">
                   <span>Submit</span>
                   <svg
                     width="20"
@@ -145,7 +146,7 @@ export default function Contact() {
                     <line x1="5" y1="12" x2="19" y2="12" />
                     <polyline points="12 5 19 12 12 19" />
                   </svg>
-                </button>
+                </Button>
               </form>
             </div>
           </div>

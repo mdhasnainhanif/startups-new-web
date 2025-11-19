@@ -2,22 +2,25 @@
   position: relative;
 }
 
-.section::before {
-  content: '';
+.aeroicon {
   position: absolute;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('/assets/images/rocket-bg.png');
-  background-size: contain;
-  background-position: top right;
-  background-repeat: no-repeat;
-  opacity: 0.1;
-  pointer-events: none;
-  z-index: 0;
+  top: 10%;
+  right: 5%;
+  width: 800px;
+  height: 800px;
+  opacity:0.6;
+  z-index: 1;
 }
-
+.leading-relaxed
+{
+  position: relative;
+  z-index: 1;
+}
+.inputWrapper
+{
+  position: relative;
+  z-index: 1;
+}
 .inputWrapper {
   width: 100%;
 }

@@ -112,7 +112,7 @@ export default function Footer() {
             </div>
 
             {/* Column 2 */}
-            <div className={styles.linkColumn}>
+            {/* <div className={styles.linkColumn}>
               {FOOTER_LINKS.column2.map((link, index) => (
                 <a
                   key={index}
@@ -122,10 +122,10 @@ export default function Footer() {
                   {link.label}
                 </a>
               ))}
-            </div>
+            </div> */}
 
             {/* Column 3 */}
-            <div className={styles.linkColumn}>
+            {/* <div className={styles.linkColumn}>
               {FOOTER_LINKS.column3.map((link, index) => (
                 <a
                   key={index}
@@ -135,7 +135,7 @@ export default function Footer() {
                   {link.label}
                 </a>
               ))}
-            </div>
+            </div> */}
           </div>
         </div>
       </Container>

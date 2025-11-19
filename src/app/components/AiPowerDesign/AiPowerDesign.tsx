@@ -109,6 +109,8 @@ const AiPowerDesign = () => {
                 <h4 className={styles.lifetimeValueHeading}>{AI_POWER_DESIGN_DATA.lifetimeValue.heading}</h4>
                 <p className={styles.lifetimeValueText}>{AI_POWER_DESIGN_DATA.lifetimeValue.text}</p>
               </div>
+
+              <img src="/assets/images/1.webp" alt="" className={styles.aeroicon} />
             </div>
           </div>
 

@@ -144,7 +144,7 @@ export const PROFESSIONAL_ONLINE = {
     { label: "Content", progress: 80, color: "purple" }
   ],
   video: {
-    thumbnail: "/assets/images/man.png",
+    thumbnail: "/assets/images/man.jpg",
     overlayText: "",
     videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     videoTitle: "Professional Online Video",

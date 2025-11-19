@@ -4,8 +4,12 @@ import React, { useState } from "react";
 import { ContactFormProps, FormData, FormFieldConfig } from "@/app/types/types";
 import { contactFormData } from "./data";
 import styles from "./ContactForm.module.css";
+import Button from "../../Button";
+import Container from "../../Container";
 
-const ContactForm: React.FC<ContactFormProps> = ({ config = contactFormData }) => {
+const ContactForm: React.FC<ContactFormProps> = ({
+  config = contactFormData,
+}) => {
   const [formData, setFormData] = useState<FormData>(
     config.fields.reduce((acc, field) => {
       acc[field.name] = "";
@@ -57,49 +61,59 @@ const ContactForm: React.FC<ContactFormProps> = ({ config = contactFormData }) =
 
     setLoading(true);
 
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+    // For static export - form submission simulation
+    // To enable real form submissions, integrate with:
+    // - Formspree: https://formspree.io
+    // - Netlify Forms
+    // - EmailJS: https://www.emailjs.com
+    // - Or your own backend API
 
-      if (response.ok) {
-        setSuccessMessage(
-          config.successMessage || "Thank you! Your message has been sent."
-        );
-        setFormData(
-          config.fields.reduce((acc, field) => {
-            acc[field.name] = "";
-            return acc;
-          }, {} as FormData)
-        );
-      } else {
-        setErrorMessage(
-          config.errorMessage || "Failed to send message. Please try again."
-        );
-      }
-    } catch (error) {
-      setErrorMessage(
-        config.errorMessage || "An error occurred. Please try again."
+    setTimeout(() => {
+      setSuccessMessage(
+        config.successMessage || "Thank you! Your message has been sent."
       );
-      console.error("Form submission error:", error);
-    } finally {
+      setFormData(
+        config.fields.reduce((acc, field) => {
+          acc[field.name] = "";
+          return acc;
+        }, {} as FormData)
+      );
       setLoading(false);
-    }
+    }, 1000);
+
+    // Example integration with Formspree (uncomment and add your form ID):
+    // try {
+    //   const response = await fetch("https://formspree.io/f/YOUR_FORM_ID", {
+    //     method: "POST",
+    //     headers: { "Content-Type": "application/json" },
+    //     body: JSON.stringify(formData),
+    //   });
+    //   if (response.ok) {
+    //     setSuccessMessage(config.successMessage || "Thank you! Your message has been sent.");
+    //     setFormData(config.fields.reduce((acc, field) => { acc[field.name] = ""; return acc; }, {} as FormData));
+    //   } else {
+    //     setErrorMessage(config.errorMessage || "Failed to send message. Please try again.");
+    //   }
+    // } catch (error) {
+    //   setErrorMessage(config.errorMessage || "An error occurred. Please try again.");
+    //   console.error("Form submission error:", error);
+    // } finally {
+    //   setLoading(false);
+    // }
   };
 
   return (
+    <Container maxWidth="xl" className="px-0">
     <div className={`${styles.contactFormContainer} ${config.className || ""}`}>
       <div className={styles.formWrapper}>
         {/* Form Section */}
         <div className={styles.formSection}>
           <h2 className={styles.heading}>
-            {config.heading}{" "}
+            {config.heading}
             {config.headingHighlight && (
-              <span className={styles.highlight}>{config.headingHighlight}</span>
+              <span className={styles.highlight}>
+                {config.headingHighlight}
+              </span>
             )}
           </h2>
 
@@ -114,7 +128,10 @@ const ContactForm: React.FC<ContactFormProps> = ({ config = contactFormData }) =
             {/* --- FIRST 2 FIELDS (SIDE BY SIDE) --- */}
             <div className={styles.inputGroupRow}>
               {config.fields.slice(0, 2).map((field) => (
-                <div key={field.id} className={`${styles.inputGroup} ${styles.half}`}>
+                <div
+                  key={field.id}
+                  className={`${styles.inputGroup} ${styles.half}`}
+                >
                   <input
                     id={field.id}
                     type={field.type}
@@ -167,17 +184,14 @@ const ContactForm: React.FC<ContactFormProps> = ({ config = contactFormData }) =
               );
             })}
 
-            <button
+            <Button
+              variant="green"
               type="submit"
               disabled={loading}
-              className={styles.submitButton}
+              className="w-full text-center justify-center items-center"
             >
-              {loading && <span className={styles.loadingSpinner} />}
               {config.submitButtonText}
-              {!loading && config.submitButtonIcon && (
-                <span>{config.submitButtonIcon}</span>
-              )}
-            </button>
+            </Button>
           </form>
         </div>
 
@@ -197,6 +211,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ config = contactFormData }) =
         )}
       </div>
     </div>
+    </Container>
   );
 };
 

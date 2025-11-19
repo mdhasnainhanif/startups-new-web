@@ -57,7 +57,7 @@ const BusinessPlaylist: React.FC<BusinessPlaylistProps> = ({
       <div className="max-w-7xl mx-auto px-4">
         {/* Main Heading */}
         <div className="text-center mb-12">
-          <h2 className={`${styles.mainHeading} text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4`}>
+          <h2 className={`${styles.mainHeading} text-4xl md:text-5xl lg:text-6xl font-semibold mb-4 max-w-3xl mx-auto`}>
             {mainTitle}{" "}
             <span className="text-[#0fdac2]">{highlightTitle}</span>{" "}
             Struggle to Stay Visible

@@ -113,7 +113,7 @@ const CompleteBusinessSetup = () => {
         </div>
 
         {/* Main Content Box */}
-        <div className="bg-[#21164c] rounded-2xl p-6 md:p-8 lg:p-10 border border-[rgba(100,59,255,0.3)]">
+        <div className={`${styles.contentWrapper} bg-[#21164c] rounded-2xl p-6 md:p-8 lg:p-10 border border-[rgba(100,59,255,0.3)] ${styles.businesscontainer}`}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
             {/* Left Column - Branding KITs Slider */}
             <div className={`flex flex-col ${styles.sliderwrapper}`}>
@@ -251,6 +251,7 @@ const CompleteBusinessSetup = () => {
           </div>
         </div>
       </Container>
+      <img src="/assets/images/1.webp" alt="" className={styles.aeroicon} />
     </section>
   );
 };

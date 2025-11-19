@@ -1,15 +1,16 @@
 .footer {
   background: #02001c;
-  padding: 60px 0 40px;
+  padding: 60px 0;
   border-top: 1px solid rgba(78, 73, 137, 0.3);
 }
 
 .footerContent {
-  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 200px;
-  flex-wrap: wrap;
+  gap: 2rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .leftSection {
@@ -80,7 +81,7 @@
 
 .linkColumn {
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   gap: 12px;
   min-width: 140px;
 }
@@ -167,6 +168,19 @@
   .linkColumn {
     width: 100%;
     min-width: auto;
+  }
+  .linkColumn {
+    flex-direction: column;
+  }
+  .logoContainer img{
+    display: block;
+    margin: 0 auto;
+  }
+  .socialIcons{
+    justify-content: center;
+  }
+  .footerLink{
+    text-align: center;
   }
 }
 

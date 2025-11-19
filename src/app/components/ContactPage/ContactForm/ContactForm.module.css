@@ -8,7 +8,7 @@
 
 .formWrapper {
   display: flex;
-  gap: 2rem;
+  gap: 0rem;
   align-items: stretch;
 }
 
@@ -21,14 +21,15 @@
 .mapSection {
   flex: 1;
   min-width: 0;
-  border-radius: 1rem;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .heading {
-font-size: 2.875rem;
-  font-weight: 700;
+  font-size: 2.875rem;
+  font-weight: 600;
   line-height: 1.2;
   margin-bottom: 2rem;
   color: #ffffff;
@@ -36,7 +37,7 @@ font-size: 2.875rem;
 
 .highlight {
   color: #00d4aa;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .formFields {
@@ -65,7 +66,7 @@ font-size: 2.875rem;
   padding: 0.875rem 1.25rem;
   background-color: rgba(255, 255, 255, 0.95);
   border: none;
- border-radius: 1.55rem;
+  border-radius: 0.5rem;
   font-size: 0.9375rem;
   color: #1a0e3f;
   transition: all 0.3s ease;
@@ -89,21 +90,21 @@ font-size: 2.875rem;
 }
 
 .submitButton {
-     color: #fff;
-    cursor: pointer;
-    background: #0fdac2;
-    border: none;
-    border-radius: 100px;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    width: 100%;
-    margin-top: 8px;
-    padding: 16px 24px;
-    font-size: 16px;
-    font-weight: 600;
-    transition: background .3s, transform .2s;
-    display: flex;
+  color: #fff;
+  cursor: pointer;
+  background: #0fdac2;
+  border: none;
+  border-radius: 100px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  margin-top: 8px;
+  padding: 16px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background 0.3s, transform 0.2s;
+  display: flex;
 }
 
 .submitButton:hover {

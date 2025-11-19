@@ -18,8 +18,9 @@ export default function Technologies() {
 
   return (
     <section className={styles.section + " sectionPadding"}>
-      <Container maxWidth="2xl" className="px-0">
+      <div>
         {/* Header Section */}
+        <Container maxWidth="2xl" className="px-0">
         <div className={styles.header}>
           <h2 className={styles.heading}>
             <span className="text-white">{TECHNOLOGIES_SECTION.heading.part1}</span>
@@ -51,6 +52,7 @@ export default function Technologies() {
             <span className="text-[#0fdac2]">{currentTab?.value}</span> )
           </h3>
         </div>
+        </Container>
 
         {/* Three Animated Sliders */}
         <div className={styles.slidersContainer}>
@@ -105,7 +107,7 @@ export default function Technologies() {
             </div>
           </div>
         </div>
-      </Container>
+      </div>
     </section>
   );
 }

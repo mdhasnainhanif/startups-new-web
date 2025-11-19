@@ -1,3 +1,7 @@
+.section{
+  background-color: #050321;
+}
+
 .videoWrapper {
   position: relative;
   cursor: pointer;
@@ -12,7 +16,7 @@
   position: relative;
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 2px 18px #1e365c;
+  box-shadow: 0 2px 18px #040505;
   transition: all 0.3s ease;
 }
 
@@ -147,4 +151,28 @@
   .rocketImage {
     width: 80px;
   }
+}
+
+/* Swiper Pagination Custom Styles */
+:global(.swiper-pagination) {
+  position: relative !important;
+  margin-top: 2.5rem !important;
+  bottom: auto !important;
+}
+
+:global(.swiper-pagination-bullet) {
+  width: 12px !important;
+  height: 12px !important;
+  background: rgba(15, 218, 194, 0.3) !important;
+  opacity: 1 !important;
+  margin: 0 6px !important;
+  transition: all 0.3s ease !important;
+  border: 2px solid rgba(15, 218, 194, 0.2) !important;
+}
+
+:global(.swiper-pagination-bullet-active) {
+  background: #0fdac2 !important;
+  border-color: #0fdac2 !important;
+  box-shadow: 0 0 12px rgba(15, 218, 194, 0.6) !important;
+  transform: scale(1.2) !important;
 }

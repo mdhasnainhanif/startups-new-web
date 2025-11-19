@@ -33,21 +33,83 @@
   margin: 0 auto;
 }
 
+/* Navigation Arrows */
+.navArrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #0d0934;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  pointer-events: auto;
+}
+
+.navArrow:hover:not(.navArrowDisabled) {
+  background: #1a0f4a;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.navArrowLeft {
+  left: 10px;
+}
+
+.navArrowRight {
+  right: 10px;
+}
+
+.navArrowDisabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.navArrowDisabled:hover {
+  transform: translateY(-50%);
+  background: #0d0934;
+}
+
 /* Tabs Container - Copied from Technologies */
 .tabsContainer {
   z-index: 1;
   background: #0b0038;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
   align-items: center;
   gap: 0;
-  width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 10px 0;
+  width: 100%;
+  max-width: fit-content;
+  margin: 0 auto 20px;
+  padding: 10px 0px;
   display: flex;
   position: relative;
   border-radius: 100px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-behavior: smooth;
+}
+.tabsContainer .navArrow
+{
+  width:30px;
+  height:30px;
+  border-radius: 100px;
+  background:#1b1849;
+  opacity: 1;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.tabsContainer::-webkit-scrollbar {
+  display: none;
 }
 
 .tabsContainer .tab:nth-child(2) {
@@ -79,7 +141,6 @@
   height: 100%;
   background: #372c6b;
 }
-
 .tab:nth-child(2)::before {
   left: -26px;
 }
@@ -185,6 +246,10 @@
     font-size: 16px;
   }
 
+  .navArrow {
+    display: none;
+  }
+
   .tabsContainer {
     flex-direction: column;
     gap: 8px;
@@ -195,6 +260,7 @@
     max-width: 300px;
     margin-left: auto;
     margin-right: auto;
+    overflow-x: visible;
   }
 
   .tab {

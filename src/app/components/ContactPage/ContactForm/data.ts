@@ -2,7 +2,7 @@ import { ContactFormConfig } from "@/app/types/types";
 
 export const contactFormData: ContactFormConfig = {
   heading: "Have Any",
-  headingHighlight: "Questions?",
+  headingHighlight: " Questions?",
   description: "Let's collaborate and create powerful AI solutions",
   fields: [
     {

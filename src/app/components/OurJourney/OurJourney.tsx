@@ -5,10 +5,7 @@ import { OurJourneyProps } from "../../types/types";
 import Container from "../Container";
 import styles from "./OurJourney.module.css";
 
-export default function OurJourney({
-  items,
-  className = "",
-}: OurJourneyProps) {
+export default function OurJourney({ items, className = "" }: OurJourneyProps) {
   // Map items to steps format with alternating sides
   const steps = items.map((item) => ({
     id: item.id,
@@ -21,14 +18,19 @@ export default function OurJourney({
 
   return (
     <section className={`${styles.wrap} sectionPadding ${className}`}>
-      <h2 className="mx-auto max-w-7xl text-3xl text-center font-extrabold leading-tight tracking-tight text-white sm:text-4xl md:text-5xl lg:mb-30 mb-6 lg:text-6xl">
+      <h2
+        className="mx-auto max-w-7xl text-3xl text-center font-semibold leading-tight tracking-tight text-white 
+      sm:text-4xl md:text-5xl lg:mb-30 mb-6 lg:text-6xl"
+      >
         Our <span className="text-[#0fdac2]">Journey</span>
       </h2>
       <div className={styles.list}>
         {steps.map((s, i) => (
           <div
             key={s.id}
-            className={`${styles.item} ${styles[s.side]} ${styles[`line0${i + 1}`]}`}
+            className={`${styles.item} ${styles[s.side]} ${
+              styles[`line0${i + 1}`]
+            }`}
             data-side={s.side}
           >
             <div className={`${styles.ring} ${styles[s.side]}`}>

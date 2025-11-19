@@ -20,7 +20,7 @@ export const TOP_BANNER = {
   show: true,
   emoji: "🚀",
   text: "Big News: We are now a Public Company",
-  buttonText: "Know More →",
+  buttonText: "Know More",
   buttonLink: "/big-news",
 };
 
@@ -37,22 +37,22 @@ export {
 
 export const FOOTER_LINKS = {
   column1: [
-    { label: "Digital Consultation", href: "/digital-consultation" },
-    { label: "Staff Augmentation", href: "/staff-augmentation" },
+    // { label: "Digital Consultation", href: "/digital-consultation" },
+    // { label: "Staff Augmentation", href: "/staff-augmentation" },
     { label: "About", href: "/about-us" },
     { label: "Contact", href: "/contact-us" },
   ],
   column2: [
-    { label: "How it works", href: "/how-it-works" },
-    { label: "In the press", href: "/press" },
-    { label: "Affiliate", href: "/affiliate" },
-    { label: "Brand", href: "/brand" },
+    // { label: "How it works", href: "/how-it-works" },
+    // { label: "In the press", href: "/press" },
+    // { label: "Affiliate", href: "/affiliate" },
+    // { label: "Brand", href: "/brand" },
   ],
   column3: [
-    { label: "Privacy Policy", href: "/privacy-policy" },
-    { label: "Data Security", href: "/data-security" },
-    { label: "Terms of Use", href: "/terms-of-use" },
-    { label: "New Secret Project", href: "/secret-project" },
+    // { label: "Privacy Policy", href: "/privacy-policy" },
+    // { label: "Data Security", href: "/data-security" },
+    // { label: "Terms of Use", href: "/terms-of-use" },
+    // { label: "New Secret Project", href: "/secret-project" },
   ],
 };
 

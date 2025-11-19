@@ -12,6 +12,8 @@ export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [isHeaderVisible, setIsHeaderVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   useEffect(() => {
     // Check if mobile
@@ -23,13 +25,24 @@ export default function Header() {
     window.addEventListener("resize", checkMobile);
 
     const handleScroll = () => {
-      // Only apply fixed on mobile
-      if (window.innerWidth < 768) {
-        const scrollPosition = window.scrollY;
-        setIsScrolled(scrollPosition > 50); // Fixed after 50px scroll
-      } else {
-        setIsScrolled(false); // Desktop always false
+      const currentScrollY = window.scrollY;
+
+      // Apply fixed when scrolled
+      setIsScrolled(currentScrollY > 50);
+
+      // Scroll direction detection for header show/hide
+      if (currentScrollY < 10) {
+        // At top, always show
+        setIsHeaderVisible(true);
+      } else if (currentScrollY > lastScrollY) {
+        // Scrolling down - hide header
+        setIsHeaderVisible(false);
+      } else if (currentScrollY < lastScrollY) {
+        // Scrolling up - show header
+        setIsHeaderVisible(true);
       }
+
+      setLastScrollY(currentScrollY);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -39,38 +52,36 @@ export default function Header() {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", checkMobile);
     };
-  }, []);
+  }, [lastScrollY]);
 
   return (
     <>
-      {/* Mobile Header - Fixed when scrolled on mobile only */}
+      {/* Header - Fixed when scrolled */}
       <header
         className={`${
-          isScrolled && isMobile
-            ? "fixed top-0"
-            : "relative md:absolute md:top-12"
-        } left-0 right-0 z-100 flex items-center justify-center w-full py-4 bg-transparent md:bg-transparent transition-all duration-300`}
-        style={{ willChange: "transform" }}
+          isScrolled ? "fixed top-0" : "relative md:absolute md:top-12"
+        } left-0 right-0 z-100 flex items-center justify-center w-full py-4 bg-transparent md:bg-transparent transition-transform duration-300 ease-in-out`}
+        style={{
+          willChange: "transform",
+          transform: isHeaderVisible ? "translateY(0)" : "translateY(-100%)",
+        }}
       >
         <Container maxWidth="xl" className="px-0">
           <nav
-            className="flex items-center justify-between w-full rounded-2xl px-4 md:px-6 py-4 bg-[#02001c] backdrop-blur-md shadow-xl border border-[#4e4989] relative"
+            className="flex items-center justify-between w-full rounded-xl md:rounded-2xl px-4 md:px-6 py-4 bg-[#02001c] backdrop-blur-md shadow-xl border border-[#4e4989] relative"
             style={{ minHeight: "64px" }}
           >
             <div className="flex items-center gap-2">
-              <div
-                className="flex flex-col relative"
-                style={{ width: 100, height: 40 }}
-              >
+              <div className="flex flex-col relative">
                 <Link href="/" className="cursor-pointer">
-                <Image
-                  src={COMPANY_INFO.logo}
-                  alt="Logo"
-                  width={100}
-                  height={40}
-                  priority
-                  style={{ objectFit: "contain" }}
-                />
+                  <Image
+                    src={COMPANY_INFO.logo}
+                    alt="Logo"
+                    width={120}
+                    height={30}
+                    priority
+                    style={{ objectFit: "contain" }}
+                  />
                 </Link>
               </div>
             </div>
@@ -100,7 +111,7 @@ export default function Header() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden flex flex-col gap-1.5 p-2 z-[101] relative"
+              className="md:hidden flex flex-col gap-1.5 p-2 z-101 relative"
               aria-label="Toggle menu"
             >
               <span
@@ -127,14 +138,14 @@ export default function Header() {
       {/* Overlay */}
       {isMobileMenuOpen && (
         <div
-          className="fixed inset-0 bg-black/50 z-[99] md:hidden transition-opacity"
+          className="fixed inset-0 bg-black/50 z-99 md:hidden transition-opacity"
           onClick={() => setIsMobileMenuOpen(false)}
         />
       )}
 
       {/* Sidebar */}
       <div
-        className={`fixed top-0 left-0 h-full w-80 max-w-[85vw] bg-[#0a0a1a] border-r border-[#1a1a2e]/50 md:hidden z-[100] transform transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 left-0 h-full w-80 max-w-[85vw] bg-[#0a0a1a] border-r border-[#1a1a2e]/50 md:hidden z-100 transform transition-transform duration-300 ease-in-out ${
           isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
@@ -189,14 +200,14 @@ export default function Header() {
                 {link.label}
               </a>
             ))}
-            <div className="mt-auto pt-4">
+            <div className=" pt-4">
               <Button
                 href="/demo"
                 variant="green"
                 size="md"
                 icon="→"
                 iconPosition="right"
-                className="w-full"
+                className="w-full text-center justify-center"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Book A Demo

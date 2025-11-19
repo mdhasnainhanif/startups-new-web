@@ -183,4 +183,17 @@ h2.headingSize {
     padding-left: 0 !important;
     padding-right: 0 !important;
   }
+  .pt100.contactMain{
+    padding-top: 1.25rem;
+  }
+  .caseImg{
+    display: none;
+  }
+  div.scrollerItem{
+    border-radius: 0.5rem !important;
+  }
+}
+
+.pt100{
+  padding-top: 12.25rem;
 }
