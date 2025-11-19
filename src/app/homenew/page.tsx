@@ -6,6 +6,7 @@ import GrowthSlider from '../components/GrowthSlider/GrowthSlider'
 import Technologies from '../components/Technologies/Technologies';
 import TextSlider1 from '../components/HomenewPage/TextSlider1/TextSlider1';
 import AiPowerDesign from '../components/AiPowerDesign/AiPowerDesign';
+import ProvenSuccess from '../components/ProvenSuccess/ProvenSuccess';
 
 export default function homenew() {
   return (
@@ -14,6 +15,7 @@ export default function homenew() {
       <TextSlider1/>
       <AiPowerDesign/>
       <Technologies />
+      <ProvenSuccess/>
       <GrowthSlider items={GROWTH_GUIDES} />
       <FAQ faqs={FAQ_DATA} sectionData={FAQ_SECTION} />
     </section>

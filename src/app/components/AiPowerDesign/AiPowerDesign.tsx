@@ -76,7 +76,7 @@ const AiPowerDesign = () => {
 
   return (
     <section className={`sectionPadding ${styles.section} sectionPadding`}>
-      <Container maxWidth="xl">
+     <Container maxWidth="xl" className="px-0">
         {/* Header Section */}
         <div className={styles.header}>
           <h2 className={styles.headline} dangerouslySetInnerHTML={renderHeadline()} />
