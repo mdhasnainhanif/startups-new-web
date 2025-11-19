@@ -28,7 +28,8 @@ export default function ContactPage() {
   const playlistData = {
   mainTitle: "Local",
   highlightTitle: "Businesses",
-  subtitle: "You’re great at what you do, but your marketing falls behind. Agencies cost a fortune. Freelancers disappear.",
+  subtitle: "You're great at what you do, but your marketing falls behind. Agencies cost a fortune. Freelancers disappear.",
+  videoThumbnail: "/assets/images/video-thumbnail.webp",
   videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
   playlistTitle: "Title of Your Playlist",
   playlistInfo: {
@@ -36,21 +37,21 @@ export default function ContactPage() {
     totalDuration: "50h 40m",
   },
   playlistItems: [
-    { id: 1, title: "Custom Select Box 02", duration: "41:25" },
-    { id: 2, title: "Custom Select Box 03", duration: "16:59" },
-    { id: 3, title: "Custom Select Box 04", duration: "24:15", isPlaying: true },
-    { id: 4, title: "Custom Select Box 05", duration: "30:02" },
-    { id: 5, title: "Custom Select Box 06", duration: "15:25" },
+    { id: 1, number: "02.", title: "Custom Select Box", duration: "41:25" },
+    { id: 2, number: "03.", title: "Custom Select Box", duration: "16:59" },
+    { id: 3, number: "04.", title: "Custom Select Box", duration: "24:15", isPlaying: true },
+    { id: 4, number: "05.", title: "Custom Select Box", duration: "30:02" },
+    { id: 5, number: "06.", title: "Custom Select Box", duration: "15:25" },
   ],
 };
 
   return (
-    <div className="min-h-screen pt-45 pb-12 ">
-      <div className="max-w-4xl mx-auto mb-16 text-center">
-        <h1 className="text-4xl md:text-5xl font-bold text-white mb-2">
+    <div className="min-h-screen pt-45 pb-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-4xl mx-auto mb-8 sm:mb-12 lg:mb-16 text-center">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2">
           Let's Collaborate and <span className="text-[#0fdac2]">Create</span>
         </h1>
-        <h2 className="text-4xl md:text-5xl font-bold">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">
           <span className="text-[#0fdac2]">Powerful AI</span>{' '}
           <span className="text-white">Solutions</span>
         </h2>

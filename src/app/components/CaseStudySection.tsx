@@ -1,16 +1,244 @@
-'use client';
+"use client";
 
 import Link from "next/link";
-import Image from 'next/image';
+import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 import { useModalStore } from "@/stores/useModalStore";
-import "../../../public/assets/css/casestudy.css"
-import "../../../public/assets/css/casestudythree.css"
-import "../../../public/assets/css/casestudytwo.css"
+import "../../../public/assets/css/casestudy.css";
+import "../../../public/assets/css/casestudythree.css";
+import "../../../public/assets/css/casestudytwo.css";
+import Container from "./Container";
+
+// Card data structure
+interface CardData {
+  id: string;
+  category: string;
+  title: string;
+  subtitle: string;
+  tags: string[];
+  buttonText: string;
+  image: string;
+}
+
+const cardsData: CardData[] = [
+  // Creative & Design
+  {
+    id: "tabScroll1",
+    category: "creative",
+    title: "Brand Designer",
+    subtitle: "Builds The Foundation of Your Brand",
+    tags: [
+      "Logo Design",
+      "Brand Guidelines",
+      "Color Palette",
+      "Typography System",
+      "Social Templates",
+      "Rebrand Plan",
+      "Business Cards",
+      "Email Signature",
+      "Icon Set",
+      "Mockups",
+      "Packaging",
+      "Stationery",
+      "Uniform Branding",
+    ],
+    buttonText: "Hire Brand Designer",
+    image: "/assets/images/2.png",
+  },
+  {
+    id: "tabScroll2",
+    category: "creative",
+    title: "UI/UX Designer",
+    subtitle: "Creates Intuitive User Experiences",
+    tags: [
+      "Wireframing",
+      "Prototyping",
+      "User Research",
+      "Design Systems",
+      "Mobile Design",
+      "Web Design",
+      "Interaction Design",
+      "Usability Testing",
+    ],
+    buttonText: "Hire UI/UX Designer",
+    image: "/assets/images/2.png",
+  },
+  {
+    id: "tabScroll3",
+    category: "creative",
+    title: "Graphic Designer",
+    subtitle: "Visual Storytelling Expert",
+    tags: [
+      "Print Design",
+      "Digital Graphics",
+      "Illustration",
+      "Photo Editing",
+      "Layout Design",
+      "Infographics",
+    ],
+    buttonText: "Hire Graphic Designer",
+    image: "/assets/images/2.png",
+  },
+  // Marketing & Growth
+  {
+    id: "tabScroll4",
+    category: "marketing",
+    title: "Content Strategist",
+    subtitle: "Drives Engagement Through Content",
+    tags: [
+      "Content Planning",
+      "SEO Writing",
+      "Blog Posts",
+      "Social Media Content",
+      "Email Campaigns",
+      "Content Calendar",
+    ],
+    buttonText: "Hire Content Strategist",
+    image: "/assets/images/2.png",
+  },
+  {
+    id: "tabScroll5",
+    category: "marketing",
+    title: "Social Media Manager",
+    subtitle: "Amplifies Your Brand Voice",
+    tags: [
+      "Social Strategy",
+      "Community Management",
+      "Analytics",
+      "Ad Campaigns",
+      "Content Creation",
+      "Influencer Outreach",
+    ],
+    buttonText: "Hire Social Media Manager",
+    image: "/assets/images/2.png",
+  },
+  {
+    id: "tabScroll6",
+    category: "marketing",
+    title: "SEO Specialist",
+    subtitle: "Boosts Your Search Visibility",
+    tags: [
+      "Keyword Research",
+      "On-Page SEO",
+      "Link Building",
+      "Technical SEO",
+      "Analytics",
+      "Rank Tracking",
+    ],
+    buttonText: "Hire SEO Specialist",
+    image: "/assets/images/2.png",
+  },
+  // Development
+  {
+    id: "tabScroll7",
+    category: "development",
+    title: "Frontend Developer",
+    subtitle: "Builds Beautiful User Interfaces",
+    tags: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "Responsive Design",
+      "Performance Optimization",
+      "UI Implementation",
+    ],
+    buttonText: "Hire Frontend Developer",
+    image: "/assets/images/2.png",
+  },
+  {
+    id: "tabScroll8",
+    category: "development",
+    title: "Backend Developer",
+    subtitle: "Powers Your Application Logic",
+    tags: [
+      "API Development",
+      "Database Design",
+      "Server Architecture",
+      "Security",
+      "Scalability",
+      "Cloud Services",
+    ],
+    buttonText: "Hire Backend Developer",
+    image: "/assets/images/2.png",
+  },
+  {
+    id: "tabScroll9",
+    category: "development",
+    title: "Full Stack Developer",
+    subtitle: "End-to-End Development Solutions",
+    tags: [
+      "Full Stack Development",
+      "DevOps",
+      "CI/CD",
+      "Testing",
+      "Code Review",
+      "Architecture",
+    ],
+    buttonText: "Hire Full Stack Developer",
+    image: "/assets/images/2.png",
+  },
+  // Key Growth
+  {
+    id: "tabScroll10",
+    category: "keygrowth",
+    title: "Growth Hacker",
+    subtitle: "Accelerates Your Business Growth",
+    tags: [
+      "Growth Strategy",
+      "A/B Testing",
+      "Conversion Optimization",
+      "User Acquisition",
+      "Retention",
+      "Analytics",
+    ],
+    buttonText: "Hire Growth Hacker",
+    image: "/assets/images/2.png",
+  },
+  {
+    id: "tabScroll11",
+    category: "keygrowth",
+    title: "Marketing Automation Specialist",
+    subtitle: "Streamlines Your Marketing Workflows",
+    tags: [
+      "Marketing Automation",
+      "Email Marketing",
+      "Lead Nurturing",
+      "CRM Integration",
+      "Workflow Design",
+      "Analytics",
+    ],
+    buttonText: "Hire Automation Specialist",
+    image: "/assets/images/2.png",
+  },
+  {
+    id: "tabScroll12",
+    category: "keygrowth",
+    title: "Data Analyst",
+    subtitle: "Turns Data Into Insights",
+    tags: [
+      "Data Analysis",
+      "Reporting",
+      "Dashboards",
+      "KPI Tracking",
+      "Predictive Analytics",
+      "Business Intelligence",
+    ],
+    buttonText: "Hire Data Analyst",
+    image: "/assets/images/2.png",
+  },
+];
 
 const CaseStudySection = () => {
   const [isDesktop, setIsDesktop] = useState<boolean>(false);
   const [activeTab, setActiveTab] = useState<string>("tabScroll1");
+  const [activeCategory, setActiveCategory] = useState<string>("creative");
+  const [isFading, setIsFading] = useState<boolean>(false);
+  const [shouldStick, setShouldStick] = useState<boolean>(true);
+
+  // Filter cards based on active category
+  const filteredCards = cardsData.filter(
+    (card) => card.category === activeCategory
+  );
   // refs (TOP)
   const stackCardsRef = useRef<HTMLUListElement>(null);
   const itemsRef = useRef<HTMLLIElement[]>([]);
@@ -18,35 +246,39 @@ const CaseStudySection = () => {
   const scrollingRef = useRef<boolean>(false);
   const animationFrameRef = useRef<number | null>(null);
   const scrollContainerRef = useRef<HTMLDivElement>(null); // ✅ moved up
-  const openModal = useModalStore((state: { openModal: any; }) => state.openModal);
-
+  const openModal = useModalStore(
+    (state: { openModal: any }) => state.openModal
+  );
 
   // Helper functions
   const hasClass = (el: HTMLElement, className: string): boolean => {
     if (el.classList) return el.classList.contains(className);
-    else return !!el.className.match(new RegExp('(\\s|^)' + className + '(\\s|$)'));
+    else
+      return !!el.className.match(
+        new RegExp("(\\s|^)" + className + "(\\s|$)")
+      );
   };
 
   const addClass = (el: HTMLElement, className: string): void => {
-    const classList = className.split(' ');
+    const classList = className.split(" ");
     if (el.classList) el.classList.add(classList[0]);
     else if (!hasClass(el, classList[0])) el.className += " " + classList[0];
-    if (classList.length > 1) addClass(el, classList.slice(1).join(' '));
+    if (classList.length > 1) addClass(el, classList.slice(1).join(" "));
   };
 
   const removeClass = (el: HTMLElement, className: string): void => {
-    const classList = className.split(' ');
+    const classList = className.split(" ");
     if (el.classList) el.classList.remove(classList[0]);
     else if (hasClass(el, classList[0])) {
-      const reg = new RegExp('(\\s|^)' + classList[0] + '(\\s|$)');
-      el.className = el.className.replace(reg, ' ');
+      const reg = new RegExp("(\\s|^)" + classList[0] + "(\\s|$)");
+      el.className = el.className.replace(reg, " ");
     }
-    if (classList.length > 1) removeClass(el, classList.slice(1).join(' '));
+    if (classList.length > 1) removeClass(el, classList.slice(1).join(" "));
   };
 
   const osHasReducedMotion = (): boolean => {
     if (!window.matchMedia) return false;
-    const matchMediaObj = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const matchMediaObj = window.matchMedia("(prefers-reduced-motion: reduce)");
     if (matchMediaObj) return matchMediaObj.matches;
     return false;
   };
@@ -61,14 +293,18 @@ const CaseStudySection = () => {
 
     // Reset all transformations if not desktop
     if (!isDesktop) {
-      element.style.paddingBottom = '0px';
+      element.style.paddingBottom = "0px";
       for (let i = 0; i < items.length; i++) {
         if (items[i]) {
-          items[i].style.transform = 'none';
+          items[i].style.transform = "none";
           // Remove stack card classes on mobile
-          items[i].classList.remove('service-scrollerItemContainer', 'stack-cards__item', 'js-stack-cards__item');
+          items[i].classList.remove(
+            "service-scrollerItemContainer",
+            "stack-cards__item",
+            "js-stack-cards__item"
+          );
           // Show all items on mobile
-          items[i].style.display = 'block';
+          items[i].style.display = "block";
         }
       }
       return;
@@ -77,11 +313,15 @@ const CaseStudySection = () => {
     // Desktop setup - show all items with stack effect
     for (let i = 0; i < items.length; i++) {
       if (items[i]) {
-        items[i].style.display = 'block';
-        items[i].style.transition = 'transform 0.1s ease-out'; // ✅ Add smooth transition
+        items[i].style.display = "block";
+        items[i].style.transition = "transform 0.1s ease-out"; // ✅ Add smooth transition
         // Ensure classes are present on desktop (don't add if already there)
-        if (!items[i].classList.contains('service-scrollerItemContainer')) {
-          items[i].classList.add('service-scrollerItemContainer', 'stack-cards__item', 'js-stack-cards__item');
+        if (!items[i].classList.contains("service-scrollerItemContainer")) {
+          items[i].classList.add(
+            "service-scrollerItemContainer",
+            "stack-cards__item",
+            "js-stack-cards__item"
+          );
         }
       }
     }
@@ -89,24 +329,27 @@ const CaseStudySection = () => {
     // Check if we have at least one item before calling getComputedStyle
     if (!items[0]) return;
 
-    const marginYValue = getComputedStyle(element).getPropertyValue('--stack-cards-gap');
+    const marginYValue =
+      getComputedStyle(element).getPropertyValue("--stack-cards-gap");
     const marginY = getIntegerFromProperty(marginYValue, element);
     const elementHeight = element.offsetHeight;
 
     const cardStyle = getComputedStyle(items[0]);
-    const cardTop = Math.floor(parseFloat(cardStyle.getPropertyValue('top')));
-    const cardHeight = Math.floor(parseFloat(cardStyle.getPropertyValue('height')));
+    const cardTop = Math.floor(parseFloat(cardStyle.getPropertyValue("top")));
+    const cardHeight = Math.floor(
+      parseFloat(cardStyle.getPropertyValue("height"))
+    );
 
     if (isNaN(marginY)) {
-      element.style.paddingBottom = '0px';
+      element.style.paddingBottom = "0px";
     } else {
-      element.style.paddingBottom = (marginY * (items.length - 1)) + 'px';
+      element.style.paddingBottom = marginY * (items.length - 1) + "px";
     }
 
     for (let i = 0; i < items.length; i++) {
       if (items[i]) {
         if (isNaN(marginY)) {
-          items[i].style.transform = 'none';
+          items[i].style.transform = "none";
         } else {
           items[i].style.transform = `translateY(${marginY * i}px)`;
         }
@@ -114,11 +357,19 @@ const CaseStudySection = () => {
     }
   };
 
-  const getIntegerFromProperty = (value: string, element: HTMLElement): number => {
-    const node = document.createElement('div');
-    node.setAttribute('style', 'opacity:0; visbility: hidden;position: absolute; height:' + value);
+  const getIntegerFromProperty = (
+    value: string,
+    element: HTMLElement
+  ): number => {
+    const node = document.createElement("div");
+    node.setAttribute(
+      "style",
+      "opacity:0; visbility: hidden;position: absolute; height:" + value
+    );
     element.appendChild(node);
-    const intValue = parseInt(getComputedStyle(node).getPropertyValue('height'));
+    const intValue = parseInt(
+      getComputedStyle(node).getPropertyValue("height")
+    );
     element.removeChild(node);
     return intValue;
   };
@@ -126,22 +377,29 @@ const CaseStudySection = () => {
   const syncActiveByVisibility = () => {
     const list = stackCardsRef.current;
     if (!list) return;
-    const cards = Array.from(list.querySelectorAll<HTMLElement>("li[id^='tabScroll']"));
+    const cards = Array.from(
+      list.querySelectorAll<HTMLElement>("li[id^='tabScroll']")
+    );
     if (!cards.length) return;
 
     const rootEl = scrollContainerRef.current;
-    const rootRect = rootEl && rootEl.scrollHeight > rootEl.clientHeight
-      ? rootEl.getBoundingClientRect()
-      : new DOMRect(0, 0, window.innerWidth, window.innerHeight);
+    const rootRect =
+      rootEl && rootEl.scrollHeight > rootEl.clientHeight
+        ? rootEl.getBoundingClientRect()
+        : new DOMRect(0, 0, window.innerWidth, window.innerHeight);
 
-    let bestId = activeTab, best = 0;
+    let bestId = activeTab,
+      best = 0;
     for (const el of cards) {
       const r = el.getBoundingClientRect();
       const top = Math.max(r.top, rootRect.top);
       const bottom = Math.min(r.bottom, rootRect.bottom);
       const visible = Math.max(0, bottom - top);
       const ratio = r.height ? visible / r.height : 0;
-      if (ratio > best) { best = ratio; bestId = el.id; }
+      if (ratio > best) {
+        best = ratio;
+        bestId = el.id;
+      }
     }
     if (bestId !== activeTab) setActiveTab(bestId);
   };
@@ -150,11 +408,18 @@ const CaseStudySection = () => {
     if (isDesktop) return; // desktop pe stack math hi chalegi
     const root: any = scrollContainerRef.current ?? window;
     let raf = 0;
-    const onScroll = () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(syncActiveByVisibility); };
-    root.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onScroll, { passive: true });
+    const onScroll = () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(syncActiveByVisibility);
+    };
+    root.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll, { passive: true });
     syncActiveByVisibility();
-    return () => { root.removeEventListener('scroll', onScroll); window.removeEventListener('resize', onScroll); cancelAnimationFrame(raf); };
+    return () => {
+      root.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      cancelAnimationFrame(raf);
+    };
   }, [isDesktop]);
 
   // ✅ New function to maintain scale based on current position
@@ -167,24 +432,32 @@ const CaseStudySection = () => {
     const items = itemsRef.current;
     if (!items || items.length === 0 || !items[0]) return;
 
-    const marginYValue = getComputedStyle(element).getPropertyValue('--stack-cards-gap');
+    const marginYValue =
+      getComputedStyle(element).getPropertyValue("--stack-cards-gap");
     const marginY = getIntegerFromProperty(marginYValue, element);
     if (isNaN(marginY)) return;
 
     const top = element.getBoundingClientRect().top;
     const cardStyle = getComputedStyle(items[0]);
-    const cardTop = Math.floor(parseFloat(cardStyle.getPropertyValue('top')));
-    const cardHeight = Math.floor(parseFloat(cardStyle.getPropertyValue('height')));
+    const cardTop = Math.floor(parseFloat(cardStyle.getPropertyValue("top")));
+    const cardHeight = Math.floor(
+      parseFloat(cardStyle.getPropertyValue("height"))
+    );
 
     for (let i = 0; i < items.length; i++) {
       if (!items[i]) continue;
-      
+
       const scrolling = cardTop - top - i * (cardHeight + marginY);
 
       if (scrolling > 0) {
-        const scaling = i === items.length - 1 ? 1 : (cardHeight - scrolling * 0.05) / cardHeight;
+        const scaling =
+          i === items.length - 1
+            ? 1
+            : (cardHeight - scrolling * 0.05) / cardHeight;
         const boundedScaling = Math.max(0.7, Math.min(1, scaling));
-        items[i].style.transform = `translateY(${marginY * i}px) scale(${boundedScaling})`;
+        items[i].style.transform = `translateY(${
+          marginY * i
+        }px) scale(${boundedScaling})`;
       } else {
         items[i].style.transform = `translateY(${marginY * i}px)`;
       }
@@ -207,18 +480,33 @@ const CaseStudySection = () => {
       return;
     }
 
-    const marginYValue = getComputedStyle(element).getPropertyValue('--stack-cards-gap');
+    const marginYValue =
+      getComputedStyle(element).getPropertyValue("--stack-cards-gap");
     const marginY = getIntegerFromProperty(marginYValue, element);
-    if (isNaN(marginY)) { scrollingRef.current = false; return; }
+    if (isNaN(marginY)) {
+      scrollingRef.current = false;
+      return;
+    }
 
     const top = element.getBoundingClientRect().top;
     const cardStyle = getComputedStyle(items[0]);
-    const cardTop = Math.floor(parseFloat(cardStyle.getPropertyValue('top')));
-    const cardHeight = Math.floor(parseFloat(cardStyle.getPropertyValue('height')));
+    const cardTop = Math.floor(parseFloat(cardStyle.getPropertyValue("top")));
+    const cardHeight = Math.floor(
+      parseFloat(cardStyle.getPropertyValue("height"))
+    );
     const elementHeight = element.offsetHeight;
     const windowHeight = window.innerHeight;
 
-    if (cardTop - top + windowHeight - elementHeight - cardHeight + marginY + marginY * items.length > 0) {
+    if (
+      cardTop -
+        top +
+        windowHeight -
+        elementHeight -
+        cardHeight +
+        marginY +
+        marginY * items.length >
+      0
+    ) {
       scrollingRef.current = false;
       return;
     }
@@ -228,18 +516,26 @@ const CaseStudySection = () => {
 
     for (let i = 0; i < items.length; i++) {
       if (!items[i]) continue;
-      
+
       const scrolling = cardTop - top - i * (cardHeight + marginY);
 
       if (scrolling > 0) {
-        const scaling = i === items.length - 1 ? 1 : (cardHeight - scrolling * 0.05) / cardHeight;
-        items[i].style.transform = `translateY(${marginY * i}px) scale(${scaling})`;
+        const scaling =
+          i === items.length - 1
+            ? 1
+            : (cardHeight - scrolling * 0.05) / cardHeight;
+        items[i].style.transform = `translateY(${
+          marginY * i
+        }px) scale(${scaling})`;
       } else {
         items[i].style.transform = `translateY(${marginY * i}px)`;
       }
 
       const dist = Math.abs(scrolling);
-      if (dist < bestDist) { bestDist = dist; bestIndex = i; }
+      if (dist < bestDist) {
+        bestDist = dist;
+        bestIndex = i;
+      }
     }
 
     const id = `tabScroll${bestIndex + 1}`;
@@ -247,7 +543,6 @@ const CaseStudySection = () => {
 
     scrollingRef.current = false;
   };
-
 
   const stackCardsScrolling = (): void => {
     if (!isDesktop || scrollingRef.current) return;
@@ -257,11 +552,15 @@ const CaseStudySection = () => {
 
   const initStackCardsEffect = (): void => {
     // Only initialize if we have the required elements
-    if (stackCardsRef.current && itemsRef.current && itemsRef.current.length > 0) {
+    if (
+      stackCardsRef.current &&
+      itemsRef.current &&
+      itemsRef.current.length > 0
+    ) {
       setStackCards();
       if (!isDesktop) return;
 
-      window.addEventListener('scroll', stackCardsScrolling);
+      window.addEventListener("scroll", stackCardsScrolling);
     }
   };
 
@@ -269,10 +568,8 @@ const CaseStudySection = () => {
     if (animationFrameRef.current) {
       cancelAnimationFrame(animationFrameRef.current);
     }
-    window.removeEventListener('scroll', stackCardsScrolling);
+    window.removeEventListener("scroll", stackCardsScrolling);
   };
-
-
 
   const handleTabClick = (tabId: string) => {
     setActiveTab(tabId);
@@ -292,20 +589,15 @@ const CaseStudySection = () => {
     }
 
     // Fallback: page scroll
-    const y =
-      window.scrollY +
-      target.getBoundingClientRect().top -
-      80; // adjust if you have a sticky header
+    const y = window.scrollY + target.getBoundingClientRect().top - 80; // adjust if you have a sticky header
     window.scrollTo({ top: y, behavior: "smooth" });
   };
 
-
-  // helper: fetch all card <li> by known ids (order preserved)
-  const getCardEls = () => (
-    ["tabScroll1", "tabScroll2", "tabScroll3", "tabScroll4", "tabScroll5", "tabScroll6"]
-      .map(id => document.getElementById(id))
-      .filter(Boolean) as HTMLElement[]
-  );
+  // helper: fetch all card <li> by filtered cards ids (order preserved)
+  const getCardEls = () =>
+    filteredCards
+      .map((card) => document.getElementById(card.id))
+      .filter(Boolean) as HTMLElement[];
 
   // compute visible ratio of an element inside a root rect
   const ratioInRoot = (rect: DOMRect, rootRect: DOMRect) => {
@@ -365,7 +657,7 @@ const CaseStudySection = () => {
       window.removeEventListener("resize", onScroll);
       cancelAnimationFrame(raf);
     };
-  }, [scrollContainerRef.current]); // only rewire if the scrolling root changes
+  }, [scrollContainerRef.current, filteredCards]); // rewire if the scrolling root or cards change
 
   // Handle resize
   useEffect(() => {
@@ -399,12 +691,12 @@ const CaseStudySection = () => {
       resizeTimeout = setTimeout(handleResize, 500);
     };
 
-    window.addEventListener('resize', resizeListener);
+    window.addEventListener("resize", resizeListener);
 
     // Clean up
     return () => {
       cleanupStackCards();
-      window.removeEventListener('resize', resizeListener);
+      window.removeEventListener("resize", resizeListener);
       if (resizeTimeout) clearTimeout(resizeTimeout);
     };
   }, [isDesktop, activeTab]);
@@ -435,7 +727,7 @@ const CaseStudySection = () => {
     const timer = setTimeout(() => {
       if (stackCardsRef.current) {
         itemsRef.current = Array.from(
-          stackCardsRef.current.getElementsByClassName('js-stack-cards__item')
+          stackCardsRef.current.getElementsByClassName("js-stack-cards__item")
         ) as HTMLLIElement[];
 
         // Only call setStackCards on mobile to remove classes
@@ -446,12 +738,51 @@ const CaseStudySection = () => {
     }, 100);
 
     return () => clearTimeout(timer);
-  }, [isDesktop]);
+  }, [isDesktop, activeCategory]);
+
+  // Reinitialize stack cards when category changes
+  useEffect(() => {
+    cleanupStackCards();
+
+    // Reset sticky state when category changes
+    setShouldStick(true);
+
+    // Set active tab to first card of the category
+    if (filteredCards.length > 0) {
+      setActiveTab(filteredCards[0].id);
+    }
+
+    // Scroll to top of cards section when category changes
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    const timer = setTimeout(() => {
+      if (!osHasReducedMotion()) {
+        initStackCardsEffect();
+      }
+    }, 200);
+
+    return () => {
+      clearTimeout(timer);
+      cleanupStackCards();
+    };
+  }, [activeCategory, filteredCards]);
+
+  // Handle fade effect when category changes
+  useEffect(() => {
+    setIsFading(true);
+    const fadeOutTimer = setTimeout(() => {
+      setIsFading(false);
+    }, 150);
+
+    return () => clearTimeout(fadeOutTimer);
+  }, [activeCategory]);
 
   // ✅ Add intersection observer or interval to maintain scale when not scrolling
   useEffect(() => {
     if (!isDesktop) return;
-    
+
     const intervalId = setInterval(() => {
       if (!scrollingRef.current) {
         maintainStackCardsScale();
@@ -461,132 +792,235 @@ const CaseStudySection = () => {
     return () => clearInterval(intervalId);
   }, [isDesktop]);
 
+  // ✅ Check if all cards are scrolled past to unstick tabs navigation
+  useEffect(() => {
+    const checkScrollPosition = () => {
+      const cardsList = stackCardsRef.current;
+      if (!cardsList) return;
+
+      const cards = Array.from(
+        cardsList.querySelectorAll<HTMLElement>("li[id^='tabScroll']")
+      );
+      if (cards.length === 0) return;
+
+      // Get the last card
+      const lastCard = cards[cards.length - 1];
+      if (!lastCard) return;
+
+      // Get the bounding rect of the last card
+      const lastCardRect = lastCard.getBoundingClientRect();
+      
+      // Get the entire cards container
+      const cardsListRect = cardsList.getBoundingClientRect();
+
+      // Check when cards section is finishing - when last card's bottom is passing viewport
+      // At this point, unstick tabs so they scroll up naturally with the page
+      // This ensures tabs scroll up smoothly, not hide
+      const viewportHeight = window.innerHeight;
+      
+      // When last card's bottom is above viewport bottom (cards finishing), tabs scroll up
+      // This makes tabs naturally scroll up as cards finish, not hide
+      const shouldUnstick = lastCardRect.bottom < viewportHeight;
+
+      // On mobile, tabs should never be sticky - always scroll naturally
+      // On desktop, apply sticky behavior based on scroll position
+      setShouldStick(isDesktop && !shouldUnstick);
+    };
+
+    // Check on scroll - handle both window and container scroll
+    const handleScroll = () => {
+      requestAnimationFrame(checkScrollPosition);
+    };
+
+    const rootEl = scrollContainerRef.current;
+
+    // Listen to both window and container scroll if container is scrollable
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    if (rootEl) {
+      rootEl.addEventListener("scroll", handleScroll, { passive: true });
+    }
+
+    checkScrollPosition(); // Initial check
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (rootEl) {
+        rootEl.removeEventListener("scroll", handleScroll);
+      }
+    };
+  }, [filteredCards, activeCategory]);
 
   return (
-
-
-    
     <div className="pb_8 sectionPadding bg-cover mobile-padding-bottom-0">
       <section className="sectionPaddingCase pt-0 mobile-padding-bottom-0">
-        <div className="container mx-auto">
+        <Container maxWidth="2xl" >
           <div className="row align-items-center justify-content-center">
             <div className="col-md-6 text-center section-heading-para mb-10">
-              <h2 className="mb-5 text-white text-center">
-                Meet Your <span>AI-Empowered</span><br></br> Team Behind Your Growth
+              <h2 className="mb-5 text-white text-center headingSize max-w-2xl mx-auto">
+                Meet Your <span>AI-Empowered</span> Team Behind Your Growth
               </h2>
-              <p className="text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, <br></br>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              <p className="text-white max-w-4xl mx-auto">
+                When you bring on your Smart Marketing Al Team, you're not
+                hiring freelancers — you're unlocking a complete digital
+                department. Each role blends human expertise with Al precision
+                to move your marketing faster, smarter, and farther than ever.
+                Every deliverable builds lasting value for your business, from
+                the first design to full-scale automation.
+              </p>
             </div>
           </div>
-          <div className="w-[70%] mx-auto">
+          <div className="mx-auto xl:w-[70%]">
+            {/* Tabs Navigation */}
+            <div
+              className={`${
+                shouldStick ? "sticky" : ""
+              } top-10 z-50 py-3 rounded-full w-fit mx-auto md:bg-[#0b0038] px-4 flex items-end justify-center gap-0 mb-8 flex-wrap`}
+            >
+              <button
+                onClick={() => {
+                  setActiveCategory("creative");
+                  const firstCreativeCard = cardsData.find(
+                    (card) => card.category === "creative"
+                  );
+                  if (firstCreativeCard) setActiveTab(firstCreativeCard.id);
+                }}
+                className={`px-10 py-3 rounded-4xl text-base font-semibold transition-all relative ${
+                  activeCategory === "creative"
+                    ? "bg-[#643bff] text-white"
+                    : "text-[#6b7280] hover:text-[#9ca3af]"
+                }`}
+              >
+                Creative & Design
+              </button>
+              <div
+                className={`h-8 w-px hidden md:block ${
+                  activeCategory !== "creative" &&
+                  activeCategory !== "marketing"
+                    ? "bg-[#374151]"
+                    : "bg-transparent"
+                }`}
+              ></div>
+              <button
+                onClick={() => {
+                  setActiveCategory("marketing");
+                  const firstMarketingCard = cardsData.find(
+                    (card) => card.category === "marketing"
+                  );
+                  if (firstMarketingCard) setActiveTab(firstMarketingCard.id);
+                }}
+                className={`px-10 py-3 rounded-4xl text-base font-semibold transition-all ${
+                  activeCategory === "marketing"
+                    ? "bg-[#643bff] text-white"
+                    : "text-[#6b7280] hover:text-[#9ca3af]"
+                }`}
+              >
+                Marketing & Growth
+              </button>
+              <div
+                className={`h-8 w-px hidden md:block ${
+                  activeCategory !== "marketing" &&
+                  activeCategory !== "development"
+                    ? "bg-[#374151]"
+                    : "bg-transparent"
+                }`}
+              ></div>
+              <button
+                onClick={() => {
+                  setActiveCategory("development");
+                  const firstDevCard = cardsData.find(
+                    (card) => card.category === "development"
+                  );
+                  if (firstDevCard) setActiveTab(firstDevCard.id);
+                }}
+                className={`px-10 py-3 rounded-4xl text-base font-semibold transition-all ${
+                  activeCategory === "development"
+                    ? "bg-[#643bff] text-white"
+                    : "text-[#6b7280] hover:text-[#9ca3af]"
+                }`}
+              >
+                Development
+              </button>
+              <div
+                className={`h-8 w-px hidden md:block ${
+                  activeCategory !== "development" &&
+                  activeCategory !== "keygrowth"
+                    ? "bg-[#374151]"
+                    : "bg-transparent"
+                }`}
+              ></div>
+              <button
+                onClick={() => {
+                  setActiveCategory("keygrowth");
+                  const firstGrowthCard = cardsData.find(
+                    (card) => card.category === "keygrowth"
+                  );
+                  if (firstGrowthCard) setActiveTab(firstGrowthCard.id);
+                }}
+                className={`px-10 py-3 rounded-4xl text-base font-semibold transition-all ${
+                  activeCategory === "keygrowth"
+                    ? "bg-[#643bff] text-white"
+                    : "text-[#6b7280] hover:text-[#9ca3af]"
+                }`}
+              >
+                Key Growth
+              </button>
+            </div>
             <div className="tabSection">
               <div className="">
                 <div className="px-4" ref={scrollContainerRef}>
                   <ul
-                    className="service-scrollerArea stack-cards js-stack-cards"
+                    className={`service-scrollerArea stack-cards js-stack-cards transition-opacity duration-300 ease-in-out ${
+                      isFading ? "opacity-0" : "opacity-100"
+                    }`}
                     id="serviceScrollerArea"
                     ref={stackCardsRef}
                   >
-                    {/* WhatsApp AI Agent */}
-                    <li
-                      className="service-scrollerItemContainer stack-cards__item js-stack-cards__item"
-                      id="tabScroll1"
-                    >
-                        <div className="grid grid-cols-1 md:grid-cols-[60%_40%] gap-6 scrollerItem">
-                            <div className="inner-div my-auto p-5">
-                                <h3>Brand Designer</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur</p>
-                                <div className="inner-tags flex flex-wrap gap-2">
-                                    <span>Logo Design</span>
-                                    <span>Brand Guidelines</span>
-                                    <span>Color Palette</span>
-                                    <span>Typography System</span>
-                                    <span>Social Templates</span>
-                                    <span>Rebrand Plan</span>
-                                    <span>Business Cards</span>
-                                    <span>Email Signature</span>
-                                    <span>Icon Set</span>
-                                    <span>Mockups</span>
-                                    <span>Packaging</span>
-                                    <span>Stationery</span>
-                                    
-                                </div>
-                                <Link href="#" className="btn-primary">Hire Brand Designer &#8594;</Link>
+                    {filteredCards.map((card, index) => {
+                      const colors = ["#110e21", "#16112d", "#21164c"];
+                      const cardColor = colors[index % 3];
+                      return (
+                        <li
+                          key={card.id}
+                          className="service-scrollerItemContainer stack-cards__item js-stack-cards__item"
+                          id={card.id}
+                        >
+                          <div
+                            className="grid grid-cols-1 md:grid-cols-[60%_40%] gap-6 scrollerItem"
+                            style={{ backgroundColor: cardColor }}
+                          >
+                            <div className="inner-div my-auto p-5 ps-7">
+                              <h3>{card.title}</h3>
+                              <p className="text-[#0fdac2]">{card.subtitle}</p>
+                              <div className="inner-tags flex flex-wrap gap-2">
+                                {card.tags.map((tag, tagIndex) => (
+                                  <span key={tagIndex}>{tag}</span>
+                                ))}
+                              </div>
+                              <Link href="#" className="btn-primary">
+                                {card.buttonText} &nbsp; &#8594;
+                              </Link>
                             </div>
                             <div className="text-center">
-                                <Image src="/assets/images/2.png" className="caseImg" alt="brand-designer" width={300} height={200} />
+                              <Image
+                                src={card.image}
+                                className="caseImg"
+                                alt={card.title
+                                  .toLowerCase()
+                                  .replace(/\s+/g, "-")}
+                                width={300}
+                                height={200}
+                              />
                             </div>
-                        </div>
-                    </li>
-
-                    {/* Phone AI Agent */}
-                    <li
-                      className="service-scrollerItemContainer stack-cards__item js-stack-cards__item"
-                      id="tabScroll2"
-                    >
-                      <div className="grid grid-cols-1 md:grid-cols-[60%_40%] gap-6 scrollerItem">
-                            <div className="inner-div my-auto p-5">
-                                <h3>Brand Designer</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur</p>
-                                <div className="inner-tags flex flex-wrap gap-2">
-                                    <span>Logo Design</span>
-                                    <span>Brand Guidelines</span>
-                                    <span>Color Palette</span>
-                                    <span>Typography System</span>
-                                    <span>Social Templates</span>
-                                    <span>Rebrand Plan</span>
-                                    <span>Business Cards</span>
-                                    <span>Email Signature</span>
-                                    <span>Icon Set</span>
-                                    <span>Mockups</span>
-                                    <span>Packaging</span>
-                                    <span>Stationery</span>
-                                    
-                                </div>
-                                <Link href="#" className="btn-primary">Hire Brand Designer &#8594;</Link>
-                            </div>
-                            <div className="text-center">
-                                <Image src="/assets/images/2.png" className="caseImg" alt="brand-designer" width={300} height={200} />
-                            </div>
-                        </div>
-                    </li>
-
-                    {/* Shopify AI Agent */}
-                    <li
-                      className="service-scrollerItemContainer stack-cards__item js-stack-cards__item"
-                      id="tabScroll3"
-                    >
-                      <div className="grid grid-cols-1 md:grid-cols-[60%_40%] gap-6 scrollerItem">
-                            <div className="inner-div my-auto p-5">
-                                <h3>Brand Designer</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur</p>
-                                <div className="inner-tags flex flex-wrap gap-2">
-                                    <span>Logo Design</span>
-                                    <span>Brand Guidelines</span>
-                                    <span>Color Palette</span>
-                                    <span>Typography System</span>
-                                    <span>Social Templates</span>
-                                    <span>Rebrand Plan</span>
-                                    <span>Business Cards</span>
-                                    <span>Email Signature</span>
-                                    <span>Icon Set</span>
-                                    <span>Mockups</span>
-                                    <span>Packaging</span>
-                                    <span>Stationery</span>
-                                    
-                                </div>
-                                <Link href="#" className="btn-primary">Hire Brand Designer &#8594;</Link>
-                            </div>
-                            <div className="text-center">
-                                <Image src="/assets/images/2.png" className="caseImg" alt="brand-designer" width={300} height={200} />
-                            </div>
-                        </div>
-                    </li>
+                          </div>
+                        </li>
+                      );
+                    })}
                   </ul>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
     </div>
   );

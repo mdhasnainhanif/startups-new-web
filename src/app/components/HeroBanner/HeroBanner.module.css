@@ -3,13 +3,12 @@
   overflow: hidden;
 }
 
-.heading{
+.heading {
   max-width: 49rem;
   line-height: 1.2;
 }
 
 @keyframes float {
-
   0%,
   100% {
     transform: translate(0, 0) scale(1);
@@ -28,13 +27,21 @@
 }
 
 .heroBackground {
-  background: url('../../../../public/assets/images/hero.webp') no-repeat center center;
+  background: url("../../../../public/assets/images/hero.webp") no-repeat center
+    center;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  padding-top: 11rem;
+  padding-top: 4rem;
+  padding-bottom: 0rem !important;
 }
 
 section.bottomZero {
   padding-bottom: 0rem !important;
+}
+
+@media screen and (max-width: 768px){
+  .heroBackground {
+    padding-top: 0rem;
+  }
 }

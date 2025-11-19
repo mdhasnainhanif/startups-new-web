@@ -35,7 +35,7 @@ const BusinessSlider: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 relative z-10">
         {/* Heading */}
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold">
+          <h2 className="text-4xl md:text-5xl font-bold text-white">
             Local <span className="text-teal-400">Businesses</span> Struggle to Stay Visible
           </h2>
           <p className="mt-4 text-gray-300 max-w-2xl mx-auto">
@@ -59,7 +59,7 @@ const BusinessSlider: React.FC = () => {
           {videos.map((video, index) => (
             <SwiperSlide key={index}>
               <div className="bg-[#181339] rounded-xl p-4 flex flex-col items-center relative group">
-                <div className="relative w-full h-64 md:h-72 rounded-lg overflow-hidden mb-4">
+                <div className={`relative w-full h-64 md:h-72 rounded-lg overflow-hidden mb-4 ${styles.videoCard}`}>
                   <Image
                     src={video.img}
                     alt="Video"

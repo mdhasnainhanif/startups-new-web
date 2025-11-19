@@ -1,0 +1,234 @@
+/* Button Primary Base Styles */
+.btnPrimary {
+  -webkit-appearance: button;
+  -moz-appearance: button;
+  appearance: button;
+  box-sizing: border-box;
+  cursor: pointer;
+  text-align: center;
+  touch-action: manipulation;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  background-color: #311F77;
+  border: 0 solid rgba(0, 0, 0, 0);
+  border-bottom-width: 4px;
+  border-radius: 36px;
+  outline: none;
+  width: -moz-fit-content;
+  width: fit-content;
+  /* Padding and font-size are handled by size classes (.sm, .md, .lg) */
+  transition: filter 0.2s;
+  display: inline-flex;
+  overflow: visible;
+  transform: translateZ(0);
+  color: #fff !important;
+  position: relative;
+  gap: 0.5rem;
+}
+
+/* Size variants */
+.btnPrimary.sm {
+  padding: 6px 12px;
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+.btnPrimary.md {
+  padding: 12px 24px;
+  font-size: 1rem;
+  line-height: 19px;
+}
+
+.btnPrimary.lg {
+  padding: 12px 32px;
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+}
+
+.btnPrimary::after {
+  background-clip: padding-box;
+  background-color: #643BFF;
+  border: solid transparent;
+  border-radius: 36px;
+  border-width: 0 0 4px;
+  bottom: -4px;
+  content: "";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+}
+
+.btnPrimary:active {
+  border-width: 4px 0 0;
+  background: none;
+}
+
+.purple {
+  background-color: #5633DC;
+}
+
+.purple::after {
+  background-color: #311F77;
+}
+
+.green {
+  background-color: #039F8D;
+  color: #000 !important;
+}
+
+.green::after {
+  background-color: #0FDAC2;
+}
+
+/* Modifier classes - use :global() for classes passed via className */
+:global(.nav) {
+  padding: 7px 24px;
+  padding-top: 8px;
+  line-height: 19px;
+  font-size: 0.85rem;
+}
+
+:global(.w-full) {
+  width: 100% !important;
+}
+
+:global(.center) {
+  margin: 0 auto;
+  display: block;
+  margin-bottom: 2.5rem;
+}
+
+/* Button Purple Styles */
+.buttonPurple {
+  appearance: button;
+  background-color: #5633DC;
+  border: solid transparent;
+  border-radius: 36px;
+  border-width: 0 0 4px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 20px;
+  margin: 0;
+  outline: none;
+  overflow: visible;
+  padding: 13px 50px;
+  text-align: center;
+  touch-action: manipulation;
+  transform: translateZ(0);
+  transition: filter 0.2s;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  width: fit-content;
+  position: relative;
+}
+
+.buttonPurple::after {
+  background-clip: padding-box;
+  background-color: #311F77;
+  border: solid transparent;
+  border-radius: 36px;
+  border-width: 0 0 4px;
+  bottom: -4px;
+  content: "";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+}
+
+.buttonPurple,
+.buttonPurple:focus {
+  user-select: auto;
+}
+
+.buttonPurple:hover:not(:disabled) {
+  filter: brightness(1.1);
+  -webkit-filter: brightness(1.1);
+}
+
+.buttonPurple:disabled {
+  cursor: auto;
+}
+
+.buttonPurple:active {
+  border-width: 4px 0 0;
+  background: none;
+}
+
+/* Button Green Styles */
+.buttonGreen {
+  appearance: button;
+  background-color: #0FDAC2;
+  border: solid transparent;
+  border-radius: 36px;
+  border-width: 0 0 4px;
+  box-sizing: border-box;
+  color: #ffffff !important;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 20px;
+  margin: 0;
+  outline: none;
+  overflow: visible;
+  padding: 13px 50px;
+  text-align: center;
+  touch-action: manipulation;
+  transform: translateZ(0);
+  transition: filter 0.2s;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  width: fit-content;
+  position: relative;
+}
+
+.buttonGreen::after {
+  background-clip: padding-box;
+  background-color: #039F8D;
+  border: solid transparent;
+  border-radius: 36px;
+  border-width: 0 0 4px;
+  bottom: -4px;
+  content: "";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+}
+
+.buttonGreen,
+.buttonGreen:focus {
+  user-select: auto;
+}
+
+.buttonGreen:hover:not(:disabled) {
+  filter: brightness(1.1);
+  -webkit-filter: brightness(1.1);
+}
+
+.buttonGreen:disabled {
+  cursor: auto;
+}
+
+.buttonGreen:active {
+  border-width: 4px 0 0;
+  background: none;
+}
+
+

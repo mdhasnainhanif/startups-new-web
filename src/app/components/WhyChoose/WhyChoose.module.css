@@ -130,6 +130,15 @@
 
 /* Responsive Styles */
 @media (max-width: 1024px) {
+  .section {
+    padding: 5rem 0 7rem;
+  }
+
+  .section::before {
+    width: 300px;
+    height: 400px;
+  }
+
   .contentWrapper {
     grid-template-columns: 1fr;
     gap: 3rem;
@@ -150,7 +159,12 @@
 
 @media (max-width: 768px) {
   .section {
-    padding: 4rem 0;
+    padding: 4rem 0 6rem;
+  }
+
+  .section::before {
+    width: 250px;
+    height: 350px;
   }
 
   .contentWrapper {
@@ -171,6 +185,54 @@
 
   .accordionButton {
     padding: 1.25rem;
+  }
+
+  .accordionDescription {
+    font-size: 0.9375rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: 3rem 0 4rem;
+  }
+
+  .contentWrapper {
+    gap: 1.5rem;
+  }
+
+  .heading {
+    font-size: 1.75rem;
+  }
+
+  .description {
+    font-size: 0.9375rem;
+  }
+
+  .accordionTitle {
+    font-size: 1rem;
+  }
+
+  .accordionButton {
+    padding: 1rem;
+  }
+
+  .accordionDescription {
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 2.5rem 0 3rem;
+  }
+
+  .heading {
+    font-size: 1.5rem;
+  }
+
+  .description {
+    font-size: 0.875rem;
   }
 }
 

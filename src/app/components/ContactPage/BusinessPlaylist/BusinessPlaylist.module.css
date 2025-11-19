@@ -1,18 +1,401 @@
-.scrollbar {
-  scrollbar-width: thin;
-  scrollbar-color: #00d8b6 #111133;
+.section {
+  background: #080523;
+  position: relative;
 }
 
-.scrollbar::-webkit-scrollbar {
-  width: 8px;
+.mainHeading {
+  color: #ffffff;
+  line-height: 1.2;
 }
 
-.scrollbar::-webkit-scrollbar-track {
-  background: #111133;
-  border-radius: 6px;
+.subtitle {
+  line-height: 1.6;
 }
 
-.scrollbar::-webkit-scrollbar-thumb {
-  background-color: #00d8b6;
-  border-radius: 6px;
+.videoSection {
+  width: 100%;
+}
+
+.videoContainer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 1rem;
+  overflow: hidden;
+  background: linear-gradient(135deg, #1a1a40 0%, #0b0b2d 100%);
+}
+
+.videoThumbnail {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.thumbnailImage {
+  object-fit: cover;
+  opacity: 0.8;
+}
+
+.playButtonOverlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.playButton {
+  cursor: pointer;
+  transition: transform 0.2s;
+  border: none;
+  background: transparent;
+  padding: 0;
+}
+
+.playButton:hover {
+  transform: scale(1.1);
+}
+
+.videoTextOverlay {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 50%;
+  background: linear-gradient(
+    to left,
+    rgba(8, 5, 35, 0.9) 0%,
+    rgba(8, 5, 35, 0.7) 50%,
+    transparent 100%
+  );
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+  z-index: 1;
+}
+
+.overlayText {
+  color: #ffffff;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  text-align: right;
+}
+
+.videoPlayer {
+  width: 100%;
+  height: 100%;
+}
+
+.iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.playlistSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.playlistHeader {
+  margin-bottom: 0.5rem;
+}
+
+.playlistTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 0.5rem 0;
+}
+
+.playlistMeta {
+  font-size: 0.875rem;
+  color: #ffffff;
+  margin: 0;
+}
+
+.lessonCount {
+  color: #0fdac2;
+}
+
+.playlistItems {
+  flex-direction: column;
+  gap: .5rem;
+  max-height: 450px;
+  display: flex;
+  overflow-y: scroll;
+  height: 250px;
+}
+
+.playlistItems::-webkit-scrollbar {
+  width: 7px;
+}
+
+.playlistItems::-webkit-scrollbar-track {
+  background: #140a3c;
+}
+
+.playlistItems::-webkit-scrollbar-thumb {
+  background: #643bff;
+  border-radius: 3px;
+}
+
+.playlistItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  background: transparent;
+  border-top-left-radius: 100px;
+  border-bottom-left-radius: 100px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.playlistItem:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.activeItem {
+  background: rgba(26, 26, 64, 0.8) !important;
+}
+
+.itemLeft {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex: 1;
+}
+
+.playIcon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0fdac2;
+  flex-shrink: 0;
+}
+
+.itemContent {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.itemNumber {
+  font-size: 0.875rem;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.itemTitle {
+  font-size: 0.875rem;
+  color: #ffffff;
+  font-weight: 400;
+}
+
+.activeItem .itemTitle {
+  color: #0fdac2;
+  font-weight: 500;
+}
+
+.itemDuration {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.6);
+  flex-shrink: 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .mainHeading {
+    font-size: 2.5rem;
+  }
+
+  .subtitle {
+    font-size: 1.125rem;
+  }
+
+  .videoContainer {
+    border-radius: 0.75rem;
+  }
+
+  .playlistTitle {
+    font-size: 1.375rem;
+  }
+
+  .playlistItems {
+    max-height: 400px;
+    height: 220px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 3rem 0;
+  }
+
+  .mainHeading {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .videoContainer {
+    border-radius: 0.5rem;
+  }
+
+  .playButtonOverlay svg {
+    width: 60px;
+    height: 60px;
+  }
+
+  .videoTextOverlay {
+    width: 60%;
+    padding: 1.5rem;
+  }
+
+  .overlayText {
+    font-size: 0.75rem;
+    padding: 1rem;
+  }
+
+  .playlistTitle {
+    font-size: 1.25rem;
+  }
+
+  .playlistMeta {
+    font-size: 0.8125rem;
+  }
+
+  .playlistItems {
+    max-height: 350px;
+    height: 200px;
+    gap: 0.375rem;
+  }
+
+  .playlistItem {
+    padding: 0.75rem;
+  }
+
+  .itemNumber,
+  .itemTitle,
+  .itemDuration {
+    font-size: 0.8125rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: 2rem 0;
+  }
+
+  .mainHeading {
+    font-size: 1.75rem;
+  }
+
+  .subtitle {
+    font-size: 0.9375rem;
+  }
+
+  .videoContainer {
+    aspect-ratio: 4 / 3;
+  }
+
+  .playButtonOverlay svg {
+    width: 50px;
+    height: 50px;
+  }
+
+  .videoTextOverlay {
+    width: 70%;
+    padding: 1rem;
+  }
+
+  .overlayText {
+    font-size: 0.6875rem;
+    line-height: 1.4;
+  }
+
+  .playlistSection {
+    gap: 1rem;
+  }
+
+  .playlistTitle {
+    font-size: 1.125rem;
+  }
+
+  .playlistMeta {
+    font-size: 0.75rem;
+  }
+
+  .playlistItems {
+    max-height: 300px;
+    height: 180px;
+  }
+
+  .playlistItem {
+    padding: 0.625rem;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+  }
+
+  .playIcon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .itemLeft {
+    gap: 0.5rem;
+  }
+
+  .itemNumber,
+  .itemTitle,
+  .itemDuration {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 1.5rem 0;
+  }
+
+  .mainHeading {
+    font-size: 1.5rem;
+  }
+
+  .subtitle {
+    font-size: 0.875rem;
+  }
+
+  .playButtonOverlay svg {
+    width: 40px;
+    height: 40px;
+  }
+
+  .videoTextOverlay {
+    display: none;
+  }
+
+  .playlistTitle {
+    font-size: 1rem;
+  }
+
+  .playlistItems {
+    height: 150px;
+  }
+
+  .playlistItem {
+    padding: 0.5rem;
+  }
 }

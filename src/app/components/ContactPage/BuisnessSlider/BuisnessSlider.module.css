@@ -12,11 +12,7 @@
   position: relative;
   border-radius: 16px;
   overflow: hidden;
-  border: 2px solid rgba(100, 59, 255, 0.3);
-  box-shadow: 0 0 20px rgba(100, 59, 255, 0.2), 0 0 40px rgba(100, 59, 255, 0.1),
-    inset 0 0 20px rgba(100, 59, 255, 0.05);
-  background: rgba(2, 0, 22, 0.8);
-  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 18px #1e365c;
   transition: all 0.3s ease;
 }
 
@@ -97,4 +93,58 @@
 
 .rocketImage{
     width:100px
+}
+.text-white{
+  color: #ffffff;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .videoCard {
+    border-radius: 12px;
+  }
+
+  .videoImage {
+    max-width: 22rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .videoCard {
+    border-radius: 10px;
+  }
+
+  .videoImage {
+    max-width: 100%;
+    border-radius: 1rem;
+  }
+
+  .videoMain {
+    padding: 1rem;
+  }
+
+  .personImage {
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .videoCard {
+    border-radius: 8px;
+  }
+
+  .videoImage {
+    border-radius: 0.75rem;
+  }
+
+  .videoMain {
+    padding: 0.75rem;
+    border-radius: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .rocketImage {
+    width: 80px;
+  }
 }

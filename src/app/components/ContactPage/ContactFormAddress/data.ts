@@ -5,7 +5,7 @@ export const contactFormAddressData: ContactFormAddressConfig = {
     {
       id: "email",
       icon: "mail",
-      label: "E - Mail",
+      label: "Email",
       value: "info@startupsadvisory.ai",
       bgColor: "bg-blue-500",
       href: "mailto:info@startupsadvisory.ai",
@@ -14,9 +14,9 @@ export const contactFormAddressData: ContactFormAddressConfig = {
       id: "phone",
       icon: "phone",
       label: "Contact us",
-      value: "+1 267-248-9454",
+      value: "+1 346-626-9169",
       bgColor: "bg-purple-500",
-      href: "tel:+12672489454",
+      href: "tel:+13466269169",
     },
     {
       id: "location",

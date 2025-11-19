@@ -8,7 +8,7 @@ export default function Reviews() {
 
   return (
     <>
-      <section className={styles.section}>
+      <section className={`${styles.section} sectionPadding`}>
         <Container maxWidth="xl">
           {/* Header Section */}
           <div className={styles.header}>
@@ -24,8 +24,8 @@ export default function Reviews() {
               <p className={styles.subtitle}>{REVIEWS_SECTION.subtitle}</p>
             </div>
             <p className={styles.ctaText}>
-              See how{" "}
-              <span className="text-[#0fdac2]">Smart Marketing AI Teams</span>{" "}
+              See how
+              <span className="text-[#0fdac2]">Smart Marketing AI Teams</span>&nbsp;
               turned invisibility into daily inquiries
             </p>
           </div>

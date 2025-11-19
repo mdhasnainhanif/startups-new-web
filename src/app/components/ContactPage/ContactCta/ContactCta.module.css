@@ -48,3 +48,111 @@
     top: 38px;
     right: -74px;
 }
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .rocket1,
+  .rocket2 {
+    width: 180px;
+  }
+
+  .rocket1 {
+    left: -40px;
+  }
+
+  .rocket2 {
+    right: -60px;
+  }
+
+  .ctaBox::before,
+  .ctaBox::after {
+    background-size: 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  .rocket1,
+  .rocket2 {
+    width: 150px;
+    top: 20px;
+  }
+
+  .rocket1 {
+    left: -30px;
+  }
+
+  .rocket2 {
+    right: -50px;
+  }
+
+  .ctaBox::before {
+    width: 200px;
+    height: 200px;
+    top: -20px;
+    left: -30px;
+  }
+
+  .ctaBox::after {
+    width: 220px;
+    height: 220px;
+    bottom: -15px;
+    right: -30px;
+  }
+
+  .ctaBox::before,
+  .ctaBox::after {
+    background-size: 200px;
+  }
+}
+
+@media (max-width: 640px) {
+  .rocket1,
+  .rocket2 {
+    width: 120px;
+    top: 10px;
+  }
+
+  .rocket1 {
+    left: -20px;
+  }
+
+  .rocket2 {
+    right: -40px;
+  }
+
+  .ctaBox::before {
+    width: 150px;
+    height: 150px;
+  }
+
+  .ctaBox::after {
+    width: 170px;
+    height: 170px;
+  }
+
+  .ctaBox::before,
+  .ctaBox::after {
+    background-size: 150px;
+    opacity: 0.05;
+  }
+}
+
+@media (max-width: 480px) {
+  .rocket1,
+  .rocket2 {
+    width: 100px;
+  }
+
+  .rocket1 {
+    left: -15px;
+  }
+
+  .rocket2 {
+    right: -30px;
+  }
+
+  .ctaBox::before,
+  .ctaBox::after {
+    display: none;
+  }
+}

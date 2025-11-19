@@ -33,14 +33,43 @@
 
 
 
+@media (max-width: 1024px) {
+  .bannerBackground {
+    padding-top: 7rem;
+    padding-bottom: 5rem;
+  }
+}
+
 @media (max-width: 768px) {
   .bannerBackground {
-    padding-top: 8rem;
+    padding-top: 6rem;
     padding-bottom: 4rem;
   }
   
   .heading {
     font-size: 2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .bannerBackground {
+    padding-top: 5rem;
+    padding-bottom: 3rem;
+  }
+
+  .heading {
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .bannerBackground {
+    padding-top: 4rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .heading {
+    font-size: 1.5rem;
   }
 }
 

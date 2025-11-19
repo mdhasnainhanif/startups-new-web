@@ -35,13 +35,13 @@ export default function FAQ({
 
     return (
         <section
-            className={`relative py-12 sm:py-16 md:py-20 lg:py-24 xl:py-17 ${className}`}
+            className={`relative sectionPadding ${className}`}
         >
             <Container maxWidth="xl" className="px-0">
                 <div className="flex flex-col items-center gap-8 sm:gap-10 md:gap-12 lg:gap-14">
                     {/* Section Title */}
                     <div className="text-center w-full px-4 sm:px-6">
-                        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl font-extrabold text-white mb-3 sm:mb-4 md:mb-5 leading-tight">
+                        <h2 className="headingSize text-white mb-3 sm:mb-4 md:mb-5 leading-tight">
                             <span className="text-white">{sectionData.title.part1}</span>{" "}
                             <span className="text-[#0fdac2]">{sectionData.title.part2}</span>
                         </h2>
@@ -60,7 +60,7 @@ export default function FAQ({
                                 >
                                     <button
                                         onClick={() => toggleFAQ(index)}
-                                        className="w-full px-0 py-4 sm:py-5 md:py-6 flex items-center justify-between text-left focus:outline-none transition-colors hover:opacity-80 gap-3 sm:gap-4"
+                                        className="w-full px-0 py-4 sm:py-5 md:py-6 flex items-center justify-between text-left focus:outline-none transition-colors hover:opacity-80 gap-3 sm:gap-4 cursor-pointer"
                                     >
                                         <span className="text-white font-semibold text-base sm:text-lg md:text-xl lg:text-2xl pr-2 sm:pr-4 flex-1 leading-snug sm:leading-normal">
                                             {faq.question}

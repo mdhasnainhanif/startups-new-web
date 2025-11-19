@@ -1,8 +1,8 @@
 export const COMPANY_INFO = {
   logo: "/assets/images/logo.svg",
   email: "info@startupsadvisory.ai",
-  phone: "+1 (555) 123-4567",
-  address: "123 Startup Street, Innovation City, IC 12345",
+  phone: "+1 346-626-9169",
+  address: "1007n Orange St, Wilmington, DE 19801, United States",
   companyName: "Startups ADVISORY.Ai",
   website: "https://startupsadvisory.ai",
 };
@@ -12,6 +12,8 @@ export const NAVIGATION_LINKS = [
   { label: "How it Works", href: "/how-it-works" },
   { label: "Pricing", href: "/pricing" },
   { label: "Your Ai Agent", href: "/ai-agent" },
+  { label: "About Us", href: "/about-us" },
+  { label: "Contact Us", href: "/contact-us" },
 ];
 
 export const TOP_BANNER = {
