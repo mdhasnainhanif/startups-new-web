@@ -14,27 +14,24 @@ import RealCost from '../components/RealCost/RealCost';
 import CompleteBusinessSetup from '../components/CompleteBusinessSetup/CompleteBusinessSetup';
 import Contact from '../components/Contact/Contact';
 import GuessWorkAdvertising from '../components/GuessWorkAdvertising/GuessWorkAdvertising';
+import ContactTwo from '../components/ContactTwo/ContactTwo';
 
 export default function homenew() {
   return (
     <section className="sectionPadding">
       <HomenewBanner />
-
       <TextSlider1 data={sliderData1}/>
       <Technologies />
       <ProfessionalDesign />
       <Reviews/>
-
       <AiPowerDesign/>
-      <Technologies />
       <CompleteBusinessSetup/>
       <GuessWorkAdvertising/>
       <RealCost/>
       <ProvenSuccess/>
-
       <GrowthSlider items={GROWTH_GUIDES} />
-
       <FAQ faqs={FAQ_DATA} sectionData={FAQ_SECTION} />
+      <ContactTwo/>
 
     </section>
   )

@@ -6,6 +6,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import styles from "./AiTeamSection.module.css";
+import Container from "../Container";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -318,7 +319,7 @@ export default function AiTeamSection() {
 
   return (
     <section ref={sectionRef} className={styles.section}>
-      <div className="mx-auto max-w-6xl px-4 py-16 md:py-24">
+      <Container maxWidth="xl" className="px-0">
         {/* Heading */}
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="text-3xl md:text-5xl font-bold leading-tight text-white">
@@ -403,7 +404,7 @@ export default function AiTeamSection() {
             </div>
           ))}
         </div>
-      </div>
+      </Container>
     </section>
   );
 }
