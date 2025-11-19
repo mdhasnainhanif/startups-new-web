@@ -25,7 +25,9 @@ export default function homenew() {
       <ProfessionalDesign />
       <Reviews/>
       <AiPowerDesign/>
+      <TextSlider1 data={sliderData2}/>
       <CompleteBusinessSetup/>
+      <TextSlider1 data={sliderData3}/>
       <GuessWorkAdvertising/>
       <RealCost/>
       <ProvenSuccess/>
