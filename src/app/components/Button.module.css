@@ -44,7 +44,7 @@
 }
 
 .btnPrimary.lg {
-  padding: 12px 32px;
+  padding: .75rem 1.25rem;
   font-size: 1.125rem;
   line-height: 1.5rem;
 }
@@ -69,13 +69,13 @@
   background: none;
 }
 
-.purple {
+/* .purple {
   background-color: #5633DC;
-}
+} */
 
-.purple::after {
+/* .purple::after {
   background-color: #311F77;
-}
+} */
 
 .green {
   background-color: #039F8D;
@@ -232,4 +232,16 @@
   background: none;
 }
 
+@media screen and (max-width: 768px) {
+  .btnPrimary.sm {
+    font-size: 0.75rem;
+  }
 
+  .btnPrimary.md {
+    font-size: 1rem;
+  }
+
+  .btnPrimary.lg {
+    font-size: 1rem;
+  }
+}

@@ -69,7 +69,7 @@ const ProfessionalOnline = () => {
                   >
                     <img
                       className={styles.videoImage}
-                      src="/assets/images/man.png"
+                      src="/assets/images/man.jpg"
                       alt="Video"
                     />
                     {/* Play Button Icon */}

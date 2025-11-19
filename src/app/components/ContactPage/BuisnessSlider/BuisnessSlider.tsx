@@ -12,12 +12,12 @@ import Button from "../../Button";
 import { ArrowRightIcon } from "../../icons";
 
 const videos = [
-  { img: "/assets/images/man.png" },
-  { img: "/assets/images/man.png" },
-  { img: "/assets/images/man.png" },
-  { img: "/assets/images/man.png" },
-  { img: "/assets/images/man.png" },
-  { img: "/assets/images/man.png" },
+  { img: "/assets/images/man.jpg" },
+  { img: "/assets/images/man.jpg" },
+  { img: "/assets/images/man.jpg" },
+  { img: "/assets/images/man.jpg" },
+  { img: "/assets/images/man.jpg" },
+  { img: "/assets/images/man.jpg" },
 ];
 
 const BusinessSlider: React.FC = () => {

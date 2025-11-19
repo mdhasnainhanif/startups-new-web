@@ -12,6 +12,8 @@ export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [isHeaderVisible, setIsHeaderVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   useEffect(() => {
     // Check if mobile
@@ -23,13 +25,24 @@ export default function Header() {
     window.addEventListener("resize", checkMobile);
 
     const handleScroll = () => {
-      // Only apply fixed on mobile
-      if (window.innerWidth < 768) {
-        const scrollPosition = window.scrollY;
-        setIsScrolled(scrollPosition > 50); // Fixed after 50px scroll
-      } else {
-        setIsScrolled(false); // Desktop always false
+      const currentScrollY = window.scrollY;
+      
+      // Apply fixed when scrolled
+      setIsScrolled(currentScrollY > 50);
+
+      // Scroll direction detection for header show/hide
+      if (currentScrollY < 10) {
+        // At top, always show
+        setIsHeaderVisible(true);
+      } else if (currentScrollY > lastScrollY) {
+        // Scrolling down - hide header
+        setIsHeaderVisible(false);
+      } else if (currentScrollY < lastScrollY) {
+        // Scrolling up - show header
+        setIsHeaderVisible(true);
       }
+
+      setLastScrollY(currentScrollY);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -39,18 +52,21 @@ export default function Header() {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", checkMobile);
     };
-  }, []);
+  }, [lastScrollY]);
 
   return (
     <>
-      {/* Mobile Header - Fixed when scrolled on mobile only */}
+      {/* Header - Fixed when scrolled */}
       <header
         className={`${
-          isScrolled && isMobile
+          isScrolled
             ? "fixed top-0"
             : "relative md:absolute md:top-12"
-        } left-0 right-0 z-100 flex items-center justify-center w-full py-4 bg-transparent md:bg-transparent transition-all duration-300`}
-        style={{ willChange: "transform" }}
+        } left-0 right-0 z-[100] flex items-center justify-center w-full py-4 bg-transparent md:bg-transparent transition-transform duration-300 ease-in-out`}
+        style={{ 
+          willChange: "transform",
+          transform: isHeaderVisible ? "translateY(0)" : "translateY(-100%)"
+        }}
       >
         <Container maxWidth="xl" className="px-0">
           <nav
@@ -59,15 +75,13 @@ export default function Header() {
           >
             <div className="flex items-center gap-2">
               <div
-                className="flex flex-col relative"
-                style={{ width: 100, height: 40 }}
-              >
+                className="flex flex-col relative">
                 <Link href="/" className="cursor-pointer">
                 <Image
                   src={COMPANY_INFO.logo}
                   alt="Logo"
-                  width={100}
-                  height={40}
+                  width={120}
+                  height={30}
                   priority
                   style={{ objectFit: "contain" }}
                 />

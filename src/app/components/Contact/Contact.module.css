@@ -3,16 +3,14 @@
   background: #050321;
   overflow: hidden;
 }
-.client_image
-{
-    max-width: 300px;
+.client_image {
+  max-width: 300px;
 }
-.rocket1
-{
-    position:absolute;
-    top: 0;
-    left: -28px;
-    width: 445px;
+.rocket1 {
+  position: absolute;
+  top: 0;
+  left: -28px;
+  width: 445px;
 }
 .contactCard {
   position: relative;
@@ -23,7 +21,11 @@
   grid-template-columns: 1fr 1fr;
   gap: 48px;
   z-index: 1;
-  background-image: radial-gradient(circle, rgba(15, 218, 194, 0.1) 1px, transparent 1px);
+  background-image: radial-gradient(
+    circle,
+    rgba(15, 218, 194, 0.1) 1px,
+    transparent 1px
+  );
   background-size: 24px 24px;
   border: 1px solid rgba(78, 73, 137, 0.3);
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
@@ -139,13 +141,11 @@
 .formFieldFull {
   grid-column: 1 / -1;
 }
-.inputField
-{
-    border-radius:100px;
+.inputField {
+  border-radius: 0.5rem;
 }
-.textareaField
-{
-    border-radius: 25px;
+.textareaField {
+  border-radius: 0.5rem;
 }
 .inputField,
 .textareaField {
@@ -181,7 +181,7 @@
   background: #0fdac2;
   color: #ffffff;
   border: none;
-  border-radius: 100px;
+  border-radius: 0.5rem;
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
@@ -216,10 +216,9 @@
 }
 
 @media (max-width: 768px) {
-
   .contactCard {
     padding: 32px 24px;
-    border-radius: 16px;
+    border-radius: 0.5rem;
   }
 
   .heading1 {
@@ -281,10 +280,8 @@
     gap: 16px;
   }
 }
-@media (max-width: 576px)
-{
-    .rocket1
-    {
-        display:none;
-    }
+@media (max-width: 576px) {
+  .rocket1 {
+    display: none;
+  }
 }

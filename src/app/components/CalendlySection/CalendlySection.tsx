@@ -7,11 +7,13 @@ import styles from "./CalendlySection.module.css";
 import Button from "../Button";
 
 interface CalendlySectionProps {
-  heading?: string | {
-    part1: string;
-    part2: string;
-    part3: string;
-  };
+  heading?:
+    | string
+    | {
+        part1: string;
+        part2: string;
+        part3: string;
+      };
   description?: string;
   buttonText?: string;
   buttonHref?: string;
@@ -35,14 +37,14 @@ const CalendlySection = ({
     setIsMounted(true);
     // Log URL for debugging
     if (calendlyUrl) {
-      console.log('Calendly URL:', calendlyUrl);
+      console.log("Calendly URL:", calendlyUrl);
     }
   }, [calendlyUrl]);
 
   // Parse heading to handle [Highlighted Word] format
   const renderHeading = () => {
     // If heading is object (old format), use it
-    if (typeof heading === 'object' && heading !== null && 'part1' in heading) {
+    if (typeof heading === "object" && heading !== null && "part1" in heading) {
       return (
         <>
           <span className={styles.headingPart1}>{heading.part1}</span>
@@ -53,7 +55,7 @@ const CalendlySection = ({
     }
 
     // If heading is string, parse [Highlighted Word] format
-    if (typeof heading === 'string') {
+    if (typeof heading === "string") {
       const parts: React.ReactElement[] = [];
       const regex = /\[([^\]]+)\]/g;
       let lastIndex = 0;
@@ -71,7 +73,11 @@ const CalendlySection = ({
         }
         // Add highlighted text
         parts.push(
-          <span key={key++} className={styles.headingPart2} style={{ color: '#0FDAC2' }}>
+          <span
+            key={key++}
+            className={styles.headingPart2}
+            style={{ color: "#0FDAC2" }}
+          >
             {match[1]}
           </span>
         );
@@ -92,19 +98,19 @@ const CalendlySection = ({
   };
 
   return (
-    <section className={`${styles.calendlySection} ${className} sectionPadding`}>
+    <section
+      className={`${styles.calendlySection} ${className} sectionPadding`}
+    >
       <Container maxWidth="xl">
         <div className={styles.contentWrapper}>
           {/* Left Section */}
           <div className={styles.leftSection}>
-            <h2 className={styles.heading}>
-              {renderHeading()}
-            </h2>
+            <h2 className={styles.heading}>{renderHeading()}</h2>
 
             <p className={styles.description}>{description}</p>
 
-            <div className={styles.buttonWrapper}>
-              <Button href={buttonHref} variant="purple" size="lg" className={styles.ctaButton}>
+            <div>
+              <Button href={buttonHref} variant="purple" size="lg">
                 <span>{buttonText}</span>
                 <div className={styles.playIconContainer}>
                   <svg
@@ -124,18 +130,18 @@ const CalendlySection = ({
             <div className={styles.calendlyContainer}>
               <div className={styles.calendlyWrapper}>
                 {calendlyUrl && isMounted ? (
-                  <InlineWidget 
+                  <InlineWidget
                     url={calendlyUrl}
                     styles={{
-                      height: '650px',
-                      minHeight: '650px'
+                      height: "650px",
+                      minHeight: "650px",
                     }}
                     pageSettings={{
-                      backgroundColor: 'ffffff',
+                      backgroundColor: "ffffff",
                       hideEventTypeDetails: false,
                       hideLandingPageDetails: false,
-                      primaryColor: '643bff',
-                      textColor: '4d5055'
+                      primaryColor: "643bff",
+                      textColor: "4d5055",
                     }}
                   />
                 ) : (
@@ -162,7 +168,9 @@ const CalendlySection = ({
                         <line x1="3" y1="10" x2="21" y2="10" />
                       </svg>
                     </div>
-                    <h3 className={styles.placeholderTitle}>Loading Calendar...</h3>
+                    <h3 className={styles.placeholderTitle}>
+                      Loading Calendar...
+                    </h3>
                   </div>
                 )}
               </div>
