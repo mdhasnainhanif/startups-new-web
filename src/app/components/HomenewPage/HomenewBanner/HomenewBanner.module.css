@@ -1,0 +1,45 @@
+.extraPaddingTop {
+  padding-top: 120px; /* 30 * 4 = 120px */
+}
+
+.experienceBox {
+  position: relative;
+  background-color: rgba(29, 14, 87, 0.5); /* Transparent overlay */
+  overflow: hidden;
+  border:1px solid #3f3b72;
+}
+
+.experienceBox::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("/assets/images/homenew-bg_img.png"); 
+  background-size: cover;
+  background-position: center;
+  opacity: 0.2;
+
+}
+
+
+.experienceBox > * {
+  position: relative;
+  z-index: 1;
+}
+
+.checkItem {
+  position: relative;
+  padding-left: 2rem; 
+}
+
+.checkItem::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.1rem;
+  width: 18px;
+  height: 18px;
+  background-image: url('/assets/images/tickbox1.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+ 
+}

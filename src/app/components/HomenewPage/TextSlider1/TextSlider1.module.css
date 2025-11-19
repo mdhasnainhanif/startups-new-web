@@ -1,0 +1,47 @@
+/* .ctaBanner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: url('../../../../public/assets/images/cta-banner.webp') no-repeat center center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 2rem 0;
+}
+
+@media (max-width: 768px) {
+  .ctaBanner {
+    min-height: 10rem;
+  }
+} */
+
+.ctaBanner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 2rem 0;
+  background: url('/assets/images/cta-banner.webp') no-repeat center center;
+  background-size: cover;
+  overflow: hidden;
+}
+
+.scrolling-text {
+  overflow: hidden;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.rail {
+  display: flex;
+}
+
+.rail h4 {
+  white-space: nowrap;
+  font-size: 60px; /* Thoda kam text ke liye */
+  font-weight: 900;
+  line-height: 1em;
+  margin-right: 30px;
+  color: #fff;
+}
