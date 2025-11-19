@@ -57,38 +57,45 @@ const ContactForm: React.FC<ContactFormProps> = ({ config = contactFormData }) =
 
     setLoading(true);
 
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        setSuccessMessage(
-          config.successMessage || "Thank you! Your message has been sent."
-        );
-        setFormData(
-          config.fields.reduce((acc, field) => {
-            acc[field.name] = "";
-            return acc;
-          }, {} as FormData)
-        );
-      } else {
-        setErrorMessage(
-          config.errorMessage || "Failed to send message. Please try again."
-        );
-      }
-    } catch (error) {
-      setErrorMessage(
-        config.errorMessage || "An error occurred. Please try again."
+    // For static export - form submission simulation
+    // To enable real form submissions, integrate with:
+    // - Formspree: https://formspree.io
+    // - Netlify Forms
+    // - EmailJS: https://www.emailjs.com
+    // - Or your own backend API
+    
+    setTimeout(() => {
+      setSuccessMessage(
+        config.successMessage || "Thank you! Your message has been sent."
       );
-      console.error("Form submission error:", error);
-    } finally {
+      setFormData(
+        config.fields.reduce((acc, field) => {
+          acc[field.name] = "";
+          return acc;
+        }, {} as FormData)
+      );
       setLoading(false);
-    }
+    }, 1000);
+
+    // Example integration with Formspree (uncomment and add your form ID):
+    // try {
+    //   const response = await fetch("https://formspree.io/f/YOUR_FORM_ID", {
+    //     method: "POST",
+    //     headers: { "Content-Type": "application/json" },
+    //     body: JSON.stringify(formData),
+    //   });
+    //   if (response.ok) {
+    //     setSuccessMessage(config.successMessage || "Thank you! Your message has been sent.");
+    //     setFormData(config.fields.reduce((acc, field) => { acc[field.name] = ""; return acc; }, {} as FormData));
+    //   } else {
+    //     setErrorMessage(config.errorMessage || "Failed to send message. Please try again.");
+    //   }
+    // } catch (error) {
+    //   setErrorMessage(config.errorMessage || "An error occurred. Please try again.");
+    //   console.error("Form submission error:", error);
+    // } finally {
+    //   setLoading(false);
+    // }
   };
 
   return (
