@@ -64,7 +64,7 @@
   line-height: 1.2;
 }
 div.scrollerItem {
-  border-radius: 25px !important;
+  border-radius: 0.525rem;
   padding: 0 !important;
 }
 .scrollerItem {
