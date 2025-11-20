@@ -249,7 +249,7 @@ export const EMPOWER_BUSINESS = {
     "Empower your business growth with AI technologies today by leveraging intelligent solutions designed to optimize operations, enhance decision-making, and drive innovation.",
   ctaButton: {
     text: "Get Started Now",
-    href: "/get-started",
+    href: "#",
     variant: "secondary" as const,
   },
 };
