@@ -101,13 +101,13 @@ export default function Reviews() {
                 {/* Video Player (if video review - shown after text) */}
                 {review.isVideo && (
                   <div className={styles.videoContainer}>
-                    <video
+                    {/* <video
                       src='/assets/images/videoplayback.mp4'
                       controls
                       className={styles.videoElement}
                     >
                       Your browser does not support the video tag.
-                    </video>
+                    </video> */}
                   </div>
                 )}
                 </div>
