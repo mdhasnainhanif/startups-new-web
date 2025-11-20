@@ -39,6 +39,13 @@ const graphikBold = localFont({
   fallback: ["Arial", "Helvetica", "sans-serif"],
 });
 
+const graphikSemiBold = localFont({
+  src: "../../public/assets/fonts/Graphik-Semibold-Trial.otf",
+  variable: "--font-graphik-semibold",
+  display: "swap",
+  fallback: ["Arial", "Helvetica", "sans-serif"],
+});
+
 export const metadata: Metadata = {
   title: "Startups Advisory",
   description: "AI-powered advisory for startups",
@@ -63,7 +70,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${wfVisualSans.variable} ${graphikRegular.variable} ${graphikBold.variable} antialiased relative`}
+        className={`${geistSans.variable} ${geistMono.variable} ${wfVisualSans.variable} ${graphikRegular.variable} ${graphikBold.variable} ${graphikSemiBold.variable} antialiased relative`}
       >
         {/* Shared Background Image - Behind Header and Hero */}
         {/* <div className="fixed inset-0 z-0">

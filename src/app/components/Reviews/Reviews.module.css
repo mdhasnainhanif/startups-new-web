@@ -7,6 +7,19 @@
 .section::before {
   content: "";
   position: absolute;
+  background: url(../../../../public/assets/images/1.webp) center right no-repeat;
+  width: 100%;
+  max-width: 50rem;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: -2rem;
+  background-size: contain;
+}
+
+/* .section::before {
+  content: "";
+  position: absolute;
   top: 0;
   right: 0;
   width: 40%;
@@ -18,7 +31,7 @@
   );
   pointer-events: none;
   z-index: 0;
-}
+} */
 
 .header {
   text-align: center;
@@ -133,17 +146,22 @@
   background: #110f29;
   border: 1px solid #4e4989;
   border-radius: 8px;
-  padding: 20px;
+  padding: 1rem;
   width: 100%;
   box-sizing: border-box;
+}
+
+.reviewCardContent:hover {
+  border: 1px solid #643bff;
 }
 
 .videoElement {
   height: 300px !important;
 }
-/* .highlightedCard .reviewCardContent {
+.highlightedCard .reviewCardContent {
   border: 5px solid #643bff !important;
-} */
+  background: #020016;
+}
 
 .reviewHeader {
   display: block;

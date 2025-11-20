@@ -28,8 +28,12 @@
   }
 }
 
-.font-graphik-bold{
+.font-graphik-bold {
   font-family: var(--font-graphik-bold) !important;
+}
+
+.font-graphik-semibold {
+  font-family: var(--font-graphik-semibold) !important;
 }
 
 body {
@@ -175,6 +179,26 @@ h2.headingSize {
 }
 
 @media screen and (max-width: 576px) {
+  button.caseBtn{
+    margin: 0 auto;
+  }
+  button.caseBtn::before{
+    content: none;
+  }
+  div.sectionHeading > p{
+    font-size: 1rem;
+  }
+  div.sectionHeading > h1 { 
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  div.sectionHeading.forH2 > h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 0rem;
+  }
   .sectionPadding {
     padding-top: 3.825rem;
     padding-bottom: 4.25rem;
@@ -245,7 +269,7 @@ h2.headingSize {
 .sectionHeading > h1 {
   font-size: 4rem;
   font-weight: 800;
-  line-height: 1.3;
+  line-height: 1.2;
 }
 
 .sectionHeading > p {
@@ -267,4 +291,26 @@ h2.headingSize {
 
 .sectionHeading h2 > span.primaryColor {
   color: var(--color-primary);
+}
+
+.sectionHeading.forH2.text-center {
+  margin-bottom: 2.5rem;
+}
+
+.caseBtn {
+  position: relative;
+}
+
+.caseBtn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 117%;
+  width: 1px;
+  height: 100%;
+  background: #372c6b;
+}
+
+.caseBtn:last-child::before {
+  content: none;
 }

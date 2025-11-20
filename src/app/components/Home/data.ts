@@ -1,12 +1,12 @@
 export const HERO_BANNER = {
   headline: "Your ",
-  headlineHighlight: "Smart Marketing AI ",
-  subheadline: "Team — Ready to Run Your Digital Work for You",
+  headlineHighlight: "",
+  subheadline: "[Your AI-Powered] Growth Team - Read to Run Your Business",
   className: "",
   description:
-    "Finally, marketing that moves at the speed of your business. Your Smart Marketing AI Team plans, designs, writes, and posts — so you stay focused on serving clients.",
+    `Finally growth that accelerates every part of your business forward. \n Your AI powered growth team brings more clients improves operations boosts revenue and keeps your business moving.`,
   ctaButton: {
-    text: "Let's Get Your Marketing Handled",
+    text: "Let's Fix Your Business",
     href: "#",
     variant: "secondary" as const,
   },
@@ -18,7 +18,7 @@ export const FAQ_SECTION = {
     part2: "Questions",
   },
   subtitle:
-    "Answers to the most common local-business questions about how this team fits your workflow.",
+    "Answers to the most common business questions about how this team fits your workflow.",
 };
 
 export const FAQ_DATA = [
@@ -111,12 +111,31 @@ export const PROFESSIONAL_ONLINE = {
   },
   description:
     "You're great at what you do, but your marketing falls behind. Agencies cost a fortune. Freelancers disappear.",
-  contentBars: [
-    { label: "Content :", progress: 85, color: "purple" },
-    { label: "Content :", progress: 70, color: "teal" },
-    { label: "Content :", progress: 90, color: "purple" },
-    { label: "Content :", progress: 65, color: "teal" },
-    { label: "Content :", progress: 80, color: "purple" }
+  startupStats: [
+    {
+      percentage: "90%",
+      headline: "Startups Fail Within",
+      description: "Startups fail within two years which shows how unforgiving early execution really is.",
+      image: "/assets/images/clock.svg",
+    },
+    {
+      percentage: "38%",
+      headline: "Startups Fail Within",
+      description: "Collapse because they run out of cash a signal that financial discipline is a survival skill not an accessory.",
+      image: "/assets/images/money.svg",
+    },
+    {
+      percentage: "14%",
+      headline: "Startups Fail Within",
+      description: "Fail due to poor marketing proving that even great products die when visibility is weak.",
+      image: "/assets/images/marketing.svg",
+    },
+    {
+      percentage: "20%",
+      headline: "Startups Fail Within",
+      description: "Get outcompeted because speed learning and adaptation decide who stays in the market.",
+      image: "/assets/images/exit.svg",
+    },
   ],
   video: {
     thumbnail: "/assets/images/man.jpg",
@@ -125,19 +144,17 @@ export const PROFESSIONAL_ONLINE = {
     videoTitle: "Professional Online Video",
   },
   bottomHeading: {
-    part1: "The Simple Way to Look ",
-    part2: "Professional ",
-    part3: "Online",
+    part1: "The Only Way to [Make Startups Succeed]",
   },
 };
 
 export const REVIEWS_SECTION = {
   heading: {
-    part1: "Real Owners, ",
+    part1: "Real Owners. ",
     part2: "Real Results",
   },
   subtitle:
-    "From roofers to electricians, small businesses now show up online with consistent, professional marketing — without lifting a finger.",
+    "Before you decide to work with us, take a moment to see what our clients experienced, what changed for them, and how their businesses grew once our team stepped in.",
   ctaText: "See how Smart Marketing AI Teams turned invisibility into daily inquiries",
   ratingBadges: [
     {
@@ -182,6 +199,7 @@ export const REVIEWS_SECTION = {
       rating: 5,
       text: "Great Customer service, teams cares about their customers Overall, my experience with Orbit has been beyond amazing!!!Robert and the team behind the webpage design are beyond amazing. I originally connected with startups advoisry because I needed a logo for my new business and ended up with a new Webpage as well  . Yes they are that good I highly recommend them.",
       isVideo: false,
+      hasBorder: true,
     },
     {
       id: 3,
@@ -192,6 +210,7 @@ export const REVIEWS_SECTION = {
       rating: 5,
       text: "I'd recommend startups advoisry to anyone looking for or in need of any graphic design. The service provided was top shelf. They were attentive and responsive the entire time. They turned around my idea for my brand logo within 24 hrs.",
       isVideo: false,
+      hasBorder: false,
     },
     {
       id: 4,
@@ -202,6 +221,7 @@ export const REVIEWS_SECTION = {
       rating: 5,
       text: "startups advoisry did a great job building our website. They were quick and cost effective.",
       isVideo: false,
+      hasBorder: false,
     },
     {
       id: 5,
@@ -212,6 +232,7 @@ export const REVIEWS_SECTION = {
       rating: 5,
       text: "I have been working with startups advoisry for about a year now. Great people and they are great with communication. Highly recommend Robert and his team.",
       isVideo: false,
+      hasBorder: false,
     },
     {
       id: 6,
@@ -222,6 +243,7 @@ export const REVIEWS_SECTION = {
       rating: 5,
       text: "Love love love my logo, my website, and my business cards. Recommend to all my clients for their new business branding needs! Thanks Robert!",
       isVideo: false,
+      hasBorder: false,
     },
     {
       id: 7,
@@ -232,6 +254,7 @@ export const REVIEWS_SECTION = {
       rating: 5,
       text: "Fast. Exactly what I wanted. Victor my project lead was quick to respond to any questions I asked and very helpful.",
       isVideo: false,
+      hasBorder: true,
     },
     {
       id: 8,
@@ -245,26 +268,29 @@ export const REVIEWS_SECTION = {
       videoThumbnail: "/assets/images/video-review-thumb.webp",
       videoDuration: "0:00",
       videoUrl: "/assets/videos/videoplayback.mp4",
+      hasBorder: false,
     },
     {
       id: 9,
       name: "Suzanne Schneider",
-      initials: "VM",
+      initials: "SS",
       source: "Trustpilot",
       date: "Nov 7, 2024",
       rating: 5,
       text: "Thank you Robert for your patience and advice designing my website. You were so helpful with suggestions and never minded making all the changes I wanted. (Even when I kept changing things!). I am thrilled with way the website turned out. I highly recommend using Robert at startups advoisry to plan your website.",
       isVideo: false,
+      hasBorder: false,
     },
     {
       id: 10,
       name: "Charles Sharits",
-      initials: "VM",
+      initials: "CS",
       source: "Trustpilot",
       date: "Sep 11, 2025",
       rating: 5,
       text: "Brock, thanks to you and your team we have the logo we were dreaming of.",
       isVideo: false,
+      hasBorder: false,
     },
   ],
 };
@@ -339,9 +365,9 @@ export const GROWTH_GUIDES = [
 ];
 
 export const CALENDLY_SECTION = {
-  heading: "Let's Talk About Taking [Marketing] Off Your Plate",
+  heading: "Let's Get Your [Business] Talking",
   description:
-    "Book a quick video call to see how your Smart Marketing AI Team can free you to run jobs while your digital presence runs itself",
+    "Schedule a call and we’ll walk you through how your business can grow faster attract more clients and finally move forward with the kind of momentum you have been aiming for.",
   buttonText: "Free Up Your Time",
   buttonHref: "#",
   calendlyUrl: "https://calendly.com/md-hasnain-developer/30min",

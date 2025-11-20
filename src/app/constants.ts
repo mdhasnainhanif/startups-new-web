@@ -57,23 +57,20 @@ export const FOOTER_LINKS = {
 };
 
 export const SOCIAL_MEDIA_LINKS = [
-  { name: "LinkedIn", icon: "linkedin", href: "https://linkedin.com" },
-  { name: "Instagram", icon: "instagram", href: "https://instagram.com" },
-  { name: "Facebook", icon: "facebook", href: "https://facebook.com" },
-  { name: "GitHub", icon: "github", href: "https://github.com" },
-  { name: "Website", icon: "globe", href: "https://startupsadvisory.ai" },
-  { name: "YouTube", icon: "youtube", href: "https://youtube.com" },
+  { name: "Facebook", icon: "facebook", href: "https://www.facebook.com/StartupsAdvisory" },
+  { name: "Instagram", icon: "instagram", href: "https://www.instagram.com/startups_advisory/" },
+  { name: "Twitter", icon: "twitter", href: "https://x.com/SAdvisory_AI" },
+  { name: "Pinterest", icon: "pinterest", href: "https://www.pinterest.com/StartupsAdvisory" },
+  { name: "LinkedIn", icon: "linkedin", href: "https://www.linkedin.com/company/startupsadvisory" },
 ];
 
 
 export const TECHNOLOGIES_SECTION = {
   heading: {
-    part1: "The Smart Marketing ",
-    part2: "AI Stack",
-    part3: " — $48,000+ Worth of Tools Working for You",
+    part1: "$48000+ of [Proven Marketing] Tools Powering Your Growth Through AI",
   },
   description:
-    "Your Smart Marketing AI Team doesn't just come with talent — it comes with a fully loaded AI ecosystem. From creative design to analytics automation, every task is powered by premium, enterprise-grade AI tools other businesses pay thousands for individually. You get all of it included — no setup, no license, no hassle.",
+    "Your Smart Marketing AI Team helps your business attract more clients and stay consistently visible. It keeps your marketing active creates content on time and supports every part of your growth. You get steadier leads stronger trust and a business that finally moves forward without stress because everything runs for you daily.",
   tabs: [
     {
       id: "creative",

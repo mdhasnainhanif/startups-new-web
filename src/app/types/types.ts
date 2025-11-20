@@ -4,6 +4,12 @@ import { ReactNode, ButtonHTMLAttributes, AnchorHTMLAttributes } from "react";
 export type ButtonVariant = "primary" | "secondary" | "outline" | "dark" | "light" | "purple" | "green";
 export type ButtonSize = "sm" | "md" | "lg";
 
+export interface DropdownItem {
+  label: string;
+  href?: string;
+  onClick?: () => void;
+}
+
 export interface BaseButtonProps {
   variant?: ButtonVariant;
   size?: ButtonSize;
@@ -11,6 +17,11 @@ export interface BaseButtonProps {
   className?: string;
   icon?: ReactNode;
   iconPosition?: "left" | "right";
+  iconSpanClassName?: string;
+  isDropdown?: boolean;
+  dropdownItems?: DropdownItem[];
+  selectedDropdownItem?: string;
+  onDropdownSelect?: (item: DropdownItem) => void;
 }
 
 export interface ButtonAsButton extends BaseButtonProps, Omit<ButtonHTMLAttributes<HTMLButtonElement>, "className" | "children"> {

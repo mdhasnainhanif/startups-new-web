@@ -58,12 +58,11 @@ export default function Reviews() {
           <div className={styles.reviewsMasonry}>
             {REVIEWS_SECTION.reviews.map((review, index) => {
               // Card 3 (index 2) and Card 6 (index 5) should have borders
-              const hasBorder = index === 2 || index === 5;
               return (
               <div
                 key={review.id}
                 className={`${styles.reviewCard} ${
-                  hasBorder ? styles.highlightedCard : ""
+                  review?.hasBorder ? styles.highlightedCard : ""
                 }`}
               >
                 <div className={styles.reviewCardContent}>

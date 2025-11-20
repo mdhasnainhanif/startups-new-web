@@ -1,6 +1,7 @@
 .scrollerItem {
   contain: layout style;
   will-change: auto;
+  box-shadow: 0 2px 20px #000000b5;
 }
 
 .tabSection .nav-link {

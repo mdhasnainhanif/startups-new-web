@@ -108,7 +108,7 @@
 .calendlyWrapper {
   position: relative;
   width: 100%;
-  /* min-height: 650px; */
+  max-height: 33rem;
   overflow: hidden;
   border-radius: 1rem;
 }
@@ -203,6 +203,12 @@
   margin: 0;
 }
 
+.videoButton > .videoButtonText{
+  background-color: #fff;
+  padding: 0.625rem;
+  border-radius: 50%;
+}
+
 /* Mobile Responsive */
 @media (max-width: 1024px) {
   .contentWrapper {
@@ -236,3 +242,4 @@
     border-radius: 0.75rem;
   }
 }
+
