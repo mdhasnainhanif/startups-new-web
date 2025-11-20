@@ -3,7 +3,7 @@
 import Container from "../Container";
 import { FOOTER_LINKS, SOCIAL_MEDIA_LINKS, COMPANY_INFO } from "../../constants";
 import styles from "./Footer.module.css";
-import { EmailIcon, LocationIcon, PhoneIcon } from "@/app/Icons";
+import { EmailIcon, LocationIcon, PhoneIcon } from "../../Icons";
 
 export default function Footer() {
   return (

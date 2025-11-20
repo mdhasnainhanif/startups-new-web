@@ -1,6 +1,6 @@
 "use client";
 
-import { GlobeIcon } from "@/app/Icons";
+import { GlobeIcon } from "../../Icons";
 import Button from "../Button";
 import Container from "../Container";
 import styles from "./Contact.module.css";
