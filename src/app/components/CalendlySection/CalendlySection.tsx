@@ -5,6 +5,7 @@ import { InlineWidget } from "react-calendly";
 import Container from "../Container";
 import styles from "./CalendlySection.module.css";
 import Button from "../Button";
+import { PlayIcon } from "@/app/Icons";
 
 interface CalendlySectionProps {
   heading?:
@@ -104,15 +105,15 @@ const CalendlySection = ({
       <Container maxWidth="xl">
         <div className={styles.contentWrapper}>
           {/* Left Section */}
-          <div className={styles.leftSection}>
-            <h2 className={styles.heading}>{renderHeading()}</h2>
+          <div className={`${styles.leftSection} sectionHeading`}>
+            <h2>{renderHeading()}</h2>
 
-            <p className={styles.description}>{description}</p>
+            <p>{description}</p>
 
             <div>
-              <Button href={buttonHref} variant="purple" size="lg">
+              <Button href={buttonHref} variant="purple" size="lg" icon={<PlayIcon />}>
                 <span>{buttonText}</span>
-                <div className={styles.playIconContainer}>
+                {/* <div className={styles.playIconContainer}>
                   <svg
                     className={styles.playIcon}
                     fill="currentColor"
@@ -120,7 +121,7 @@ const CalendlySection = ({
                   >
                     <path d="M8 5v14l11-7z" />
                   </svg>
-                </div>
+                </div> */}
               </Button>
             </div>
           </div>
@@ -138,10 +139,11 @@ const CalendlySection = ({
                     }}
                     pageSettings={{
                       backgroundColor: "ffffff",
-                      hideEventTypeDetails: false,
+                      hideEventTypeDetails: true,
                       hideLandingPageDetails: false,
                       primaryColor: "643bff",
                       textColor: "4d5055",
+                      hideGdprBanner: true,
                     }}
                   />
                 ) : (

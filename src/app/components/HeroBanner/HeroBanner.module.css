@@ -4,7 +4,7 @@
 }
 
 .heading {
-  max-width: 70rem;
+  max-width: 54rem;
   line-height: 1.2;
 }
 
@@ -33,21 +33,14 @@
   background-position: center;
   background-repeat: no-repeat;
   padding-top: 4rem;
-  padding-bottom: 0rem !important;
 }
 
 section.bottomZero {
   padding-bottom: 0rem !important;
 }
 
-@media screen and (max-width: 768px){
-  .heroBackground {
-    padding-top: 0rem;
-  }
-}
-
-@media screen and (max-width: 768px){
+@media screen and (max-width: 768px) {
   .heroBackground {
     background: none;
-    }
+  }
 }

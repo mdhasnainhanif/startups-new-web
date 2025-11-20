@@ -28,23 +28,25 @@
   position: relative;
   gap: 0.5rem;
   align-items: center;
+  font-size: 1.225rem !important;
+  font-weight: 600 !important;
 }
 
 /* Size variants */
 .btnPrimary.sm {
-  padding: 6px 12px;
-  font-size: 0.75rem;
+  padding: 0.425rem 1.225rem;
+  font-size: 0.75rem !important;
   line-height: 1rem;
 }
 
 .btnPrimary.md {
-  padding: 12px 24px;
+  padding: 0.625rem 1.225rem;
   font-size: 1rem;
   line-height: 19px;
 }
 
 .btnPrimary.lg {
-  padding: .75rem 1.25rem;
+  padding: 0.625rem 1.725rem;
   font-size: 1.125rem;
   line-height: 1.5rem;
 }

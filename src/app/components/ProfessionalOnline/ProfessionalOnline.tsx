@@ -16,8 +16,8 @@ const ProfessionalOnline = () => {
         <Container maxWidth="xl">
           <div className={styles.contentWrapper}>
             {/* Left Section */}
-            <div className={styles.leftSection}>
-              <h2 className={styles.heading}>
+            <div className={`${styles.leftSection} sectionHeading forH2`}>
+              <h2>
                 <span className={styles.headingPart1}>
                   {PROFESSIONAL_ONLINE.heading.part1}
                 </span>
@@ -40,18 +40,20 @@ const ProfessionalOnline = () => {
                     index: number
                   ) => (
                     <div key={index} className={styles.barWrapper}>
-                      <div className={styles.barLabel}>
-                        <span>{bar.label} :</span>
-                      </div>
-                      <div className={styles.barBackground}>
-                        <div
-                          className={`${styles.barFill} ${
-                            bar.color === "purple"
-                              ? styles.barFillPurple
-                              : styles.barFillTeal
-                          }`}
-                          style={{ width: `${bar.progress}%` }}
-                        />
+                      <div className={styles.barContent}>
+                        <div className={styles.barLabel}>
+                          <span>{bar.label}</span>
+                        </div>
+                        <div className={styles.barBackground}>
+                          <div
+                            className={`${styles.barFill} ${
+                              bar.color === "purple"
+                                ? styles.barFillPurple
+                                : styles.barFillTeal
+                            }`}
+                            style={{ width: `${bar.progress}%` }}
+                          />
+                        </div>
                       </div>
                     </div>
                   )
@@ -63,7 +65,7 @@ const ProfessionalOnline = () => {
             <div className={styles.rightSectionMain}>
               <div>
                 <div className={styles.videoMain}>
-                  <div 
+                  <div
                     className={styles.videoImageWrapper}
                     onClick={() => setIsPopupOpen(true)}
                   >
@@ -75,13 +77,8 @@ const ProfessionalOnline = () => {
                     {/* Play Button Icon */}
                     <div className={styles.playButtonContainer}>
                       <div className={styles.playButton}>
-                        <svg
-                          className={styles.playIcon}
-                          fill="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path d="M8 5v14l11-7z" />
-                        </svg>
+                      <svg className={styles.playIcon} height="1.825rem" width="1.825rem" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 402.3 435.5">
+                      <path d="M9.6 53.5V382c0 36.7 39.6 59.6 71.4 41.5l287.6-164.2c32.1-18.3 32.1-64.6 0-82.9L81 12.1C49.2-6.1 9.6 16.9 9.6 53.5" fill="#fff"/></svg>
                       </div>
                     </div>
                   </div>

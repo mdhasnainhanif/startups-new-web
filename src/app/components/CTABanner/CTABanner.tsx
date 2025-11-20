@@ -29,26 +29,11 @@ const CTABanner = ({
       <Container maxWidth="xl" className="relative z-10">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8">
           {/* Left Side - Question */}
-          <div className="flex-1">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold text-center md:text-left">
+          <div className="flex-1 sectionHeading text-center">
+            <h2>
               <span className="text-white">{question} </span>
               <span className="text-[#0fdac2]">{questionHighlight}</span>
-              <span className="text-white">?</span>
             </h2>
-          </div>
-
-          {/* Right Side - Button */}
-          <div className="shrink-0">
-            <Button
-              href={buttonHref}
-              variant="secondary"
-              size="lg"
-              icon={<ArrowRightIcon style={{ fill: "#fff" }} />}
-              iconPosition="right"
-              className="whitespace-nowrap"
-            >
-              {buttonText}
-            </Button>
           </div>
         </div>
       </Container>

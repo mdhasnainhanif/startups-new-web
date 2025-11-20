@@ -8,8 +8,13 @@ import styles from "./Technologies.module.css";
 export default function Technologies() {
   const [activeTab, setActiveTab] = useState("creative");
 
-  const currentTools = TECHNOLOGIES_SECTION.tools[activeTab as keyof typeof TECHNOLOGIES_SECTION.tools];
-  const currentTab = TECHNOLOGIES_SECTION.tabs.find((tab) => tab.id === activeTab);
+  const currentTools =
+    TECHNOLOGIES_SECTION.tools[
+      activeTab as keyof typeof TECHNOLOGIES_SECTION.tools
+    ];
+  const currentTab = TECHNOLOGIES_SECTION.tabs.find(
+    (tab) => tab.id === activeTab
+  );
 
   // Duplicate tools for seamless infinite scroll
   const toolsRow1 = [...currentTools, ...currentTools, ...currentTools];
@@ -21,37 +26,45 @@ export default function Technologies() {
       <div>
         {/* Header Section */}
         <Container maxWidth="2xl" className="px-0">
-        <div className={styles.header}>
-          <h2 className={styles.heading}>
-            <span className="text-white">{TECHNOLOGIES_SECTION.heading.part1}</span>
-            <span className="text-[#0fdac2]">{TECHNOLOGIES_SECTION.heading.part2}</span>
-            <span className="text-[#0fdac2]">{TECHNOLOGIES_SECTION.heading.part3}</span>
-          </h2>
-          <p className={styles.description}>{TECHNOLOGIES_SECTION.description}</p>
-        </div>
+          <div className={`sectionHeading forH2 gap-3 flex flex-col items-center justify-center ${styles.header}`}>
+            <h2 className="max-w-7xl mx-auto">
+              <span className="text-white">
+                {TECHNOLOGIES_SECTION.heading.part1}
+              </span>
+              <span className="text-[#0fdac2]">
+                {TECHNOLOGIES_SECTION.heading.part2}
+              </span>
+              <span className="text-[#0fdac2]">
+                {TECHNOLOGIES_SECTION.heading.part3}
+              </span>
+            </h2>
+            <p className={styles.description}>
+              {TECHNOLOGIES_SECTION.description}
+            </p>
+          </div>
 
-        {/* Tabs */}
-        <div className={styles.tabsContainer}>
-          {TECHNOLOGIES_SECTION.tabs.map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              className={`${styles.tab} ${
-                activeTab === tab.id ? styles.activeTab : ""
-              }`}
-            >
-              {tab.label}
-            </button>
-          ))}
-        </div>
+          {/* Tabs */}
+          <div className={styles.tabsContainer}>
+            {TECHNOLOGIES_SECTION.tabs.map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={`${styles.tab} ${
+                  activeTab === tab.id ? styles.activeTab : ""
+                }`}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
 
-        {/* Tools Category Header */}
-        <div className={styles.categoryHeader}>
-          <h3 className={styles.categoryTitle}>
-            {currentTab?.label} Tools (
-            <span className="text-[#0fdac2]">{currentTab?.value}</span> )
-          </h3>
-        </div>
+          {/* Tools Category Header */}
+          <div className={styles.categoryHeader}>
+            <h3 className={styles.categoryTitle}>
+              {currentTab?.label} Tools (
+              <span className="text-[#0fdac2]">{currentTab?.value}</span> )
+            </h3>
+          </div>
         </Container>
 
         {/* Three Animated Sliders */}
@@ -111,4 +124,3 @@ export default function Technologies() {
     </section>
   );
 }
-

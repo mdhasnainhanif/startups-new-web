@@ -8,10 +8,10 @@ export const COMPANY_INFO = {
 };
 
 export const NAVIGATION_LINKS = [
-  { label: "Solutions", href: "/solutions" },
-  { label: "How it Works", href: "/how-it-works" },
-  { label: "Pricing", href: "/pricing" },
-  { label: "Your Ai Agent", href: "/ai-agent" },
+  // { label: "Solutions", href: "/solutions" },
+  // { label: "How it Works", href: "/how-it-works" },
+  // { label: "Pricing", href: "/pricing" },
+  // { label: "Your Ai Agent", href: "/ai-agent" },
   { label: "About Us", href: "/about-us" },
   { label: "Contact Us", href: "/contact-us" },
 ];
@@ -78,7 +78,7 @@ export const TECHNOLOGIES_SECTION = {
     {
       id: "creative",
       label: "Creative & Design",
-      value: "$12,000+ Annual Value",
+      value: " $12,000+ Annual Value",
     },
     {
       id: "marketing",

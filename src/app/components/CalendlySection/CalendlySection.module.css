@@ -1,9 +1,21 @@
 .calendlySection {
   position: relative;
-  background: linear-gradient(135deg, #020016 0%, #1a0a3d 50%, #020016 100%);
+  background: #020016;
   overflow: hidden;
 }
 
+.calendlySection::before {
+  content: "";
+  position: absolute;
+  background: url(../../../../public/assets/images/1.webp) center bottom
+    no-repeat;
+  width: 89%;
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0rem;
+  background-size: contain;
+}
 .contentWrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -57,7 +69,6 @@
 .buttonWrapper {
   margin-top: 1rem;
 }
-
 
 .playIconContainer {
   width: 2.5rem;
@@ -115,7 +126,7 @@
 }
 
 .calendlyWrapper::before {
-  content: 'Powered by Calendly';
+  content: "Powered by Calendly";
   position: absolute;
   top: 1rem;
   right: 1rem;
@@ -181,13 +192,11 @@
   color: #643bff;
 }
 
-
 .calendlyText {
-  font-size: 1rem;
+  font-size: 1.25rem;
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.85);
   margin: 0;
-  text-align: center;
 }
 
 /* Mobile Responsive */
@@ -223,4 +232,3 @@
     border-radius: 0.75rem;
   }
 }
-

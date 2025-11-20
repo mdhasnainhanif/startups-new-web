@@ -24,26 +24,25 @@
   color: rgba(255, 255, 255, 0.8);
   font-size: 18px;
   line-height: 1.6;
-  max-width: 900px;
+  max-width: 75rem;
   margin: 0 auto;
 }
-
 /* Tabs Container */
 .tabsContainer {
-    z-index: 1;
-    background: #0b0038;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 0;
-    width: fit-content;
-    margin-bottom: 40px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 10px 0;
-    display: flex;
-    position: relative;
-    border-radius: 0.5rem;
+  z-index: 1;
+  background: #0b0038;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  margin-bottom: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1rem 0;
+  display: flex;
+  position: relative;
+  border-radius: 0.5rem;
+  width: 75%;
 }
 
 .tabsContainer .tab:nth-child(2) {
@@ -56,31 +55,31 @@
   color: #403867;
   border: none;
   cursor: pointer;
-  font-size: 1.115rem;
+  font-size: 1.25rem;
   font-weight: 600;
   transition: all 0.3s ease;
   position: relative;
   border-radius: 0.5rem;
-  margin:0 20px 0 13px;
+  margin: 0 20px 0 13px;
   min-width: 4rem;
   letter-spacing: 0.03rem;
+  font-family: var(--font-graphik-bold) !important;
 }
-.tab::before
-{
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -16.5px;
-    width: 1px;
-    height: 100%;
-    background: #372c6b;
+.tab::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -22%;
+  width: 1px;
+  height: 100%;
+  background: #372c6b;
 }
-.tab:nth-child(2)::before {
-    left: -26px;
-}
+/* .tab:nth-child(2)::before {
+    left: -20%;
+} */
 .tab:first-child::before {
-   display: none;
-  }
+  display: none;
+}
 
 .tab:hover {
   color: rgba(255, 255, 255, 0.8);
@@ -101,7 +100,7 @@
 }
 
 .categoryTitle {
-  font-size: 24px;
+  font-size: 2.5rem;
   font-weight: 700;
   color: #ffffff;
 }
@@ -114,7 +113,13 @@
   position: relative;
   z-index: 1;
   overflow: hidden;
-  mask-image: linear-gradient(to right, #fff0 0%, #000000 25%, #000000 75%, #fff0 100%);
+  mask-image: linear-gradient(
+    to right,
+    #fff0 0%,
+    #000000 25%,
+    #000000 75%,
+    #fff0 100%
+  );
 }
 
 .slider {
@@ -208,7 +213,7 @@
   .tabsContainer {
     flex-direction: column;
     gap: 8px;
-    background:#0b0038;
+    background: #0b0038;
     border-radius: 100px;
     padding: 12px;
     width: 100%;
@@ -230,7 +235,6 @@
     margin-left: 0;
   }
 
-
   .categoryTitle {
     font-size: 20px;
   }
@@ -245,7 +249,7 @@
 }
 
 @media (max-width: 640px) {
-  .tabsContainer{
+  .tabsContainer {
     background-color: transparent;
   }
   .heading {
@@ -259,8 +263,7 @@
   .categoryTitle {
     font-size: 18px;
   }
-  .tab::before{
+  .tab::before {
     content: none;
   }
 }
-
