@@ -225,12 +225,12 @@ export const REVIEWS_SECTION = {
     },
     {
       id: 7,
-      name: "linda mckeever",
-      initials: "L",
+      name: "Kieran Loving",
+      initials: "K",
       source: "Trustpilot",
       date: "Sep 2026",
       rating: 5,
-      text: "Robert Jones and startups advoisry were excellant to work with.",
+      text: "Fast. Exactly what I wanted. Victor my project lead was quick to respond to any questions I asked and very helpful.",
       isVideo: false,
     },
     {
