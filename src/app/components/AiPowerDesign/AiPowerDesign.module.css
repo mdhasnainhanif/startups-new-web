@@ -102,18 +102,31 @@
 }
 
 .deliverablesSection {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
 }
+.aeroicon
+{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 600px;
+  height: 600px;
+}
 
 .deliverablesTitle {
+  position: relative;
   color: #fff;
   font-size: 1.8rem;
   font-weight: 600;
+  z-index: 1;
 }
 
 .gridContainer {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   gap: 0.75rem;
@@ -158,6 +171,8 @@
 
 .lifetimeValue {
   margin-top: 1rem;
+  position: relative;
+  z-index: 1;
 }
 
 .lifetimeValueHeading {
@@ -231,6 +246,7 @@
   .description {
     font-size: 1rem;
   }
+  
 
   .mainContentBox {
     padding: 1.5rem;
@@ -253,6 +269,24 @@
   .tab {
     padding: 0.5rem 1rem;
     font-size: 0.875rem;
+  }
+  .tabsContainer
+  {
+    border-radius: 0px !important;
+  }
+  tab:before
+  {
+    display: none;
+  }
+}
+
+@media (max-width: 576px) {
+  .imageWrapper {
+    height: auto;
+  }
+  .aeroicon
+  {
+    display: none;
   }
 }
 

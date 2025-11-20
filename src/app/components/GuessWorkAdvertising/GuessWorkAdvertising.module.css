@@ -2,22 +2,25 @@
   position: relative;
 }
 
-.section::before {
-  content: '';
+.aeroicon {
   position: absolute;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('/assets/images/rocket-bg.png');
-  background-size: contain;
-  background-position: top right;
-  background-repeat: no-repeat;
-  opacity: 0.1;
-  pointer-events: none;
-  z-index: 0;
+  top: 10%;
+  right: 5%;
+  width: 800px;
+  height: 800px;
+  opacity:0.6;
+  z-index: 1;
 }
-
+.leading-relaxed
+{
+  position: relative;
+  z-index: 1;
+}
+.inputWrapper
+{
+  position: relative;
+  z-index: 1;
+}
 .inputWrapper {
   width: 100%;
 }
@@ -49,13 +52,154 @@
 }
 
 /* Responsive adjustments */
+/* Mobile devices (320px - 640px) */
 @media (max-width: 640px) {
+  .section {
+    padding: 2rem 0;
+  }
+
+  .aeroicon {
+    width: 200px;
+    height: 200px;
+    top: 5%;
+    right: -10%;
+    opacity: 0.3;
+  }
+
   .inputField {
-    font-size: 0.9rem;
+    font-size: 0.875rem;
+    padding: 12px 16px;
+    padding-right: 100px;
   }
   
   .submitButton {
-    width: 100%;
+    padding: 10px 16px;
+    font-size: 0.875rem;
+    right: 4px;
+    gap: 4px;
+  }
+
+  .submitButton svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .image {
+    border-radius: 0.5rem;
+  }
+}
+
+/* Tablet devices (641px - 768px) */
+@media (min-width: 641px) and (max-width: 768px) {
+  .aeroicon {
+    width: 400px;
+    height: 400px;
+    top: 8%;
+    right: -5%;
+    opacity: 0.4;
+  }
+
+  .inputField {
+    font-size: 0.95rem;
+    padding: 14px 20px;
+    padding-right: 140px;
+  }
+
+  .submitButton {
+    padding: 12px 20px;
+    font-size: 0.95rem;
+  }
+}
+
+/* Small tablets and large phones (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .aeroicon {
+    width: 500px;
+    height: 500px;
+    top: 8%;
+    right: 0%;
+    opacity: 0.5;
+  }
+
+  .inputField {
+    font-size: 1rem;
+  }
+
+  .submitButton {
+    padding: 12px 24px;
+  }
+}
+
+/* Desktop (1025px - 1440px) */
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .aeroicon {
+    width: 600px;
+    height: 600px;
+    top: 10%;
+    right: 3%;
+    opacity: 0.6;
+  }
+}
+
+/* Large desktop (1441px+) */
+@media (min-width: 1441px) {
+  .aeroicon {
+    width: 800px;
+    height: 800px;
+    top: 10%;
+    right: 5%;
+    opacity: 0.6;
+  }
+}
+
+/* Extra small devices (below 480px) */
+@media (max-width: 480px) {
+  .section {
+    padding: 1.5rem 0;
+  }
+
+  .aeroicon {
+    width: 150px;
+    height: 150px;
+    top: 3%;
+    right: -15%;
+    opacity: 0.2;
+    display: none;
+  }
+
+  .inputField {
+    font-size: 0.8rem;
+    padding: 10px 14px !important;
+    padding-right: 90px !important;
+  }
+
+  .submitButton {
+    padding: 8px 12px !important;
+    font-size: 0.75rem !important;
+    right: 13px !important;
+  }
+
+  .submitButton svg {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+/* Input wrapper responsive adjustments */
+@media (max-width: 640px) {
+  .inputWrapper {
+    padding: 0 0.5rem;
+  }
+}
+
+/* Landscape orientation adjustments */
+@media (max-width: 1024px) and (orientation: landscape) {
+  .aeroicon {
+    width: 300px;
+    height: 300px;
+    top: 5%;
+    right: -5%;
+    opacity: 0.3;
   }
 }
 

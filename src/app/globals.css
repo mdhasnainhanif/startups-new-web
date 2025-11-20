@@ -268,7 +268,3 @@ h2.headingSize {
 .sectionHeading h2 > span.primaryColor {
   color: var(--color-primary);
 }
-
-.Z3zhp7CS7tNsCSX6_KJW, .simplebar-mask{
-  display: none !important;
-}

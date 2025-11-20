@@ -338,6 +338,7 @@ const RealCost = () => {
           </div>
         </div>
       </Container>
+      <img src="/assets/images/1.webp" alt="" className={styles.aeroicon} />
     </section>
   );
 };

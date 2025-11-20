@@ -105,13 +105,16 @@ const CalendlySection = ({
       <Container maxWidth="xl">
         <div className={styles.contentWrapper}>
           {/* Left Section */}
-          <div className={`${styles.leftSection} sectionHeading`}>
+          <div className={`${styles.leftSection} sectionHeading forH2`}>
             <h2>{renderHeading()}</h2>
-
             <p>{description}</p>
-
             <div>
-              <Button href={buttonHref} variant="purple" size="lg" icon={<PlayIcon />}>
+              <Button
+                href={buttonHref}
+                variant="purple"
+                size="lg"
+                icon={<PlayIcon />}
+              >
                 <span>{buttonText}</span>
                 {/* <div className={styles.playIconContainer}>
                   <svg
@@ -139,7 +142,7 @@ const CalendlySection = ({
                     }}
                     pageSettings={{
                       backgroundColor: "ffffff",
-                      hideEventTypeDetails: true,
+                      hideEventTypeDetails: false,
                       hideLandingPageDetails: false,
                       primaryColor: "643bff",
                       textColor: "4d5055",

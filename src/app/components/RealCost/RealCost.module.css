@@ -3,6 +3,15 @@
   overflow: hidden;
   background: #02001c;
 }
+.aeroicon {
+  position: absolute;
+  top: 10%;
+  right: 5%;
+  width: 600px;
+  height: 600px;
+  opacity:0.6;
+  z-index: 1
+}
 
 .contentWrapper {
   display: grid;
@@ -85,6 +94,8 @@
 
 /* Right Section - Calculator */
 .rightSection {
+  position: relative;
+  z-index: 2;
   display: flex;
   justify-content: flex-end;
 }
@@ -311,6 +322,12 @@
   .chartsContainer {
     grid-template-columns: 1fr;
     gap: 24px;
+  }
+}
+
+@media (max-width: 576px) {
+  .aeroicon {
+    display: none;
   }
 }
 

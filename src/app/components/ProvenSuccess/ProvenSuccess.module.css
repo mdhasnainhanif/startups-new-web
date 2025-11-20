@@ -1,10 +1,5 @@
-.section {
-  background: radial-gradient(
-    circle at top left,
-    #1a0b3f 0,
-    #05001a 40%,
-    #020014 100%
-  );
+.ProvenSuccess {
+  background: #080627;
   position: relative;
   overflow: hidden;
 }
@@ -33,21 +28,118 @@
   margin: 0 auto;
 }
 
+/* Navigation Arrows */
+.navArrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #0d0934;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  pointer-events: auto;
+}
+
+.navArrow:hover:not(.navArrowDisabled) {
+  background: #1a0f4a;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.navArrowLeft {
+  left: 10px;
+}
+
+.navArrowRight {
+  right: 10px;
+}
+
+.navArrowDisabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.navArrowDisabled:hover {
+  transform: translateY(-50%);
+  background: #0d0934;
+}
+
 /* Tabs Container - Copied from Technologies */
 .tabsContainer {
   z-index: 1;
   background: #0b0038;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
   align-items: center;
   gap: 0;
-  width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 10px 0;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto 20px;
+  padding: 10px 50px;
   display: flex;
   position: relative;
   border-radius: 100px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-behavior: smooth;
+}
+
+.tabsContainer .navArrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  border-radius: 100px;
+  background: #1b1849;
+  border: none;
+  color: #ffffff;
+  cursor: pointer !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  pointer-events: auto !important;
+  user-select: none;
+}
+
+.tabsContainer .navArrow:hover:not(.navArrowDisabled) {
+  background: #2a2558;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.tabsContainer .navArrowLeft {
+  left: 10px;
+}
+
+.tabsContainer .navArrowRight {
+  right: 10px;
+}
+
+.tabsContainer .navArrowDisabled {
+  opacity: 0.3;
+  cursor: not-allowed !important;
+  pointer-events: none;
+}
+
+.tabsContainer .navArrowDisabled:hover {
+  transform: translateY(-50%);
+  background: #1b1849;
+}
+.tabsContainer::-webkit-scrollbar {
+  display: none;
 }
 
 .tabsContainer .tab:nth-child(2) {
@@ -68,6 +160,8 @@
   margin: 0 20px 0 13px;
   min-width: 4rem;
   letter-spacing: 0.03rem;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .tab::before {
@@ -79,7 +173,6 @@
   height: 100%;
   background: #372c6b;
 }
-
 .tab:nth-child(2)::before {
   left: -26px;
 }
@@ -113,7 +206,7 @@
   scrollbar-width: none;
   -ms-overflow-style: none;
   width: 100%;
-  max-width: 800px;
+  max-width: 821px;
   margin: 0 auto;
   scroll-behavior: smooth;
   border-radius: 4px;
@@ -176,13 +269,284 @@
 
 
 /* Responsive Styles */
-@media (max-width: 768px) {
+
+/* Large Desktop (1920px and above) */
+@media (min-width: 1920px) {
+  .heading {
+    font-size: 56px;
+  }
+
+  .description {
+    font-size: 20px;
+  }
+
+  .tabsContainer {
+    max-width: 900px;
+    padding: 12px 70px;
+  }
+
+  .tabsContainer .navArrow {
+    width: 35px;
+    height: 35px;
+  }
+
+  .tabsContainer .navArrowLeft {
+    left: 12px;
+  }
+
+  .tabsContainer .navArrowRight {
+    right: 12px;
+  }
+
+  .tab {
+    font-size: 1.2rem;
+    padding: 14px 24px;
+    margin: 0 22px 0 15px;
+  }
+
+  .tabsContainer .tab:nth-child(2) {
+    margin-left: 2.5rem;
+  }
+
+  .categoriesContainer {
+    max-width: 900px;
+  }
+
+  .categoryTab {
+    font-size: 1.1rem;
+    padding: 10px 20px;
+  }
+}
+
+/* Desktop/Laptop (1366px - 1919px) */
+@media (min-width: 1366px) and (max-width: 1919px) {
+  .heading {
+    font-size: 48px;
+  }
+
+  .description {
+    font-size: 18px;
+  }
+
+  .tabsContainer {
+    max-width: 800px;
+    padding: 10px 50px;
+  }
+
+  .tabsContainer .navArrow {
+    width: 30px;
+    height: 30px;
+  }
+
+  .tabsContainer .navArrowLeft {
+    left: 10px;
+  }
+
+  .tabsContainer .navArrowRight {
+    right: 10px;
+  }
+
+  .tab {
+    font-size: 1.115rem;
+    padding: 12px 20px;
+    margin: 0 20px 0 13px;
+  }
+
+  .tabsContainer .tab:nth-child(2) {
+    margin-left: 2rem;
+  }
+
+  .categoriesContainer {
+    max-width: 821px;
+  }
+}
+
+/* iPad Pro (1024px - 1365px) */
+@media (min-width: 1024px) and (max-width: 1365px) {
+  .heading {
+    font-size: 42px;
+  }
+
+  .description {
+    font-size: 17px;
+  }
+
+  .tabsContainer {
+    max-width: 750px;
+    padding: 10px 45px;
+  }
+
+  .tabsContainer .navArrow {
+    width: 30px;
+    height: 30px;
+  }
+
+  .tabsContainer .navArrowLeft {
+    left: 8px;
+  }
+
+  .tabsContainer .navArrowRight {
+    right: 8px;
+  }
+
+  .tab {
+    font-size: 1rem;
+    padding: 11px 18px;
+    margin: 0 18px 0 12px;
+  }
+
+  .tabsContainer .tab:nth-child(2) {
+    margin-left: 1.75rem;
+  }
+
+  .categoriesContainer {
+    max-width: 750px;
+  }
+
+  .categoryTab {
+    font-size: 0.95rem;
+    padding: 8px 16px;
+  }
+}
+
+/* iPad (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .header {
+    margin-bottom: 30px;
+  }
+
   .heading {
     font-size: 36px;
   }
 
   .description {
     font-size: 16px;
+  }
+
+  .tabsContainer {
+    max-width: 700px;
+    padding: 10px 40px;
+  }
+
+  .tabsContainer .navArrow {
+    width: 28px;
+    height: 28px;
+  }
+
+  .tabsContainer .navArrowLeft {
+    left: 8px;
+  }
+
+  .tabsContainer .navArrowRight {
+    right: 8px;
+  }
+
+  .tab {
+    font-size: 0.95rem;
+    padding: 10px 18px;
+    margin: 0 15px 0 10px;
+  }
+
+  .categoriesContainer {
+    max-width: 700px;
+    gap: 1.5rem;
+  }
+
+  .categoryTab {
+    font-size: 0.9rem;
+    padding: 7px 14px;
+  }
+
+  .progressBarContainer {
+    max-width: 700px;
+  }
+}
+
+/* Mobile (576px - 767px) */
+@media (min-width: 576px) and (max-width: 767px) {
+  .header {
+    margin-bottom: 25px;
+  }
+
+  .heading {
+    font-size: 32px;
+  }
+
+  .description {
+    font-size: 15px;
+  }
+
+  .tabsContainer {
+    max-width: 100%;
+    padding: 10px 40px;
+  }
+
+  .tabsContainer .navArrow {
+    width: 26px;
+    height: 26px;
+  }
+
+  .tabsContainer .navArrowLeft {
+    left: 6px;
+  }
+
+  .tabsContainer .navArrowRight {
+    right: 6px;
+  }
+
+  .tab {
+    font-size: 0.9rem;
+    padding: 10px 16px;
+    margin: 0 12px 0 8px;
+    min-width: 3.5rem;
+  }
+
+  .tabsContainer .tab:nth-child(2) {
+    margin-left: 1.5rem;
+  }
+
+  .categoriesContainer {
+    max-width: 100%;
+    gap: 1.25rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  .categoryTab {
+    font-size: 0.85rem;
+    padding: 6px 12px;
+  }
+
+  .progressBarContainer {
+    max-width: 100%;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
+}
+
+/* Small Mobile (below 576px) */
+@media (max-width: 575px) {
+  .header {
+    margin-bottom: 20px;
+  }
+
+  .heading {
+    font-size: 28px;
+  }
+
+  .description {
+    font-size: 14px;
+  }
+
+  .categoriesContainer {
+    display: none;
+  }
+  .tabsContainer
+  {
+    border-radius: 0px !important;
+  }
+  .tabsContainer .navArrow {
+    display: none;
   }
 
   .tabsContainer {
@@ -195,6 +559,7 @@
     max-width: 300px;
     margin-left: auto;
     margin-right: auto;
+    overflow-x: visible;
   }
 
   .tab {
@@ -209,35 +574,14 @@
   .tabsContainer .tab:nth-child(2) {
     margin-left: 0;
   }
-}
-
-@media (max-width: 640px) {
-  .tabsContainer {
-    background-color: transparent;
-  }
-
-  .heading {
-    font-size: 28px;
-  }
-
-  .description {
-    font-size: 14px;
-  }
 
   .tab::before {
     content: none;
   }
 
   .categoriesContainer {
-    position: relative;
-    gap: 1rem;
-    justify-content: flex-start;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    overflow-x: auto;
-    max-width: 100%;
+    display: none;
   }
-  
 
   .categoryTab {
     font-size: 0.9rem;

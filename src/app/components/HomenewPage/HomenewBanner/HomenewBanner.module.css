@@ -11,9 +11,102 @@
   object-fit: cover;
   max-width: 100%;
   margin-bottom: -90px;
+  width: 100%;
 }
+
 .extraPaddingTop {
   padding-top: 120px; /* 30 * 4 = 120px */
+}
+
+/* Responsive Styles for homenewbanner1 */
+
+/* Large Desktop (1920px and above) */
+@media (min-width: 1920px) {
+  .homenewbanner1 {
+    height: 850px;
+    margin-bottom: -100px;
+  }
+
+  .extraPaddingTop {
+    padding-top: 140px;
+  }
+}
+
+/* Desktop/Laptop (1366px - 1919px) */
+@media (min-width: 1366px) and (max-width: 1919px) {
+  .homenewbanner1 {
+    height: 760px;
+    margin-bottom: -90px;
+  }
+
+  .extraPaddingTop {
+    padding-top: 120px;
+  }
+}
+
+/* iPad Pro (1024px - 1365px) */
+@media (min-width: 1024px) and (max-width: 1365px) {
+  .homenewbanner1 {
+    height: 650px;
+    margin-bottom: -70px;
+  }
+
+  .extraPaddingTop {
+    padding-top: 100px;
+  }
+}
+
+/* iPad (992px - 1023px) */
+@media (min-width: 992px) and (max-width: 1023px) {
+  .homenewbanner1 {
+    height: auto;
+    margin-bottom: 0;
+  }
+
+  .extraPaddingTop {
+    padding-top: 90px;
+  }
+}
+
+/* iPad (768px - 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+  .homenewbanner1 {
+    height: auto;
+    max-width: 300px;
+    margin: 0 auto -85px;
+  }
+
+  .extraPaddingTop {
+    padding-top: 80px;
+  }
+  .tabsContainer
+  {
+    border-radius: 0px !important;
+  }
+}
+
+/* Mobile (576px - 767px) */
+@media (min-width: 576px) and (max-width: 767px) {
+  .homenewbanner1 {
+    height: auto;
+    margin-bottom: 0;
+  }
+
+  .extraPaddingTop {
+    padding-top: 60px;
+  }
+}
+
+/* Small Mobile (below 576px) */
+@media (max-width: 575px) {
+  .homenewbanner1 {
+    height: auto;
+    margin-bottom: 0;
+  }
+
+  .extraPaddingTop {
+    padding-top: 40px;
+  }
 }
 .experienceBox {
   position: relative;

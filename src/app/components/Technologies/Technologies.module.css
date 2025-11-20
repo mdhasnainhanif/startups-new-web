@@ -50,7 +50,7 @@
 }
 
 .tab {
-  padding: 12px 20px;
+  padding: 12px 20px 16px;
   background: transparent;
   color: #403867;
   border: none;
@@ -201,7 +201,14 @@
   .section {
     padding: 60px 0;
   }
-
+  .tabsContainer
+  {
+    border-radius: 0px !important;
+  }
+  tab:before
+  {
+    display: none !important;
+  }
   .heading {
     font-size: 36px;
   }
@@ -251,6 +258,14 @@
 @media (max-width: 640px) {
   .tabsContainer {
     background-color: transparent;
+  }
+  .tabsContainer
+  {
+    border-radius: 0px !important;
+  }
+  tab:before
+  {
+    display: none !important;
   }
   .heading {
     font-size: 28px;
