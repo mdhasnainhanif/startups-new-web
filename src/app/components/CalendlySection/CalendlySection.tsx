@@ -5,7 +5,7 @@ import { InlineWidget } from "react-calendly";
 import Container from "../Container";
 import styles from "./CalendlySection.module.css";
 import Button from "../Button";
-import { VideoIcon } from "../../Icons";
+import { VideoIcon } from "../../icons";
 
 interface CalendlySectionProps {
   heading?:
