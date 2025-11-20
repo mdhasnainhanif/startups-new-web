@@ -23,54 +23,39 @@ export const FAQ_SECTION = {
 
 export const FAQ_DATA = [
   {
-    question: "What is a Smart Marketing AI Team?",
+    question: "Do I need to know about how to code?",
     answer:
-      "It's a full digital department designers, marketers, developers, and a Key Growth Manager supported by AI to deliver every marketing task your business needs fast and on brand.",
+      "Yes, you need to have a fair amount of knowledge in dealing with HTML/CSS as well as JavaScript in order to be able to use startups advisory.",
   },
   {
-    question: "How does this team work with my business?",
+    question: "Can I use it for commercial projects?",
     answer:
-      "Our Smart Marketing AI Team integrates seamlessly with your existing workflow. We work as an extension of your business, handling all marketing tasks while you focus on serving your clients. The team communicates regularly, follows your brand guidelines, and delivers results that align with your business objectives.",
+      "Feel free to do so. startups advoisry does exist to evolve every commercial project. You can also use it to build stunning websites for your own clients (we won’t breathe a word).",
   },
   {
-    question: "What types of businesses use Smart Marketing AI Teams?",
+    question: "Can I use it for multiple projects?",
     answer:
-      "Smart Marketing AI Teams are ideal for local businesses, startups, agencies, and companies of all sizes that need professional marketing support without the overhead of a full in-house team. Whether you're in retail, services, technology, or any other industry, our AI-powered team adapts to your specific needs.",
+      "Definitely! Please use it however you like; we don’t limit it.",
   },
   {
-    question: "Do I need to purchase any AI tools myself?",
+    question: "Can I use this to create and sell a product?",
     answer:
-      "No, you don't need to purchase any AI tools. We provide all the necessary AI-powered tools and platforms as part of our service. Our team uses advanced AI technology to handle content creation, design, strategy, and execution - all included in your package.",
+      "Do not ever consider doing it.",
   },
   {
-    question: "How quickly can my team start producing results?",
+    question: "What is your refund policy?",
     answer:
-      "Your Smart Marketing AI Team can start producing results within days of onboarding. We begin by understanding your brand, goals, and requirements, then immediately start creating content, managing campaigns, and executing your marketing strategy. Most clients see initial results within the first week.",
+      "We understand the importance of customer satisfaction and we strive to provide the best products and services. However, please note that due to the nature of our products and services, we do not offer refunds after a purchase has been made."  
+    },
+  {
+    question: "Can I use this to create and sell a product?",
+    answer:
+      "Do not ever consider doing it.",
   },
   {
-    question: "Who manages quality and performance?",
+    question: "What is your refund policy?",
     answer:
-      "Quality and performance are managed by our experienced Key Growth Manager who oversees all team activities. They ensure that every piece of content, campaign, and strategy meets your brand standards and business objectives. Regular performance reviews and optimizations are part of our standard service.",
-  },
-  {
-    question: "What if I already have a marketing team?",
-    answer:
-      "Our Smart Marketing AI Team works perfectly alongside your existing marketing team. We can handle overflow work, specialized projects, or specific tasks that your team doesn't have capacity for. Many businesses use us to augment their current team's capabilities and scale their marketing efforts.",
-  },
-  {
-    question: "Can the team handle my industry's specific needs?",
-    answer:
-      "Yes, absolutely. Our Smart Marketing AI Team is trained to work across various industries and can adapt to your specific industry requirements, compliance needs, and target audience. During onboarding, we deep-dive into your industry specifics to ensure all content and strategies are tailored accordingly.",
-  },
-  {
-    question: "How is communication handled?",
-    answer:
-      "Communication is handled through your dedicated Key Growth Manager, who serves as your primary point of contact. You'll have regular check-ins, access to a shared dashboard for project tracking, and direct communication channels for urgent needs. We ensure you're always in the loop and can provide feedback easily.",
-  },
-  {
-    question: "What does the onboarding process look like?",
-    answer:
-      "The onboarding process is straightforward and typically takes 2-3 days. We start with a discovery call to understand your business, brand, goals, and preferences. Then we set up your brand guidelines, content calendar, and communication channels. Your team begins working on your marketing tasks immediately after onboarding is complete.",
+      "We understand the importance of customer satisfaction and we strive to provide the best products and services. However, please note that due to the nature of our products and services, we do not offer refunds after a purchase has been made.",
   },
 ];
 
