@@ -62,14 +62,14 @@ export const FAQ_DATA = [
 
 export const FAQ_CONTACT = [
   {
-    question: "What is a Smart Marketing AI Team?",
+    question: "Do I need to know about how to code?",
     answer:
-      "It's a full digital department designers, marketers, developers, and a Key Growth Manager supported by AI to deliver every marketing task your business needs fast and on brand.",
+      "Yes, you need to have a fair amount of knowledge in dealing with HTML/CSS as well as JavaScript in order to be able to use startups advisory.",
   },
   {
-    question: "How does this team work with my business?",
+    question: "Can I use it for commercial projects?",
     answer:
-      "Our Smart Marketing AI Team integrates seamlessly with your existing workflow. We work as an extension of your business, handling all marketing tasks while you focus on serving your clients. The team communicates regularly, follows your brand guidelines, and delivers results that align with your business objectives.",
+      "Feel free to do so. startups advoisry does exist to evolve every commercial project. You can also use it to build stunning websites for your own clients (we won’t breathe a word).",
   },
   {
     question: "What types of businesses use Smart Marketing AI Teams?",
@@ -77,40 +77,30 @@ export const FAQ_CONTACT = [
       "Smart Marketing AI Teams are ideal for local businesses, startups, agencies, and companies of all sizes that need professional marketing support without the overhead of a full in-house team. Whether you're in retail, services, technology, or any other industry, our AI-powered team adapts to your specific needs.",
   },
   {
-    question: "Do I need to purchase any AI tools myself?",
+    question: "Can I use it for multiple projects?",
     answer:
-      "No, you don't need to purchase any AI tools. We provide all the necessary AI-powered tools and platforms as part of our service. Our team uses advanced AI technology to handle content creation, design, strategy, and execution - all included in your package.",
+      "Definitely! Please use it however you like; we don’t limit it.",
   },
   {
-    question: "How quickly can my team start producing results?",
+    question: "Can I use this to create and sell a product?",
     answer:
-      "Your Smart Marketing AI Team can start producing results within days of onboarding. We begin by understanding your brand, goals, and requirements, then immediately start creating content, managing campaigns, and executing your marketing strategy. Most clients see initial results within the first week.",
+      "Do not ever consider doing it.",
   },
   {
-    question: "Who manages quality and performance?",
+    question: "What is your refund policy?",
     answer:
-      "Quality and performance are managed by our experienced Key Growth Manager who oversees all team activities. They ensure that every piece of content, campaign, and strategy meets your brand standards and business objectives. Regular performance reviews and optimizations are part of our standard service.",
+      "We understand the importance of customer satisfaction and we strive to provide the best products and services. However, please note that due to the nature of our products and services, we do not offer refunds after a purchase has been made.",
   },
   {
-    question: "What if I already have a marketing team?",
+    question: "Can I use this to create and sell a product?",
     answer:
-      "Our Smart Marketing AI Team works perfectly alongside your existing marketing team. We can handle overflow work, specialized projects, or specific tasks that your team doesn't have capacity for. Many businesses use us to augment their current team's capabilities and scale their marketing efforts.",
+      "Do not ever consider doing it.",
   },
   {
-    question: "Can the team handle my industry's specific needs?",
+    question: "What is your refund policy?",
     answer:
-      "Yes, absolutely. Our Smart Marketing AI Team is trained to work across various industries and can adapt to your specific industry requirements, compliance needs, and target audience. During onboarding, we deep-dive into your industry specifics to ensure all content and strategies are tailored accordingly.",
-  },
-  {
-    question: "How is communication handled?",
-    answer:
-      "Communication is handled through your dedicated Key Growth Manager, who serves as your primary point of contact. You'll have regular check-ins, access to a shared dashboard for project tracking, and direct communication channels for urgent needs. We ensure you're always in the loop and can provide feedback easily.",
-  },
-  {
-    question: "What does the onboarding process look like?",
-    answer:
-      "The onboarding process is straightforward and typically takes 2-3 days. We start with a discovery call to understand your business, brand, goals, and preferences. Then we set up your brand guidelines, content calendar, and communication channels. Your team begins working on your marketing tasks immediately after onboarding is complete.",
-  },
+      "We understand the importance of customer satisfaction and we strive to provide the best products and services. However, please note that due to the nature of our products and services, we do not offer refunds after a purchase has been made.",
+  }
 ];
 
 export const PROFESSIONAL_ONLINE = {
@@ -190,7 +180,7 @@ export const REVIEWS_SECTION = {
       source: "Trustpilot",
       date: "May 29",
       rating: 5,
-      text: "Great Customer service, teams cares about their customers Overall, my experience with Orbit has been beyond amazing!!!Robert and the team behind the webpage design are beyond amazing. I originally connected with Logo Orbit because I needed a logo for my new business and ended up with a new Webpage as well  . Yes they are that good I highly recommend them.",
+      text: "Great Customer service, teams cares about their customers Overall, my experience with Orbit has been beyond amazing!!!Robert and the team behind the webpage design are beyond amazing. I originally connected with startups advoisry because I needed a logo for my new business and ended up with a new Webpage as well  . Yes they are that good I highly recommend them.",
       isVideo: false,
     },
     {
@@ -200,7 +190,7 @@ export const REVIEWS_SECTION = {
       source: "Trustpilot",
       date: "Sep 15, 2025",
       rating: 5,
-      text: "I'd recommend Logo Orbit to anyone looking for or in need of any graphic design. The service provided was top shelf. They were attentive and responsive the entire time. They turned around my idea for my brand logo within 24 hrs.",
+      text: "I'd recommend startups advoisry to anyone looking for or in need of any graphic design. The service provided was top shelf. They were attentive and responsive the entire time. They turned around my idea for my brand logo within 24 hrs.",
       isVideo: false,
     },
     {
@@ -210,7 +200,7 @@ export const REVIEWS_SECTION = {
       source: "Trustpilot",
       date: "Sep 16, 2025",
       rating: 5,
-      text: "Logo Orbit did a great job building our website. They were quick and cost effective.",
+      text: "startups advoisry did a great job building our website. They were quick and cost effective.",
       isVideo: false,
     },
     {
@@ -220,7 +210,7 @@ export const REVIEWS_SECTION = {
       source: "Trustpilot",
       date: "May 28, 2024",
       rating: 5,
-      text: "I have been working with Logo Orbit for about a year now. Great people and they are great with communication. Highly recommend Robert and his team.",
+      text: "I have been working with startups advoisry for about a year now. Great people and they are great with communication. Highly recommend Robert and his team.",
       isVideo: false,
     },
     {
@@ -240,7 +230,7 @@ export const REVIEWS_SECTION = {
       source: "Trustpilot",
       date: "Sep 2026",
       rating: 5,
-      text: "Robert Jones and Logo Orbit were excellant to work with.",
+      text: "Robert Jones and startups advoisry were excellant to work with.",
       isVideo: false,
     },
     {
@@ -263,7 +253,7 @@ export const REVIEWS_SECTION = {
       source: "Trustpilot",
       date: "Nov 7, 2024",
       rating: 5,
-      text: "Thank you Robert for your patience and advice designing my website. You were so helpful with suggestions and never minded making all the changes I wanted. (Even when I kept changing things!). I am thrilled with way the website turned out. I highly recommend using Robert at Logo Orbit to plan your website.",
+      text: "Thank you Robert for your patience and advice designing my website. You were so helpful with suggestions and never minded making all the changes I wanted. (Even when I kept changing things!). I am thrilled with way the website turned out. I highly recommend using Robert at startups advoisry to plan your website.",
       isVideo: false,
     },
     {
