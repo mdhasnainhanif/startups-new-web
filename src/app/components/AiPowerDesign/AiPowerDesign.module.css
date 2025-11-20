@@ -246,6 +246,7 @@
   .description {
     font-size: 1rem;
   }
+  
 
   .mainContentBox {
     padding: 1.5rem;
@@ -268,6 +269,24 @@
   .tab {
     padding: 0.5rem 1rem;
     font-size: 0.875rem;
+  }
+  .tabsContainer
+  {
+    border-radius: 0px !important;
+  }
+  tab:before
+  {
+    display: none;
+  }
+}
+
+@media (max-width: 576px) {
+  .imageWrapper {
+    height: auto;
+  }
+  .aeroicon
+  {
+    display: none;
   }
 }
 

@@ -196,7 +196,14 @@
   .section {
     padding: 60px 0;
   }
-
+  .tabsContainer
+  {
+    border-radius: 0px !important;
+  }
+  tab:before
+  {
+    display: none !important;
+  }
   .heading {
     font-size: 36px;
   }
@@ -247,6 +254,14 @@
 @media (max-width: 640px) {
   .tabsContainer{
     background-color: transparent;
+  }
+  .tabsContainer
+  {
+    border-radius: 0px !important;
+  }
+  tab:before
+  {
+    display: none !important;
   }
   .heading {
     font-size: 28px;
