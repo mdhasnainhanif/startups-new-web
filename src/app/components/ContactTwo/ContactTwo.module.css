@@ -1,9 +1,13 @@
+
 .contactSection {
   position: relative;
   background: #050321;
   overflow: hidden;
 }
 
+.noPaddingBottom {
+  padding-bottom: 0 !important;
+}
 .contactCard {
   position: relative;
   background: #1d0e57;

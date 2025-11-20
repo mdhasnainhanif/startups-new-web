@@ -1,10 +1,5 @@
-.section {
-  background: radial-gradient(
-    circle at top left,
-    #1a0b3f 0,
-    #05001a 40%,
-    #020014 100%
-  );
+.ProvenSuccess {
+  background: #080627;
   position: relative;
   overflow: hidden;
 }
@@ -86,9 +81,9 @@
   align-items: center;
   gap: 0;
   width: 100%;
-  max-width: fit-content;
+  max-width: 800px;
   margin: 0 auto 20px;
-  padding: 10px 0px;
+  padding: 10px 50px;
   display: flex;
   position: relative;
   border-radius: 100px;
@@ -98,15 +93,50 @@
   -ms-overflow-style: none;
   scroll-behavior: smooth;
 }
-.tabsContainer .navArrow
-{
-  width:30px;
-  height:30px;
+
+.tabsContainer .navArrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
   border-radius: 100px;
-  background:#1b1849;
-  opacity: 1;
-  cursor: pointer;
+  background: #1b1849;
+  border: none;
+  color: #ffffff;
+  cursor: pointer !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: all 0.3s ease;
   flex-shrink: 0;
+  pointer-events: auto !important;
+  user-select: none;
+}
+
+.tabsContainer .navArrow:hover:not(.navArrowDisabled) {
+  background: #2a2558;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.tabsContainer .navArrowLeft {
+  left: 10px;
+}
+
+.tabsContainer .navArrowRight {
+  right: 10px;
+}
+
+.tabsContainer .navArrowDisabled {
+  opacity: 0.3;
+  cursor: not-allowed !important;
+  pointer-events: none;
+}
+
+.tabsContainer .navArrowDisabled:hover {
+  transform: translateY(-50%);
+  background: #1b1849;
 }
 .tabsContainer::-webkit-scrollbar {
   display: none;
@@ -130,6 +160,8 @@
   margin: 0 20px 0 13px;
   min-width: 4rem;
   letter-spacing: 0.03rem;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .tab::before {
@@ -174,7 +206,7 @@
   scrollbar-width: none;
   -ms-overflow-style: none;
   width: 100%;
-  max-width: 800px;
+  max-width: 821px;
   margin: 0 auto;
   scroll-behavior: smooth;
   border-radius: 4px;

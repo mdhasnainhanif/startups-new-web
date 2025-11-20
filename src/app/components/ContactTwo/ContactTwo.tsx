@@ -108,7 +108,7 @@ const ContactTwo = () => {
   const { leftSection, rightSection } = CONTACT_TWO_DATA;
 
   return (
-    <section className={`${styles.contactSection} sectionPadding`}>
+    <section className={`${styles.contactSection} sectionPadding ${styles.noPaddingBottom}`}>
       <Container maxWidth="xl" className="px-0">
         <div className={styles.contactCard}>
           {/* Left Section - Text and Image */}

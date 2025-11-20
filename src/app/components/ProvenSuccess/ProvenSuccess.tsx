@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Container from '../Container';
 import styles from './ProvenSuccess.module.css';
 
@@ -41,13 +41,13 @@ const PROVEN_SUCCESS_DATA: ProvenSuccessData = {
       label: 'Branding Kit',
       images: [
         '/assets/images/aipower1.png',
+        '/assets/images/aipower2.png',
+        '/assets/images/aipower3.png',
+        '/assets/images/aipower4.png',
+        '/assets/images/aipower5.png',
         '/assets/images/aipower1.png',
-        '/assets/images/aipower1.png',
-        '/assets/images/aipower1.png',
-        '/assets/images/aipower1.png',
-        '/assets/images/aipower1.png',
-        '/assets/images/aipower1.png',
-        '/assets/images/aipower1.png',
+        '/assets/images/aipower2.png',
+        '/assets/images/aipower3.png',
       ],
       gridItems: [
         { id: '1', label: 'Logo Design' },
@@ -81,13 +81,13 @@ const PROVEN_SUCCESS_DATA: ProvenSuccessData = {
       label: 'Logo Design',
       images: [
         '/assets/images/aipower1.png',
+        '/assets/images/aipower2.png',
+        '/assets/images/aipower3.png',
+        '/assets/images/aipower4.png',
+        '/assets/images/aipower5.png',
         '/assets/images/aipower1.png',
-        '/assets/images/aipower1.png',
-        '/assets/images/aipower1.png',
-        '/assets/images/aipower1.png',
-        '/assets/images/aipower1.png',
-        '/assets/images/aipower1.png',
-        '/assets/images/aipower1.png',
+        '/assets/images/aipower2.png',
+        '/assets/images/aipower3.png',
       ],
       gridItems: [
         { id: '1', label: 'Primary Logo' },
@@ -121,13 +121,13 @@ const PROVEN_SUCCESS_DATA: ProvenSuccessData = {
       label: 'Social Media Post',
       images: [
         '/assets/images/aipower1.png',
+        '/assets/images/aipower2.png',
+        '/assets/images/aipower3.png',
+        '/assets/images/aipower4.png',
+        '/assets/images/aipower5.png',
         '/assets/images/aipower1.png',
-        '/assets/images/aipower1.png',
-        '/assets/images/aipower1.png',
-        '/assets/images/aipower1.png',
-        '/assets/images/aipower1.png',
-        '/assets/images/aipower1.png',
-        '/assets/images/aipower1.png',
+        '/assets/images/aipower2.png',
+        '/assets/images/aipower3.png',
       ],
       gridItems: [
         { id: '1', label: 'Facebook Post' },
@@ -161,13 +161,13 @@ const PROVEN_SUCCESS_DATA: ProvenSuccessData = {
       label: 'Stationary',
       images: [
         '/assets/images/aipower1.png',
+        '/assets/images/aipower2.png',
+        '/assets/images/aipower3.png',
+        '/assets/images/aipower4.png',
+        '/assets/images/aipower5.png',
         '/assets/images/aipower1.png',
-        '/assets/images/aipower1.png',
-        '/assets/images/aipower1.png',
-        '/assets/images/aipower1.png',
-        '/assets/images/aipower1.png',
-        '/assets/images/aipower1.png',
-        '/assets/images/aipower1.png',
+        '/assets/images/aipower2.png',
+        '/assets/images/aipower3.png',
       ],
       gridItems: [
         { id: '1', label: 'Business Card' },
@@ -212,12 +212,63 @@ const PROVEN_SUCCESS_DATA: ProvenSuccessData = {
 const ProvenSuccess = () => {
   const [activeTab, setActiveTab] = useState<string>(PROVEN_SUCCESS_DATA.tabs[0].id);
   const [activeCategory, setActiveCategory] = useState<string>(PROVEN_SUCCESS_DATA.categories[0].id);
+  const [tabsScrollState, setTabsScrollState] = useState<{ isBeginning: boolean; isEnd: boolean }>({
+    isBeginning: true,
+    isEnd: false,
+  });
   const tabsScrollRef = useRef<HTMLDivElement>(null);
   const categoriesScrollRef = useRef<HTMLDivElement>(null);
 
   const currentTab = PROVEN_SUCCESS_DATA.tabs.find((tab) => tab.id === activeTab) || PROVEN_SUCCESS_DATA.tabs[0];
 
-  const scrollCategories = (direction: 'left' | 'right') => {
+  const checkTabsScrollState = (): void => {
+    if (tabsScrollRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = tabsScrollRef.current;
+      setTabsScrollState({
+        isBeginning: scrollLeft <= 0,
+        isEnd: scrollLeft + clientWidth >= scrollWidth - 5,
+      });
+    }
+  };
+
+  const scrollTabs = (direction: 'left' | 'right'): void => {
+    if (!tabsScrollRef.current) return;
+    
+    const container = tabsScrollRef.current;
+    const scrollAmount = 250;
+    const currentScroll = container.scrollLeft;
+    
+    let newScroll: number;
+    if (direction === 'left') {
+      // Scroll back (left)
+      newScroll = Math.max(0, currentScroll - scrollAmount);
+    } else {
+      // Scroll forward (right)
+      const maxScroll = container.scrollWidth - container.clientWidth;
+      newScroll = Math.min(maxScroll, currentScroll + scrollAmount);
+    }
+    
+    container.scrollTo({
+      left: newScroll,
+      behavior: 'smooth',
+    });
+    
+    // Update scroll state after animation
+    setTimeout(() => {
+      checkTabsScrollState();
+    }, 500);
+  };
+
+  useEffect(() => {
+    checkTabsScrollState();
+    const handleResize = (): void => {
+      checkTabsScrollState();
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const scrollCategories = (direction: 'left' | 'right'): void => {
     if (categoriesScrollRef.current) {
       const scrollAmount = 150;
       categoriesScrollRef.current.scrollBy({
@@ -228,7 +279,7 @@ const ProvenSuccess = () => {
   };
 
   return (
-    <section className={`sectionPadding ${styles.section}`}>
+    <section className={`sectionPadding ${styles.section} ${styles.ProvenSuccess}`}>
       <Container maxWidth="2xl" className="px-0">
         {/* Header Section */}
         <div className={styles.header}>
@@ -241,7 +292,39 @@ const ProvenSuccess = () => {
         </div>
 
         {/* Tabs */}
-        <div ref={tabsScrollRef} className={styles.tabsContainer}>
+        <div
+          ref={tabsScrollRef}
+          className={styles.tabsContainer}
+          onScroll={checkTabsScrollState}
+        >
+          <button
+            onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
+              e.preventDefault();
+              e.stopPropagation();
+              if (!tabsScrollState.isBeginning) {
+                scrollTabs('left');
+              }
+            }}
+            disabled={tabsScrollState.isBeginning}
+            className={`${styles.navArrow} ${styles.navArrowLeft} ${
+              tabsScrollState.isBeginning ? styles.navArrowDisabled : ''
+            }`}
+            aria-label="Previous tabs"
+            type="button"
+          >
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M15 18l-6-6 6-6" />
+            </svg>
+          </button>
           {PROVEN_SUCCESS_DATA.tabs.map((tab) => (
             <button
               key={tab.id}
@@ -251,6 +334,34 @@ const ProvenSuccess = () => {
               {tab.label}
             </button>
           ))}
+          <button
+            onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
+              e.preventDefault();
+              e.stopPropagation();
+              if (!tabsScrollState.isEnd) {
+                scrollTabs('right');
+              }
+            }}
+            disabled={tabsScrollState.isEnd}
+            className={`${styles.navArrow} ${styles.navArrowRight} ${
+              tabsScrollState.isEnd ? styles.navArrowDisabled : ''
+            }`}
+            aria-label="Next tabs"
+            type="button"
+          >
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M9 18l6-6-6-6" />
+            </svg>
+          </button>
         </div>
 
         {/* Categories Tabs */}
