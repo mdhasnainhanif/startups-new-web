@@ -179,16 +179,19 @@ h2.headingSize {
 }
 
 @media screen and (max-width: 576px) {
-  button.caseBtn{
-    margin: 0 auto;
-  }
-  button.caseBtn::before{
-    content: none;
-  }
-  div.sectionHeading > p{
+  div.sectionHeading.forH2 > p {
     font-size: 1rem;
   }
-  div.sectionHeading > h1 { 
+  button.caseBtn {
+    margin: 0 auto;
+  }
+  button.caseBtn::before {
+    content: none;
+  }
+  div.sectionHeading > p {
+    font-size: 1rem;
+  }
+  div.sectionHeading > h1 {
     font-size: 2.5rem;
     font-weight: 700;
     line-height: 1.2;
@@ -313,4 +316,42 @@ h2.headingSize {
 
 .caseBtn:last-child::before {
   content: none;
+}
+
+/* Tabs Swiper Styles */
+.tabs-swiper {
+  overflow: hidden !important;
+}
+
+.tabs-swiper .swiper-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.tabs-swiper .swiper-slide {
+  width: 100% !important;
+  max-width: 100% !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.tabs-swiper .swiper-slide:not(.swiper-slide-active) {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.tabs-swiper .swiper-slide-active {
+  opacity: 1;
+}
+
+/* Hide Swiper scrollbar */
+.tabs-swiper::-webkit-scrollbar {
+  display: none;
+}
+
+.tabs-swiper {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

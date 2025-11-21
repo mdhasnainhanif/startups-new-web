@@ -4,6 +4,11 @@ import Link from "next/link";
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 import { useModalStore } from "@/stores/useModalStore";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
+import type { Swiper as SwiperType } from "swiper";
+import "swiper/css";
+import "swiper/css/navigation";
 import "../../../public/assets/css/casestudy.css";
 import "../../../public/assets/css/casestudythree.css";
 import "../../../public/assets/css/casestudytwo.css";
@@ -275,6 +280,17 @@ const CaseStudySection = () => {
   const [activeCategory, setActiveCategory] = useState<string>("creative");
   const [isFading, setIsFading] = useState<boolean>(false);
   const [shouldStick, setShouldStick] = useState<boolean>(true);
+  const tabsSwiperRef = useRef<SwiperType | null>(null);
+  const [isTabsSwiperBeginning, setIsTabsSwiperBeginning] = useState(true);
+  const [isTabsSwiperEnd, setIsTabsSwiperEnd] = useState(false);
+
+  // Tabs data
+  const tabs = [
+    { id: "creative", label: "Creative & Design" },
+    { id: "marketing", label: "Marketing & Growth" },
+    { id: "development", label: "Development" },
+    { id: "keygrowth", label: "Key Growth" },
+  ];
 
   // Filter cards based on active category
   const filteredCards = cardsData.filter(
@@ -781,6 +797,16 @@ const CaseStudySection = () => {
     return () => clearTimeout(timer);
   }, [isDesktop, activeCategory]);
 
+  // Sync Swiper to active category
+  useEffect(() => {
+    if (tabsSwiperRef.current) {
+      const activeIndex = tabs.findIndex((tab) => tab.id === activeCategory);
+      if (activeIndex !== -1) {
+        tabsSwiperRef.current.slideTo(activeIndex);
+      }
+    }
+  }, [activeCategory]);
+
   // Reinitialize stack cards when category changes
   useEffect(() => {
     cleanupStackCards();
@@ -907,79 +933,119 @@ const CaseStudySection = () => {
             </div>
           </div>
           <div className="mx-auto xl:w-[78%]">
-            {/* Tabs Navigation */}
+            {/* Tabs Navigation with Swiper */}
             <div
               className={`${
                 shouldStick ? "sticky" : ""
-              } top-10 z-50 py-4 rounded-lg w-full mx-auto md:bg-[#0b0038] px-4 
-              flex items-end justify-between mb-8 flex-wrap`}
+              } top-10 z-50 py-4 rounded-lg w-full mx-auto md:bg-[#0b0038] mb-8 relative`}
             >
+              {/* Left Arrow */}
               <button
-                onClick={() => {
-                  setActiveCategory("creative");
-                  const firstCreativeCard = cardsData.find(
-                    (card) => card.category === "creative"
-                  );
-                  if (firstCreativeCard) setActiveTab(firstCreativeCard.id);
-                }}
-                className={`px-10 pt-3 pb-4 rounded-lg cursor-pointer caseBtn text-xl font-graphik-bold transition-all relative ${
-                  activeCategory === "creative"
-                    ? "bg-[#643bff] text-white"
-                    : "text-[#403867] hover:text-[#9ca3af]"
+                onClick={() => tabsSwiperRef.current?.slidePrev()}
+                disabled={isTabsSwiperBeginning}
+                className={`absolute left-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full border-none text-white cursor-pointer flex items-center justify-center transition-all ${
+                  isTabsSwiperBeginning
+                    ? "opacity-30 cursor-not-allowed bg-[#1b1849]"
+                    : "opacity-100 hover:bg-[#0fdac2]/80 bg-[#0fdac2]"
                 }`}
+                aria-label="Previous tab"
               >
-                Creative & Design
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M15 18l-6-6 6-6" />
+                </svg>
               </button>
 
-              <button
-                onClick={() => {
-                  setActiveCategory("marketing");
-                  const firstMarketingCard = cardsData.find(
-                    (card) => card.category === "marketing"
-                  );
-                  if (firstMarketingCard) setActiveTab(firstMarketingCard.id);
+              {/* Swiper for Tabs */}
+              <Swiper
+                modules={[Navigation]}
+                spaceBetween={0}
+                slidesPerView={1}
+                centeredSlides={false}
+                allowTouchMove={true}
+                speed={300}
+                watchOverflow={true}
+                onSwiper={(swiper) => {
+                  tabsSwiperRef.current = swiper;
+                  setIsTabsSwiperBeginning(swiper.isBeginning);
+                  setIsTabsSwiperEnd(swiper.isEnd);
                 }}
-                className={`px-10 pt-3 pb-4 rounded-lg cursor-pointer caseBtn text-xl font-bold transition-all ${
-                  activeCategory === "marketing"
-                    ? "bg-[#643bff] text-white"
-                    : "text-[#403867] hover:text-[#9ca3af]"
-                }`}
+                onSlideChange={(swiper) => {
+                  setIsTabsSwiperBeginning(swiper.isBeginning);
+                  setIsTabsSwiperEnd(swiper.isEnd);
+                  const activeIndex = swiper.activeIndex;
+                  if (tabs[activeIndex]) {
+                    const selectedTab = tabs[activeIndex];
+                    setActiveCategory(selectedTab.id);
+                    const firstCard = cardsData.find(
+                      (card) => card.category === selectedTab.id
+                    );
+                    if (firstCard) setActiveTab(firstCard.id);
+                  }
+                }}
+                className="tabs-swiper"
+                style={{ paddingLeft: "3rem", paddingRight: "3rem", overflow: "hidden" }}
               >
-                Marketing & Growth
-              </button>
+                {tabs.map((tab) => (
+                  <SwiperSlide key={tab.id} style={{ width: "100%" }}>
+                    <div className="flex justify-center w-full">
+                      <button
+                        onClick={() => {
+                          setActiveCategory(tab.id);
+                          const firstCard = cardsData.find(
+                            (card) => card.category === tab.id
+                          );
+                          if (firstCard) setActiveTab(firstCard.id);
+                          // Sync swiper to active tab
+                          const tabIndex = tabs.findIndex((t) => t.id === tab.id);
+                          if (tabsSwiperRef.current && tabIndex !== -1) {
+                            tabsSwiperRef.current.slideTo(tabIndex);
+                          }
+                        }}
+                        className={`px-10 pt-3 pb-4 rounded-lg cursor-pointer caseBtn text-xl font-graphik-bold transition-all relative ${
+                          activeCategory === tab.id
+                            ? "bg-[#643bff] text-white"
+                            : "text-[#403867] hover:text-[#9ca3af]"
+                        }`}
+                      >
+                        {tab.label}
+                      </button>
+                    </div>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
 
+              {/* Right Arrow */}
               <button
-                onClick={() => {
-                  setActiveCategory("development");
-                  const firstDevCard = cardsData.find(
-                    (card) => card.category === "development"
-                  );
-                  if (firstDevCard) setActiveTab(firstDevCard.id);
-                }}
-                className={`px-10 pt-3 pb-4 rounded-lg cursor-pointer caseBtn text-xl font-bold transition-all ${
-                  activeCategory === "development"
-                    ? "bg-[#643bff] text-white"
-                    : "text-[#403867] hover:text-[#9ca3af]"
+                onClick={() => tabsSwiperRef.current?.slideNext()}
+                disabled={isTabsSwiperEnd}
+                className={`absolute right-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full border-none text-white cursor-pointer flex items-center justify-center transition-all ${
+                  isTabsSwiperEnd
+                    ? "opacity-30 cursor-not-allowed bg-[#1b1849]"
+                    : "opacity-100 hover:bg-[#0fdac2]/80 bg-[#0fdac2]"
                 }`}
+                aria-label="Next tab"
               >
-                Development
-              </button>
-
-              <button
-                onClick={() => {
-                  setActiveCategory("keygrowth");
-                  const firstGrowthCard = cardsData.find(
-                    (card) => card.category === "keygrowth"
-                  );
-                  if (firstGrowthCard) setActiveTab(firstGrowthCard.id);
-                }}
-                className={`px-10 pt-3 pb-4 rounded-lg cursor-pointer caseBtn text-xl font-bold transition-all ${
-                  activeCategory === "keygrowth"
-                    ? "bg-[#643bff] text-white"
-                    : "text-[#403867] hover:text-[#9ca3af]"
-                }`}
-              >
-                Key Growth
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M9 18l6-6-6-6" />
+                </svg>
               </button>
             </div>
             <div className="tabSection">
@@ -1005,7 +1071,7 @@ const CaseStudySection = () => {
                             className="grid grid-cols-1 md:grid-cols-[60%_40%] gap-6 scrollerItem"
                             style={{ backgroundColor: cardColor }}
                           >
-                            <div className="inner-div my-auto px-5 ps-9">
+                            <div className="inner-div my-auto md:px-5 md:ps-9 ps-3 md:pe-0 pe-3">
                               <h3>{card.title}</h3>
                               <p className="text-[#0fdac2]">{card.subtitle}</p>
                               <div className="inner-tags flex flex-wrap gap-2">
