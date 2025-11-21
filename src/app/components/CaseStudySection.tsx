@@ -933,11 +933,86 @@ const CaseStudySection = () => {
             </div>
           </div>
           <div className="mx-auto xl:w-[78%]">
-            {/* Tabs Navigation with Swiper */}
+            {/* Tabs Navigation - Desktop View */}
             <div
               className={`${
                 shouldStick ? "sticky" : ""
-              } top-10 z-50 py-4 rounded-lg w-full mx-auto md:bg-[#0b0038] md:mb-8 mb-16 relative`}
+              } top-10 z-50 py-4 md:px-4 p-0 rounded-lg w-full mx-auto md:bg-[#0b0038] md:mb-8 mb-16 hidden md:flex items-end justify-between flex-wrap`}
+            >
+              <button
+                onClick={() => {
+                  setActiveCategory("creative");
+                  const firstCreativeCard = cardsData.find(
+                    (card) => card.category === "creative"
+                  );
+                  if (firstCreativeCard) setActiveTab(firstCreativeCard.id);
+                }}
+                className={`px-10 pt-3 pb-4 rounded-lg cursor-pointer caseBtn text-xl font-graphik-bold transition-all relative ${
+                  activeCategory === "creative"
+                    ? "bg-[#643bff] text-white"
+                    : "text-[#403867] hover:text-[#9ca3af]"
+                }`}
+              >
+                Creative & Design
+              </button>
+
+              <button
+                onClick={() => {
+                  setActiveCategory("marketing");
+                  const firstMarketingCard = cardsData.find(
+                    (card) => card.category === "marketing"
+                  );
+                  if (firstMarketingCard) setActiveTab(firstMarketingCard.id);
+                }}
+                className={`px-10 pt-3 pb-4 rounded-lg cursor-pointer caseBtn text-xl font-bold transition-all ${
+                  activeCategory === "marketing"
+                    ? "bg-[#643bff] text-white"
+                    : "text-[#403867] hover:text-[#9ca3af]"
+                }`}
+              >
+                Marketing & Growth
+              </button>
+
+              <button
+                onClick={() => {
+                  setActiveCategory("development");
+                  const firstDevCard = cardsData.find(
+                    (card) => card.category === "development"
+                  );
+                  if (firstDevCard) setActiveTab(firstDevCard.id);
+                }}
+                className={`px-10 pt-3 pb-4 rounded-lg cursor-pointer caseBtn text-xl font-bold transition-all ${
+                  activeCategory === "development"
+                    ? "bg-[#643bff] text-white"
+                    : "text-[#403867] hover:text-[#9ca3af]"
+                }`}
+              >
+                Development
+              </button>
+
+              <button
+                onClick={() => {
+                  setActiveCategory("keygrowth");
+                  const firstGrowthCard = cardsData.find(
+                    (card) => card.category === "keygrowth"
+                  );
+                  if (firstGrowthCard) setActiveTab(firstGrowthCard.id);
+                }}
+                className={`px-10 pt-3 pb-4 rounded-lg cursor-pointer caseBtn text-xl font-bold transition-all ${
+                  activeCategory === "keygrowth"
+                    ? "bg-[#643bff] text-white"
+                    : "text-[#403867] hover:text-[#9ca3af]"
+                }`}
+              >
+                Key Growth
+              </button>
+            </div>
+
+            {/* Tabs Navigation - Mobile View with Swiper */}
+            <div
+              className={`${
+                shouldStick ? "sticky" : ""
+              } top-10 z-50 py-4 rounded-lg w-full mx-auto md:bg-[#0b0038] md:mb-8 mb-16 relative md:hidden`}
             >
               {/* Left Arrow */}
               <button

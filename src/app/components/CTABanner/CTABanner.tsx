@@ -29,7 +29,7 @@ const CTABanner = ({
       <Container maxWidth="xl" className="relative z-10">
         <div className="flex flex-col md:flex-row items-center justify-around gap-6 md:gap-8">
           {/* Left Side - Question */}
-          <div className="flex-1 sectionHeading text-center w-fit">
+          <div className="flex-1 sectionHeading forH2 mb-0 text-center w-fit">
             <h2 className="w-fit">
               <span className="text-white">{question} </span>
               <span className="text-[#0fdac2]">{questionHighlight}</span>

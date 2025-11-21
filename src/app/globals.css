@@ -179,6 +179,9 @@ h2.headingSize {
 }
 
 @media screen and (max-width: 576px) {
+  .mobile-padding-bottom-0 {
+    padding-bottom: 0rem !important;
+}
   div.sectionHeading.forH2 > p {
     font-size: 1rem;
   }
@@ -298,6 +301,10 @@ h2.headingSize {
 
 .sectionHeading.forH2.text-center {
   margin-bottom: 2.5rem;
+}
+
+.sectionHeading.forH2.text-center.mb-0 {
+  margin-bottom: 0rem;
 }
 
 .caseBtn {
