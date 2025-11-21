@@ -33,7 +33,7 @@
 
 /* Size variants */
 .btnPrimary.sm {
-  padding: 0.425rem 1.225rem 0.525rem;
+  padding: 0.425rem 1.225rem 0.495rem;
   font-size: 0.75rem !important;
 }
 
@@ -247,7 +247,7 @@
 @media screen and (max-width: 576px) {
   .btnPrimary.lg {
     font-size: 1rem !important;
-    padding: 0.625rem 1.725rem 0.65rem;
+    padding: 0.625rem 1.725rem 0.595rem;
   }
 }
 

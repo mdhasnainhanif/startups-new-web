@@ -937,7 +937,7 @@ const CaseStudySection = () => {
             <div
               className={`${
                 shouldStick ? "sticky" : ""
-              } top-10 z-50 py-4 rounded-lg w-full mx-auto md:bg-[#0b0038] mb-8 relative`}
+              } top-10 z-50 py-4 rounded-lg w-full mx-auto md:bg-[#0b0038] md:mb-8 mb-16 relative`}
             >
               {/* Left Arrow */}
               <button
