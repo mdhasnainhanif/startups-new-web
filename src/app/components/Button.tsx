@@ -63,6 +63,11 @@ export default function Button({
   // Add custom className
   combinedClasses += ` ${className}`;
 
+  // Add disabled cursor class for all buttons
+  if ('disabled' in props && props.disabled) {
+    combinedClasses += ` cursor-not-allowed`;
+  }
+
   // Add dropdown class if dropdown
   if (isDropdown) {
     combinedClasses += ` ${styles.dropdownButton}`;

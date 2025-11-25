@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Container from "../Container";
+import Button from "../Button";
 
 interface FAQItem {
   question: string;
@@ -24,9 +25,25 @@ interface FAQProps {
 
 export default function FAQ({ faqs, sectionData, className = "" }: FAQProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [userQuestion, setUserQuestion] = useState<string>("");
 
   const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
+  };
+
+  const handleQuestionChange = (value: string) => {
+    setUserQuestion(value);
+  };
+
+  const handleSubmitQuestion = () => {
+    const question = userQuestion.trim();
+    if (question) {
+      // Here you can handle the question submission
+      // For now, we'll just show an alert
+      alert(`Question submitted: ${question}`);
+      // Clear the input after submission
+      setUserQuestion("");
+    }
   };
 
   return (
@@ -44,6 +61,34 @@ export default function FAQ({ faqs, sectionData, className = "" }: FAQProps) {
             </p>
           </div>
 
+          {/* User Question Input Box - Only above first FAQ */}
+          <div className="w-full mb-6 sm:mb-8">
+            <div className="py-3 sm:py-4 border border-white/20 rounded-lg bg-white/5">
+              <div className="px-3 sm:px-4">
+                <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
+                  <div className="flex-1">
+                    <textarea
+                      value={userQuestion}
+                      onChange={(e) => handleQuestionChange(e.target.value)}
+                      placeholder="Ask your own question here..."
+                      className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-white/5 border border-white/20 rounded-lg text-white placeholder-white/50 text-sm sm:text-base resize-none focus:outline-none focus:border-[#0fdac2] focus:ring-1 focus:ring-[#0fdac2] transition-all duration-200"
+                      rows={2}
+                    />
+                  </div>
+                  <Button
+                    variant="green"
+                    size="md"
+                    onClick={handleSubmitQuestion}
+                    disabled={!userQuestion.trim()}
+                    className="hover:bg-[#0fdac2]/90 disabled:opacity-50"
+                  >
+                    Submit Question
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* FAQ Items */}
           <div className="w-full">
             <div className="space-y-0">
@@ -52,6 +97,7 @@ export default function FAQ({ faqs, sectionData, className = "" }: FAQProps) {
                   key={index}
                   className="border-b border-white/10 last:border-b-0"
                 >
+                  {/* FAQ Question */}
                   <button
                     onClick={() => toggleFAQ(index)}
                     className="w-full px-0 py-4 sm:py-5 md:py-6 flex items-center justify-between text-left focus:outline-none transition-colors hover:opacity-80 gap-3 sm:gap-4 cursor-pointer"
@@ -63,6 +109,8 @@ export default function FAQ({ faqs, sectionData, className = "" }: FAQProps) {
                       {openIndex === index ? "−" : "+"}
                     </span>
                   </button>
+                  
+                  {/* FAQ Answer */}
                   <div
                     className={`overflow-hidden transition-all duration-300 ${
                       openIndex === index

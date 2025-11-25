@@ -105,7 +105,7 @@ const BusinessPlaylist: React.FC<BusinessPlaylistProps> = ({
                   </div>
                   <div className={styles.videoTextOverlay}>
                     <p className={styles.overlayText}>
-                      Your Smart Marketing AI Team like a behind-the-scenes ent:
+                      Your Smart AI Business Team like a behind-the-scenes ent:
                       planning promotions, visuals.
                     </p>
                   </div>

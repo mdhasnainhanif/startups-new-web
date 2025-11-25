@@ -67,10 +67,10 @@ export const SOCIAL_MEDIA_LINKS = [
 
 export const TECHNOLOGIES_SECTION = {
   heading: {
-    part1: "$48000+ of [Proven Marketing] Tools Powering Your Growth Through AI",
+    part1: "$48000+ Worth of [Advanced AI] Tools Growing Your Business 10x",
   },
   description:
-    "Your Smart Marketing AI Team helps your business attract more clients and stay consistently visible. It keeps your marketing active creates content on time and supports every part of your growth. You get steadier leads stronger trust and a business that finally moves forward without stress because everything runs for you daily.",
+    "When this AI power fuels your business your visibility explodes and the right clients start coming in on their own.",
   tabs: [
     {
       id: "creative",

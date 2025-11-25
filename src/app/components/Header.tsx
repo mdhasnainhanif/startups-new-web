@@ -81,6 +81,7 @@ export default function Header() {
                     height={40}
                     priority
                     style={{ objectFit: "contain" }}
+                    className="headerLogo"
                   />
                 </Link>
               </div>

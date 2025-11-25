@@ -158,7 +158,7 @@
 }
 
 .buttonPurple:disabled {
-  cursor: auto;
+  cursor: not-allowed;
 }
 
 .buttonPurple:active {
@@ -222,7 +222,7 @@
 }
 
 .buttonGreen:disabled {
-  cursor: auto;
+  cursor: not-allowed;
 }
 
 .buttonGreen:active {
@@ -233,6 +233,7 @@
 @media screen and (max-width: 768px) {
   .btnPrimary.sm {
     font-size: 0.75rem !important;
+    padding: 0.425rem 0.525rem 0.495rem;
   }
 
   .btnPrimary.md {

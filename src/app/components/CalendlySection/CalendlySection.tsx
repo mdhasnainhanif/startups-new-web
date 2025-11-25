@@ -25,7 +25,7 @@ interface CalendlySectionProps {
 
 const CalendlySection = ({
   heading = "Let's Get Your Business Talking",
-  description = "Book a quick video call to see how your Smart Marketing AI Team can free you to run jobs while your digital presence runs itself",
+  description = "Book a quick video call to see how your Smart AI Business Team can free you to run jobs while your digital presence runs itself",
   buttonText = "Free Up Your Time",
   buttonHref = "#",
   calendlyUrl = "https://calendly.com/md-hasnain-developer/30min?month=2025-11",

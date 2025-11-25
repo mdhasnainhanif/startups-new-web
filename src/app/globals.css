@@ -179,6 +179,9 @@ h2.headingSize {
 }
 
 @media screen and (max-width: 576px) {
+  .headerLogo{
+    max-width: 7rem;
+  }
   .mobile-padding-bottom-0 {
     padding-bottom: 0rem !important;
 }
@@ -187,6 +190,7 @@ h2.headingSize {
   }
   button.caseBtn {
     margin: 0 auto;
+    font-size: 1rem;
   }
   button.caseBtn::before {
     content: none;

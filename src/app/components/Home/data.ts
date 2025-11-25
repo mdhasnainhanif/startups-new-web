@@ -6,7 +6,7 @@ export const HERO_BANNER = {
   description:
     `Finally growth that accelerates every part of your business forward. \n Your AI powered growth team brings more clients improves operations boosts revenue and keeps your business moving.`,
   ctaButton: {
-    text: "Let's Fix Your Business",
+    text: "Lets Grow Your Business",
     href: "#",
     variant: "secondary" as const,
   },
@@ -72,9 +72,9 @@ export const FAQ_CONTACT = [
       "Feel free to do so. startups advoisry does exist to evolve every commercial project. You can also use it to build stunning websites for your own clients (we won’t breathe a word).",
   },
   {
-    question: "What types of businesses use Smart Marketing AI Teams?",
+    question: "What types of businesses use Smart AI Business Teams?",
     answer:
-      "Smart Marketing AI Teams are ideal for local businesses, startups, agencies, and companies of all sizes that need professional marketing support without the overhead of a full in-house team. Whether you're in retail, services, technology, or any other industry, our AI-powered team adapts to your specific needs.",
+      "Smart AI Business Teams are ideal for local businesses, startups, agencies, and companies of all sizes that need professional marketing support without the overhead of a full in-house team. Whether you're in retail, services, technology, or any other industry, our AI-powered team adapts to your specific needs.",
   },
   {
     question: "Can I use it for multiple projects?",
@@ -114,26 +114,26 @@ export const PROFESSIONAL_ONLINE = {
   startupStats: [
     {
       percentage: "90%",
-      headline: "Startups Fail Within",
-      description: "Startups fail within two years which shows how unforgiving early execution really is.",
+      headline: "Startups Fail",
+      description: "within two years which shows how unforgiving early execution really is.",
       image: "/assets/images/clock.svg",
     },
     {
       percentage: "38%",
-      headline: "Startups Fail Within",
-      description: "Collapse because they run out of cash a signal that financial discipline is a survival skill not an accessory.",
+      headline: "Collapse because",
+      description: "they run out of cash a signal that financial discipline is a survival skill not an accessory.",
       image: "/assets/images/money.svg",
     },
     {
       percentage: "14%",
-      headline: "Startups Fail Within",
-      description: "Fail due to poor marketing proving that even great products die when visibility is weak.",
+      headline: "Fail due",
+      description: "to poor marketing proving that even great products die when visibility is weak.",
       image: "/assets/images/marketing.svg",
     },
     {
       percentage: "20%",
-      headline: "Startups Fail Within",
-      description: "Get outcompeted because speed learning and adaptation decide who stays in the market.",
+      headline: "Get outcompeted",
+      description: "because speed learning and adaptation decide who stays in the market.",
       image: "/assets/images/exit.svg",
     },
   ],
@@ -144,7 +144,7 @@ export const PROFESSIONAL_ONLINE = {
     videoTitle: "Professional Online Video",
   },
   bottomHeading: {
-    part1: "The Only Way to [Make Startups Succeed]",
+    part1: "The 3X Business Tip to [Grow Your Business] 5X",
   },
 };
 
@@ -155,7 +155,7 @@ export const REVIEWS_SECTION = {
   },
   subtitle:
     "Before you decide to work with us, take a moment to see what our clients experienced, what changed for them, and how their businesses grew once our team stepped in.",
-  ctaText: "See how Smart Marketing AI Teams turned invisibility into daily inquiries",
+  ctaText: "See how Smart AI Business Teams turned invisibility into daily inquiries",
   ratingBadges: [
     {
       platform: "Trustpilot",
@@ -367,7 +367,7 @@ export const GROWTH_GUIDES = [
 export const CALENDLY_SECTION = {
   heading: "Let's Get Your [Business] Talking",
   description:
-    "Schedule a call and we’ll walk you through how your business can grow faster attract more clients and finally move forward with the kind of momentum you have been aiming for.",
+    "Join us on a call and get a clear roadmap that shows how your business can increase clients improve consistency and grow steadily day by day.",
   buttonText: "Free Up Your Time",
   buttonHref: "#",
   calendlyUrl: "https://calendly.com/md-hasnain-developer/30min",

@@ -21,10 +21,10 @@ export default function Reviews() {
                 {REVIEWS_SECTION.heading.part2}
               </span>
             </h2>
-              <p>{REVIEWS_SECTION.subtitle}</p>
+            <p>{REVIEWS_SECTION.subtitle}</p>
             <p className={styles.ctaText}>
               See how &nbsp;
-              <span className="text-[#0fdac2]">Smart Marketing AI Teams</span>&nbsp;
+              <span className="text-[#0fdac2]">Smart AI Business Teams</span>&nbsp;
               turned invisibility into daily inquiries
             </p>
           </div>
