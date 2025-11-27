@@ -234,6 +234,7 @@
   .btnPrimary.sm {
     font-size: 0.75rem !important;
     padding: 0.425rem 0.525rem 0.495rem;
+    white-space: nowrap;
   }
 
   .btnPrimary.md {

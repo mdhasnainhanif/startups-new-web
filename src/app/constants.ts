@@ -19,7 +19,7 @@ export const NAVIGATION_LINKS = [
 export const TOP_BANNER = {
   show: true,
   emoji: "🚀",
-  text: "Big News: We are now a Public Company",
+  text: "Big News: We Launched Key Growth Manager Services",
   buttonText: "Know More",
   buttonLink: "/big-news",
 };

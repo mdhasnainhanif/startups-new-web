@@ -60,7 +60,7 @@ export default function TopHeader() {
               variant="secondary"
               size="sm"
               iconPosition="right"
-              icon={<ArrowRightIcon style={{ fill: "#fff" }} />}
+              // icon={<ArrowRightIcon style={{ fill: "#fff" }} />}
               className="mt-2"
             >
               {TOP_BANNER.buttonText}

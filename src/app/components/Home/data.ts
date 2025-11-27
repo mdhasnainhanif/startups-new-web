@@ -1,7 +1,7 @@
 export const HERO_BANNER = {
-  headline: "Your ",
+  headline: "",
   headlineHighlight: "",
-  subheadline: "[Your AI-Powered] Growth Team - Read to Run Your Business",
+  subheadline: "[Your AI-Powered] Growth Team Ready to Run Your Business",
   className: "",
   description:
     `Finally growth that accelerates every part of your business forward. \n Your AI powered growth team brings more clients improves operations boosts revenue and keeps your business moving.`,
@@ -62,46 +62,57 @@ export const FAQ_DATA = [
 
 export const FAQ_CONTACT = [
   {
-    question: "Do I need to know about how to code?",
+    question: "What exactly does StartupAdvisory.ai do?",
     answer:
-      "Yes, you need to have a fair amount of knowledge in dealing with HTML/CSS as well as JavaScript in order to be able to use startups advisory.",
+      "StartupAdvisory.ai builds AI powered digital teams for founders so they can scale operations, create content, launch campaigns, and grow without hiring full time staff.",
   },
   {
-    question: "Can I use it for commercial projects?",
+    question: "How is this different from hiring freelancers or agencies?",
     answer:
-      "Feel free to do so. startups advoisry does exist to evolve every commercial project. You can also use it to build stunning websites for your own clients (we won’t breathe a word).",
+      "Freelancers take time to manage. Agencies are expensive. StartupAdvisory gives you a dedicated AI enhanced team that works faster, stays consistent, and costs far less.",
   },
   {
-    question: "What types of businesses use Smart AI Business Teams?",
+    question: "Who is this service best for?",
     answer:
-      "Smart AI Business Teams are ideal for local businesses, startups, agencies, and companies of all sizes that need professional marketing support without the overhead of a full in-house team. Whether you're in retail, services, technology, or any other industry, our AI-powered team adapts to your specific needs.",
+      "Early stage founders, solo entrepreneurs, and small businesses that need growth, branding, content, marketing, or automation support without hiring full time staff.",
   },
   {
-    question: "Can I use it for multiple projects?",
+    question: "Do I need to be tech savvy to use StartupAdvisory.ai?",
     answer:
-      "Definitely! Please use it however you like; we don’t limit it.",
+      "Not at all. We handle the AI stack, the tools, and the workflows so you can focus on growing your business.",
   },
   {
-    question: "Can I use this to create and sell a product?",
+    question: "What kind of tasks can your AI powered teams handle?",
     answer:
-      "Do not ever consider doing it.",
+      "Brand design, website content, social media posts, ads, SEO, automation setup, CRM workflows, pitch decks, research tasks, and overall growth strategy.",
   },
   {
-    question: "What is your refund policy?",
+    question: "How fast can I start seeing results?",
     answer:
-      "We understand the importance of customer satisfaction and we strive to provide the best products and services. However, please note that due to the nature of our products and services, we do not offer refunds after a purchase has been made.",
+      "Most founders see value within the first 7 days because tasks start getting delivered immediately.",
   },
   {
-    question: "Can I use this to create and sell a product?",
+    question: "Does StartupAdvisory replace my internal team?",
     answer:
-      "Do not ever consider doing it.",
+      "No. We amplify what you already have and accelerate your operations, whether you're solo or have a small team.",
   },
   {
-    question: "What is your refund policy?",
+    question: "How much does it cost?",
     answer:
-      "We understand the importance of customer satisfaction and we strive to provide the best products and services. However, please note that due to the nature of our products and services, we do not offer refunds after a purchase has been made.",
-  }
+      "Our pricing is designed for early stage companies. You get a full AI enhanced digital team for less than the cost of one part time hire.",
+  },
+  {
+    question: "Is my information and data secure?",
+    answer:
+      "Yes. All workflows, documents, and systems are handled with strict confidentiality and secure processes.",
+  },
+  {
+    question: "Can StartupAdvisory help with ongoing scaling?",
+    answer:
+      "Absolutely. Our digital teams grow with you—supporting branding, marketing, automation, and long term growth.",
+  },
 ];
+
 
 export const PROFESSIONAL_ONLINE = {
   heading: {
@@ -144,7 +155,7 @@ export const PROFESSIONAL_ONLINE = {
     videoTitle: "Professional Online Video",
   },
   bottomHeading: {
-    part1: "The 3X Business Tip to [Grow Your Business] 5X",
+    part1: "Skip From Failing [Your Business] Now!",
   },
 };
 

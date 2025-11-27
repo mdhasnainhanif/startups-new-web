@@ -180,7 +180,7 @@ h2.headingSize {
 
 @media screen and (max-width: 576px) {
   .headerLogo{
-    max-width: 7rem;
+    max-width: 6rem;
   }
   .mobile-padding-bottom-0 {
     padding-bottom: 0rem !important;
