@@ -41,7 +41,7 @@
   display: none;
   position: relative;
   border-radius: 0.5rem;
-  width: 78%;
+  width: fit-content;
 }
 
 @media (min-width: 768px) {
@@ -74,7 +74,7 @@
   content: "";
   position: absolute;
   top: 0;
-  left: -33%;
+  left: -1rem;
   width: 1px;
   height: 100%;
   background: #372c6b;
@@ -203,13 +203,13 @@
 /* First and Third Slider - Right to Left */
 .sliderRightToLeft .sliderTrack {
   animation-name: slideRightToLeft;
-  animation-duration: 50s;
+  animation-duration: 100s;
 }
 
 /* Second Slider - Left to Right */
 .sliderLeftToRight .sliderTrack {
   animation-name: slideLeftToRight;
-  animation-duration: 35s;
+  animation-duration: 100s;
 }
 
 @keyframes slideRightToLeft {

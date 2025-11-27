@@ -322,7 +322,7 @@ h2.headingSize {
   left: 117%;
   width: 1px;
   height: 100%;
-  background: #372c6b;
+  background: red;
 }
 
 .caseBtn:last-child::before {

@@ -71,62 +71,144 @@ export const TECHNOLOGIES_SECTION = {
   },
   description:
     "When this AI power fuels your business your visibility explodes and the right clients start coming in on their own.",
+
   tabs: [
+    {
+      id: "development",
+      label: "Web & App Development",
+      value: "$15,000+ Annual Value",
+    },
     {
       id: "creative",
       label: "Creative & Design",
-      value: " $12,000+ Annual Value",
+      value: "$12,000+ Annual Value",
     },
     {
       id: "marketing",
       label: "Marketing & Growth",
       value: "$15,000+ Annual Value",
     },
-    {
-      id: "development",
-      label: "Development",
-      value: "$10,000+ Annual Value",
-    },
-    {
-      id: "growth",
-      label: "Key Growth",
-      value: "$11,000+ Annual Value",
-    },
   ],
+
   tools: {
-    creative: [
-      { id: 1, name: "Kaiber", icon: "K", iconColor: "#8b5cf6" },
-      { id: 2, name: "Illustrator", icon: "Ai", iconColor: "#ff6b35" },
-      { id: 3, name: "After Effects", icon: "Ae", iconColor: "#8b5cf6" },
-      { id: 4, name: "Midjourney (Pro)", icon: "🎨", iconColor: "#0fdac2" },
-      { id: 5, name: "Figma + FigJam AI", icon: "F", iconColor: "#ff6b9d" },
-      { id: 6, name: "Magic Studio Pro", icon: "M", iconColor: "#0fdac2" },
-      { id: 7, name: "Photoshop", icon: "Ps", iconColor: "#4285f4" },
-      { id: 8, name: "Runway ML (Enterprise)", icon: "R", iconColor: "#0fdac2" },
-      { id: 9, name: "ElevenLabs", icon: "||", iconColor: "#0fdac2" },
-      { id: 10, name: "Pika Labs", icon: "🐰", iconColor: "#ffffff" },
-      { id: 11, name: "Canv", icon: "C", iconColor: "#0fdac2" },
-    ],
-    marketing: [
-      { id: 1, name: "Google Ads AI", icon: "G", iconColor: "#4285f4" },
-      { id: 2, name: "Facebook Ads Manager", icon: "f", iconColor: "#1877f2" },
-      { id: 3, name: "HubSpot AI", icon: "H", iconColor: "#ff7a59" },
-      { id: 4, name: "Mailchimp AI", icon: "M", iconColor: "#ffe01b" },
-      { id: 5, name: "Semrush AI", icon: "S", iconColor: "#ff6b35" },
-    ],
+    // ------------------------------------------------------------
+    // 1) WEB & APP DEVELOPMENT (20+ tools)
+    // ------------------------------------------------------------
     development: [
-      { id: 1, name: "GitHub Copilot", icon: "GH", iconColor: "#ffffff" },
-      { id: 2, name: "Vercel AI", icon: "V", iconColor: "#000000" },
-      { id: 3, name: "Codeium", icon: "C", iconColor: "#0fdac2" },
-      { id: 4, name: "Cursor AI", icon: "Cu", iconColor: "#643bff" },
+      // Frameworks & Libraries
+      { id: 1, name: "React", icon: "R", iconColor: "#61dafb" },
+      { id: 2, name: "Angular", icon: "A", iconColor: "#dd0031" },
+      { id: 3, name: "Vue.js", icon: "V", iconColor: "#41b883" },
+      { id: 4, name: "Next.js", icon: "N", iconColor: "#000000" },
+      { id: 5, name: "Svelte / SvelteKit", icon: "S", iconColor: "#ff3e00" },
+      { id: 6, name: "Node.js", icon: "Nd", iconColor: "#68a063" },
+      { id: 7, name: "Django", icon: "D", iconColor: "#092e20" },
+      { id: 8, name: "Ruby on Rails", icon: "Rb", iconColor: "#cc0000" },
+      { id: 9, name: "Laravel", icon: "L", iconColor: "#f9322c" },
+      { id: 10, name: "Flutter", icon: "F", iconColor: "#02569b" },
+      { id: 11, name: "React Native", icon: "RN", iconColor: "#61dafb" },
+      { id: 12, name: "Swift", icon: "S", iconColor: "#fa7343" },
+      { id: 13, name: "Kotlin", icon: "K", iconColor: "#7f52ff" },
+
+      // DevOps / CI-CD
+      { id: 14, name: "GitHub Actions", icon: "G", iconColor: "#000000" },
+      { id: 15, name: "GitLab CI/CD", icon: "GL", iconColor: "#fc6d26" },
+      { id: 16, name: "Jenkins", icon: "J", iconColor: "#d33833" },
+      { id: 17, name: "Docker", icon: "Dk", iconColor: "#0db7ed" },
+      { id: 18, name: "Kubernetes", icon: "K8", iconColor: "#326ce5" },
+      { id: 19, name: "Vercel", icon: "V", iconColor: "#000000" },
+      { id: 20, name: "Netlify", icon: "N", iconColor: "#32e6e2" },
+      { id: 21, name: "AWS (Lambda / EC2 / S3)", icon: "A", iconColor: "#ff9900" },
+
+      // Databases
+      { id: 22, name: "PostgreSQL", icon: "P", iconColor: "#336791" },
+      { id: 23, name: "MongoDB", icon: "M", iconColor: "#4db33d" },
+      { id: 24, name: "Firebase", icon: "Fb", iconColor: "#ffca28" },
+      { id: 25, name: "Redis", icon: "R", iconColor: "#dc382d" },
+
+      // Utilities
+      { id: 26, name: "Postman", icon: "Pm", iconColor: "#ff6c37" },
+      { id: 27, name: "Figma", icon: "F", iconColor: "#a259ff" },
+      { id: 28, name: "Jira", icon: "J", iconColor: "#0052cc" },
     ],
-    growth: [
-      { id: 1, name: "Analytics AI", icon: "A", iconColor: "#0fdac2" },
-      { id: 2, name: "SEO AI Tools", icon: "S", iconColor: "#ff6b35" },
-      { id: 3, name: "Content AI", icon: "C", iconColor: "#8b5cf6" },
+
+    // ------------------------------------------------------------
+    // 2) CREATIVE & DESIGN (20+ tools)
+    // ------------------------------------------------------------
+    creative: [
+      // Graphic Design
+      { id: 1, name: "Adobe Photoshop", icon: "Ps", iconColor: "#31a8ff" },
+      { id: 2, name: "Adobe Illustrator", icon: "Ai", iconColor: "#ff9a00" },
+      { id: 3, name: "Adobe InDesign", icon: "Id", iconColor: "#ff3366" },
+      { id: 4, name: "Affinity Designer", icon: "Ad", iconColor: "#1bbcfe" },
+      { id: 5, name: "Affinity Photo", icon: "Ap", iconColor: "#7d4cf5" },
+
+      // UI/UX
+      { id: 6, name: "Figma", icon: "F", iconColor: "#a259ff" },
+      { id: 7, name: "Sketch", icon: "Sk", iconColor: "#f7b500" },
+      { id: 8, name: "Adobe XD", icon: "Xd", iconColor: "#ff61f6" },
+      { id: 9, name: "Axure RP", icon: "Ax", iconColor: "#3366ff" },
+      { id: 10, name: "Framer", icon: "Fr", iconColor: "#0055ff" },
+
+      // Motion Graphics / Video
+      { id: 11, name: "Premiere Pro", icon: "Pr", iconColor: "#9999ff" },
+      { id: 12, name: "After Effects", icon: "Ae", iconColor: "#8b5cf6" },
+      { id: 13, name: "Final Cut Pro", icon: "Fc", iconColor: "#ffffff" },
+      { id: 14, name: "DaVinci Resolve", icon: "Dv", iconColor: "#1d1d1d" },
+      { id: 15, name: "Blender (3D)", icon: "B", iconColor: "#e87d0d" },
+
+      // 3D Tools
+      { id: 16, name: "Cinema 4D", icon: "C4", iconColor: "#1d4ed8" },
+      { id: 17, name: "Maya", icon: "M", iconColor: "#00b0b9" },
+      { id: 18, name: "ZBrush", icon: "Z", iconColor: "#ffffff" },
+
+      // Creative Productivity
+      { id: 19, name: "Miro", icon: "Mi", iconColor: "#ffd02f" },
+      { id: 20, name: "Notion", icon: "N", iconColor: "#000000" },
+      { id: 21, name: "Canva", icon: "Ca", iconColor: "#00c4cc" },
+      { id: 22, name: "Procreate", icon: "Pr", iconColor: "#ffffff" },
+    ],
+
+    // ------------------------------------------------------------
+    // 3) MARKETING & GROWTH (20+ tools)
+    // ------------------------------------------------------------
+    marketing: [
+      // Analytics
+      { id: 1, name: "Google Analytics (GA4)", icon: "G", iconColor: "#f9ab00" },
+      { id: 2, name: "Google Search Console", icon: "G", iconColor: "#34a853" },
+      { id: 3, name: "Mixpanel", icon: "M", iconColor: "#a855f7" },
+      { id: 4, name: "Amplitude", icon: "A", iconColor: "#1e40af" },
+      { id: 5, name: "Hotjar", icon: "H", iconColor: "#ff3b30" },
+
+      // SEO
+      { id: 6, name: "Ahrefs", icon: "A", iconColor: "#1e90ff" },
+      { id: 7, name: "SEMrush", icon: "S", iconColor: "#ff6b35" },
+      { id: 8, name: "Moz", icon: "Mz", iconColor: "#2d8cff" },
+      { id: 9, name: "Screaming Frog", icon: "Sf", iconColor: "#00d084" },
+      { id: 10, name: "Surfer SEO", icon: "Su", iconColor: "#ff6b9d" },
+
+      // Email marketing
+      { id: 11, name: "Mailchimp", icon: "M", iconColor: "#ffe01b" },
+      { id: 12, name: "Klaviyo", icon: "K", iconColor: "#11c37f" },
+      { id: 13, name: "ConvertKit", icon: "C", iconColor: "#ff6666" },
+      { id: 14, name: "HubSpot", icon: "H", iconColor: "#ff7a59" },
+
+      // Social Media
+      { id: 15, name: "Hootsuite", icon: "H", iconColor: "#000000" },
+      { id: 16, name: "Buffer", icon: "B", iconColor: "#1a73e8" },
+      { id: 17, name: "Later", icon: "L", iconColor: "#5b21b6" },
+      { id: 18, name: "Sprout Social", icon: "Ss", iconColor: "#00c06a" },
+
+      // Advertising & Growth
+      { id: 19, name: "Google Ads", icon: "Ga", iconColor: "#4285f4" },
+      { id: 20, name: "Meta Ads Manager", icon: "M", iconColor: "#1877f2" },
+      { id: 21, name: "TikTok Ads", icon: "T", iconColor: "#ff0050" },
+      { id: 22, name: "LinkedIn Campaign Manager", icon: "Li", iconColor: "#0a66c2" },
+      { id: 23, name: "Zapier (Automation)", icon: "Z", iconColor: "#ff4f00" },
     ],
   },
 };
+
 
 export const ABOUT_US_BANNER = {
   heading: {

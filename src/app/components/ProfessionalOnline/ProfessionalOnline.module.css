@@ -113,6 +113,7 @@
 .statHeader {
   display: flex;
   gap: 0.255rem;
+  align-items: baseline;
 }
 
 .statPercentage {
@@ -123,7 +124,7 @@
 }
 
 .statHeadline {
-  font-size: 1.25rem;
+  font-size: 1.425rem;
   font-weight: 600;
   color: #0fdac2;
   line-height: 1.2;
@@ -467,7 +468,7 @@
   }
 
   .statHeadline {
-    font-size: 1.1rem;
+    font-size: 1..425rem;
   }
 
   .statDescription {
@@ -559,7 +560,7 @@
   }
 
   .statHeadline {
-    font-size: 1.125rem;
+    font-size: 1.425rem;
   }
 
   .statDescription {
