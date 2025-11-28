@@ -96,19 +96,19 @@ export const TECHNOLOGIES_SECTION = {
     // ------------------------------------------------------------
     development: [
       // Frameworks & Libraries
-      { id: 1, name: "React", icon: "R", iconColor: "#61dafb" },
-      { id: 2, name: "Angular", icon: "A", iconColor: "#dd0031" },
-      { id: 3, name: "Vue.js", icon: "V", iconColor: "#41b883" },
-      { id: 4, name: "Next.js", icon: "N", iconColor: "#000000" },
-      { id: 5, name: "Svelte / SvelteKit", icon: "S", iconColor: "#ff3e00" },
-      { id: 6, name: "Node.js", icon: "Nd", iconColor: "#68a063" },
-      { id: 7, name: "Django", icon: "D", iconColor: "#092e20" },
-      { id: 8, name: "Ruby on Rails", icon: "Rb", iconColor: "#cc0000" },
-      { id: 9, name: "Laravel", icon: "L", iconColor: "#f9322c" },
-      { id: 10, name: "Flutter", icon: "F", iconColor: "#02569b" },
-      { id: 11, name: "React Native", icon: "RN", iconColor: "#61dafb" },
-      { id: 12, name: "Swift", icon: "S", iconColor: "#fa7343" },
-      { id: 13, name: "Kotlin", icon: "K", iconColor: "#7f52ff" },
+      { id: 1, name: "React", icon: "/assets/images/technology/react.svg", iconColor: "#61dafb" },
+      { id: 2, name: "Angular", icon: "/assets/images/technology/angular.svg", iconColor: "#dd0031" },
+      { id: 3, name: "Vue.js", icon: "/assets/images/technology/vue.js.svg", iconColor: "#41b883" },
+      { id: 4, name: "Next.js", icon: "/assets/images/technology/next.js.svg", iconColor: "#000000" },
+      { id: 5, name: "Svelte / SvelteKit", icon: "/assets/images/technology/svelte-sveltekit.svg", iconColor: "#ff3e00" },
+      { id: 6, name: "Node.js", icon: "/assets/images/technology/node.js.svg", iconColor: "#68a063" },
+      { id: 7, name: "Django", icon: "/assets/images/technology/django.svg", iconColor: "#092e20" },
+      { id: 8, name: "Ruby on Rails", icon: "/assets/images/technology/ruby-on-rails.svg", iconColor: "#cc0000" },
+      { id: 9, name: "Laravel", icon: "/assets/images/technology/laravel.svg", iconColor: "#f9322c" },
+      { id: 10, name: "Flutter", icon: "/assets/images/technology/flutter.svg", iconColor: "#02569b" },
+      { id: 11, name: "React Native", icon: "/assets/images/technology/react-native.svg", iconColor: "#61dafb" },
+      { id: 12, name: "Swift", icon: "/assets/images/technology/swift-ios-dev.svg", iconColor: "#fa7343" },
+      { id: 13, name: "Kotlin", icon: "/assets/images/technology/kotlin-android dev.svg", iconColor: "#7f52ff" },
 
       // DevOps / CI-CD
       { id: 14, name: "GitHub Actions", icon: "G", iconColor: "#000000" },

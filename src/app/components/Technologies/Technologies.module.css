@@ -254,6 +254,12 @@
   height: 32px;
 }
 
+.iconImage {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
 .toolName {
   color: #ffffff;
   font-size: 1.25rem;

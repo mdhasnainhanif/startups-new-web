@@ -231,7 +231,11 @@ export default function Technologies() {
                     className={styles.toolIcon}
                     style={{ color: tool.iconColor }}
                   >
-                    {tool.icon}
+                    {tool.icon.startsWith("/") ? (
+                      <img src={tool.icon} alt={tool.name} className={styles.iconImage} />
+                    ) : (
+                      tool.icon
+                    )}
                   </div>
                   <span className={styles.toolName}>{tool.name}</span>
                 </div>
@@ -248,7 +252,11 @@ export default function Technologies() {
                     className={styles.toolIcon}
                     style={{ color: tool.iconColor }}
                   >
-                    {tool.icon}
+                    {tool.icon.startsWith("/") ? (
+                      <img src={tool.icon} alt={tool.name} className={styles.iconImage} />
+                    ) : (
+                      tool.icon
+                    )}
                   </div>
                   <span className={styles.toolName}>{tool.name}</span>
                 </div>
@@ -265,7 +273,11 @@ export default function Technologies() {
                     className={styles.toolIcon}
                     style={{ color: tool.iconColor }}
                   >
-                    {tool.icon}
+                    {tool.icon.startsWith("/") ? (
+                      <img src={tool.icon} alt={tool.name} className={styles.iconImage} />
+                    ) : (
+                      tool.icon
+                    )}
                   </div>
                   <span className={styles.toolName}>{tool.name}</span>
                 </div>
