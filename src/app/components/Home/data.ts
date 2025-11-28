@@ -2,7 +2,7 @@ export const HERO_BANNER = {
   headline: "Your ",
   headlineHighlight: "Smart Marketing AI ",
   subheadline: "Team — Ready to Run Your Digital Work for You",
-  className: "bottomZero",
+  className: "",
   description:
     "Finally, marketing that moves at the speed of your business. Your Smart Marketing AI Team plans, designs, writes, and posts — so you stay focused on serving clients.",
   ctaButton: {
@@ -112,11 +112,11 @@ export const PROFESSIONAL_ONLINE = {
   description:
     "You're great at what you do, but your marketing falls behind. Agencies cost a fortune. Freelancers disappear.",
   contentBars: [
-    { label: "Content", progress: 85, color: "purple" },
-    { label: "Content", progress: 70, color: "teal" },
-    { label: "Content", progress: 90, color: "purple" },
-    { label: "Content", progress: 65, color: "teal" },
-    { label: "Content", progress: 80, color: "purple" }
+    { label: "Content :", progress: 85, color: "purple" },
+    { label: "Content :", progress: 70, color: "teal" },
+    { label: "Content :", progress: 90, color: "purple" },
+    { label: "Content :", progress: 65, color: "teal" },
+    { label: "Content :", progress: 80, color: "purple" }
   ],
   video: {
     thumbnail: "/assets/images/man.jpg",
@@ -343,7 +343,7 @@ export const CALENDLY_SECTION = {
   description:
     "Book a quick video call to see how your Smart Marketing AI Team can free you to run jobs while your digital presence runs itself",
   buttonText: "Free Up Your Time",
-  buttonHref: "/get-started",
+  buttonHref: "#",
   calendlyUrl: "https://calendly.com/md-hasnain-developer/30min",
   calendlyText:
     "In minutes, you'll see examples of what your team can handle — ads, social, website, graphics — and how it all works together seamlessly",

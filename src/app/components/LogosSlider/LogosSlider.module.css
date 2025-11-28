@@ -1,6 +1,6 @@
-.logosSliderSection{
+.logosSliderSection {
   background-color: #21164c;
-  padding: 2rem 0;
+  padding: 1.625rem 0;
 }
 .heroBrand {
   position: relative;
@@ -12,7 +12,7 @@
     black 90%,
     transparent
   );
-  -webkit-mask-image: linear-gradient(  
+  -webkit-mask-image: linear-gradient(
     to right,
     transparent,
     black 10%,
@@ -24,7 +24,7 @@
 .logoItems {
   display: inline-flex;
   align-items: center;
-  gap: 5rem;
+  gap: 3rem;
   animation: scroll-left 80s linear infinite;
   will-change: transform;
 }
@@ -48,7 +48,7 @@
   opacity: 0.7;
   transition: opacity 0.3s ease, transform 0.3s ease;
   filter: grayscale(100%);
-  max-width: 7rem;
+  max-width: 12rem;
 }
 
 .logoItems img:hover {
@@ -56,4 +56,3 @@
   filter: grayscale(0%);
   transform: scale(1.05);
 }
-

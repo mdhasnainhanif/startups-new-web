@@ -4,7 +4,6 @@ import { HeroBannerProps } from "../../types/types";
 import Button from "../Button";
 import Container from "../Container";
 import { ArrowRightIcon } from "../icons";
-import LogosSlider from "../LogosSlider/LogosSlider";
 import styles from "./HeroBanner.module.css";
 
 export default function HeroBanner({
@@ -16,12 +15,10 @@ export default function HeroBanner({
   className = "",
 }: HeroBannerProps) {
   return (
-    <section
-      className={`${styles.heroBackground} relative sectionPadding pb-0 overflow-hidden ${className}`}
-    >
+    <section className={`${styles.heroBackground} relative sectionPadding overflow-hidden ${className}`}>
       <Container maxWidth="2xl" className={`${styles.content} relative z-10`}>
-        <div className="flex flex-col items-center text-center gap-6 md:gap-8 lg:pt-40 pt-10">
-          <h1 className={`text-4xl md:text-5xl lg:text-6xl font-semibold ${styles.heading}`}>
+        <div className="flex flex-col items-center text-center gap-6 md:gap-5 lg:pt-48 pt-10 sectionHeading">
+          <h1 className="max-w-4xl">
             <span className="text-white">{headline}</span>
             {headlineHighlight && (
               <>
@@ -34,7 +31,7 @@ export default function HeroBanner({
               </>
             )}
           </h1>
-          <p className="text-base md:text-lg lg:text-xl text-white/80 max-w-4xl leading-relaxed">
+          <p className="text-white/80 max-w-5xl">
             {description}
           </p>
           <div className="mt-4">
@@ -50,8 +47,6 @@ export default function HeroBanner({
           </div>
         </div>
       </Container>
-      <LogosSlider className="mt-16 pb-0" />
-
     </section>
   );
 }

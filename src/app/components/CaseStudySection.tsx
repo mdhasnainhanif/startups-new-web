@@ -61,6 +61,10 @@ const cardsData: CardData[] = [
       "Web Design",
       "Interaction Design",
       "Usability Testing",
+      "Mobile Design",
+      "Web Design",
+      "Interaction Design",
+      "Usability Testing",
     ],
     buttonText: "Hire UI/UX Designer",
     image: "/assets/images/2.png",
@@ -71,12 +75,20 @@ const cardsData: CardData[] = [
     title: "Graphic Designer",
     subtitle: "Visual Storytelling Expert",
     tags: [
+      "Print",
+      "Digital Graphics",
+      "Illustration",
+      "Photo",
+      "Layout Design",
+      "Infographics",
       "Print Design",
       "Digital Graphics",
       "Illustration",
       "Photo Editing",
       "Layout Design",
       "Infographics",
+      "Layout Design",
+  
     ],
     buttonText: "Hire Graphic Designer",
     image: "/assets/images/2.png",
@@ -94,6 +106,11 @@ const cardsData: CardData[] = [
       "Social Media Content",
       "Email Campaigns",
       "Content Calendar",
+      "Blog Posts",
+      "Social Media Content",
+      "Email Campaigns",
+      "Content Calendar",
+      "Email Campaigns",
     ],
     buttonText: "Hire Content Strategist",
     image: "/assets/images/2.png",
@@ -110,6 +127,11 @@ const cardsData: CardData[] = [
       "Ad Campaigns",
       "Content Creation",
       "Influencer Outreach",
+      "Analytics",
+      "Ad Campaigns",
+      "Content Creation",
+      "Influencer Outreach",
+      "Analytics",
     ],
     buttonText: "Hire Social Media Manager",
     image: "/assets/images/2.png",
@@ -121,6 +143,14 @@ const cardsData: CardData[] = [
     subtitle: "Boosts Your Search Visibility",
     tags: [
       "Keyword Research",
+      "On-Page SEO",
+      "Link Building",
+      "Technical SEO",
+      "Analytics",
+      "Link Building",
+      "Technical SEO",
+      "Analytics",
+      "Rank Tracking",
       "On-Page SEO",
       "Link Building",
       "Technical SEO",
@@ -142,7 +172,13 @@ const cardsData: CardData[] = [
       "TypeScript",
       "Responsive Design",
       "Performance Optimization",
+      "Next.js",
       "UI Implementation",
+      "TypeScript",
+      "Responsive Design",
+      "Performance Optimization",
+      "UI Implementation",
+      "Performance Optimization",
     ],
     buttonText: "Hire Frontend Developer",
     image: "/assets/images/2.png",
@@ -159,6 +195,12 @@ const cardsData: CardData[] = [
       "Security",
       "Scalability",
       "Cloud Services",
+      "Database Design",
+      "Server Architecture",
+      "Security",
+      "Scalability",
+      "Cloud Services",
+      "Database Design",
     ],
     buttonText: "Hire Backend Developer",
     image: "/assets/images/2.png",
@@ -175,6 +217,15 @@ const cardsData: CardData[] = [
       "Testing",
       "Code Review",
       "Architecture",
+      "DevOps",
+      "CI/CD",
+      "Testing",
+      "Code Review",
+      "Architecture",
+      "CI/CD",
+      "Testing",
+      "Code Review",
+      "Architecture",
     ],
     buttonText: "Hire Full Stack Developer",
     image: "/assets/images/2.png",
@@ -186,6 +237,12 @@ const cardsData: CardData[] = [
     title: "Growth Hacker",
     subtitle: "Accelerates Your Business Growth",
     tags: [
+      "Growth Strategy",
+      "A/B Testing",
+      "Conversion Optimization",
+      "User Acquisition",
+      "Retention",
+      "Analytics",
       "Growth Strategy",
       "A/B Testing",
       "Conversion Optimization",
@@ -208,6 +265,12 @@ const cardsData: CardData[] = [
       "CRM Integration",
       "Workflow Design",
       "Analytics",
+      "Email Marketing",
+      "Lead Nurturing",
+      "CRM Integration",
+      "Workflow Design",
+      "Analytics",
+      "Email Marketing",
     ],
     buttonText: "Hire Automation Specialist",
     image: "/assets/images/2.png",
@@ -224,6 +287,12 @@ const cardsData: CardData[] = [
       "KPI Tracking",
       "Predictive Analytics",
       "Business Intelligence",
+      "Reporting",
+      "Dashboards",
+      "KPI Tracking",
+      "Predictive Analytics",
+      "Business Intelligence",
+      "KPI Tracking",
     ],
     buttonText: "Hire Data Analyst",
     image: "/assets/images/2.png",
@@ -853,15 +922,15 @@ const CaseStudySection = () => {
   }, [filteredCards, activeCategory]);
 
   return (
-    <div className="pb_8 sectionPadding bg-cover mobile-padding-bottom-0">
+    <div className="pb_8 sectionPadding bg-cover mobile-padding-bottom-0 bg-[#03001D]">
       <section className="sectionPaddingCase pt-0 mobile-padding-bottom-0">
         <Container maxWidth="2xl">
           <div className="row align-items-center justify-content-center">
-            <div className="col-md-6 text-center section-heading-para mb-10">
-              <h2 className="mb-5 text-white text-center headingSize max-w-2xl mx-auto">
-                Meet Your <span>AI-Empowered</span> Team Behind Your Growth
+            <div className="col-md-6 text-center mb-10 sectionHeading forH2 gap-3 flex flex-col items-center justify-center">
+              <h2 className="mb-5 text-white text-center max-w-5xl mx-auto">
+                Meet Your <span className="primaryColor">AI-Empowered</span> Team Behind Your Growth
               </h2>
-              <p className="text-white max-w-4xl mx-auto">
+              <p className="text-white max-w-5xl mx-auto">
                 When you bring on your Smart Marketing Al Team, you're not
                 hiring freelancers — you're unlocking a complete digital
                 department. Each role blends human expertise with Al precision
@@ -871,12 +940,13 @@ const CaseStudySection = () => {
               </p>
             </div>
           </div>
-          <div className="mx-auto xl:w-[70%]">
+          <div className="mx-auto xl:w-[75%]">
             {/* Tabs Navigation */}
             <div
               className={`${
                 shouldStick ? "sticky" : ""
-              } top-10 z-50 py-3 rounded-lg w-fit mx-auto md:bg-[#0b0038] px-4 flex items-end justify-center gap-0 mb-8 flex-wrap`}
+              } top-10 z-50 py-4 rounded-lg w-full mx-auto md:bg-[#0b0038] px-4 
+              flex items-end justify-center gap-5 mb-8 flex-wrap`}
             >
               <button
                 onClick={() => {
@@ -886,16 +956,16 @@ const CaseStudySection = () => {
                   );
                   if (firstCreativeCard) setActiveTab(firstCreativeCard.id);
                 }}
-                className={`px-10 py-3 rounded-lg text-base font-semibold transition-all relative ${
+                className={`px-10 py-3 rounded-lg text-xl cursor-pointer font-graphik-bold transition-all relative ${
                   activeCategory === "creative"
                     ? "bg-[#643bff] text-white"
-                    : "text-[#6b7280] hover:text-[#9ca3af]"
+                    : "text-[#403867] hover:text-[#9ca3af] font-graphik-bold"
                 }`}
               >
                 Creative & Design
               </button>
               <div
-                className={`h-8 w-px hidden md:block ${
+                className={`h-8 w-px hidden md:block mb-2 ${
                   activeCategory !== "creative" &&
                   activeCategory !== "marketing"
                     ? "bg-[#374151]"
@@ -910,16 +980,16 @@ const CaseStudySection = () => {
                   );
                   if (firstMarketingCard) setActiveTab(firstMarketingCard.id);
                 }}
-                className={`px-10 py-3 rounded-lg text-base font-semibold transition-all ${
+                className={`px-10 py-3 rounded-lg text-xl cursor-pointer font-bold transition-all ${
                   activeCategory === "marketing"
                     ? "bg-[#643bff] text-white"
-                    : "text-[#6b7280] hover:text-[#9ca3af]"
+                    : "text-[#403867] hover:text-[#9ca3af] font-graphik-bold"
                 }`}
               >
                 Marketing & Growth
               </button>
               <div
-                className={`h-8 w-px hidden md:block ${
+                className={`h-8 w-px hidden md:block mb-2 ${
                   activeCategory !== "marketing" &&
                   activeCategory !== "development"
                     ? "bg-[#374151]"
@@ -934,16 +1004,16 @@ const CaseStudySection = () => {
                   );
                   if (firstDevCard) setActiveTab(firstDevCard.id);
                 }}
-                className={`px-10 py-3 rounded-lg text-base font-semibold transition-all ${
+                className={`px-10 py-3 rounded-lg text-xl cursor-pointer font-bold transition-all ${
                   activeCategory === "development"
                     ? "bg-[#643bff] text-white"
-                    : "text-[#6b7280] hover:text-[#9ca3af]"
+                    : "text-[#403867] hover:text-[#9ca3af] font-graphik-bold"
                 }`}
               >
                 Development
               </button>
               <div
-                className={`h-8 w-px hidden md:block ${
+                className={`h-8 w-px hidden md:block mb-2 ${
                   activeCategory !== "development" &&
                   activeCategory !== "keygrowth"
                     ? "bg-[#374151]"
@@ -958,10 +1028,10 @@ const CaseStudySection = () => {
                   );
                   if (firstGrowthCard) setActiveTab(firstGrowthCard.id);
                 }}
-                className={`px-10 py-3 rounded-lg text-base font-semibold transition-all ${
+                  className={`px-10 py-3 rounded-lg text-xl cursor-pointer font-bold transition-all ${
                   activeCategory === "keygrowth"
                     ? "bg-[#643bff] text-white"
-                    : "text-[#6b7280] hover:text-[#9ca3af]"
+                    : "text-[#403867] hover:text-[#9ca3af] font-graphik-bold"
                 }`}
               >
                 Key Growth
@@ -990,7 +1060,7 @@ const CaseStudySection = () => {
                             className="grid grid-cols-1 md:grid-cols-[60%_40%] gap-6 scrollerItem"
                             style={{ backgroundColor: cardColor }}
                           >
-                            <div className="inner-div my-auto p-5 ps-7">
+                            <div className="inner-div my-auto px-5 ps-9">
                               <h3>{card.title}</h3>
                               <p className="text-[#0fdac2]">{card.subtitle}</p>
                               <div className="inner-tags flex flex-wrap gap-2">

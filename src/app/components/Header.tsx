@@ -59,7 +59,7 @@ export default function Header() {
       {/* Header - Fixed when scrolled */}
       <header
         className={`${
-          isScrolled ? "fixed top-0" : "relative md:absolute md:top-12"
+          isScrolled ? "fixed top-0" : "relative md:absolute md:top-24"
         } left-0 right-0 z-100 flex items-center justify-center w-full py-4 bg-transparent md:bg-transparent transition-transform duration-300 ease-in-out`}
         style={{
           willChange: "transform",
@@ -68,7 +68,7 @@ export default function Header() {
       >
         <Container maxWidth="xl" className="px-0">
           <nav
-            className="flex items-center justify-between w-full rounded-xl md:rounded-2xl px-4 md:px-6 py-4 bg-[#02001c] backdrop-blur-md shadow-xl border border-[#4e4989] relative"
+            className="headerNav flex items-center justify-between w-full rounded-xl md:rounded-2xl px-4 md:px-6 py-4 bg-[#02001c] backdrop-blur-md shadow-xl border border-[#4e4989] relative"
             style={{ minHeight: "64px" }}
           >
             <div className="flex items-center gap-2">
@@ -77,8 +77,8 @@ export default function Header() {
                   <Image
                     src={COMPANY_INFO.logo}
                     alt="Logo"
-                    width={120}
-                    height={30}
+                    width={140}
+                    height={40}
                     priority
                     style={{ objectFit: "contain" }}
                   />
@@ -91,7 +91,7 @@ export default function Header() {
                 <a
                   key={link.href}
                   href={link.href}
-                  className="text-white text-sm font-medium hover:text-[#0fdac2] transition-colors"
+                  className="text-white text-lg font-medium hover:text-[#0fdac2] transition-colors"
                 >
                   {link.label}
                 </a>

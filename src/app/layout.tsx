@@ -32,6 +32,13 @@ const graphikRegular = localFont({
   fallback: ["Arial", "Helvetica", "sans-serif"],
 });
 
+const graphikBold = localFont({
+  src: "../../public/assets/fonts/Graphik-Bold-Trial.otf",
+  variable: "--font-graphik-bold",
+  display: "swap",
+  fallback: ["Arial", "Helvetica", "sans-serif"],
+});
+
 export const metadata: Metadata = {
   title: "Startups Advisory",
   description: "AI-powered advisory for startups",
@@ -56,10 +63,10 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${wfVisualSans.variable} ${graphikRegular.variable} antialiased relative`}
+        className={`${geistSans.variable} ${geistMono.variable} ${wfVisualSans.variable} ${graphikRegular.variable} ${graphikBold.variable} antialiased relative`}
       >
         {/* Shared Background Image - Behind Header and Hero */}
-        <div className="fixed inset-0 z-0">
+        {/* <div className="fixed inset-0 z-0">
           <Image
             src="/assets/images/hero.webp"
             alt="Background"
@@ -70,9 +77,9 @@ export default function RootLayout({
             sizes="100vw"
             style={{ objectFit: "cover", zIndex: 1 }}
           />
-          {/* Overlay for better text readability - lighter on mobile to show hero image behind header */}
+          
           <div className="absolute inset-0 bg-[#020016]/50 md:bg-[#020016]/70"></div>
-        </div>
+        </div> */}
 
         {/* Content with higher z-index */}
         <div className="relative z-10">

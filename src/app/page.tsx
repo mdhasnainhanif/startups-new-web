@@ -11,16 +11,18 @@ import CalendlySection from "./components/CalendlySection/CalendlySection";
 import AiTeamSection from "./components/AiTeamSection/AiTeamSection";
 import CaseStudySection from "./components/CaseStudySection";
 import { FAQ_CONTACT } from "./components/Home/data";
+import LogosSlider from "./components/LogosSlider/LogosSlider";
 
 export default function Home() {
   return (
     <main className="relative">
       <HeroBanner {...HERO_BANNER} />
+      <LogosSlider />
       <ProfessionalOnline/>
-      <CTABanner/>
-      <Technologies />
-      {/* <AiTeamSection /> */}
       <CaseStudySection />
+      <Technologies />
+      <CTABanner/>
+      {/* <AiTeamSection /> */}
       <CalendlySection {...CALENDLY_SECTION}/>
       <Reviews />
       <GrowthSlider items={GROWTH_GUIDES} />
