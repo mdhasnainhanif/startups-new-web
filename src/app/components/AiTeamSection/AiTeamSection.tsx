@@ -327,7 +327,7 @@ export default function AiTeamSection() {
             Behind Your Growth
           </h2>
           <p className="mt-5 text-sm md:text-base text-slate-300 leading-relaxed">
-            When you bring on your Smart Marketing AI Team, you&apos;re not
+            When you bring on your Smart AI Business Team, you&apos;re not
             hiring freelancers — you&apos;re unlocking a complete digital
             department. Each role blends human expertise with AI precision to
             move your marketing faster, smarter, and farther than ever. Every

@@ -65,52 +65,77 @@
   margin: 0;
 }
 
-.barsContainer {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  margin-top: 1rem;
+/* Startups Fail Statistics Grid */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
 }
 
-.barWrapper {
+.statBox {
+  background: #181339;
+  border-radius: 12px;
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 1rem;
+  position: relative;
 }
 
-.barLabel {
+/* Desktop: Icon on top */
+.statIcon {
+  width: 4rem;
+  height: 4rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  background: rgba(15, 218, 194, 0.1);
+  border-radius: 50%;
+  flex-shrink: 0;
+  align-self: flex-start;
 }
 
-.barLabel span {
-  font-size: 1.425rem;
-  color: rgba(255, 255, 255, 0.7);
-  font-weight: 500;
-  white-space: nowrap;
-}
-
-.barBackground {
+.statIcon img {
   width: 100%;
-  height: 12px;
-  background: #1a1a2e;
-  border-radius: 100px;
-  overflow: hidden;
-}
-
-.barFill {
   height: 100%;
-  border-radius: 100px;
-  transition: width 1s ease;
+  max-width: 2.5rem;
+  object-fit: contain;
 }
 
-.barFillPurple {
-  background: #643bff;
+.statContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  flex: 1;
 }
 
-.barFillTeal {
-  background: #0fdac2;
+.statHeader {
+  display: flex;
+  gap: 0.255rem;
+  align-items: baseline;
+}
+
+.statPercentage {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #0fdac2;
+  line-height: 1;
+}
+
+.statHeadline {
+  font-size: 1.425rem;
+  font-weight: 600;
+  color: #0fdac2;
+  line-height: 1.2;
+  font-family: var(--font-graphik-semibold) !important;
+}
+
+.statDescription {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 15px;
+  line-height: 1.5;
+  margin: 0;
 }
 
 /* Right Section */
@@ -289,6 +314,7 @@
   margin: 0 auto;
   max-width: 25rem;
   margin-top: 1rem;
+  text-align: center;
 }
 
 .bottomHeadingPart1 {
@@ -411,8 +437,42 @@
     font-size: 28px;
   }
 
-  .barsContainer {
-    gap: 16px;
+  .statsGrid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .statBox {
+    padding: 1.5rem;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  /* Mobile: Icon on right, centered vertically */
+  .statIcon {
+    align-self: center;
+    width: 56px;
+    height: 56px;
+    flex-shrink: 0;
+    order: 2;
+  }
+
+  .statContent {
+    flex: 1;
+    order: 1;
+  }
+
+  .statPercentage {
+    font-size: 2.5rem;
+  }
+
+  .statHeadline {
+    font-size: 1..425rem;
+  }
+
+  .statDescription {
+    font-size: 14px;
   }
 }
 
@@ -458,5 +518,52 @@
 
   .bottomHeading {
     font-size: 24px;
+  }
+
+  .statHeader {
+    align-items: baseline;
+    gap: 0.325rem;
+  }
+
+  .statsGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .statBox {
+    padding: 1.25rem;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .statIcon img{
+    width: 2rem;
+  }
+
+  /* Mobile: Icon on right, centered vertically */
+  .statIcon {
+    width: 3rem;
+    height: 3rem;
+    order: 2;
+    flex-shrink: 0;
+    align-self: center;
+  }
+
+  .statContent {
+    order: 1;
+    flex: 1;
+  }
+
+  .statPercentage {
+    font-size: 2rem;
+  }
+
+  .statHeadline {
+    font-size: 1.425rem;
+  }
+
+  .statDescription {
+    font-size: 13px;
   }
 }

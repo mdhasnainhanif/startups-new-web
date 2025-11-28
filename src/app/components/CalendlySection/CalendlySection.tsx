@@ -5,7 +5,10 @@ import { InlineWidget } from "react-calendly";
 import Container from "../Container";
 import styles from "./CalendlySection.module.css";
 import Button from "../Button";
+
 import { PlayIcon } from "@/app/icons";
+
+import { VideoIcon } from "../../icons";
 
 interface CalendlySectionProps {
   heading?:
@@ -24,8 +27,8 @@ interface CalendlySectionProps {
 }
 
 const CalendlySection = ({
-  heading = "Let's Talk About Taking [Marketing] Off Your Plate",
-  description = "Book a quick video call to see how your Smart Marketing AI Team can free you to run jobs while your digital presence runs itself",
+  heading = "Let's Get Your Business Talking",
+  description = "Book a quick video call to see how your Smart AI Business Team can free you to run jobs while your digital presence runs itself",
   buttonText = "Free Up Your Time",
   buttonHref = "#",
   calendlyUrl = "https://calendly.com/md-hasnain-developer/30min?month=2025-11",
@@ -33,6 +36,7 @@ const CalendlySection = ({
   className = "",
 }: CalendlySectionProps) => {
   const [isMounted, setIsMounted] = useState(false);
+  const [selectedDropdownItem, setSelectedDropdownItem] = useState<string>(buttonText);
 
   useEffect(() => {
     setIsMounted(true);
@@ -41,6 +45,10 @@ const CalendlySection = ({
       console.log("Calendly URL:", calendlyUrl);
     }
   }, [calendlyUrl]);
+
+  const handleDropdownSelect = (item: { label: string; href?: string; onClick?: () => void }) => {
+    setSelectedDropdownItem(item.label);
+  };
 
   // Parse heading to handle [Highlighted Word] format
   const renderHeading = () => {
@@ -105,23 +113,31 @@ const CalendlySection = ({
       <Container maxWidth="xl">
         <div className={styles.contentWrapper}>
           {/* Left Section */}
-          <div className={`${styles.leftSection} sectionHeading`}>
+          <div className={`${styles.leftSection} sectionHeading forH2`}>
             <h2>{renderHeading()}</h2>
-
             <p>{description}</p>
-
             <div>
-              <Button href={buttonHref} variant="purple" size="lg" icon={<PlayIcon />}>
+              <Button
+                variant="purple"
+                size="lg"
+                icon={<VideoIcon style={{ fill: "#643BFF" }} />}
+                className={styles.videoButton}
+                iconSpanClassName={styles.videoButtonText}
+                isDropdown={true}
+                selectedDropdownItem={selectedDropdownItem}
+                onDropdownSelect={handleDropdownSelect}
+                dropdownItems={[
+                  {
+                    label: "Google Meet",
+                    href: "#",
+                  },
+                  {
+                    label: "Zoom Meet",
+                    href: "#",
+                  },
+                ]}
+              >
                 <span>{buttonText}</span>
-                {/* <div className={styles.playIconContainer}>
-                  <svg
-                    className={styles.playIcon}
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                </div> */}
               </Button>
             </div>
           </div>
@@ -139,7 +155,7 @@ const CalendlySection = ({
                     }}
                     pageSettings={{
                       backgroundColor: "ffffff",
-                      hideEventTypeDetails: true,
+                      hideEventTypeDetails: false,
                       hideLandingPageDetails: false,
                       primaryColor: "643bff",
                       textColor: "4d5055",

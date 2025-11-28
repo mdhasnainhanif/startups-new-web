@@ -42,6 +42,12 @@
   }
 }
 
+@media (max-width: 576px) {
+  .logoItems img {
+    max-width: 6rem !important;
+  }
+}
+
 /* Smooth scrolling effect */
 .logoItems img {
   flex-shrink: 0;

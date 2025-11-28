@@ -1,0 +1,123 @@
+.theProblemSection {
+  position: relative;
+  background: #06031E;
+  overflow: hidden;
+}
+
+.theProblemSection::before {
+  content: "";
+  position: absolute;
+  background: url(/assets/images/rocket1.webp) center bottom no-repeat;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  left: 0;
+  background-size: contain;
+  opacity: 0.1;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.contentWrapper {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.headingWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.heading {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.2;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+}
+
+.exclamationIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+}
+.exclamationIcon svg
+{
+    width: 50px;
+    height: 50px;
+}
+
+.paragraphsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  text-align: center;
+}
+
+.paragraph {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+}
+
+.ctaWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+/* Mobile Responsive */
+@media (max-width: 1024px) {
+  .heading {
+    font-size: 2.5rem;
+  }
+
+  .contentWrapper {
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .heading {
+    font-size: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .paragraph {
+    font-size: 1rem;
+  }
+
+  .contentWrapper {
+    gap: 1.25rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .heading {
+    font-size: 1.75rem;
+  }
+
+  .exclamationIcon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .paragraphsWrapper {
+    gap: 1.25rem;
+  }
+}
+

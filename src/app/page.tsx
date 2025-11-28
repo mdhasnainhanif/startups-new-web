@@ -19,9 +19,9 @@ export default function Home() {
       <HeroBanner {...HERO_BANNER} />
       <LogosSlider />
       <ProfessionalOnline/>
+      <CTABanner/>
       <CaseStudySection />
       <Technologies />
-      <CTABanner/>
       {/* <AiTeamSection /> */}
       <CalendlySection {...CALENDLY_SECTION}/>
       <Reviews />

@@ -30,10 +30,10 @@ const PROFESSIONAL_ONLINE = {
   rightSectionFact:
     "Home-service businesses using professional design saw a 2-3x improvement in lead conversion after updating visuals.",
   videoOverlayText:
-    "Your Smart Marketing AI Team operate a behind-the-scenes planning promotions, creating visuals.",
+    "Your Smart AI Business Team operate a behind-the-scenes planning promotions, creating visuals.",
   video: {
     videoUrl: "YOUR_VIDEO_URL_HERE",
-    videoTitle: "Smart Marketing AI Team Demo",
+    videoTitle: "Smart AI Business Team Demo",
   },
 };
 

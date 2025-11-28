@@ -12,14 +12,13 @@
   user-select: none;
   vertical-align: middle;
   white-space: nowrap;
-  background-color: #311F77;
+  background-color: #311f77;
   border: 0 solid rgba(0, 0, 0, 0);
   border-bottom-width: 4px;
   border-radius: 0.5rem;
   outline: none;
   width: -moz-fit-content;
   width: fit-content;
-  /* Padding and font-size are handled by size classes (.sm, .md, .lg) */
   transition: filter 0.2s;
   display: inline-flex;
   overflow: visible;
@@ -34,26 +33,23 @@
 
 /* Size variants */
 .btnPrimary.sm {
-  padding: 0.425rem 1.225rem;
+  padding: 0.425rem 1.225rem 0.495rem;
   font-size: 0.75rem !important;
-  line-height: 1rem;
 }
 
 .btnPrimary.md {
-  padding: 0.625rem 1.225rem;
+  padding: 0.425rem 1.225rem 0.525rem;
   font-size: 1rem;
-  line-height: 19px;
 }
 
 .btnPrimary.lg {
-  padding: 0.625rem 1.725rem;
+  padding: 0.625rem 1.725rem 0.725rem;
   font-size: 1.125rem;
-  line-height: 1.5rem;
 }
 
 .btnPrimary::after {
   background-clip: padding-box;
-  background-color: #643BFF;
+  background-color: #643bff;
   border: solid transparent;
   border-radius: 0.5rem;
   border-width: 0 0 4px;
@@ -80,12 +76,12 @@
 } */
 
 .green {
-  background-color: #039F8D;
+  background-color: #039f8d;
   color: #000 !important;
 }
 
 .green::after {
-  background-color: #0FDAC2;
+  background-color: #0fdac2;
 }
 
 /* Modifier classes - use :global() for classes passed via className */
@@ -109,7 +105,7 @@
 /* Button Purple Styles */
 .buttonPurple {
   appearance: button;
-  background-color: #5633DC;
+  background-color: #5633dc;
   border: solid transparent;
   border-radius: 0.5rem;
   border-width: 0 0 4px;
@@ -138,7 +134,7 @@
 
 .buttonPurple::after {
   background-clip: padding-box;
-  background-color: #311F77;
+  background-color: #311f77;
   border: solid transparent;
   border-radius: 0.5rem;
   border-width: 0 0 4px;
@@ -162,7 +158,7 @@
 }
 
 .buttonPurple:disabled {
-  cursor: auto;
+  cursor: not-allowed;
 }
 
 .buttonPurple:active {
@@ -173,7 +169,7 @@
 /* Button Green Styles */
 .buttonGreen {
   appearance: button;
-  background-color: #0FDAC2;
+  background-color: #0fdac2;
   border: solid transparent;
   border-radius: 0.5rem;
   border-width: 0 0 4px;
@@ -202,7 +198,7 @@
 
 .buttonGreen::after {
   background-clip: padding-box;
-  background-color: #039F8D;
+  background-color: #039f8d;
   border: solid transparent;
   border-radius: 0.5rem;
   border-width: 0 0 4px;
@@ -226,7 +222,7 @@
 }
 
 .buttonGreen:disabled {
-  cursor: auto;
+  cursor: not-allowed;
 }
 
 .buttonGreen:active {
@@ -236,14 +232,93 @@
 
 @media screen and (max-width: 768px) {
   .btnPrimary.sm {
-    font-size: 0.75rem;
+    font-size: 0.75rem !important;
+    padding: 0.425rem 0.525rem 0.495rem;
+    white-space: nowrap;
   }
 
   .btnPrimary.md {
-    font-size: 1rem;
+    font-size: 1rem !important;
   }
 
   .btnPrimary.lg {
-    font-size: 1rem;
+    font-size: 1rem !important;
   }
+  .btnPrimary {
+    white-space: break-spaces;
+    text-align: left;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .btnPrimary.lg {
+    font-size: 1rem !important;
+    padding: 0.625rem 1.725rem 0.595rem;
+  }
+}
+
+/* Dropdown Styles */
+.dropdownWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdownButton {
+  position: relative;
+  padding-right: 2.5rem !important;
+}
+
+.dropdownArrow {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: transform 0.3s ease;
+  pointer-events: none;
+}
+
+.dropdownOpen .dropdownArrow {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  background-color: #311f77;
+  border-radius: 0.5rem;
+  min-width: 100%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  overflow: hidden;
+  border: 1px solid rgba(100, 59, 255, 0.3);
+}
+
+.dropdownItem {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 1.25rem;
+  color: #ffffff;
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: left;
+  transition: background-color 0.2s ease;
+}
+
+.dropdownItem:hover {
+  background-color: rgba(100, 59, 255, 0.2);
+}
+
+.dropdownItem:first-child {
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+.dropdownItem:last-child {
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
 }

@@ -4,6 +4,11 @@ import Link from "next/link";
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 import { useModalStore } from "@/stores/useModalStore";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
+import type { Swiper as SwiperType } from "swiper";
+import "swiper/css";
+import "swiper/css/navigation";
 import "../../../public/assets/css/casestudy.css";
 import "../../../public/assets/css/casestudythree.css";
 import "../../../public/assets/css/casestudytwo.css";
@@ -28,21 +33,18 @@ const cardsData: CardData[] = [
     id: "tabScroll1",
     category: "creative",
     title: "Brand Designer",
-    subtitle: "Builds The Foundation of Your Brand",
+    subtitle: "Creates a memorable visual identity that makes your business look professional and trusted.",
     tags: [
-      "Logo Design",
-      "Brand Guidelines",
-      "Color Palette",
-      "Typography System",
-      "Social Templates",
-      "Rebrand Plan",
-      "Business Cards",
-      "Email Signature",
-      "Icon Set",
-      "Mockups",
-      "Packaging",
-      "Stationery",
-      "Uniform Branding",
+      "Social media post design",
+      "Social media banner design",
+      "Logo design",
+      "Brand color palette creation",
+      "Typography selection",
+      "Business card design",
+      "Brand identity kit creation",
+      "Packaging or label design",
+      "Brand guideline document",
+      "Full brand identity system",
     ],
     buttonText: "Hire Brand Designer",
     image: "/assets/images/2.png",
@@ -50,21 +52,19 @@ const cardsData: CardData[] = [
   {
     id: "tabScroll2",
     category: "creative",
-    title: "UI/UX Designer",
-    subtitle: "Creates Intuitive User Experiences",
+    title: "UI UX Designer",
+    subtitle: "Designs intuitive, smooth experiences that increase user satisfaction and conversions.",
     tags: [
-      "Wireframing",
-      "Prototyping",
-      "User Research",
-      "Design Systems",
-      "Mobile Design",
-      "Web Design",
-      "Interaction Design",
-      "Usability Testing",
-      "Mobile Design",
-      "Web Design",
-      "Interaction Design",
-      "Usability Testing",
+      "Landing page design",
+      "Website UI screens",
+      "App UI screens",
+      "UI component design",
+      "Wireframes",
+      "User flows",
+      "Mobile responsive versions",
+      "Interactive prototypes",
+      "UX improvements",
+      "Full UI UX redesign",
     ],
     buttonText: "Hire UI/UX Designer",
     image: "/assets/images/2.png",
@@ -73,44 +73,40 @@ const cardsData: CardData[] = [
     id: "tabScroll3",
     category: "creative",
     title: "Graphic Designer",
-    subtitle: "Visual Storytelling Expert",
+    subtitle: "Creates visuals that grab attention and communicate messages clearly.",
     tags: [
-      "Print",
-      "Digital Graphics",
-      "Illustration",
-      "Photo",
-      "Layout Design",
-      "Infographics",
-      "Print Design",
-      "Digital Graphics",
-      "Illustration",
-      "Photo Editing",
-      "Layout Design",
-      "Infographics",
-      "Layout Design",
-  
+      "Social media posts",
+      "Social media banners",
+      "Flyer or poster design",
+      "Brochure design",
+      "Ad creative design",
+      "Infographic design",
+      "Presentation design",
+      "Email banner graphics",
+      "Print-ready marketing assets",
+      "Full visual campaign design",
     ],
     buttonText: "Hire Graphic Designer",
     image: "/assets/images/2.png",
   },
+
   // Marketing & Growth
   {
     id: "tabScroll4",
     category: "marketing",
     title: "Content Strategist",
-    subtitle: "Drives Engagement Through Content",
+    subtitle: "Builds content plans that bring traffic, trust, and conversions.",
     tags: [
-      "Content Planning",
-      "SEO Writing",
-      "Blog Posts",
-      "Social Media Content",
-      "Email Campaigns",
-      "Content Calendar",
-      "Blog Posts",
-      "Social Media Content",
-      "Email Campaigns",
-      "Content Calendar",
-      "Email Campaigns",
+      "Blog topic ideas",
+      "Monthly content plan",
+      "Social content calendar",
+      "Keyword content outlines",
+      "Content pillars",
+      "Brand voice guide",
+      "Funnel planning",
+      "Long-form content strategy",
+      "Multi-channel blueprint",
+      "Brand storytelling framework",
     ],
     buttonText: "Hire Content Strategist",
     image: "/assets/images/2.png",
@@ -119,19 +115,18 @@ const cardsData: CardData[] = [
     id: "tabScroll5",
     category: "marketing",
     title: "Social Media Manager",
-    subtitle: "Amplifies Your Brand Voice",
+    subtitle: "Grows brand visibility and engagement across all social platforms.",
     tags: [
-      "Social Strategy",
-      "Community Management",
-      "Analytics",
-      "Ad Campaigns",
-      "Content Creation",
-      "Influencer Outreach",
-      "Analytics",
-      "Ad Campaigns",
-      "Content Creation",
-      "Influencer Outreach",
-      "Analytics",
+      "Post scheduling",
+      "Caption writing",
+      "Trend research",
+      "Hashtag research",
+      "Engagement management",
+      "Content calendar planning",
+      "Influencer outreach",
+      "Campaign coordination",
+      "Analytics reporting",
+      "Multi-platform growth strategy",
     ],
     buttonText: "Hire Social Media Manager",
     image: "/assets/images/2.png",
@@ -140,67 +135,60 @@ const cardsData: CardData[] = [
     id: "tabScroll6",
     category: "marketing",
     title: "SEO Specialist",
-    subtitle: "Boosts Your Search Visibility",
+    subtitle: "Improves search rankings so your business gets steady organic traffic.",
     tags: [
-      "Keyword Research",
-      "On-Page SEO",
-      "Link Building",
-      "Technical SEO",
-      "Analytics",
-      "Link Building",
-      "Technical SEO",
-      "Analytics",
-      "Rank Tracking",
-      "On-Page SEO",
-      "Link Building",
-      "Technical SEO",
-      "Analytics",
-      "Rank Tracking",
+      "Keyword research",
+      "Competitor keyword review",
+      "Meta title writing",
+      "On-page SEO",
+      "Alt text optimization",
+      "SEO topic planning",
+      "Backlink research",
+      "Technical SEO fixes",
+      "Content optimization",
+      "SEO growth roadmap",
     ],
     buttonText: "Hire SEO Specialist",
     image: "/assets/images/2.png",
   },
+
   // Development
   {
     id: "tabScroll7",
     category: "development",
-    title: "Frontend Developer",
-    subtitle: "Builds Beautiful User Interfaces",
+    title: "Front End Developer",
+    subtitle: "Builds fast, visually clean, user friendly interfaces for web and mobile.",
     tags: [
-      "React",
-      "Next.js",
-      "TypeScript",
-      "Responsive Design",
-      "Performance Optimization",
-      "Next.js",
-      "UI Implementation",
-      "TypeScript",
-      "Responsive Design",
-      "Performance Optimization",
-      "UI Implementation",
-      "Performance Optimization",
+      "Website layout creation",
+      "HTML setup",
+      "CSS styling",
+      "Landing page development",
+      "Responsive adjustments",
+      "JavaScript interactions",
+      "API integration",
+      "Component library creation",
+      "Performance optimization",
+      "Full front-end build",
     ],
-    buttonText: "Hire Frontend Developer",
+    buttonText: "Hire Front End Developer",
     image: "/assets/images/2.png",
   },
   {
     id: "tabScroll8",
     category: "development",
     title: "Backend Developer",
-    subtitle: "Powers Your Application Logic",
+    subtitle: "Builds the logic and systems that make your product reliable and scalable.",
     tags: [
-      "API Development",
-      "Database Design",
-      "Server Architecture",
-      "Security",
-      "Scalability",
-      "Cloud Services",
-      "Database Design",
-      "Server Architecture",
-      "Security",
-      "Scalability",
-      "Cloud Services",
-      "Database Design",
+      "Server setup",
+      "Database creation",
+      "API development",
+      "User authentication",
+      "Admin backend setup",
+      "Payment integration",
+      "Role and permission setup",
+      "Security implementation",
+      "Data flow optimization",
+      "Full backend architecture",
     ],
     buttonText: "Hire Backend Developer",
     image: "/assets/images/2.png",
@@ -209,46 +197,40 @@ const cardsData: CardData[] = [
     id: "tabScroll9",
     category: "development",
     title: "Full Stack Developer",
-    subtitle: "End-to-End Development Solutions",
+    subtitle: "Builds complete end to end products quickly — both frontend and backend.",
     tags: [
-      "Full Stack Development",
-      "DevOps",
-      "CI/CD",
-      "Testing",
-      "Code Review",
-      "Architecture",
-      "DevOps",
-      "CI/CD",
-      "Testing",
-      "Code Review",
-      "Architecture",
-      "CI/CD",
-      "Testing",
-      "Code Review",
-      "Architecture",
+      "Landing page build",
+      "API integration",
+      "Auth setup",
+      "Dashboard creation",
+      "Database setup",
+      "Frontend-backend connection",
+      "Feature development",
+      "Deployment setup",
+      "Optimization",
+      "Full product development",
     ],
     buttonText: "Hire Full Stack Developer",
     image: "/assets/images/2.png",
   },
+
   // Key Growth
   {
     id: "tabScroll10",
     category: "keygrowth",
     title: "Growth Hacker",
-    subtitle: "Accelerates Your Business Growth",
+    subtitle: "Drives rapid business growth using creative experiments and data.",
     tags: [
-      "Growth Strategy",
-      "A/B Testing",
-      "Conversion Optimization",
-      "User Acquisition",
-      "Retention",
-      "Analytics",
-      "Growth Strategy",
-      "A/B Testing",
-      "Conversion Optimization",
-      "User Acquisition",
-      "Retention",
-      "Analytics",
+      "Landing page improvement",
+      "A/B testing",
+      "Lead magnet creation",
+      "Funnel mapping",
+      "Email capture optimization",
+      "Paid ads testing",
+      "Conversion rate optimization",
+      "Viral loops",
+      "User behavior analysis",
+      "Growth engine design",
     ],
     buttonText: "Hire Growth Hacker",
     image: "/assets/images/2.png",
@@ -257,47 +239,44 @@ const cardsData: CardData[] = [
     id: "tabScroll11",
     category: "keygrowth",
     title: "Marketing Automation Specialist",
-    subtitle: "Streamlines Your Marketing Workflows",
+    subtitle: "Automates your marketing to generate more leads without more work.",
     tags: [
-      "Marketing Automation",
-      "Email Marketing",
-      "Lead Nurturing",
-      "CRM Integration",
-      "Workflow Design",
-      "Analytics",
-      "Email Marketing",
-      "Lead Nurturing",
-      "CRM Integration",
-      "Workflow Design",
-      "Analytics",
-      "Email Marketing",
+      "Email sequence setup",
+      "Lead tagging",
+      "CRM cleanup",
+      "Workflow creation",
+      "Drip campaigns",
+      "Multi-step automation",
+      "Lead scoring setup",
+      "Tool integrations",
+      "Behavior triggers",
+      "Full automation system",
     ],
-    buttonText: "Hire Automation Specialist",
+    buttonText: "Hire Marketing Automation Specialist",
     image: "/assets/images/2.png",
   },
   {
     id: "tabScroll12",
     category: "keygrowth",
     title: "Data Analyst",
-    subtitle: "Turns Data Into Insights",
+    subtitle: "Turns business data into insights that guide better decisions.",
     tags: [
-      "Data Analysis",
-      "Reporting",
+      "Data cleanup",
+      "Sheet organization",
+      "Basic charts",
+      "KPI reports",
       "Dashboards",
-      "KPI Tracking",
-      "Predictive Analytics",
-      "Business Intelligence",
-      "Reporting",
-      "Dashboards",
-      "KPI Tracking",
-      "Predictive Analytics",
-      "Business Intelligence",
-      "KPI Tracking",
+      "Trend analysis",
+      "Campaign performance",
+      "Forecasting",
+      "Opportunity spotting",
+      "Data insights system",
     ],
     buttonText: "Hire Data Analyst",
     image: "/assets/images/2.png",
   },
 ];
+
 
 const CaseStudySection = () => {
   const [isDesktop, setIsDesktop] = useState<boolean>(false);
@@ -305,6 +284,17 @@ const CaseStudySection = () => {
   const [activeCategory, setActiveCategory] = useState<string>("creative");
   const [isFading, setIsFading] = useState<boolean>(false);
   const [shouldStick, setShouldStick] = useState<boolean>(true);
+  const tabsSwiperRef = useRef<SwiperType | null>(null);
+  const [isTabsSwiperBeginning, setIsTabsSwiperBeginning] = useState(true);
+  const [isTabsSwiperEnd, setIsTabsSwiperEnd] = useState(false);
+
+  // Tabs data
+  const tabs = [
+    { id: "creative", label: "Creative & Design" },
+    { id: "marketing", label: "Marketing & Growth" },
+    { id: "development", label: "Development" },
+    { id: "keygrowth", label: "Key Growth" },
+  ];
 
   // Filter cards based on active category
   const filteredCards = cardsData.filter(
@@ -811,6 +801,16 @@ const CaseStudySection = () => {
     return () => clearTimeout(timer);
   }, [isDesktop, activeCategory]);
 
+  // Sync Swiper to active category
+  useEffect(() => {
+    if (tabsSwiperRef.current) {
+      const activeIndex = tabs.findIndex((tab) => tab.id === activeCategory);
+      if (activeIndex !== -1) {
+        tabsSwiperRef.current.slideTo(activeIndex);
+      }
+    }
+  }, [activeCategory]);
+
   // Reinitialize stack cards when category changes
   useEffect(() => {
     cleanupStackCards();
@@ -928,25 +928,20 @@ const CaseStudySection = () => {
           <div className="row align-items-center justify-content-center">
             <div className="col-md-6 text-center mb-10 sectionHeading forH2 gap-3 flex flex-col items-center justify-center">
               <h2 className="mb-5 text-white text-center max-w-5xl mx-auto">
-                Meet Your <span className="primaryColor">AI-Empowered</span> Team Behind Your Growth
+              Meet Your <span className="primaryColor">AI Powered</span> Team Built for Your Business Growth
+
               </h2>
               <p className="text-white max-w-5xl mx-auto">
-                When you bring on your Smart Marketing Al Team, you're not
-                hiring freelancers — you're unlocking a complete digital
-                department. Each role blends human expertise with Al precision
-                to move your marketing faster, smarter, and farther than ever.
-                Every deliverable builds lasting value for your business, from
-                the first design to full-scale automation.
+              Your Smart AI Business Team is more than extra help. It acts as your complete digital department handling the work that keeps your business growing. With human creativity and AI precision working together every task becomes faster clearer and more valuable for your long term success.
               </p>
             </div>
           </div>
-          <div className="mx-auto xl:w-[75%]">
-            {/* Tabs Navigation */}
+          <div className="mx-auto xl:w-[78%]">
+            {/* Tabs Navigation - Desktop View */}
             <div
               className={`${
                 shouldStick ? "sticky" : ""
-              } top-10 z-50 py-4 rounded-lg w-full mx-auto md:bg-[#0b0038] px-4 
-              flex items-end justify-center gap-5 mb-8 flex-wrap`}
+              } top-10 z-50 py-4 md:px-4 p-0 rounded-lg w-full mx-auto md:bg-[#0b0038] md:mb-8 mb-16 hidden md:flex items-end justify-between flex-wrap`}
             >
               <button
                 onClick={() => {
@@ -956,22 +951,15 @@ const CaseStudySection = () => {
                   );
                   if (firstCreativeCard) setActiveTab(firstCreativeCard.id);
                 }}
-                className={`px-10 py-3 rounded-lg text-xl cursor-pointer font-graphik-bold transition-all relative ${
+                className={`px-10 pt-3 pb-4 rounded-lg cursor-pointer caseBtn text-xl font-graphik-bold transition-all relative ${
                   activeCategory === "creative"
                     ? "bg-[#643bff] text-white"
-                    : "text-[#403867] hover:text-[#9ca3af] font-graphik-bold"
+                    : "text-[#403867] hover:text-[#9ca3af]"
                 }`}
               >
                 Creative & Design
               </button>
-              <div
-                className={`h-8 w-px hidden md:block mb-2 ${
-                  activeCategory !== "creative" &&
-                  activeCategory !== "marketing"
-                    ? "bg-[#374151]"
-                    : "bg-transparent"
-                }`}
-              ></div>
+
               <button
                 onClick={() => {
                   setActiveCategory("marketing");
@@ -980,22 +968,15 @@ const CaseStudySection = () => {
                   );
                   if (firstMarketingCard) setActiveTab(firstMarketingCard.id);
                 }}
-                className={`px-10 py-3 rounded-lg text-xl cursor-pointer font-bold transition-all ${
+                className={`px-10 pt-3 pb-4 rounded-lg cursor-pointer caseBtn text-xl font-bold transition-all ${
                   activeCategory === "marketing"
                     ? "bg-[#643bff] text-white"
-                    : "text-[#403867] hover:text-[#9ca3af] font-graphik-bold"
+                    : "text-[#403867] hover:text-[#9ca3af]"
                 }`}
               >
                 Marketing & Growth
               </button>
-              <div
-                className={`h-8 w-px hidden md:block mb-2 ${
-                  activeCategory !== "marketing" &&
-                  activeCategory !== "development"
-                    ? "bg-[#374151]"
-                    : "bg-transparent"
-                }`}
-              ></div>
+
               <button
                 onClick={() => {
                   setActiveCategory("development");
@@ -1004,22 +985,15 @@ const CaseStudySection = () => {
                   );
                   if (firstDevCard) setActiveTab(firstDevCard.id);
                 }}
-                className={`px-10 py-3 rounded-lg text-xl cursor-pointer font-bold transition-all ${
+                className={`px-10 pt-3 pb-4 rounded-lg cursor-pointer caseBtn text-xl font-bold transition-all ${
                   activeCategory === "development"
                     ? "bg-[#643bff] text-white"
-                    : "text-[#403867] hover:text-[#9ca3af] font-graphik-bold"
+                    : "text-[#403867] hover:text-[#9ca3af]"
                 }`}
               >
                 Development
               </button>
-              <div
-                className={`h-8 w-px hidden md:block mb-2 ${
-                  activeCategory !== "development" &&
-                  activeCategory !== "keygrowth"
-                    ? "bg-[#374151]"
-                    : "bg-transparent"
-                }`}
-              ></div>
+
               <button
                 onClick={() => {
                   setActiveCategory("keygrowth");
@@ -1028,18 +1002,134 @@ const CaseStudySection = () => {
                   );
                   if (firstGrowthCard) setActiveTab(firstGrowthCard.id);
                 }}
-                  className={`px-10 py-3 rounded-lg text-xl cursor-pointer font-bold transition-all ${
+                className={`px-10 pt-3 pb-4 rounded-lg cursor-pointer caseBtn text-xl font-bold transition-all ${
                   activeCategory === "keygrowth"
                     ? "bg-[#643bff] text-white"
-                    : "text-[#403867] hover:text-[#9ca3af] font-graphik-bold"
+                    : "text-[#403867] hover:text-[#9ca3af]"
                 }`}
               >
                 Key Growth
               </button>
             </div>
+
+            {/* Tabs Navigation - Mobile View with Swiper */}
+            <div
+              className={`${
+                shouldStick ? "sticky" : ""
+              } top-10 z-50 py-4 rounded-lg w-full mx-auto md:bg-[#0b0038] md:mb-8 mb-16 relative md:hidden`}
+            >
+              {/* Left Arrow */}
+              <button
+                onClick={() => tabsSwiperRef.current?.slidePrev()}
+                disabled={isTabsSwiperBeginning}
+                className={`absolute left-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full border-none text-white cursor-pointer flex items-center justify-center transition-all ${
+                  isTabsSwiperBeginning
+                    ? "opacity-30 cursor-not-allowed bg-[#1b1849]"
+                    : "opacity-100 hover:bg-[#0fdac2]/80 bg-[#0fdac2]"
+                }`}
+                aria-label="Previous tab"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M15 18l-6-6 6-6" />
+                </svg>
+              </button>
+
+              {/* Swiper for Tabs */}
+              <Swiper
+                modules={[Navigation]}
+                spaceBetween={0}
+                slidesPerView={1}
+                centeredSlides={false}
+                allowTouchMove={true}
+                speed={300}
+                watchOverflow={true}
+                onSwiper={(swiper) => {
+                  tabsSwiperRef.current = swiper;
+                  setIsTabsSwiperBeginning(swiper.isBeginning);
+                  setIsTabsSwiperEnd(swiper.isEnd);
+                }}
+                onSlideChange={(swiper) => {
+                  setIsTabsSwiperBeginning(swiper.isBeginning);
+                  setIsTabsSwiperEnd(swiper.isEnd);
+                  const activeIndex = swiper.activeIndex;
+                  if (tabs[activeIndex]) {
+                    const selectedTab = tabs[activeIndex];
+                    setActiveCategory(selectedTab.id);
+                    const firstCard = cardsData.find(
+                      (card) => card.category === selectedTab.id
+                    );
+                    if (firstCard) setActiveTab(firstCard.id);
+                  }
+                }}
+                className="tabs-swiper"
+                style={{ paddingLeft: "3rem", paddingRight: "3rem", overflow: "hidden" }}
+              >
+                {tabs.map((tab) => (
+                  <SwiperSlide key={tab.id} style={{ width: "100%" }}>
+                    <div className="flex justify-center w-full">
+                      <button
+                        onClick={() => {
+                          setActiveCategory(tab.id);
+                          const firstCard = cardsData.find(
+                            (card) => card.category === tab.id
+                          );
+                          if (firstCard) setActiveTab(firstCard.id);
+                          // Sync swiper to active tab
+                          const tabIndex = tabs.findIndex((t) => t.id === tab.id);
+                          if (tabsSwiperRef.current && tabIndex !== -1) {
+                            tabsSwiperRef.current.slideTo(tabIndex);
+                          }
+                        }}
+                        className={`px-10 pt-3 pb-4 rounded-lg cursor-pointer caseBtn text-xl font-graphik-bold transition-all relative ${
+                          activeCategory === tab.id
+                            ? "bg-[#643bff] text-white"
+                            : "text-[#403867] hover:text-[#9ca3af]"
+                        }`}
+                      >
+                        {tab.label}
+                      </button>
+                    </div>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+
+              {/* Right Arrow */}
+              <button
+                onClick={() => tabsSwiperRef.current?.slideNext()}
+                disabled={isTabsSwiperEnd}
+                className={`absolute right-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full border-none text-white cursor-pointer flex items-center justify-center transition-all ${
+                  isTabsSwiperEnd
+                    ? "opacity-30 cursor-not-allowed bg-[#1b1849]"
+                    : "opacity-100 hover:bg-[#0fdac2]/80 bg-[#0fdac2]"
+                }`}
+                aria-label="Next tab"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M9 18l6-6-6-6" />
+                </svg>
+              </button>
+            </div>
             <div className="tabSection">
               <div className="">
-                <div className="px-4" ref={scrollContainerRef}>
+                <div ref={scrollContainerRef}>
                   <ul
                     className={`service-scrollerArea stack-cards js-stack-cards transition-opacity duration-300 ease-in-out ${
                       isFading ? "opacity-0" : "opacity-100"
@@ -1060,7 +1150,7 @@ const CaseStudySection = () => {
                             className="grid grid-cols-1 md:grid-cols-[60%_40%] gap-6 scrollerItem"
                             style={{ backgroundColor: cardColor }}
                           >
-                            <div className="inner-div my-auto px-5 ps-9">
+                            <div className="inner-div my-auto md:px-5 md:ps-9 ps-3 md:pe-0 pe-3">
                               <h3>{card.title}</h3>
                               <p className="text-[#0fdac2]">{card.subtitle}</p>
                               <div className="inner-tags flex flex-wrap gap-2">

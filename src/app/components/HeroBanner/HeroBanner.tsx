@@ -14,6 +14,47 @@ export default function HeroBanner({
   ctaButton,
   className = "",
 }: HeroBannerProps) {
+  // Function to parse subheadline and highlight text in brackets
+  const parseSubheadline = (text: string) => {
+    if (!text) return null;
+    
+    const parts: React.ReactNode[] = [];
+    const bracketRegex = /\[([^\]]+)\]/g;
+    let lastIndex = 0;
+    let match;
+
+    while ((match = bracketRegex.exec(text)) !== null) {
+      // Add text before the bracket
+      if (match.index > lastIndex) {
+        parts.push(
+          <span key={`text-${lastIndex}`} className="text-white">
+            {text.substring(lastIndex, match.index)}
+          </span>
+        );
+      }
+      
+      // Add highlighted text inside brackets
+      parts.push(
+        <span key={`highlight-${match.index}`} className="text-[#0fdac2]">
+          {match[1]}
+        </span>
+      );
+      
+      lastIndex = match.index + match[0].length;
+    }
+    
+    // Add remaining text after last bracket
+    if (lastIndex < text.length) {
+      parts.push(
+        <span key={`text-${lastIndex}`} className="text-white">
+          {text.substring(lastIndex)}
+        </span>
+      );
+    }
+    
+    return parts.length > 0 ? parts : <span className="text-white">{text}</span>;
+  };
+
   return (
     <section className={`${styles.heroBackground} relative sectionPadding overflow-hidden ${className}`}>
       <Container maxWidth="2xl" className={`${styles.content} relative z-10`}>
@@ -27,11 +68,11 @@ export default function HeroBanner({
             )}
             {subheadline && (
               <>
-                <span className="text-white">{subheadline}</span>
+                {parseSubheadline(subheadline)}
               </>
             )}
           </h1>
-          <p className="text-white/80 max-w-5xl">
+          <p className="text-white/80 max-w-5xl whitespace-pre-line">
             {description}
           </p>
           <div className="mt-4">

@@ -309,6 +309,48 @@
   margin-top: 0.5rem;
 }
 
+/* Startups Fail Statistics Grid */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.statBox {
+  background: #181339;
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: relative;
+}
+
+.statIcon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(15, 218, 194, 0.1);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.statPercentage {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #0fdac2;
+  line-height: 1;
+}
+
+.statDescription {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 15px;
+  line-height: 1.5;
+  margin: 0;
+}
 
 /* Background Decoration */
 .backgroundDecoration {
@@ -414,6 +456,19 @@
   .bottomHeading {
     font-size: 28px;
   }
+
+  .statsGrid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .statBox {
+    padding: 1.5rem;
+  }
+
+  .statPercentage {
+    font-size: 2.75rem;
+  }
 }
 
 @media (max-width: 640px) {
@@ -458,5 +513,22 @@
 
   .bottomHeading {
     font-size: 24px;
+  }
+
+  .statsGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .statBox {
+    padding: 1.25rem;
+  }
+
+  .statPercentage {
+    font-size: 2.5rem;
+  }
+
+  .statDescription {
+    font-size: 14px;
   }
 }

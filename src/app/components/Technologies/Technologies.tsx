@@ -1,12 +1,26 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
+import type { Swiper as SwiperType } from "swiper";
+import "swiper/css";
+import "swiper/css/navigation";
 import Container from "../Container";
 import { TECHNOLOGIES_SECTION } from "../../constants";
 import styles from "./Technologies.module.css";
 
-export default function Technologies() {
+interface TechnologiesProps {
+  heading?: string;
+  description?: string;
+  subDescription?: string;
+}
+
+export default function Technologies({ heading, description, subDescription }: TechnologiesProps = {}) {
   const [activeTab, setActiveTab] = useState("creative");
+  const tabsSwiperRef = useRef<SwiperType | null>(null);
+  const [isTabsSwiperBeginning, setIsTabsSwiperBeginning] = useState(true);
+  const [isTabsSwiperEnd, setIsTabsSwiperEnd] = useState(false);
 
   const currentTools =
     TECHNOLOGIES_SECTION.tools[
@@ -21,6 +35,58 @@ export default function Technologies() {
   const toolsRow2 = [...currentTools, ...currentTools, ...currentTools];
   const toolsRow3 = [...currentTools, ...currentTools, ...currentTools];
 
+  // Function to parse text and highlight text in brackets
+  const parseBrackets = (text: string) => {
+    if (!text) return null;
+    
+    const parts: React.ReactNode[] = [];
+    const bracketRegex = /\[([^\]]+)\]/g;
+    let lastIndex = 0;
+    let match;
+    let key = 0;
+
+    while ((match = bracketRegex.exec(text)) !== null) {
+      // Add text before the bracket
+      if (match.index > lastIndex) {
+        parts.push(
+          <span key={`text-${key++}`} className="text-white">
+            {text.substring(lastIndex, match.index)}
+          </span>
+        );
+      }
+      
+      // Add highlighted text inside brackets
+      parts.push(
+        <span key={`highlight-${key++}`} className="text-[#0fdac2]">
+          {match[1]}
+        </span>
+      );
+      
+      lastIndex = match.index + match[0].length;
+    }
+    
+    // Add remaining text after last bracket
+    if (lastIndex < text.length) {
+      parts.push(
+        <span key={`text-${key++}`} className="text-white">
+          {text.substring(lastIndex)}
+        </span>
+      );
+    }
+    
+    return parts.length > 0 ? parts : <span className="text-white">{text}</span>;
+  };
+
+  // Sync Swiper to active tab when changed programmatically
+  useEffect(() => {
+    if (tabsSwiperRef.current) {
+      const activeIndex = TECHNOLOGIES_SECTION.tabs.findIndex((tab) => tab.id === activeTab);
+      if (activeIndex !== -1) {
+        tabsSwiperRef.current.slideTo(activeIndex);
+      }
+    }
+  }, [activeTab]);
+
   return (
     <section className={styles.section + " sectionPadding"}>
       <div>
@@ -28,23 +94,20 @@ export default function Technologies() {
         <Container maxWidth="2xl" className="px-0">
           <div className={`sectionHeading forH2 gap-3 flex flex-col items-center justify-center ${styles.header}`}>
             <h2 className="max-w-7xl mx-auto">
-              <span className="text-white">
-                {TECHNOLOGIES_SECTION.heading.part1}
-              </span>
-              <span className="text-[#0fdac2]">
-                {TECHNOLOGIES_SECTION.heading.part2}
-              </span>
-              <span className="text-[#0fdac2]">
-                {TECHNOLOGIES_SECTION.heading.part3}
-              </span>
+              {parseBrackets(heading || TECHNOLOGIES_SECTION.heading.part1)}
             </h2>
             <p className={styles.description}>
-              {TECHNOLOGIES_SECTION.description}
+              {description || TECHNOLOGIES_SECTION.description}
             </p>
+            {subDescription && (
+              <p className={styles.subDescription}>
+                {subDescription}
+              </p>
+            )}
           </div>
 
-          {/* Tabs */}
-          <div className={styles.tabsContainer}>
+          {/* Tabs - Desktop View */}
+          <div className={`${styles.tabsContainer} hidden md:flex`}>
             {TECHNOLOGIES_SECTION.tabs.map((tab) => (
               <button
                 key={tab.id}
@@ -58,13 +121,116 @@ export default function Technologies() {
             ))}
           </div>
 
-          {/* Tools Category Header */}
-          <div className={styles.categoryHeader}>
-            <h3 className={styles.categoryTitle}>
-              {currentTab?.label} Tools (
-              <span className="text-[#0fdac2]">{currentTab?.value}</span> )
-            </h3>
+          {/* Tabs - Mobile View with Swiper */}
+          <div className={`${styles.tabsContainerMobile} relative md:hidden`}>
+            {/* Left Arrow */}
+            <button
+              onClick={() => tabsSwiperRef.current?.slidePrev()}
+              disabled={isTabsSwiperBeginning}
+              className={`absolute left-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full border-none text-white cursor-pointer flex items-center justify-center transition-all ${
+                isTabsSwiperBeginning
+                  ? "opacity-30 cursor-not-allowed bg-[#1b1849]"
+                  : "opacity-100 hover:bg-[#0fdac2]/80 bg-[#0fdac2]"
+              }`}
+              aria-label="Previous tab"
+            >
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M15 18l-6-6 6-6" />
+              </svg>
+            </button>
+
+            {/* Swiper for Tabs */}
+            <Swiper
+              modules={[Navigation]}
+              spaceBetween={0}
+              slidesPerView={1}
+              centeredSlides={false}
+              allowTouchMove={true}
+              speed={300}
+              watchOverflow={true}
+              onSwiper={(swiper) => {
+                tabsSwiperRef.current = swiper;
+                setIsTabsSwiperBeginning(swiper.isBeginning);
+                setIsTabsSwiperEnd(swiper.isEnd);
+              }}
+              onSlideChange={(swiper) => {
+                setIsTabsSwiperBeginning(swiper.isBeginning);
+                setIsTabsSwiperEnd(swiper.isEnd);
+                const activeIndex = swiper.activeIndex;
+                if (TECHNOLOGIES_SECTION.tabs[activeIndex]) {
+                  setActiveTab(TECHNOLOGIES_SECTION.tabs[activeIndex].id);
+                }
+              }}
+              className={styles.tabsSwiper}
+              style={{ paddingLeft: "3rem", paddingRight: "3rem", overflow: "hidden" }}
+            >
+              {TECHNOLOGIES_SECTION.tabs.map((tab) => (
+                <SwiperSlide key={tab.id} style={{ width: "100%" }}>
+                  <div className="flex justify-center w-full">
+                    <button
+                      onClick={() => {
+                        setActiveTab(tab.id);
+                        // Sync swiper to active tab
+                        const tabIndex = TECHNOLOGIES_SECTION.tabs.findIndex((t) => t.id === tab.id);
+                        if (tabsSwiperRef.current && tabIndex !== -1) {
+                          tabsSwiperRef.current.slideTo(tabIndex);
+                        }
+                      }}
+                      className={`${styles.tab} ${
+                        activeTab === tab.id ? styles.activeTab : ""
+                      }`}
+                    >
+                      {tab.label}
+                    </button>
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+
+            {/* Right Arrow */}
+            <button
+              onClick={() => tabsSwiperRef.current?.slideNext()}
+              disabled={isTabsSwiperEnd}
+              className={`absolute right-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full border-none text-white cursor-pointer flex items-center justify-center transition-all ${
+                isTabsSwiperEnd
+                  ? "opacity-30 cursor-not-allowed bg-[#1b1849]"
+                  : "opacity-100 hover:bg-[#0fdac2]/80 bg-[#0fdac2]"
+              }`}
+              aria-label="Next tab"
+            >
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M9 18l6-6-6-6" />
+              </svg>
+            </button>
           </div>
+
+          {/* Tools Category Header */}
+          {!heading && (
+            <div className={styles.categoryHeader}>
+              <h3 className={styles.categoryTitle}>
+                {currentTab?.label} Tools (
+                <span className="text-[#0fdac2]">{currentTab?.value}</span> )
+              </h3>
+            </div>
+          )}
         </Container>
 
         {/* Three Animated Sliders */}
@@ -78,7 +244,11 @@ export default function Technologies() {
                     className={styles.toolIcon}
                     style={{ color: tool.iconColor }}
                   >
-                    {tool.icon}
+                    {tool.icon.startsWith("/") ? (
+                      <img src={tool.icon} alt={tool.name} className={styles.iconImage} />
+                    ) : (
+                      tool.icon
+                    )}
                   </div>
                   <span className={styles.toolName}>{tool.name}</span>
                 </div>
@@ -95,7 +265,11 @@ export default function Technologies() {
                     className={styles.toolIcon}
                     style={{ color: tool.iconColor }}
                   >
-                    {tool.icon}
+                    {tool.icon.startsWith("/") ? (
+                      <img src={tool.icon} alt={tool.name} className={styles.iconImage} />
+                    ) : (
+                      tool.icon
+                    )}
                   </div>
                   <span className={styles.toolName}>{tool.name}</span>
                 </div>
@@ -112,7 +286,11 @@ export default function Technologies() {
                     className={styles.toolIcon}
                     style={{ color: tool.iconColor }}
                   >
-                    {tool.icon}
+                    {tool.icon.startsWith("/") ? (
+                      <img src={tool.icon} alt={tool.name} className={styles.iconImage} />
+                    ) : (
+                      tool.icon
+                    )}
                   </div>
                   <span className={styles.toolName}>{tool.name}</span>
                 </div>

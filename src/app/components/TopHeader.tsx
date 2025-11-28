@@ -50,9 +50,9 @@ export default function TopHeader() {
     >
       <Container maxWidth="2xl" className="px-0">
         <div className="flex items-center justify-between w-full rounded-full lg:px-4 pb-4 pt-6">
-          <div className="flex items-center gap-3 flex-1 justify-center">
-            <span className="text-xl">{TOP_BANNER.emoji}</span>
+          <div className="flex items-center md:gap-3 gap-1 flex-1 md:justify-center justify-between">
             <p className="text-white lg:text-xl md:text-base font-light topPara">
+            <span className="text-xl">{TOP_BANNER.emoji}</span>&nbsp;
               {TOP_BANNER.text}
             </p>
             <Button
@@ -60,7 +60,7 @@ export default function TopHeader() {
               variant="secondary"
               size="sm"
               iconPosition="right"
-              icon={<ArrowRightIcon style={{ fill: "#fff" }} />}
+              // icon={<ArrowRightIcon style={{ fill: "#fff" }} />}
               className="mt-2"
             >
               {TOP_BANNER.buttonText}

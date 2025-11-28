@@ -68,7 +68,7 @@ export default function Header() {
       >
         <Container maxWidth="xl" className="px-0">
           <nav
-            className="headerNav flex items-center justify-between w-full rounded-xl md:rounded-2xl px-4 md:px-6 py-4 bg-[#02001c] backdrop-blur-md shadow-xl border border-[#4e4989] relative"
+            className="headerNav flex items-center justify-between w-full rounded-xl md:rounded-2xl px-4 md:px-6  bg-[#02001c] backdrop-blur-md shadow-xl border border-[#4e4989] relative"
             style={{ minHeight: "64px" }}
           >
             <div className="flex items-center gap-2">
@@ -81,6 +81,7 @@ export default function Header() {
                     height={40}
                     priority
                     style={{ objectFit: "contain" }}
+                    className="headerLogo"
                   />
                 </Link>
               </div>

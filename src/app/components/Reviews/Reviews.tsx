@@ -3,6 +3,7 @@
 import Container from "../Container";
 import { REVIEWS_SECTION } from "../../constants";
 import styles from "./Reviews.module.css";
+import Image from "next/image";
 
 export default function Reviews() {
 
@@ -11,8 +12,8 @@ export default function Reviews() {
       <section className={`${styles.section} sectionPadding`}>
         <Container maxWidth="xl">
           {/* Header Section */}
-          <div className={styles.header}>
-            <h2 className={styles.heading}>
+          <div className={`${styles.header} sectionHeading forH2 flex flex-col items-center justify-center gap-3`}>
+            <h2>
               <span className="text-white">
                 {REVIEWS_SECTION.heading.part1}
               </span>
@@ -20,12 +21,10 @@ export default function Reviews() {
                 {REVIEWS_SECTION.heading.part2}
               </span>
             </h2>
-            <div className={styles.subtitleContainer}>
-              <p className={styles.subtitle}>{REVIEWS_SECTION.subtitle}</p>
-            </div>
+            <p>{REVIEWS_SECTION.subtitle}</p>
             <p className={styles.ctaText}>
               See how &nbsp;
-              <span className="text-[#0fdac2]">Smart Marketing AI Teams</span>&nbsp;
+              <span className="text-[#0fdac2]">Smart AI Business Teams</span>&nbsp;
               turned invisibility into daily inquiries
             </p>
           </div>
@@ -39,13 +38,13 @@ export default function Reviews() {
               >
                 <div className={styles.badgeLogo}>
                   {badge.platform === "Trustpilot" && (
-                    <img src="/assets/images/trust-pilot.webp" alt="Google Logo" className={styles.trustpilotLogo}/>
+                    <Image width={100} height={40} src="/assets/images/trust-pilot.webp" alt="Google Logo" className={styles.trustpilotLogo}/>
                   )}
                   {badge.platform === "Google" && (
-                   <img src="/assets/images/google.webp" alt="Google Logo" className={styles.googleLogo}/>
+                   <Image width={100} height={40} src="/assets/images/google.webp" alt="Google Logo" className={styles.googleLogo}/>
                   )}
                   {badge.platform === "Facebook" && (
-                    <img src="/assets/images/facebook.webp" alt="Facebook Logo" className={styles.facebookLogo}/>
+                    <Image width={100} height={40} src="/assets/images/facebook.webp" alt="Facebook Logo" className={styles.facebookLogo}/>
                   )}
                 </div>
                 <span className={styles.badgeRating}>
@@ -59,12 +58,11 @@ export default function Reviews() {
           <div className={styles.reviewsMasonry}>
             {REVIEWS_SECTION.reviews.map((review, index) => {
               // Card 3 (index 2) and Card 6 (index 5) should have borders
-              const hasBorder = index === 2 || index === 5;
               return (
               <div
                 key={review.id}
                 className={`${styles.reviewCard} ${
-                  hasBorder ? styles.highlightedCard : ""
+                  review?.hasBorder ? styles.highlightedCard : ""
                 }`}
               >
                 <div className={styles.reviewCardContent}>
