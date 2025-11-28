@@ -27,6 +27,15 @@
   max-width: 75rem;
   margin: 0 auto;
 }
+
+.subDescription {
+  color: #0fdac2;
+  font-size: 18px;
+  line-height: 1.6;
+  max-width: 75rem;
+  margin: 0 auto;
+  font-weight: 700;
+}
 /* Tabs Container */
 .tabsContainer {
   z-index: 1;

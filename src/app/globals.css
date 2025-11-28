@@ -366,3 +366,7 @@ h2.headingSize {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+.designerPageProfessional .bottomHeadingWrapper h3{
+  max-width: 30rem;
+}

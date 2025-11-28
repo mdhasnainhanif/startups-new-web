@@ -149,8 +149,8 @@ const RealCost = () => {
       <Container maxWidth="xl">
         <div className={styles.contentWrapper}>
           {/* Left Section */}
-          <div className={styles.leftSection}>
-            <h2 className={styles.heading}>
+          <div className={styles.leftSection + " sectionHeading forH2"}>
+            <h2>
               <span className={styles.headingPart1}>{REAL_COST_DATA.heading.part1}</span>
               <br />
               <span className={styles.headingPart2}>{REAL_COST_DATA.heading.part2}</span>

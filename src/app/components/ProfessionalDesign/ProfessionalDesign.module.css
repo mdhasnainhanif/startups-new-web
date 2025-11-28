@@ -39,7 +39,11 @@
 .leftSection {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 1rem;
+}
+
+ul.factsList{
+  margin-top: 0rem;
 }
 
 .heading {
@@ -72,7 +76,7 @@
 
 .factsHeading {
     color: #0fdac2;
-    font-size: 21px;
+    font-size: 1.725rem;
     font-weight: 600;
     margin: 0 0 20px 0;
 }

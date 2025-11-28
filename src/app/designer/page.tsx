@@ -8,6 +8,7 @@ import TextSlider1 from '../components/HomenewPage/TextSlider/TextSlider';
 import { sliderData1, sliderData2, sliderData3 } from '../data/HomeNewData';
 import Reviews from '../components/Reviews/Reviews';
 import ProfessionalDesign from '../components/ProfessionalDesign/ProfessionalDesign';
+import { designProfessionalPageData } from '../data/DesignerPageData';
 import AiPowerDesign from '../components/AiPowerDesign/AiPowerDesign';
 import ProvenSuccess from '../components/ProvenSuccess/ProvenSuccess';
 import RealCost from '../components/RealCost/RealCost';
@@ -24,14 +25,13 @@ export default function homenew() {
       <AiPowerDesign/>
       <Technologies />
       <TextSlider1 data={sliderData2}/>
-      <ProfessionalDesign />
+      <ProfessionalDesign className="designerPageProfessional" data={designProfessionalPageData} />
       <TextSlider1 data={sliderData3}/>
-      <Reviews/>
-      <Technologies />
-      <CompleteBusinessSetup/>
       <GuessWorkAdvertising/>
       <RealCost/>
+      <CompleteBusinessSetup/>
       <ProvenSuccess/>
+      <Reviews/>
       <GrowthSlider items={GROWTH_GUIDES} />
       <FAQ faqs={FAQ_DATA} sectionData={FAQ_SECTION} />
       <ContactTwo/>

@@ -70,9 +70,9 @@ const GuessWorkAdvertising = () => {
       className={`sectionPadding bg-gradient-to-br from-[#1a0b3f] via-[#05001a] to-[#020014] relative overflow-hidden ${styles.section}`}
     >
       <Container maxWidth="xl">
-        <div className="flex flex-col items-center text-center">
+        <div className="flex flex-col items-center text-center sectionHeading forH2">
           {/* Heading */}
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-white leading-tight mb-6">
+          <h2>
             {heading.part1}
             <span className="text-[#0fdac2]">{heading.highlight}</span>
             {heading.part2}

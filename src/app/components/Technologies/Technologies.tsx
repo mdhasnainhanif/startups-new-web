@@ -10,7 +10,13 @@ import Container from "../Container";
 import { TECHNOLOGIES_SECTION } from "../../constants";
 import styles from "./Technologies.module.css";
 
-export default function Technologies() {
+interface TechnologiesProps {
+  heading?: string;
+  description?: string;
+  subDescription?: string;
+}
+
+export default function Technologies({ heading, description, subDescription }: TechnologiesProps = {}) {
   const [activeTab, setActiveTab] = useState("creative");
   const tabsSwiperRef = useRef<SwiperType | null>(null);
   const [isTabsSwiperBeginning, setIsTabsSwiperBeginning] = useState(true);
@@ -96,11 +102,16 @@ export default function Technologies() {
         <Container maxWidth="2xl" className="px-0">
           <div className={`sectionHeading forH2 gap-3 flex flex-col items-center justify-center ${styles.header}`}>
             <h2 className="max-w-7xl mx-auto">
-              {parseBrackets(TECHNOLOGIES_SECTION.heading.part1)}
+              {parseBrackets(heading || TECHNOLOGIES_SECTION.heading.part1)}
             </h2>
             <p className={styles.description}>
-              {TECHNOLOGIES_SECTION.description}
+              {description || TECHNOLOGIES_SECTION.description}
             </p>
+            {subDescription && (
+              <p className={styles.subDescription}>
+                {subDescription}
+              </p>
+            )}
           </div>
 
           {/* Tabs - Desktop View */}
@@ -220,12 +231,14 @@ export default function Technologies() {
           </div>
 
           {/* Tools Category Header */}
-          <div className={styles.categoryHeader}>
-            <h3 className={styles.categoryTitle}>
-              {currentTab?.label} Tools (
-              <span className="text-[#0fdac2]">{currentTab?.value}</span> )
-            </h3>
-          </div>
+          {!heading && (
+            <div className={styles.categoryHeader}>
+              <h3 className={styles.categoryTitle}>
+                {currentTab?.label} Tools (
+                <span className="text-[#0fdac2]">{currentTab?.value}</span> )
+              </h3>
+            </div>
+          )}
         </Container>
 
         {/* Three Animated Sliders */}

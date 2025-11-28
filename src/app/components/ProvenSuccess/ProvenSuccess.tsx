@@ -282,8 +282,8 @@ const ProvenSuccess = () => {
     <section className={`sectionPadding ${styles.section} ${styles.ProvenSuccess}`}>
       <Container maxWidth="2xl" className="px-0">
         {/* Header Section */}
-        <div className={styles.header}>
-          <h2 className={styles.heading}>
+        <div className={styles.header + " sectionHeading forH2"}>
+          <h2>
             <span className="text-white">Proven </span>
             <span className="text-[#0fdac2]">{PROVEN_SUCCESS_DATA.headline.highlighted}</span>
             <span className="text-white"> in Every Project</span>

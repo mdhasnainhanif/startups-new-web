@@ -1,0 +1,141 @@
+.replacementSection {
+  position: relative;
+  overflow: hidden;
+}
+
+.contentWrapper {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  background: #21184A;
+  border-radius: 1rem;
+  padding: 3rem 4rem 0 4rem;
+}
+
+.leftSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.heading {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+}
+
+.heading span {
+  white-space: pre;
+}
+
+.headingPart1 {
+  color: #ffffff;
+}
+
+.headingPart2 {
+  color: #0FDAC2;
+}
+
+.description {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: #ffffff;
+  margin: 0;
+}
+
+.ctaWrapper {
+  margin-top: 1rem;
+}
+
+.ctaWrapper :global(.btnPrimary) {
+  background-color: #643BFF !important;
+  border-radius: 0.75rem;
+  padding: 0.875rem 2rem;
+  font-size: 1.125rem !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease;
+  border: none !important;
+}
+
+.ctaWrapper :global(.btnPrimary::after) {
+  background-color: #4a2bb8 !important;
+  border-radius: 0.75rem;
+}
+
+.ctaWrapper :global(.btnPrimary:hover) {
+  background-color: #7a4fff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(100, 59, 255, 0.4);
+}
+
+.ctaWrapper :global(.btnPrimary:active) {
+  transform: translateY(0);
+  border-width: 0 !important;
+}
+
+.rightSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* Mobile Responsive */
+@media (max-width: 1024px) {
+  .contentWrapper {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .heading {
+    font-size: 2.5rem;
+  }
+
+  .rightSection {
+    order: -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .heading {
+    font-size: 2rem;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+
+  .imageWrapper {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .heading {
+    font-size: 1.75rem;
+  }
+
+  .description {
+    font-size: 0.9375rem;
+  }
+}
+
