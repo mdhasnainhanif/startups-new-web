@@ -24,10 +24,18 @@ export default function Technologies() {
     (tab) => tab.id === activeTab
   );
 
-  // Duplicate tools for seamless infinite scroll
-  const toolsRow1 = [...currentTools, ...currentTools, ...currentTools];
-  const toolsRow2 = [...currentTools, ...currentTools, ...currentTools];
-  const toolsRow3 = [...currentTools, ...currentTools, ...currentTools];
+  // Split tools into three groups for different rows
+  const totalTools = currentTools.length;
+  const toolsPerRow = Math.ceil(totalTools / 3);
+  
+  const toolsRow1Group = currentTools.slice(0, toolsPerRow);
+  const toolsRow2Group = currentTools.slice(toolsPerRow, toolsPerRow * 2);
+  const toolsRow3Group = currentTools.slice(toolsPerRow * 2);
+
+  // Duplicate each group for seamless infinite scroll within each row
+  const toolsRow1 = [...toolsRow1Group, ...toolsRow1Group, ...toolsRow1Group];
+  const toolsRow2 = [...toolsRow2Group, ...toolsRow2Group, ...toolsRow2Group];
+  const toolsRow3 = [...toolsRow3Group, ...toolsRow3Group, ...toolsRow3Group];
 
   // Function to parse text and highlight text in brackets
   const parseBrackets = (text: string) => {

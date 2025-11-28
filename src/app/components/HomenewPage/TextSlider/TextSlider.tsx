@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import styles from "./TextSlider.module.css";
 import gsap from "gsap";
 
@@ -15,12 +15,38 @@ interface TextSlider1Props {
 }
 
 const TextSlider1: React.FC<TextSlider1Props> = ({ data = [] }) => {
-  useEffect(() => {
-    const scrollingText = gsap.utils.toArray<HTMLElement>(`.${styles.rail} h4`);
+  const railRef = useRef<HTMLDivElement>(null);
+  const timelineRef = useRef<gsap.core.Timeline | null>(null);
 
-    horizontalLoop(scrollingText, {
+  useEffect(() => {
+    if (!railRef.current || data.length === 0) return;
+
+    // Clean up previous animation
+    if (timelineRef.current) {
+      timelineRef.current.kill();
+    }
+
+    // Wait for DOM to be ready
+    const items = gsap.utils.toArray<HTMLElement>(railRef.current.querySelectorAll("h4"));
+    
+    if (items.length === 0) return;
+
+    // Only duplicate if we don't have duplicates already
+    const currentItems = railRef.current.querySelectorAll("h4");
+    if (currentItems.length === data.length) {
+      // Duplicate items for seamless infinite loop
+      items.forEach((item) => {
+        const clone = item.cloneNode(true) as HTMLElement;
+        railRef.current?.appendChild(clone);
+      });
+    }
+
+    // Get all items including duplicates
+    const allItems = gsap.utils.toArray<HTMLElement>(railRef.current.querySelectorAll("h4"));
+
+    horizontalLoop(allItems, {
       repeat: -1,
-      speed: 0.4,
+      speed: 0.5,
       paddingRight: 30,
     });
 
@@ -34,7 +60,6 @@ const TextSlider1: React.FC<TextSlider1Props> = ({ data = [] }) => {
         }),
         length = items.length,
         startX = items[0].offsetLeft,
-        times: number[] = [],
         widths: number[] = [],
         xPercents: number[] = [],
         pixelsPerSecond = (config.speed || 1) * 100,
@@ -49,6 +74,7 @@ const TextSlider1: React.FC<TextSlider1Props> = ({ data = [] }) => {
         item,
         i;
 
+      // Set initial xPercent and get widths
       gsap.set(items, {
         xPercent: (i, el) => {
           let w = (widths[i] = parseFloat(
@@ -56,29 +82,32 @@ const TextSlider1: React.FC<TextSlider1Props> = ({ data = [] }) => {
           ));
           xPercents[i] = snap(
             (parseFloat(gsap.getProperty(el, "x", "px") as string) / w) * 100 +
-              (gsap.getProperty(el, "xPercent") as number)
+              (gsap.getProperty(el, "xPercent") as number || 0)
           );
           return xPercents[i];
         },
       });
 
-      gsap.set(items, { x: 0 });
+      // Reset x to 0
+      gsap.set(items, { x: 0, y: 0 });
 
+      // Calculate total width
       totalWidth =
         items[length - 1].offsetLeft +
         (xPercents[length - 1] / 100) * widths[length - 1] -
         startX +
         items[length - 1].offsetWidth *
-          (gsap.getProperty(items[length - 1], "scaleX") as number) +
+          (gsap.getProperty(items[length - 1], "scaleX") as number || 1) +
         (parseFloat(config.paddingRight) || 0);
 
+      // Create animation for each item
       for (i = 0; i < length; i++) {
         item = items[i];
         curX = (xPercents[i] / 100) * widths[i];
         distanceToStart = item.offsetLeft + curX - startX;
         distanceToLoop =
           distanceToStart +
-          widths[i] * (gsap.getProperty(item, "scaleX") as number);
+          widths[i] * (gsap.getProperty(item, "scaleX") as number || 1);
 
         tl.to(
           item,
@@ -104,17 +133,24 @@ const TextSlider1: React.FC<TextSlider1Props> = ({ data = [] }) => {
         );
       }
 
+      timelineRef.current = tl;
       return tl;
     }
+
+    return () => {
+      if (timelineRef.current) {
+        timelineRef.current.kill();
+      }
+    };
   }, [data]);
 
   return (
     <section className={styles.ctaBanner}>
       <div className={styles.scrollingText}>
-        <div className={styles.rail}>
+        <div className={styles.rail} ref={railRef}>
           {data.map((item, idx) => (
             <h4 key={idx}>
-              {item.text}
+              {item.text}{" "}
               <span className="text-[#0fdac2]">{item.highlight}</span> in the US would cost: {item.price}
             </h4>
           ))}

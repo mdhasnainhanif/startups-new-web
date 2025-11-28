@@ -5,12 +5,66 @@
   background-position: center;
   background-repeat: no-repeat;
 }
+
+/* Bootstrap-like Row and Column System */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -15px;
+  margin-right: -15px;
+  align-items: center;
+}
+
+.colLeft {
+  flex: 0 0 100%;
+  max-width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.colRight {
+  flex: 0 0 100%;
+  max-width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .colLeft {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+  
+  .colRight {
+    flex: 0 0 50%;
+    max-width: 50%;
+    margin-top: 0;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .colLeft {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+  
+  .colRight {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
 .homenewbanner1
 {
-  height: 760px;
+  /* height: 760px; */
   object-fit: cover;
-  max-width: 100%;
-  margin-bottom: -90px;
+  max-width: 80%;
+  margin-bottom: -5.625rem;
   width: 100%;
 }
 
@@ -22,10 +76,10 @@
 
 /* Large Desktop (1920px and above) */
 @media (min-width: 1920px) {
-  .homenewbanner1 {
+  /* .homenewbanner1 {
     height: 850px;
     margin-bottom: -100px;
-  }
+  } */
 
   .extraPaddingTop {
     padding-top: 140px;
@@ -34,10 +88,10 @@
 
 /* Desktop/Laptop (1366px - 1919px) */
 @media (min-width: 1366px) and (max-width: 1919px) {
-  .homenewbanner1 {
+  /* .homenewbanner1 {
     height: 760px;
     margin-bottom: -90px;
-  }
+  } */
 
   .extraPaddingTop {
     padding-top: 120px;
@@ -46,10 +100,10 @@
 
 /* iPad Pro (1024px - 1365px) */
 @media (min-width: 1024px) and (max-width: 1365px) {
-  .homenewbanner1 {
+  /* .homenewbanner1 {
     height: 650px;
     margin-bottom: -70px;
-  }
+  } */
 
   .extraPaddingTop {
     padding-top: 100px;
@@ -58,10 +112,10 @@
 
 /* iPad (992px - 1023px) */
 @media (min-width: 992px) and (max-width: 1023px) {
-  .homenewbanner1 {
+  /* .homenewbanner1 {
     height: auto;
     margin-bottom: 0;
-  }
+  } */
 
   .extraPaddingTop {
     padding-top: 90px;
@@ -70,11 +124,11 @@
 
 /* iPad (768px - 991px) */
 @media (min-width: 768px) and (max-width: 991px) {
-  .homenewbanner1 {
+  /* .homenewbanner1 {
     height: auto;
     max-width: 300px;
     margin: 0 auto -85px;
-  }
+  } */
 
   .extraPaddingTop {
     padding-top: 80px;
@@ -87,10 +141,10 @@
 
 /* Mobile (576px - 767px) */
 @media (min-width: 576px) and (max-width: 767px) {
-  .homenewbanner1 {
+  /* .homenewbanner1 {
     height: auto;
     margin-bottom: 0;
-  }
+  } */
 
   .extraPaddingTop {
     padding-top: 60px;
@@ -99,10 +153,10 @@
 
 /* Small Mobile (below 576px) */
 @media (max-width: 575px) {
-  .homenewbanner1 {
+  /* .homenewbanner1 {
     height: auto;
     margin-bottom: 0;
-  }
+  } */
 
   .extraPaddingTop {
     padding-top: 40px;

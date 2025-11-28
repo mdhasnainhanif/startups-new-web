@@ -9,9 +9,9 @@ const HomenewBanner = () => {
       className={`sectionPadding ${styles.extraPaddingTop} ${styles.HomenewBanner}`}
     >
       <Container maxWidth="xl">
-        <div className="lg:flex lg:items-center lg:justify-between">
-          <div className="max-w-xl">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold mb-4 text-white">
+        <div className={`${styles.row} md:pt-20`}>
+          <div className={styles.colLeft}>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 text-white">
               Your <span className="text-[#0fdac2]">AI-Powered</span>{" "}
               <span className="text-[#0fdac2]">Design</span> Team{" "}
               <br className="hidden md:block" /> Ready From Day One
@@ -59,11 +59,11 @@ const HomenewBanner = () => {
             </Button>
           </div>
 
-          <div className="mt-10 lg:mt-0 lg:ml-12">
+          <div className={styles.colRight}>
             <img
               src="/assets/images/homenewbanner-img.webp"
               alt="AI Design Team Character"
-              className={`w-full max-w-sm mx-aut ${styles.homenewbanner1}`}
+              className={`w-full ${styles.homenewbanner1}`}
             />
           </div>
         </div>

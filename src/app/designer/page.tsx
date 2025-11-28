@@ -21,12 +21,12 @@ export default function homenew() {
     <section className="sectionPadding">
       <HomenewBanner />
       <TextSlider1 data={sliderData1}/>
+      <AiPowerDesign/>
       <Technologies />
       <TextSlider1 data={sliderData2}/>
       <ProfessionalDesign />
       <TextSlider1 data={sliderData3}/>
       <Reviews/>
-      <AiPowerDesign/>
       <Technologies />
       <CompleteBusinessSetup/>
       <GuessWorkAdvertising/>

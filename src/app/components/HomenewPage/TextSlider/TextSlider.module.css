@@ -48,20 +48,42 @@
 .scrolling-text {
   overflow: hidden;
   width: 100%;
-  height: 100vh;
+  padding: 2rem 0;
   display: flex;
   align-items: center;
+  position: relative;
+  height: auto;
+  min-height: auto;
 }
 
 .rail {
   display: flex;
+  flex-direction: row;
+  will-change: transform;
+  align-items: center;
+  position: relative;
 }
 
 .rail h4 {
   white-space: nowrap;
-  font-size: 60px;
+  font-size: clamp(32px, 5vw, 60px);
   font-weight: 600;
   line-height: 1em;
   margin-right: 30px;
   color: #fff;
+  display: inline-block;
+  flex-shrink: 0;
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 768px) {
+  .rail h4 {
+    font-size: 32px;
+    margin-right: 20px;
+  }
+  
+  .scrolling-text {
+    padding: 1.5rem 0;
+  }
 }

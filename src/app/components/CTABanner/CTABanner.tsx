@@ -17,7 +17,7 @@ interface CTABannerProps {
 
 const CTABanner = ({
   question = "What's Your",
-  questionHighlight = "Challenge",
+  questionHighlight = "Challenge?",
   buttonText = "Let’s solve it on a call",
   buttonHref = "#",
   backgroundImage = "/assets/images/cta-banner.webp",

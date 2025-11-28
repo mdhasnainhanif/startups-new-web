@@ -111,25 +111,25 @@ export const TECHNOLOGIES_SECTION = {
       { id: 13, name: "Kotlin", icon: "/assets/images/technology/kotlin-android dev.svg", iconColor: "#7f52ff" },
 
       // DevOps / CI-CD
-      { id: 14, name: "GitHub Actions", icon: "G", iconColor: "#000000" },
-      { id: 15, name: "GitLab CI/CD", icon: "GL", iconColor: "#fc6d26" },
-      { id: 16, name: "Jenkins", icon: "J", iconColor: "#d33833" },
-      { id: 17, name: "Docker", icon: "Dk", iconColor: "#0db7ed" },
-      { id: 18, name: "Kubernetes", icon: "K8", iconColor: "#326ce5" },
-      { id: 19, name: "Vercel", icon: "V", iconColor: "#000000" },
-      { id: 20, name: "Netlify", icon: "N", iconColor: "#32e6e2" },
-      { id: 21, name: "AWS (Lambda / EC2 / S3)", icon: "A", iconColor: "#ff9900" },
+      { id: 14, name: "GitHub Actions", icon: "/assets/images/technology/github-action.svg", iconColor: "#000000" },
+      { id: 15, name: "GitLab CI/CD", icon: "/assets/images/technology/gitlab.svg", iconColor: "#fc6d26" },
+      { id: 16, name: "Jenkins", icon: "/assets/images/technology/jenkins.svg", iconColor: "#d33833" },
+      { id: 17, name: "Docker", icon: "/assets/images/technology/docker.svg", iconColor: "#0db7ed" },
+      { id: 18, name: "Kubernetes", icon: "/assets/images/technology/kubernetes.svg", iconColor: "#326ce5" },
+      { id: 19, name: "Vercel", icon: "/assets/images/technology/vercel.svg", iconColor: "#000000" },
+      { id: 20, name: "Netlify", icon: "/assets/images/technology/netlify.svg", iconColor: "#000000" },
+      { id: 21, name: "AWS (Lambda / EC2 / S3)", icon: "/assets/images/technology/aws.svg", iconColor: "#ff9900" },
 
       // Databases
-      { id: 22, name: "PostgreSQL", icon: "P", iconColor: "#336791" },
-      { id: 23, name: "MongoDB", icon: "M", iconColor: "#4db33d" },
-      { id: 24, name: "Firebase", icon: "Fb", iconColor: "#ffca28" },
-      { id: 25, name: "Redis", icon: "R", iconColor: "#dc382d" },
+      { id: 22, name: "PostgreSQL", icon: "/assets/images/technology/postgresql.svg", iconColor: "#336791" },
+      { id: 23, name: "MongoDB", icon: "/assets/images/technology/mongodb.svg", iconColor: "#4db33d" },
+      { id: 24, name: "Firebase", icon: "/assets/images/technology/firebase.svg", iconColor: "#ffca28" },
+      { id: 25, name: "Redis", icon: "/assets/images/technology/redis.svg", iconColor: "#dc382d" },
 
       // Utilities
-      { id: 26, name: "Postman", icon: "Pm", iconColor: "#ff6c37" },
-      { id: 27, name: "Figma", icon: "F", iconColor: "#a259ff" },
-      { id: 28, name: "Jira", icon: "J", iconColor: "#0052cc" },
+      { id: 26, name: "Postman", icon: "/assets/images/technology/postman.svg", iconColor: "#ff6c37" },
+      { id: 27, name: "Figma", icon: "/assets/images/technology/figma.svg", iconColor: "#a259ff" },
+      { id: 28, name: "Jira", icon: "/assets/images/technology/jira.svg", iconColor: "#0052cc" },
     ],
 
     // ------------------------------------------------------------
