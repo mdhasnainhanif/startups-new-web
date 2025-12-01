@@ -59,8 +59,8 @@ export default function Header() {
       {/* Header - Fixed when scrolled */}
       <header
         className={`${
-          isScrolled ? "fixed top-0" : "relative md:absolute md:top-24"
-        } left-0 right-0 z-100 flex items-center justify-center w-full py-4 bg-transparent md:bg-transparent transition-transform duration-300 ease-in-out`}
+          isScrolled ? "fixed top-2" : "relative md:absolute md:top-19"
+        } left-0 right-0 z-100 flex items-center justify-center w-full pb-4 bg-transparent md:bg-transparent transition-transform duration-300 ease-in-out`}
         style={{
           willChange: "transform",
           transform: isHeaderVisible ? "translateY(0)" : "translateY(-100%)",
@@ -68,7 +68,7 @@ export default function Header() {
       >
         <Container maxWidth="xl" className="px-0">
           <nav
-            className="headerNav flex items-center justify-between w-full rounded-xl md:rounded-2xl px-4 md:px-6 md:py-3  bg-[#02001c] backdrop-blur-md shadow-xl border border-[#4e4989] relative"
+            className="headerNav flex items-center justify-between w-full rounded-xl md:rounded-2xl px-4 md:px-6 md:py-3  bg-[#1c1949] backdrop-blur-md shadow-xl border border-[#2f2a63] relative"
             style={{ minHeight: "64px" }}
           >
             <div className="flex items-center gap-2">
@@ -92,20 +92,25 @@ export default function Header() {
                 <a
                   key={link.href}
                   href={link.href}
-                  className="text-white text-lg font-medium hover:text-[#0fdac2] transition-colors"
+                  className="text-white font-medium hover:text-[#0fdac2] transition-colors"
                 >
                   {link.label}
                 </a>
               ))}
             </div>
-            <div className="hidden md:flex">
+            <div className="hidden md:flex items-center gap-5">
+              <Link href="#" className="text-white font-medium hover:text-[#0fdac2] transition-colors">
+                <span className="font-light text-xs border border-[#525252] rounded-lg px-2 py-1 me-2 text-[#969696]">
+                  New
+                </span>
+                ROI Calculator
+              </Link>
               <Button
                 href="#"
                 variant="green"
-                icon={<ArrowRightIcon style={{ fill: "#000" }} />}
                 iconPosition="right"
               >
-                Book A Demo
+                Build Your Team
               </Button>
             </div>
 

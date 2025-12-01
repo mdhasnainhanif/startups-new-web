@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Container from '../Container';
 import styles from './ContactTwo.module.css';
+import Button from '../Button';
 
 interface ContactTwoData {
   leftSection: {
@@ -108,7 +109,7 @@ const ContactTwo = () => {
   const { leftSection, rightSection } = CONTACT_TWO_DATA;
 
   return (
-    <section className={`${styles.contactSection} sectionPadding ${styles.noPaddingBottom}`}>
+    <section className={`${styles.contactSection} sectionPadding`}>
       <Container maxWidth="xl" className="px-0">
         <div className={styles.contactCard}>
           {/* Left Section - Text and Image */}
@@ -217,14 +218,14 @@ const ContactTwo = () => {
                 </div>
 
                 {/* Submit Button */}
-                <button type="submit" className={styles.submitButton}>
+                <Button variant="green" size="lg" type="submit" className="w-full text-center justify-center items-center">
                   <span>{rightSection.form.submitButton.text}</span>
                   {rightSection.form.submitButton.icon && (
                     <span className="inline-flex items-center">
                       {rightSection.form.submitButton.icon}
                     </span>
                   )}
-                </button>
+                </Button>
               </form>
             </div>
           </div>

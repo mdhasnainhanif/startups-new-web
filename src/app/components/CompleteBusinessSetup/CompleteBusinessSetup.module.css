@@ -4,11 +4,10 @@
   left: 5%;
   width: 600px;
   height: 600px;
-  opacity:0.6;
-  z-index: 1
+  opacity: 0.6;
+  z-index: 1;
 }
-.businesscontainer
-{
+.businesscontainer {
   position: relative;
   z-index: 2;
 }
@@ -30,29 +29,29 @@
 .brandingKitsSwiper :global(.swiper-button-next) {
   display: none;
 }
-.sliderwrapper
-{
-    position: relative;
-    background:#050321;
-    justify-content: center;
-    border-radius: 20px;
+.sliderwrapper {
+  position: relative;
+  background: #050321;
+  justify-content: center;
+  border-radius: 20px;
+  border: 1px solid #9b7eff4d;
 }
-.brandingKitsTitle
-{
-    color: #fff;
-    width: fit-content;
-    display: block;
-    margin: 0 auto;
+.brandingKitsTitle {
+  color: #fff;
+  width: fit-content;
+  display: block;
+  margin: 0 auto;
 }
-.highlighted
-{
-    color:#0fdac2;
+.highlighted {
+  color: #0fdac2;
 }
-.navButton
-{
-    background:#0d0934;
-    width:40px;
-    height:40px;
-    border-radius:100px;
-    color:#fff;
+.navButton {
+  color: #fff;
+  background: #0d0934;
+  border-radius: 100px;
+  width: 40px;
+  height: 40px;
+  top: 50%;
+  transform: translate(0px, 50%);
+  border: 1px solid #6848df4d;
 }

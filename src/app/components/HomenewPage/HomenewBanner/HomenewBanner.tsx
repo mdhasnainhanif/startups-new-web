@@ -10,11 +10,11 @@ const HomenewBanner = () => {
     >
       <Container maxWidth="xl">
         <div className={`${styles.row} md:pt-20`}>
-          <div className={styles.colLeft}>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 text-white">
+          <div className={`${styles.colLeft} sectionHeading`}>
+            <h1 className="mb-4 text-white">
               Your <span className="text-[#0fdac2]">AI-Powered</span>{" "}
               <span className="text-[#0fdac2]">Design</span> Team{" "}
-              <br className="hidden md:block" /> Ready From Day One
+               Ready <br className="hidden md:block" /> From Day One
             </h1>
 
             <p className="text-white text-lg mb-6">

@@ -1,6 +1,11 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper/modules';
+import type { Swiper as SwiperType } from 'swiper';
+import 'swiper/css';
+import 'swiper/css/navigation';
 import Container from '../Container';
 import styles from './ProvenSuccess.module.css';
 
@@ -196,6 +201,166 @@ const PROVEN_SUCCESS_DATA: ProvenSuccessData = {
         { id: '24', label: 'Flyers' },
       ],
     },
+    {
+      id: 'branding-kit1',
+      label: 'Branding Kit',
+      images: [
+        '/assets/images/aipower1.png',
+        '/assets/images/aipower2.png',
+        '/assets/images/aipower3.png',
+        '/assets/images/aipower4.png',
+        '/assets/images/aipower5.png',
+        '/assets/images/aipower1.png',
+        '/assets/images/aipower2.png',
+        '/assets/images/aipower3.png',
+      ],
+      gridItems: [
+        { id: '1', label: 'Logo Design' },
+        { id: '2', label: 'Brand Identity' },
+        { id: '3', label: 'Business Cards' },
+        { id: '4', label: 'Letterhead' },
+        { id: '5', label: 'Envelope' },
+        { id: '6', label: 'Email Signature' },
+        { id: '7', label: 'Social Media Kit' },
+        { id: '8', label: 'Brand Guidelines' },
+        { id: '9', label: 'Color Palette' },
+        { id: '10', label: 'Typography' },
+        { id: '11', label: 'Icon Set' },
+        { id: '12', label: 'Pattern Design' },
+        { id: '13', label: 'Stationery Set' },
+        { id: '14', label: 'Packaging Design' },
+        { id: '15', label: 'Merchandise' },
+        { id: '16', label: 'Brand Book' },
+        { id: '17', label: 'Logo Variations' },
+        { id: '18', label: 'Favicon Set' },
+        { id: '19', label: 'Watermark' },
+        { id: '20', label: 'Brand Assets' },
+        { id: '21', label: 'Templates' },
+        { id: '22', label: 'Mockups' },
+        { id: '23', label: 'Presentation' },
+        { id: '24', label: 'Documentation' },
+      ],
+    },
+    {
+      id: 'logo-design1',
+      label: 'Logo Design',
+      images: [
+        '/assets/images/aipower1.png',
+        '/assets/images/aipower2.png',
+        '/assets/images/aipower3.png',
+        '/assets/images/aipower4.png',
+        '/assets/images/aipower5.png',
+        '/assets/images/aipower1.png',
+        '/assets/images/aipower2.png',
+        '/assets/images/aipower3.png',
+      ],
+      gridItems: [
+        { id: '1', label: 'Primary Logo' },
+        { id: '2', label: 'Secondary Logo' },
+        { id: '3', label: 'Icon Logo' },
+        { id: '4', label: 'Wordmark' },
+        { id: '5', label: 'Symbol' },
+        { id: '6', label: 'Monogram' },
+        { id: '7', label: 'Logo Variations' },
+        { id: '8', label: 'Color Versions' },
+        { id: '9', label: 'Black & White' },
+        { id: '10', label: 'Horizontal' },
+        { id: '11', label: 'Vertical' },
+        { id: '12', label: 'Square' },
+        { id: '13', label: 'Favicon' },
+        { id: '14', label: 'App Icon' },
+        { id: '15', label: 'Social Media' },
+        { id: '16', label: 'Print Ready' },
+        { id: '17', label: 'Web Ready' },
+        { id: '18', label: 'Vector Files' },
+        { id: '19', label: 'Raster Files' },
+        { id: '20', label: 'Logo Guidelines' },
+        { id: '21', label: 'Usage Rules' },
+        { id: '22', label: 'Spacing Guide' },
+        { id: '23', label: 'Size Variations' },
+        { id: '24', label: 'File Formats' },
+      ],
+    },
+    {
+      id: 'social-media-post1',
+      label: 'Social Media Post',
+      images: [
+        '/assets/images/aipower1.png',
+        '/assets/images/aipower2.png',
+        '/assets/images/aipower3.png',
+        '/assets/images/aipower4.png',
+        '/assets/images/aipower5.png',
+        '/assets/images/aipower1.png',
+        '/assets/images/aipower2.png',
+        '/assets/images/aipower3.png',
+      ],
+      gridItems: [
+        { id: '1', label: 'Facebook Post' },
+        { id: '2', label: 'Instagram Post' },
+        { id: '3', label: 'Twitter Post' },
+        { id: '4', label: 'LinkedIn Post' },
+        { id: '5', label: 'Story Design' },
+        { id: '6', label: 'Reel Cover' },
+        { id: '7', label: 'Carousel' },
+        { id: '8', label: 'Banner' },
+        { id: '9', label: 'Cover Photo' },
+        { id: '10', label: 'Profile Picture' },
+        { id: '11', label: 'Highlight Cover' },
+        { id: '12', label: 'Pinterest Pin' },
+        { id: '13', label: 'YouTube Thumbnail' },
+        { id: '14', label: 'TikTok Cover' },
+        { id: '15', label: 'Snapchat Filter' },
+        { id: '16', label: 'WhatsApp Status' },
+        { id: '17', label: 'Template Set' },
+        { id: '18', label: 'Quote Card' },
+        { id: '19', label: 'Infographic' },
+        { id: '20', label: 'Announcement' },
+        { id: '21', label: 'Event Poster' },
+        { id: '22', label: 'Promotion' },
+        { id: '23', label: 'Testimonial' },
+        { id: '24', label: 'Case Study' },
+      ],
+    },
+    {
+      id: 'stationary1',
+      label: 'Stationary',
+      images: [
+        '/assets/images/aipower1.png',
+        '/assets/images/aipower2.png',
+        '/assets/images/aipower3.png',
+        '/assets/images/aipower4.png',
+        '/assets/images/aipower5.png',
+        '/assets/images/aipower1.png',
+        '/assets/images/aipower2.png',
+        '/assets/images/aipower3.png',
+      ],
+      gridItems: [
+        { id: '1', label: 'Business Card' },
+        { id: '2', label: 'Letterhead' },
+        { id: '3', label: 'Envelope' },
+        { id: '4', label: 'Invoice' },
+        { id: '5', label: 'Receipt' },
+        { id: '6', label: 'Quote Template' },
+        { id: '7', label: 'Proposal' },
+        { id: '8', label: 'Report Cover' },
+        { id: '9', label: 'Folder Design' },
+        { id: '10', label: 'Presentation' },
+        { id: '11', label: 'Notepad' },
+        { id: '12', label: 'Sticky Notes' },
+        { id: '13', label: 'Labels' },
+        { id: '14', label: 'Tags' },
+        { id: '15', label: 'Certificates' },
+        { id: '16', label: 'Awards' },
+        { id: '17', label: 'Diplomas' },
+        { id: '18', label: 'Menus' },
+        { id: '19', label: 'Programs' },
+        { id: '20', label: 'Tickets' },
+        { id: '21', label: 'Vouchers' },
+        { id: '22', label: 'Gift Cards' },
+        { id: '23', label: 'Brochures' },
+        { id: '24', label: 'Flyers' },
+      ],
+    },
   ],
   categories: [
     { id: 'agriculture', label: 'Agriculture' },
@@ -212,61 +377,23 @@ const PROVEN_SUCCESS_DATA: ProvenSuccessData = {
 const ProvenSuccess = () => {
   const [activeTab, setActiveTab] = useState<string>(PROVEN_SUCCESS_DATA.tabs[0].id);
   const [activeCategory, setActiveCategory] = useState<string>(PROVEN_SUCCESS_DATA.categories[0].id);
-  const [tabsScrollState, setTabsScrollState] = useState<{ isBeginning: boolean; isEnd: boolean }>({
-    isBeginning: true,
-    isEnd: false,
-  });
-  const tabsScrollRef = useRef<HTMLDivElement>(null);
+  const [isBeginning, setIsBeginning] = useState<boolean>(true);
+  const [isEnd, setIsEnd] = useState<boolean>(false);
+  const [isFading, setIsFading] = useState<boolean>(false);
+  const swiperRef = useRef<SwiperType | null>(null);
   const categoriesScrollRef = useRef<HTMLDivElement>(null);
 
   const currentTab = PROVEN_SUCCESS_DATA.tabs.find((tab) => tab.id === activeTab) || PROVEN_SUCCESS_DATA.tabs[0];
 
-  const checkTabsScrollState = (): void => {
-    if (tabsScrollRef.current) {
-      const { scrollLeft, scrollWidth, clientWidth } = tabsScrollRef.current;
-      setTabsScrollState({
-        isBeginning: scrollLeft <= 0,
-        isEnd: scrollLeft + clientWidth >= scrollWidth - 5,
-      });
-    }
-  };
-
-  const scrollTabs = (direction: 'left' | 'right'): void => {
-    if (!tabsScrollRef.current) return;
-    
-    const container = tabsScrollRef.current;
-    const scrollAmount = 250;
-    const currentScroll = container.scrollLeft;
-    
-    let newScroll: number;
-    if (direction === 'left') {
-      // Scroll back (left)
-      newScroll = Math.max(0, currentScroll - scrollAmount);
-    } else {
-      // Scroll forward (right)
-      const maxScroll = container.scrollWidth - container.clientWidth;
-      newScroll = Math.min(maxScroll, currentScroll + scrollAmount);
-    }
-    
-    container.scrollTo({
-      left: newScroll,
-      behavior: 'smooth',
-    });
-    
-    // Update scroll state after animation
-    setTimeout(() => {
-      checkTabsScrollState();
-    }, 500);
-  };
-
+  // Handle fade effect when tab or category changes
   useEffect(() => {
-    checkTabsScrollState();
-    const handleResize = (): void => {
-      checkTabsScrollState();
-    };
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+    setIsFading(true);
+    const fadeOutTimer = setTimeout(() => {
+      setIsFading(false);
+    }, 150);
+
+    return () => clearTimeout(fadeOutTimer);
+  }, [activeTab, activeCategory]);
 
   const scrollCategories = (direction: 'left' | 'right'): void => {
     if (categoriesScrollRef.current) {
@@ -279,7 +406,7 @@ const ProvenSuccess = () => {
   };
 
   return (
-    <section className={`sectionPadding ${styles.section} ${styles.ProvenSuccess}`}>
+    <section className={`sectionPadding provenSuccess ${styles.section} ${styles.ProvenSuccess}`}>
       <Container maxWidth="2xl" className="px-0">
         {/* Header Section */}
         <div className={styles.header + " sectionHeading forH2"}>
@@ -292,22 +419,12 @@ const ProvenSuccess = () => {
         </div>
 
         {/* Tabs */}
-        <div
-          ref={tabsScrollRef}
-          className={styles.tabsContainer}
-          onScroll={checkTabsScrollState}
-        >
+        <div className={styles.tabsContainer}>
           <button
-            onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
-              e.preventDefault();
-              e.stopPropagation();
-              if (!tabsScrollState.isBeginning) {
-                scrollTabs('left');
-              }
-            }}
-            disabled={tabsScrollState.isBeginning}
+            onClick={() => swiperRef.current?.slidePrev()}
+            disabled={isBeginning}
             className={`${styles.navArrow} ${styles.navArrowLeft} ${
-              tabsScrollState.isBeginning ? styles.navArrowDisabled : ''
+              isBeginning ? styles.navArrowDisabled : ''
             }`}
             aria-label="Previous tabs"
             type="button"
@@ -325,26 +442,39 @@ const ProvenSuccess = () => {
               <path d="M15 18l-6-6 6-6" />
             </svg>
           </button>
-          {PROVEN_SUCCESS_DATA.tabs.map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              className={`${styles.tab} ${activeTab === tab.id ? styles.activeTab : ''}`}
-            >
-              {tab.label}
-            </button>
-          ))}
-          <button
-            onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
-              e.preventDefault();
-              e.stopPropagation();
-              if (!tabsScrollState.isEnd) {
-                scrollTabs('right');
-              }
+          <Swiper
+            onSwiper={(swiper) => {
+              swiperRef.current = swiper;
+              setIsBeginning(swiper.isBeginning);
+              setIsEnd(swiper.isEnd);
             }}
-            disabled={tabsScrollState.isEnd}
+            onSlideChange={(swiper) => {
+              setIsBeginning(swiper.isBeginning);
+              setIsEnd(swiper.isEnd);
+            }}
+            modules={[Navigation]}
+            slidesPerView="auto"
+            slidesPerGroup={1}
+            spaceBetween={10}
+            speed={500}
+            className={styles.swiperContainer}
+          >
+            {PROVEN_SUCCESS_DATA.tabs.map((tab) => (
+              <SwiperSlide key={tab.id} className={styles.swiperSlide}>
+                <button
+                  onClick={() => setActiveTab(tab.id)}
+                  className={`${styles.tab} ${activeTab === tab.id ? styles.activeTab : ''}`}
+                >
+                  {tab.label}
+                </button>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+          <button
+            onClick={() => swiperRef.current?.slideNext()}
+            disabled={isEnd}
             className={`${styles.navArrow} ${styles.navArrowRight} ${
-              tabsScrollState.isEnd ? styles.navArrowDisabled : ''
+              isEnd ? styles.navArrowDisabled : ''
             }`}
             aria-label="Next tabs"
             type="button"
@@ -388,16 +518,22 @@ const ProvenSuccess = () => {
         </div>
 
         {/* Images Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+        <div 
+          key={`${activeTab}-${activeCategory}`} 
+          className={`grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 transition-opacity duration-300 ease-in-out ${
+            isFading ? "opacity-0" : "opacity-100"
+          }`}
+        >
           {currentTab.images.map((image, index) => (
             <div
-              key={index}
+              key={`${activeTab}-${index}`}
               className="aspect-square bg-[rgba(29,14,87,0.3)] rounded-lg overflow-hidden border border-[rgba(101,59,255,0.2)]"
             >
               <img
                 src={image}
                 alt={`${currentTab.label} ${index + 1}`}
                 className="w-full h-full object-cover"
+                key={`${activeTab}-img-${index}`}
               />
             </div>
           ))}

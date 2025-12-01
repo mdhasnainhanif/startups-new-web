@@ -15,6 +15,11 @@
   height: 80vh;
   -webkit-transform-origin: center top;
   transform-origin: center top;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 
 .scrollerItem {
@@ -46,7 +51,7 @@
   color: #fff;
   background-color: #643bff;
   border-radius: 0.425rem;
-  padding: 0.3rem 1.3rem;
+  padding: 0.215rem 0.75rem 0.425rem;
   font-size: 1rem;
   font-weight: 500;
 }
@@ -54,8 +59,8 @@
 .inner-div p {
   color: #0fdac2;
   margin-bottom: 1rem;
-  font-size: 1.2rem;
-  font-weight: 600;
+  font-size: 1.226rem;
+  font-weight: 500;
 }
 
 .section-heading-para h2 {

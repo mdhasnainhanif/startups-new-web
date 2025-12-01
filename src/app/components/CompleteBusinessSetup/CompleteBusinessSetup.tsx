@@ -113,16 +113,16 @@ const CompleteBusinessSetup = () => {
         </div>
 
         {/* Main Content Box */}
-        <div className={`${styles.contentWrapper} bg-[#21164c] rounded-2xl p-6 md:p-8 lg:p-10 border border-[rgba(100,59,255,0.3)] ${styles.businesscontainer}`}>
+        <div className={`${styles.contentWrapper} bg-[#21164c] rounded-2xl p-6 md:p-8 lg:p-10 border border-[#6147c14d] ${styles.businesscontainer}`}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
             {/* Left Column - Branding KITs Slider */}
             <div className={`flex flex-col ${styles.sliderwrapper}`}>
-              <div className="relative px-10 py-4">
+              <div className="relative px-6 md:px-10 py-4">
                 {/* Navigation Arrows */}
                 <button
                   onClick={handlePrev}
                   disabled={isBeginning}
-                  className={`absolute left-0 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center transition-all ${
+                  className={`absolute -left-4 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center transition-all ${
                     isBeginning ? 'opacity-30 cursor-not-allowed' : 'hover:opacity-80'
                   } ${styles.navButton}`}
                   aria-label="Previous"
@@ -144,7 +144,7 @@ const CompleteBusinessSetup = () => {
                 <button
                   onClick={handleNext}
                   disabled={isEnd}
-                  className={`absolute right-0 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center transition-all ${
+                  className={`absolute -right-4 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center transition-all ${
                     isEnd ? 'opacity-30 cursor-not-allowed' : 'hover:opacity-80'
                   } ${styles.navButton}`}
                   aria-label="Next"
@@ -186,19 +186,19 @@ const CompleteBusinessSetup = () => {
                     length: Math.ceil(brandingKits.items.length / 6),
                   }).map((_, groupIndex) => (
                     <SwiperSlide key={groupIndex}>
-                      <div className="grid grid-cols-2 gap-x-8 gap-y-3">
+                      <div className="grid grid-cols-2 md:gap-x-8 gap-y-3 gap-x-2">
                         {brandingKits.items
                           .slice(groupIndex * 6, (groupIndex + 1) * 6)
                           .map((item) => (
                             <div
                               key={item.id}
-                              className="border-b border-[rgba(255,255,255,0.1)] pb-3"
+                              className="border-b border-[rgba(255,255,255,0.1)] pb-3 md:text-lg text-sm"
                             >
                               <div className="flex items-center gap-2">
-                                <span className="text-white text-sm font-medium">
+                                <span className="text-white font-medium">
                                   {item.number}.
                                 </span>
-                                <span className="text-white text-sm">
+                                <span className="text-white">
                                   {item.label}
                                 </span>
                               </div>
@@ -212,7 +212,7 @@ const CompleteBusinessSetup = () => {
 
               {/* Branding KITs Title */}
               <h3
-                className={`text-3xl md:text-4xl font-semibold inline-block px-4 py-2 rounded-lg ${styles.brandingKitsTitle}`}
+                className={`text-3xl md:text-4xl font-bold inline-block px-4 py-2 rounded-lg ${styles.brandingKitsTitle}`}
               >
                 <span className={styles.highlighted}>
                   {brandingKits.title.highlight}

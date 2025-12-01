@@ -8,8 +8,9 @@ import TextSlider1 from '../components/HomenewPage/TextSlider/TextSlider';
 import { sliderData1, sliderData2, sliderData3 } from '../data/HomeNewData';
 import Reviews from '../components/Reviews/Reviews';
 import ProfessionalDesign from '../components/ProfessionalDesign/ProfessionalDesign';
-import { designProfessionalPageData } from '../data/DesignerPageData';
+import { designProfessionalPageData, caseStudyDesignerPageData } from '../data/DesignerPageData';
 import AiPowerDesign from '../components/AiPowerDesign/AiPowerDesign';
+import CaseStudySection from '../components/CaseStudySection';
 import ProvenSuccess from '../components/ProvenSuccess/ProvenSuccess';
 import RealCost from '../components/RealCost/RealCost';
 import CompleteBusinessSetup from '../components/CompleteBusinessSetup/CompleteBusinessSetup';
@@ -19,9 +20,10 @@ import ContactTwo from '../components/ContactTwo/ContactTwo';
 
 export default function homenew() {
   return (
-    <section className="sectionPadding">
+    <>
       <HomenewBanner />
       <TextSlider1 data={sliderData1}/>
+      <CaseStudySection isShowTabs={false} data={caseStudyDesignerPageData} className="designerPageCaseStudy" />
       <AiPowerDesign/>
       <Technologies />
       <TextSlider1 data={sliderData2}/>
@@ -35,8 +37,7 @@ export default function homenew() {
       <GrowthSlider items={GROWTH_GUIDES} />
       <FAQ faqs={FAQ_DATA} sectionData={FAQ_SECTION} />
       <ContactTwo/>
+    </>
 
-
-    </section>
   )
 }

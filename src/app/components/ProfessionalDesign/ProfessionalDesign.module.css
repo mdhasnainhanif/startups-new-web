@@ -14,7 +14,7 @@
 .contentWrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 80px;
+  gap: 5rem;
   align-items: center;
   position: relative;
 }
@@ -31,8 +31,8 @@
   justify-content: end;
     text-align: start;
     display: flex;
-    width: 615px;
-    margin-right: -56px;
+    width: 38.4375rem;
+    margin-right: -3.5rem;
  
 }
 /* Left Section */
@@ -47,7 +47,7 @@ ul.factsList{
 }
 
 .heading {
-  font-size: 48px;
+  font-size: 3rem;
   font-weight: 600;
   line-height: 1.2;
   margin: 0;
@@ -63,7 +63,7 @@ ul.factsList{
 
 .description {
   color: rgba(255, 255, 255, 0.8);
-  font-size: 18px;
+  font-size: 1.125rem;
   line-height: 1.6;
   margin: 0;
 }
@@ -78,7 +78,7 @@ ul.factsList{
     color: #0fdac2;
     font-size: 1.725rem;
     font-weight: 600;
-    margin: 0 0 20px 0;
+    margin: 0 0 1.25rem 0;
 }
 
 .factsList, .rightFactsList {
@@ -87,7 +87,7 @@ ul.factsList{
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 16px; /* Spacing between list items */
+  gap: 1rem; /* Spacing between list items */
 }
 
 .factsList, .rightFactsList1 {
@@ -96,14 +96,14 @@ ul.factsList{
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 16px; /* Spacing between list items */
+  gap: 1rem; /* Spacing between list items */
 }
 
 .factsListItem, .rightFactsListItem {
   position: relative;
-  padding-left: 35px; /* Space for the custom bullet */
+  padding-left: 2.1875rem; /* Space for the custom bullet */
   color: rgba(255, 255, 255, 0.9);
-  font-size: 17px;
+  font-size: 1.0625rem;
   line-height: 1.6;
 }
 
@@ -112,11 +112,11 @@ ul.factsList{
   content: "";
   position: absolute;
   left: 0;
-  top: 4px; /* Adjust vertical alignment */
-  width: 20px;
-  height: 20px;
+  top: 0.25rem; /* Adjust vertical alignment */
+  width: 1.25rem;
+  height: 1.25rem;
   /* Make sure you have tick.png in this path: /assets/icons/tick.png */
-  background-image: url("/assets/images/tick.png"); 
+  background-image: url("/assets/images/tick2.png"); 
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -138,24 +138,24 @@ ul.factsList{
 }
 
 .videoWrapper:hover {
-  transform: translateY(-4px);
+  transform: translateY(-0.25rem);
 }
 
 .videoCard {
   position: relative;
-  border-radius: 16px;
+  border-radius: 1rem;
   overflow: hidden;
-  border: 2px solid rgba(100, 59, 255, 0.3);
-  box-shadow: 0 0 20px rgba(100, 59, 255, 0.2), 0 0 40px rgba(100, 59, 255, 0.1),
-    inset 0 0 20px rgba(100, 59, 255, 0.05);
+  border: 0.125rem solid rgba(100, 59, 255, 0.3);
+  box-shadow: 0 0 1.25rem rgba(100, 59, 255, 0.2), 0 0 2.5rem rgba(100, 59, 255, 0.1),
+    inset 0 0 1.25rem rgba(100, 59, 255, 0.05);
   background: rgba(2, 0, 22, 0.8);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(0.625rem);
   transition: all 0.3s ease;
 }
 
 .videoWrapper:hover .videoCard {
-  box-shadow: 0 0 30px rgba(100, 59, 255, 0.4), 0 0 60px rgba(100, 59, 255, 0.2),
-    inset 0 0 20px rgba(100, 59, 255, 0.05);
+  box-shadow: 0 0 1.875rem rgba(100, 59, 255, 0.4), 0 0 3.75rem rgba(100, 59, 255, 0.2),
+    inset 0 0 1.25rem rgba(100, 59, 255, 0.05);
 }
 
 .videoThumbnail {
@@ -174,7 +174,7 @@ ul.factsList{
 }
 
 .videoImageWrapper:hover {
-  transform: translateY(-4px);
+  transform: translateY(-0.25rem);
 }
 
 .videoImageWrapper:hover .playButton {
@@ -185,8 +185,8 @@ ul.factsList{
 .videoImage{
   max-width: 100%;
   display: block;
-  box-shadow: 0 2px 18px #1e365c;
-  border-radius: 1.4rem;
+  box-shadow: 0 .125rem 1.125rem #0fdac2;
+  border-radius: 2rem;
   width: 100%;
   flex-shrink: 0;
 }
@@ -231,17 +231,17 @@ ul.factsList{
   right: 1rem;
   top: 50%;
   transform: translateY(-50%);
-  max-width: 180px;
+  max-width: 11.25rem;
   z-index: 5;
   pointer-events: none;
 }
 
 .overlayText {
   color: rgba(255, 255, 255, 0.9);
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 500;
   line-height: 1.6;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.3);
   margin: 0;
 }
 
@@ -256,14 +256,14 @@ ul.factsList{
 }
 
 .playButton {
-  width: 80px;
-  height: 80px;
+  width: 5rem;
+  height: 5rem;
   background: #643bffab;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 10px 30px rgba(100, 59, 255, 0.5);
+  box-shadow: 0 0.625rem 1.875rem rgba(100, 59, 255, 0.5);
   transition: all 0.3s ease;
   pointer-events: auto;
   cursor: pointer;
@@ -271,14 +271,14 @@ ul.factsList{
 
 .videoWrapper:hover .playButton {
   transform: scale(1.1);
-  box-shadow: 0 15px 40px rgba(100, 59, 255, 0.7);
+  box-shadow: 0 0.9375rem 2.5rem rgba(100, 59, 255, 0.7);
 }
 
 .playIcon {
-  width: 40px;
-  height: 40px;
+  width: 2.5rem;
+  height: 2.5rem;
   color: #ffffff;
-  margin-left: 4px;
+  margin-left: 0.25rem;
 }
 
 .bottomHeading {
@@ -323,7 +323,7 @@ ul.factsList{
 
 .statBox {
   background: #181339;
-  border-radius: 12px;
+  border-radius: 0.75rem;
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
@@ -332,8 +332,8 @@ ul.factsList{
 }
 
 .statIcon {
-  width: 48px;
-  height: 48px;
+  width: 3rem;
+  height: 3rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -351,7 +351,7 @@ ul.factsList{
 
 .statDescription {
   color: rgba(255, 255, 255, 0.9);
-  font-size: 15px;
+  font-size: 0.9375rem;
   line-height: 1.5;
   margin: 0;
 }
@@ -377,88 +377,88 @@ ul.factsList{
   position: absolute;
   top: 20%;
   right: 20%;
-  width: 300px;
-  height: 300px;
+  width: 18.75rem;
+  height: 18.75rem;
   background: radial-gradient(
     circle,
     rgba(15, 218, 194, 0.1) 0%,
     transparent 70%
   );
   border-radius: 50%;
-  filter: blur(60px);
+  filter: blur(3.75rem);
 }
 
 /* Responsive Styles */
 @media (max-width: 1024px) {
   .contentWrapper {
     grid-template-columns: 1fr;
-    gap: 60px;
+    gap: 3.75rem;
   }
 
   .personImageContainer {
-    width: 224px;
+    width: 14rem;
   }
 
   .overlayTextContainer {
-    left: 224px;
+    left: 14rem;
   }
 
   .heading {
-    font-size: 40px;
+    font-size: 2.5rem;
   }
 
   .bottomHeading {
-    font-size: 36px;
+    font-size: 2.25rem;
     text-align: center;
   }
 }
 
 @media (max-width: 768px) {
   .section {
-    padding: 60px 0;
+    padding: 3.75rem 0;
   }
 
   .contentWrapper {
-    gap: 48px;
+    gap: 3rem;
   }
 
   .leftSection {
-    gap: 24px;
+    gap: 1.5rem;
   }
 
   .heading {
-    font-size: 32px;
+    font-size: 2rem;
   }
 
   .description {
-    font-size: 16px;
+    font-size: 1rem;
   }
 
   .personImageContainer {
-    width: 192px;
+    width: 12rem;
   }
 
   .overlayTextContainer {
-    left: 192px;
-    padding: 12px 16px;
+    left: 12rem;
+    padding: 0.75rem 1rem;
   }
 
   .overlayText {
-    font-size: 12px;
+    font-size: 0.75rem;
   }
 
   .playButton {
-    width: 64px;
-    height: 64px;
+    width: 4rem;
+    height: 4rem;
   }
 
   .playIcon {
-    width: 32px;
-    height: 32px;
+    width: 2rem;
+    height: 2rem;
   }
 
   .bottomHeading {
-    font-size: 28px;
+    font-size: 1.75rem;
   }
 
   .statsGrid {
@@ -477,46 +477,46 @@ ul.factsList{
 
 @media (max-width: 640px) {
   .section {
-    padding: 40px 0;
+    padding: 2.5rem 0;
   }
 
   .contentWrapper {
-    gap: 40px;
+    gap: 2.5rem;
   }
 
   .heading {
-    font-size: 28px;
+    font-size: 1.75rem;
   }
 
   .description {
-    font-size: 14px;
+    font-size: 0.875rem;
   }
 
   .personImageContainer {
-    width: 160px;
+    width: 10rem;
   }
 
   .overlayTextContainer {
-    left: 160px;
-    padding: 10px 12px;
+    left: 10rem;
+    padding: 0.625rem 0.75rem;
   }
 
   .overlayText {
-    font-size: 11px;
+    font-size: 0.6875rem;
   }
 
   .playButton {
-    width: 56px;
-    height: 56px;
+    width: 3.5rem;
+    height: 3.5rem;
   }
 
   .playIcon {
-    width: 28px;
-    height: 28px;
+    width: 1.75rem;
+    height: 1.75rem;
   }
 
   .bottomHeading {
-    font-size: 24px;
+    font-size: 1.5rem;
   }
 
   .statsGrid {
@@ -533,6 +533,6 @@ ul.factsList{
   }
 
   .statDescription {
-    font-size: 14px;
+    font-size: 0.875rem;
   }
 }

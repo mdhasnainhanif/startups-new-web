@@ -7,7 +7,8 @@
 .section::before {
   content: "";
   position: absolute;
-  background: url(../../../../public/assets/images/1.webp) center right no-repeat;
+  background: url(../../../../public/assets/images/1.webp) center right
+    no-repeat;
   width: 100%;
   max-width: 50rem;
   height: 100%;
@@ -15,6 +16,7 @@
   top: 0;
   right: -2rem;
   background-size: contain;
+  opacity: 0.7;
 }
 
 /* .section::before {
@@ -143,8 +145,8 @@
 }
 
 .reviewCardContent {
-  background: #110f29;
-  border: 1px solid #4e4989;
+  background: #120f36;
+  border: 1px solid #26234fa8;
   border-radius: 8px;
   padding: 1rem;
   width: 100%;

@@ -1,4 +1,5 @@
 import { ProfessionalDesignData } from './ProfessionalDesignData';
+import { CaseStudySectionData, DEFAULT_CASE_STUDY_DATA } from './CaseStudySectionData';
 
 // ProfessionalDesign component data for Designer page
 export const designProfessionalPageData: ProfessionalDesignData = {
@@ -79,5 +80,82 @@ export const designProfessionalPageData: ProfessionalDesignData = {
     playIcon: "playIcon",
     backgroundDecoration: "backgroundDecoration",
   },
+};
+
+// CaseStudySection component data for Designer page
+export const caseStudyDesignerPageData: CaseStudySectionData = {
+  ...DEFAULT_CASE_STUDY_DATA,
+  // You can override specific fields here if needed for designer page
+  heading: {
+    text: "Meet Your AI Powered Design Team Built for Your Business Growth",
+    highlighted: "AI Powered Design Team",
+  },
+  description:
+    "Your Smart AI Design Team specializes in creating stunning visual identities and designs that make your business stand out. With professional design expertise and AI-powered efficiency, we deliver complete brand systems that drive real business results.",
+  // Only show "Creative & Design" tab
+  tabs: DEFAULT_CASE_STUDY_DATA.tabs.filter((tab) => tab.id === "creative"),
+  // Custom cards for Designer page with different images and content
+  cards: [
+    {
+      id: "tabScroll1",
+      category: "creative",
+      title: "Brand Designer",
+      subtitle: "Creates a memorable visual identity that makes your business look professional and trusted.",
+      tags: [
+        "Social media post design",
+        "Social media banner design",
+        "Logo design",
+        "Brand color palette creation",
+        "Typography selection",
+        "Business card design",
+        "Brand identity kit creation",
+        "Packaging or label design",
+        "Brand guideline document",
+        "Full brand identity system",
+      ],
+      buttonText: "Hire Brand Designer",
+      image: "/assets/images/2.png",
+    },
+    {
+      id: "tabScroll2",
+      category: "creative",
+      title: "UI UX Designer",
+      subtitle: "Designs intuitive, smooth experiences that increase user satisfaction and conversions.",
+      tags: [
+        "Landing page design",
+        "Website UI screens",
+        "App UI screens",
+        "UI component design",
+        "Wireframes",
+        "User flows",
+        "Mobile responsive versions",
+        "Interactive prototypes",
+        "UX improvements",
+        "Full UI UX redesign",
+      ],
+      buttonText: "Hire UI/UX Designer",
+      image: "/assets/images/ui-ux-designer.webp",
+    },
+    {
+      id: "tabScroll3",
+      category: "creative",
+      title: "Graphic Designer",
+      subtitle: "Creates visuals that grab attention and communicate messages clearly.",
+      tags: [
+        "Social media posts",
+        "Social media banners",
+        "Flyer or poster design",
+        "Brochure design",
+        "Ad creative design",
+        "Infographic design",
+        "Presentation design",
+        "Email banner graphics",
+        "Print-ready marketing assets",
+        "Full visual campaign design",
+      ],
+      buttonText: "Hire Graphic Designer",
+      image: "/assets/images/graphic-designer.webp",
+    },
+  ],
 };
 

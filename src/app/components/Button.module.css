@@ -27,19 +27,20 @@
   position: relative;
   gap: 0.5rem;
   align-items: center;
-  font-size: 1.225rem !important;
+  font-size: 1rem !important;
   font-weight: 600 !important;
 }
 
 /* Size variants */
 .btnPrimary.sm {
-  padding: 0.425rem 1.225rem 0.495rem;
+  padding: 0.425rem 1rem 0.495rem;
   font-size: 0.75rem !important;
 }
 
 .btnPrimary.md {
   padding: 0.425rem 1.225rem 0.525rem;
   font-size: 1rem;
+  font-weight: 500 !important;
 }
 
 .btnPrimary.lg {

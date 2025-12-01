@@ -21,7 +21,7 @@
 
 .swiperWrapper {
   position: relative;
-  width: 105%;
+  width: 100%;
   min-height: 400px;
   margin: 0 auto;
 }
@@ -29,7 +29,7 @@
 .navButton {
   position: absolute;
   top: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -100%);
   width: 3rem;
   height: 3rem;
   border-radius: 100%;
@@ -62,7 +62,7 @@
 
 .navButtonRight {
   right: 0;
-  transform: translate(50%, -50%);
+  transform: translate(50%, -100%);
 }
 
 .navButton:hover:not(:disabled) {
@@ -71,11 +71,11 @@
 }
 
 .navButtonLeft:hover:not(:disabled) {
-  transform: translate(-50%, -50%) scale(1.1);
+  transform: translate(-50%, -100%);
 }
 
 .navButtonRight:hover:not(:disabled) {
-  transform: translate(50%, -50%) scale(1.1);
+  transform: translate(50%, -100%);
 }
 
 .navButton:disabled {

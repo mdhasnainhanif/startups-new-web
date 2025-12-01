@@ -6,10 +6,6 @@
   background-position: center;
   background-repeat: no-repeat;
 }
-div.pt100 {
-  padding-top: 140px;
-  padding-bottom: 0px;
-}
 .content {
   position: relative;
   z-index: 1;

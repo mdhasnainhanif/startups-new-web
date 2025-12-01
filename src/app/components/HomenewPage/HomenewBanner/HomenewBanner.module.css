@@ -1,6 +1,5 @@
-.HomenewBanner
-{
-  background: url("/assets/images/homenewbanner.png") no-repeat center center; 
+.HomenewBanner {
+  background: url("/assets/images/homenewbanner.png") no-repeat center center;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -10,23 +9,23 @@
 .row {
   display: flex;
   flex-wrap: wrap;
-  margin-left: -15px;
-  margin-right: -15px;
+  margin-left: -0.9375rem;
+  margin-right: -0.9375rem;
   align-items: center;
 }
 
 .colLeft {
   flex: 0 0 100%;
   max-width: 100%;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 0.9375rem;
+  padding-right: 0.9375rem;
 }
 
 .colRight {
   flex: 0 0 100%;
   max-width: 100%;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 0.9375rem;
+  padding-right: 0.9375rem;
   margin-top: 2rem;
   display: flex;
   justify-content: center;
@@ -39,7 +38,7 @@
     flex: 0 0 50%;
     max-width: 50%;
   }
-  
+
   .colRight {
     flex: 0 0 50%;
     max-width: 50%;
@@ -53,14 +52,13 @@
     flex: 0 0 50%;
     max-width: 50%;
   }
-  
+
   .colRight {
     flex: 0 0 50%;
     max-width: 50%;
   }
 }
-.homenewbanner1
-{
+.homenewbanner1 {
   /* height: 760px; */
   object-fit: cover;
   max-width: 80%;
@@ -69,7 +67,7 @@
 }
 
 .extraPaddingTop {
-  padding-top: 120px; /* 30 * 4 = 120px */
+  padding-top: 7.5rem; /* 30 * 4 = 120px */
 }
 
 /* Responsive Styles for homenewbanner1 */
@@ -82,7 +80,7 @@
   } */
 
   .extraPaddingTop {
-    padding-top: 140px;
+    padding-top: 8.75rem;
   }
 }
 
@@ -94,7 +92,7 @@
   } */
 
   .extraPaddingTop {
-    padding-top: 120px;
+    padding-top: 9rem;
   }
 }
 
@@ -106,7 +104,7 @@
   } */
 
   .extraPaddingTop {
-    padding-top: 100px;
+    padding-top: 6.25rem;
   }
 }
 
@@ -118,7 +116,7 @@
   } */
 
   .extraPaddingTop {
-    padding-top: 90px;
+    padding-top: 5.625rem;
   }
 }
 
@@ -131,11 +129,10 @@
   } */
 
   .extraPaddingTop {
-    padding-top: 80px;
+    padding-top: 5rem;
   }
-  .tabsContainer
-  {
-    border-radius: 0px !important;
+  .tabsContainer {
+    border-radius: 0 !important;
   }
 }
 
@@ -147,7 +144,7 @@
   } */
 
   .extraPaddingTop {
-    padding-top: 60px;
+    padding-top: 3.75rem;
   }
 }
 
@@ -159,27 +156,25 @@
   } */
 
   .extraPaddingTop {
-    padding-top: 40px;
+    padding-top: 2.5rem;
   }
 }
 .experienceBox {
   position: relative;
-  background-color: rgba(29, 14, 87, 0.5); /* Transparent overlay */
+  background-color: #21164c;
+  border: 0.0625rem solid #312367;
   overflow: hidden;
-  border:1px solid #3f3b72;
 }
 
 .experienceBox::before {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("/assets/images/homenew-bg_img.png"); 
+  background-image: url("/assets/images/homenew-bg_img.png");
   background-size: cover;
   background-position: center;
   opacity: 0.2;
-
 }
-
 
 .experienceBox > * {
   position: relative;
@@ -188,18 +183,17 @@
 
 .checkItem {
   position: relative;
-  padding-left: 2rem; 
+  padding-left: 2rem;
 }
 
 .checkItem::before {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   top: 0.1rem;
-  width: 18px;
-  height: 18px;
-  background-image: url('/assets/images/tick.png');
+  width: 1.125rem;
+  height: 1.125rem;
+  background-image: url("/assets/images/tick.png");
   background-size: contain;
   background-repeat: no-repeat;
- 
 }

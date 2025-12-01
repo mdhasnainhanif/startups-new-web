@@ -11,7 +11,7 @@
 .contactCard {
   position: relative;
   background: #1d0e57;
-  border-radius: 24px;
+  border-radius: 1rem;
   padding: 48px;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -112,7 +112,7 @@
   padding: 14px 16px;
   background: #ffffff;
   border: none;
-  border-radius: 100px;
+  border-radius: 10px;
   font-size: 14px;
   color: #1a0a2e;
   font-family: inherit;
@@ -145,13 +145,13 @@
   color: #6b7280;
 }
 
-.submitButton {
+/* .submitButton {
   width: 100%;
   padding: 16px 24px;
   background: #0fdac2;
   color: #ffffff;
   border: none;
-  border-radius: 100px;
+  border-radius: 10px;
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
@@ -161,8 +161,8 @@
   gap: 8px;
   transition: background 0.3s ease, transform 0.2s ease;
   margin-top: 8px;
-}
-
+} */
+/* 
 .submitButton:hover {
   background: #0bc4a8;
   transform: translateY(-2px);
@@ -170,7 +170,7 @@
 
 .submitButton:active {
   transform: translateY(0);
-}
+} */
 
 /* Responsive Styles */
 @media (max-width: 1024px) {

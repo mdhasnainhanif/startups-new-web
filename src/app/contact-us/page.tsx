@@ -70,8 +70,8 @@ export default function ContactPage() {
 
   return (
     <>
-      <div className="max-w-4xl mx-auto mb-8 sm:mb-12 lg:mb-16 text-center pt100 contactMain">
-        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-white mb-2 max-w-2xl mx-auto">
+      <div className="max-w-4xl mx-auto mb-8 sm:mb-12 lg:mb-16 text-center pt100 contactMain sectionHeading">
+        <h1 className="mb-2 max-w-4xl mx-auto md:pt-20">
           Let's Collaborate and <span className="text-[#0fdac2]">Create </span>
           <span className="text-[#0fdac2]">Powerful AI </span>
           <span className="text-white">Solutions</span>

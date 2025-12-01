@@ -37,12 +37,14 @@
 
 .ctaBanner::before {
   left: 0;
-  background: linear-gradient(to right, rgba(33, 22, 76, 0.9), transparent);
+  background: linear-gradient(to right, #19103d, transparent);
+  z-index: 1;
 }
 
 .ctaBanner::after {
   right: 0;
-  background: linear-gradient(to left, rgba(33, 22, 76, 0.9), transparent);
+  background: linear-gradient(to left, #19103d, transparent);
+  z-index: 1;
 }
 
 .scrolling-text {

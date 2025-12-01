@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ContactFormProps, FormData, FormFieldConfig } from "@/app/types/types";
 import { contactFormData } from "./data";
 import styles from "./ContactForm.module.css";
@@ -20,6 +20,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
   const [loading, setLoading] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [mapLoaded, setMapLoaded] = useState(false);
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -43,6 +44,20 @@ const ContactForm: React.FC<ContactFormProps> = ({
 
     return true;
   };
+
+  // Load map immediately when component mounts for faster loading
+  useEffect(() => {
+    if (!config.showMap || !config.mapLocation) return;
+
+    // Load map immediately with a small delay to ensure DOM is ready
+    const loadTimer = setTimeout(() => {
+      setMapLoaded(true);
+    }, 100);
+
+    return () => {
+      clearTimeout(loadTimer);
+    };
+  }, [config.showMap, config.mapLocation]);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -198,15 +213,24 @@ const ContactForm: React.FC<ContactFormProps> = ({
         {/* Map Section */}
         {config.showMap && config.mapLocation && (
           <div className={styles.mapSection}>
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3068.113653845429!2d-75.55760332415356!3d39.73709779672395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c6fd66239de7f7%3A0xb89847a87ae22294!2s1007n%20Orange%20St%2C%20Wilmington%2C%20DE%2019801%2C%20USA!5e0!3m2!1sen!2s!4v1763489410568!5m2!1sen!2s"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen={true}
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
+            {!mapLoaded && (
+              <div className={styles.mapPlaceholder}>
+                <div className={styles.mapLoadingSpinner}></div>
+                <p>Loading map...</p>
+              </div>
+            )}
+            {mapLoaded && (
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3068.113653845429!2d-75.55760332415356!3d39.73709779672395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c6fd66239de7f7%3A0xb89847a87ae22294!2s1007n%20Orange%20St%2C%20Wilmington%2C%20DE%2019801%2C%20USA!5e0!3m2!1sen!2s!4v1763489410568!5m2!1sen!2s"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen={true}
+                loading="eager"
+                referrerPolicy="no-referrer-when-downgrade"
+                onLoad={() => setMapLoaded(true)}
+              />
+            )}
           </div>
         )}
       </div>

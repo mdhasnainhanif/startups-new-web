@@ -12,6 +12,8 @@ export const NAVIGATION_LINKS = [
   // { label: "How it Works", href: "/how-it-works" },
   // { label: "Pricing", href: "/pricing" },
   // { label: "Your Ai Agent", href: "/ai-agent" },
+  { label: "Home", href: "/" },
+  { label: "Designer", href: "/designer" },
   { label: "About Us", href: "/about-us" },
   { label: "Contact Us", href: "/contact-us" },
 ];
@@ -39,8 +41,11 @@ export const FOOTER_LINKS = {
   column1: [
     // { label: "Digital Consultation", href: "/digital-consultation" },
     // { label: "Staff Augmentation", href: "/staff-augmentation" },
+    { label: "Home", href: "/" },
+    { label: "Designer", href: "/designer" },
     { label: "About", href: "/about-us" },
     { label: "Contact", href: "/contact-us" },
+
   ],
   column2: [
     // { label: "How it works", href: "/how-it-works" },

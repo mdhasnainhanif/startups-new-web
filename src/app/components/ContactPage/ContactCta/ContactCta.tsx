@@ -53,7 +53,7 @@ const ContactCta: React.FC<ContactCtaProps> = ({
               <img
                 src={btn.icon}
                 alt={btn.label}
-                className="w-5 h-5 object-contain"
+                className="w-5 h-5 object-contain rounded-full"
               />
 
               {/* Button label */}

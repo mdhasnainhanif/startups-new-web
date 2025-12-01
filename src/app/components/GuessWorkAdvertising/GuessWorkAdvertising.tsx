@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Container from '../Container';
 import styles from './GuessWorkAdvertising.module.css';
+import Button from '../Button';
 
 interface GuessWorkAdvertisingData {
   heading: {
@@ -94,19 +95,20 @@ const GuessWorkAdvertising = () => {
                 value={websiteLink}
                 onChange={(e) => setWebsiteLink(e.target.value)}
                 placeholder={form.placeholder}
-                className={`w-full px-4 md:px-6 py-3 md:py-4 pr-24 md:pr-32 rounded-lg bg-[rgba(29,14,87,0.5)] border border-[rgba(100,59,255,0.3)] text-white placeholder:text-white/50 focus:outline-none focus:border-[#0fdac2] transition-all ${styles.inputField}`}
+                className={`w-full bg-[rgba(29,14,87,0.5)] border border-[rgba(100,59,255,0.3)] text-white placeholder:text-white/50 focus:outline-none focus:border-[#0fdac2] transition-all ${styles.inputField}`}
               />
-              <button
+              <Button
+                variant="purple"
+                size="lg"
                 type="submit"
-                className={`absolute right-1 md:right-2 top-1/2 -translate-y-1/2 px-4 md:px-6 py-2 md:py-3 rounded-lg bg-gradient-to-r from-[#643bff] to-[#7c5aff] text-white font-semibold hover:opacity-90 transition-all flex items-center justify-center gap-1 md:gap-2 whitespace-nowrap text-sm md:text-base ${styles.submitButton}`}
-              >
+                className={`absolute inputFieldBtn right-1 md:right-2 top-1/2 -translate-y-1/2 px-4 md:px-6 py-2 md:py-3  rounded-4xl text-white font-semibold hover:opacity-90 transition-all flex items-center justify-center gap-1 md:gap-2 whitespace-nowrap text-sm md:text-base`}>
                 {form.buttonText}
                 {form.buttonIcon && (
                   <span className="inline-flex items-center">
                     {form.buttonIcon}
                   </span>
                 )}
-              </button>
+              </Button>
             </div>
           </form>
 
@@ -120,8 +122,6 @@ const GuessWorkAdvertising = () => {
           </div>
         </div>
       </Container>
-
-      <img src="/assets/images/1.webp" alt="" className={styles.aeroicon} />
     </section>
   );
 };

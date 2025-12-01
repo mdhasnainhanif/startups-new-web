@@ -18,12 +18,14 @@ export default function OurJourney({ items, className = "" }: OurJourneyProps) {
 
   return (
     <section className={`${styles.wrap} sectionPadding ${className}`}>
-      <h2
-        className="mx-auto max-w-7xl text-3xl text-center font-semibold leading-tight tracking-tight text-white 
-      sm:text-4xl md:text-5xl lg:mb-30 mb-6 lg:text-6xl"
-      >
-        Our <span className="text-[#0fdac2]">Journey</span>
-      </h2>
+      <div className="sectionHeading lg:mb-30 mb-6">
+        <h2
+          className="mx-auto max-w-7xl text-3xl text-center font-semibold leading-tight tracking-tight text-white 
+        sm:text-4xl md:text-5xl lg:text-6xl"
+        >
+          Our <span className="text-[#0fdac2]">Journey</span>
+        </h2>
+      </div>
       <div className={styles.list}>
         {steps.map((s, i) => (
           <div

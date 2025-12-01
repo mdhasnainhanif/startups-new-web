@@ -17,8 +17,8 @@ export default function AboutUsBanner({
       className={`${styles.bannerBackground} relative sectionPadding overflow-hidden ${className}`}
     >
       <Container maxWidth="xl" className="px-0">
-        <div className={`flex flex-col items-center text-center gap-6 md:gap-8 pt-20 ${styles.pt100}`}>
-          <h1 className={`text-4xl md:text-5xl lg:text-6xl font-semibold ${styles.heading}`}>
+        <div className={`flex flex-col items-center text-center gap-6 md:gap-8 md:pt-50 sectionHeading`}>
+          <h1>
             <span className="text-white">{heading.part1} </span>
             <span className="text-[#0fdac2]">{heading.highlight}</span>
             {heading.part2 && (
@@ -32,7 +32,7 @@ export default function AboutUsBanner({
               </>
             )}
           </h1>
-          <p className="text-base md:text-lg lg:text-xl text-white/90 max-w-4xl leading-relaxed">
+          <p className="lg:max-w-4xl">
             {description}
           </p>
           <div className="mt-4">

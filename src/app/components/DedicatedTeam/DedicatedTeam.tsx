@@ -43,9 +43,9 @@ export default function DedicatedTeam({
 
   return (
     <section className={`${styles.section} sectionPadding ${className}`}>
-      <Container maxWidth="xl" className="px-0">
-        <div className={styles.header}>
-          <h2 className={styles.heading}>
+      <Container maxWidth="xl">
+        <div className="sectionHeading forH2 text-center">
+          <h2>
             <span className="text-white">{heading.part1} </span>
             <span className="text-[#0fdac2]">{heading.highlight}</span>
             {heading.part2 && (
@@ -98,7 +98,9 @@ export default function DedicatedTeam({
               setIsBeginning(swiper.isBeginning);
               setIsEnd(swiper.isEnd);
             }}
-            className={`${styles.swiperContainer} ${isSwiperReady ? styles.swiperReady : ''}`}
+            className={`${styles.swiperContainer} ${
+              isSwiperReady ? styles.swiperReady : ""
+            }`}
           >
             {[...members, ...members].map((member, index) => (
               <SwiperSlide key={`${member.id}-${index}`}>
@@ -130,4 +132,3 @@ export default function DedicatedTeam({
     </section>
   );
 }
-

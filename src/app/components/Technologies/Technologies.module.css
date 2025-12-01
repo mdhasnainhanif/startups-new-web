@@ -77,7 +77,7 @@
   margin: 0 20px 0 13px;
   min-width: 4rem;
   letter-spacing: 0.03rem;
-  font-family: var(--font-graphik-bold) !important;
+  /* font-family: var(--font-graphik-bold) !important; */
 }
 .tab::before {
   content: "";

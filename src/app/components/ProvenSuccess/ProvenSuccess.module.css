@@ -33,8 +33,8 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 40px;
-  height: 40px;
+  width: 3.3125rem;
+  height: 3.3125rem;
   border-radius: 50%;
   background: #0d0934;
   border: none;
@@ -81,25 +81,31 @@
   align-items: center;
   gap: 0;
   width: 100%;
-  max-width: 800px;
+  max-width: 50rem;
   margin: 0 auto 20px;
   padding: 10px 50px;
   display: flex;
   position: relative;
   border-radius: 100px;
-  overflow-x: auto;
-  overflow-y: hidden;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-  scroll-behavior: smooth;
+  overflow: hidden;
+}
+
+.swiperContainer {
+  width: 100%;
+  flex: 1;
+  overflow: visible;
+}
+
+.swiperSlide {
+  width: auto !important;
 }
 
 .tabsContainer .navArrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 30px;
-  height: 30px;
+  width: 3.3125rem;
+  height: 3.3125rem;
   border-radius: 100px;
   background: #1b1849;
   border: none;
@@ -142,7 +148,7 @@
   display: none;
 }
 
-.tabsContainer .tab:nth-child(2) {
+.swiperSlide:first-child .tab {
   margin-left: 2rem;
 }
 
@@ -172,7 +178,7 @@
   width: 1px;
   height: 100%;
   background: #372c6b;
-}
+}image.png
 .tab:nth-child(2)::before {
   left: -26px;
 }
@@ -267,6 +273,20 @@
   overflow: hidden;
 }
 
+/* Images Grid Fade Animation */
+.imagesGrid {
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.fadeOut {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.fadeIn {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 /* Responsive Styles */
 
@@ -286,8 +306,8 @@
   }
 
   .tabsContainer .navArrow {
-    width: 35px;
-    height: 35px;
+    width: 3.3125rem;
+    height: 3.3125rem;
   }
 
   .tabsContainer .navArrowLeft {
@@ -334,8 +354,8 @@
   }
 
   .tabsContainer .navArrow {
-    width: 30px;
-    height: 30px;
+    width: 3.3125rem;
+    height: 3.3125rem;
   }
 
   .tabsContainer .navArrowLeft {

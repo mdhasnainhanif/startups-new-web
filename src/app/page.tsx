@@ -20,7 +20,7 @@ export default function Home() {
       <LogosSlider />
       <ProfessionalOnline/>
       <CTABanner/>
-      <CaseStudySection />
+      <CaseStudySection isShowTabs={true} />
       <Technologies />
       {/* <AiTeamSection /> */}
       <CalendlySection {...CALENDLY_SECTION}/>
