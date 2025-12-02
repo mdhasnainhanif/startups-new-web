@@ -78,7 +78,7 @@ ul.factsList{
     color: #0fdac2;
     font-size: 1.725rem;
     font-weight: 600;
-    margin: 0 0 1.25rem 0;
+    /* margin: 0 0 1.25rem 0; */
 }
 
 .factsList, .rightFactsList {
@@ -116,7 +116,7 @@ ul.factsList{
   width: 1.25rem;
   height: 1.25rem;
   /* Make sure you have tick.png in this path: /assets/icons/tick.png */
-  background-image: url("/assets/images/tick2.png"); 
+  background-image: url("/assets/images/tick.png"); 
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -287,7 +287,7 @@ ul.factsList{
   line-height: 1.2;
   margin: 0;
   max-width: 25rem;
-  margin-top: 1rem;
+  margin-top: 2rem;
   text-align: left;
 }
 
@@ -536,3 +536,24 @@ ul.factsList{
     font-size: 0.875rem;
   }
 }
+
+/* Designer Page Specific Styles - Highlighting words as shown in image */
+.designerHeadingPart1 {
+  color: #0fdac2;
+  /* No shadow - keep it green only */
+}
+
+.designerFirstSentence {
+  color: rgba(255, 255, 255, 0.8);
+  text-shadow: -7px 0 15px #0fdac2, 1px -1px 30px #0fdac2, 20px 6px 45px #0fdac2;
+}
+
+.designerDescriptionHighlight {
+  color: #ffffff;
+  text-shadow: 0 0 10px #633afc, 0 0 20px #633afc, 0 0 30px #633afc;
+}
+
+/* .designerBottomHeadingPart2 {
+  color: #0fdac2;
+  text-shadow: 0 0 15px rgba(15, 218, 194, 0.5), 0 0 30px rgba(15, 218, 194, 0.3);
+} */

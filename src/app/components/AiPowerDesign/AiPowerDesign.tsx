@@ -174,7 +174,7 @@ const AiPowerDesign = () => {
     <section className={`sectionPadding ${styles.section} sectionPadding`}>
      <Container maxWidth="xl" className="px-0">
         {/* Header Section */}
-        <div className={`${styles.header} sectionHeading forH2`}>
+        <div className={`sectionHeading forH2 text-center max-w-5xl md:mx-auto`}>
           <h2 dangerouslySetInnerHTML={renderHeadline()} />
           <p className={styles.description}>{AI_POWER_DESIGN_DATA.description}</p>
         </div>
@@ -197,7 +197,9 @@ const AiPowerDesign = () => {
                     onClick={() => handleTabChange(currentTab.id)}
                     className={`${styles.gridItem} ${index === 0 ? styles.gridItemActive : ''}`}
                   >
+                    <p className="p-0 h-full flex items-center justify-center">
                     {item.label}
+                    </p>
                   </div>
                 ))}
               </div>

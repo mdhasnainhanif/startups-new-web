@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import CalendlySection from '../components/CalendlySection/CalendlySection';
 import LogosSlider from '../components/LogosSlider/LogosSlider';
 import HomeBanner from '../components/Page2/HomeBanner/HomeBanner';
@@ -17,6 +18,10 @@ import FAQ from '../components/FAQ/FAQ';
 import Reviews from '../components/Reviews/Reviews';
 import Technologies from '../components/Technologies/Technologies';
 import { TECHNOLOGIES_PAGE2_DATA } from '../data/Page2';
+
+export const metadata: Metadata = {
+  robots: "nofollow",
+};
 
 export default function PageTwo() {
   return (

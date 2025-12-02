@@ -118,7 +118,7 @@ export const PROFESSIONAL_ONLINE = {
   heading: {
     part1: "Local ",
     part2: "Businesses ",
-    part3: "Struggle to Stay Visible",
+    // part3: "Struggle to Stay Visible",
   },
   description:
     "You're great at what you do, but your marketing falls behind. Agencies cost a fortune. Freelancers disappear.",

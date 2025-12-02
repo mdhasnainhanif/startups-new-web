@@ -70,6 +70,7 @@
   transition: all 0.3s ease;
   position: relative;
   z-index: 2;
+  border: 1px solid #4e4989;
 }
 
 .accordionItem:hover {
@@ -84,7 +85,7 @@
   justify-content: space-between;
   text-align: left;
   background: transparent;
-  border: none;
+  /* border: 1px solid #4e4989; */
   cursor: pointer;
   transition: all 0.3s ease;
 }

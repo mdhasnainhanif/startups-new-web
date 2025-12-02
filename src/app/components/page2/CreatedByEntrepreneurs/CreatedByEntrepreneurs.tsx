@@ -24,8 +24,8 @@ const CreatedByEntrepreneurs = () => {
           </div>
 
           {/* Right Section - Content */}
-          <div className={styles.rightSection}>
-            <h2 className={styles.heading}>
+          <div className={`${styles.rightSection} sectionHeading forH2`}>
+            <h2>
               <span className={styles.headingPart1}>
                 {CREATED_BY_ENTREPRENEURS_DATA.headline.part1}
               </span>

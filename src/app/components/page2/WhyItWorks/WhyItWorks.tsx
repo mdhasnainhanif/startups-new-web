@@ -11,8 +11,8 @@ const WhyItWorks = () => {
       <Container maxWidth="xl">
         <div className={styles.contentWrapper}>
           {/* Left Section */}
-          <div className={styles.leftSection}>
-            <h2 className={styles.heading}>
+          <div className={`${styles.leftSection} sectionHeading`}>
+            <h2>
               <span className="text-white">{WHY_IT_WORKS_DATA.leftSection.headline.part1}</span>
               <span className="text-[#0fdac2]">{WHY_IT_WORKS_DATA.leftSection.headline.part2}</span>
             </h2>
@@ -32,7 +32,7 @@ const WhyItWorks = () => {
             </h3>
             <div className={styles.itemsWrapper}>
               {WHY_IT_WORKS_DATA.rightSection.items.map((item, index) => (
-                <div key={index} className={styles.itemBox}>
+                <div key={index} className={`${styles.itemBox} md:max-w-104`}>
                   <div className={styles.iconWrapper}>
                     <Image
                       src={item.icon}

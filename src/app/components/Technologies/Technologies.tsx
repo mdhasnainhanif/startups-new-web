@@ -14,10 +14,12 @@ interface TechnologiesProps {
   heading?: string;
   description?: string;
   subDescription?: string;
+  hideTabs?: boolean;
+  defaultTab?: string;
 }
 
-export default function Technologies({ heading, description, subDescription }: TechnologiesProps = {}) {
-  const [activeTab, setActiveTab] = useState("creative");
+export default function Technologies({ heading, description, subDescription, hideTabs = false, defaultTab = "creative" }: TechnologiesProps = {}) {
+  const [activeTab, setActiveTab] = useState(defaultTab);
   const tabsSwiperRef = useRef<SwiperType | null>(null);
   const [isTabsSwiperBeginning, setIsTabsSwiperBeginning] = useState(true);
   const [isTabsSwiperEnd, setIsTabsSwiperEnd] = useState(false);
@@ -100,7 +102,7 @@ export default function Technologies({ heading, description, subDescription }: T
       <div>
         {/* Header Section */}
         <Container maxWidth="2xl" className="px-0">
-          <div className={`sectionHeading forH2 gap-3 flex flex-col items-center justify-center  ${styles.header}`}>
+          <div className={`sectionHeading forH2 gap-3 flex flex-col items-center justify-center text-center max-w-5xl md:mx-auto`}>
             <h2 className="max-w-7xl mx-auto">
               {parseBrackets(heading || TECHNOLOGIES_SECTION.heading.part1)}
             </h2>
@@ -115,21 +117,24 @@ export default function Technologies({ heading, description, subDescription }: T
           </div>
 
           {/* Tabs - Desktop View */}
-          <div className={`${styles.tabsContainer} hidden md:flex`}>
-            {TECHNOLOGIES_SECTION.tabs.map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
-                className={`${styles.tab} ${
-                  activeTab === tab.id ? styles.activeTab : ""
-                }`}
-              >
-                {tab.label}
-              </button>
-            ))}
-          </div>
+          {!hideTabs && (
+            <div className={`${styles.tabsContainer} hidden md:flex`}>
+              {TECHNOLOGIES_SECTION.tabs.map((tab) => (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveTab(tab.id)}
+                  className={`${styles.tab} ${
+                    activeTab === tab.id ? styles.activeTab : ""
+                  }`}
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </div>
+          )}
 
           {/* Tabs - Mobile View with Swiper */}
+          {!hideTabs && (
           <div className={`${styles.tabsContainerMobile} relative md:hidden`}>
             {/* Left Arrow */}
             <button
@@ -229,6 +234,7 @@ export default function Technologies({ heading, description, subDescription }: T
               </svg>
             </button>
           </div>
+          )}
 
           {/* Tools Category Header */}
           {!heading && (

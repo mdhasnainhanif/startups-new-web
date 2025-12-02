@@ -23,6 +23,8 @@
   background: url('/assets/images/cta-banner.webp') no-repeat center center;
   background-size: cover;
   overflow: hidden;
+  mask-image: linear-gradient(to right, #fff0 0%, #03001d 20% 65%, #fff0 100%);
+  -webkit-mask-image: linear-gradient(to right, #fff0 0%, #03001d 20% 65%, #fff0 100%);
 }
 
 .ctaBanner::before,
@@ -56,6 +58,8 @@
   position: relative;
   height: auto;
   min-height: auto;
+  mask-image: linear-gradient(to right, #fff0 0%, #000000 25%, #000000 75%, #fff0 100%);
+  -webkit-mask-image: linear-gradient(to right, #fff0 0%, #000000 25%, #000000 75%, #fff0 100%);
 }
 
 .rail {

@@ -10,9 +10,11 @@ export interface ProfessionalDesignData {
   };
   description: {
     text1: string;
+    text2?: string;
     highlight: string;
     className?: {
       text?: string;
+      text1Highlight?: string;
       highlight?: string;
     };
   };

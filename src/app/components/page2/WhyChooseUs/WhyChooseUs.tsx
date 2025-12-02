@@ -1,5 +1,3 @@
-'use client';
-
 import Image from 'next/image';
 import Container from '../../Container';
 import { WHY_CHOOSE_US_DATA } from '../../../data/Page2';
@@ -11,8 +9,8 @@ const WhyChooseUs = () => {
       <Container maxWidth="xl">
         <div className={styles.contentWrapper}>
           {/* Heading */}
-          <div className={styles.headingWrapper}>
-            <h2 className={styles.heading}>
+          <div className={`${styles.headingWrapper} sectionHeading forH2 md:max-w-200`}>
+            <h2>
               <span className={styles.headingPart1}>{WHY_CHOOSE_US_DATA.headline.part1}</span>
               <span className={styles.headingPart2}>{WHY_CHOOSE_US_DATA.headline.part2}</span>
             </h2>

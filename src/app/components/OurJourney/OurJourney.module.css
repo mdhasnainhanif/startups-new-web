@@ -183,7 +183,7 @@
 }
 
 .subtitle {
-  margin: 0 0 12px;
+  margin: 12px 0 12px;
   color: #0fdac2;
   font-family: var(--wfFont);
   font-size: 1.25rem;

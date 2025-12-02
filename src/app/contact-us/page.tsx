@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import React from "react";
 import ContactForm from "../components/ContactPage/ContactForm/ContactForm";
 import { contactFormData } from "../components/ContactPage/ContactForm/data";
@@ -11,12 +12,16 @@ import BusinessSlider from "../components/ContactPage/BuisnessSlider/BuisnessSli
 import BusinessPlaylist from "../components/ContactPage/BusinessPlaylist/BusinessPlaylist";
 import Container from "../components/Container";
 
+export const metadata: Metadata = {
+  robots: "nofollow",
+};
+
 export default function ContactPage() {
   const ctaData = {
-    title: "Schedule a",
-    highlight: "Meeting",
+    title: "Book a Strategy Call",
+    highlight: "Call",
     description:
-      "You’re great at what you do, but your marketing falls behind. Agencies cost a fortune. Freelancers disappear.",
+      "You deserve clarity. You deserve guidance. You deserve a partner who understands growth and helps you move forward with confidence.",
     buttons: [
       {
         label: "Google Meet",
@@ -42,8 +47,8 @@ export default function ContactPage() {
   };
 
   const playlistData = {
-    mainTitle: "Local",
-    highlightTitle: "Businesses",
+    mainTitle: "Growing Businesses Need",
+    highlightTitle: "Clear Direction",
     subtitle:
       "You're great at what you do, but your marketing falls behind. Agencies cost a fortune. Freelancers disappear.",
     videoThumbnail: "/assets/images/tb.png",
@@ -72,9 +77,7 @@ export default function ContactPage() {
     <>
       <div className="max-w-4xl mx-auto mb-8 sm:mb-12 lg:mb-16 text-center pt100 contactMain sectionHeading">
         <h1 className="mb-2 max-w-4xl mx-auto md:pt-20">
-          Let's Collaborate and <span className="text-[#0fdac2]">Create </span>
-          <span className="text-[#0fdac2]">Powerful AI </span>
-          <span className="text-white">Solutions</span>
+        Let’s Connect and Build <span className="text-[#0fdac2]">Your Next Growth</span> Chapter
         </h1>
       </div>
 

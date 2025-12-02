@@ -15,7 +15,7 @@
 
 .headingWrapper {
   text-align: center;
-  max-width: 900px;
+  /* max-width: 900px; */
   margin: 0 auto;
 }
 
@@ -84,6 +84,7 @@
   width: fit-content;
   border: 1px solid #0fdac2;
   background: transparent;
+  margin-bottom: 0rem !important;
 }
 
 /* Left card (index 0) - label above heading on left */
@@ -124,7 +125,7 @@
   font-size: 1.5rem;
   font-weight: 700;
   color: #ffffff;
-  margin: 0 0 1rem 0;
+  /* margin: 0 0 1rem 0; */
 }
 
 .cardDescription {
@@ -141,7 +142,6 @@
   align-items: flex-start;
   justify-content: space-between;
   gap: 1rem;
-  margin-bottom: 1rem;
 }
 
 .card:nth-child(2) .cardTitle {

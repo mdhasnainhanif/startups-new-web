@@ -83,12 +83,12 @@ const GrowthManager = () => {
               {GROWTH_MANAGER_DATA.description}
             </p>
 
-            <h3 className={`text-[#0fdac2] text-xl font-semibold mt-6 mb-4`}>
+            <h3 className={`text-[#0fdac2] text-xl font-semibold`}>
               {GROWTH_MANAGER_DATA.subHeading}
             </h3>
 
             {/* Features List */}
-            <ul className="mt-4 space-y-3">
+            <ul className="mt-0 space-y-3">
               {GROWTH_MANAGER_DATA.features.map((feature, index) => (
                 <li key={index} className="flex items-start gap-3 text-white">
                   <img
@@ -101,12 +101,12 @@ const GrowthManager = () => {
               ))}
             </ul>
 
-            <p className="text-white text-lg leading-relaxed opacity-90 mt-6">
+            <p className="text-white text-lg leading-relaxed opacity-90">
               {GROWTH_MANAGER_DATA.conclusion}
             </p>
 
             {/* CTA Button */}
-            <div className="mt-8">
+            <div className="mt-2">
               <Button
                 href={GROWTH_MANAGER_DATA.cta.href}
                 variant="primary"

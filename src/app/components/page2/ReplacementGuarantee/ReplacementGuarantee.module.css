@@ -10,7 +10,10 @@
   align-items: center;
   position: relative;
   z-index: 1;
-  background: #21184A;
+  background-image: url(/assets/images/bg-pattern.webp);
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
   border-radius: 1rem;
   padding: 3rem 4rem 0 4rem;
 }

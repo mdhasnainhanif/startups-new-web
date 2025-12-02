@@ -1,21 +1,23 @@
 .theProblemSection {
   position: relative;
-  background: #06031E;
+  background: #06031e;
   overflow: hidden;
 }
 
 .theProblemSection::before {
   content: "";
-  position: absolute;
-  background: url(/assets/images/rocket1.webp) center bottom no-repeat;
-  width: 100%;
-  height: 100%;
-  bottom: 0;
-  left: 0;
-  background-size: contain;
-  opacity: 0.1;
-  z-index: 0;
+  opacity: 0.6;
   pointer-events: none;
+  background-image: url(/assets/images/1.webp);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 40rem;
+  height: 30rem;
+  position: absolute;
+  top: 10%;
+  right: 50%;
+  transform: translate(50%, 0px);
 }
 
 .contentWrapper {
@@ -53,16 +55,15 @@
   height: 50px;
   flex-shrink: 0;
 }
-.exclamationIcon svg
-{
-    width: 50px;
-    height: 50px;
-}
+/* .exclamationIcon svg {
+  width: 60px;
+  height: 60px;
+} */
 
 .paragraphsWrapper {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1rem;
   text-align: center;
 }
 
@@ -120,4 +121,3 @@
     gap: 1.25rem;
   }
 }
-

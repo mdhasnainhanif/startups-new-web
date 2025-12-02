@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import React from 'react'
 import AboutUsBanner from '../components/AboutUsBanner/AboutUsBanner'
 import { ABOUT_US_BANNER, FAQ_DATA, FAQ_SECTION, GROWTH_GUIDES, OUR_CORE_VALUES, WHY_CHOOSE_US, DEDICATED_TEAM, EMPOWER_BUSINESS, OUR_JOURNEY, COUNTER_DATA } from '../constants'
@@ -12,6 +13,10 @@ import DedicatedTeam from '../components/DedicatedTeam/DedicatedTeam'
 import EmpowerBusiness from '../components/EmpowerBusiness/EmpowerBusiness'
 import Counter from '../components/Counter/Counter'
 import OurJourney from '../components/OurJourney/OurJourney'
+
+export const metadata: Metadata = {
+  robots: "nofollow",
+};
 
 const page = () => {
   return (

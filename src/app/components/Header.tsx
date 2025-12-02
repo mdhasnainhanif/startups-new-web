@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { COMPANY_INFO, NAVIGATION_LINKS } from "../constants";
 import Container from "./Container";
 import Button from "./Button";
@@ -9,11 +10,20 @@ import { ArrowRightIcon } from "./icons";
 import Link from "next/link";
 
 export default function Header() {
+  const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+
+  // Check if a link is active
+  const isActive = (href: string) => {
+    if (href === "/") {
+      return pathname === "/";
+    }
+    return pathname?.startsWith(href);
+  };
 
   useEffect(() => {
     // Check if mobile
@@ -88,19 +98,30 @@ export default function Header() {
             </div>
 
             <div className="hidden md:flex items-center gap-6 flex-1 justify-center">
-              {NAVIGATION_LINKS.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className="text-white font-medium hover:text-[#0fdac2] transition-colors"
-                >
-                  {link.label}
-                </a>
-              ))}
+              {NAVIGATION_LINKS.map((link) => {
+                const active = isActive(link.href);
+                return (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    className="text-white font-medium hover:text-[#0fdac2] transition-colors"
+                    style={
+                      active
+                        ? {
+                            textShadow:
+                              "-7px 0 15px #0fdac2, 1px -1px 30px #0fdac2, 20px 6px 45px #0fdac2",
+                          }
+                        : {}
+                    }
+                  >
+                    {link.label}
+                  </a>
+                );
+              })}
             </div>
             <div className="hidden md:flex items-center gap-5">
-              <Link href="#" className="text-white font-medium hover:text-[#0fdac2] transition-colors">
-                <span className="font-light text-xs border border-[#525252] rounded-lg px-2 py-1 me-2 text-[#969696]">
+              <Link href="#" className="text-white text-sm font-medium hover:text-[#0fdac2] transition-colors">
+                <span className="bg-[#2f2a63] font-light text-xs border border-[#525252] rounded-lg px-2 py-1 me-2 text-[#969696]">
                   New
                 </span>
                 ROI Calculator
@@ -196,16 +217,27 @@ export default function Header() {
 
           {/* Sidebar Content */}
           <div className="flex flex-col flex-1 px-4 py-6 gap-4 overflow-y-auto">
-            {NAVIGATION_LINKS.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="text-white text-base font-medium hover:text-[#0fdac2] transition-colors py-2"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {link.label}
-              </a>
-            ))}
+            {NAVIGATION_LINKS.map((link) => {
+              const active = isActive(link.href);
+              return (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="text-white text-base font-medium hover:text-[#0fdac2] transition-colors py-2"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  style={
+                    active
+                      ? {
+                          textShadow:
+                            "-7px 0 15px #0fdac2, 1px -1px 30px #0fdac2, 20px 6px 45px #0fdac2",
+                        }
+                      : {}
+                  }
+                >
+                  {link.label}
+                </a>
+              );
+            })}
             <div className=" pt-4">
               <Button
                 href="/demo"

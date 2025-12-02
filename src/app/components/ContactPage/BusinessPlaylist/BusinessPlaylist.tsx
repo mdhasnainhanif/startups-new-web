@@ -60,7 +60,6 @@ const BusinessPlaylist: React.FC<BusinessPlaylistProps> = ({
           <h2 className={`text-4xl text-center md:text-5xl lg:text-6xl mb-4 max-w-3xl mx-auto`}>
             {mainTitle}{" "}
             <span className="text-[#0fdac2]">{highlightTitle}</span>{" "}
-            Struggle to Stay Visible
           </h2>
           <p className={`max-w-3xl mx-auto text-center`}>
             {subtitle}

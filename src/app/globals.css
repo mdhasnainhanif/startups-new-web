@@ -188,6 +188,23 @@ p.topPara{
 }
 
 @media screen and (max-width: 576px) {
+  .inputFieldWrapper {
+    background: #1c0d54;
+    border-radius: 0.5rem;
+  }
+  .inputFieldWrapper input{
+    border: 0rem;
+  }
+  .inputFieldWrapper input:focus{
+    border: 0rem;
+    box-shadow: none;
+    outline: none;
+  }
+  .inputFieldBtn{
+    position: static !important;
+    width: 100% !important;
+    margin-top: 1rem;
+  }
   .headerLogo{
     max-width: 6rem;
   }
@@ -390,3 +407,7 @@ button.inputFieldBtn{
   position: absolute;
   right: 0.725rem;
 }
+
+/* .realCostCard .swiper{
+  padding-bottom: 1rem;
+} */

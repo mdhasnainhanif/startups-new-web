@@ -18,17 +18,17 @@ const HomeBanner = () => {
           <div className={`lg:pt-48 ${styles.contentWrapper}`}>
             {/* Left Section */}
             <div className={`sectionHeading ${styles.leftSection}`}>
-              <h2>
+              <h1>
                 <span className="text-white">{HOME_BANNER_DATA.headline.part1}</span>
                 <span className="text-[#0fdac2]">{HOME_BANNER_DATA.headline.part2}</span>
                 <span className="text-white">{HOME_BANNER_DATA.headline.part3}</span>
-              </h2>
+              </h1>
               <p className="text-white text-lg leading-relaxed opacity-90">
                 {HOME_BANNER_DATA.description}
               </p>
 
-              {/* Features List */}
-              <ul className="mt-6 space-y-3">
+              {/* Features List */} 
+              <ul className="space-y-3">
                 {HOME_BANNER_DATA.features.map((feature, index) => (
                   <li key={index} className="flex items-start gap-3 text-white">
                     <img
@@ -42,7 +42,7 @@ const HomeBanner = () => {
               </ul>
 
               {/* CTA Button */}
-              <div className="mt-8">
+              <div className="mt-2">
                 <Button
                   href={HOME_BANNER_DATA.cta.href}
                   variant="primary"

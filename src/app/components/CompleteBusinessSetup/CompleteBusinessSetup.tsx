@@ -1,13 +1,13 @@
-'use client';
+"use client";
 
-import { useRef, useState } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from 'swiper/modules';
-import type { Swiper as SwiperType } from 'swiper';
-import Container from '../Container';
-import styles from './CompleteBusinessSetup.module.css';
-import 'swiper/css';
-import 'swiper/css/navigation';
+import { useRef, useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
+import type { Swiper as SwiperType } from "swiper";
+import Container from "../Container";
+import styles from "./CompleteBusinessSetup.module.css";
+import "swiper/css";
+import "swiper/css/navigation";
 
 interface BrandingKitItem {
   id: string;
@@ -42,41 +42,41 @@ interface CompleteBusinessSetupData {
 
 const COMPLETE_BUSINESS_SETUP_DATA: CompleteBusinessSetupData = {
   heading: {
-    part1: 'Your Complete Business Design Setup — ',
-    price: '$1,499',
-    part2: ' One-Time',
+    part1: "Your Complete Business Design Setup — ",
+    price: "$1,499",
+    part2: " One-Time",
   },
   brandingKits: {
     title: {
-      highlight: 'Branding',
-      suffix: ' KITs',
+      highlight: "Branding",
+      suffix: " KITs",
     },
     items: [
-      { id: '1', number: '01', label: 'Social Covers' },
-      { id: '2', number: '02', label: 'Business Card' },
-      { id: '3', number: '03', label: 'Letterhead' },
-      { id: '4', number: '04', label: 'Invoice Design' },
-      { id: '5', number: '05', label: 'Flyer Design' },
-      { id: '6', number: '06', label: 'Bag Design' },
-      { id: '7', number: '07', label: 'Social Covers' },
-      { id: '8', number: '08', label: 'Business Card' },
-      { id: '9', number: '09', label: 'Letterhead' },
-      { id: '10', number: '10', label: 'Invoice Design' },
-      { id: '11', number: '11', label: 'Flyer Design' },
-      { id: '12', number: '12', label: 'Bag Design' },
+      { id: "1", number: "01", label: "Social Covers" },
+      { id: "2", number: "02", label: "Business Card" },
+      { id: "3", number: "03", label: "Letterhead" },
+      { id: "4", number: "04", label: "Invoice Design" },
+      { id: "5", number: "05", label: "Flyer Design" },
+      { id: "6", number: "06", label: "Bag Design" },
+      { id: "7", number: "07", label: "Social Covers" },
+      { id: "8", number: "08", label: "Business Card" },
+      { id: "9", number: "09", label: "Letterhead" },
+      { id: "10", number: "10", label: "Invoice Design" },
+      { id: "11", number: "11", label: "Flyer Design" },
+      { id: "12", number: "12", label: "Bag Design" },
     ],
   },
   benefits: {
-    title: 'You get:',
+    title: "You get:",
     items: [
-      { id: '1', text: 'A full design team' },
-      { id: '2', text: '22 essential business design assets' },
-      { id: '3', text: 'AI-powered efficiency' },
-      { id: '4', text: 'Unlimited revisions during the 22 days' },
-      { id: '5', text: 'All files delivered print-ready and web-ready' },
+      { id: "1", text: "A full design team" },
+      { id: "2", text: "22 essential business design assets" },
+      { id: "3", text: "AI-powered efficiency" },
+      { id: "4", text: "Unlimited revisions during the 22 days" },
+      { id: "5", text: "All files delivered print-ready and web-ready" },
     ],
     footer:
-      'No hidden fees. No retainer. No extra charges. Just everything your business needs to look established from day one.',
+      "No hidden fees. No retainer. No extra charges. Just everything your business needs to look established from day one.",
   },
 };
 
@@ -104,8 +104,8 @@ const CompleteBusinessSetup = () => {
     <section className="sectionPadding bg-gradient-to-br from-[#1a0b3f] via-[#05001a] to-[#020014] relative overflow-hidden">
       <Container maxWidth="xl">
         {/* Main Heading */}
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-white leading-tight">
+        <div className="text-center mb-12 sectionHeading forH2 md:max-w-220 mx-auto">
+          <h2 className="">
             {heading.part1}
             <span className="text-[#0fdac2]">{heading.price}</span>
             {heading.part2}
@@ -113,7 +113,9 @@ const CompleteBusinessSetup = () => {
         </div>
 
         {/* Main Content Box */}
-        <div className={`${styles.contentWrapper} bg-[#21164c] rounded-2xl p-6 md:p-8 lg:p-10 border border-[#6147c14d] ${styles.businesscontainer}`}>
+        <div
+          className={`${styles.contentWrapper} realCostCard md:max-w-[80%] mx-auto bg-[#21164c] rounded-2xl p-6 md:p-8 lg:p-10 border border-[#6147c14d] ${styles.businesscontainer}`}
+        >
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
             {/* Left Column - Branding KITs Slider */}
             <div className={`flex flex-col ${styles.sliderwrapper}`}>
@@ -123,7 +125,9 @@ const CompleteBusinessSetup = () => {
                   onClick={handlePrev}
                   disabled={isBeginning}
                   className={`absolute -left-4 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center transition-all ${
-                    isBeginning ? 'opacity-30 cursor-not-allowed' : 'hover:opacity-80'
+                    isBeginning
+                      ? "opacity-30 cursor-not-allowed"
+                      : "hover:opacity-80"
                   } ${styles.navButton}`}
                   aria-label="Previous"
                 >
@@ -145,7 +149,7 @@ const CompleteBusinessSetup = () => {
                   onClick={handleNext}
                   disabled={isEnd}
                   className={`absolute -right-4 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center transition-all ${
-                    isEnd ? 'opacity-30 cursor-not-allowed' : 'hover:opacity-80'
+                    isEnd ? "opacity-30 cursor-not-allowed" : "hover:opacity-80"
                   } ${styles.navButton}`}
                   aria-label="Next"
                 >
@@ -186,21 +190,19 @@ const CompleteBusinessSetup = () => {
                     length: Math.ceil(brandingKits.items.length / 6),
                   }).map((_, groupIndex) => (
                     <SwiperSlide key={groupIndex}>
-                      <div className="grid grid-cols-2 md:gap-x-8 gap-y-3 gap-x-2">
+                      <div className="grid grid-cols-2 md:gap-x-6 gap-y-3 gap-x-2">
                         {brandingKits.items
                           .slice(groupIndex * 6, (groupIndex + 1) * 6)
                           .map((item) => (
                             <div
                               key={item.id}
-                              className="border-b border-[rgba(255,255,255,0.1)] pb-3 md:text-lg text-sm"
+                              className={`${styles.separatorLine} pb-1 md:text-lg text-xs`}
                             >
                               <div className="flex items-center gap-2">
                                 <span className="text-white font-medium">
                                   {item.number}.
                                 </span>
-                                <span className="text-white">
-                                  {item.label}
-                                </span>
+                                <span className="text-white">{item.label}</span>
                               </div>
                             </div>
                           ))}

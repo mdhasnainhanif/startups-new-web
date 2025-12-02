@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import Container from '../Container';
-import styles from './ContactTwo.module.css';
-import Button from '../Button';
+import React, { useState } from "react";
+import Container from "../Container";
+import styles from "./ContactTwo.module.css";
+import Button from "../Button";
 
 interface ContactTwoData {
   leftSection: {
@@ -38,29 +38,29 @@ interface ContactTwoData {
 const CONTACT_TWO_DATA: ContactTwoData = {
   leftSection: {
     text1:
-      "Lorem Ipsum is simply dummy text of the printing typesetting industry. Lorem Ipsum. Lorem Ipsum",
+      "Got questions or need a clear next step? Drop your details and get the answers that move your business forward. Simple. Fast. Straight to the point.",
     text2:
-      "Lorem Ipsum is simply dummy text of the printing typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500.",
+      "Use this form to reach the team that gives you direction, solves your blockers, and shows you what to do next without wasting time.",
     image: {
-      src: '/assets/images/graph.png',
-      alt: 'Growth Chart',
+      src: "/assets/images/graph.png",
+      alt: "Growth Chart",
     },
   },
   rightSection: {
     heading: {
-      part1: 'Ready To ',
-      highlight: 'Connect',
+      part1: "Ready To ",
+      highlight: "Connect",
     },
     form: {
       fields: {
-        name: 'Name*',
-        email: 'Email*',
-        phone: 'Phone Number*',
-        company: 'Company Name*',
-        message: 'Message*',
+        name: "Name*",
+        email: "Email*",
+        phone: "Phone Number*",
+        company: "Company Name*",
+        message: "Message*",
       },
       submitButton: {
-        text: 'Submit',
+        text: "Submit",
         icon: (
           <svg
             width="20"
@@ -83,11 +83,11 @@ const CONTACT_TWO_DATA: ContactTwoData = {
 
 const ContactTwo = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    company: '',
-    message: '',
+    name: "",
+    email: "",
+    phone: "",
+    company: "",
+    message: "",
   });
 
   const handleInputChange = (
@@ -103,7 +103,7 @@ const ContactTwo = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle form submission logic here
-    console.log('Form Data:', formData);
+    console.log("Form Data:", formData);
   };
 
   const { leftSection, rightSection } = CONTACT_TWO_DATA;
@@ -218,7 +218,12 @@ const ContactTwo = () => {
                 </div>
 
                 {/* Submit Button */}
-                <Button variant="green" size="lg" type="submit" className="w-full text-center justify-center items-center">
+                <Button
+                  variant="green"
+                  size="lg"
+                  type="submit"
+                  className="w-full text-center justify-center items-center"
+                >
                   <span>{rightSection.form.submitButton.text}</span>
                   {rightSection.form.submitButton.icon && (
                     <span className="inline-flex items-center">
@@ -236,4 +241,3 @@ const ContactTwo = () => {
 };
 
 export default ContactTwo;
-

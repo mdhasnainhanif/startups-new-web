@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import GrowthSlider from "./components/GrowthSlider/GrowthSlider";
 import HeroBanner from "./components/HeroBanner/HeroBanner";
 import FAQ from "./components/FAQ/FAQ";
@@ -12,6 +13,10 @@ import AiTeamSection from "./components/AiTeamSection/AiTeamSection";
 import CaseStudySection from "./components/CaseStudySection";
 import { FAQ_CONTACT } from "./components/Home/data";
 import LogosSlider from "./components/LogosSlider/LogosSlider";
+
+export const metadata: Metadata = {
+  robots: "nofollow",
+};
 
 export default function Home() {
   return (

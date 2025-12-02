@@ -57,15 +57,17 @@
 
 .number {
   font-size: 3.75rem;
-  font-weight: 700;
+  font-weight: 300;
   color: #ffffff;
+  font-family: var(--font-graphik-bold);
 }
 
 .cardHeading {
-  font-size: 1.25rem;
+  font-size: 2.5rem;
   font-weight: 700;
   color: #ffffff;
   line-height: 1.3;
+  font-family: var(--font-graphik-bold);
 }
 
 .description {

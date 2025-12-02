@@ -1,7 +1,9 @@
+import type { Metadata } from "next";
 import React from 'react'
 import HomenewBanner from '../components/HomenewPage/HomenewBanner/HomenewBanner';
 import FAQ from '../components/FAQ/FAQ'
-import { FAQ_DATA, FAQ_SECTION, GROWTH_GUIDES } from '../constants'
+import { FAQ_SECTION, GROWTH_GUIDES } from '../constants'
+import { FAQ_CONTACT } from '../components/Home/data'
 import GrowthSlider from '../components/GrowthSlider/GrowthSlider'
 import Technologies from '../components/Technologies/Technologies';
 import TextSlider1 from '../components/HomenewPage/TextSlider/TextSlider';
@@ -18,6 +20,10 @@ import Contact from '../components/Contact/Contact';
 import GuessWorkAdvertising from '../components/GuessWorkAdvertising/GuessWorkAdvertising';
 import ContactTwo from '../components/ContactTwo/ContactTwo';
 
+export const metadata: Metadata = {
+  robots: "nofollow",
+};
+
 export default function homenew() {
   return (
     <>
@@ -25,7 +31,7 @@ export default function homenew() {
       <TextSlider1 data={sliderData1}/>
       <CaseStudySection isShowTabs={false} data={caseStudyDesignerPageData} className="designerPageCaseStudy" />
       <AiPowerDesign/>
-      <Technologies />
+      <Technologies hideTabs={true} defaultTab="creative" />
       <TextSlider1 data={sliderData2}/>
       <ProfessionalDesign className="designerPageProfessional" data={designProfessionalPageData} />
       <TextSlider1 data={sliderData3}/>
@@ -35,7 +41,7 @@ export default function homenew() {
       <ProvenSuccess/>
       <Reviews/>
       <GrowthSlider items={GROWTH_GUIDES} />
-      <FAQ faqs={FAQ_DATA} sectionData={FAQ_SECTION} />
+      <FAQ faqs={FAQ_CONTACT} sectionData={FAQ_SECTION} />
       <ContactTwo/>
     </>
 

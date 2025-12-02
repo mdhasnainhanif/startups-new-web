@@ -1,21 +1,22 @@
 .whyItWorksSection {
   position: relative;
-  background: #02001C;
+  background: #02001c;
   overflow: hidden;
 }
 
 .whyItWorksSection::before {
   content: "";
-  position: absolute;
-  background: url(/assets/images/rocket1.webp) center bottom no-repeat;
-  width: 100%;
-  height: 100%;
-  bottom: 0;
-  left: 0;
-  background-size: contain;
-  opacity: 0.1;
-  z-index: 0;
+  opacity: 0.6;
   pointer-events: none;
+  background-image: url(/assets/images/1.webp);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 40rem;
+  height: 30rem;
+  position: absolute;
+  top: 10%;
+  left: 0%;
 }
 
 .contentWrapper {
@@ -103,7 +104,7 @@
   width: 48px;
   height: 48px;
   object-fit: contain;
-  filter: brightness(0) saturate(100%) invert(70%) sepia(100%) saturate(2000%) hue-rotate(140deg) brightness(0.9) contrast(1);
+  /* filter: brightness(0) saturate(100%) invert(70%) sepia(100%) saturate(2000%) hue-rotate(140deg) brightness(0.9) contrast(1); */
 }
 
 .itemText {
@@ -163,4 +164,3 @@
     font-size: 0.9375rem;
   }
 }
-

@@ -238,7 +238,7 @@ export interface HomeBannerData {
       },
     ],
     cta: {
-      text: 'Start Risk-Free →',
+      text: 'Start Risk-Free',
       href: '#',
     },
   };

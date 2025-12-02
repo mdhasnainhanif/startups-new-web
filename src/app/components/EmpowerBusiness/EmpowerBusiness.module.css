@@ -11,6 +11,12 @@
   background:#21164c;
   border-radius: 30px;
   padding: 2rem;
+    background-image: linear-gradient(180deg, rgba(255, 255, 255, .05) 1px, transparent 0), linear-gradient(90deg, rgba(255, 255, 255, .05) 1px, transparent 0);
+    background-size: 40px 40px, 40px 40px;
+    background-repeat: repeat, repeat;
+    background-position: 0 0, 0 0;
+    position: relative;
+    z-index: 0;
 }
 
 .imageSection {
@@ -32,7 +38,7 @@
 .textSection {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 .heading {
@@ -48,6 +54,7 @@
   color: rgba(255, 255, 255, 0.9);
   line-height: 1.7;
   margin: 0;
+  margin-top: 0rem !important;
 }
 
 .buttonWrapper {

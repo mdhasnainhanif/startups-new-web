@@ -55,3 +55,27 @@
   transform: translate(0px, 50%);
   border: 1px solid #6848df4d;
 }
+.separatorLine {
+  border: 1px solid #21164c;
+  background: #312763;
+  border-radius: 0.525rem;
+  padding: .22rem .225rem .345rem .525rem;
+}
+/* .separatorLine::after {
+  content: "";
+  background: #072e41;
+  width: 1px;
+  height: 100%;
+  position: absolute;
+  bottom: -0.225rem;
+  left: 45%;
+}
+.separatorLine > div::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.535rem;
+  width: 120%;
+  height: 1px;
+  background: #072e41;
+} */

@@ -217,13 +217,13 @@ export const TECHNOLOGIES_SECTION = {
 
 export const ABOUT_US_BANNER = {
   heading: {
-    part1: "Shaping the",
-    highlight: "Future",
-    part2: "with",
-    highlight2: "AI",
+    part1: "Building Stronger ",
+    highlight: "Businesses",
+    part2: " That Grow Every Day",
+    highlight2: "",
   },
   description:
-    "Startsup Advisory is a digital company specializing in AI, data analytics, and innovative technology solutions. We partner with businesses to design and implement smart systems that drive efficiency, reduce costs, and accelerate growth. Our approach combines technical expertise with real-world impact, making AI accessible and transformative across industries.",
+    "StartupAdvisory is the partner founders choose when they want real growth real structure and real results. We help businesses simplify operations sharpen their strategy and build systems that improve sales performance and accelerate progress. Our work blends clear direction with practical execution giving founders the power to grow without confusion or wasted effort.",
   ctaButton: {
     text: "Book a Free Call to See How It Works",
     href: "/contact-us",
@@ -237,63 +237,63 @@ export const OUR_CORE_VALUES = {
       id: "1",
       number: "01",
       icon: null, // Will be set in component
-      heading: "Innovation First",
+      heading: "Innovation That Drives Revenue Forward",
       description:
-        "We continuously push the boundaries of AI and digital technologies to create smarter, future-ready solutions.",
+        "We design growth focused solutions that remove bottlenecks help you move faster and give your business the structure it needs to scale.",
     },
     {
       id: "2",
       number: "02",
       icon: null, // Will be set in component
-      heading: "Secure & Reliable",
+      heading: "Strong Reliable Business Systems",
       description:
-        "Our systems are built with enterprise-grade security, ensuring trust, safety, and long-term stability.",
+        "Every system we build is created for long term stability giving you operations that run smoothly consistently and without hidden gaps.",
     },
     {
       id: "3",
       number: "03",
       icon: null, // Will be set in component
-      heading: "Global Perspective",
+      heading: "A Global Mindset For Modern Businesses",
       description:
-        "With a worldwide outlook, we design solutions that scale seamlessly and adapt to diverse markets.",
+        "With experience shaped across different markets we help businesses build models that scale easily adapt quickly and stay competitive everywhere they operate.",
     },
   ],
 };
 
 export const WHY_CHOOSE_US = {
   heading: {
-    part1: "Why Choose",
-    highlight: "US",
+    part1: "Why Work",
+    highlight: "With Us",
   },
   description:
-    "We combine your business insight with our AI expertise to create systems that work with you, streamline your workflow, and drive consistent growth. Together, we build a smarter operation that keeps learning, improving, and delivering stronger results over time.",
+    "We combine your business insight with proven growth frameworks to create a system that increases revenue strengthens performance and supports consistent expansion. Together we build an operation that keeps improving learning and delivering measurable results over time.",
   items: [
     {
       id: "1",
-      title: "Expertise That Drives Innovation",
+      title: "Expertise That Strengthens Your Growth Engine",
       description:
-        "Our team of AI engineers, data scientists, and strategists use deep cross-industry experience to build reliable, high-impact AI systems aligned with your business goals.",
+        "Our strategists operators and business builders bring deep experience from multiple industries to create strong processes and systems that support your goals.",
       isOpen: true,
     },
     {
       id: "2",
-      title: "Custom-Built AI Solutions",
+      title: "Growth Systems Tailored To Your Business",
       description:
-        "Every business is unique. We design and develop AI solutions tailored to your specific needs, industry requirements, and growth objectives, ensuring maximum impact and ROI.",
+        "No two businesses are the same. We create solutions shaped around your model your market and your goals so everything you implement moves your growth forward.",
       isOpen: false,
     },
     {
       id: "3",
-      title: "End-to-End Implementation",
+      title: "From Strategy To Execution",
       description:
-        "From initial strategy and design to deployment and ongoing optimization, we handle every aspect of your AI transformation, ensuring seamless integration with your existing systems.",
+        "We guide your full growth transformation from planning to building to optimizing so your business runs cleaner stronger and more predictable every day.",
       isOpen: false,
     },
     {
       id: "4",
-      title: "Transparent & Ethical AI",
+      title: "Transparent And Ethical Practices",
       description:
-        "We build AI systems with transparency, fairness, and ethical considerations at the core. Our solutions are explainable, accountable, and designed to build trust with your customers and stakeholders.",
+        "We operate with complete clarity giving you strategies and systems built on honesty accountability and long term trust.",
       isOpen: false,
     },
   ],
@@ -328,9 +328,9 @@ export const DEDICATED_TEAM = {
 };
 
 export const EMPOWER_BUSINESS = {
-  heading: "Empower your business growth with AI today.",
+  heading: "Grow your business today.",
   description:
-    "Empower your business growth with AI technologies today by leveraging intelligent solutions designed to optimize operations, enhance decision-making, and drive innovation.",
+    "Give your company the systems clarity and direction it needs to increase revenue perform better and scale with confidence.",
   ctaButton: {
     text: "Get Started Now",
     href: "#",
@@ -343,38 +343,29 @@ export const OUR_JOURNEY = {
     {
       id: "1",
       number: "01.",
-      title: "The Vision Begins",
-      subtitle: "Identifying What's Possible With AI",
+      title: "The Vision Starts",
+      subtitle: "Understanding What Will Grow Your Business",
       description:
-        "We started by understanding your challenges and defining how AI can meaningfully transform your operations, growth, and customer experience.",
+        "We begin by listening to your challenges your goals and your roadblocks then identify what will move the needle fastest for your revenue and performance.",
       imagePosition: "left" as const,
     },
     {
       id: "2",
       number: "02.",
-      title: "Building Intelligent Foundations",
-      subtitle: "Designing Your AI-Powered Blueprint",
+      title: "Building The Foundation Of Growth",
+      subtitle: "Creating Your Structure For Scaling",
       description:
-        "Our team created a tailored AI strategy — mapping workflows, automation points, and the systems required to scale your business using intelligent technology.",
+        "We map your operations define your growth opportunities and design the systems that help your business operate stronger and sell smarter.",
       imagePosition: "right" as const,
     },
     {
       id: "3",
       number: "03.",
-      title: "Launching Real AI Impact",
-      subtitle: "Deploying Advanced Agents & Automations",
+      title: "Turning Strategy Into Real Results",
+      subtitle: "Implementing Processes That Increase Revenue",
       description:
-        "We rolled out AI agents, automations, and integrations that streamline processes, reduce workload, and unlock measurable business growth.",
+        "We launch improved workflows refined systems and stronger structures that reduce wasted time boost output and drive measurable business growth.",
       imagePosition: "left" as const,
-    },
-    {
-      id: "4",
-      number: "04.",
-      title: "Evolving Beyond Limits",
-      subtitle: "Continuous Optimization, Training & Scaling",
-      description:
-        "Your AI ecosystem keeps improving with performance insights, new capabilities, and proactive enhancements to ensure long-term growth and efficiency.",
-      imagePosition: "right" as const,
     },
   ],
 };

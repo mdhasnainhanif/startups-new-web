@@ -21,34 +21,63 @@ const TextSlider1: React.FC<TextSlider1Props> = ({ data = [] }) => {
   useEffect(() => {
     if (!railRef.current || data.length === 0) return;
 
+    let timeoutId: NodeJS.Timeout | null = null;
+
     // Clean up previous animation
     if (timelineRef.current) {
       timelineRef.current.kill();
+      timelineRef.current = null;
     }
 
-    // Wait for DOM to be ready
-    const items = gsap.utils.toArray<HTMLElement>(railRef.current.querySelectorAll("h4"));
-    
-    if (items.length === 0) return;
+    // Wait for DOM to be ready using requestAnimationFrame for better timing
+    const initAnimation = () => {
+      if (!railRef.current) return;
 
-    // Only duplicate if we don't have duplicates already
-    const currentItems = railRef.current.querySelectorAll("h4");
-    if (currentItems.length === data.length) {
-      // Duplicate items for seamless infinite loop
-      items.forEach((item) => {
-        const clone = item.cloneNode(true) as HTMLElement;
-        railRef.current?.appendChild(clone);
+      const items = gsap.utils.toArray<HTMLElement>(railRef.current.querySelectorAll("h4"));
+      
+      if (items.length === 0) return;
+
+      // Remove any existing duplicates (items beyond the original data.length)
+      const allCurrentItems = railRef.current.querySelectorAll("h4");
+      if (allCurrentItems.length > data.length) {
+        // Remove duplicates
+        for (let i = data.length; i < allCurrentItems.length; i++) {
+          allCurrentItems[i].remove();
+        }
+      }
+
+      // Only duplicate if we don't have duplicates already
+      const currentItems = railRef.current.querySelectorAll("h4");
+      if (currentItems.length === data.length) {
+        // Duplicate items for seamless infinite loop
+        items.forEach((item) => {
+          const clone = item.cloneNode(true) as HTMLElement;
+          railRef.current?.appendChild(clone);
+        });
+      }
+
+      // Use requestAnimationFrame to ensure DOM is updated
+      requestAnimationFrame(() => {
+        if (!railRef.current) return;
+        
+        // Get all items including duplicates
+        const allItems = gsap.utils.toArray<HTMLElement>(railRef.current.querySelectorAll("h4"));
+        
+        if (allItems.length === 0) return;
+
+        // Reset transforms for all items before starting new animation
+        gsap.set(allItems, { clearProps: "all" });
+
+        horizontalLoop(allItems, {
+          repeat: -1,
+          speed: 0.5,
+          paddingRight: 30,
+        });
       });
-    }
+    };
 
-    // Get all items including duplicates
-    const allItems = gsap.utils.toArray<HTMLElement>(railRef.current.querySelectorAll("h4"));
-
-    horizontalLoop(allItems, {
-      repeat: -1,
-      speed: 0.5,
-      paddingRight: 30,
-    });
+    // Small delay to ensure DOM is ready
+    timeoutId = setTimeout(initAnimation, 10);
 
     function horizontalLoop(items: HTMLElement[], config: any) {
       items = gsap.utils.toArray(items);
@@ -138,8 +167,21 @@ const TextSlider1: React.FC<TextSlider1Props> = ({ data = [] }) => {
     }
 
     return () => {
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
       if (timelineRef.current) {
         timelineRef.current.kill();
+        timelineRef.current = null;
+      }
+      // Clean up duplicates on unmount
+      if (railRef.current) {
+        const allItems = railRef.current.querySelectorAll("h4");
+        if (allItems.length > data.length) {
+          for (let i = data.length; i < allItems.length; i++) {
+            allItems[i].remove();
+          }
+        }
       }
     };
   }, [data]);
@@ -150,8 +192,9 @@ const TextSlider1: React.FC<TextSlider1Props> = ({ data = [] }) => {
         <div className={styles.rail} ref={railRef}>
           {data.map((item, idx) => (
             <h4 key={idx}>
-              {item.text}{" "}
-              <span className="text-[#0fdac2]">{item.highlight}</span> in the US would cost: {item.price}
+              {item.price}{" "}
+              {item.text}
+              <span className="text-[#0fdac2]">{item.highlight}</span>
             </h4>
           ))}
         </div>

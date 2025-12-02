@@ -38,10 +38,24 @@ const ProfessionalDesign = ({ data = PROFESSIONAL_DESIGN_DATA, className }: Prof
                 </span>
               </h2>
               <p className={getClassName(data.description.className?.text, styles.description)}>
-                {data.description.text1}
-                <span className={getClassName(data.description.className?.highlight, styles.descriptionHighlight)}>
-                  {data.description.highlight}
-                </span>
+                {data.description.text2 ? (
+                  <>
+                    <span className={getClassName(data.description.className?.text1Highlight, "")}>
+                      {data.description.text1}
+                    </span>
+                    {data.description.text2}
+                    <span className={getClassName(data.description.className?.highlight, styles.descriptionHighlight)}>
+                      {data.description.highlight}
+                    </span>
+                  </>
+                ) : (
+                  <>
+                    {data.description.text1}
+                    <span className={getClassName(data.description.className?.highlight, styles.descriptionHighlight)}>
+                      {data.description.highlight}
+                    </span>
+                  </>
+                )}
               </p>
 
               {/* FACTS SECTION - Left side list matching the image */}

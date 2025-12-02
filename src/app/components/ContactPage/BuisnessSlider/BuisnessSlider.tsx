@@ -37,12 +37,10 @@ const BusinessSlider: React.FC = () => {
         {/* Heading */}
         <div className="text-center mb-12">
           <h2 className="md:text-4xl text-2xl lg:text-5xl font-semibold text-white">
-            Local <span className="text-teal-400">Businesses</span> Struggle to
-            Stay Visible
+          Growing <span className="text-teal-400">Businesses</span> Need Real Support
           </h2>
           <p className="mt-4 text-gray-300 max-w-2xl mx-auto">
-            You’re great at what you do, but your marketing falls behind.
-            Agencies cost a fortune. Freelancers disappear.
+          You put in the work but the momentum slips. Your outreach slows down. Your efforts get scattered. Nothing stays consistent.
           </p>
         </div>
 

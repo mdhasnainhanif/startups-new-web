@@ -52,15 +52,16 @@ const TheProblem = () => {
       <Container maxWidth="xl">
         <div className={styles.contentWrapper}>
           {/* Heading */}
-          <div className={styles.headingWrapper}>
-            <h2 className={styles.heading}>
+          <div className={`${styles.headingWrapper} sectionHeading`}>
+            <h2>
               <span className="text-white">{THE_PROBLEM_DATA.headline.part1}</span>
               <span className="text-[#0fdac2]">{THE_PROBLEM_DATA.headline.part2}</span>
+              &nbsp;
               <span className={styles.exclamationIcon}>
                 <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
+                  width="50"
+                  height="50"
+                  viewBox="0 0 22 22"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                 >

@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Container from '../Container';
 import styles from './GuessWorkAdvertising.module.css';
 import Button from '../Button';
+import CreativeScore from '../CreativeScore/CreativeScore';
 
 interface GuessWorkAdvertisingData {
   heading: {
@@ -25,12 +26,12 @@ interface GuessWorkAdvertisingData {
 
 const GUESS_WORK_ADVERTISING_DATA: GuessWorkAdvertisingData = {
   heading: {
-    part1: 'Take The ',
-    highlight: 'Guesswork',
-    part2: ' out of Advertising',
+    part1: 'Unlock Your  ',
+    highlight: 'Growth',
+    part2: ' Roadmap',
   },
   description:
-    'Creative Score analyses your ads before launch, identifying weak creative, forecasting results, and helping enterprise teams improve output without increasing spend.',
+    'Speak your heart out and get an actionable and clear plan built around your business. You’ll see what to focus on, what to fix, and what can push your growth faster. Your growth is now just a few taps away!',
   form: {
     placeholder: 'Enter Your Website Link',
     buttonText: 'Get Started',
@@ -71,7 +72,7 @@ const GuessWorkAdvertising = () => {
       className={`sectionPadding bg-gradient-to-br from-[#1a0b3f] via-[#05001a] to-[#020014] relative overflow-hidden ${styles.section}`}
     >
       <Container maxWidth="xl">
-        <div className="flex flex-col items-center text-center sectionHeading forH2">
+        <div className="flex flex-col items-center text-center sectionHeading forH2 mb-0">
           {/* Heading */}
           <h2>
             {heading.part1}
@@ -89,7 +90,7 @@ const GuessWorkAdvertising = () => {
             onSubmit={handleSubmit}
             className="w-full max-w-2xl mb-8"
           >
-            <div className={`relative ${styles.inputWrapper}`}>
+            <div className={`relative ${styles.inputWrapper} inputFieldWrapper`}>
               <input
                 type="text"
                 value={websiteLink}
@@ -112,13 +113,9 @@ const GuessWorkAdvertising = () => {
             </div>
           </form>
 
-          {/* Image */}
-          <div className="w-full max-w-5xl">
-            <img
-              src={image.src}
-              alt={image.alt}
-              className={`w-full h-auto object-contain ${styles.image}`}
-            />
+          {/* Creative Score Dashboard */}
+          <div className="w-full">
+            <CreativeScore />
           </div>
         </div>
       </Container>
