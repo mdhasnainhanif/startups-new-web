@@ -15,6 +15,7 @@ export const NAVIGATION_LINKS = [
   { label: "Home", href: "/" },
   { label: "Designer", href: "/designer" },
   { label: "About Us", href: "/about-us" },
+  { label: "Key Growth", href: "/key-growth" },
   { label: "Contact Us", href: "/contact-us" },
 ];
 
@@ -44,6 +45,7 @@ export const FOOTER_LINKS = {
     { label: "Home", href: "/" },
     { label: "Designer", href: "/designer" },
     { label: "About", href: "/about-us" },
+    { label: "Key Growth", href: "/key-growth" },
     { label: "Contact", href: "/contact-us" },
 
   ],
@@ -217,8 +219,8 @@ export const TECHNOLOGIES_SECTION = {
 
 export const ABOUT_US_BANNER = {
   heading: {
-    part1: "Building Stronger Businesses That Grow Every Day",
-    highlight: "",
+    part1: "Building Stronger Businesses That ",
+    highlight: "Grow Every Day",
     part2: "",
     highlight2: "",
   },

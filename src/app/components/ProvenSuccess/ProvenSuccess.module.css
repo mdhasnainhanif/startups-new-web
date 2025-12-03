@@ -51,7 +51,7 @@
 
 .navArrow:hover:not(.navArrowDisabled) {
   background: #1a0f4a;
-  transform: translateY(-50%) scale(1.1);
+  transform: translateY(-50%);
 }
 
 .navArrowLeft {
@@ -86,7 +86,7 @@
   padding: 10px 50px;
   display: flex;
   position: relative;
-  border-radius: 100px;
+  border-radius: 0.5rem;
   overflow: hidden;
 }
 
@@ -145,7 +145,7 @@
   font-weight: 600;
   transition: all 0.3s ease;
   position: relative;
-  border-radius: 100px;
+  border-radius: 0.5rem;
   margin: 0;
   min-width: 4rem;
   letter-spacing: 0.03rem;
@@ -179,7 +179,7 @@
   transform: translateY(-50%);
   width: 3.3125rem;
   height: 3.3125rem;
-  border-radius: 100px;
+  border-radius: 0.5rem;
   background: #1b1849;
   border: none;
   color: #ffffff;
@@ -235,7 +235,7 @@
   font-weight: 600;
   transition: all 0.3s ease;
   position: relative;
-  border-radius: 100px;
+  border-radius: 0.5rem;
   margin: 0 20px 0 13px;
   min-width: 4rem;
   letter-spacing: 0.03rem;

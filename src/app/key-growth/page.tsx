@@ -37,6 +37,7 @@ export default function PageTwo() {
           <ReplacementGuarantee />
           <SupportAndTraining />
           <Technologies 
+          className={'keyGrowthTechnologySection'}
             heading={TECHNOLOGIES_PAGE2_DATA.heading}
             description={TECHNOLOGIES_PAGE2_DATA.description}
             subDescription={TECHNOLOGIES_PAGE2_DATA.subDescription}

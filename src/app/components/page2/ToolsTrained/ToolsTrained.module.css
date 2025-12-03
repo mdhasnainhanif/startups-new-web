@@ -1,0 +1,14 @@
+.section{
+    position: relative;
+}
+
+.section::before {
+    content: "";
+    position: absolute;
+    top: 10%;
+    left: 0;
+    width: 450px;
+    height: 580px;
+    background: url("/assets/images/1.webp") no-repeat;
+    background-size: cover;
+  }

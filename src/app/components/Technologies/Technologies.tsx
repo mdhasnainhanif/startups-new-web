@@ -16,9 +16,10 @@ interface TechnologiesProps {
   subDescription?: string;
   hideTabs?: boolean;
   defaultTab?: string;
+  className?: string;
 }
 
-export default function Technologies({ heading, description, subDescription, hideTabs = false, defaultTab = "creative" }: TechnologiesProps = {}) {
+export default function Technologies({ heading, description, subDescription, hideTabs = false, defaultTab = "creative", className = "" }: TechnologiesProps = {}) {
   const [activeTab, setActiveTab] = useState(defaultTab);
   const tabsSwiperRef = useRef<SwiperType | null>(null);
   const [isTabsSwiperBeginning, setIsTabsSwiperBeginning] = useState(true);
@@ -98,7 +99,7 @@ export default function Technologies({ heading, description, subDescription, hid
   }, [activeTab]);
 
   return (
-    <section className={styles.section + " sectionPadding"}>
+    <section className={`${styles.section} ${className} sectionPadding`}>
       <div>
         {/* Header Section */}
         <Container maxWidth="2xl" className="px-0">

@@ -1,44 +1,56 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import Container from '../../Container';
-import { SUPPORT_AND_TRAINING_DATA } from '../../../data/Page2';
-import styles from './SupportAndTraining.module.css';
+import Image from "next/image";
+import Container from "../../Container";
+import styles from "./SupportAndTraining.module.css";
 
 const SupportAndTraining = () => {
   return (
     <section className={`sectionPadding ${styles.supportSection}`}>
-      <Container maxWidth="xl">
+      <Container maxWidth="sxl">
         <div className={styles.cardsGrid}>
-          {SUPPORT_AND_TRAINING_DATA.cards.map((card, index) => (
-            <div key={index} className={styles.card}>
-              {/* Image */}
+          {/* First Card */}
+          <div className={styles.cardWrapper1}>
+            <div className={styles.card}>
               <div className={styles.imageWrapper}>
                 <Image
-                  src={card.image}
-                  alt={card.heading}
-                  width={600}
-                  height={400}
+                  src="/assets/images/image1.png"
+                  alt="Weekly Support And Ongoing Training"
+                  width={700}
+                  height={500}
                   className={styles.cardImage}
                 />
               </div>
-
-              {/* Label */}
-              <div className={styles.label}>
-                {card.label}
-              </div>
-
-              {/* Heading */}
-              <h3 className={styles.heading}>
-                {card.heading}
-              </h3>
-
-              {/* Description */}
-              <p className={styles.description}>
-                {card.description}
-              </p>
             </div>
-          ))}
+              <div className={`${styles.label} ${styles.label2}`}>Support</div>
+              <h3 className={`${styles.heading}`}>
+                Weekly Support And Ongoing Training
+              </h3>
+              <p className={styles.description}>
+                You and your Growth Manager receive weekly guidance so your
+                online presence keeps improving. You get clear updates and
+                simple reports without having to manage the process yourself
+              </p>
+          </div>
+
+          <div className={`${styles.card} ${styles.card2}`}>
+            <div className={styles.imageWrapper}>
+              <Image
+                src="/assets/images/image2.png"
+                alt="Ongoing Training & Community"
+                width={700}
+                height={500}
+                className={styles.cardImage}
+              />
+            </div>
+            <div className={styles.label}>Education</div>
+            <h3 className={styles.heading}>Ongoing Training & Community</h3>
+            <p className={styles.description}>
+              Growth Managers are part of an internal training community where
+              they learn new tools, workflows, and best practices. This keeps
+              your digital systems current and effective
+            </p>
+          </div>
         </div>
       </Container>
     </section>
@@ -46,4 +58,3 @@ const SupportAndTraining = () => {
 };
 
 export default SupportAndTraining;
-

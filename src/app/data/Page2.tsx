@@ -353,25 +353,6 @@ export interface HomeBannerData {
     }>;
   }
 
-  export const SUPPORT_AND_TRAINING_DATA: SupportAndTrainingData = {
-    cards: [
-      {
-        label: 'Support',
-        heading: 'Weekly Support And Ongoing Training',
-        description:
-          'You and your Growth Manager receive weekly guidance so your online presence keeps improving. You get clear updates and simple reports without having to manage the process yourself',
-        image: '/assets/images/image1.png',
-      },
-      {
-        label: 'Education',
-        heading: 'Ongoing Training & Community',
-        description:
-          'Growth Managers are part of an internal training community where they learn new tools, workflows, and best practices. This keeps your digital systems current and effective',
-        image: '/assets/images/image2.png',
-      },
-    ],
-  };
-
   export interface ToolsTrainedData {
     headline: {
       part1: string;

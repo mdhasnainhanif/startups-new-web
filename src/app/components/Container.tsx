@@ -10,6 +10,7 @@ export default function Container({
     md: "max-w-screen-md",
     lg: "max-w-screen-lg",
     mxl: "max-w-[1200px]",
+    sxl: "max-w-[1000px]",
     xl: "max-w-[1400px]",
     "2xl": "max-w-[1640px]",
     full: "max-w-full",

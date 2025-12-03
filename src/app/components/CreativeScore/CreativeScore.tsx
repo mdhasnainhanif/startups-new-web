@@ -1,5 +1,6 @@
 'use client';
 
+import { FilterIcon, GraphIcon, HeartIcon, SearchIcon, WorldIcon } from '@/app/icons';
 import Container from '../Container';
 import styles from './CreativeScore.module.css';
 import {
@@ -7,7 +8,6 @@ import {
   Pie,
   Cell,
   ResponsiveContainer,
-  Tooltip,
 } from 'recharts';
 
 interface Category {
@@ -149,9 +149,9 @@ const CreativeScore = () => {
 
   // Chart 3: Analytics Overview Data
   const analyticsData = [
-    { name: 'Website Traffic', value: 20, color: '#9B59B6', description: 'Improved user flow and session monitoring.' },
+    { name: 'Website Traffic', value: 45, color: '#9B59B6', description: 'Improved user flow and session monitoring.' },
     { name: 'Lead Conversion', value: 60, color: '#4ECDC4', description: 'Optimizing landing pages for higher conversions' },
-    { name: 'Brand Growth', value: 40, color: '#FF6B35', description: 'Boosting visibility through strategic SEO.' },
+    { name: 'Brand Growth', value: 65, color: '#FF6B35', description: 'Boosting visibility through strategic SEO.' },
     { name: 'Brand Engagement', value: 45, color: '#FFD700', description: 'Higher engagement through creative design.' },
     { name: 'ROI', value: 55, color: '#3498DB', description: 'Tracking performance across campaigns.' },
   ];
@@ -178,7 +178,7 @@ const CreativeScore = () => {
         fill="white"
         textAnchor={x > cx ? 'start' : 'end'}
         dominantBaseline="central"
-        fontSize="18"
+        fontSize="16"
         fontWeight="bold"
         style={{ filter: 'drop-shadow(0 0 8px rgba(15, 218, 194, 0.8))' }}
       >
@@ -197,44 +197,26 @@ const CreativeScore = () => {
               <h3 className={styles.chartTitle}>GRAPH INFOGRAPHY</h3>
               <div className={styles.chartContent}>
                 <div className={styles.chartWrapper}>
-                  <ResponsiveContainer width="100%" height={300}>
+                  <ResponsiveContainer width="100%" height={250}>
                     <PieChart>
                       <Pie
                         data={graphInfographyData}
                         cx="50%"
                         cy="50%"
-                        innerRadius={60}
-                        outerRadius={120}
-                        paddingAngle={5}
+                        innerRadius={40}
+                        outerRadius={80}
+                        paddingAngle={2}
                         dataKey="value"
                         label={CustomLabel}
                         labelLine={false}
+                        stroke="none"
                       >
                         {graphInfographyData.map((entry, index) => (
                           <Cell key={`cell-${index}`} fill={entry.color} />
                         ))}
                       </Pie>
-                      <Tooltip 
-                        contentStyle={{ 
-                          backgroundColor: 'rgba(26, 11, 63, 0.95)', 
-                          border: '2px solid #0fdac2', 
-                          color: '#ffffff',
-                          borderRadius: '8px',
-                          padding: '12px'
-                        }} 
-                        formatter={(value: any, name: any) => [`${name}: ${value}%`, '']}
-                      />
                     </PieChart>
                   </ResponsiveContainer>
-                  <div className={styles.chartCenterIcon}>
-                    <div className={styles.chartCenterContent}>
-                      <span className={styles.chartCenterText}>Opti</span>
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" fill="rgba(255,255,255,0.8)"/>
-                      </svg>
-                      <span className={styles.chartCenterNumber}>25</span>
-                    </div>
-                  </div>
                 </div>
                 <div className={styles.optionsList}>
                   {graphInfographyData.map((option, index) => (
@@ -265,17 +247,18 @@ const CreativeScore = () => {
                   <div key={index} className={styles.processChartItem}>
                     {index === 0 ? (
                       <div className={styles.processChartWrapper}>
-                        <ResponsiveContainer width="100%" height={250}>
+                        <ResponsiveContainer width="100%" height={300}>
                           <PieChart>
                             <Pie
                               data={[{ name: process.name, value: process.value }, { name: 'Remaining', value: 100 - process.value }]}
                               cx="50%"
                               cy="50%"
-                              innerRadius={60}
-                              outerRadius={100}
+                              innerRadius={85}
+                              outerRadius={120}
                               startAngle={90}
                               endAngle={-270}
                               dataKey="value"
+                              stroke="none"
                             >
                               <Cell fill={process.color} />
                               <Cell fill="rgba(255,255,255,0.1)" />
@@ -300,6 +283,7 @@ const CreativeScore = () => {
                               startAngle={90}
                               endAngle={-270}
                               dataKey="value"
+                              stroke="none"
                             >
                               <Cell fill={process.color} />
                               <Cell fill="rgba(255,255,255,0.1)" />
@@ -338,11 +322,11 @@ const CreativeScore = () => {
                       >
                         <div className={styles.analyticsPercentageInside}>{item.value}%</div>
                         <div className={styles.analyticsIcon}>
-                          {index === 0 && '🌐'}
-                          {index === 1 && '🔽'}
-                          {index === 2 && '🔍'}
-                          {index === 3 && '❤️'}
-                          {index === 4 && '📈'}
+                          {index === 0 && <WorldIcon />}
+                          {index === 1 && <FilterIcon />}
+                          {index === 2 && <SearchIcon />}
+                          {index === 3 && <HeartIcon />}
+                          {index === 4 && <GraphIcon />}
                         </div>
                       </div>
                     </div>
@@ -370,22 +354,14 @@ const CreativeScore = () => {
                         cy="50%"
                         innerRadius={60}
                         outerRadius={120}
-                        paddingAngle={5}
+                        paddingAngle={2}
                         dataKey="value"
+                        stroke="none"
                       >
                         {agencyPerformanceData.map((entry, index) => (
                           <Cell key={`cell-${index}`} fill={entry.color} />
                         ))}
                       </Pie>
-                      <Tooltip 
-                        contentStyle={{ 
-                          backgroundColor: 'rgba(26, 11, 63, 0.95)', 
-                          border: '2px solid #0fdac2', 
-                          color: '#ffffff',
-                          borderRadius: '8px',
-                          padding: '12px'
-                        }} 
-                      />
                     </PieChart>
                   </ResponsiveContainer>
                 </div>
