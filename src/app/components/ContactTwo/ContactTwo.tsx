@@ -90,6 +90,10 @@ const ContactTwo = () => {
     message: "",
   });
 
+  const [loading, setLoading] = useState(false);
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -100,10 +104,44 @@ const ContactTwo = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission logic here
-    console.log("Form Data:", formData);
+    setLoading(true);
+    setSuccessMessage("");
+    setErrorMessage("");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setSuccessMessage("Thank you! Your message has been sent successfully.");
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          company: "",
+          message: "",
+        });
+      } else {
+        // Display detailed error message
+        const errorMsg = data.details 
+          ? `${data.error}: ${data.details}${data.code ? ` (Code: ${data.code})` : ''}`
+          : data.error || "Failed to send message. Please try again.";
+        setErrorMessage(errorMsg);
+        console.error("API Error:", data);
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
+      setErrorMessage("An error occurred. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const { leftSection, rightSection } = CONTACT_TWO_DATA;
@@ -144,6 +182,18 @@ const ContactTwo = () => {
                 ?
               </h2>
 
+              {/* Success/Error Messages */}
+              {successMessage && (
+                <div style={{ color: "green", marginBottom: "1rem", fontSize: "0.9rem" }}>
+                  {successMessage}
+                </div>
+              )}
+              {errorMessage && (
+                <div style={{ color: "red", marginBottom: "1rem", fontSize: "0.9rem" }}>
+                  {errorMessage}
+                </div>
+              )}
+
               {/* Form */}
               <form className={styles.contactForm} onSubmit={handleSubmit}>
                 {/* Name and Email Row */}
@@ -157,6 +207,7 @@ const ContactTwo = () => {
                       placeholder={rightSection.form.fields.name}
                       className={styles.inputField}
                       required
+                      disabled={loading}
                     />
                   </div>
                   <div className={styles.formField}>
@@ -168,6 +219,7 @@ const ContactTwo = () => {
                       placeholder={rightSection.form.fields.email}
                       className={styles.inputField}
                       required
+                      disabled={loading}
                     />
                   </div>
                 </div>
@@ -183,6 +235,7 @@ const ContactTwo = () => {
                       placeholder={rightSection.form.fields.phone}
                       className={styles.inputField}
                       required
+                      disabled={loading}
                     />
                   </div>
                 </div>
@@ -198,6 +251,7 @@ const ContactTwo = () => {
                       placeholder={rightSection.form.fields.company}
                       className={styles.inputField}
                       required
+                      disabled={loading}
                     />
                   </div>
                 </div>
@@ -213,6 +267,7 @@ const ContactTwo = () => {
                       rows={5}
                       className={styles.textareaField}
                       required
+                      disabled={loading}
                     ></textarea>
                   </div>
                 </div>
@@ -223,9 +278,10 @@ const ContactTwo = () => {
                   size="lg"
                   type="submit"
                   className="w-full text-center justify-center items-center"
+                  disabled={loading}
                 >
-                  <span>{rightSection.form.submitButton.text}</span>
-                  {rightSection.form.submitButton.icon && (
+                  <span>{loading ? "Sending..." : rightSection.form.submitButton.text}</span>
+                  {!loading && rightSection.form.submitButton.icon && (
                     <span className="inline-flex items-center">
                       {rightSection.form.submitButton.icon}
                     </span>
