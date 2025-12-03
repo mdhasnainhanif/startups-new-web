@@ -56,12 +56,12 @@ const BusinessPlaylist: React.FC<BusinessPlaylistProps> = ({
     <section className={`${styles.section} sectionPadding`}>
       <div className="max-w-7xl mx-auto px-4">
         {/* Main Heading */}
-        <div className="sectionHeading mb-12">
-          <h2 className={`text-4xl text-center md:text-5xl lg:text-6xl mb-4 max-w-3xl mx-auto`}>
+        <div className="sectionHeading forH2 mb-12 text-center max-w-3xl mx-auto">
+          <h2>
             {mainTitle}{" "}
             <span className="text-[#0fdac2]">{highlightTitle}</span>{" "}
           </h2>
-          <p className={`max-w-3xl mx-auto text-center`}>
+          <p>
             {subtitle}
           </p>
         </div>

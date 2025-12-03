@@ -38,7 +38,7 @@ export type ButtonProps = ButtonAsButton | ButtonAsLink;
 export interface ContainerProps {
   children: ReactNode;
   className?: string;
-  maxWidth?: "sm" | "md" | "lg" | "xl" | "2xl" | "full";
+  maxWidth?: "sm" | "md" | "lg" | "xl" | "2xl" | "full" | "mxl";
 }
 
 // HeroBanner Types

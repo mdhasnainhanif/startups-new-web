@@ -1,13 +1,13 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { usePathname } from "next/navigation";
 import { COMPANY_INFO, NAVIGATION_LINKS } from "../constants";
 import Container from "./Container";
 import Button from "./Button";
 import Image from "next/image";
 import { ArrowRightIcon } from "./icons";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function Header() {
   const pathname = usePathname();
@@ -17,8 +17,8 @@ export default function Header() {
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
-  // Check if a link is active
-  const isActive = (href: string) => {
+   // Check if a link is active
+   const isActive = (href: string) => {
     if (href === "/") {
       return pathname === "/";
     }
@@ -69,7 +69,7 @@ export default function Header() {
       {/* Header - Fixed when scrolled */}
       <header
         className={`${
-          isScrolled ? "fixed top-2" : "relative md:absolute md:top-19"
+          isScrolled ? "fixed top-4" : "relative md:absolute md:top-17"
         } left-0 right-0 z-100 flex items-center justify-center w-full pb-4 bg-transparent md:bg-transparent transition-transform duration-300 ease-in-out`}
         style={{
           willChange: "transform",
@@ -98,26 +98,25 @@ export default function Header() {
             </div>
 
             <div className="hidden md:flex items-center gap-6 flex-1 justify-center">
-              {NAVIGATION_LINKS.map((link) => {
-                const active = isActive(link.href);
-                return (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    className="text-white font-medium hover:text-[#0fdac2] transition-colors"
-                    style={
-                      active
-                        ? {
-                            textShadow:
-                              "-7px 0 15px #0fdac2, 1px -1px 30px #0fdac2, 20px 6px 45px #0fdac2",
-                          }
-                        : {}
-                    }
-                  >
-                    {link.label}
-                  </a>
-                );
-              })}
+              {NAVIGATION_LINKS.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className={`text-white font-medium hover:text-[#0fdac2] transition-colors ${
+                    isActive(link.href) ? "text-[#0fdac2]" : ""
+                  }`}
+                  style={
+                    isActive(link.href)
+                      ? {
+                          textShadow:
+                            "-7px 0 15px #00dbc1e6, 6px 1px 30px #0fdac287, 0 0 45px #0fdac2cc",
+                        }
+                      : {}
+                  }
+                >
+                  {link.label}
+                </a>
+              ))}
             </div>
             <div className="hidden md:flex items-center gap-5">
               <Link href="#" className="text-white text-sm font-medium hover:text-[#0fdac2] transition-colors">
@@ -127,7 +126,7 @@ export default function Header() {
                 ROI Calculator
               </Link>
               <Button
-                href="#"
+                href="/contact-us"
                 variant="green"
                 iconPosition="right"
               >
@@ -217,27 +216,26 @@ export default function Header() {
 
           {/* Sidebar Content */}
           <div className="flex flex-col flex-1 px-4 py-6 gap-4 overflow-y-auto">
-            {NAVIGATION_LINKS.map((link) => {
-              const active = isActive(link.href);
-              return (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className="text-white text-base font-medium hover:text-[#0fdac2] transition-colors py-2"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  style={
-                    active
-                      ? {
-                          textShadow:
-                            "-7px 0 15px #0fdac2, 1px -1px 30px #0fdac2, 20px 6px 45px #0fdac2",
-                        }
-                      : {}
-                  }
-                >
-                  {link.label}
-                </a>
-              );
-            })}
+            {NAVIGATION_LINKS.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className={`text-white text-base font-medium hover:text-[#0fdac2] transition-colors py-2 ${
+                  isActive(link.href) ? "text-[#0fdac2]" : ""
+                }`}
+                style={
+                  isActive(link.href)
+                    ? {
+                        textShadow:
+                          "-7px 0 15px #00dbc1e6, 6px 1px 30px #0fdac287, 0 0 45px #0fdac2cc",
+                      }
+                    : {}
+                }
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {link.label}
+              </a>
+            ))}
             <div className=" pt-4">
               <Button
                 href="/demo"

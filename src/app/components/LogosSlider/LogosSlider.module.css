@@ -1,35 +1,24 @@
 .logosSliderSection {
   background-color: #21164c;
-  padding: 1.325rem 0rem;
+  padding: 1.625rem 0;
 }
-
-.logosSliderSection {
+.heroBrand {
   position: relative;
   width: 100%;
-}
-
-.logosSliderSection::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 20%;
-  height: 100%;
-  background: linear-gradient(to right, #03001d, transparent);
-  z-index: 11;
-  pointer-events: none;
-}
-
-.logosSliderSection::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 20%;
-  height: 100%;
-  background: linear-gradient(to left, #03001d, transparent);
-  z-index: 11;
-  pointer-events: none;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
 }
 
 .logoItems {
@@ -38,8 +27,6 @@
   gap: 3rem;
   animation: scroll-left 80s linear infinite;
   will-change: transform;
-  position: relative;
-  z-index: 2;
 }
 
 .logoItems:hover {
@@ -67,7 +54,7 @@
   opacity: 0.7;
   transition: opacity 0.3s ease, transform 0.3s ease;
   filter: grayscale(100%);
-  max-width: 9rem;
+  max-width: 12rem;
 }
 
 .logoItems img:hover {

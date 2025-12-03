@@ -1,9 +1,14 @@
 'use client';
 
-import { useState } from 'react';
 import Container from '../Container';
 import styles from './CreativeScore.module.css';
-import { BulbIcon } from '@/app/icons';
+import {
+  PieChart,
+  Pie,
+  Cell,
+  ResponsiveContainer,
+  Tooltip,
+} from 'recharts';
 
 interface Category {
   name: string;
@@ -126,13 +131,288 @@ const CreativeScore = () => {
   const centerX = 150;
   const centerY = 150;
 
+  // Chart 1: Graph Infography Data
+  const graphInfographyData = [
+    { name: 'Option A', value: 30, color: '#FF6B35', label: 'A', description: 'We develop engaging digital experiences that capture user interest and maximize engagement across platforms.' },
+    { name: 'Option B', value: 25, color: '#4ECDC4', label: 'B', description: 'Our creative team builds memorable brand identities through strategic design and compelling visual storytelling.' },
+    { name: 'Option C', value: 20, color: '#FFA500', label: 'C', description: 'We enhance website performance with optimal UX/UI work and fast development practices.' },
+    { name: 'Option D', value: 25, color: '#9B59B6', label: 'D', description: 'Data-driven marketing strategies that improve visibility, accelerate growth, and increase overall ROI.' },
+  ];
+
+  // Chart 2: Process Infography Data
+  const processInfographyData = [
+    { name: 'Core Strategy Execution', value: 85, color: '#643bff' },
+    { name: 'Creative Planning', value: 30, color: '#ff00ff' },
+    { name: 'UI/UX Development', value: 55, color: '#ffa500' },
+    { name: 'Marketing Optimization', value: 75, color: '#00ff00' },
+  ];
+
+  // Chart 3: Analytics Overview Data
+  const analyticsData = [
+    { name: 'Website Traffic', value: 20, color: '#9B59B6', description: 'Improved user flow and session monitoring.' },
+    { name: 'Lead Conversion', value: 60, color: '#4ECDC4', description: 'Optimizing landing pages for higher conversions' },
+    { name: 'Brand Growth', value: 40, color: '#FF6B35', description: 'Boosting visibility through strategic SEO.' },
+    { name: 'Brand Engagement', value: 45, color: '#FFD700', description: 'Higher engagement through creative design.' },
+    { name: 'ROI', value: 55, color: '#3498DB', description: 'Tracking performance across campaigns.' },
+  ];
+
+  // Chart 4: Digital Agency Performance Data
+  const agencyPerformanceData = [
+    { name: 'Option A', value: 20, color: '#FF69B4', description: 'We enhance user experience and streamline digital touchpoints to improve overall engagement.' },
+    { name: 'Option C', value: 35, color: '#FF6B35', description: 'We optimize website performance through modern development practices and fast UX.' },
+    { name: 'Option D', value: 25, color: '#4ECDC4', description: 'We drive measurable growth through strategic digital marketing and data-driven decision making.' },
+    { name: 'Option D', value: 20, color: '#FFA500', description: 'We create high-impact visual branding that increases recognition and strengthens identity.' },
+  ];
+
+  const CustomLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, index }: any) => {
+    const RADIAN = Math.PI / 180;
+    const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
+    const x = cx + radius * Math.cos(-midAngle * RADIAN);
+    const y = cy + radius * Math.sin(-midAngle * RADIAN);
+    const label = graphInfographyData[index]?.label || '';
+
+    return (
+      <text
+        x={x}
+        y={y}
+        fill="white"
+        textAnchor={x > cx ? 'start' : 'end'}
+        dominantBaseline="central"
+        fontSize="18"
+        fontWeight="bold"
+        style={{ filter: 'drop-shadow(0 0 8px rgba(15, 218, 194, 0.8))' }}
+      >
+        {label}
+      </text>
+    );
+  };
+
   return (
     <div className={styles.section}>
-      <div>
-        <div className={styles.dashboardGrid}>
-          {/* Left Column */}
+      <Container maxWidth="xl" className="px-0">
+        <div className={styles.imagesGrid}>
+          {/* Chart 1: Graph Infography */}
+          <div className={styles.imageWrapper}>
+            <div className={styles.chartContainer}>
+              <h3 className={styles.chartTitle}>GRAPH INFOGRAPHY</h3>
+              <div className={styles.chartContent}>
+                <div className={styles.chartWrapper}>
+                  <ResponsiveContainer width="100%" height={300}>
+                    <PieChart>
+                      <Pie
+                        data={graphInfographyData}
+                        cx="50%"
+                        cy="50%"
+                        innerRadius={60}
+                        outerRadius={120}
+                        paddingAngle={5}
+                        dataKey="value"
+                        label={CustomLabel}
+                        labelLine={false}
+                      >
+                        {graphInfographyData.map((entry, index) => (
+                          <Cell key={`cell-${index}`} fill={entry.color} />
+                        ))}
+                      </Pie>
+                      <Tooltip 
+                        contentStyle={{ 
+                          backgroundColor: 'rgba(26, 11, 63, 0.95)', 
+                          border: '2px solid #0fdac2', 
+                          color: '#ffffff',
+                          borderRadius: '8px',
+                          padding: '12px'
+                        }} 
+                        formatter={(value: any, name: any) => [`${name}: ${value}%`, '']}
+                      />
+                    </PieChart>
+                  </ResponsiveContainer>
+                  <div className={styles.chartCenterIcon}>
+                    <div className={styles.chartCenterContent}>
+                      <span className={styles.chartCenterText}>Opti</span>
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" fill="rgba(255,255,255,0.8)"/>
+                      </svg>
+                      <span className={styles.chartCenterNumber}>25</span>
+                    </div>
+                  </div>
+                </div>
+                <div className={styles.optionsList}>
+                  {graphInfographyData.map((option, index) => (
+                    <div key={index} className={styles.optionItem}>
+                      <div className={styles.optionHeader}>
+                        <span className={styles.optionLabel} style={{ color: option.color }}>
+                          OPTION {option.label}
+                        </span>
+                        <div
+                          className={styles.optionConnector}
+                          style={{ backgroundColor: option.color }}
+                        ></div>
+                      </div>
+                      <p className={styles.optionDescription}>{option.description}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Chart 2: Process Infography */}
+          <div className={styles.imageWrapper}>
+            <div className={styles.chartContainer}>
+              <h3 className={styles.chartTitle}>PROCESS INFOGRAPHY</h3>
+              <div className={styles.processChartsGrid}>
+                {processInfographyData.map((process, index) => (
+                  <div key={index} className={styles.processChartItem}>
+                    {index === 0 ? (
+                      <div className={styles.processChartWrapper}>
+                        <ResponsiveContainer width="100%" height={250}>
+                          <PieChart>
+                            <Pie
+                              data={[{ name: process.name, value: process.value }, { name: 'Remaining', value: 100 - process.value }]}
+                              cx="50%"
+                              cy="50%"
+                              innerRadius={60}
+                              outerRadius={100}
+                              startAngle={90}
+                              endAngle={-270}
+                              dataKey="value"
+                            >
+                              <Cell fill={process.color} />
+                              <Cell fill="rgba(255,255,255,0.1)" />
+                            </Pie>
+                          </PieChart>
+                        </ResponsiveContainer>
+                        <div className={styles.processCenterLabel}>
+                          <div className={styles.processCenterPercentage}>{process.value}%</div>
+                          <div className={styles.processCenterText}>{process.name}</div>
+                        </div>
+                      </div>
+                    ) : (
+                      <div className={styles.processChartWrapper}>
+                        <ResponsiveContainer width="100%" height={160}>
+                          <PieChart>
+                            <Pie
+                              data={[{ name: process.name, value: process.value }, { name: 'Remaining', value: 100 - process.value }]}
+                              cx="50%"
+                              cy="50%"
+                              innerRadius={50}
+                              outerRadius={70}
+                              startAngle={90}
+                              endAngle={-270}
+                              dataKey="value"
+                            >
+                              <Cell fill={process.color} />
+                              <Cell fill="rgba(255,255,255,0.1)" />
+                            </Pie>
+                          </PieChart>
+                        </ResponsiveContainer>
+                        <div className={styles.processBottomCenterLabel}>
+                          <div className={styles.processBottomPercentage}>{process.value}%</div>
+                          <div className={styles.processBottomContent}>
+                            <p>{process.name}</p>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Chart 3: Analytics Overview */}
+          <div className={styles.imageWrapper}>
+            <div className={styles.chartContainer}>
+              <h3 className={styles.chartTitle}>ANALYTICS OVERVIEW</h3>
+              <div className={styles.analyticsCharts}>
+                {analyticsData.map((item, index) => (
+                  <div key={index} className={styles.analyticsBarItem}>
+                    <div className={styles.analyticsBarContainer}>
+                      <div
+                        className={styles.analyticsBarFill}
+                        style={{
+                          backgroundColor: item.color,
+                          boxShadow: `0 0 20px ${item.color}40`,
+                          height: `${item.value}%`,
+                        } as React.CSSProperties}
+                      >
+                        <div className={styles.analyticsPercentageInside}>{item.value}%</div>
+                        <div className={styles.analyticsIcon}>
+                          {index === 0 && '🌐'}
+                          {index === 1 && '🔽'}
+                          {index === 2 && '🔍'}
+                          {index === 3 && '❤️'}
+                          {index === 4 && '📈'}
+                        </div>
+                      </div>
+                    </div>
+                    <div className={styles.analyticsInfo}>
+                      <h4 className={styles.analyticsName}>DATA {item.name.toUpperCase()}</h4>
+                      <p className={styles.analyticsDescription}>{item.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Chart 4: Digital Agency Performance Data */}
+          <div className={styles.imageWrapper}>
+            <div className={styles.chartContainer}>
+              <h3 className={styles.chartTitle}>DIGITAL AGENCY PERFORMANCE DATA</h3>
+              <div className={styles.chartContent}>
+                <div className={styles.chartWrapper}>
+                  <ResponsiveContainer width="100%" height={300}>
+                    <PieChart>
+                      <Pie
+                        data={agencyPerformanceData}
+                        cx="50%"
+                        cy="50%"
+                        innerRadius={60}
+                        outerRadius={120}
+                        paddingAngle={5}
+                        dataKey="value"
+                      >
+                        {agencyPerformanceData.map((entry, index) => (
+                          <Cell key={`cell-${index}`} fill={entry.color} />
+                        ))}
+                      </Pie>
+                      <Tooltip 
+                        contentStyle={{ 
+                          backgroundColor: 'rgba(26, 11, 63, 0.95)', 
+                          border: '2px solid #0fdac2', 
+                          color: '#ffffff',
+                          borderRadius: '8px',
+                          padding: '12px'
+                        }} 
+                      />
+                    </PieChart>
+                  </ResponsiveContainer>
+                </div>
+                <div className={styles.optionsList}>
+                  {agencyPerformanceData.map((option, index) => (
+                    <div key={index} className={styles.optionItem}>
+                      <div className={styles.optionHeader}>
+                        <span className={styles.optionLabel} style={{ color: option.color }}>
+                          OPTION {String.fromCharCode(65 + (index === 3 ? 3 : index))}
+                        </span>
+                        <div
+                          className={styles.optionConnector}
+                          style={{ backgroundColor: option.color }}
+                        ></div>
+                      </div>
+                      <p className={styles.optionDescription}>{option.description}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Container>
+      <div> 
+        {/* <div className={styles.dashboardGrid}>
           <div className={styles.leftColumn}>
-            {/* Performance Score */}
             <div className={styles.scoreCard}>
               <div className={styles.scoreGauge}>
                 <svg width="200" height="200" viewBox="0 0 200 200" className={styles.gaugeSvg}>
@@ -161,7 +441,6 @@ const CreativeScore = () => {
                 <div className={styles.scoreLabel}>{performanceScore.label}</div>
               </div>
 
-              {/* Categories */}
               <div className={styles.categoriesList}>
                 {categories.map((category, index) => (
                   <div
@@ -184,7 +463,6 @@ const CreativeScore = () => {
                 ))}
               </div>
 
-              {/* Recommendations */}
               <div className={styles.recommendationsSection}>
                 <h3 className={styles.recommendationsHeading}>Recommendations</h3>
                 {recommendations.slice(0, 1).map((rec, index) => (
@@ -196,9 +474,7 @@ const CreativeScore = () => {
             </div>
           </div>
 
-          {/* Middle Column */}
           <div className={styles.middleColumn}>
-            {/* Radar Chart */}
             <div className={styles.radarChartCard}>
               <div className={styles.radarChartHeader}>
                 {radarChart.datasets.map((dataset, index) => (
@@ -213,7 +489,6 @@ const CreativeScore = () => {
               </div>
               <div className={styles.radarChartContainer}>
                 <svg width="300" height="300" viewBox="0 0 300 300" className={styles.radarSvg}>
-                  {/* Background grid */}
                   {[0.25, 0.5, 0.75, 1].map((scale, i) => (
                     <circle
                       key={i}
@@ -225,7 +500,6 @@ const CreativeScore = () => {
                       strokeWidth="1"
                     />
                   ))}
-                  {/* Grid lines */}
                   {radarChart.metrics.map((_, index) => {
                     const angle = (Math.PI * 2 * index) / radarChart.metrics.length - Math.PI / 2;
                     const x2 = centerX + Math.cos(angle) * radius;
@@ -242,7 +516,6 @@ const CreativeScore = () => {
                       />
                     );
                   })}
-                  {/* Datasets */}
                   {radarChart.datasets.map((dataset, datasetIndex) => {
                     const points = dataset.metrics.map((metric, index) => {
                       const point = getRadarPoint(
@@ -284,7 +557,6 @@ const CreativeScore = () => {
                       </g>
                     );
                   })}
-                  {/* Labels */}
                   {radarChart.metrics.map((metric, index) => {
                     const angle = (Math.PI * 2 * index) / radarChart.metrics.length - Math.PI / 2;
                     const labelRadius = radius + 30;
@@ -306,7 +578,6 @@ const CreativeScore = () => {
                 </svg>
               </div>
 
-              {/* Recommendations */}
               <div className={styles.radarRecommendations}>
                 <h3 className={styles.recommendationsHeading}>Recommendations</h3>
                 {recommendations.map((rec, index) => (
@@ -319,9 +590,7 @@ const CreativeScore = () => {
             </div>
           </div>
 
-          {/* Right Column */}
           <div className={styles.rightColumn}>
-            {/* Asset Details */}
             <div className={styles.assetDetailsCard}>
               <div className={styles.assetDetailItem}>
                 <span className={styles.assetLabel}>Asset Type:</span>
@@ -337,7 +606,6 @@ const CreativeScore = () => {
               </div>
             </div>
 
-            {/* UI Preview */}
             <div className={styles.uiPreviewCard}>
               <div className={styles.uiPreviewHeader}>
                 <div className={styles.uiPreviewDots}>
@@ -360,7 +628,7 @@ const CreativeScore = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

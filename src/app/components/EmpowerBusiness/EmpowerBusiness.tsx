@@ -15,7 +15,7 @@ export default function EmpowerBusiness({
 }: EmpowerBusinessProps) {
   return (
     <section className={`${styles.section} sectionPadding ${className}`}>
-      <Container maxWidth="xl" className="px-0">
+      <Container maxWidth="mxl" className="px-0">
         <div className={styles.contentWrapper}>
           {/* Left Section - Image */}
           <div className={styles.imageSection}>

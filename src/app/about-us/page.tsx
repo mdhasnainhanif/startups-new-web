@@ -22,7 +22,6 @@ const page = () => {
   return (
       <>
         <AboutUsBanner {...ABOUT_US_BANNER} />
-        
         <LogosSlider/>
         <OurCoreValue {...OUR_CORE_VALUES} />        
         <WhyChoose {...WHY_CHOOSE_US} />

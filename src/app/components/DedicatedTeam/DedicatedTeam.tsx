@@ -44,7 +44,7 @@ export default function DedicatedTeam({
   return (
     <section className={`${styles.section} sectionPadding ${className}`}>
       <Container maxWidth="xl">
-        <div className="sectionHeading forH2 text-center">
+        <div className="sectionHeading forH2 text-center md:max-w-xl mx-auto">
           <h2>
             <span className="text-white">{heading.part1} </span>
             <span className="text-[#0fdac2]">{heading.highlight}</span>

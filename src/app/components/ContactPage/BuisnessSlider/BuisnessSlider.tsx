@@ -35,8 +35,8 @@ const BusinessSlider: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-4 relative z-10">
         {/* Heading */}
-        <div className="text-center mb-12">
-          <h2 className="md:text-4xl text-2xl lg:text-5xl font-semibold text-white">
+        <div className="text-center mb-12 sectionHeading forH2 max-w-3xl mx-auto">
+          <h2>
           Growing <span className="text-teal-400">Businesses</span> Need Real Support
           </h2>
           <p className="mt-4 text-gray-300 max-w-2xl mx-auto">

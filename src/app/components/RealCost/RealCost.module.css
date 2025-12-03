@@ -188,7 +188,7 @@ p.conclusion {
 }
 
 .selectWrapper {
-  position: relative;
+  /* position: relative; */
   flex: 1;
   display: flex;
   align-items: center;
@@ -240,7 +240,7 @@ p.conclusion {
 
 .dropdownMenu {
   position: absolute;
-  top: calc(100% + 8px);
+  top: calc(100% + 2px);
   left: 0;
   right: 0;
   width: 100%;

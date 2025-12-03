@@ -217,9 +217,9 @@ export const TECHNOLOGIES_SECTION = {
 
 export const ABOUT_US_BANNER = {
   heading: {
-    part1: "Building Stronger ",
-    highlight: "Businesses",
-    part2: " That Grow Every Day",
+    part1: "Building Stronger Businesses That Grow Every Day",
+    highlight: "",
+    part2: "",
     highlight2: "",
   },
   description:

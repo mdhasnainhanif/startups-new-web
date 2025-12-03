@@ -18,7 +18,7 @@ export default function AboutUsBanner({
     >
       <Container maxWidth="xl" className="px-0">
         <div className={`flex flex-col items-center text-center gap-6 md:gap-8 md:pt-50 sectionHeading`}>
-          <h1 className='md:max-w-4xl'>
+          <h1>
             <span className="text-white">{heading.part1}</span>
             {heading.highlight && (
               <span className="text-[#0fdac2]">{heading.highlight}</span>
