@@ -3,15 +3,16 @@
 import Image from 'next/image';
 import Container from '../../Container';
 import { TOOLS_TRAINED_DATA } from '../../../data/Page2';
+import styles from './ToolsTrained.module.css';
 
 const ToolsTrained = () => {
   return (
-    <section className="sectionPadding bg-[#020016]">
+    <section className={`sectionPadding bg-[#020016] ${styles.section}`}>
       <Container maxWidth="xl">
         <div className="flex flex-col gap-8">
           {/* Heading */}
-          <div className="text-center max-w-4xl mx-auto">
-            <h2 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
+          <div className="text-center max-w-2xl mx-auto sectionHeading forH2">
+            <h2>
               <span className="text-white">{TOOLS_TRAINED_DATA.headline.part1}</span>
               <span className="text-[#0fdac2]">{TOOLS_TRAINED_DATA.headline.part2}</span>
               <span className="text-white">{TOOLS_TRAINED_DATA.headline.part3}</span>

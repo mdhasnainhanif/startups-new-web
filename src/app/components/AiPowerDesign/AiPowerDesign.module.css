@@ -162,8 +162,8 @@
 } */
 
 .gridItemActive:hover {
-  background: #7c52ff;
-  border-color: #7c52ff;
+  background: #653bff66;
+    border-color: #653bff99;
   box-shadow: 0 0.375rem 1rem rgba(101, 59, 255, 0.5);
 }
 

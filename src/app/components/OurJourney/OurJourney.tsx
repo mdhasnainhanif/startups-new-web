@@ -26,6 +26,7 @@ export default function OurJourney({ items, className = "" }: OurJourneyProps) {
           Our <span className="text-[#0fdac2]">Journey</span>
         </h2>
       </div>
+      <div className={styles.listMain}>
       <div className={styles.list}>
         {steps.map((s, i) => (
           <div
@@ -65,6 +66,7 @@ export default function OurJourney({ items, className = "" }: OurJourneyProps) {
             )}
           </div>
         ))}
+      </div>
       </div>
     </section>
   );

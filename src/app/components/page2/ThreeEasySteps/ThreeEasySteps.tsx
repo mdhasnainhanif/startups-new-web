@@ -9,11 +9,11 @@ import styles from './ThreeEasySteps.module.css';
 const ThreeEasySteps = () => {
   return (
     <section className={`sectionPadding ${styles.threeEasyStepsSection}`}>
-      <Container maxWidth="xl" className="px-0">
+      <Container maxWidth="xl">
         <div className={styles.contentWrapper}>
           {/* Heading */}
-          <div className={styles.headingWrapper}>
-            <h2 className={styles.heading}>
+          <div className={`${styles.headingWrapper} sectionHeading forH2`}>
+            <h2>
               <span className={styles.headingPart1}>{THREE_EASY_STEPS_DATA.headline.part1}</span>
               <span className={styles.headingPart2}>{THREE_EASY_STEPS_DATA.headline.part2}</span>
             </h2>

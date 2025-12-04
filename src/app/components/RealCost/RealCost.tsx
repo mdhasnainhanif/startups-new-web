@@ -96,8 +96,9 @@ const REAL_COST_DATA: RealCostData = {
       costBreakdown: {
         label: 'Cost Breakdown',
         segments: [
-          { label: 'Segment 1', value: 35, color: '#643BFF', gradient: ['#0fdac2', '#643BFF'] },
-          { label: 'Segment 2', value: 65, color: '#643bff', gradient: ['#643bff', '#8b5cf6'] },
+          { label: 'Segment 1', value: 50, color: '#0fdac2', gradient: ['#0fdac2', '#643BFF'] },
+          { label: 'Segment 2', value: 100, color: '#643bff', gradient: ['#643bff', '#8b5cf6'] },
+          { label: 'Segment 3', value: 5, color: '#643BFF', gradient: ['#643BFF', '#643BFF'] },
         ],
       },
     },
@@ -252,7 +253,7 @@ const RealCost = () => {
                 {/* Designer Type Dropdown */}
                 <div className={styles.fieldWrapper}>
                   <div className={styles.fieldIcon}>
-                    <Image width={20} height={20} src="/assets/images/icons/icon_designer-type.svg" alt="" />
+                    <Image width={28} height={28} src="/assets/images/icons/icon_designer-type.svg" alt="" />
                   </div>
                   <div className={styles.selectWrapper} ref={dropdownRef}>
                     <div
@@ -297,7 +298,7 @@ const RealCost = () => {
                 {/* Monthly Cost */}
                 <div className={styles.fieldWrapper}>
                   <div className={styles.fieldIcon}>
-                  <Image width={20} height={20} src="/assets/images/icons/icon_monthly-cost.svg" alt="" />
+                  <Image width={28} height={28} src="/assets/images/icons/icon_monthly-cost.svg" alt="" />
                   </div>
                   <input
                     type="text"
@@ -313,7 +314,7 @@ const RealCost = () => {
                 {/* Annual Cost */}
                 <div className={styles.fieldWrapper}>
                   <div className={styles.fieldIcon}>
-                  <Image width={20} height={20} src="/assets/images/icons/icon_annual-cost.svg" alt="" />
+                  <Image width={28} height={28} src="/assets/images/icons/icon_annual-cost.svg" alt="" />
                   </div>
                   <input
                     type="text"
@@ -366,7 +367,7 @@ const RealCost = () => {
                     {REAL_COST_DATA.calculator.charts.costBreakdown.label}
                   </p>
                   <div className={styles.donutChart}>
-                    <svg width="120" height="120" viewBox="0 0 120 120">
+                    <svg width="120" height="130" viewBox="0 0 120 120">
                       <defs>
                         {REAL_COST_DATA.calculator.charts.costBreakdown.segments.map((segment, index) => (
                           <linearGradient key={index} id={`gradient${index}`} x1="0%" y1="0%" x2="100%" y2="100%">

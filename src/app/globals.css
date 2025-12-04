@@ -188,6 +188,9 @@ p.topPara{
 }
 
 @media screen and (max-width: 576px) {
+  .keyGrowthTechnologySection .sectionHeading{
+    max-width: 100% !important;
+  }
   .inputFieldWrapper {
     background: #1c0d54;
     border-radius: 0.5rem;
@@ -406,6 +409,10 @@ section.designerPageCaseStudy .stack-cards__item{
 button.inputFieldBtn{
   position: absolute;
   right: 0.725rem;
+}
+
+.keyGrowthTechnologySection .sectionHeading{
+  max-width: 50rem;
 }
 
 /* .realCostCard .swiper{

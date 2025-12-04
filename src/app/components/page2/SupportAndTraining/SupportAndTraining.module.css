@@ -21,7 +21,7 @@
   gap: 1.5rem;
   background: #21184A;
   border-radius: 0.75rem;
-  padding: 2rem;
+  padding: 1rem;
 }
 
 .imageWrapper {
@@ -29,6 +29,16 @@
   width: 100%;
   border-radius: 0.5rem;
   overflow: hidden;
+}
+
+.card2 {
+  padding: 2rem !important;
+}
+
+.label2{
+  margin-top: 2rem !important;
+  margin-bottom: 1rem;
+  border: 1px solid var(--color-primary) !important;
 }
 
 .cardImage {
@@ -42,17 +52,17 @@
 .label {
   display: inline-block;
   width: fit-content;
-  padding: 0.5rem 1rem;
+  padding: 0.225rem 2rem 0.425rem;
   border-radius: 0.5rem;
   border: 1px solid #643BFF;
   background: transparent;
   color: #ffffff;
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-weight: 600;
 }
 
 .heading {
-  font-size: 2.25rem;
+  font-size: 2.5rem;
   font-weight: 700;
   color: #ffffff;
   line-height: 1.2;
@@ -60,7 +70,7 @@
 }
 
 .description {
-  font-size: 1.125rem;
+  font-size: 1.25rem;
   color: #ffffff;
   line-height: 1.75;
   margin: 0;

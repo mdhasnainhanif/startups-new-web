@@ -8,7 +8,7 @@
   padding-top: 9.25rem;
 }
 .wrap::before {
-  /* content: ""; */
+  content: "";
   position: absolute;
   top: 30%;
   left: 0;
@@ -17,6 +17,13 @@
   background: url("/assets/images/1.webp") no-repeat;
   background-size: cover;
 }
+
+/* .listMain{
+  border: 1px solid red;
+  background: url("/assets/images/borderline.png");
+  background-size: cover;
+  background-position: center;
+} */
 
 .list {
   max-width: 1120px;
@@ -28,9 +35,6 @@
   width: 100%;
   padding: 0 1rem;
   box-sizing: border-box;
-  background: url("/assets/images/borderline.png") no-repeat;
-  background-size: cover;
-  background-position: center;
 }
 
 .item {
@@ -65,7 +69,7 @@
   position: relative;
 }
 .line01:before {
-  /* content: ""; */
+  content: "";
   border-top: 5px solid #272681;
   border-bottom: 5px solid #272681;
   width: 76.8%;
@@ -76,7 +80,7 @@
   transform: translate(-50%, -50%);
 }
 .line01:after {
-  /* content: ""; */
+  content: "";
   border-top: 5px solid #272681;
   border-bottom: 5px solid #272681;
   border-left: 5px solid #272681;
@@ -92,7 +96,7 @@
   position: relative;
 }
 .line02:before {
-  /* content: ""; */
+  content: "";
   border-top: 5px solid #272681;
   border-bottom: 5px solid #272681;
   border-right: 5px solid #272681;
@@ -109,7 +113,7 @@
   position: relative;
 }
 .line03:before {
-  /* content: ""; */
+  content: "";
   border-top: 5px solid #272681;
   border-bottom: 5px solid #272681;
   width: 76.8%;
@@ -120,7 +124,7 @@
   transform: translate(-50%, -50%);
 }
 .line03:after {
-  /* content: ""; */
+  content: "";
   border-top: 5px solid #272681;
   border-bottom: 5px solid #272681;
   border-left: 5px solid #272681;
@@ -137,7 +141,7 @@
   position: relative;
 }
 .line04:before {
-  /* content: ""; */
+  content: "";
   border-top-right-radius: 200px;
   border-bottom-right-radius: 200px;
   width: 137px;
@@ -150,7 +154,7 @@
   border-right: 5px solid #272681;
 }
 .line04:after {
-  /* content: ""; */
+  content: "";
   border-top: 5px solid #272681;
   border-bottom: 5px solid #272681;
   width: 75.5%;
