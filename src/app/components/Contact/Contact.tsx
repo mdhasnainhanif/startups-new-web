@@ -5,7 +5,7 @@ import { GlobeIcon } from "../../icons";
 import Button from "../Button";
 import Container from "../Container";
 import styles from "./Contact.module.css";
-
+import { submitEmail } from '../../lib/api/email';
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
@@ -36,15 +36,8 @@ export default function Contact() {
     setErrorMessage("");
 
     try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
 
-      const data = await response.json();
+      const response = await submitEmail(formData);
 
       if (response.ok) {
         setSuccessMessage("Thank you! Your message has been sent successfully.");
@@ -57,11 +50,8 @@ export default function Contact() {
         });
       } else {
         // Display detailed error message
-        const errorMsg = data.details 
-          ? `${data.error}: ${data.details}${data.code ? ` (Code: ${data.code})` : ''}`
-          : data.error || "Failed to send message. Please try again.";
-        setErrorMessage(errorMsg);
-        console.error("API Error:", data);
+      
+        console.error("API Error:", response);
       }
     } catch (error) {
       console.error("Form submission error:", error);
