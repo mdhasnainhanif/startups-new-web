@@ -2,8 +2,6 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import Button from "../../Button";
-import { ArrowRightIcon } from "../../icons";
 import styles from "./BusinessPlaylist.module.css";
 
 type PlaylistItem = {
@@ -56,10 +54,10 @@ const BusinessPlaylist: React.FC<BusinessPlaylistProps> = ({
     <section className={`${styles.section} sectionPadding`}>
       <div className="max-w-7xl mx-auto px-4">
         {/* Main Heading */}
-        <div className="sectionHeading forH2 mb-12 text-center max-w-3xl mx-auto">
+        <div className="sectionHeading forH2 mb-12 text-center md:max-w-2xl mx-auto">
           <h2>
-            {mainTitle}{" "}
-            <span className="text-[#0fdac2]">{highlightTitle}</span>{" "}
+            {mainTitle}
+            <span className="text-[#0fdac2]">{highlightTitle}</span>
           </h2>
           <p>
             {subtitle}

@@ -144,36 +144,36 @@ export const TECHNOLOGIES_SECTION = {
     // ------------------------------------------------------------
     creative: [
       // Graphic Design
-      { id: 1, name: "Adobe Photoshop", icon: "Ps", iconColor: "#31a8ff" },
-      { id: 2, name: "Adobe Illustrator", icon: "Ai", iconColor: "#ff9a00" },
-      { id: 3, name: "Adobe InDesign", icon: "Id", iconColor: "#ff3366" },
-      { id: 4, name: "Affinity Designer", icon: "Ad", iconColor: "#1bbcfe" },
-      { id: 5, name: "Affinity Photo", icon: "Ap", iconColor: "#7d4cf5" },
+      { id: 1, name: "Adobe Photoshop", icon: "/assets/images/creative-design/adobe-photoshop.svg", iconColor: "#31a8ff" },
+      { id: 2, name: "Adobe Illustrator", icon: "/assets/images/creative-design/adobe-illustrator.svg", iconColor: "#ff9a00" },
+      { id: 3, name: "Adobe InDesign", icon: "/assets/images/creative-design/adobe-indesign.svg", iconColor: "#ff3366" },
+      { id: 4, name: "Affinity Designer", icon: "/assets/images/creative-design/affinity-designer.svg", iconColor: "#1bbcfe" },
+      { id: 5, name: "Affinity Photo", icon: "/assets/images/creative-design/affinity-photo.svg", iconColor: "#7d4cf5" },
 
       // UI/UX
-      { id: 6, name: "Figma", icon: "F", iconColor: "#a259ff" },
-      { id: 7, name: "Sketch", icon: "Sk", iconColor: "#f7b500" },
-      { id: 8, name: "Adobe XD", icon: "Xd", iconColor: "#ff61f6" },
-      { id: 9, name: "Axure RP", icon: "Ax", iconColor: "#3366ff" },
-      { id: 10, name: "Framer", icon: "Fr", iconColor: "#0055ff" },
+      { id: 6, name: "Figma", icon: "/assets/images/technology/figma.svg", iconColor: "#a259ff" },
+      { id: 7, name: "Sketch", icon: "/assets/images/creative-design/sketch.svg", iconColor: "#f7b500" },
+      { id: 8, name: "Adobe XD", icon: "/assets/images/creative-design/adobe-xd.svg", iconColor: "#ff61f6" },
+      { id: 9, name: "Axure RP", icon: "/assets/images/creative-design/axure.svg", iconColor: "#3366ff" },
+      { id: 10, name: "Framer", icon: "/assets/images/creative-design/framer.svg", iconColor: "#0055ff" },
 
       // Motion Graphics / Video
-      { id: 11, name: "Premiere Pro", icon: "Pr", iconColor: "#9999ff" },
-      { id: 12, name: "After Effects", icon: "Ae", iconColor: "#8b5cf6" },
-      { id: 13, name: "Final Cut Pro", icon: "Fc", iconColor: "#ffffff" },
-      { id: 14, name: "DaVinci Resolve", icon: "Dv", iconColor: "#1d1d1d" },
-      { id: 15, name: "Blender (3D)", icon: "B", iconColor: "#e87d0d" },
+      { id: 11, name: "Premiere Pro", icon: "/assets/images/creative-design/adobe-premiere-pro.svg", iconColor: "#9999ff" },
+      { id: 12, name: "After Effects", icon: "/assets/images/creative-design/after-effects.svg", iconColor: "#8b5cf6" },
+      { id: 13, name: "Final Cut Pro", icon: "/assets/images/creative-design/final-cut-pro.svg", iconColor: "#ffffff" },
+      { id: 14, name: "DaVinci Resolve", icon: "/assets/images/creative-design/davinci-resolve.svg", iconColor: "#1d1d1d" },
+      { id: 15, name: "Blender (3D)", icon: "/assets/images/creative-design/blender-3d.svg", iconColor: "#e87d0d" },
 
       // 3D Tools
-      { id: 16, name: "Cinema 4D", icon: "C4", iconColor: "#1d4ed8" },
-      { id: 17, name: "Maya", icon: "M", iconColor: "#00b0b9" },
-      { id: 18, name: "ZBrush", icon: "Z", iconColor: "#ffffff" },
+      { id: 16, name: "Cinema 4D", icon: "/assets/images/creative-design/cinema-4d.svg", iconColor: "#1d4ed8" },
+      { id: 17, name: "Maya", icon: "/assets/images/creative-design/maya.svg", iconColor: "#00b0b9" },
+      { id: 18, name: "ZBrush", icon: "/assets/images/creative-design/zbrush.svg", iconColor: "#ffffff" },
 
       // Creative Productivity
-      { id: 19, name: "Miro", icon: "Mi", iconColor: "#ffd02f" },
-      { id: 20, name: "Notion", icon: "N", iconColor: "#000000" },
-      { id: 21, name: "Canva", icon: "Ca", iconColor: "#00c4cc" },
-      { id: 22, name: "Procreate", icon: "Pr", iconColor: "#ffffff" },
+      { id: 19, name: "Miro", icon: "/assets/images/creative-design/miro.svg", iconColor: "#ffd02f" },
+      { id: 20, name: "Notion", icon: "/assets/images/creative-design/notion.svg", iconColor: "#fff" },
+      { id: 21, name: "Canva", icon: "/assets/images/creative-design/canva.svg", iconColor: "#00c4cc" },
+      { id: 22, name: "Procreate", icon: "/assets/images/creative-design/procreate.svg", iconColor: "#ffffff" },
     ],
 
     // ------------------------------------------------------------
@@ -181,37 +181,37 @@ export const TECHNOLOGIES_SECTION = {
     // ------------------------------------------------------------
     marketing: [
       // Analytics
-      { id: 1, name: "Google Analytics (GA4)", icon: "G", iconColor: "#f9ab00" },
-      { id: 2, name: "Google Search Console", icon: "G", iconColor: "#34a853" },
-      { id: 3, name: "Mixpanel", icon: "M", iconColor: "#a855f7" },
-      { id: 4, name: "Amplitude", icon: "A", iconColor: "#1e40af" },
-      { id: 5, name: "Hotjar", icon: "H", iconColor: "#ff3b30" },
+      { id: 1, name: "Google Analytics (GA4)", icon: "/assets/images/marketing-growth/google-analytics.svg", iconColor: "#f9ab00" },
+      { id: 2, name: "Google Search Console", icon: "/assets/images/marketing-growth/google-search-console.svg", iconColor: "#34a853" },
+      { id: 3, name: "Mixpanel", icon: "/assets/images/marketing-growth/mixpanel.svg", iconColor: "#a855f7" },
+      { id: 4, name: "Amplitude", icon: "/assets/images/marketing-growth/amplitude.svg", iconColor: "#1e40af" },
+      { id: 5, name: "Hotjar", icon: "/assets/images/marketing-growth/hotjar.svg", iconColor: "#ff3b30" },
 
       // SEO
-      { id: 6, name: "Ahrefs", icon: "A", iconColor: "#1e90ff" },
-      { id: 7, name: "SEMrush", icon: "S", iconColor: "#ff6b35" },
-      { id: 8, name: "Moz", icon: "Mz", iconColor: "#2d8cff" },
+      { id: 6, name: "Ahrefs", icon: "/assets/images/marketing-growth/ahrefs.svg", iconColor: "#1e90ff" },
+      { id: 7, name: "SEMrush", icon: "/assets/images/marketing-growth/semrush.svg", iconColor: "#ff6b35" },
+      { id: 8, name: "Moz", icon: "/assets/images/marketing-growth/moz.svg", iconColor: "#2d8cff" },
       { id: 9, name: "Screaming Frog", icon: "Sf", iconColor: "#00d084" },
-      { id: 10, name: "Surfer SEO", icon: "Su", iconColor: "#ff6b9d" },
+      { id: 10, name: "Surfer SEO", icon: "/assets/images/marketing-growth/surfer-seo.svg", iconColor: "#ff6b9d" },
 
       // Email marketing
-      { id: 11, name: "Mailchimp", icon: "M", iconColor: "#ffe01b" },
-      { id: 12, name: "Klaviyo", icon: "K", iconColor: "#11c37f" },
-      { id: 13, name: "ConvertKit", icon: "C", iconColor: "#ff6666" },
-      { id: 14, name: "HubSpot", icon: "H", iconColor: "#ff7a59" },
+      { id: 11, name: "Mailchimp", icon: "/assets/images/marketing-growth/mailchimp.svg", iconColor: "#ffe01b" },
+      { id: 12, name: "Klaviyo", icon: "/assets/images/marketing-growth/klaviyo.svg", iconColor: "#11c37f" },
+      { id: 13, name: "ConvertKit", icon: "/assets/images/marketing-growth/convertkit.svg", iconColor: "#ff6666" },
+      { id: 14, name: "HubSpot", icon: "/assets/images/marketing-growth/hubspot.svg", iconColor: "#ff7a59" },
 
       // Social Media
-      { id: 15, name: "Hootsuite", icon: "H", iconColor: "#000000" },
-      { id: 16, name: "Buffer", icon: "B", iconColor: "#1a73e8" },
+      { id: 15, name: "Hootsuite", icon: "/assets/images/marketing-growth/hootsuite.svg", iconColor: "#000000" },
+      { id: 16, name: "Buffer", icon: "/assets/images/marketing-growth/buffer.svg", iconColor: "#1a73e8" },
       { id: 17, name: "Later", icon: "L", iconColor: "#5b21b6" },
-      { id: 18, name: "Sprout Social", icon: "Ss", iconColor: "#00c06a" },
+      { id: 18, name: "Sprout Social", icon: "/assets/images/marketing-growth/sprout-social.svg", iconColor: "#00c06a" },
 
       // Advertising & Growth
-      { id: 19, name: "Google Ads", icon: "Ga", iconColor: "#4285f4" },
-      { id: 20, name: "Meta Ads Manager", icon: "M", iconColor: "#1877f2" },
-      { id: 21, name: "TikTok Ads", icon: "T", iconColor: "#ff0050" },
-      { id: 22, name: "LinkedIn Campaign Manager", icon: "Li", iconColor: "#0a66c2" },
-      { id: 23, name: "Zapier (Automation)", icon: "Z", iconColor: "#ff4f00" },
+      { id: 19, name: "Google Ads", icon: "/assets/images/marketing-growth/google-ads.svg", iconColor: "#4285f4" },
+      { id: 20, name: "Meta Ads Manager", icon: "/assets/images/marketing-growth/meta-ads-manager.svg", iconColor: "#1877f2" },
+      { id: 21, name: "TikTok Ads", icon: "/assets/images/marketing-growth/tiktok-add.svg", iconColor: "#ff0050" },
+      { id: 22, name: "LinkedIn Campaign Manager", icon: "/assets/images/marketing-growth/linkedIn-campaign-manager.svg", iconColor: "#0a66c2" },
+      { id: 23, name: "Zapier (Automation)", icon: "/assets/images/marketing-growth/zapier.svg", iconColor: "#ff4f00" },
     ],
   },
 };

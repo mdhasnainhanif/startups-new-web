@@ -196,8 +196,13 @@
 
 .tabsContainer .navArrow:hover:not(.navArrowDisabled) {
   background: #2a2558;
-  transform: translateY(-50%) scale(1.1);
+  transform: translateY(-50%);
 }
+
+/* .tabsContainer .navArrow:hover{
+  background: #643bff !important;
+  transition: 0.3s all;
+} */
 
 .tabsContainer .navArrowLeft {
   left: 10px;

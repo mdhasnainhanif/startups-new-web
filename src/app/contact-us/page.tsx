@@ -48,7 +48,7 @@ export default function ContactPage() {
 
   const playlistData = {
     mainTitle: "Growing Businesses Need",
-    highlightTitle: "Clear Direction",
+    highlightTitle: " Clear Direction",
     subtitle:
       "You're great at what you do, but your marketing falls behind. Agencies cost a fortune. Freelancers disappear.",
     videoThumbnail: "/assets/images/tb.png",

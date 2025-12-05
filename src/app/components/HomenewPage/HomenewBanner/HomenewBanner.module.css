@@ -169,11 +169,13 @@
 .experienceBox::before {
   content: "";
   position: absolute;
-  inset: 0;
-  background-image: url("/assets/images/homenew-bg_img.png");
+  bottom: 0%;
+  right: -1rem;
+  width: 10rem;
+  height: 15rem;
+  background: url("/assets/images/1.webp") no-repeat;
   background-size: cover;
-  background-position: center;
-  opacity: 0.2;
+  opacity: 0.6;
 }
 
 .experienceBox > * {

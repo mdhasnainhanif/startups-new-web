@@ -109,7 +109,7 @@ export default function Header() {
                     isActive(link.href)
                       ? {
                           textShadow:
-                            "-7px 0 15px #00dbc1e6, 6px 1px 30px #0fdac287, 0 0 45px #0fdac2cc",
+                            "-9px 0 17px #00dbc1e6, 0px 6px 8px #0fdac287, 0 0 56px #0fdac2cc",
                         }
                       : {}
                   }
@@ -227,7 +227,7 @@ export default function Header() {
                   isActive(link.href)
                     ? {
                         textShadow:
-                          "-7px 0 15px #00dbc1e6, 6px 1px 30px #0fdac287, 0 0 45px #0fdac2cc",
+                          "-9px 0 17px #00dbc1e6, 0px 6px 8px #0fdac287, 0 0 56px #0fdac2cc",
                       }
                     : {}
                 }

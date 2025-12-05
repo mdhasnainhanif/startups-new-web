@@ -7,8 +7,8 @@
 .section::before {
   content: "";
   position: absolute;
-  top: 0%;
-  right: 0;
+  top: -15%;
+  right: -10%;
   width: 390px;
   height: 500px;
   background: url("/assets/images/1.webp") no-repeat;

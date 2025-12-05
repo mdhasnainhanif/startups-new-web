@@ -420,7 +420,7 @@ const ProvenSuccess = () => {
 
   return (
     <section className={`sectionPadding provenSuccess ${styles.section} ${styles.ProvenSuccess}`}>
-      <Container maxWidth="2xl" className="px-0">
+      <Container maxWidth="xl" className="px-0">
         {/* Header Section */}
         <div className={styles.header + " sectionHeading forH2"}>
           <h2>
@@ -641,8 +641,8 @@ const ProvenSuccess = () => {
           {currentTab.images.map((image, index) => (
             <div
               key={`${activeTab}-${index}`}
-              className="aspect-square bg-[rgba(29,14,87,0.3)] rounded-lg overflow-hidden border border-[rgba(101,59,255,0.2)]"
-            >
+              className="aspect-square rounded-lg overflow-hidden"
+            > 
               <img
                 src={image}
                 alt={`${currentTab.label} ${index + 1}`}

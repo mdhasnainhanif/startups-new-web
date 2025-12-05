@@ -9,7 +9,7 @@ import styles from './ReplacementGuarantee.module.css';
 
 const ReplacementGuarantee = () => {
   return (
-    <section className={`sectionPadding ${styles.replacementSection}`}>
+    <section className={` ${styles.replacementSection} py-4 pb-6`}>
       <Container maxWidth="xl" className="px-0">
         <div className={styles.contentWrapper}>
           {/* Left Section - Content */}

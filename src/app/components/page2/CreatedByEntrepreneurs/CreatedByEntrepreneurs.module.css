@@ -12,8 +12,8 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-  width: 30rem;
-  height: 40rem;
+  width: 35rem;
+  height: 45rem;
   position: absolute;
   top: 5%;
   right: 0%;
@@ -36,9 +36,13 @@
 
 .imageWrapper {
   position: relative;
+  padding: 1.5rem;
+  background: #1a1142;
+  border-radius: 1.5rem;
 }
 
 .image {
+  border-radius: 1.5rem;
   width: 100%;
 }
 

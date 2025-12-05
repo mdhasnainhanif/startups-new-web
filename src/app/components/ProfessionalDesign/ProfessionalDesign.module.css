@@ -3,6 +3,17 @@
   overflow: hidden;
 }
 
+.section::before {
+  content: "";
+  position: absolute;
+  top: 20%;
+  left: 0;
+  width: 28rem;
+  height: 36rem;
+  background: url("/assets/images/1.webp") no-repeat;
+  background-size: cover;
+}
+
 /* .contentWrapper {
   position: relative;
   z-index: 1;

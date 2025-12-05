@@ -26,6 +26,12 @@
   border-color: rgb(154 141 236 / 1);
 }
 
+@media (min-width: 1800px) {
+  div.pb_8{
+    padding-bottom: 5rem;
+  }
+}
+
 @media (max-width: 62rem) {
   .stack-cards__item {
     height: 50vh;

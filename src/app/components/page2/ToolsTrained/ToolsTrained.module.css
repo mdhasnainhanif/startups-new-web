@@ -7,8 +7,8 @@
     position: absolute;
     top: 10%;
     left: 0;
-    width: 450px;
-    height: 580px;
+    width: 33.125rem;
+    height: 42rem;
     background: url("/assets/images/1.webp") no-repeat;
     background-size: cover;
   }
