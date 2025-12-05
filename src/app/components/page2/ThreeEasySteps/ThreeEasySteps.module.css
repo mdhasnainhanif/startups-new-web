@@ -1,16 +1,16 @@
 .threeEasyStepsSection {
   position: relative;
   background: #020016;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .threeEasyStepsSection::before {
   content: "";
   position: absolute;
-  top: 30%;
-  left: 0;
-  width: 390px;
-  height: 500px;
+  top: 10%;
+  left: -10%  ;
+  width: 28rem;
+  height: 35rem;
   background: url("/assets/images/1.webp") no-repeat;
   background-size: cover;
 }
@@ -30,7 +30,7 @@
 
 .heading {
   font-size: 3rem;
-  font-weight: 700;
+  font-weight: 800;
   line-height: 1.2;
 }
 
@@ -50,7 +50,7 @@
 }
 
 .card {
-  background: linear-gradient(#110f29, #110f2900);
+  background: linear-gradient(180deg, #110f29 0%, #110f29 60%, #110f2900 100%);
   border-radius: 0.75rem;
   padding: 2rem;
   display: flex;
@@ -62,7 +62,7 @@
 
 .card:hover {
   transform: translateY(-0.5rem);
-  background: linear-gradient(#291f56, #3b348f00);
+  background: linear-gradient(#291f56 0%, #291f56e3 50%, #3b348f00 100%);
 }
 
 .number {
@@ -75,7 +75,7 @@
 .cardHeading {
   color: #fff;
   font-size: 2.5rem;
-  font-weight: 700;
+  font-weight: 800;
   line-height: 1.3;
 }
 

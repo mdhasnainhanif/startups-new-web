@@ -60,14 +60,6 @@ export default function GrowthSlider({ items }: { items: Guide[] }) {
         </div>
 
         <div className={styles.swiperWrapper}>
-          <button
-            onClick={handlePrev}
-            aria-label="Previous"
-            disabled={isBeginning}
-            className={`${styles.navButton} ${styles.navButtonLeft}`}
-          >
-            <span className={styles.arrowIcon}>‹</span>
-          </button>
           <Swiper
             modules={[Navigation]}
             spaceBetween={24}
@@ -153,14 +145,24 @@ export default function GrowthSlider({ items }: { items: Guide[] }) {
               </SwiperSlide>
             ))}
           </Swiper>
-          <button
-            onClick={handleNext}
-            aria-label="Next"
-            disabled={isEnd}
-            className={`${styles.navButton} ${styles.navButtonRight}`}
-          >
-            <span className={styles.arrowIcon}>›</span>
-          </button>
+          <div className={styles.navButtonWrapper}>
+            <button
+              onClick={handleNext}
+              aria-label="Next"
+              disabled={isEnd}
+              className={`${styles.navButton} ${styles.navButtonRight}`}
+            >
+              <span className={styles.arrowIcon}>›</span>
+            </button>
+            <button
+              onClick={handlePrev}
+              aria-label="Previous"
+              disabled={isBeginning}
+              className={`${styles.navButton} ${styles.navButtonLeft}`}
+            >
+              <span className={styles.arrowIcon}>‹</span>
+            </button>
+          </div>
         </div>
       </Container>
     </section>

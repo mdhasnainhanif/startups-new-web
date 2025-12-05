@@ -105,6 +105,7 @@ label {
 header {
   contain: layout style paint;
   transform: translateZ(0);
+  z-index: 1000;
 }
 
 /* Optimize image loading */
@@ -418,3 +419,36 @@ button.inputFieldBtn{
 /* .realCostCard .swiper{
   padding-bottom: 1rem;
 } */
+
+.faqSection {
+  position: relative;
+}
+
+.faqSection::before {
+  content: "";
+  position: absolute;
+  top: 35%;
+  right: 5%  ;
+  width: 28rem;
+  height: 35rem;
+  background: url("/assets/images/1.webp") no-repeat;
+  background-size: cover;
+  opacity: 0.6;
+}
+
+.faqInputWrapper{
+  position: relative;
+} 
+
+  .faqInputWrapper::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    content: "";
+    width: 100%;
+    height: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 12px;
+    background: linear-gradient(238deg, #090129 77.16%, #643bff 158.68%);
+    z-index: -1;
+}

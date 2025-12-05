@@ -1,6 +1,6 @@
 .replacementSection {
   position: relative;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .contentWrapper {

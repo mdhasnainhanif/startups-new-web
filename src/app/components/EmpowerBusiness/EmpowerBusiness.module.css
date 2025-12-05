@@ -3,6 +3,17 @@
   position: relative;
 }
 
+.section::before {
+  content: "";
+  position: absolute;
+  top: 2%;
+  left: -6%;
+  width: 28rem;
+  height: 36rem;
+  background: url("/assets/images/1.webp") no-repeat;
+  background-size: cover;
+}
+
 .contentWrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;

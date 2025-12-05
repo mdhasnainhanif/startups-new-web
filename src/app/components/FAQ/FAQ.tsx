@@ -47,7 +47,7 @@ export default function FAQ({ faqs, sectionData, className = "" }: FAQProps) {
   };
 
   return (
-    <section className={`relative sectionPadding ${className}`}>
+    <section className={`relative sectionPadding faqSection ${className}`}>
       <Container maxWidth="xl" className="px-0">
         <div className="flex flex-col items-center gap-8 sm:gap-10 md:gap-12 lg:gap-14">
           {/* Section Title */}
@@ -101,7 +101,7 @@ export default function FAQ({ faqs, sectionData, className = "" }: FAQProps) {
 
           {/* User Question Input Box - Below all FAQs */}
           <div className="w-full mt-6 sm:mt-8">
-            <div className="py-3 sm:py-4 border border-white/20 rounded-lg bg-white/5">
+            <div className="py-3 sm:py-4 border border-white/20 rounded-lg bg-white/5 faqInputWrapper">
               <div className="px-3 sm:px-4">
                 <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
                   <div className="flex-1">
@@ -109,7 +109,7 @@ export default function FAQ({ faqs, sectionData, className = "" }: FAQProps) {
                       value={userQuestion}
                       onChange={(e) => handleQuestionChange(e.target.value)}
                       placeholder="Ask your own question here..."
-                      className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-white/5 border border-white/20 rounded-lg text-white placeholder-white/50 text-sm sm:text-base resize-none focus:outline-none focus:border-[#0fdac2] focus:ring-1 focus:ring-[#0fdac2] transition-all duration-200"
+                      className="h-full w-full px-3 sm:px-4 py-2 sm:py-3 bg-white/5 border border-white/20 rounded-lg text-white placeholder-white/50 text-sm sm:text-base resize-none focus:outline-none focus:border-[#0fdac2] focus:ring-1 focus:ring-[#0fdac2] transition-all duration-200"
                       rows={2}
                     />
                   </div>

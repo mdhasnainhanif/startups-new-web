@@ -52,7 +52,7 @@
 }
 
 .card {
-  background: linear-gradient(to bottom, #110f29, rgba(17, 15, 41, 0));
+  background: linear-gradient(180deg, #110f29 0%, #110f29 60%, #110f2900 100%);
   border-radius: 0.75rem;
   padding: 2rem;
   display: flex;
@@ -64,7 +64,7 @@
 
 .card:hover {
   transform: translateY(-0.5rem);
-  background: linear-gradient(to bottom, #291F56, #3B348F00);
+  background: linear-gradient(#291f56 0%, #291f56e3 50%, #3b348f00 100%);
 }
 
 .number {
@@ -76,7 +76,7 @@
 
 .cardHeading {
   font-size: 2.5rem;
-  font-weight: 700;
+  font-weight: 800;
   color: #ffffff;
   line-height: 1.3;
   font-family: var(--font-graphik-bold);

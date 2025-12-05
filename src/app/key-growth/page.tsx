@@ -41,6 +41,7 @@ export default function PageTwo() {
             heading={TECHNOLOGIES_PAGE2_DATA.heading}
             description={TECHNOLOGIES_PAGE2_DATA.description}
             subDescription={TECHNOLOGIES_PAGE2_DATA.subDescription}
+            hideTabs={true}
           />
           <ToolsTrained />
           <Reviews/>

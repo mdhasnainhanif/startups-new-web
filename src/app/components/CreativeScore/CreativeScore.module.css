@@ -8,6 +8,16 @@
   border-radius: 2rem;
 }
 
+.section svg,
+.section svg:focus,
+.section svg *,
+.section svg *:focus,
+.section svg *:active {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
 .imagesGrid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -22,10 +32,19 @@
   border-radius: 1rem;
   overflow: visible;
   padding: 2rem;
-  min-height: 600px;
-  /* backdrop-filter: blur(10px); */
+  padding-bottom: 2rem;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+}
+
+.imageWrapper svg,
+.imageWrapper svg:focus,
+.imageWrapper svg *,
+.imageWrapper svg *:focus {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 .scoreImage {
@@ -48,7 +67,7 @@
   gap: 2rem;
   align-items: start;
   background-color: #010a1f;
-  border: 1px solid #34246F;
+  border: 1px solid #34246f;
   border-radius: 1rem;
   padding: 2rem;
   margin: 0;
@@ -185,7 +204,7 @@
 
 .radarChartHeader {
   display: none;
-    /* gap: 1.5rem;
+  /* gap: 1.5rem;
     margin-bottom: 1.5rem;
   justify-content: center; */
 }
@@ -266,7 +285,7 @@
   flex-direction: column;
   gap: 0.5rem;
   margin-bottom: 1.5rem;
-  text-align: start ;
+  text-align: start;
 }
 
 .assetDetailItem:last-child {
@@ -292,7 +311,10 @@
   border-radius: 0.75rem;
   padding: 1.5rem;
   border: 2px solid transparent;
-  background-image: linear-gradient(rgba(14, 16, 48, 0.8), rgba(14, 16, 48, 0.8)),
+  background-image: linear-gradient(
+      rgba(14, 16, 48, 0.8),
+      rgba(14, 16, 48, 0.8)
+    ),
     linear-gradient(to right, #0fdac2, #643bff);
   background-origin: border-box;
   background-clip: padding-box, border-box;
@@ -428,6 +450,16 @@
   flex-direction: column;
   gap: 1.5rem;
   overflow: visible;
+  align-items: flex-start;
+}
+
+.chartContainer svg,
+.chartContainer svg:focus,
+.chartContainer svg *,
+.chartContainer svg *:focus {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 .chartTitle {
@@ -437,9 +469,10 @@
   text-transform: uppercase;
   letter-spacing: 2px;
   text-align: center;
-  margin: 0 0 2rem 0;
+  margin: 0 0 1.5rem 0;
   font-family: var(--font-graphik-semibold), sans-serif;
   white-space: nowrap;
+  width: 100%;
 }
 
 .chartContent {
@@ -449,7 +482,7 @@
   align-items: center;
   width: 100%;
   overflow: visible;
-  margin-top: 1rem;
+  margin-top: 0;
 }
 
 .chartWrapper {
@@ -458,6 +491,16 @@
   height: 250px;
   position: relative;
   filter: drop-shadow(0 0 20px rgba(15, 218, 194, 0.3));
+  margin-top: 2rem;
+}
+
+.chartWrapper svg,
+.chartWrapper svg:focus,
+.chartWrapper svg *,
+.chartWrapper svg *:focus {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 .chartCenterIcon {
@@ -583,7 +626,7 @@
   position: relative;
   width: 100%;
   min-height: 450px;
-  padding: 1rem 2rem 2rem 2rem;
+  padding: 0;
   overflow: visible;
 }
 
@@ -598,11 +641,35 @@
   transform: translateX(-50%);
   width: 350px;
   height: 300px;
-} 
+}
 
-/* Top Left Chart - 30% */
+/* Text Only Items */
+.processTextOnly {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.processTextOnlyPercentage {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  font-family: var(--font-graphik-semibold), sans-serif;
+  line-height: 1;
+}
+
+.processTextOnlyName {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-family: var(--font-graphik-regular), sans-serif;
+  line-height: 1.3;
+}
+
+/* Top Left Chart - 30% Creative Planning */
 .processChartItem:nth-child(2) {
-  top: 10px;
+  bottom: 20%;
   left: 2%;
   width: 150px;
 }
@@ -610,7 +677,7 @@
 /* Bottom Center Chart - 55% */
 .processChartItem:nth-child(3) {
   bottom: 20px;
-  left: 30%;
+  left: 42%;
   transform: translateX(-50%);
   width: 150px;
 }
@@ -620,6 +687,13 @@
   bottom: 40px;
   right: 10%;
   width: 150px;
+}
+
+/* Additional Text Only Item - positioned after all charts */
+.processChartItem:last-child {
+  top: 10px;
+  left: 4%;
+  width: auto;
 }
 
 .processBottomCenterLabel {
@@ -666,6 +740,15 @@
   width: 100%;
   height: 100%;
   filter: drop-shadow(0 0 15px rgba(100, 59, 255, 0.4));
+}
+
+.processChartWrapper svg,
+.processChartWrapper svg:focus,
+.processChartWrapper svg *,
+.processChartWrapper svg *:focus {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
 }
 
 .processChartItem:first-child .processChartWrapper {
@@ -723,6 +806,19 @@
   padding: 0;
 }
 
+@media (max-width: 768px) {
+  .processChartItem:first-child {
+    height: auto;
+  }
+  .processCenterPercentage {
+    font-size: 1.5rem;
+  }
+
+  .processCenterText {
+    font-size: 0.65rem;
+    margin-top: 0.25rem;
+  }
+}
 
 .processLabelLetter {
   width: 30px;
@@ -738,17 +834,42 @@
   font-family: var(--font-graphik-semibold), sans-serif;
 }
 
-
 /* Analytics Overview Styles */
 .analyticsCharts {
   display: flex;
   flex-direction: row;
   gap: 1.5rem;
   width: 100%;
-  padding-top: 1rem;
+  padding-top: 1.5rem;
   justify-content: space-between;
   align-items: flex-end;
   min-height: 300px;
+}
+
+@media (max-width: 768px) {
+  .analyticsCharts {
+    gap: 0.5rem;
+    min-height: 200px;
+    justify-content: space-around;
+    padding: 0 0.5rem;
+  }
+  .optionsList {
+    grid-template-rows: unset;
+    grid-template-columns: unset;
+    width: 100%;
+    max-width: unset;
+    margin: 0 auto;
+    padding-top: unset;
+    position: static;
+    top: unset;
+    text-align: start;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem !important;
+  }
+  .optionConnector {
+    display: none;
+  }
 }
 
 .analyticsBarItem {
@@ -758,6 +879,17 @@
   gap: 1rem;
   flex: 1;
   min-width: 0;
+}
+
+@media (max-width: 768px) {
+  .analyticsBarItem {
+    gap: 0.5rem;
+    flex: 0 0 auto;
+    min-width: 45px;
+  }
+  .optionItem {
+    align-items: start;
+  }
 }
 
 .analyticsBarContainer {
@@ -772,6 +904,14 @@
   backdrop-filter: blur(10px);
   flex-shrink: 0;
   margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .analyticsBarContainer {
+    width: 45px;
+    height: 180px;
+    border-radius: 22px 22px 0 0;
+  }
 }
 
 .analyticsBarFill {
@@ -791,6 +931,14 @@
   overflow: visible;
 }
 
+@media (max-width: 768px) {
+  .analyticsBarFill {
+    border-radius: 22px 22px 0 0;
+    padding-top: 0.5rem;
+    min-height: 30px;
+  }
+}
+
 .analyticsPercentageInside {
   font-size: 1rem;
   font-weight: 700;
@@ -799,6 +947,13 @@
   margin-bottom: 0.5rem;
   z-index: 3;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+  .analyticsPercentageInside {
+    font-size: 0.75rem;
+    margin-bottom: 0.25rem;
+  }
 }
 
 .analyticsBarFill:hover {
@@ -824,6 +979,15 @@
   border: 2px solid rgba(255, 255, 255, 0.3);
 }
 
+@media (max-width: 768px) {
+  .analyticsIcon {
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+    bottom: 0.5rem;
+  }
+}
+
 .analyticsInfo {
   display: flex;
   flex-direction: column;
@@ -831,6 +995,36 @@
   width: 100%;
   text-align: center;
   align-items: center;
+}
+
+.analyticsInfoSection {
+  display: none;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.analyticsInfoItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .analyticsInfo {
+    display: none;
+  }
+
+  .analyticsInfoSection {
+    display: flex;
+    margin-top: 0rem;
+    border: none;
+    text-align: start;
+  }
 }
 
 .analyticsName {
@@ -854,9 +1048,9 @@
 
 @media (max-width: 768px) {
   .imageWrapper {
-    padding: 1.5rem;
+    padding: 0rem;
     min-height: auto;
-    overflow: visible;
+    overflow: hidden;
   }
 
   .optionsList {
@@ -868,6 +1062,9 @@
     min-height: auto;
     padding: 1rem;
     height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
   }
 
   .processChartItem {
@@ -878,12 +1075,34 @@
     top: auto !important;
     transform: none !important;
     width: 100% !important;
-    max-width: 200px;
-    margin: 0 auto 2rem;
+    max-width: 130px;
+    /* margin: 0 auto 2rem; */
+    margin-top: 1rem !important;
+  }
+
+  .processChartsItem {
+    /* margin: 1rem 0rem 0rem 0rem; */
+    width: 100% !important;
+    position: relative !important;
+    inset: auto !important;
+    transform: none !important;
+    max-width: 8rem;
   }
 
   .processChartItem:first-child {
     max-width: 250px;
+  }
+
+  .processChartItem:first-child .processChartWrapper {
+    width: 100% !important;
+    max-width: 250px;
+    height: 220px !important;
+  }
+
+  .processChartItem:not(:first-child) .processChartWrapper {
+    width: 100% !important;
+    max-width: 140px;
+    height: 120px !important;
   }
 
   .processBottomCenterLabel {
@@ -893,28 +1112,26 @@
     transform: translate(-50%, -50%);
   }
 
-  .analyticsCharts {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 2rem;
-    min-height: auto;
+  .processBottomPercentage {
+    font-size: 1.2rem;
   }
 
-  .analyticsBarItem {
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .analyticsBarContainer {
-    width: 100%;
-    max-width: 100px;
-    height: 200px;
+  .processBottomContent p {
+    font-size: 0.65rem;
   }
 
   .analyticsInfo {
     width: 100%;
     text-align: center;
+  }
+
+  .analyticsName {
+    font-size: 0.7rem;
+  }
+
+  .analyticsDescription {
+    font-size: 0.65rem;
+    line-height: 1.3;
   }
 
   .chartTitle {
@@ -924,9 +1141,4 @@
   .chartWrapper {
     max-width: 100%;
   }
-
-  .analyticsBarContainer {
-    width: 100%;
-  }
 }
-

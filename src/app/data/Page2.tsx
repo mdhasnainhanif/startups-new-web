@@ -259,7 +259,7 @@ export interface HomeBannerData {
   }
 
   export const CREATED_BY_ENTREPRENEURS_DATA: CreatedByEntrepreneursData = {
-    image: '/assets/images/entrepreneurs.png',
+    image: '/assets/images/entrepreneurs.webp',
     headline: {
       part1: 'Created By ',
       part2: 'Entrepreneurs',

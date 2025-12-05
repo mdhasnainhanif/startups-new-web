@@ -12,8 +12,8 @@ const TheGuarantees = () => {
       <Container maxWidth="xl" className="px-0">
         <div className={styles.contentWrapper}>
           {/* Heading */}
-          <div className={styles.headingWrapper}>
-            <h2 className={styles.heading}>
+          <div className={`${styles.headingWrapper} sectionHeading forH2`}>
+            <h2>
               <span className={styles.headingPart1}>{THE_GUARANTEES_DATA.headline.part1}</span>
               <span className={styles.headingPart2}>{THE_GUARANTEES_DATA.headline.part2}</span>
             </h2>

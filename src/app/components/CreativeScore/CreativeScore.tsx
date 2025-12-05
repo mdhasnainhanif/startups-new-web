@@ -1,14 +1,16 @@
-'use client';
+"use client";
 
-import { FilterIcon, GraphIcon, HeartIcon, SearchIcon, WorldIcon } from '@/app/icons';
-import Container from '../Container';
-import styles from './CreativeScore.module.css';
 import {
-  PieChart,
-  Pie,
-  Cell,
-  ResponsiveContainer,
-} from 'recharts';
+  FilterIcon,
+  GraphIcon,
+  HeartIcon,
+  SearchIcon,
+  WorldIcon,
+} from "@/app/icons";
+import Container from "../Container";
+import styles from "./CreativeScore.module.css";
+import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
+import { useState, useEffect } from "react";
 
 interface Category {
   name: string;
@@ -56,70 +58,104 @@ interface CreativeScoreData {
 const CREATIVE_SCORE_DATA: CreativeScoreData = {
   performanceScore: {
     value: 92,
-    label: 'EXCELLENT',
+    label: "EXCELLENT",
   },
   categories: [
-    { name: 'Design', active: true, icon: null },
-    { name: 'Messaging', active: true, icon: null },
-    { name: 'Psychology', active: true, icon: null },
-    { name: 'Visuals', active: true, icon: null },
-    { name: 'User Flow', active: false, icon: null },
-    { name: 'Engagement', active: true, icon: null },
-    { name: 'Emotions', active: false, icon: null },
+    { name: "Design", active: true, icon: null },
+    { name: "Messaging", active: true, icon: null },
+    { name: "Psychology", active: true, icon: null },
+    { name: "Visuals", active: true, icon: null },
+    { name: "User Flow", active: false, icon: null },
+    { name: "Engagement", active: true, icon: null },
+    { name: "Emotions", active: false, icon: null },
   ],
   recommendations: [
-    { text: 'Improve headline clarity for faster comprehension' },
-    { text: 'Strengthen emotional cues to boost engagement' },
-    { text: 'Increase contrast for higher readability' },
+    { text: "Improve headline clarity for faster comprehension" },
+    { text: "Strengthen emotional cues to boost engagement" },
+    { text: "Increase contrast for higher readability" },
   ],
   radarChart: {
     datasets: [
       {
-        name: 'AESTEL',
-        color: '#0fdac2',
+        name: "AESTEL",
+        color: "#0fdac2",
         metrics: [
-          { name: 'Clarity', value: 85 },
-          { name: 'Aesthetic', value: 90 },
-          { name: 'Trust', value: 88 },
-          { name: 'Relevance', value: 82 },
-          { name: 'Creativity', value: 95 },
-          { name: 'Motivation', value: 87 },
+          { name: "Clarity", value: 85 },
+          { name: "Aesthetic", value: 90 },
+          { name: "Trust", value: 88 },
+          { name: "Relevance", value: 82 },
+          { name: "Creativity", value: 95 },
+          { name: "Motivation", value: 87 },
         ],
       },
       {
-        name: 'Ctalffocy',
-        color: '#643bff',
+        name: "Ctalffocy",
+        color: "#643bff",
         metrics: [
-          { name: 'Clarity', value: 70 },
-          { name: 'Aesthetic', value: 75 },
-          { name: 'Trust', value: 72 },
-          { name: 'Relevance', value: 68 },
-          { name: 'Creativity', value: 78 },
-          { name: 'Motivation', value: 73 },
+          { name: "Clarity", value: 70 },
+          { name: "Aesthetic", value: 75 },
+          { name: "Trust", value: 72 },
+          { name: "Relevance", value: 68 },
+          { name: "Creativity", value: 78 },
+          { name: "Motivation", value: 73 },
         ],
       },
     ],
-    metrics: ['Clarity', 'Aesthetic', 'Trust', 'Relevance', 'Creativity', 'Motivation'],
+    metrics: [
+      "Clarity",
+      "Aesthetic",
+      "Trust",
+      "Relevance",
+      "Creativity",
+      "Motivation",
+    ],
   },
   assetDetails: {
-    type: 'Landing Page / Ad Creative',
-    purpose: 'Improve conversions & engagement',
-    audience: 'Startups & small businesses',
+    type: "Landing Page / Ad Creative",
+    purpose: "Improve conversions & engagement",
+    audience: "Startups & small businesses",
   },
   uiPreview: {
-    title: 'Launch',
-    titleBold: 'Your Startup',
-    description: 'Get your business off the ground with alir help',
-    buttonText: 'Get Started',
+    title: "Launch",
+    titleBold: "Your Startup",
+    description: "Get your business off the ground with alir help",
+    buttonText: "Get Started",
   },
 };
 
 const CreativeScore = () => {
-  const { performanceScore, categories, recommendations, radarChart, assetDetails, uiPreview } =
-    CREATIVE_SCORE_DATA;
+  const {
+    performanceScore,
+    categories,
+    recommendations,
+    radarChart,
+    assetDetails,
+    uiPreview,
+  } = CREATIVE_SCORE_DATA;
+
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+
+    return () => {
+      window.removeEventListener("resize", checkMobile);
+    };
+  }, []);
 
   // Calculate angle for radar chart
-  const getRadarPoint = (index: number, total: number, value: number, radius: number, center: number) => {
+  const getRadarPoint = (
+    index: number,
+    total: number,
+    value: number,
+    radius: number,
+    center: number
+  ) => {
     const angle = (Math.PI * 2 * index) / total - Math.PI / 2;
     const distance = (value / 100) * radius;
     const x = Math.cos(angle) * distance;
@@ -133,54 +169,148 @@ const CreativeScore = () => {
 
   // Chart 1: Graph Infography Data
   const graphInfographyData = [
-    { name: 'Option A', value: 30, color: '#FF6B35', label: 'A', description: 'We develop engaging digital experiences that capture user interest and maximize engagement across platforms.' },
-    { name: 'Option B', value: 25, color: '#4ECDC4', label: 'B', description: 'Our creative team builds memorable brand identities through strategic design and compelling visual storytelling.' },
-    { name: 'Option C', value: 20, color: '#FFA500', label: 'C', description: 'We enhance website performance with optimal UX/UI work and fast development practices.' },
-    { name: 'Option D', value: 25, color: '#9B59B6', label: 'D', description: 'Data-driven marketing strategies that improve visibility, accelerate growth, and increase overall ROI.' },
+    {
+      name: "Option A",
+      value: 30,
+      color: "#FF6B35",
+      label: "A",
+      description:
+        "We develop engaging digital experiences that capture user interest and maximize engagement across platforms.",
+    },
+    {
+      name: "Option B",
+      value: 25,
+      color: "#4ECDC4",
+      label: "B",
+      description:
+        "Our creative team builds memorable brand identities through strategic design and compelling visual storytelling.",
+    },
+    {
+      name: "Option C",
+      value: 20,
+      color: "#FFA500",
+      label: "C",
+      description:
+        "We enhance website performance with optimal UX/UI work and fast development practices.",
+    },
+    {
+      name: "Option D",
+      value: 25,
+      color: "#9B59B6",
+      label: "D",
+      description:
+        "Data-driven marketing strategies that improve visibility, accelerate growth, and increase overall ROI.",
+    },
   ];
 
   // Chart 2: Process Infography Data
   const processInfographyData = [
-    { name: 'Core Strategy Execution', value: 85, color: '#643bff' },
-    { name: 'Creative Planning', value: 30, color: '#ff00ff' },
-    { name: 'UI/UX Development', value: 55, color: '#ffa500' },
-    { name: 'Marketing Optimization', value: 75, color: '#00ff00' },
+    { name: "Core Strategy Execution", value: 85, color: "#643bff" },
+    { name: "Creative Planning", value: 30, color: "#ff00ff" },
+    { name: "UI/UX Development", value: 55, color: "#ffa500" },
+    { name: "Marketing Optimization", value: 75, color: "#00ff00" },
+  ];
+  
+  // Additional text-only items (without charts)
+  const processTextOnlyItems = [
+    { name: "Creative Planning", value: 30, color: "#0fdac2" },
   ];
 
   // Chart 3: Analytics Overview Data
   const analyticsData = [
-    { name: 'Website Traffic', value: 45, color: '#9B59B6', description: 'Improved user flow and session monitoring.' },
-    { name: 'Lead Conversion', value: 60, color: '#4ECDC4', description: 'Optimizing landing pages for higher conversions' },
-    { name: 'Brand Growth', value: 65, color: '#FF6B35', description: 'Boosting visibility through strategic SEO.' },
-    { name: 'Brand Engagement', value: 45, color: '#FFD700', description: 'Higher engagement through creative design.' },
-    { name: 'ROI', value: 55, color: '#3498DB', description: 'Tracking performance across campaigns.' },
+    {
+      name: "Website Traffic",
+      value: 45,
+      color: "#AA49F1",
+      gradient: "linear-gradient(180deg, #AA49F1 0%, #643BFF 100%)",
+      description: "Improved user flow and session monitoring.",
+    },
+    {
+      name: "Lead Conversion",
+      value: 60,
+      color: "#80E245",
+      gradient: "linear-gradient(180deg, #3DFF92 0%, #1ABF6F 100%)",
+      description: "Optimizing landing pages for higher conversions",
+    },
+    {
+      name: "Brand Growth",
+      value: 65,
+      color: "#FF6B35",
+      gradient: "linear-gradient(180deg, #FF9A3C 0%, #FFD645 100%)",
+      description: "Boosting visibility through strategic SEO.",
+    },
+    {
+      name: "Brand Engagement",
+      value: 45,
+      color: "#FFD700",
+      gradient: "linear-gradient(180deg, #FFD754 0%, #FFB92A 100%)",
+      description: "Higher engagement through creative design.",
+    },
+    {
+      name: "ROI",
+      value: 55,
+      color: "#3498DB",
+      gradient: "linear-gradient(180deg, #3A7BFF 0%, #20D5FF 100%)",
+      description: "Tracking performance across campaigns.",
+    },
   ];
 
   // Chart 4: Digital Agency Performance Data
   const agencyPerformanceData = [
-    { name: 'Option A', value: 20, color: '#FF69B4', description: 'We enhance user experience and streamline digital touchpoints to improve overall engagement.' },
-    { name: 'Option C', value: 35, color: '#FF6B35', description: 'We optimize website performance through modern development practices and fast UX.' },
-    { name: 'Option D', value: 25, color: '#4ECDC4', description: 'We drive measurable growth through strategic digital marketing and data-driven decision making.' },
-    { name: 'Option D', value: 20, color: '#FFA500', description: 'We create high-impact visual branding that increases recognition and strengthens identity.' },
+    {
+      name: "Option A",
+      value: 20,
+      color: "#FF69B4",
+      description:
+        "We enhance user experience and streamline digital touchpoints to improve overall engagement.",
+    },
+    {
+      name: "Option C",
+      value: 35,
+      color: "#FF6B35",
+      description:
+        "We optimize website performance through modern development practices and fast UX.",
+    },
+    {
+      name: "Option D",
+      value: 25,
+      color: "#4ECDC4",
+      description:
+        "We drive measurable growth through strategic digital marketing and data-driven decision making.",
+    },
+    {
+      name: "Option D",
+      value: 20,
+      color: "#FFA500",
+      description:
+        "We create high-impact visual branding that increases recognition and strengthens identity.",
+    },
   ];
 
-  const CustomLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, index }: any) => {
+  const CustomLabel = ({
+    cx,
+    cy,
+    midAngle,
+    innerRadius,
+    outerRadius,
+    index,
+  }: any) => {
     const RADIAN = Math.PI / 180;
     const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
     const x = cx + radius * Math.cos(-midAngle * RADIAN);
     const y = cy + radius * Math.sin(-midAngle * RADIAN);
-    const label = graphInfographyData[index]?.label || '';
+    const label = graphInfographyData[index]?.label || "";
 
     return (
       <text
         x={x}
         y={y}
         fill="white"
-        textAnchor={x > cx ? 'start' : 'end'}
+        textAnchor={x > cx ? "start" : "end"}
         dominantBaseline="central"
         fontSize="16"
         fontWeight="bold"
-        style={{ filter: 'drop-shadow(0 0 8px rgba(15, 218, 194, 0.8))' }}
+        style={{ filter: "drop-shadow(0 0 8px rgba(15, 218, 194, 0.8))" }}
       >
         {label}
       </text>
@@ -191,10 +321,66 @@ const CreativeScore = () => {
     <div className={styles.section}>
       <Container maxWidth="xl" className="px-0">
         <div className={styles.imagesGrid}>
+          {/* Chart 3: Analytics Overview */}
+          <div className={styles.imageWrapper}>
+            <div className={styles.chartContainer}>
+              <h3 className={styles.chartTitle}>ANALYTICS OVERVIEW</h3>
+              <div className={styles.analyticsCharts}>
+                {analyticsData.map((item, index) => (
+                  <div key={index} className={styles.analyticsBarItem}>
+                    <div className={styles.analyticsBarContainer}>
+                      <div
+                        className={styles.analyticsBarFill}
+                        style={
+                          {
+                            background: item.gradient || item.color,
+                            boxShadow: `0 0 20px ${item.color}40`,
+                            height: `${item.value}%`,
+                          } as React.CSSProperties
+                        }
+                      >
+                        <div className={styles.analyticsPercentageInside}>
+                          {item.value}%
+                        </div>
+                        <div className={styles.analyticsIcon}>
+                          {index === 0 && <WorldIcon />}
+                          {index === 1 && <FilterIcon />}
+                          {index === 2 && <SearchIcon />}
+                          {index === 3 && <HeartIcon />}
+                          {index === 4 && <GraphIcon />}
+                        </div>
+                      </div>
+                    </div>
+                    <div className={styles.analyticsInfo}>
+                      <h4 className={styles.analyticsName}>
+                        DATA {item.name.toUpperCase()}
+                      </h4>
+                      <p className={styles.analyticsDescription}>
+                        {item.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              {/* Analytics Info Below Bars - Mobile Only */}
+              <div className={styles.analyticsInfoSection}>
+                {analyticsData.map((item, index) => (
+                  <div key={index} className={styles.analyticsInfoItem}>
+                    <h4 className={styles.analyticsName}>
+                      DATA {item.name.toUpperCase()}
+                    </h4>
+                    <p className={styles.analyticsDescription}>
+                      {item.description}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
           {/* Chart 1: Graph Infography */}
           <div className={styles.imageWrapper}>
             <div className={styles.chartContainer}>
-              <h3 className={styles.chartTitle}>GRAPH INFOGRAPHY</h3>
+              <h3 className={`${styles.chartTitle}`}>GRAPH INFOGRAPHY</h3>
               <div className={styles.chartContent}>
                 <div className={styles.chartWrapper}>
                   <ResponsiveContainer width="100%" height={250}>
@@ -222,7 +408,10 @@ const CreativeScore = () => {
                   {graphInfographyData.map((option, index) => (
                     <div key={index} className={styles.optionItem}>
                       <div className={styles.optionHeader}>
-                        <span className={styles.optionLabel} style={{ color: option.color }}>
+                        <span
+                          className={styles.optionLabel}
+                          style={{ color: option.color }}
+                        >
                           OPTION {option.label}
                         </span>
                         <div
@@ -230,7 +419,9 @@ const CreativeScore = () => {
                           style={{ backgroundColor: option.color }}
                         ></div>
                       </div>
-                      <p className={styles.optionDescription}>{option.description}</p>
+                      <p className={styles.optionDescription}>
+                        {option.description}
+                      </p>
                     </div>
                   ))}
                 </div>
@@ -241,20 +432,26 @@ const CreativeScore = () => {
           {/* Chart 2: Process Infography */}
           <div className={styles.imageWrapper}>
             <div className={styles.chartContainer}>
-              <h3 className={styles.chartTitle}>PROCESS INFOGRAPHY</h3>
+              <h3 className={`${styles.chartTitle}`}>PROCESS INFOGRAPHY</h3>
               <div className={styles.processChartsGrid}>
                 {processInfographyData.map((process, index) => (
                   <div key={index} className={styles.processChartItem}>
                     {index === 0 ? (
                       <div className={styles.processChartWrapper}>
-                        <ResponsiveContainer width="100%" height={300}>
+                        <ResponsiveContainer width="100%" height={isMobile ? 220 : 300}>
                           <PieChart>
                             <Pie
-                              data={[{ name: process.name, value: process.value }, { name: 'Remaining', value: 100 - process.value }]}
+                              data={[
+                                { name: process.name, value: process.value },
+                                {
+                                  name: "Remaining",
+                                  value: 100 - process.value,
+                                },
+                              ]}
                               cx="50%"
                               cy="50%"
-                              innerRadius={85}
-                              outerRadius={120}
+                              innerRadius={isMobile ? 65 : 85}
+                              outerRadius={isMobile ? 90 : 120}
                               startAngle={90}
                               endAngle={-270}
                               dataKey="value"
@@ -266,20 +463,30 @@ const CreativeScore = () => {
                           </PieChart>
                         </ResponsiveContainer>
                         <div className={styles.processCenterLabel}>
-                          <div className={styles.processCenterPercentage}>{process.value}%</div>
-                          <div className={styles.processCenterText}>{process.name}</div>
+                          <div className={styles.processCenterPercentage}>
+                            {process.value}%
+                          </div>
+                          <div className={styles.processCenterText}>
+                            {process.name}
+                          </div>
                         </div>
                       </div>
                     ) : (
                       <div className={styles.processChartWrapper}>
-                        <ResponsiveContainer width="100%" height={160}>
+                        <ResponsiveContainer width="100%" height={isMobile ? 120 : 160}>
                           <PieChart>
                             <Pie
-                              data={[{ name: process.name, value: process.value }, { name: 'Remaining', value: 100 - process.value }]}
+                              data={[
+                                { name: process.name, value: process.value },
+                                {
+                                  name: "Remaining",
+                                  value: 100 - process.value,
+                                },
+                              ]}
                               cx="50%"
                               cy="50%"
-                              innerRadius={50}
-                              outerRadius={70}
+                              innerRadius={isMobile ? 40 : 50}
+                              outerRadius={isMobile ? 60 : 70}
                               startAngle={90}
                               endAngle={-270}
                               dataKey="value"
@@ -291,7 +498,9 @@ const CreativeScore = () => {
                           </PieChart>
                         </ResponsiveContainer>
                         <div className={styles.processBottomCenterLabel}>
-                          <div className={styles.processBottomPercentage}>{process.value}%</div>
+                          <div className={styles.processBottomPercentage}>
+                            {process.value}%
+                          </div>
                           <div className={styles.processBottomContent}>
                             <p>{process.name}</p>
                           </div>
@@ -300,39 +509,16 @@ const CreativeScore = () => {
                     )}
                   </div>
                 ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Chart 3: Analytics Overview */}
-          <div className={styles.imageWrapper}>
-            <div className={styles.chartContainer}>
-              <h3 className={styles.chartTitle}>ANALYTICS OVERVIEW</h3>
-              <div className={styles.analyticsCharts}>
-                {analyticsData.map((item, index) => (
-                  <div key={index} className={styles.analyticsBarItem}>
-                    <div className={styles.analyticsBarContainer}>
-                      <div
-                        className={styles.analyticsBarFill}
-                        style={{
-                          backgroundColor: item.color,
-                          boxShadow: `0 0 20px ${item.color}40`,
-                          height: `${item.value}%`,
-                        } as React.CSSProperties}
-                      >
-                        <div className={styles.analyticsPercentageInside}>{item.value}%</div>
-                        <div className={styles.analyticsIcon}>
-                          {index === 0 && <WorldIcon />}
-                          {index === 1 && <FilterIcon />}
-                          {index === 2 && <SearchIcon />}
-                          {index === 3 && <HeartIcon />}
-                          {index === 4 && <GraphIcon />}
-                        </div>
+                {/* Additional text-only items */}
+                {processTextOnlyItems.map((item, index) => (
+                  <div key={`text-${index}`} className={styles.processChartItem}>
+                    <div className={styles.processTextOnly}>
+                      <div className={styles.processTextOnlyPercentage}>
+                        {item.value}%
                       </div>
-                    </div>
-                    <div className={styles.analyticsInfo}>
-                      <h4 className={styles.analyticsName}>DATA {item.name.toUpperCase()}</h4>
-                      <p className={styles.analyticsDescription}>{item.description}</p>
+                      <div className={styles.processTextOnlyName}>
+                        {item.name}
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -340,10 +526,14 @@ const CreativeScore = () => {
             </div>
           </div>
 
+          
+
           {/* Chart 4: Digital Agency Performance Data */}
           <div className={styles.imageWrapper}>
             <div className={styles.chartContainer}>
-              <h3 className={styles.chartTitle}>DIGITAL AGENCY PERFORMANCE DATA</h3>
+              <h3 className={styles.chartTitle}>
+                DIGITAL AGENCY PERFORMANCE DATA
+              </h3>
               <div className={styles.chartContent}>
                 <div className={styles.chartWrapper}>
                   <ResponsiveContainer width="100%" height={300}>
@@ -353,7 +543,7 @@ const CreativeScore = () => {
                         cx="50%"
                         cy="50%"
                         innerRadius={60}
-                        outerRadius={120}
+                        outerRadius={100}
                         paddingAngle={2}
                         dataKey="value"
                         stroke="none"
@@ -369,15 +559,21 @@ const CreativeScore = () => {
                   {agencyPerformanceData.map((option, index) => (
                     <div key={index} className={styles.optionItem}>
                       <div className={styles.optionHeader}>
-                        <span className={styles.optionLabel} style={{ color: option.color }}>
-                          OPTION {String.fromCharCode(65 + (index === 3 ? 3 : index))}
+                        <span
+                          className={styles.optionLabel}
+                          style={{ color: option.color }}
+                        >
+                          OPTION{" "}
+                          {String.fromCharCode(65 + (index === 3 ? 3 : index))}
                         </span>
                         <div
                           className={styles.optionConnector}
                           style={{ backgroundColor: option.color }}
                         ></div>
                       </div>
-                      <p className={styles.optionDescription}>{option.description}</p>
+                      <p className={styles.optionDescription}>
+                        {option.description}
+                      </p>
                     </div>
                   ))}
                 </div>
@@ -611,4 +807,3 @@ const CreativeScore = () => {
 };
 
 export default CreativeScore;
-
