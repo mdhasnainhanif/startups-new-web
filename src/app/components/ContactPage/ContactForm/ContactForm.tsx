@@ -77,8 +77,15 @@ const ContactForm: React.FC<ContactFormProps> = ({
     setLoading(true);
 
     try {
+      const payload = {
+        email: formData["email"] || "",
+        name: formData["name"] || "",
+        phone: formData["phone"] || "",
+        company: formData["company"] || "",
+        message: formData["message"] || "",
+      };
 
-    const response = await submitEmail(formData);
+      const response = await submitEmail(payload);
       
       if (response.ok) {
         setSuccessMessage(
