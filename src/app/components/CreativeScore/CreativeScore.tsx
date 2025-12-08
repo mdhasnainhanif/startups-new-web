@@ -167,6 +167,14 @@ const CreativeScore = () => {
   const centerX = 150;
   const centerY = 150;
 
+  // Helper function to convert hex to rgba
+  const hexToRgba = (hex: string, alpha: number = 0.4): string => {
+    const r = parseInt(hex.slice(1, 3), 16);
+    const g = parseInt(hex.slice(3, 5), 16);
+    const b = parseInt(hex.slice(5, 7), 16);
+    return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+  };
+
   // Chart 1: Graph Infography Data
   const graphInfographyData = [
     {
@@ -334,7 +342,7 @@ const CreativeScore = () => {
                         style={
                           {
                             background: item.gradient || item.color,
-                            boxShadow: `0 0 20px ${item.color}40`,
+                            boxShadow: `0 0 20px ${hexToRgba(item.color, 0.4)}`,
                             height: `${item.value}%`,
                           } as React.CSSProperties
                         }
@@ -437,75 +445,91 @@ const CreativeScore = () => {
                 {processInfographyData.map((process, index) => (
                   <div key={index} className={styles.processChartItem}>
                     {index === 0 ? (
-                      <div className={styles.processChartWrapper}>
-                        <ResponsiveContainer width="100%" height={isMobile ? 220 : 300}>
-                          <PieChart>
-                            <Pie
-                              data={[
-                                { name: process.name, value: process.value },
-                                {
-                                  name: "Remaining",
-                                  value: 100 - process.value,
-                                },
-                              ]}
-                              cx="50%"
-                              cy="50%"
-                              innerRadius={isMobile ? 65 : 85}
-                              outerRadius={isMobile ? 90 : 120}
-                              startAngle={90}
-                              endAngle={-270}
-                              dataKey="value"
-                              stroke="none"
-                            >
-                              <Cell fill={process.color} />
-                              <Cell fill="rgba(255,255,255,0.1)" />
-                            </Pie>
-                          </PieChart>
-                        </ResponsiveContainer>
-                        <div className={styles.processCenterLabel}>
-                          <div className={styles.processCenterPercentage}>
-                            {process.value}%
-                          </div>
-                          <div className={styles.processCenterText}>
-                            {process.name}
+                      <>
+                        <div 
+                          className={styles.processChartWrapper}
+                          style={{ filter: `drop-shadow(0 0 20px ${hexToRgba(process.color, 0.6)})` }}
+                        >
+                          <ResponsiveContainer width="100%" height={isMobile ? 220 : 300}>
+                            <PieChart>
+                              <Pie
+                                data={[
+                                  { name: process.name, value: process.value },
+                                  {
+                                    name: "Remaining",
+                                    value: 100 - process.value,
+                                  },
+                                ]}
+                                cx="50%"
+                                cy="50%"
+                                innerRadius={isMobile ? 65 : 85}
+                                outerRadius={isMobile ? 90 : 120}
+                                startAngle={90}
+                                endAngle={-270}
+                                dataKey="value"
+                                stroke="none"
+                              >
+                                <Cell fill={process.color} />
+                                <Cell fill="rgba(255,255,255,0.1)" />
+                              </Pie>
+                            </PieChart>
+                          </ResponsiveContainer>
+                          <div className={styles.processCenterLabel}>
+                            <div className={styles.processCenterPercentage}>
+                              {process.value}%
+                            </div>
+                            <div className={styles.processCenterText}>
+                              {process.name}
+                            </div>
                           </div>
                         </div>
-                      </div>
+                        <div className={styles.processMobileText}>
+                          {process.name}
+                        </div>
+                      </>
                     ) : (
-                      <div className={styles.processChartWrapper}>
-                        <ResponsiveContainer width="100%" height={isMobile ? 120 : 160}>
-                          <PieChart>
-                            <Pie
-                              data={[
-                                { name: process.name, value: process.value },
-                                {
-                                  name: "Remaining",
-                                  value: 100 - process.value,
-                                },
-                              ]}
-                              cx="50%"
-                              cy="50%"
-                              innerRadius={isMobile ? 40 : 50}
-                              outerRadius={isMobile ? 60 : 70}
-                              startAngle={90}
-                              endAngle={-270}
-                              dataKey="value"
-                              stroke="none"
-                            >
-                              <Cell fill={process.color} />
-                              <Cell fill="rgba(255,255,255,0.1)" />
-                            </Pie>
-                          </PieChart>
-                        </ResponsiveContainer>
-                        <div className={styles.processBottomCenterLabel}>
-                          <div className={styles.processBottomPercentage}>
-                            {process.value}%
-                          </div>
-                          <div className={styles.processBottomContent}>
-                            <p>{process.name}</p>
+                      <>
+                        <div 
+                          className={styles.processChartWrapper}
+                          style={{ filter: `drop-shadow(0 0 15px ${hexToRgba(process.color, 0.4)})` }}
+                        >
+                          <ResponsiveContainer width="100%" height={isMobile ? 120 : 160}>
+                            <PieChart>
+                              <Pie
+                                data={[
+                                  { name: process.name, value: process.value },
+                                  {
+                                    name: "Remaining",
+                                    value: 100 - process.value,
+                                  },
+                                ]}
+                                cx="50%"
+                                cy="50%"
+                                innerRadius={isMobile ? 40 : 50}
+                                outerRadius={isMobile ? 60 : 70}
+                                startAngle={90}
+                                endAngle={-270}
+                                dataKey="value"
+                                stroke="none"
+                              >
+                                <Cell fill={process.color} />
+                                <Cell fill="rgba(255,255,255,0.1)" />
+                              </Pie>
+                            </PieChart>
+                          </ResponsiveContainer>
+                          <div className={styles.processBottomCenterLabel}>
+                            <div className={styles.processBottomPercentage}>
+                              {process.value}%
+                            </div>
+                            <div className={styles.processBottomContent}>
+                              <p>{process.name}</p>
+                            </div>
                           </div>
                         </div>
-                      </div>
+                        <div className={styles.processMobileText}>
+                          {process.name}
+                        </div>
+                      </>
                     )}
                   </div>
                 ))}
@@ -534,7 +558,7 @@ const CreativeScore = () => {
               <h3 className={styles.chartTitle}>
                 DIGITAL AGENCY PERFORMANCE DATA
               </h3>
-              <div className={styles.chartContent}>
+              <div className={`${styles.chartContent} ${styles.agencyChartContent}`}>
                 <div className={styles.chartWrapper}>
                   <ResponsiveContainer width="100%" height={300}>
                     <PieChart>

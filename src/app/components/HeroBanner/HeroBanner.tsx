@@ -4,6 +4,7 @@ import { HeroBannerProps } from "../../types/types";
 import Button from "../Button";
 import Container from "../Container";
 import { ArrowRightIcon } from "../icons";
+import Plasma from "../Plasma/Plasma";
 import styles from "./HeroBanner.module.css";
 
 export default function HeroBanner({
@@ -57,7 +58,18 @@ export default function HeroBanner({
 
   return (
     <section className={`${styles.heroBackground} relative sectionPadding overflow-hidden ${className}`}>
-      <Container maxWidth="2xl" className={`${styles.content} relative z-10`}>
+      {/* Plasma Background Animation */}
+      <div className="absolute inset-0 z-[1]">
+        <Plasma 
+          color="#8b5cf6"
+          speed={0.8}
+          direction="forward"
+          scale={1.5}
+          opacity={0.4}
+          mouseInteractive={true}
+        />
+      </div>
+      <Container maxWidth="2xl" className={`${styles.content} relative z-[2]`}>
         <div className="flex flex-col items-center text-center gap-6 md:gap-5 lg:pt-48 pt-10 sectionHeading">
           <h1 className="max-w-4xl">
             <span className="text-white">{headline}</span>

@@ -177,9 +177,9 @@ h2.headingSize {
   overflow: hidden !important;
 }
 
-p.topPara{
+p.topPara {
   font-size: 15px;
-  font-weight: 400; 
+  font-weight: 400;
 }
 
 @media screen and (max-width: 768px) {
@@ -189,32 +189,43 @@ p.topPara{
 }
 
 @media screen and (max-width: 576px) {
-  .keyGrowthTechnologySection .sectionHeading{
+  button.inputFieldBtn {
+    --tw-translate-y: 0 !important;
+    translate: none !important;
+  }
+  .topHeader {
+    padding-bottom: 1rem;
+  }
+  /* header {
+    transform: translateY(11px);
+  } */
+  .keyGrowthTechnologySection .sectionHeading {
     max-width: 100% !important;
   }
   .inputFieldWrapper {
     background: #1c0d54;
     border-radius: 0.5rem;
   }
-  .inputFieldWrapper input{
+  .inputFieldWrapper input {
     border: 0rem;
+    font-size: 0.975rem;
   }
-  .inputFieldWrapper input:focus{
+  .inputFieldWrapper input:focus {
     border: 0rem;
     box-shadow: none;
     outline: none;
   }
-  .inputFieldBtn{
+  .inputFieldBtn {
     position: static !important;
     width: 100% !important;
-    margin-top: 1rem;
+
   }
-  .headerLogo{
+  .headerLogo {
     max-width: 6rem;
   }
   .mobile-padding-bottom-0 {
     padding-bottom: 0rem !important;
-}
+  }
   div.sectionHeading.forH2 > p {
     font-size: 1rem;
   }
@@ -243,7 +254,7 @@ p.topPara{
     padding-top: 3.825rem;
     padding-bottom: 4.25rem;
   }
-  .topPara {
+  p.topPara {
     font-size: 0.655rem;
   }
   h2.headingSize {
@@ -261,6 +272,9 @@ p.topPara{
   }
   div.scrollerItem {
     border-radius: 0.5rem !important;
+  }
+  .sectionHeading > h2 {
+    font-size: 2rem !important;
   }
 }
 
@@ -326,7 +340,7 @@ p.topPara{
 
 .sectionHeading.forH2 > p {
   font-size: 1.125rem;
-  line-height: 1.3; 
+  line-height: 1.3;
   margin-top: 1.25rem;
 }
 
@@ -398,21 +412,21 @@ p.topPara{
   scrollbar-width: none;
 }
 
-.designerPageProfessional .bottomHeadingWrapper h3{
+.designerPageProfessional .bottomHeadingWrapper h3 {
   max-width: 30rem;
 }
 
 .designerPageCaseStudy .stack-cards__item,
-section.designerPageCaseStudy .stack-cards__item{
+section.designerPageCaseStudy .stack-cards__item {
   top: 7vh;
-} 
+}
 
-button.inputFieldBtn{
+button.inputFieldBtn {
   position: absolute;
   right: 0.725rem;
 }
 
-.keyGrowthTechnologySection .sectionHeading{
+.keyGrowthTechnologySection .sectionHeading {
   max-width: 50rem;
 }
 
@@ -428,7 +442,7 @@ button.inputFieldBtn{
   content: "";
   position: absolute;
   top: 35%;
-  right: 5%  ;
+  right: 5%;
   width: 28rem;
   height: 35rem;
   background: url("/assets/images/1.webp") no-repeat;
@@ -436,19 +450,19 @@ button.inputFieldBtn{
   opacity: 0.6;
 }
 
-.faqInputWrapper{
+.faqInputWrapper {
   position: relative;
-} 
+}
 
-  .faqInputWrapper::after {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    content: "";
-    width: 100%;
-    height: 100%;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-    border-radius: 12px;
-    background: linear-gradient(238deg, #090129 77.16%, #643bff 158.68%);
-    z-index: -1;
+.faqInputWrapper::after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  content: "";
+  width: 100%;
+  height: 100%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 12px;
+  background: linear-gradient(238deg, #090129 77.16%, #643bff 158.68%);
+  z-index: -1;
 }

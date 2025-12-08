@@ -739,7 +739,7 @@ const CaseStudySection = ({ data = DEFAULT_CASE_STUDY_DATA, isShowTabs = true, c
               <div
                 className={`${
                   shouldStick ? "sticky" : ""
-                } top-10 z-50 py-4 md:px-4 p-0 rounded-lg w-full mx-auto md:bg-[#0b0038] md:mb-8 mb-16 hidden md:flex items-end justify-between flex-wrap`}
+                } border-amber-300 border-2 top-10 z-50 py-4 md:px-4 p-0 rounded-lg w-full mx-auto md:bg-[#0b0038] md:mb-8 mb-16 hidden md:flex items-end justify-between flex-wrap`}
               >
               <button
                 onClick={() => {

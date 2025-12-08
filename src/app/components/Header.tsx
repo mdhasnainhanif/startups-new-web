@@ -78,7 +78,8 @@ export default function Header() {
       >
         <Container maxWidth="xl" className="px-0">
           <nav
-            className="headerNav flex items-center justify-between w-full rounded-xl md:rounded-2xl px-4 md:px-6 md:py-3  bg-[#1c1949] backdrop-blur-md shadow-xl border border-[#2f2a63] relative"
+            className="headerNav flex items-center justify-between w-full rounded-xl md:rounded-2xl px-4 md:px-6 
+            md:py-3  bg-[#1c1949] backdrop-blur-md shadow-xl border border-[#2f2a63] relative"
             style={{ minHeight: "64px" }}
           >
             <div className="flex items-center gap-2">
@@ -120,9 +121,9 @@ export default function Header() {
             </div>
             <div className="hidden md:flex items-center gap-5">
               <Link href="#" className="text-white text-sm font-medium hover:text-[#0fdac2] transition-colors">
-                <span className="bg-[#2f2a63] font-light text-xs border border-[#525252] rounded-lg px-2 py-1 me-2 text-[#969696]">
+                {/* <span className="bg-[#2f2a63] font-light text-xs border border-[#525252] rounded-lg px-2 py-1 me-2 text-[#969696]">
                   New
-                </span>
+                </span> */}
                 ROI Calculator
               </Link>
               <Button
@@ -130,7 +131,7 @@ export default function Header() {
                 variant="green"
                 iconPosition="right"
               >
-                Build Your Team
+                Hire Your Team
               </Button>
             </div>
 
@@ -171,7 +172,7 @@ export default function Header() {
 
       {/* Sidebar */}
       <div
-        className={`fixed top-0 left-0 h-full w-80 max-w-[85vw] bg-[#0a0a1a] border-r border-[#1a1a2e]/50 md:hidden z-100 transform transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 left-0 h-full w-80 max-w-[85vw] bg-[#0a0a1a] border-r border-[#1a1a2e]/50 md:hidden z-1000 transform transition-transform duration-300 ease-in-out ${ 
           isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >

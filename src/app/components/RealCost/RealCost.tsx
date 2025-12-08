@@ -96,9 +96,8 @@ const REAL_COST_DATA: RealCostData = {
       costBreakdown: {
         label: 'Cost Breakdown',
         segments: [
-          { label: 'Segment 1', value: 50, color: '#0fdac2', gradient: ['#0fdac2', '#643BFF'] },
-          { label: 'Segment 2', value: 100, color: '#643bff', gradient: ['#643bff', '#8b5cf6'] },
-          { label: 'Segment 3', value: 5, color: '#643BFF', gradient: ['#643BFF', '#643BFF'] },
+          { label: 'Segment 1', value: 50, color: '#0fdac2', gradient: ['#0fdac2', '#0fdac2'] },
+          { label: 'Segment 2', value: 105, color: '#732BFF', gradient: ['#732BFF', '#732BFF'] },
         ],
       },
     },
@@ -376,14 +375,6 @@ const RealCost = () => {
                           </linearGradient>
                         ))}
                       </defs>
-                      <circle
-                        cx="60"
-                        cy="60"
-                        r="45"
-                        fill="none"
-                        stroke="#1a0b3f"
-                        strokeWidth="20"
-                      />
                       {REAL_COST_DATA.calculator.charts.costBreakdown.segments.map(
                         (segment, index, array) => {
                           const previousValue = array
@@ -405,6 +396,7 @@ const RealCost = () => {
                               strokeWidth="20"
                               strokeDasharray={`${dashArray} ${circumference}`}
                               strokeDashoffset={dashOffset}
+                              strokeLinecap="butt"
                               transform="rotate(-90 60 60)"
                             />
                           );

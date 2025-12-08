@@ -41,7 +41,7 @@ export default function TopHeader() {
 
   return (
     <div 
-      className="relative md:absolute md:top-0 left-0 right-0 z-50 flex items-center 
+      className="topHeader relative md:absolute md:top-0 left-0 right-0 z-50 flex items-center 
       justify-center w-full pt-2 bg-transparent backdrop-blur-sm transition-transform duration-300 ease-in-out" 
       style={{ 
         willChange: "transform",

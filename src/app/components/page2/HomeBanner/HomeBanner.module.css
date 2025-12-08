@@ -66,6 +66,8 @@
   transition: transform 0.3s ease;
   display: inline-block;
   width: 100%;
+  box-shadow: 0 .125rem 1.125rem #0fdac2;
+  border-radius: 1rem;
 }
 
 .videoImageWrapper::before {
@@ -84,7 +86,7 @@
 .videoImage {
   margin: 0 auto;
   display: block;
-  box-shadow: 0 2px 18px #1e365c;
+  box-shadow: rgb(15, 218, 194) 0px 0.125rem 1.125rem;
   border-radius: 0.925rem;
   width: 100%;
 }
@@ -166,6 +168,9 @@
 }
 
 @media (max-width: 640px) {
+  .googleImage {
+    display: none;
+  }
   .contentWrapper {
     gap: 40px;
   }

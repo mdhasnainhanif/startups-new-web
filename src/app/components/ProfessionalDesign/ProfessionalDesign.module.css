@@ -182,6 +182,8 @@ ul.factsList{
   cursor: pointer;
   transition: transform 0.3s ease;
   width: 100%;
+  box-shadow: 0 .125rem 1.125rem #0fdac2;
+  border-radius: 2rem;
 }
 
 .videoImageWrapper:hover {

@@ -101,7 +101,7 @@ export default function FAQ({ faqs, sectionData, className = "" }: FAQProps) {
 
           {/* User Question Input Box - Below all FAQs */}
           <div className="w-full mt-6 sm:mt-8">
-            <div className="py-3 sm:py-4 border border-white/20 rounded-lg bg-white/5 faqInputWrapper">
+            <div className="py-3 sm:py-4 border border-white/20 rounded-xl bg-white/5 faqInputWrapper">
               <div className="px-3 sm:px-4">
                 <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
                   <div className="flex-1">

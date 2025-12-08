@@ -1,1 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 172.9 50" xml:space="preserve"><path d="m147.9 33.3 25-27.1h-52.3c-1 0-1.8.8-1.9 1.8v5.7C114 5.6 104.1 0 92.7 0 79.2 0 67.9 7.8 64.6 18.5V6.2h-9.1c-2.2 0-4.1 1-5.5 2.5L32.3 28.1 14.6 8.7c-1.4-1.5-3.3-2.4-5.5-2.5H0v39.6h10.7c1 0 1.8-.9 1.8-1.9V25l19.8 21.9L52.1 25v18.9c0 1 .9 1.8 1.9 1.9h10.6V31.5C67.9 42.2 79.2 50 92.7 50c16.1 0 29.2-11.2 29.2-25 0-2.2-.4-4.2-1-6.2h22.8l-25 27.1H171c1 0 1.8-.8 1.9-1.8V33.3zm-55.1 4.1c-7.8 0-14.2-5.6-14.2-12.4 0-6.9 6.4-12.4 14.2-12.4 7.9 0 14.2 5.6 14.2 12.4s-6.3 12.4-14.2 12.4" style="fill:#565e66"/></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.3.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="136.2px" height="86.3px" viewBox="0 0 136.2 86.3" style="enable-background:new 0 0 136.2 86.3;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#054AD9;}
+	.st1{fill:#FCFDFD;}
+	.st2{fill:#F88504;}
+	.st3{fill-rule:evenodd;clip-rule:evenodd;fill:#24ABE2;}
+	.st4{fill:url(#SVGID_1_);}
+	.st5{fill:#72B52D;}
+	.st6{fill:#010201;}
+	.st7{fill:#01CAFE;}
+	.st8{fill:#FFFFFF;}
+</style>
+<path class="st3" d="M0,82.8h22.3c2.3,0,4.2-1.9,4.2-4.2V40l41.6,46.4L109.7,40v38.6c0,2.3,1.9,4.2,4.2,4.2h22.3V0h-18.9
+	c-5.5,0-9.6,2.6-11.8,5.1L68.1,46.8L30.7,5.1C28.5,2.6,24.4,0,18.9,0H0V82.8z"/>
+</svg>

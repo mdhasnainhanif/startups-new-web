@@ -113,12 +113,19 @@
     font-size: 2.5rem;
   }
 
-  .rightSection {
-    order: -1;
-  }
 }
 
 @media (max-width: 768px) {
+  div.contentWrapper{
+    padding: 3rem 1.5rem 0;
+  }
+  .leftSection {
+    order: -1;
+  }
+  
+  .rightSection {
+    order: 1;
+  }
   .heading {
     font-size: 2rem;
   }

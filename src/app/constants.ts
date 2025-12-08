@@ -191,7 +191,7 @@ export const TECHNOLOGIES_SECTION = {
       { id: 6, name: "Ahrefs", icon: "/assets/images/marketing-growth/ahrefs.svg", iconColor: "#1e90ff" },
       { id: 7, name: "SEMrush", icon: "/assets/images/marketing-growth/semrush.svg", iconColor: "#ff6b35" },
       { id: 8, name: "Moz", icon: "/assets/images/marketing-growth/moz.svg", iconColor: "#2d8cff" },
-      { id: 9, name: "Screaming Frog", icon: "Sf", iconColor: "#00d084" },
+      { id: 9, name: "Screaming Frog", icon: "/assets/images/marketing-growth/screaming-frog.svg", iconColor: "#2d8cff" },
       { id: 10, name: "Surfer SEO", icon: "/assets/images/marketing-growth/surfer-seo.svg", iconColor: "#ff6b9d" },
 
       // Email marketing
@@ -203,7 +203,7 @@ export const TECHNOLOGIES_SECTION = {
       // Social Media
       { id: 15, name: "Hootsuite", icon: "/assets/images/marketing-growth/hootsuite.svg", iconColor: "#000000" },
       { id: 16, name: "Buffer", icon: "/assets/images/marketing-growth/buffer.svg", iconColor: "#1a73e8" },
-      { id: 17, name: "Later", icon: "L", iconColor: "#5b21b6" },
+      { id: 17, name: "Later", icon: "/assets/images/marketing-growth/later.svg", iconColor: "#5b21b6" },
       { id: 18, name: "Sprout Social", icon: "/assets/images/marketing-growth/sprout-social.svg", iconColor: "#00c06a" },
 
       // Advertising & Growth

@@ -16,8 +16,10 @@
   position: relative;
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 2px 18px #040505;
+  box-shadow: 0 .125rem 1.125rem #0fdac2;
+  border-radius: 1rem;
   transition: all 0.3s ease;
+
 }
 
 .videoWrapper:hover .videoCard {
@@ -55,7 +57,7 @@
   max-width: 26rem;
   margin: 0 auto;
   display: block;
-  box-shadow: 0 2px 18px #1e365c;
+  box-shadow: rgb(15, 218, 194) 0px 0.125rem 1.125rem;
   border-radius: 1.4rem;
   width: 100%;
 }
