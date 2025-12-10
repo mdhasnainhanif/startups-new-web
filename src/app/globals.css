@@ -466,3 +466,11 @@ button.inputFieldBtn {
   background: linear-gradient(238deg, #090129 77.16%, #643bff 158.68%);
   z-index: -1;
 }
+
+.webDevelopmentPageCaseStudy h2{
+  max-width: 50rem;
+}
+
+div.webDevelopmentPageCaseStudy{
+  padding-bottom: 13rem;
+}

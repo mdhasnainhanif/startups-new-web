@@ -193,7 +193,12 @@ const AiPowerDesign = ({ data = AI_POWER_DESIGN_DATA }: AiPowerDesignProps) => {
               <h3 className={styles.deliverablesTitle}>
                 {data.deliverablesTitle ? (
                   <>
-                    <span className={styles.highlighted}>22-Day</span> Content Package Includes:
+                    {data.deliverablesTitle.split('22-Day').map((part, index, array) => (
+                      <span key={index}>
+                        {part}
+                        {index < array.length - 1 && <span className={styles.highlighted}>22-Day</span>}
+                      </span>
+                    ))}
                   </>
                 ) : (
                   <>Your <span className={styles.highlighted}>22-Day</span> Deliverable <br/> Package Includes:</>

@@ -12,7 +12,7 @@ import styles from "./Technologies.module.css";
 
 interface TechnologiesProps {
   heading?: string;
-  description?: string;
+  description?: string | string[];
   subDescription?: string;
   hideTabs?: boolean;
   defaultTab?: string;
@@ -88,6 +88,48 @@ export default function Technologies({ heading, description, subDescription, hid
     return parts.length > 0 ? parts : <span className="text-white">{text}</span>;
   };
 
+  // Function to parse subDescription and highlight text in parentheses
+  const parseSubDescription = (text: string) => {
+    if (!text) return null;
+    
+    const parts: React.ReactNode[] = [];
+    const parenRegex = /\(([^)]+)\)/g;
+    let lastIndex = 0;
+    let match;
+    let key = 0;
+
+    while ((match = parenRegex.exec(text)) !== null) {
+      // Add text before the parentheses
+      if (match.index > lastIndex) {
+        parts.push(
+          <span key={`text-${key++}`} className="text-white">
+            {text.substring(lastIndex, match.index)}
+          </span>
+        );
+      }
+      
+      // Add highlighted text inside parentheses
+      parts.push(
+        <span key={`highlight-${key++}`} className="text-[#0fdac2]">
+          ({match[1]})
+        </span>
+      );
+      
+      lastIndex = match.index + match[0].length;
+    }
+    
+    // Add remaining text after last parentheses
+    if (lastIndex < text.length) {
+      parts.push(
+        <span key={`text-${key++}`} className="text-white">
+          {text.substring(lastIndex)}
+        </span>
+      );
+    }
+    
+    return parts.length > 0 ? parts : <span className="text-white">{text}</span>;
+  };
+
   // Sync Swiper to active tab when changed programmatically
   useEffect(() => {
     if (tabsSwiperRef.current) {
@@ -107,13 +149,23 @@ export default function Technologies({ heading, description, subDescription, hid
             <h2 className="max-w-7xl mx-auto">
               {parseBrackets(heading || TECHNOLOGIES_SECTION.heading.part1)}
             </h2>
-            <p className={styles.description}>
-              {description || TECHNOLOGIES_SECTION.description}
-            </p>
-            {subDescription && (
-              <p className={styles.subDescription}>
-                {subDescription}
+            {Array.isArray(description) ? (
+              <div className={styles.descriptionWrapper}>
+                {description.map((para, index) => (
+                  <p key={index} className={styles.description}>
+                    {para}
+                  </p>
+                ))}
+              </div>
+            ) : (
+              <p className={styles.description}>
+                {description || TECHNOLOGIES_SECTION.description}
               </p>
+            )}
+            {subDescription && (
+              <h3 className={styles.categoryTitle}>
+                {parseSubDescription(subDescription)}
+              </h3>
             )}
           </div>
 

@@ -22,6 +22,7 @@ export interface CaseStudySectionData {
   description: string;
   tabs: TabData[];
   cards: CardData[];
+  className?: string;
 }
 
 // Default data (can be used as fallback)
