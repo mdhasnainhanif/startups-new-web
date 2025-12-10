@@ -473,8 +473,7 @@ button.inputFieldBtn {
 
 div.webDevelopmentPageCaseStudy{
   padding-bottom: 13rem;
-<<<<<<< HEAD
-=======
+}
 /* Horizontal Scrollbar Styles for Services Calculator */
 .scrollbar-horizontal {
   scrollbar-width: thin;
@@ -509,5 +508,4 @@ div.webDevelopmentPageCaseStudy{
   scrollbar-width: thin;
   scrollbar-color: #0fdac2 transparent;
   -ms-overflow-style: -ms-autohiding-scrollbar;
->>>>>>> bcf278c37cc8d4b916d81b8b0dc70a6190ba40e7
 }
