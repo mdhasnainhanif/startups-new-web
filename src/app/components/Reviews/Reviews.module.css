@@ -135,6 +135,34 @@
   column-fill: balance;
 }
 
+.reviewsMasonry.equalHeight {
+  display: grid;
+  gap: 20px;
+  column-count: unset;
+}
+
+.reviewsMasonry.equalHeight .reviewCard {
+  display: flex;
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.equalHeightCard {
+  height: 100%;
+  display: flex;
+}
+
+.equalHeightCard .reviewCardContent {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.equalHeightCard .reviewText {
+  flex: 1;
+}
+
 .reviewCard {
   display: inline-block;
   width: 100%;

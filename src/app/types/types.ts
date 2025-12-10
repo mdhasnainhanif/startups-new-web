@@ -160,6 +160,7 @@ export interface CounterItem {
 export interface CounterProps {
   items: CounterItem[];
   className?: string;
+  gridClassName?: string;
 }
 
 // ContactForm Types

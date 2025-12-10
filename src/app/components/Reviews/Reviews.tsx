@@ -5,7 +5,15 @@ import { REVIEWS_SECTION } from "../../constants";
 import styles from "./Reviews.module.css";
 import Image from "next/image";
 
-export default function Reviews() {
+interface ReviewsProps {
+  limit?: number;
+  columns?: number;
+  equalHeight?: boolean;
+}
+
+export default function Reviews({ limit, columns = 3, equalHeight = false }: ReviewsProps = {}) {
+  // Limit reviews if specified, otherwise show all
+  const reviewsToShow = limit ? REVIEWS_SECTION.reviews.slice(0, limit) : REVIEWS_SECTION.reviews;
 
   return (
     <>
@@ -54,16 +62,21 @@ export default function Reviews() {
             ))}
           </div>
 
-          {/* Reviews Masonry */}
-          <div className={styles.reviewsMasonry}>
-            {REVIEWS_SECTION.reviews.map((review, index) => {
-              // Card 3 (index 2) and Card 6 (index 5) should have borders
+          {/* Reviews Grid/Masonry */}
+          <div 
+            className={`${styles.reviewsMasonry} ${equalHeight ? styles.equalHeight : ''}`}
+            style={equalHeight && columns ? { 
+              gridTemplateColumns: `repeat(${columns}, 1fr)`,
+              columnCount: 'unset'
+            } : columns ? { columnCount: columns } : {}}
+          >
+            {reviewsToShow.map((review, index) => {
               return (
               <div
                 key={review.id}
                 className={`${styles.reviewCard} ${
                   review?.hasBorder ? styles.highlightedCard : ""
-                }`}
+                } ${equalHeight ? styles.equalHeightCard : ''}`}
               >
                 <div className={styles.reviewCardContent}>
                 {/* Avatar, Name, and Stars Row */}
