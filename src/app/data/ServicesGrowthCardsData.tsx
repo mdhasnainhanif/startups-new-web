@@ -16,6 +16,62 @@ export interface ServicesGrowthCardsContent {
 export interface ServicesGrowthCardsContentData {
   [key: string]: ServicesGrowthCardsContent[];
 }
+
+export interface ServicesGrowthCardsSectionData {
+  heading: string;
+  description: string;
+}
+
+export const SERVICES_GROWTH_CARDS_SECTION: Record<string, ServicesGrowthCardsSectionData> = {
+  "brand-identity": {
+    heading: "Growth Guides & Resources",
+    description: "Explore our comprehensive collection of growth guides, case studies, and resources designed to help your business scale and succeed."
+  },
+  "marketing-advertising": {
+    heading: "Marketing Growth Resources",
+    description: "Discover strategies, guides, and insights to accelerate your marketing efforts and drive business growth."
+  },
+  "digital-web": {
+    heading: "Digital Growth Guides",
+    description: "Learn from expert guides and case studies on building successful digital products and web experiences."
+  },
+  "motion-video": {
+    heading: "Motion & Video Resources",
+    description: "Access valuable resources and guides to enhance your motion graphics and video production capabilities."
+  },
+  "print": {
+    heading: "Print Design Resources",
+    description: "Explore guides and best practices for creating impactful print materials that drive results."
+  },
+  "illustration-artwork": {
+    heading: "Illustration Resources",
+    description: "Discover resources and guides to elevate your illustration and artwork capabilities."
+  },
+  "ebooks-digital-report": {
+    heading: "Digital Report Resources",
+    description: "Access guides and templates for creating compelling eBooks and digital reports."
+  },
+  "presentations": {
+    heading: "Presentation Resources",
+    description: "Learn how to create powerful presentations that captivate audiences and drive action."
+  },
+  "product-packaging": {
+    heading: "Packaging Design Resources",
+    description: "Explore guides and case studies on creating packaging that stands out and drives sales."
+  },
+  "apparel-merchandise": {
+    heading: "Apparel Design Resources",
+    description: "Discover resources and guides for creating branded apparel and merchandise that customers love."
+  },
+  "environmental-event": {
+    heading: "Event Design Resources",
+    description: "Access guides and best practices for creating immersive event and environmental graphics."
+  },
+  "corporate-internal": {
+    heading: "Corporate Design Resources",
+    description: "Explore resources and guides for creating professional internal communications and corporate materials."
+  }
+};
 export interface ServicesGrowthCardsData {
   [key: string]: GrowthCard[];
 }
@@ -415,12 +471,12 @@ export const SERVICES_GROWTH_CARDS_CONTENT: ServicesGrowthCardsContentData = {
     {
       heading: "Creative consistency",
       bodyText: "Our designers follow proven systems built by Design Pickle to help them adapt quickly to your brand and improve with every request and round of feedback.",
-      image: "/assets/images/blog/2.webp",
+      image: "/assets/images/services/brand-identity/2.webp",
     },
     {
       heading: "Always-on, always legal",
       bodyText: "Every creative uses a fully licensed commercial-safe tech stack ensuring your brand is protected from legal risks and uncertain quality.",
-      image: "/assets/images/blog/3.webp",
+      image: "/assets/images/services/brand-identity/3.webp",
     },
   ],
   "marketing-advertising": [
@@ -616,4 +672,11 @@ export const getServiceGrowthCards = (slug: string): GrowthCard[] => {
 };
 export const getServiceGrowthCardsContent = (slug: string): ServicesGrowthCardsContent[] => {
   return SERVICES_GROWTH_CARDS_CONTENT[slug] || [];
+};
+
+export const getServiceGrowthCardsSection = (slug: string): ServicesGrowthCardsSectionData => {
+  return SERVICES_GROWTH_CARDS_SECTION[slug] || {
+    heading: "Growth Guides & Resources",
+    description: "Explore our comprehensive collection of growth guides, case studies, and resources designed to help your business scale and succeed."
+  };
 };

@@ -509,3 +509,6 @@ div.webDevelopmentPageCaseStudy{
   scrollbar-color: #0fdac2 transparent;
   -ms-overflow-style: -ms-autohiding-scrollbar;
 }
+section.sectionPadding.pt-0 {
+  padding-top: 0 !important;
+}

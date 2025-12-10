@@ -77,10 +77,12 @@ const ServicesCalculator: React.FC = () => {
     const container = scrollContainerRef.current;
     if (!container) return;
     const { scrollLeft, scrollWidth, clientWidth } = container;
-    const isAtStart = scrollLeft <= 0;
-    const isAtEnd = scrollLeft + clientWidth >= scrollWidth - 1;
-    setShowLeftFade(!isAtStart);
-    setShowRightFade(!isAtEnd);
+    const isAtStart = scrollLeft <= 5;
+    const isAtEnd = scrollLeft + clientWidth >= scrollWidth - 5;
+    const hasScroll = scrollWidth > clientWidth;
+    
+    setShowLeftFade(!isAtStart && hasScroll);
+    setShowRightFade(!isAtEnd && hasScroll);
   };
   useEffect(() => {
     const container = scrollContainerRef.current;
@@ -95,7 +97,6 @@ const ServicesCalculator: React.FC = () => {
   }, [activeTab]);
 
   useEffect(() => {
-    // Check scroll position after tab change
     setTimeout(() => {
       checkScrollPosition();
     }, 100);
@@ -103,17 +104,13 @@ const ServicesCalculator: React.FC = () => {
   return (
     <section className="bg-[#050321] py-16 md:py-20 lg:py-[5.25rem] px-4 sm:px-6 lg:px-8">
       <Container maxWidth="xl">
-        <div className="text-center mb-8 md:mb-12">
-          <p className="text-[#0fdac2] text-sm md:text-base font-semibold mb-2 tracking-wider">
-            NO HIDDEN FEES. NO SURPRISES.
-          </p>
-          <h2 className="text-white text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
-            YOU DECIDE.
+        <div className="text-center mb-8 md:mb-12 sectionHeading">
+          <h2 className="text-white text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight mb-0">
+            You <span className="text-transparent bg-clip-text bg-linear-to-r from-primary to-[#0fdac2]">Decide</span>.
           </h2>
         </div>
-        <div className="bg-[#1a1a2e] rounded-2xl p-4 sm:p-6 md:p-8 lg:p-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 relative">
-          <div className="flex flex-col gap-4">
-            <h3 className="text-white text-lg font-semibold">Platform</h3>
+        <div className="bg-[#1a1a2e] rounded-2xl p-4 sm:p-6 md:p-8 lg:p-10 relative items-center flex flex-col md:flex-row gap-4">
+          <div className="flex flex-col gap-4 w-full md:max-w-[15%] h-[100%]">            <h3 className="text-white text-lg font-semibold">Platform</h3>
             <div className="flex flex-col gap-4">
               <label className="flex items-center gap-3 cursor-pointer group">
                 <input
@@ -161,8 +158,8 @@ const ServicesCalculator: React.FC = () => {
               </label>
             </div>
           </div>
-
-          <div className="flex flex-col gap-4">
+          <span className='border border-dashed border-white/10 h-[12rem]'></span>
+          <div className="flex flex-col gap-4 w-full md:max-w-[25%] h-full">
             <h3 className="text-white text-lg font-semibold">Creative services</h3>
             <div className="flex border-b border-white/10">
               <button
@@ -215,43 +212,43 @@ const ServicesCalculator: React.FC = () => {
               </div>
               {showLeftFade && (
                 <div 
-                  className="absolute left-0 top-0 bottom-0 w-24 pointer-events-none z-10 transition-opacity duration-300"
+                  className="absolute left-[-10px] top-0 bottom-[14px] w-12 pointer-events-none z-10 transition-opacity duration-300"
                   style={{
-                    background: 'linear-gradient(to right, #1a1a2e 0%, #1a1a2e 40%, rgba(26, 26, 46, 0.8) 70%, transparent 100%)'
+                    background: 'linear-gradient(to right, #1a1a2e 0%, rgba(26, 26, 46, 0.98) 20%, rgba(26, 26, 46, 0.85) 50%, rgba(26, 26, 46, 0.5) 80%, transparent 100%)'
                   }}
                 ></div>
               )}
               {showRightFade && (
                 <div 
-                  className="absolute right-0 top-0 bottom-0 w-24 pointer-events-none z-10 transition-opacity duration-300"
+                  className="absolute right-[-10px] top-0 bottom-[14px] w-12 pointer-events-none z-10 transition-opacity duration-300"
                   style={{
-                    background: 'linear-gradient(to left, #1a1a2e 0%, #1a1a2e 40%, rgba(26, 26, 46, 0.8) 70%, transparent 100%)'
+                    background: 'linear-gradient(to left, #1a1a2e 0%, rgba(26, 26, 46, 0.98) 20%, rgba(26, 26, 46, 0.85) 50%, rgba(26, 26, 46, 0.5) 80%, transparent 100%)'
                   }}
                 ></div>
               )}
-              {/* Line below scrollbar */}
               <div className="absolute bottom-[6px] left-0 right-0 h-px bg-white/10 z-0"></div>
             </div>
           </div>
-          <div className="flex flex-col gap-4">
+          <span className='border border-dashed border-white/10 h-[12rem]'></span>
+          <div className="flex flex-col gap-4 w-full md:max-w-[50%] min-w-[16rem] h-fill">
             <h3 className="text-white text-lg font-semibold">Hours</h3>
             <p className="text-white/70 text-sm leading-relaxed">
               Total reserved hours each business day from your dedicated design team.
             </p>
-            <div className="flex items-center gap-4 mt-2">
+            <div className="flex items-center mt-2">
+              <span className="text-[#0fdac2] text-xl md:text-2xl lg:text-3xl font-bold min-w-[3rem] text-center">
+                {hours}H
+              </span>
               <button
-                className="w-10 h-10 bg-white/10 hover:bg-white/20 border border-white/20 hover:border-[#0fdac2] rounded-lg text-white text-2xl font-semibold flex items-center justify-center transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+                className="w-10 h-10 text-xl bg-white/10 hover:bg-white/20 border border-white/20 hover:border-[#0fdac2] rounded-tl-lg rounded-bl-lg text-white text-2xl font-semibold flex items-center justify-center transition-all disabled:opacity-30 disabled:cursor-not-allowed"
                 onClick={() => handleHoursChange(-1)}
                 disabled={hours <= 2}
                 aria-label="Decrease hours"
               >
                 −
               </button>
-              <span className="text-[#0fdac2] text-3xl md:text-4xl lg:text-5xl font-bold min-w-[3rem] text-center">
-                {hours}H
-              </span>
               <button
-                className="w-10 h-10 bg-white/10 hover:bg-white/20 border border-white/20 hover:border-[#0fdac2] rounded-lg text-white text-2xl font-semibold flex items-center justify-center transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+                className="w-10 h-10 text-xl bg-white/10 hover:bg-white/20 border border-white/20 hover:border-[#0fdac2] rounded-tr-lg rounded-br-lg text-white text-2xl font-semibold flex items-center justify-center transition-all disabled:opacity-30 disabled:cursor-not-allowed"
                 onClick={() => handleHoursChange(1)}
                 disabled={hours >= 3}
                 aria-label="Increase hours"
@@ -260,52 +257,73 @@ const ServicesCalculator: React.FC = () => {
               </button>
             </div>
           </div>
-          <div className="flex flex-col gap-3 sm:gap-4 relative md:col-span-2 lg:col-span-1">
+          <span className='border border-dashed border-white/10 h-[12rem]'></span>
+          <div className="flex flex-col relative w-full md:max-w-[55%] h-full">
             {savings > 0 && (
-              <div className="absolute -top-2 right-0 bg-[#ffd700] text-black text-xs font-bold px-3 py-1 rounded">
+              <div className="absolute -top-2 right-0 bg-[#0fdac2] text-black text-xs font-bold px-3 py-1 rounded">
                 {savings}k saved
               </div>
             )}
-            <div className="text-white text-3xl md:text-4xl lg:text-5xl font-bold mt-4">
-              ${calculatePrice.toLocaleString()}/mo.
+            <div className="flex items-baseline gap-2 mt-0 mb-0">
+              <span className="text-white text-xl md:text-xl lg:text-xl font-bold">
+                ${calculatePrice.toLocaleString()}
+              </span>
+              <span className="text-white/60 text-xl md:text-xl lg:text-xl font-medium">
+                /mo
+              </span>
             </div>
-            <p className="text-white/70 text-sm font-medium mt-2">SUMMARY</p>
-            <div className="flex flex-col gap-2">
+            <p className="text-white/70 text-xs md:text-sm font-medium mt-0 mb-0 uppercase tracking-wider">SUMMARY</p>
+            <div className="flex flex-row gap-2 flex-wrap w-full min-w-[18rem] mt-[2.5rem]">
               <button
-                className={`px-4 py-2 text-sm font-medium rounded-lg text-left transition-all ${
+                className={`px-4 py-2 text-sm font-medium transition-all relative bg-transparent text-white ${
                   billingPeriod === 'monthly'
-                    ? 'border-2 border-white text-white bg-white/5'
-                    : 'border border-white/20 text-white/70 hover:text-white/90 hover:border-white/40'
+                    ? ''
+                    : ''
                 }`}
                 onClick={() => setBillingPeriod('monthly')}
               >
                 Monthly
+                {billingPeriod === 'monthly' && (
+                  <span 
+                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#0fdac2]"
+                  ></span>
+                )}
               </button>
               <button
-                className={`px-4 py-2 text-sm font-medium rounded-lg text-left transition-all relative ${
+                className={`px-4 py-2 text-sm font-medium transition-all bg-transparent text-white relative ${
                   billingPeriod === 'quarterly'
-                    ? 'border-2 border-white text-white bg-white/5'
-                    : 'border border-white/20 text-white/70 hover:text-white/90 hover:border-white/40'
+                    ? ''
+                    : ''
                 }`}
                 onClick={() => setBillingPeriod('quarterly')}
               >
                 Quarterly
+                {billingPeriod === 'quarterly' && (
+                  <span 
+                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#0fdac2]"
+                  ></span>
+                )}
               </button>
               <button
-                className={`px-4 py-2 text-sm font-medium rounded-lg text-left transition-all relative ${
+                className={`px-4 py-2 text-sm font-medium transition-all bg-transparent text-white relative ${
                   billingPeriod === 'annual'
-                    ? 'border-2 border-white text-white bg-white/5 pb-3'
-                    : 'border border-white/20 text-white/70 hover:text-white/90 hover:border-white/40'
+                    ? ''
+                    : ''
                 }`}
                 onClick={() => setBillingPeriod('annual')}
               >
                 Annual
                 {billingPeriod === 'annual' && (
-                  <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#0fdac2] rounded-b-lg"></span>
+                  <span 
+                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#0fdac2]"
+                  ></span>
                 )}
               </button>
             </div>
-            <button className="bg-[#0fdac2] hover:bg-[#0bc4ae] text-black font-bold text-lg px-6 py-3 rounded-xl transition-all mt-4 hover:shadow-lg hover:shadow-[#0fdac2]/30 hover:-translate-y-0.5">
+          </div>
+          <span className='border border-dashed border-white/10 h-[12rem]'></span>
+          <div className='flex flex-col gap-4 w-full md:max-w-[20%] min-w-[10rem] h-full'> 
+            <button className="bg-[#0fdac2] hover:bg-[#0bc4ae] text-black font-bold text-base md:text-lg px-6 py-3 rounded-xl transition-all mt-4 hover:shadow-lg hover:shadow-[#0fdac2]/30 hover:-translate-y-0.5">
               Get started
             </button>
           </div>
