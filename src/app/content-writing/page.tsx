@@ -42,7 +42,13 @@ export default function ContentWritingPage() {
       <TextSlider1 data={contentWritingSliderData1}/>
       <CaseStudySection isShowTabs={false} data={contentWritingCaseStudyData} className="designerPageCaseStudy" />
       <AiPowerDesign data={contentWritingAiPowerData}/>
-      <Technologies hideTabs={true} defaultTab="creative" />
+      <Technologies 
+        hideTabs={true} 
+        defaultTab="creative"
+        heading="$48,000 plus in Professional Writing Output Delivered in 22 Days"
+        description="A condensed writing period supported by structured tools and seasoned writers replaces fragmented content, inconsistent tone, and time-consuming revisions."
+        subDescription="Content Production Tools ($12,000 plus Annual Value)"
+      />
       <TextSlider1 data={contentWritingSliderData2}/>
       <ProfessionalDesign className="designerPageProfessional" data={contentWritingProfessionalData} />
       <TextSlider1 data={contentWritingSliderData3}/>

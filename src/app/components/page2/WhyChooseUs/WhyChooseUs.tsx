@@ -9,12 +9,18 @@ const WhyChooseUs = () => {
       <Container maxWidth="xl">
         <div className={styles.contentWrapper}>
           {/* Heading */}
-          <div className={`${styles.headingWrapper} sectionHeading forH2 md:max-w-200`}>
+          <div className={`${styles.headingWrapper} sectionHeading forH2 md:max-w-230`}>
             <h2>
               <span className={styles.headingPart1}>{WHY_CHOOSE_US_DATA.headline.part1}</span>
               <span className={styles.headingPart2}>{WHY_CHOOSE_US_DATA.headline.part2}</span>
             </h2>
-            <p className={styles.subtitle}>{WHY_CHOOSE_US_DATA.subtitle}</p>
+            <div className={styles.paragraphsWrapper}>
+              {WHY_CHOOSE_US_DATA.paragraphs.map((paragraph, index) => (
+                <p key={index} className={styles.subtitle}>
+                  {paragraph}
+                </p>
+              ))}
+            </div>
           </div>
 
           {/* Cards Grid */}

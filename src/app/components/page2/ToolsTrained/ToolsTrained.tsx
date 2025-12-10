@@ -17,9 +17,13 @@ const ToolsTrained = () => {
               <span className="text-[#0fdac2]">{TOOLS_TRAINED_DATA.headline.part2}</span>
               <span className="text-white">{TOOLS_TRAINED_DATA.headline.part3}</span>
             </h2>
-            <p className="text-lg md:text-xl text-white leading-relaxed">
-              {TOOLS_TRAINED_DATA.description}
-            </p>
+            <div className="flex flex-col gap-2">
+              {TOOLS_TRAINED_DATA.description.map((paragraph, index) => (
+                <p key={index} className="text-lg md:text-xl text-white leading-relaxed">
+                  {paragraph}
+                </p>
+              ))}
+            </div>
           </div>
 
           {/* Image */}

@@ -44,6 +44,12 @@
   color: #0fdac2;
 }
 
+.paragraphsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
 .subtitle {
   font-size: 1.125rem;
   line-height: 1.8;

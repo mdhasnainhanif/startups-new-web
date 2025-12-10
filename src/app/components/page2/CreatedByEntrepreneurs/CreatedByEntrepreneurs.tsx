@@ -48,9 +48,13 @@ const CreatedByEntrepreneurs = () => {
                 {CREATED_BY_ENTREPRENEURS_DATA.headline.highlight2}
               </span>
             </h2>
-            <p className={styles.description}>
-              {CREATED_BY_ENTREPRENEURS_DATA.description}
-            </p>
+            <div className={styles.descriptionWrapper}>
+              {CREATED_BY_ENTREPRENEURS_DATA.paragraphs.map((paragraph, index) => (
+                <p key={index} className={styles.description}>
+                  {paragraph}
+                </p>
+              ))}
+            </div>
           </div>
         </div>
       </Container>

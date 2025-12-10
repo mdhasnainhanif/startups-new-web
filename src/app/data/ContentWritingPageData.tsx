@@ -39,7 +39,7 @@ export const contentWritingBannerData: HomenewBannerData = {
 // ProfessionalDesign data for Content Writing page
 export const contentWritingProfessionalData: ProfessionalDesignData = {
   heading: {
-    part1: "The 22-Day Content Writing Service",
+    part1: "U.S. Content Performance Insights:",
     part2: "",
     className: {
       part1: "designerHeadingPart1",
@@ -57,13 +57,26 @@ export const contentWritingProfessionalData: ProfessionalDesignData = {
       highlight: "designerDescriptionHighlight",
     },
   },
+  
   factsHeading: {
     text: "The Service Covers All Content Requirements Across a 22-Day Production Window.",
     className: "factsHeading",
   },
   factsList: [
     {
-      text: "Website content, sales copy, UX text, marketing lines, ads, captions, and brand communication are produced inside one controlled writing cycle with consistent tone and polished delivery.",
+      text: "Brands with clarified messaging report conversion lifts of 15 to 25 percent",
+      className: "factsListItem",
+    },
+    {
+      text: "Consistent content reduces ad cost by 20 to 40 percent",
+      className: "factsListItem",
+    },
+    {
+      text: "Websites with modern copy see up to 30 percent more inquiries",
+      className: "factsListItem",
+    },
+    {
+      text: "Structured content foundations increase customer value by 28 percent",
       className: "factsListItem",
     },
   ],
@@ -299,15 +312,15 @@ export const contentWritingAiPowerData: AiPowerDesignData = {
     },
   ],
   lifetimeValue: {
-    heading: 'Content Production Tools:',
-    text: "Content Production Tools ($12,000 plus Annual Value) included. No retainers. No added fees.",
+    heading: 'Enduring Advantage:',
+    text: "The service installs a complete written foundation designed to strengthen brand clarity, improve communication quality, and support marketing, sales, and customer experience long after the production cycle concludes.",
   },
 };
 
 // RealCost data for Content Writing page
 export const contentWritingRealCostData: RealCostData = {
   heading: {
-    part1: 'Cost Review Internal [Writing Efforts] vs. 22-Day Content Writing Service',
+    part1: 'Internal [Writing Efforts] vs. 22-Day Content Writing Service',
     part2: '',
     part3: '',
   },
@@ -369,9 +382,9 @@ export const contentWritingRealCostData: RealCostData = {
 // CompleteBusinessSetup data for Content Writing page
 export const contentWritingCompleteSetupData: CompleteBusinessSetupData = {
   heading: {
-    part1: "Complete Content Writing Package — ",
-    price: "$1,499",
-    part2: " One-Time",
+    part1: "Complete Content Writing Package — $1,499 One-Time",
+    price: "",
+    part2: " ",
   },
   brandingKits: {
     title: {
@@ -410,12 +423,12 @@ export const contentWritingCompleteSetupData: CompleteBusinessSetupData = {
 // GuessWorkAdvertising data for Content Writing page
 export const contentWritingGuessWorkData: GuessWorkAdvertisingData = {
   heading: {
-    part1: 'U.S. Content Performance ',
+    part1: 'Content Outline Reference ',
     highlight: 'Insights',
     part2: '',
   },
   description:
-    'Brands with clarified messaging report conversion lifts of 15 to 25 percent. Consistent content reduces ad cost by 20 to 40 percent. Websites with modern copy see up to 30 percent more inquiries. Structured content foundations increase customer value by 28 percent.',
+    'An organized writing map is created to guide tone, hierarchy, communication priorities, and future content expansion.',
   form: {
     placeholder: 'Enter Your Website Link',
     buttonText: 'Get Started',

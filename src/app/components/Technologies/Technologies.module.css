@@ -20,6 +20,27 @@
   max-width: 62rem;
 }
 
+.descriptionWrapper {
+  display: block;
+  max-width: 75rem;
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+}
+
+.descriptionWrapper .description {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 18px;
+  line-height: 1.6;
+  max-width: 100%;
+  margin: 0 auto 1.5rem auto;
+  display: block;
+}
+
+.descriptionWrapper .description:last-child {
+  margin-bottom: 0;
+}
+
 .description {
   color: rgba(255, 255, 255, 0.8);
   font-size: 18px;
@@ -29,8 +50,8 @@
 }
 
 .subDescription {
-  color: #0fdac2;
-  font-size: 18px;
+  color: #ffffff;
+  font-size: 2.5rem;
   line-height: 1.6;
   max-width: 75rem;
   margin: 0 auto;
