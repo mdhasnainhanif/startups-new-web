@@ -555,11 +555,11 @@ const CreativeScore = () => {
           {/* Chart 4: Digital Agency Performance Data */}
           <div className={styles.imageWrapper}>
             <div className={styles.chartContainer}>
-              <h3 className={styles.chartTitle}>
+              <h3 className={styles.chartTitle} style={{ marginBottom: '0px'}}>
                 DIGITAL AGENCY PERFORMANCE DATA
               </h3>
               <div className={`${styles.chartContent} ${styles.agencyChartContent}`}>
-                <div className={styles.chartWrapper}>
+                <div className={`${styles.chartWrapper} ${styles.agencyChartWrapper}`}>
                   <ResponsiveContainer width="100%" height={300}>
                     <PieChart>
                       <Pie

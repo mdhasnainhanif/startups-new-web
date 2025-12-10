@@ -6,7 +6,7 @@ import styles from './GuessWorkAdvertising.module.css';
 import Button from '../Button';
 import CreativeScore from '../CreativeScore/CreativeScore';
 
-interface GuessWorkAdvertisingData {
+export interface GuessWorkAdvertisingData {
   heading: {
     part1: string;
     highlight: string;
@@ -22,6 +22,10 @@ interface GuessWorkAdvertisingData {
     src: string;
     alt: string;
   };
+}
+
+interface GuessWorkAdvertisingProps {
+  data?: GuessWorkAdvertisingData;
 }
 
 const GUESS_WORK_ADVERTISING_DATA: GuessWorkAdvertisingData = {
@@ -56,7 +60,7 @@ const GUESS_WORK_ADVERTISING_DATA: GuessWorkAdvertisingData = {
   },
 };
 
-const GuessWorkAdvertising = () => {
+const GuessWorkAdvertising = ({ data = GUESS_WORK_ADVERTISING_DATA }: GuessWorkAdvertisingProps) => {
   const [websiteLink, setWebsiteLink] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -65,7 +69,7 @@ const GuessWorkAdvertising = () => {
     console.log('Website Link:', websiteLink);
   };
 
-  const { heading, description, form, image } = GUESS_WORK_ADVERTISING_DATA;
+  const { heading, description, form, image } = data;
 
   return (
     <section

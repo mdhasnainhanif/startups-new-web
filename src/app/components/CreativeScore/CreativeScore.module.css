@@ -600,6 +600,10 @@
   gap: 0.5rem;
 }
 
+.agencyChartWrapper{
+  top: 40%;
+}
+
 .optionLabel {
   font-size: 1rem;
   font-weight: 700;

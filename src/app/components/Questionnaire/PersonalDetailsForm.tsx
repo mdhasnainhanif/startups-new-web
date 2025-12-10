@@ -1,0 +1,121 @@
+"use client";
+
+import { useState } from "react";
+import styles from "./Questionnaire.module.css";
+import Button from "../Button";
+
+interface PersonalDetailsFormProps {
+  onSubmit: (data: {
+    name: string;
+    contact: string;
+    email: string;
+    country: string;
+  }) => void;
+  onBack: () => void;
+  isSubmitting: boolean;
+}
+
+export default function PersonalDetailsForm({
+  onSubmit,
+  onBack,
+  isSubmitting,
+}: PersonalDetailsFormProps) {
+  const [formData, setFormData] = useState({
+    name: "",
+    contact: "",
+    email: "",
+    country: "",
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    onSubmit(formData);
+  };
+
+  return (
+    <div
+      className={`${styles.stepContainer} ${styles.personalDetailsContainer}`}
+    >
+      <form onSubmit={handleSubmit} className={styles.personalDetailsForm}>
+        <div className={styles.formRow}>
+          <div className={styles.formGroup}>
+            <input
+              type="text"
+              name="name"
+              placeholder="Name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+              className={`${styles.formInput} ${styles.formInputSmall} ${styles.greenInput}`}
+              disabled={isSubmitting}
+            />
+          </div>
+          <div className={styles.formGroup}>
+            <input
+              type="tel"
+              name="contact"
+              placeholder="Contact"
+              value={formData.contact}
+              onChange={handleChange}
+              required
+              className={`${styles.formInput} ${styles.formInputSmall} ${styles.greenInput}`}
+              disabled={isSubmitting}
+            />
+          </div>
+        </div>
+        
+        <div className={styles.formGroup}>
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            value={formData.email}
+            onChange={handleChange}
+            required
+            className={`${styles.formInput} ${styles.formInputSmall} ${styles.greenInput}`}
+            disabled={isSubmitting}
+          />
+        </div>
+        
+        <div className={styles.formGroup}>
+          <input
+            type="text"
+            name="country"
+            placeholder="Country"
+            value={formData.country}
+            onChange={handleChange}
+            required
+            className={`${styles.formInput} ${styles.formInputSmall} ${styles.greenInput}`}
+            disabled={isSubmitting}
+          />
+        </div>
+        
+        <Button
+          type="submit"
+          variant="green"
+          size="md"
+          className="w-full flex justify-center items-center"
+          disabled={isSubmitting}
+        >
+          {isSubmitting ? "Submitting..." : "Submit"}
+        </Button>
+        
+        <button
+          type="button"
+          onClick={onBack}
+          className={styles.backButton}
+        >
+          ← Back
+        </button>
+      </form>
+    </div>
+  );
+}
+

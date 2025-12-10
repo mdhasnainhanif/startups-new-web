@@ -68,13 +68,13 @@
   background: none;
 }
 
-/* .purple {
+.purple {
   background-color: #5633DC;
-} */
+}
 
-/* .purple::after {
+.purple::after {
   background-color: #311F77;
-} */
+}
 
 .green {
   background-color: #039f8d;

@@ -4,8 +4,8 @@
   --background: #ffffff;
   --foreground: #171717;
   --color-primary: #0fdac2;
-  --color-dark: #020016;
   --color-purple: #643bff;
+  --color-dark: #020016;
 }
 
 @theme inline {

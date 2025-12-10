@@ -9,18 +9,18 @@ import styles from "./CompleteBusinessSetup.module.css";
 import "swiper/css";
 import "swiper/css/navigation";
 
-interface BrandingKitItem {
+export interface BrandingKitItem {
   id: string;
   number: string;
   label: string;
 }
 
-interface BenefitItem {
+export interface BenefitItem {
   id: string;
   text: string;
 }
 
-interface CompleteBusinessSetupData {
+export interface CompleteBusinessSetupData {
   heading: {
     part1: string;
     price: string;
@@ -38,9 +38,17 @@ interface CompleteBusinessSetupData {
     items: BenefitItem[];
     footer: string;
   };
+  additionalText?: {
+    heading?: string;
+    description?: string;
+  };
 }
 
-const COMPLETE_BUSINESS_SETUP_DATA: CompleteBusinessSetupData = {
+interface CompleteBusinessSetupProps {
+  data?: CompleteBusinessSetupData;
+}
+
+const DEFAULT_DATA: CompleteBusinessSetupData = {
   heading: {
     part1: "Your Complete Business Design Setup — ",
     price: "$1,499",
@@ -80,7 +88,7 @@ const COMPLETE_BUSINESS_SETUP_DATA: CompleteBusinessSetupData = {
   },
 };
 
-const CompleteBusinessSetup = () => {
+const CompleteBusinessSetup = ({ data = DEFAULT_DATA }: CompleteBusinessSetupProps) => {
   const swiperRef = useRef<SwiperType | null>(null);
   const [isBeginning, setIsBeginning] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
@@ -98,7 +106,7 @@ const CompleteBusinessSetup = () => {
     setIsEnd(swiper.isEnd);
   };
 
-  const { heading, brandingKits, benefits } = COMPLETE_BUSINESS_SETUP_DATA;
+  const { heading, brandingKits, benefits } = data;
 
   return (
     <section className="sectionPadding bg-gradient-to-br from-[#1a0b3f] via-[#05001a] to-[#020014] relative overflow-hidden">
@@ -246,9 +254,24 @@ const CompleteBusinessSetup = () => {
                 ))}
               </ul>
 
-              <p className="text-white/80 text-sm md:text-base leading-relaxed">
+              <p className="text-white/80 text-sm md:text-base leading-relaxed mb-4">
                 {benefits.footer}
               </p>
+
+              {data.additionalText && (
+                <div className="mt-6 pt-6 border-t border-[#2f2a63]">
+                  {data.additionalText.heading && (
+                    <h4 className="text-xl font-semibold text-white mb-3">
+                      {data.additionalText.heading}
+                    </h4>
+                  )}
+                  {data.additionalText.description && (
+                    <p className="text-white/80 text-sm md:text-base leading-relaxed">
+                      {data.additionalText.description}
+                    </p>
+                  )}
+                </div>
+              )}
             </div>
           </div>
         </div>

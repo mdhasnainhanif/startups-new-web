@@ -494,6 +494,16 @@ p.conclusion {
   }
 }
 
+.bracketText {
+  color: #0fdac2 !important;
+  display: inline !important;
+}
+
+/* Override parent white color with higher specificity */
+.headingPart1 .bracketText {
+  color: #0fdac2 !important;
+}
+
 @media (max-width: 576px) {
   .aeroicon {
     display: none;

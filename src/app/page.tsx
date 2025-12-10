@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import GrowthSlider from "./components/GrowthSlider/GrowthSlider";
-import HeroBanner from "./components/HeroBanner/HeroBanner";
+import Questionnaire from "./components/Questionnaire/Questionnaire";
 import FAQ from "./components/FAQ/FAQ";
 import Contact from "./components/Contact/Contact";
 import Reviews from "./components/Reviews/Reviews";
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main className="relative">
-      <HeroBanner {...HERO_BANNER} />
+      <Questionnaire />
       <LogosSlider />
       <ProfessionalOnline/>
       <CTABanner/>

@@ -96,6 +96,29 @@ export default function RootLayout({
           {children}
           <Footer />
         </div>
+
+        {/* Kogents Chat Widget */}
+        <Script
+          id="kogents-chat-widget"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.KogentsChat ||
+                (function (d, s, id) {
+                  var w = (window.KogentsChat = function (c) {
+                    w._.push(c);
+                  });
+                  w._ = [];
+                  var e = d.createElement(s);
+                  e.async = true;
+                  e.id = id;
+                  e.src = "https://api.autobotx.ai/widget/embed.js?key=cmizx8xe705g2h2z0hxruax7q";
+                  var t = d.getElementsByTagName(s)[0];
+                  t.parentNode.insertBefore(e, t);
+                })(document, "script", "kogents-chat-widget");
+            `,
+          }}
+        />
       </body>
     </html>
   );

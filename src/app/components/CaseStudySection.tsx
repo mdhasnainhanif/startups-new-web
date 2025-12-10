@@ -715,7 +715,7 @@ const CaseStudySection = ({ data = DEFAULT_CASE_STUDY_DATA, isShowTabs = true, c
   return (
     <div className={`pb_8 sectionPadding bg-cover mobile-padding-bottom-0 bg-[#03001D] ${className}`}>
       <section className="sectionPaddingCase pt-0 mobile-padding-bottom-0">
-        <Container maxWidth="2xl">
+        <Container maxWidth="xl">
           <div className="row align-items-center justify-content-center">
             <div className="col-md-6 text-center mb-10 sectionHeading forH2 gap-3 flex flex-col items-center justify-center">
               <h2 className="mb-5 text-white text-center max-w-5xl mx-auto">
@@ -739,7 +739,7 @@ const CaseStudySection = ({ data = DEFAULT_CASE_STUDY_DATA, isShowTabs = true, c
               <div
                 className={`${
                   shouldStick ? "sticky" : ""
-                } border-amber-300 border-2 top-10 z-50 py-4 md:px-4 p-0 rounded-lg w-full mx-auto md:bg-[#0b0038] md:mb-8 mb-16 hidden md:flex items-end justify-between flex-wrap`}
+                } top-10 z-50 py-4 md:px-4 p-0 rounded-lg w-full mx-auto md:bg-[#0b0038] md:mb-8 mb-16 hidden md:flex items-end justify-between flex-wrap`}
               >
               <button
                 onClick={() => {

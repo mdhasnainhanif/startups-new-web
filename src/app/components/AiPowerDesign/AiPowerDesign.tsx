@@ -18,17 +18,22 @@ interface TabData {
   gridItems: number;
 }
 
-interface AiPowerDesignData {
+export interface AiPowerDesignData {
   headline: {
     text: string;
     highlighted: string[];
   };
   description: string;
   tabs: TabData[];
+  deliverablesTitle?: string;
   lifetimeValue: {
     heading: string;
     text: string;
   };
+}
+
+interface AiPowerDesignProps {
+  data?: AiPowerDesignData;
 }
 
 const AI_POWER_DESIGN_DATA: AiPowerDesignData = {
@@ -142,11 +147,11 @@ const AI_POWER_DESIGN_DATA: AiPowerDesignData = {
   },
 };
 
-const AiPowerDesign = () => {
-  const [activeTab, setActiveTab] = useState<string>(AI_POWER_DESIGN_DATA.tabs[0].id);
+const AiPowerDesign = ({ data = AI_POWER_DESIGN_DATA }: AiPowerDesignProps) => {
+  const [activeTab, setActiveTab] = useState<string>(data.tabs[0].id);
   const [hoveredItemIndex, setHoveredItemIndex] = useState<number | null>(null);
 
-  const currentTab = AI_POWER_DESIGN_DATA.tabs.find((tab) => tab.id === activeTab) || AI_POWER_DESIGN_DATA.tabs[0];
+  const currentTab = data.tabs.find((tab) => tab.id === activeTab) || data.tabs[0];
   
   // Get the current image based on hover or default
   const getCurrentImage = () => {
@@ -163,8 +168,8 @@ const AiPowerDesign = () => {
   };
 
   const renderHeadline = () => {
-    let text = AI_POWER_DESIGN_DATA.headline.text;
-    AI_POWER_DESIGN_DATA.headline.highlighted.forEach((highlight) => {
+    let text = data.headline.text;
+    data.headline.highlighted.forEach((highlight) => {
       text = text.replace(highlight, `<span class="${styles.highlighted}">${highlight}</span>`);
     });
     return { __html: text };
@@ -176,7 +181,7 @@ const AiPowerDesign = () => {
         {/* Header Section */}
         <div className={`sectionHeading forH2 text-center max-w-5xl md:mx-auto`}>
           <h2 dangerouslySetInnerHTML={renderHeadline()} />
-          <p className={styles.description}>{AI_POWER_DESIGN_DATA.description}</p>
+          <p className={styles.description}>{data.description}</p>
         </div>
 
         {/* Main Content Box */}
@@ -185,7 +190,15 @@ const AiPowerDesign = () => {
           <div className={styles.leftSection}>
             {/* Deliverables Section */}
             <div className={styles.deliverablesSection}>
-              <h3 className={styles.deliverablesTitle}>Your <span className={styles.highlighted}>22-Day</span> Deliverable <br/> Package Includes:</h3>
+              <h3 className={styles.deliverablesTitle}>
+                {data.deliverablesTitle ? (
+                  <>
+                    <span className={styles.highlighted}>22-Day</span> Content Package Includes:
+                  </>
+                ) : (
+                  <>Your <span className={styles.highlighted}>22-Day</span> Deliverable <br/> Package Includes:</>
+                )}
+              </h3>
               
               {/* Grid */}
               <div className={styles.gridContainer}>
@@ -206,8 +219,8 @@ const AiPowerDesign = () => {
 
               {/* Lifetime Value */}
               <div className={styles.lifetimeValue}>
-                <h4 className={styles.lifetimeValueHeading}>{AI_POWER_DESIGN_DATA.lifetimeValue.heading}</h4>
-                <p className={styles.lifetimeValueText}>{AI_POWER_DESIGN_DATA.lifetimeValue.text}</p>
+                <h4 className={styles.lifetimeValueHeading}>{data.lifetimeValue.heading}</h4>
+                <p className={styles.lifetimeValueText}>{data.lifetimeValue.text}</p>
               </div>
 
               <img src="/assets/images/1.webp" alt="" className={styles.aeroicon} />

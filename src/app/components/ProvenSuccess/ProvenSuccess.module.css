@@ -83,7 +83,7 @@
   width: 100%;
   max-width: 50rem;
   margin: 0 auto 20px;
-  padding: 10px 50px;
+  padding: 10px 0px;
   display: flex;
   position: relative;
   border-radius: 0.5rem;
@@ -226,9 +226,9 @@
   display: none;
 }
 
-.swiperSlide:first-child .tab {
+/* .swiperSlide:first-child .tab {
   margin-left: 2rem;
-}
+} */
 
 .tab {
   padding: 12px 20px;
@@ -434,7 +434,8 @@
 
   .tabsContainer {
     max-width: 800px;
-    padding: 10px 50px;
+    padding: 10px 0px;
+    margin-bottom: 2rem;
   }
 
   .tabsContainer .navArrow {

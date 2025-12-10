@@ -14,6 +14,7 @@ export default function HeroBanner({
   description,
   ctaButton,
   className = "",
+  onButtonClick,
 }: HeroBannerProps) {
   // Function to parse subheadline and highlight text in brackets
   const parseSubheadline = (text: string) => {
@@ -88,15 +89,27 @@ export default function HeroBanner({
             {description}
           </p>
           <div className="mt-4">
-            <Button
-              href={ctaButton.href}
-              variant={ctaButton.variant || "secondary"}
-              size="lg"
-              icon={<ArrowRightIcon />}
-              iconPosition="right"
-            >
-              {ctaButton.text}
-            </Button>
+            {onButtonClick ? (
+              <Button
+                onClick={onButtonClick}
+                variant={ctaButton.variant || "secondary"}
+                size="lg"
+                icon={<ArrowRightIcon />}
+                iconPosition="right"
+              >
+                {ctaButton.text}
+              </Button>
+            ) : (
+              <Button
+                href={ctaButton.href}
+                variant={ctaButton.variant || "secondary"}
+                size="lg"
+                icon={<ArrowRightIcon />}
+                iconPosition="right"
+              >
+                {ctaButton.text}
+              </Button>
+            )}
           </div>
         </div>
       </Container>

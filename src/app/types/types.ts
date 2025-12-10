@@ -53,6 +53,7 @@ export interface HeroBannerProps {
     variant?: ButtonVariant;
   };
   className?: string;
+  onButtonClick?: () => void;
 }
 
 // AboutUsBanner Types

@@ -1,11 +1,11 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Container from '../Container';
 import styles from './RealCost.module.css';
 import Image from 'next/image';
 
-interface RealCostData {
+export interface RealCostData {
   heading: {
     part1: string;
     part2: string;
@@ -42,6 +42,10 @@ interface RealCostData {
       };
     };
   };
+}
+
+interface RealCostProps {
+  data?: RealCostData;
 }
 
 const REAL_COST_DATA: RealCostData = {
@@ -104,13 +108,48 @@ const REAL_COST_DATA: RealCostData = {
   },
 };
 
-const RealCost = () => {
-  const [selectedDesignerType, setSelectedDesignerType] = useState<string>('Junior Designer');
+const RealCost = ({ data = REAL_COST_DATA }: RealCostProps) => {
+  const [selectedDesignerType, setSelectedDesignerType] = useState<string>(data.calculator.fields[0].options?.[0] || '');
   const [monthlyCost, setMonthlyCost] = useState<string>('');
   const [annualCost, setAnnualCost] = useState<string>('');
   const [estimatedTotal, setEstimatedTotal] = useState<number>(58000);
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+
+  // Function to parse text and highlight content inside square brackets with green color
+  const parseHeadingWithBrackets = (text: string) => {
+    if (!text) return null;
+    
+    // Check if text contains square brackets
+    if (!text.includes('[') || !text.includes(']')) {
+      return text;
+    }
+    
+    // Split by brackets and process
+    const parts: (string | React.ReactElement)[] = [];
+    const segments = text.split(/(\[[^\]]+\])/g);
+    
+    segments.forEach((segment, index) => {
+      if (segment.startsWith('[') && segment.endsWith(']')) {
+        // This is a bracket segment - extract content and make it green
+        const content = segment.slice(1, -1); // Remove [ and ]
+        parts.push(
+          <span 
+            key={`bracket-${index}`} 
+            className={styles.bracketText}
+            style={{ color: '#0fdac2' }}
+          >
+            {content}
+          </span>
+        );
+      } else if (segment) {
+        // Regular text
+        parts.push(segment);
+      }
+    });
+
+    return <>{parts}</>;
+  };
 
   // Maximum allowed value (999,999,999)
   const MAX_VALUE = 999999999;
@@ -222,34 +261,32 @@ const RealCost = () => {
           {/* Left Section */}
           <div className={styles.leftSection + " sectionHeading forH2"}>
             <h2>
-              <span className={styles.headingPart1}>{REAL_COST_DATA.heading.part1}</span>
-              <br />
-              <span className={styles.headingPart2}>{REAL_COST_DATA.heading.part2}</span>
-              <br />
-              <span className={styles.headingPart3}>{REAL_COST_DATA.heading.part3}</span>
+              <span className={styles.headingPart1}>{parseHeadingWithBrackets(data.heading.part1)}</span>
+              {data.heading.part2 && <span className={styles.headingPart2}>{parseHeadingWithBrackets(data.heading.part2)}</span>}
+              {data.heading.part3 && <span className={styles.headingPart3}>{parseHeadingWithBrackets(data.heading.part3)}</span>}
             </h2>
 
-            <p className={styles.callToAction}>{REAL_COST_DATA.callToAction}</p>
+            <p className={styles.callToAction}>{data.callToAction}</p>
 
             <ul className={styles.bulletList}>
-              {REAL_COST_DATA.bulletPoints.map((point, index) => (
+              {data.bulletPoints.map((point, index) => (
                 <li key={index} className={styles.bulletItem}>
                   {point}
                 </li>
               ))}
             </ul>
 
-            <p className={styles.conclusion}>{REAL_COST_DATA.conclusion}</p>
+            <p className={styles.conclusion}>{data.conclusion}</p>
           </div>
 
           {/* Right Section - Calculator */}
           <div className={styles.rightSection}>
             <div className={styles.calculatorCard}>
-              <h3 className={styles.calculatorTitle}>{REAL_COST_DATA.calculator.title}</h3>
+              <h3 className={styles.calculatorTitle}>{data.calculator.title}</h3>
 
               {/* Input Fields */}
               <div className={styles.fieldsContainer}>
-                {/* Designer Type Dropdown */}
+                {/* Writer Type Dropdown */}
                 <div className={styles.fieldWrapper}>
                   <div className={styles.fieldIcon}>
                     <Image width={28} height={28} src="/assets/images/icons/icon_designer-type.svg" alt="" />
@@ -260,7 +297,7 @@ const RealCost = () => {
                       onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                     >
                       <span className={styles.selectValue}>
-                        {selectedDesignerType || 'Designer Type'}
+                        {selectedDesignerType || data.calculator.fields[0].label}
                       </span>
                       <div className={`${styles.chevronIcon} ${isDropdownOpen ? styles.chevronOpen : ''}`}>
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
@@ -276,8 +313,8 @@ const RealCost = () => {
                     </div>
                     {isDropdownOpen && (
                       <div className={styles.dropdownMenu}>
-                        <div className={styles.dropdownHeader}>Designer Type</div>
-                        {REAL_COST_DATA.calculator.fields[0].options?.map((option) => (
+                        <div className={styles.dropdownHeader}>{data.calculator.fields[0].label}</div>
+                        {data.calculator.fields[0].options?.map((option) => (
                           <div
                             key={option}
                             className={`${styles.dropdownOption} ${selectedDesignerType === option ? styles.dropdownOptionActive : ''}`}
@@ -329,7 +366,7 @@ const RealCost = () => {
 
               {/* Estimated Total Cost */}
               <div className={styles.totalCostSection}>
-                <p className={styles.totalCostLabel}>{REAL_COST_DATA.calculator.estimatedTotalLabel}</p>
+                <p className={styles.totalCostLabel}>{data.calculator.estimatedTotalLabel}</p>
                 <p className={styles.totalCostValue}>{formatCurrency(estimatedTotal)}</p>
               </div>
 
@@ -338,21 +375,21 @@ const RealCost = () => {
                 {/* Monthly vs Annual Bar Chart */}
                 <div className={styles.chartWrapper}>
                   <p className={styles.chartLabel}>
-                    {REAL_COST_DATA.calculator.charts.monthlyVsAnnual.label}
+                    {data.calculator.charts.monthlyVsAnnual.label}
                   </p>
                   <div className={styles.barChart}>
                     <div className={styles.barChartContainer}>
                       <div
                         className={styles.bar}
                         style={{
-                          height: `${REAL_COST_DATA.calculator.charts.monthlyVsAnnual.monthlyValue}%`,
+                          height: `${data.calculator.charts.monthlyVsAnnual.monthlyValue}%`,
                           backgroundColor: '#0fdac2',
                         }}
                       />
                       <div
                         className={styles.bar}
                         style={{
-                          height: `${REAL_COST_DATA.calculator.charts.monthlyVsAnnual.annualValue}%`,
+                          height: `${data.calculator.charts.monthlyVsAnnual.annualValue}%`,
                           backgroundColor: '#643bff',
                         }}
                       />
@@ -363,19 +400,19 @@ const RealCost = () => {
                 {/* Cost Breakdown Donut Chart */}
                 <div className={styles.chartWrapper}>
                   <p className={styles.chartLabel}>
-                    {REAL_COST_DATA.calculator.charts.costBreakdown.label}
+                    {data.calculator.charts.costBreakdown.label}
                   </p>
                   <div className={styles.donutChart}>
                     <svg width="120" height="130" viewBox="0 0 120 120">
                       <defs>
-                        {REAL_COST_DATA.calculator.charts.costBreakdown.segments.map((segment, index) => (
+                        {data.calculator.charts.costBreakdown.segments.map((segment, index) => (
                           <linearGradient key={index} id={`gradient${index}`} x1="0%" y1="0%" x2="100%" y2="100%">
                             <stop offset="0%" stopColor={segment.gradient[0]} />
                             <stop offset="100%" stopColor={segment.gradient[1]} />
                           </linearGradient>
                         ))}
                       </defs>
-                      {REAL_COST_DATA.calculator.charts.costBreakdown.segments.map(
+                      {data.calculator.charts.costBreakdown.segments.map(
                         (segment, index, array) => {
                           const previousValue = array
                             .slice(0, index)
