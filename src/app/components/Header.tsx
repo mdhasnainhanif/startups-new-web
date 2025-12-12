@@ -49,9 +49,11 @@ export default function Header() {
 
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
+      const scrollDelta = Math.abs(currentScrollY - lastScrollY);
 
-      // Close dropdown on scroll (desktop only)
-      if (!isMobile && isServicesDropdownOpen) {
+      // Close dropdown on significant scroll (desktop only, and only if dropdown is open)
+      // Only close if scroll is more than 5px to avoid closing on tiny movements
+      if (!isMobile && isServicesDropdownOpen && scrollDelta > 5) {
         setIsServicesDropdownOpen(false);
       }
 
@@ -107,12 +109,11 @@ export default function Header() {
         // Also update after a small delay to ensure layout is complete
         setTimeout(updatePosition, 0);
       });
-      window.addEventListener('scroll', updatePosition, true);
+      // Only listen to resize, not scroll (we close on scroll anyway)
       window.addEventListener('resize', updatePosition);
     }
 
     return () => {
-      window.removeEventListener('scroll', updatePosition, true);
       window.removeEventListener('resize', updatePosition);
     };
   }, [isServicesDropdownOpen, isScrolled]);
