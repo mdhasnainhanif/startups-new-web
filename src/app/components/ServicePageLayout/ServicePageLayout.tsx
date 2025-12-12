@@ -16,22 +16,39 @@ import { getServiceGrowthCardsContent, getServiceGrowthCardsSection } from '../.
 import GrowthSlider from '../GrowthSlider/GrowthSlider';
 import { GROWTH_GUIDES } from '../../constants';
 import ServicesCalculator from '../ServicesCalculator/ServicesCalculator';
+import ServicesCounter from '../ServicesCounter/ServicesCounter';
+import { SERVICES_COUNTER_DATA } from '../../data/ServicesCounterData';
+import ServicesStats from '../ServicesStats/ServicesStats';
+import { SERVICES_STATS_DATA } from '../../data/ServicesStatsData';
+import ServicesComparison from '../ServicesComparison/ServicesComparison';
+import { SERVICES_COMPARISON_DATA } from '../../data/ServicesComparisonData';
+import ServiceFeatures from '../ServiceFeatures/ServiceFeatures';
+import { getServiceFeaturesData } from '../../data/ServiceFeaturesData';
 interface ServicePageLayoutProps {
   serviceData: ServicePageData;
 }
 const ServicePageLayout: React.FC<ServicePageLayoutProps> = ({ serviceData }) => {
   const growthCardsContent = getServiceGrowthCardsContent(serviceData.slug);
   const growthCardsSection = getServiceGrowthCardsSection(serviceData.slug);
+  const counterData = SERVICES_COUNTER_DATA[serviceData.slug];
+  const statsData = SERVICES_STATS_DATA[serviceData.slug];
+  const comparisonData = SERVICES_COMPARISON_DATA[serviceData.slug];
+  const featuresData = getServiceFeaturesData(serviceData.slug);
+  
   return (
     <>
       <HomenewBanner data={serviceData.bannerData} />
       <TextSlider1 data={sliderData1} />
       <Technologies hideTabs={true} defaultTab="creative" />
+      <ServiceFeatures data={featuresData} />
+      {counterData && <ServicesCounter data={counterData} />}
+      {statsData && <ServicesStats data={statsData} />}
       <Reviews limit={6} columns={3} equalHeight={true} />
       <ServicesGrowthCards content={growthCardsContent} sectionData={growthCardsSection} />
       <AiPowerDesign />
       <Counter items={COUNTER_DATA.items} className="sectionPadding pt-0" gridClassName="!mt-0" />
       <Reviews limit={6} columns={3} equalHeight={true} />
+      {comparisonData && <ServicesComparison data={comparisonData} />}
       <ServicesCalculator />
       <GrowthSlider items={GROWTH_GUIDES} />
       <FAQ faqs={FAQ_CONTACT} sectionData={FAQ_SECTION} />

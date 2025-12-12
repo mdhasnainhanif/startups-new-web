@@ -19,7 +19,7 @@ export interface ServicesCounterDataMap {
 export const SERVICES_COUNTER_DATA: ServicesCounterDataMap = {
   "brand-identity": {
     tagline: "CREATIVE THAT COUNTS",
-    heading: "WE DON'T MISS",
+    heading: "$48000+ Worth of Advanced AI Tools Growing Your Business 10x",
     stats: [
       {
         id: "bi-1",
@@ -45,7 +45,7 @@ export const SERVICES_COUNTER_DATA: ServicesCounterDataMap = {
   },
   "marketing-advertising": {
     tagline: "CREATIVE THAT COUNTS",
-    heading: "WE DON'T MISS",
+    heading: "$48000+ Worth of Advanced AI Tools Growing Your Business 10x",
     stats: [
       {
         id: "ma-1",
@@ -71,7 +71,7 @@ export const SERVICES_COUNTER_DATA: ServicesCounterDataMap = {
   },
   "digital-web": {
     tagline: "CREATIVE THAT COUNTS",
-    heading: "WE DON'T MISS",
+    heading: "$48000+ Worth of Advanced AI Tools Growing Your Business 10x",
     stats: [
       {
         id: "dw-1",
@@ -97,7 +97,7 @@ export const SERVICES_COUNTER_DATA: ServicesCounterDataMap = {
   },
   "motion-video": {
     tagline: "CREATIVE THAT COUNTS",
-    heading: "WE DON'T MISS",
+    heading: "$48000+ Worth of Advanced AI Tools Growing Your Business 10x",
     stats: [
       {
         id: "mv-1",
@@ -123,7 +123,7 @@ export const SERVICES_COUNTER_DATA: ServicesCounterDataMap = {
   },
   "print": {
     tagline: "CREATIVE THAT COUNTS",
-    heading: "WE DON'T MISS",
+    heading: "$48000+ Worth of Advanced AI Tools Growing Your Business 10x",
     stats: [
       {
         id: "pr-1",
@@ -149,7 +149,7 @@ export const SERVICES_COUNTER_DATA: ServicesCounterDataMap = {
   },
   "illustration-artwork": {
     tagline: "CREATIVE THAT COUNTS",
-    heading: "WE DON'T MISS",
+    heading: "$48000+ Worth of Advanced AI Tools Growing Your Business 10x",
     stats: [
       {
         id: "ia-1",
@@ -175,7 +175,7 @@ export const SERVICES_COUNTER_DATA: ServicesCounterDataMap = {
   },
   "ebooks-digital-report": {
     tagline: "CREATIVE THAT COUNTS",
-    heading: "WE DON'T MISS",
+    heading: "$48000+ Worth of Advanced AI Tools Growing Your Business 10x",
     stats: [
       {
         id: "edr-1",
@@ -201,7 +201,7 @@ export const SERVICES_COUNTER_DATA: ServicesCounterDataMap = {
   },
   "presentations": {
     tagline: "CREATIVE THAT COUNTS",
-    heading: "WE DON'T MISS",
+    heading: "$48000+ Worth of Advanced AI Tools Growing Your Business 10x",
     stats: [
       {
         id: "prs-1",
@@ -227,7 +227,7 @@ export const SERVICES_COUNTER_DATA: ServicesCounterDataMap = {
   },
   "product-packaging": {
     tagline: "CREATIVE THAT COUNTS",
-    heading: "WE DON'T MISS",
+    heading: "$48000+ Worth of Advanced AI Tools Growing Your Business 10x",
     stats: [
       {
         id: "pp-1",
@@ -253,7 +253,7 @@ export const SERVICES_COUNTER_DATA: ServicesCounterDataMap = {
   },
   "apparel-merchandise": {
     tagline: "CREATIVE THAT COUNTS",
-    heading: "WE DON'T MISS",
+    heading: "$48000+ Worth of Advanced AI Tools Growing Your Business 10x",
     stats: [
       {
         id: "am-1",
@@ -279,7 +279,7 @@ export const SERVICES_COUNTER_DATA: ServicesCounterDataMap = {
   },
   "environmental-event": {
     tagline: "CREATIVE THAT COUNTS",
-    heading: "WE DON'T MISS",
+    heading: "$48000+ Worth of Advanced AI Tools Growing Your Business 10x",
     stats: [
       {
         id: "ee-1",
@@ -305,7 +305,7 @@ export const SERVICES_COUNTER_DATA: ServicesCounterDataMap = {
   },
   "corporate-internal": {
     tagline: "CREATIVE THAT COUNTS",
-    heading: "WE DON'T MISS",
+    heading: "$48000+ Worth of Advanced AI Tools Growing Your Business 10x",
     stats: [
       {
         id: "ci-1",

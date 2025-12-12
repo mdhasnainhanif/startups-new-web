@@ -1,0 +1,173 @@
+.aiServicesSection {
+  padding: 70px 0;
+  background: var(--color-dark);
+}
+
+.sectionTitle {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.sectionTitle h2 {
+  font-weight: 800;
+  font-size: 3rem;
+  width: 100%;
+  max-width: 720px;
+  margin: auto;
+  color: #ffffff;
+}
+
+.sectionTitle p {
+  max-width: 620px;
+  margin: 0.4rem auto 0;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.aiServiceCard {
+  border-radius: 12px;
+  padding: 1.4rem 1.4rem;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
+  height: 100%;
+  transition: all 0.2s ease-in-out;
+  border: 1px solid rgba(100, 59, 255, 0.3);
+  background: #21164c;
+  display: flex;
+  flex-direction: column;
+  min-height: 500px;
+}
+
+.aiServiceCard:hover {
+  background: rgba(100, 59, 255, 0.2);
+  border: 1px solid #643bff;
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(100, 59, 255, 0.3);
+}
+
+.serviceIconWrapper {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.service-icon-green {
+  background: #25d366;
+  color: #fff;
+}
+
+.service-icon-purple {
+  background: #6366f1;
+  color: #fff;
+}
+
+.service-icon-yellow {
+  background: #f59e0b;
+  color: #fff;
+}
+
+.service-icon-blue {
+  background: #3b82f6;
+  color: #fff;
+}
+
+.servicePhoneMockup {
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.phoneScreen {
+  border-radius: 12px;
+  padding: 1rem;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+.phone-green {
+  background: linear-gradient(135deg, #633AFC 0%, #633AFC 100%);
+}
+
+.phone-purple {
+  background: linear-gradient(135deg, #0FDAC2 0%, #0FDAC2 100%);
+}
+
+.phone-yellow {
+  background: linear-gradient(135deg, #633AFC 0%, #633AFC 100%);
+}
+
+.phone-blue {
+  background: linear-gradient(135deg, #0FDAC2 0%, #0FDAC2 100%);
+}
+
+.phoneContent {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 8px;
+  padding: 0.75rem;
+  flex: 1;
+}
+
+.phoneHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #1b1b1b;
+}
+
+.phoneHeader i {
+  color: #0fdac2;
+}
+
+.phoneHeader span {
+  color: #1b1b1b;
+}
+
+.phoneMessages {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.phoneMessage {
+  background: #f1f3f5;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  max-width: 80%;
+  color: #1b1b1b;
+}
+
+.phoneMessage.userMsg {
+  background: #643bff;
+  color: #fff;
+  align-self: flex-end;
+}
+
+.aiServiceCard h5 {
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+  margin-top: 1rem;
+  color: #ffffff;
+}
+
+.serviceDescription {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+  flex: 1;
+}
+
+
+@media (max-width: 576px) {
+  .sectionTitle h2 {
+    font-size: 2rem;
+  }
+}
+

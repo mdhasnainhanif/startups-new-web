@@ -88,9 +88,38 @@ const ServicesCounter: React.FC<ServicesCounterProps> = ({ data }) => {
   return (
     <section ref={sectionRef} className="bg-black relative overflow-hidden sectionPadding">
       <Container maxWidth="xl">
-        <div className="sectionHeading forH2 gap-3 flex flex-col mb-12 md:mb-8">
-          <h2 className="text-7xl md:text-6xl sm:text-5xl font-bold text-white uppercase tracking-tight leading-tight">
-            {data.heading}
+        <div className="sectionHeading forH2 text-center gap-3 flex flex-col mb-12 md:mb-8 max-w-5xl mx-auto">
+          <h2 className="">
+            {(() => {
+              // Handle square brackets
+              if (data.heading.includes('[') && data.heading.includes(']')) {
+                return data.heading.split(/(\[.*?\])/).map((part, index) => {
+                  if (part.startsWith('[') && part.endsWith(']')) {
+                    return (
+                      <span 
+                        key={index} 
+                        className="bracket-text-green text-[#0fdac2]"
+                        style={{ color: "#0fdac2" }}
+                      >
+                        {part}
+                      </span>
+                    );
+                  }
+                  return <span key={index}>{part}</span>;
+                });
+              }
+              // Handle "Advanced AI" if no brackets
+              if (data.heading.includes("Advanced AI")) {
+                return (
+                  <>
+                    {data.heading.split("Advanced AI")[0]}
+                    <span className="text-[#0fdac2]">Advanced AI</span>
+                    {data.heading.split("Advanced AI")[1]}
+                  </>
+                );
+              }
+              return data.heading;
+            })()}
           </h2>
         </div>
         <div className="grid grid-cols-2 gap-8 md:gap-6 relative">
@@ -111,10 +140,10 @@ const ServicesCounter: React.FC<ServicesCounterProps> = ({ data }) => {
                   ${isLeftColumn ? '' : 'pl-8 md:pl-6 sm:pl-0'}
                 `}
               >
-                <div className="text-6xl md:text-7xl sm:text-6xl font-bold text-[#0fdac2] leading-none mb-4 md:mb-3">
+                <div className="text-6xl font-graphik-bold md:text-7xl sm:text-6xl font-bold text-[#0fdac2] leading-none mb-4 md:mb-3">
                   {displayValue}{suffix}
                 </div>
-                <p className="text-base md:text-sm sm:text-xs font-normal text-white leading-6 md:leading-5">
+                <p className="text-base md:text-lg sm:text-xs font-normal text-white leading-6 md:leading-5">
                   {stat.label}
                 </p>
               </div>

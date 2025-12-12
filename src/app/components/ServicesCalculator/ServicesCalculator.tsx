@@ -102,14 +102,9 @@ const ServicesCalculator: React.FC = () => {
     }, 100);
   }, [activeTab]);
   return (
-    <section className="bg-[#050321] py-16 md:py-20 lg:py-[5.25rem] px-4 sm:px-6 lg:px-8">
+    <section className="bg-[#050321] pb-16 md:pb-20 lg:pb-[5.25rem] px-4 sm:px-6 lg:px-8">
       <Container maxWidth="xl">
-        <div className="text-center mb-8 md:mb-12 sectionHeading">
-          <h2 className="text-white text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight mb-0">
-            You <span className="text-transparent bg-clip-text bg-linear-to-r from-primary to-[#0fdac2]">Decide</span>.
-          </h2>
-        </div>
-        <div className="bg-[#1a1a2e] rounded-2xl p-4 sm:p-6 md:p-8 lg:p-10 relative items-center flex flex-col md:flex-row gap-4">
+        <div className="bg-[#1a1a2e] border border-[#643bff] rounded-2xl p-4 sm:p-6 md:p-8 lg:p-10 relative items-center flex flex-col md:flex-row gap-4">
           <div className="flex flex-col gap-4 w-full md:max-w-[15%] h-[100%]">            <h3 className="text-white text-lg font-semibold">Platform</h3>
             <div className="flex flex-col gap-4">
               <label className="flex items-center gap-3 cursor-pointer group">
@@ -124,7 +119,7 @@ const ServicesCalculator: React.FC = () => {
                 <span
                   className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all ${
                     platform === 'base'
-                      ? 'border-[#0fdac2] bg-[#0fdac2]'
+                      ? 'border-[#643BFF] bg-[#643BFF]'
                       : 'border-white bg-transparent'
                   }`}
                 >
@@ -146,7 +141,7 @@ const ServicesCalculator: React.FC = () => {
                 <span
                   className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all ${
                     platform === 'pro'
-                      ? 'border-[#0fdac2] bg-[#0fdac2]'
+                      ? 'border-[#643BFF] bg-[#643BFF]'
                       : 'border-white bg-transparent'
                   }`}
                 >
@@ -323,7 +318,7 @@ const ServicesCalculator: React.FC = () => {
           </div>
           <span className='border border-dashed border-white/10 h-[12rem]'></span>
           <div className='flex flex-col gap-4 w-full md:max-w-[20%] min-w-[10rem] h-full'> 
-            <button className="bg-[#0fdac2] hover:bg-[#0bc4ae] text-black font-bold text-base md:text-lg px-6 py-3 rounded-xl transition-all mt-4 hover:shadow-lg hover:shadow-[#0fdac2]/30 hover:-translate-y-0.5">
+            <button className="bg-[#643BFF] hover:bg-[#0bc4ae] text-white font-bold text-base md:text-lg px-6 py-3 rounded-xl transition-all mt-4 hover:shadow-lg hover:shadow-[#643BFF]/30 hover:-translate-y-0.5">
               Get started
             </button>
           </div>

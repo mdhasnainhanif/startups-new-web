@@ -1,0 +1,274 @@
+.section {
+  background: #050321;
+  position: relative;
+  overflow: hidden;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.badge {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.heading {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 2rem;
+  line-height: 1.2;
+}
+
+@media (max-width: 768px) {
+  .heading {
+    font-size: 2rem;
+  }
+}
+
+.ctaButton {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 1rem 2rem;
+  background: #8b5cf6;
+  color: #000;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.ctaButton:hover {
+  background: #ffd700;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 235, 59, 0.4);
+}
+
+.tableWrapper {
+  overflow-x: auto;
+  background: #1c1949;
+  border-radius: 1rem;
+  border: 1px solid #643bff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.comparisonTable {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px;
+  table-layout: fixed;
+}
+
+.logoCell {
+  background: #050321;
+  padding: 1.5rem;
+  text-align: center;
+  border-radius: 1rem 0 0 0;
+  width: 30%;
+  border-bottom: 1px solid rgba(100, 59, 255, 0.2);
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+.criterionCell {
+  background: #050321;
+  color: #fff;
+  padding: 1.5rem;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1rem;
+  width: 14%;
+  border-bottom: 1px solid rgba(100, 59, 255, 0.2);
+}
+
+.ourServiceRow {
+  background: transparent;
+}
+
+.serviceNameCell {
+  padding: 1.5rem;
+  background: transparent;
+  border-right: 1px solid rgba(100, 59, 255, 0.2);
+  width: 30%;
+}
+
+.serviceName {
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: #ffffff;
+}
+
+.checkCell {
+  padding: 1.5rem;
+  text-align: center;
+  background: #8b5cf6;
+  border-right: 1px solid rgba(100, 59, 255, 0.2);
+  width: 14%;
+}
+
+.checkIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.competitorRow {
+  background: transparent;
+  border-top: 1px solid rgba(100, 59, 255, 0.2);
+}
+
+.competitorCell {
+  padding: 1.5rem;
+  background: transparent;
+  border-right: 1px solid rgba(100, 59, 255, 0.2);
+  vertical-align: top;
+  width: 30%;
+}
+
+.competitorContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.competitorName {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #ffffff;
+  margin-bottom: 0.25rem;
+}
+
+.competitorDescription {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.5;
+}
+
+.xCell {
+  padding: 1.5rem;
+  text-align: center;
+  background: transparent;
+  border-right: 1px solid rgba(100, 59, 255, 0.2);
+  vertical-align: middle;
+  width: 14%;
+}
+
+.xIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 1024px) {
+  .comparisonTable {
+    min-width: 700px;
+  }
+  
+  .logoCell,
+  .serviceNameCell,
+  .competitorCell {
+    width: 35%;
+  }
+  
+  .criterionCell,
+  .checkCell,
+  .xCell {
+    width: 13%;
+  }
+}
+
+@media (max-width: 768px) {
+  .comparisonTable {
+    min-width: 600px;
+    font-size: 0.875rem;
+  }
+  
+  .logoCell,
+  .criterionCell,
+  .serviceNameCell,
+  .checkCell,
+  .competitorCell,
+  .xCell {
+    padding: 1rem 0.75rem;
+  }
+
+  .heading {
+    font-size: 1.75rem;
+  }
+  
+  .logoCell,
+  .serviceNameCell,
+  .competitorCell {
+    width: 40%;
+  }
+  
+  .criterionCell,
+  .checkCell,
+  .xCell {
+    width: 12%;
+  }
+  
+  .competitorDescription {
+    font-size: 0.75rem;
+    line-height: 1.4;
+  }
+  
+  .serviceName {
+    font-size: 1rem;
+  }
+  
+  .competitorName {
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .comparisonTable {
+    min-width: 500px;
+    font-size: 0.75rem;
+  }
+  
+  .logoCell,
+  .criterionCell,
+  .serviceNameCell,
+  .checkCell,
+  .competitorCell,
+  .xCell {
+    padding: 0.75rem 0.5rem;
+  }
+  
+  .logoCell,
+  .serviceNameCell,
+  .competitorCell {
+    width: 45%;
+  }
+  
+  .criterionCell,
+  .checkCell,
+  .xCell {
+    width: 11%;
+  }
+  
+  .criterionCell {
+    font-size: 0.75rem;
+  }
+  
+  .competitorDescription {
+    font-size: 0.7rem;
+  }
+}
+

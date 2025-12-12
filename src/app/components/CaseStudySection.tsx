@@ -749,7 +749,7 @@ const CaseStudySection = ({ data = DEFAULT_CASE_STUDY_DATA, isShowTabs = true, c
                   );
                   if (firstCreativeCard) setActiveTab(firstCreativeCard.id);
                 }}
-                className={`px-10 pt-3 pb-4 rounded-lg cursor-pointer caseBtn text-xl font-semibold transition-all relative ${
+                className={`px-10 rounded-lg cursor-pointer caseBtn text-xl font-semibold transition-all relative ${
                   activeCategory === "creative"
                     ? "bg-[#643bff] text-white"
                     : "text-[#403867] hover:text-[#9ca3af]"
@@ -766,7 +766,7 @@ const CaseStudySection = ({ data = DEFAULT_CASE_STUDY_DATA, isShowTabs = true, c
                   );
                   if (firstMarketingCard) setActiveTab(firstMarketingCard.id);
                 }}
-                className={`px-10 pt-3 pb-4 rounded-lg cursor-pointer caseBtn text-xl font-semibold transition-all ${
+                className={`px-10 rounded-lg cursor-pointer caseBtn text-xl font-semibold transition-all ${
                   activeCategory === "marketing"
                     ? "bg-[#643bff] text-white"
                     : "text-[#403867] hover:text-[#9ca3af]"
@@ -783,7 +783,7 @@ const CaseStudySection = ({ data = DEFAULT_CASE_STUDY_DATA, isShowTabs = true, c
                   );
                   if (firstDevCard) setActiveTab(firstDevCard.id);
                 }}
-                className={`px-10 pt-3 pb-4 rounded-lg cursor-pointer caseBtn text-xl font-semibold transition-all ${
+                className={`px-10 rounded-lg cursor-pointer caseBtn text-xl font-semibold transition-all ${
                   activeCategory === "development"
                     ? "bg-[#643bff] text-white"
                     : "text-[#403867] hover:text-[#9ca3af]"
@@ -800,7 +800,7 @@ const CaseStudySection = ({ data = DEFAULT_CASE_STUDY_DATA, isShowTabs = true, c
                   );
                   if (firstGrowthCard) setActiveTab(firstGrowthCard.id);
                 }}
-                className={`px-10 pt-3 pb-4 rounded-lg cursor-pointer caseBtn text-xl font-semibold transition-all ${
+                className={`px-10 rounded-lg cursor-pointer caseBtn text-xl font-semibold transition-all ${
                   activeCategory === "keygrowth"
                     ? "bg-[#643bff] text-white"
                     : "text-[#403867] hover:text-[#9ca3af]"
@@ -889,7 +889,7 @@ const CaseStudySection = ({ data = DEFAULT_CASE_STUDY_DATA, isShowTabs = true, c
                             tabsSwiperRef.current.slideTo(tabIndex);
                           }
                         }}
-                        className={`px-10 pt-3 pb-4 rounded-lg cursor-pointer caseBtn text-xl font-semibold transition-all relative ${
+                        className={`px-10 rounded-lg cursor-pointer caseBtn text-xl font-semibold transition-all relative ${
                           activeCategory === tab.id
                             ? "bg-[#643bff] text-white"
                             : "text-[#403867] hover:text-[#9ca3af]"

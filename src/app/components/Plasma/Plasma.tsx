@@ -194,11 +194,14 @@ export const Plasma: React.FC<PlasmaProps> = ({
     let raf = 0
     let lastTime = 0
     let running = true
+    let isInViewport = true
+    let isScrolling = false
+    let scrollTimeout: number
     const targetDelta = isMobile ? 50 : 33 // ~20fps mobile, ~30fps desktop
     const t0 = performance.now()
 
     const loop = (t: number) => {
-      if (!running) return
+      if (!running || !isInViewport || isScrolling) return
       const delta = t - lastTime
       if (delta >= targetDelta) {
         const timeValue = (t - t0) * 0.001
@@ -214,13 +217,44 @@ export const Plasma: React.FC<PlasmaProps> = ({
     }
     raf = requestAnimationFrame(loop)
 
+    // Intersection Observer to pause when not in viewport
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          isInViewport = entry.isIntersecting
+          if (isInViewport && running && !isScrolling) {
+            lastTime = 0
+            raf = requestAnimationFrame(loop)
+          }
+        })
+      },
+      { threshold: 0.1 }
+    )
+    if (containerRef.current) {
+      io.observe(containerRef.current)
+    }
+
+    // Pause during scroll for better performance
+    const handleScroll = () => {
+      isScrolling = true
+      clearTimeout(scrollTimeout)
+      scrollTimeout = window.setTimeout(() => {
+        isScrolling = false
+        if (isInViewport && running) {
+          lastTime = 0
+          raf = requestAnimationFrame(loop)
+        }
+      }, 150) // Resume after 150ms of no scrolling
+    }
+    window.addEventListener("scroll", handleScroll, { passive: true })
+
     const onVisibility = () => {
       const hidden = document.visibilityState === "hidden"
       // Pause rendering entirely while hidden
       if (hidden && running) {
         running = false
         cancelAnimationFrame(raf)
-      } else if (!hidden && !running) {
+      } else if (!hidden && !running && isInViewport && !isScrolling) {
         running = true
         lastTime = 0
         raf = requestAnimationFrame(loop)
@@ -230,10 +264,13 @@ export const Plasma: React.FC<PlasmaProps> = ({
 
     return () => {
       document.removeEventListener("visibilitychange", onVisibility)
+      window.removeEventListener("scroll", handleScroll)
+      io.disconnect()
       running = false
       cancelAnimationFrame(raf)
       ro.disconnect()
       clearTimeout(resizeTimer)
+      clearTimeout(scrollTimeout)
       if (!isIOS && mouseInteractive && containerRef.current) {
         containerRef.current.removeEventListener("mousemove", handleMouseMove)
       }

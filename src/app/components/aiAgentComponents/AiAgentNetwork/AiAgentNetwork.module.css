@@ -1,0 +1,295 @@
+.aiNetworkSection {
+  padding: 70px 0;
+  background: radial-gradient(
+    circle at top left,
+    #1a0b3f 0,
+    #05001a 40%,
+    #020014 100%
+  );
+}
+
+.sectionTitle {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.sectionTitle h2 {
+  font-weight: 800;
+  font-size: 3rem;
+  width: 100%;
+  max-width: 720px;
+  margin: auto;
+  color: #ffffff;
+}
+
+.sectionTitle p {
+  max-width: 620px;
+  margin: 0.4rem auto 0;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Desktop Network Diagram */
+.networkDiagram {
+  margin-top: 3rem;
+}
+
+.networkContainer {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.networkConnectionsSvg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.networkNode {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+}
+
+/* Left Top */
+.networkNode.nodeLeftTop {
+  top: 0;
+  left: 10%;
+}
+
+/* Left Middle */
+.networkNode.nodeLeftMiddle {
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+/* Left Bottom */
+.networkNode.nodeLeftBottom {
+  bottom: 0;
+  left: 15%;
+}
+
+/* Center */
+.networkNode.nodeCenter {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Right Top */
+.networkNode.nodeRightTop {
+  top: 0;
+  right: 10%;
+}
+
+/* Right Middle */
+.networkNode.nodeRightMiddle {
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+/* Right Bottom */
+.networkNode.nodeRightBottom {
+  bottom: 0;
+  right: 15%;
+}
+
+.nodeAvatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.75rem;
+  padding: 4px;
+}
+
+.avatarBorderRed {
+  border: 3px solid #0FDAC2;
+}
+
+.avatarBorderYellow {
+  border: 3px solid #0FDAC2;
+}
+
+.avatarBorderGreen {
+  border: 3px solid #0FDAC2;
+}
+
+.avatarBorderPurple {
+  border: 3px solid #0FDAC2;
+}
+
+.avatarBorderTeal {
+  border: 3px solid #0FDAC2;
+}
+
+.avatarInner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.avatarPink {
+  background: #643BFF;
+  color: #fff;
+}
+
+.avatarBlue {
+  background: #643BFF;
+  color: #fff;
+}
+
+.avatarTeal {
+  background: #643BFF;
+  color: #fff;
+}
+
+.avatarGreen {
+  background: #643BFF;
+  color: #fff;
+}
+
+.avatarYellow {
+  background: #643BFF;
+  color: #fff;
+}
+
+.avatarWhite {
+  background: #643BFF;
+  color: #fff;
+}
+
+.nodeLabel {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: center;
+  color: #ffffff;
+  max-width: 120px;
+}
+
+/* Mobile Network Diagram */
+.networkDiagramMobile {
+  margin-top: 3rem;
+}
+
+.networkContainerMobile {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.networkConnectionsMobile {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.networkNodeMobile {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+}
+
+.networkNodeMobile.nodeMobileTop {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.networkNodeMobile.nodeMobileBottomLeft {
+  bottom: 0;
+  left: 10%;
+}
+
+.networkNodeMobile.nodeMobileBottomRight {
+  bottom: 0;
+  right: 10%;
+}
+
+.nodeAvatarMobile {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+  padding: 3px;
+}
+
+.avatarBorderPinkMobile {
+  border: 2px solid #0FDAC2;
+}
+
+.avatarBorderYellowMobile {
+  border: 2px solid #0FDAC2;
+}
+
+.avatarBorderPurpleMobile {
+  border: 2px solid #0FDAC2;
+}
+
+.avatarInnerMobile {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.avatarPinkMobile {
+  background: #643BFF;
+  color: #fff;
+}
+
+.avatarYellowMobile {
+  background: #643BFF;
+  color: #fff;
+}
+
+.avatarPurpleMobile {
+  background: #643BFF;
+  color: #fff;
+}
+
+.nodeLabelMobile {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-align: center;
+  color: #ffffff;
+  max-width: 100px;
+}
+
+@media (max-width: 576px) {
+  .sectionTitle h2 {
+    font-size: 2rem;
+  }
+}
+

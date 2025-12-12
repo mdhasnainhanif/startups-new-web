@@ -470,7 +470,7 @@ export const SERVICES_GROWTH_CARDS_CONTENT: ServicesGrowthCardsContentData = {
     },
     {
       heading: "Creative consistency",
-      bodyText: "Our designers follow proven systems built by Design Pickle to help them adapt quickly to your brand and improve with every request and round of feedback.",
+      bodyText: "Our designers follow proven systems built by Startups Advisory to help them adapt quickly to your brand and improve with every request and round of feedback.",
       image: "/assets/images/services/brand-identity/2.webp",
     },
     {
@@ -487,7 +487,7 @@ export const SERVICES_GROWTH_CARDS_CONTENT: ServicesGrowthCardsContentData = {
     },
     {
       heading: "Creative consistency",
-      bodyText: "Our designers follow proven systems built by Design Pickle to help them adapt quickly to your brand and improve with every request and round of feedback.",
+      bodyText: "Our designers follow proven systems built by Startups Advisory to help them adapt quickly to your brand and improve with every request and round of feedback.",
       image: "/assets/images/blog/2.webp",
     },
     {
@@ -504,7 +504,7 @@ export const SERVICES_GROWTH_CARDS_CONTENT: ServicesGrowthCardsContentData = {
     },
     {
       heading: "Creative consistency",
-      bodyText: "Our designers follow proven systems built by Design Pickle to help them adapt quickly to your brand and improve with every request and round of feedback.",
+      bodyText: "Our designers follow proven systems built by Startups Advisory to help them adapt quickly to your brand and improve with every request and round of feedback.",
       image: "/assets/images/blog/2.webp",
     },
     {
@@ -521,7 +521,7 @@ export const SERVICES_GROWTH_CARDS_CONTENT: ServicesGrowthCardsContentData = {
     },
     {
       heading: "Creative consistency",
-      bodyText: "Our designers follow proven systems built by Design Pickle to help them adapt quickly to your brand and improve with every request and round of feedback.",
+      bodyText: "Our designers follow proven systems built by Startups Advisory to help them adapt quickly to your brand and improve with every request and round of feedback.",
       image: "/assets/images/blog/2.webp",
     },
     {
@@ -538,7 +538,7 @@ export const SERVICES_GROWTH_CARDS_CONTENT: ServicesGrowthCardsContentData = {
     },
     {
       heading: "Creative consistency",
-      bodyText: "Our designers follow proven systems built by Design Pickle to help them adapt quickly to your brand and improve with every request and round of feedback.",
+      bodyText: "Our designers follow proven systems built by Startups Advisory to help them adapt quickly to your brand and improve with every request and round of feedback.",
       image: "/assets/images/blog/2.webp",
     },
     {
@@ -555,7 +555,7 @@ export const SERVICES_GROWTH_CARDS_CONTENT: ServicesGrowthCardsContentData = {
     },
     {
       heading: "Creative consistency",
-      bodyText: "Our designers follow proven systems built by Design Pickle to help them adapt quickly to your brand and improve with every request and round of feedback.",
+      bodyText: "Our designers follow proven systems built by Startups Advisory to help them adapt quickly to your brand and improve with every request and round of feedback.",
       image: "/assets/images/blog/2.webp",
     },
     {
@@ -572,7 +572,7 @@ export const SERVICES_GROWTH_CARDS_CONTENT: ServicesGrowthCardsContentData = {
     },
     {
       heading: "Creative consistency",
-      bodyText: "Our designers follow proven systems built by Design Pickle to help them adapt quickly to your brand and improve with every request and round of feedback.",
+      bodyText: "Our designers follow proven systems built by Startups Advisory to help them adapt quickly to your brand and improve with every request and round of feedback.",
       image: "/assets/images/blog/2.webp",
     },
     {
@@ -589,7 +589,7 @@ export const SERVICES_GROWTH_CARDS_CONTENT: ServicesGrowthCardsContentData = {
     },
     {
       heading: "Creative consistency",
-      bodyText: "Our designers follow proven systems built by Design Pickle to help them adapt quickly to your brand and improve with every request and round of feedback.",
+      bodyText: "Our designers follow proven systems built by Startups Advisory to help them adapt quickly to your brand and improve with every request and round of feedback.",
       image: "/assets/images/blog/2.webp",
     },
     {
@@ -606,7 +606,7 @@ export const SERVICES_GROWTH_CARDS_CONTENT: ServicesGrowthCardsContentData = {
     },
     {
       heading: "Creative consistency",
-      bodyText: "Our designers follow proven systems built by Design Pickle to help them adapt quickly to your brand and improve with every request and round of feedback.",
+      bodyText: "Our designers follow proven systems built by Startups Advisory to help them adapt quickly to your brand and improve with every request and round of feedback.",
       image: "/assets/images/blog/2.webp",
     },
     {
@@ -623,7 +623,7 @@ export const SERVICES_GROWTH_CARDS_CONTENT: ServicesGrowthCardsContentData = {
     },
     {
       heading: "Creative consistency",
-      bodyText: "Our designers follow proven systems built by Design Pickle to help them adapt quickly to your brand and improve with every request and round of feedback.",
+      bodyText: "Our designers follow proven systems built by Startups Advisory to help them adapt quickly to your brand and improve with every request and round of feedback.",
       image: "/assets/images/blog/2.webp",
     },
     {
@@ -640,7 +640,7 @@ export const SERVICES_GROWTH_CARDS_CONTENT: ServicesGrowthCardsContentData = {
     },
     {
       heading: "Creative consistency",
-      bodyText: "Our designers follow proven systems built by Design Pickle to help them adapt quickly to your brand and improve with every request and round of feedback.",
+      bodyText: "Our designers follow proven systems built by Startups Advisory to help them adapt quickly to your brand and improve with every request and round of feedback.",
       image: "/assets/images/blog/2.webp",
     },
     {
@@ -657,7 +657,7 @@ export const SERVICES_GROWTH_CARDS_CONTENT: ServicesGrowthCardsContentData = {
     },
     {
       heading: "Creative consistency",
-      bodyText: "Our designers follow proven systems built by Design Pickle to help them adapt quickly to your brand and improve with every request and round of feedback.",
+      bodyText: "Our designers follow proven systems built by Startups Advisory to help them adapt quickly to your brand and improve with every request and round of feedback.",
       image: "/assets/images/blog/2.webp",
     },
     {

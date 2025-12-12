@@ -6,6 +6,16 @@
   --color-primary: #0fdac2;
   --color-purple: #643bff;
   --color-dark: #020016;
+  --primary-color: #ff2a40;
+  --primary-dark: #118464;
+  --text-dark: #1b1b1b;
+  --text-muted: #666666;
+  --section-bg: #f7f9fb;
+  --soft-primary: #e7f0ff;
+  --card-hover: #f1f3f5;
+  --card-border: #dfe3e8;
+  --accent: #0a53ff;
+  --muted: #98a2b3;
 }
 
 @theme inline {
@@ -47,8 +57,9 @@ body {
   padding-bottom: 5.25rem;
 }
 
-nav.headerNav {
-  box-shadow: 0 0 1.25rem #1a296596;
+  nav.headerNav {
+  /* box-shadow: 0 0 1.25rem #1a296596; */
+  box-shadow: 0 -10px 20px -10px rgba(0, 0, 0, 0.3), 0 10px 20px -10px rgba(0, 0, 0, 0.3);
 }
 
 .bottomZero {
@@ -62,7 +73,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-wf-visual-sans), sans-serif !important;
+  font-family: var(--font-plus-jakarta-sans), sans-serif !important;
 }
 
 /* Ensure headings in all components use WF font */
@@ -84,7 +95,7 @@ main h3,
 main h4,
 main h5,
 main h6 {
-  font-family: var(--font-wf-visual-sans), sans-serif !important;
+  font-family: var(--font-plus-jakarta-sans), sans-serif !important;
 }
 
 /* Apply Graphik font to paragraphs, buttons, lists, and other text elements */
@@ -370,6 +381,12 @@ p.topPara {
   color: var(--color-primary);
 }
 
+.sectionHeading.forH2 h2 .bracket-text-green,
+.sectionHeading h2 .bracket-text-green,
+h2 .bracket-text-green {
+  color: #0fdac2 !important;
+}
+
 .sectionHeading.forH2.text-center {
   margin-bottom: 2.5rem;
 }
@@ -380,20 +397,25 @@ p.topPara {
 
 .caseBtn {
   position: relative;
+  padding: 0.725rem 2rem 0.985rem;
 }
 
 .caseBtn::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 117%;
-  width: 0.0625rem;
-  height: 100%;
-  background: #372c6b;
+  top: 50%;
+  left: -1.625rem;
+  width: 1px;
+  height: 60%;
+  background: rgba(255, 255, 255, 0.2);
+  pointer-events: none;
+  transform: translateY(-50%);
+  /* Ensure line position is stable and doesn't shift */
+  backface-visibility: hidden;
 }
 
-.caseBtn:last-child::before {
-  content: none;
+.caseBtn:first-child::before {
+  display: none;
 }
 
 /* Tabs Swiper Styles */
@@ -474,9 +496,19 @@ button.inputFieldBtn {
 
 .faqInputWrapper {
   position: relative;
+  background: #1c1949;
 }
 
-.faqInputWrapper::after {
+.faqInputWrapper button.px-10 {
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
+}
+
+.faqInputWrapper button.px-10::after {
+  border-bottom-width: 5px !important;
+}
+
+/* .faqInputWrapper::after {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -487,7 +519,7 @@ button.inputFieldBtn {
   border-radius: 12px;
   background: linear-gradient(238deg, #090129 77.16%, #643bff 158.68%);
   z-index: -1;
-}
+} */
 
 .webDevelopmentPageCaseStudy h2 {
   max-width: 50rem;

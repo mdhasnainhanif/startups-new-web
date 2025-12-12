@@ -79,7 +79,7 @@ export default function Header() {
         <Container maxWidth="xl" className="px-0">
           <nav
             className="headerNav flex items-center justify-between w-full rounded-xl md:rounded-2xl px-4 md:px-6 
-            md:py-3  bg-[#1c1949] backdrop-blur-md shadow-xl border border-[#2f2a63] relative"
+            md:py-3  bg-[#1c1949] border border-[#2f2a63] relative"
             style={{ minHeight: "64px" }}
           >
             <div className="flex items-center gap-2">
@@ -120,7 +120,7 @@ export default function Header() {
               ))}
             </div>
             <div className="hidden md:flex items-center gap-5">
-              <Link href="#" className="text-white text-sm font-medium hover:text-[#0fdac2] transition-colors">
+              <Link href="/roi-calculator" className="text-white text-sm border border-[#2f2a63] rounded-lg px-3 py-2 me-2 text-[#969696] font-medium hover:text-[#0fdac2] transition-colors">
                 {/* <span className="bg-[#2f2a63] font-light text-xs border border-[#525252] rounded-lg px-2 py-1 me-2 text-[#969696]">
                   New
                 </span> */}

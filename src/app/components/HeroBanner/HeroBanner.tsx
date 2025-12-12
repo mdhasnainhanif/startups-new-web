@@ -60,7 +60,7 @@ export default function HeroBanner({
   return (
     <section className={`${styles.heroBackground} relative sectionPadding overflow-hidden ${className}`}>
       {/* Plasma Background Animation */}
-      <div className="absolute inset-0 z-[1]">
+      <div className={`absolute inset-0 z-1 ${styles.plasmaContainer}`}>
         <Plasma 
           color="#8b5cf6"
           speed={0.8}
@@ -70,9 +70,9 @@ export default function HeroBanner({
           mouseInteractive={true}
         />
       </div>
-      <Container maxWidth="2xl" className={`${styles.content} relative z-[2]`}>
+      <Container maxWidth="2xl" className={`${styles.content} relative z-2`}>
         <div className="flex flex-col items-center text-center gap-6 md:gap-5 lg:pt-48 pt-10 sectionHeading">
-          <h1 className="max-w-4xl">
+          <h1 className="max-w-5xl">
             <span className="text-white">{headline}</span>
             {headlineHighlight && (
               <>
@@ -85,7 +85,7 @@ export default function HeroBanner({
               </>
             )}
           </h1>
-          <p className="text-white/80 max-w-5xl whitespace-pre-line">
+          <p className="text-white/80 max-w-4xl whitespace-pre-line">
             {description}
           </p>
           <div className="mt-4">

@@ -118,7 +118,7 @@ export default function FAQ({ faqs, sectionData, className = "" }: FAQProps) {
                     size="md"
                     onClick={handleSubmitQuestion}
                     disabled={!userQuestion.trim()}
-                    className="hover:bg-[#0fdac2]/90"
+                    className="hover:bg-[#0fdac2]/90 px-10"
                   >
                     Submit Question
                   </Button>
