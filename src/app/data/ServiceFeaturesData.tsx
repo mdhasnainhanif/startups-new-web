@@ -156,6 +156,245 @@ export const SERVICE_FEATURES_DATA: Record<string, ServiceFeaturesData> = {
       }
     ]
   },
+  "product-packaging": {
+    heading: "Clear Positioning, Strong Design, Proven Impact",
+    featuredCard: {
+      image: "/assets/images/services/brand-identity/men.webp",
+      name: "James",
+      backgroundShape: "#aaff00",
+      trademark: "®",
+      tools: ["Fi", "AI", "Ship", "△"],
+      title: "Clear Positioning, Strong Design, Proven Impact",
+      description: "Great packaging doesn’t just look good. It communicates value, differentiates instantly, and earns trust in seconds."
+    },
+    cards: [
+      {
+        icon: <PencilIcon />,
+        title: "Product-first design strategy",
+        description: "Every package starts with clarity. We design around your product's purpose, audience, and positioning — not trends."
+      },
+      {
+        icon: <ClockIcon />,
+        title: "Built to stand out on shelves",
+        description: "No blending in. No visual noise. Designs are crafted to grab attention and remain recognizable across variants."
+      },
+      {
+        icon: <DollarIcon />,
+        title: "Retail and eCommerce ready",
+        description: "From physical shelves to online listings. Packaging works seamlessly for print, retail display, and digital product pages."
+      },
+      {
+        icon: <HeadphonesIcon />,
+        title: "Simple pricing, scalable packaging",
+        description: "No hidden costs or endless revisions. Choose a setup that supports multiple SKUs and future product lines."
+      }
+    ]
+  },
+  "environmental-event": {
+    heading: "Clear Planning, Cohesive Design, Proven Impact",
+    featuredCard: {
+      image: "/assets/images/services/brand-identity/men.webp",
+      name: "James",
+      backgroundShape: "#aaff00",
+      trademark: "®",
+      tools: ["Fi", "AI", "Ship", "△"],
+      title: "Clear Planning, Cohesive Design, Proven Impact",
+      description: "Great events don’t feel improvised. They’re structured, consistent, and visually aligned — engineered to represent your brand professionally."
+    },
+    cards: [
+      {
+        icon: <PencilIcon />,
+        title: "Brand-first event strategy",
+        description: "Every event starts with your brand identity. Designs align with your messaging, audience, and objectives — not generic themes."
+      },
+      {
+        icon: <ClockIcon />,
+        title: "Designed for physical spaces",
+        description: "From stages to floor graphics. Layouts are created to work in real environments, distances, and lighting conditions."
+      },
+      {
+        icon: <DollarIcon />,
+        title: "Seamless multi-touchpoint design",
+        description: "One event, one system. Signage, screens, badges, booths, and materials stay visually consistent throughout."
+      },
+      {
+        icon: <HeadphonesIcon />,
+        title: "Simple pricing, scalable events",
+        description: "No last-minute surprises or scope confusion. Choose a setup that supports single events or recurring corporate programs."
+      }
+    ]
+  },
+  "presentations": {
+    heading: "Clear Messaging, Strong Visuals, Proven Impact",
+    featuredCard: {
+      image: "/assets/images/services/brand-identity/men.webp",
+      name: "James",
+      backgroundShape: "#aaff00",
+      trademark: "®",
+      tools: ["Fi", "AI", "Ship", "△"],
+      title: "Message-first slide structure",
+      description: "Every deck starts with intent. Slide flow, hierarchy, and pacing are designed to support the story — not distract from it."
+    },
+    cards: [
+      {
+        icon: <PencilIcon />,
+        title: "Designed to persuade",
+        description: "No clutter. No filler slides. Each slide earns its place by reinforcing the message and supporting decisions."
+      },
+      {
+        icon: <ClockIcon />,
+        title: "Built for live and shared use",
+        description: "Present in rooms or send as files. Slides work just as well live, on-screen, or as downloadable decks."
+      },
+      {
+        icon: <DollarIcon />,
+        title: "Simple pricing, scalable decks",
+        description: "No per-slide surprises or revision traps. Choose a setup that supports recurring presentations and ongoing updates."
+      },
+      {
+        icon: <HeadphonesIcon />,
+        title: "Human support, always available",
+        description: "You’re never stuck waiting. Real designers are available 24/5 to manage edits, feedback, and delivery."
+      }
+    ]
+  },
+  "ebooks-digital-report": {
+    heading: "Structured Content, Clear Design, Proven Impact",
+    featuredCard: {
+      image: "/assets/images/services/brand-identity/men.webp",
+      name: "James",
+      backgroundShape: "#aaff00",
+      trademark: "®",
+      tools: ["Fi", "AI", "Ship", "△"],
+      title: "Content-first layout strategy",
+      description: "Every document starts with structure. Headings, sections, and flow are designed to make complex ideas easy to follow and hard to ignore."
+    },
+    cards: [
+      
+      {
+        icon: <PencilIcon />,
+        title: "Designed for credibility",
+        description: "No clutter. No amateur layouts. Every page is built to look polished, professional, and trustworthy — from cover to final page."
+      },
+      {
+        icon: <ClockIcon />,
+        title: "Optimized for reading and sharing",
+        description: "Designed for screens, downloads, and presentations. Layouts work seamlessly across PDFs, email downloads, and live presentations."
+      },
+      {
+        icon: <DollarIcon />,
+        title: "Simple pricing, scalable documents",
+        description: "No per-page confusion or revision traps. Choose a setup that supports ongoing content creation and scales with your publishing needs."
+      },
+      {
+        icon: <HeadphonesIcon />,
+        title: "Human support, always available",
+        description: "You’re never left guessing. Real designers are available 24/5 to manage revisions, updates, and delivery."
+      }
+    ]
+  },
+  "illustration-artwork": {
+    heading: "DESIGNED WITH INTENT, NOT DECORATION",
+    featuredCard: {
+      image: "/assets/images/services/brand-identity/men.webp",
+      name: "James",
+      backgroundShape: "#aaff00",
+      trademark: "®",
+      tools: ["Fi", "AI", "Ship", "△"],
+      title: "Original, custom artwork",
+      description: "No templates. No stock reuse. Every illustration is created specifically for your brand and use case."
+    },
+    cards: [
+      {
+        icon: <PencilIcon />,
+        title: "Original, custom artwork",
+        description: "No templates. No stock reuse. Every illustration is created specifically for your brand and use case."
+      },
+      {
+        icon: <ClockIcon />,
+        title: "Consistent visual language",
+        description: "Styles, colors, and line work follow defined systems so your artwork stays cohesive as usage grows."
+      },
+      {
+        icon: <DollarIcon />,
+        title: "Flexible, reusable assets",
+        description: "Illustrations are delivered in formats that work across digital, print, and motion without needing redesigns every time."
+      },
+      {
+        icon: <HeadphonesIcon />,
+        title: "Human support, always available",
+        description: "You're never left guessing. Real illustrators are available 24/5 to manage revisions, updates, and delivery."
+      }
+    ]
+  },
+  "motion-video": {
+    heading: "Strategic Storytelling, Smart Motion, Proven Impact",
+    featuredCard: {
+      image: "/assets/images/services/brand-identity/men.webp",
+      name: "James",
+      backgroundShape: "#aaff00",
+      trademark: "®",
+      tools: ["Fi", "AI", "Ship", "△"],
+      title: "Story-first execution",
+      description: "Every video starts with a clear objective. Scripts, scenes, and motion are designed to guide attention and deliver the message without confusion."
+    },
+    cards: [
+      {
+        icon: <PencilIcon />,
+        title: "Production without delays",
+        description: "Skip long agency timelines and revision chaos. We deliver clean, on-brand motion assets quickly — ready for ads, landing pages, and campaigns."
+      },
+      {
+        icon: <ClockIcon />,
+        title: "Built for modern platforms",
+        description: "No resizing headaches or mismatched formats. Videos are optimized for social, paid ads, websites, and presentations from the start."
+      },
+      {
+        icon: <DollarIcon />,
+        title: "Simple pricing, scalable output",
+        description: "No per-frame surprises or hidden costs. Choose a setup that supports ongoing video needs and scales as demand grows."
+      },
+      {
+        icon: <HeadphonesIcon />,
+        title: "Human support, always available",
+        description: "You’re never guessing what’s next. Real people are available 24/5 to manage feedback, revisions, and delivery."
+      }
+    ]
+  },
+  "print": {
+    heading: "DESIGNED FOR PRINT — NOT JUST SCREENS",
+    featuredCard: {
+      image: "/assets/images/services/brand-identity/men.webp",
+      name: "James",
+      backgroundShape: "#aaff00",
+      trademark: "®",
+      tools: ["Fi", "AI", "Ship", "△"],
+      title: "Print-first precision",
+      description: "We design with bleed, margins, hierarchy, and finishes in mind. What you approve on screen is what comes out of the press."
+    },
+    cards: [
+      {
+        icon: <PencilIcon />,
+        title: "Print-first precision",
+        description: "We design with bleed, margins, hierarchy, and finishes in mind. What you approve on screen is what comes out of the press."
+      },
+      {
+        icon: <ClockIcon />,
+        title: "Consistent with your brand system",
+        description: "Colors, typography, and layouts stay aligned. Your print never feels disconnected from your digital brand."
+      },
+      {
+        icon: <DollarIcon />,
+        title: "Press-ready delivery",
+        description: "No confusion with printers. You get clean, production-ready files prepared to industry standards."
+      },
+      {
+        icon: <HeadphonesIcon />,
+        title: "Human support, always available",
+        description: "You're never left guessing. Real print specialists are available 24/5 to manage revisions, updates, and delivery."
+      }
+    ]
+  },
   default: {
     heading: "REAL MINDS, SMART TOOLS, EXCEPTIONAL DESIGN",
     featuredCard: {

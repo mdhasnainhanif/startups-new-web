@@ -20,7 +20,7 @@ export default function Reviews({ limit, columns = 3, equalHeight = false }: Rev
       <section className={`${styles.section} sectionPadding`}>
         <Container maxWidth="xl">
           {/* Header Section */}
-          <div className={`${styles.header} sectionHeading forH2 flex flex-col items-center justify-center gap-3`}>
+          <div className={`${styles.header} sectionHeading forH2 text-[#ffffff] flex flex-col items-center justify-center gap-3`}>
             <h2>
               <span className="text-white">
                 {REVIEWS_SECTION.heading.part1}
@@ -30,7 +30,7 @@ export default function Reviews({ limit, columns = 3, equalHeight = false }: Rev
               </span>
             </h2>
             <p>{REVIEWS_SECTION.subtitle}</p>
-            <p className={styles.ctaText}>
+            <p className={`${styles.ctaText} text-[#ffffff]`}>
               See how &nbsp;
               <span className="text-[#0fdac2]">Smart AI Business Teams</span>&nbsp;
               turned invisibility into daily inquiries

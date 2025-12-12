@@ -15,7 +15,7 @@ const ServiceFeatures: React.FC<ServiceFeaturesProps> = ({ data }) => {
     <section className={`${styles.section} sectionPadding`}>
       <Container maxWidth="xl">
         {/* Header */}
-        <div className="sectionHeading forH2 text-center gap-3 flex flex-col mb-12 md:mb-8 max-w-3xl mx-auto">
+        <div className="sectionHeading forH2 text-center text-[#ffffff] gap-3 flex flex-col mb-12 md:mb-8 max-w-3xl mx-auto">
           <h2>
             <span>Real Minds, Smart </span>
             <span className='text-[#0fdac2]'>Tools, Exceptional </span>

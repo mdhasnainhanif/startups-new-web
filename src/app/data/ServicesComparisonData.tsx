@@ -82,7 +82,7 @@ export const SERVICES_COMPARISON_DATA: ServicesComparisonDataMap = {
   },
   "marketing-advertising": {
     badge: "BUILT FOR RESULTS",
-    heading: "Why Smart Businesses Choose Us",
+    heading: "Why Smart Businesses Choose [Us]",
     description: "When you compare options side-by-side, the difference becomes obvious. This isn't about running ads — it's about scaling demand without burning cash.",
     logo: "/assets/images/logo.svg",
     serviceName: "Startups Advisory (Our Platform)",
@@ -130,7 +130,7 @@ export const SERVICES_COMPARISON_DATA: ServicesComparisonDataMap = {
   },
   "digital-web": {
     badge: "BUILT FOR DIGITAL RESULTS",
-    heading: "Why Businesses Choose Our Digital & Web Services",
+    heading: "Why Businesses Choose Our [Digital & Web Services]",
     description: "When you compare options side-by-side, the difference is clear. This isn't about aesthetics — it's about speed, scalability, performance, and long-term ROI.",
     logo: "/assets/images/logo.svg",
     serviceName: "Startups Advisory (Our Platform)",
@@ -177,28 +177,46 @@ export const SERVICES_COMPARISON_DATA: ServicesComparisonDataMap = {
     },
   },
   "motion-video": {
-    badge: "BUILT FOR YOU",
-    heading: "Growth Guides & Resources",
-    description: "Explore our comprehensive collection of growth guides, case studies, and resources designed to help your business scale and succeed.",
+    badge: "BUILT FOR VIDEO RESULTS",
+    heading: "Why Businesses Choose Our [Motion & Video Services]",
+    description: "Side-by-side, the difference is clear. This isn't about cinematic flair — it's about clarity, speed, scalability, and ROI.",
     logo: "/assets/images/logo.svg",
-    serviceName: "Startups Advisory",
+    serviceName: "Startups Advisory (Our Platform)",
     criteria: ["Platform", "Speed", "Quality", "Support", "Cost"],
     competitors: [
       {
-        name: "In-house team",
-        description: "Specialized video production requires expensive equipment and expertise. Full-time video teams are costly and often idle between projects.",
+        name: "In-House Team",
+        description: "Hiring editors and animators is slow and expensive. Managing scripts, revisions, and formats internally adds overhead and delays.",
       },
       {
         name: "Freelancers",
-        description: "Variable quality and availability. Video freelancers often juggle multiple clients, leading to delays and inconsistent output.",
+        description: "Quality varies. Availability changes. Brand consistency suffers when videos are handled by different individuals.",
       },
       {
         name: "Agencies",
-        description: "Premium rates and lengthy production cycles. Video agencies charge premium fees and take weeks to deliver even simple projects.",
+        description: "High production value, but slow timelines and expensive retainers make agencies inefficient for ongoing motion needs.",
       },
       {
         name: "DIY Tools",
-        description: "Limited creative capabilities and professional quality. Video editing tools require significant skill and time to produce polished results.",
+        description: "Easy to start, hard to scale. Generic animations and templates reduce impact and credibility over time.",
+      },
+    ],
+    comparisonPoints: [
+      {
+        label: "Speed",
+        description: "Faster delivery vs long production cycles",
+      },
+      {
+        label: "Quality",
+        description: "System-led consistency vs scattered output",
+      },
+      {
+        label: "Support",
+        description: "Always-on collaboration vs limited access",
+      },
+      {
+        label: "Cost",
+        description: "Predictable pricing vs escalating spend",
       },
     ],
     cta: {
@@ -207,28 +225,46 @@ export const SERVICES_COMPARISON_DATA: ServicesComparisonDataMap = {
     },
   },
   "print": {
-    badge: "BUILT FOR YOU",
-    heading: "Growth Guides & Resources",
-    description: "Explore our comprehensive collection of growth guides, case studies, and resources designed to help your business scale and succeed.",
+    badge: "BUILT FOR TEAMS THAT CARE ABOUT CREDIBILITY",
+    heading: "Why Businesses Choose Our [Print Design Services]",
+    description: "Hiring print designers in-house is slow. Agencies are expensive. Templates cheapen perception. We give you a dedicated print design team that executes fast, stays consistent, and scales with your needs.",
     logo: "/assets/images/logo.svg",
-    serviceName: "Startups Advisory",
+    serviceName: "Startups Advisory (Our Platform)",
     criteria: ["Platform", "Speed", "Quality", "Support", "Cost"],
     competitors: [
       {
-        name: "In-house team",
-        description: "Print design expertise is specialized and costly. Maintaining designers who understand print production adds significant overhead.",
+        name: "In-House Team",
+        description: "Hiring print designers in-house is slow. Print design expertise is specialized and costly. Maintaining designers who understand print production adds significant overhead.",
       },
       {
         name: "Freelancers",
-        description: "Inconsistent print knowledge and turnaround. Finding freelancers who understand print specifications and production is challenging.",
+        description: "Variable quality and availability. Print freelancers often lack production knowledge, leading to delays and print errors.",
       },
       {
         name: "Agencies",
-        description: "High costs for routine print projects. Agencies charge premium rates for print work that could be handled more efficiently.",
+        description: "Premium rates and lengthy production cycles. Print agencies charge premium fees and take weeks to deliver even simple projects.",
       },
       {
         name: "DIY Tools",
-        description: "Limited print-ready capabilities. Design tools often lack proper print specifications and color management for professional output.",
+        description: "Limited creative capabilities and professional quality. Print templates require significant skill and time to produce polished results.",
+      },
+    ],
+    comparisonPoints: [
+      {
+        label: "Speed",
+        description: "Faster delivery vs long production cycles",
+      },
+      {
+        label: "Quality",
+        description: "System-led consistency vs scattered output",
+      },
+      {
+        label: "Support",
+        description: "Always-on collaboration vs limited access",
+      },
+      {
+        label: "Cost",
+        description: "Predictable pricing vs escalating spend",
       },
     ],
     cta: {
@@ -237,15 +273,15 @@ export const SERVICES_COMPARISON_DATA: ServicesComparisonDataMap = {
     },
   },
   "illustration-artwork": {
-    badge: "BUILT FOR YOU",
-    heading: "Growth Guides & Resources",
-    description: "Explore our comprehensive collection of growth guides, case studies, and resources designed to help your business scale and succeed.",
+    badge: "BUILT FOR BRANDS THAT WANT TO STAND OUT",
+    heading: "Why Businesses Choose Our [Illustration & Artwork]",
+    description: "Hiring illustrators in-house is slow. Stock libraries dilute identity. Agencies overcomplicate the process. We give you a dedicated illustration team that creates original artwork fast, stays consistent, and scales with your needs.",
     logo: "/assets/images/logo.svg",
-    serviceName: "Startups Advisory",
+    serviceName: "Startups Advisory (Our Platform)",
     criteria: ["Platform", "Speed", "Quality", "Support", "Cost"],
     competitors: [
       {
-        name: "In-house team",
+        name: "In-House Team",
         description: "Illustration talent is rare and expensive. Hiring full-time illustrators is costly when illustration needs are project-based.",
       },
       {
@@ -261,34 +297,70 @@ export const SERVICES_COMPARISON_DATA: ServicesComparisonDataMap = {
         description: "Limited artistic capabilities and brand alignment. Illustration tools produce generic results that don't capture your unique brand voice.",
       },
     ],
+    comparisonPoints: [
+      {
+        label: "Speed",
+        description: "Faster delivery vs slow hiring cycles",
+      },
+      {
+        label: "Quality",
+        description: "Original artwork vs stock reuse",
+      },
+      {
+        label: "Support",
+        description: "Always-on collaboration vs limited availability",
+      },
+      {
+        label: "Cost",
+        description: "Predictable pricing vs escalating spend",
+      },
+    ],
     cta: {
       text: "Get Started",
       href: "#get-started",
     },
   },
   "ebooks-digital-report": {
-    badge: "BUILT FOR YOU",
-    heading: "Growth Guides & Resources",
-    description: "Explore our comprehensive collection of growth guides, case studies, and resources designed to help your business scale and succeed.",
+    badge: "BUILT FOR CONTENT RESULTS",
+    heading: "Why Businesses Choose Our [eBook & Report Templates]",
+    description: "Side-by-side, the difference is obvious. This isn't about decoration — it's about clarity, authority, and scalability.",
     logo: "/assets/images/logo.svg",
-    serviceName: "Startups Advisory",
+    serviceName: "Startups Advisory (Our Platform)",
     criteria: ["Platform", "Speed", "Quality", "Support", "Cost"],
     competitors: [
       {
-        name: "In-house team",
-        description: "Document design requires specialized layout skills. Maintaining designers for occasional eBook and report projects is inefficient.",
+        name: "In-House Team",
+        description: "Document design competes with other priorities. Updates take longer and consistency drops as workload increases.",
       },
       {
         name: "Freelancers",
-        description: "Inconsistent document formatting and quality. Finding freelancers skilled in long-form document design is challenging.",
+        description: "Style varies. Structure breaks. Every new document feels disconnected from the last.",
       },
       {
         name: "Agencies",
-        description: "Expensive for routine document design. Agencies charge premium rates for eBook and report layouts that need regular updates.",
+        description: "Strong design, but high costs and slow timelines make agencies inefficient for recurring documents.",
       },
       {
         name: "DIY Tools",
-        description: "Limited professional layout capabilities. Document design tools lack the sophistication needed for polished, branded materials.",
+        description: "Easy to start, but layouts lack hierarchy and credibility — reducing trust and perceived value.",
+      },
+    ],
+    comparisonPoints: [
+      {
+        label: "Speed",
+        description: "Faster delivery vs slow design cycles",
+      },
+      {
+        label: "Quality",
+        description: "System-driven structure vs inconsistent layouts",
+      },
+      {
+        label: "Support",
+        description: "Always-on collaboration vs limited availability",
+      },
+      {
+        label: "Cost",
+        description: "Predictable pricing vs escalating spend",
       },
     ],
     cta: {
@@ -297,28 +369,46 @@ export const SERVICES_COMPARISON_DATA: ServicesComparisonDataMap = {
     },
   },
   "presentations": {
-    badge: "BUILT FOR YOU",
-    heading: "Growth Guides & Resources",
-    description: "Explore our comprehensive collection of growth guides, case studies, and resources designed to help your business scale and succeed.",
+    badge: "BUILT FOR PRESENTATION RESULTS",
+    heading: "Why Businesses Choose Our Presentation Design",
+    description: "Side-by-side, the difference is clear. This isn't about decoration — it's about clarity, persuasion, and repeatability.",
     logo: "/assets/images/logo.svg",
-    serviceName: "Startups Advisory",
+    serviceName: "Startups Advisory (Our Platform)",
     criteria: ["Platform", "Speed", "Quality", "Support", "Cost"],
     competitors: [
       {
-        name: "In-house team",
-        description: "Presentation design is often sporadic. Maintaining designers for occasional presentation needs creates unnecessary overhead.",
+        name: "In-House Team",
+        description: "Presentation work competes with other priorities. Updates take longer and slide quality varies under pressure.",
       },
       {
         name: "Freelancers",
-        description: "Inconsistent presentation quality and turnaround. Finding reliable freelancers for urgent presentation needs is difficult.",
+        description: "Style shifts between decks. Structure breaks. Messaging becomes inconsistent.",
       },
       {
         name: "Agencies",
-        description: "Overpriced for routine presentations. Agencies charge premium rates for presentation design that should be quick and affordable.",
+        description: "Strong visuals, but slow timelines and high costs limit flexibility for ongoing decks.",
       },
       {
         name: "DIY Tools",
-        description: "Generic templates that lack brand consistency. Presentation tools produce cookie-cutter slides that don't reflect your brand.",
+        description: "Quick to use, but slides lack hierarchy and executive-level credibility.",
+      },
+    ],
+    comparisonPoints: [
+      {
+        label: "Speed",
+        description: "Faster delivery vs long revision cycles",
+      },
+      {
+        label: "Quality",
+        description: "System-driven slides vs inconsistent decks",
+      },
+      {
+        label: "Support",
+        description: "Always-on collaboration vs limited access",
+      },
+      {
+        label: "Cost",
+        description: "Predictable pricing vs escalating spend",
       },
     ],
     cta: {
@@ -327,28 +417,28 @@ export const SERVICES_COMPARISON_DATA: ServicesComparisonDataMap = {
     },
   },
   "product-packaging": {
-    badge: "BUILT FOR YOU",
-    heading: "Growth Guides & Resources",
-    description: "Explore our comprehensive collection of growth guides, case studies, and resources designed to help your business scale and succeed.",
+    badge: "BUILT FOR PRODUCT RESULTS",
+    heading: "Why Businesses Choose Our Product & Packaging Design",
+    description: "Side-by-side, the difference is clear. This isn't about decoration — it's about clarity, differentiation, and sell-through.",
     logo: "/assets/images/logo.svg",
-    serviceName: "Startups Advisory",
+    serviceName: "Startups Advisory (Our Platform)",
     criteria: ["Platform", "Speed", "Quality", "Support", "Cost"],
     competitors: [
       {
-        name: "In-house team",
-        description: "Packaging design requires specialized knowledge. Hiring full-time packaging designers is expensive for product-based businesses.",
+        name: "In-House Team",
+        description: "Packaging work competes with other priorities. Updates slow down launches and consistency suffers.",
       },
       {
         name: "Freelancers",
-        description: "Variable packaging expertise and production knowledge. Finding freelancers who understand packaging specifications is challenging.",
+        description: "Styles vary. Brand cohesion breaks across SKUs and releases.",
       },
       {
         name: "Agencies",
-        description: "High costs for packaging projects. Agencies charge premium rates for packaging design that may exceed your product margins.",
+        description: "High-quality work, but slow timelines and high retainers reduce flexibility.",
       },
       {
         name: "DIY Tools",
-        description: "Limited packaging design capabilities. Design tools lack the technical knowledge needed for production-ready packaging files.",
+        description: "Quick to start, but packaging lacks shelf impact and professional credibility.",
       },
     ],
     cta: {
@@ -387,28 +477,46 @@ export const SERVICES_COMPARISON_DATA: ServicesComparisonDataMap = {
     },
   },
   "environmental-event": {
-    badge: "BUILT FOR YOU",
-    heading: "Growth Guides & Resources",
-    description: "Explore our comprehensive collection of growth guides, case studies, and resources designed to help your business scale and succeed.",
+    badge: "BUILT FOR EVENT RESULTS",
+    heading: "Why Businesses Choose Our Corporate Event Design",
+    description: "Side-by-side, the difference is clear. This isn't about decoration — it's about professionalism, coordination, and brand impact.",
     logo: "/assets/images/logo.svg",
-    serviceName: "Startups Advisory",
+    serviceName: "Startups Advisory (Our Platform)",
     criteria: ["Platform", "Speed", "Quality", "Support", "Cost"],
     competitors: [
       {
-        name: "In-house team",
-        description: "Event design is event-based and sporadic. Maintaining designers for occasional event graphics creates unnecessary overhead.",
+        name: "In-House Team",
+        description: "Event design competes with other priorities. Deadlines tighten and consistency suffers under pressure.",
       },
       {
         name: "Freelancers",
-        description: "Inconsistent event design quality and turnaround. Finding reliable freelancers for urgent event needs is challenging.",
+        description: "Styles vary. Visual alignment breaks across event materials.",
       },
       {
         name: "Agencies",
-        description: "Overpriced for event graphics. Agencies charge premium rates for environmental design that should be quick and affordable.",
+        description: "High-quality work, but slow timelines and high costs reduce flexibility.",
       },
       {
         name: "DIY Tools",
-        description: "Limited event design capabilities. Design tools lack the scale and sophistication needed for impactful environmental graphics.",
+        description: "Quick layouts, but poor scalability and unprofessional results for large events.",
+      },
+    ],
+    comparisonPoints: [
+      {
+        label: "Speed",
+        description: "Faster turnaround vs long prep cycles",
+      },
+      {
+        label: "Quality",
+        description: "System-driven design vs fragmented visuals",
+      },
+      {
+        label: "Support",
+        description: "Always-on collaboration vs limited access",
+      },
+      {
+        label: "Cost",
+        description: "Predictable pricing vs escalating spend",
       },
     ],
     cta: {

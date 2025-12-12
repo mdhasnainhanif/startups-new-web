@@ -19,10 +19,24 @@ export default function Header() {
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
+  const [isServicesDropdownOpen2, setIsServicesDropdownOpen2] = useState(false);
+  // Add separate state for mobile dropdowns
+  const [isMobileDesignDropdownOpen, setIsMobileDesignDropdownOpen] = useState(false);
+  const [isMobileServicesDropdownOpen, setIsMobileServicesDropdownOpen] = useState(false);
   const [dropdownPosition, setDropdownPosition] = useState({ top: 0, left: 0 });
+  const [dropdownPosition2, setDropdownPosition2] = useState({ top: 0, left: 0 });
   const servicesDropdownRef = useRef<HTMLDivElement>(null);
+  const servicesDropdownRef2 = useRef<HTMLDivElement>(null);
   const dropdownButtonRef = useRef<HTMLButtonElement>(null);
+  const dropdownButtonRef2 = useRef<HTMLButtonElement>(null);
   const services = getAllServices();
+
+  // Services menu items
+  const servicesMenuItems = [
+    { label: "Web Development", href: "/web-development", slug: "web-development" },
+    { label: "Content Writing", href: "/content-writing", slug: "content-writing" },
+    { label: "Social Media Marketing", href: "/social-media-marketing", slug: "social-media-marketing" },
+  ];
 
    // Check if a link is active
    const isActive = (href: string) => {
@@ -56,6 +70,9 @@ export default function Header() {
       if (!isMobile && isServicesDropdownOpen && scrollDelta > 5) {
         setIsServicesDropdownOpen(false);
       }
+      if (!isMobile && isServicesDropdownOpen2 && scrollDelta > 5) {
+        setIsServicesDropdownOpen2(false);
+      }
 
       // Apply fixed when scrolled
       setIsScrolled(currentScrollY > 50);
@@ -82,41 +99,36 @@ export default function Header() {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", checkMobile);
     };
-  }, [lastScrollY, isMobile, isServicesDropdownOpen]);
+  }, [lastScrollY, isMobile, isServicesDropdownOpen, isServicesDropdownOpen2]);
 
-  // Update dropdown position
+  // Update dropdown position for Services dropdown
   useEffect(() => {
     const updatePosition = () => {
-      if (dropdownButtonRef.current && isServicesDropdownOpen) {
-        const rect = dropdownButtonRef.current.getBoundingClientRect();
-        // When header is fixed, getBoundingClientRect() returns viewport coordinates
-        // When header is relative, we need to add scrollY
+      if (dropdownButtonRef2.current && isServicesDropdownOpen2) {
+        const rect = dropdownButtonRef2.current.getBoundingClientRect();
         const topPosition = isScrolled 
-          ? rect.bottom + 12  // Fixed header - use viewport coordinates
-          : rect.bottom + window.scrollY + 12;  // Relative header - add scroll
+          ? rect.bottom + 4  // Reduced from 12 to 4
+          : rect.bottom + window.scrollY + 4;  // Reduced from 12 to 4
         
-        setDropdownPosition({
+        setDropdownPosition2({
           top: topPosition,
           left: rect.left + rect.width / 2,
         });
       }
     };
 
-    if (isServicesDropdownOpen) {
-      // Use requestAnimationFrame to ensure DOM is ready
+    if (isServicesDropdownOpen2) {
       requestAnimationFrame(() => {
         updatePosition();
-        // Also update after a small delay to ensure layout is complete
         setTimeout(updatePosition, 0);
       });
-      // Only listen to resize, not scroll (we close on scroll anyway)
       window.addEventListener('resize', updatePosition);
     }
 
     return () => {
       window.removeEventListener('resize', updatePosition);
     };
-  }, [isServicesDropdownOpen, isScrolled]);
+  }, [isServicesDropdownOpen2, isScrolled]);
 
   // Close dropdown when clicking outside (only for mobile/click interactions)
   useEffect(() => {
@@ -129,16 +141,26 @@ export default function Header() {
       ) {
         setIsServicesDropdownOpen(false);
       }
+      if (
+        isMobile &&
+        servicesDropdownRef2.current &&
+        !servicesDropdownRef2.current.contains(event.target as Node)
+      ) {
+        setIsServicesDropdownOpen2(false);
+      }
     };
 
     if (isServicesDropdownOpen && isMobile) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+    if (isServicesDropdownOpen2 && isMobile) {
       document.addEventListener("mousedown", handleClickOutside);
     }
 
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [isServicesDropdownOpen, isMobile]);
+  }, [isServicesDropdownOpen, isMobile, isServicesDropdownOpen2]);
 
   // Service icons mapping
   const getServiceIcon = (slug: string) => {
@@ -226,6 +248,41 @@ export default function Header() {
     );
   };
 
+  // Services menu icons mapping
+  const getServicesMenuIcon = (slug: string) => {
+    const iconMap: { [key: string]: React.ReactNode } = {
+      "web-development": (
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <polyline points="16 18 22 12 16 6" />
+          <polyline points="8 6 2 12 8 18" />
+        </svg>
+      ),
+      "content-writing": (
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+          <polyline points="14 2 14 8 20 8" />
+          <line x1="16" y1="13" x2="8" y2="13" />
+          <line x1="16" y1="17" x2="8" y2="17" />
+          <polyline points="10 9 9 9 8 9" />
+        </svg>
+      ),
+      "social-media-marketing": (
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <circle cx="18" cy="5" r="3" />
+          <circle cx="6" cy="12" r="3" />
+          <circle cx="18" cy="19" r="3" />
+          <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
+          <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
+        </svg>
+      ),
+    };
+    return iconMap[slug] || (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <circle cx="12" cy="12" r="10" />
+      </svg>
+    );
+  };
+
   return (
     <>
       {/* Header - Fixed when scrolled */}
@@ -293,8 +350,8 @@ export default function Header() {
                           if (dropdownButtonRef.current) {
                             const rect = dropdownButtonRef.current.getBoundingClientRect();
                             const topPosition = isScrolled 
-                              ? rect.bottom + 12
-                              : rect.bottom + window.scrollY + 12;
+                              ? rect.bottom + 4  // Reduced from 12 to 4
+                              : rect.bottom + window.scrollY + 4;  // Reduced from 12 to 4
                             setDropdownPosition({
                               top: topPosition,
                               left: rect.left + rect.width / 2,
@@ -340,11 +397,12 @@ export default function Header() {
                               transform: 'translateX(-30%)',
                               maxHeight: 'calc(100vh - 100px)',
                               overflowY: 'auto',
+                              paddingTop: '8px', // Add invisible bridge
                             }}
                             onMouseEnter={() => setIsServicesDropdownOpen(true)}
                             onMouseLeave={() => setIsServicesDropdownOpen(false)}
                           >
-                            <div className="p-6">
+                            <div className="p-6" style={{ marginTop: '-8px' }}> {/* Compensate for padding */}
                               <h3 className="text-white text-lg font-semibold mb-6">Solutions & Services</h3>
                               <div className="grid grid-cols-4 gap-0">
                                 {services && services.length > 0 ? (
@@ -386,6 +444,97 @@ export default function Header() {
                                     No services available
                                   </div>
                                 )}
+                              </div>
+                            </div>
+                          </div>,
+                          document.body
+                        )}
+                      </div>
+                      {/* Services Dropdown */}
+                      <div 
+                        key="services-dropdown-2"
+                        className="relative" 
+                        onMouseEnter={() => {
+                          setIsServicesDropdownOpen2(true);
+                          if (dropdownButtonRef2.current) {
+                            const rect = dropdownButtonRef2.current.getBoundingClientRect();
+                            const topPosition = isScrolled 
+                              ? rect.bottom + 4  // Reduced from 12 to 4
+                              : rect.bottom + window.scrollY + 4;  // Reduced from 12 to 4
+                            setDropdownPosition2({
+                              top: topPosition,
+                              left: rect.left + rect.width / 2,
+                            });
+                          }
+                        }}
+                        onMouseLeave={() => setIsServicesDropdownOpen2(false)}
+                      >
+                        <button
+                          ref={dropdownButtonRef2}
+                          className={`text-white font-medium hover:text-[#0fdac2] transition-colors flex items-center justify-center gap-1 ${
+                            servicesMenuItems.some(item => pathname?.startsWith(item.href)) ? "text-[#0fdac2]" : ""
+                          }`}
+                          style={
+                            servicesMenuItems.some(item => pathname?.startsWith(item.href))
+                              ? {
+                                  textShadow:
+                                    "-9px 0 17px #00dbc1e6, 0px 6px 8px #0fdac287, 0 0 56px #0fdac2cc",
+                                }
+                              : {}
+                          }
+                        >
+                          Services
+                          <svg
+                            className={`w-[0.85rem] h-[0.85rem] mt-[0.3rem] transition-transform ${isServicesDropdownOpen2 ? "rotate-180" : ""}`}
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                          </svg>
+                        </button>
+
+                        {/* Services Dropdown Menu */}
+                        {typeof window !== 'undefined' && isServicesDropdownOpen2 && createPortal(
+                          <div 
+                            ref={servicesDropdownRef2}
+                            className="fixed w-[280px] bg-[#050321] border border-[#26234fa8] rounded-xl shadow-2xl transition-all duration-200 opacity-100 visible pointer-events-auto"
+                            style={{ 
+                              zIndex: 99999,
+                              top: `${dropdownPosition2.top}px`,
+                              left: `${dropdownPosition2.left}px`,
+                              transform: 'translateX(-50%)',
+                              paddingTop: '8px', // Add invisible bridge
+                            }}
+                            onMouseEnter={() => setIsServicesDropdownOpen2(true)}
+                            onMouseLeave={() => setIsServicesDropdownOpen2(false)}
+                          >
+                            <div className="p-4" style={{ marginTop: '-8px' }}> {/* Compensate for padding */}
+                              <div className="space-y-1">
+                                {servicesMenuItems.map((item) => {
+                                  const isActive = pathname?.startsWith(item.href);
+                                  return (
+                                    <Link
+                                      key={item.slug}
+                                      href={item.href}
+                                      onClick={() => setIsServicesDropdownOpen2(false)}
+                                      className={`flex items-center gap-3 py-3 px-4 hover:bg-[#2f2a63]/30 transition-all rounded-lg ${
+                                        isActive ? 'bg-[#2f2a63]/40' : ''
+                                      }`}
+                                    >
+                                      <div className={`flex-shrink-0 ${
+                                        isActive ? 'text-[#0fdac2]' : 'text-[#643bff] opacity-70'
+                                      }`}>
+                                        {getServicesMenuIcon(item.slug)}
+                                      </div>
+                                      <div className={`font-semibold text-sm ${
+                                        isActive ? 'text-[#0fdac2]' : 'text-white'
+                                      }`}>
+                                        {item.label}
+                                      </div>
+                                    </Link>
+                                  );
+                                })}
                               </div>
                             </div>
                           </div>,
@@ -515,15 +664,44 @@ export default function Header() {
 
           {/* Sidebar Content */}
           <div className="flex flex-col flex-1 px-4 py-6 gap-4 overflow-y-auto">
-            {/* Mobile Services Dropdown */}
+            {/* Home Link */}
+            <Link
+              href="/"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className={`text-white text-base font-medium hover:text-[#0fdac2] transition-colors py-2 ${
+                isActive("/") ? "text-[#0fdac2]" : ""
+              }`}
+              style={
+                isActive("/")
+                  ? {
+                      textShadow:
+                        "-9px 0 17px #00dbc1e6, 0px 6px 8px #0fdac287, 0 0 56px #0fdac2cc",
+                    }
+                  : {}
+              }
+            >
+              Home
+            </Link>
+
+            {/* Mobile Design Dropdown */}
             <div className="mb-2">
               <button
-                onClick={() => setIsServicesDropdownOpen(!isServicesDropdownOpen)}
-                className="text-white text-base font-medium hover:text-[#0fdac2] transition-colors py-2 w-full text-left flex items-center justify-between"
+                onClick={() => setIsMobileDesignDropdownOpen(!isMobileDesignDropdownOpen)}
+                className={`text-white text-base font-medium hover:text-[#0fdac2] transition-colors py-2 w-full text-left flex items-center justify-between ${
+                  isServicePage() ? "text-[#0fdac2]" : ""
+                }`}
+                style={
+                  isServicePage()
+                    ? {
+                        textShadow:
+                          "-9px 0 17px #00dbc1e6, 0px 6px 8px #0fdac287, 0 0 56px #0fdac2cc",
+                      }
+                    : {}
+                }
               >
-                Solutions & Services
+                Design
                 <svg
-                  className={`w-4 h-4 transition-transform ${isServicesDropdownOpen ? "rotate-180" : ""}`}
+                  className={`w-4 h-4 transition-transform ${isMobileDesignDropdownOpen ? "rotate-180" : ""}`}
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -531,27 +709,105 @@ export default function Header() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
-              {isServicesDropdownOpen && (
+              {isMobileDesignDropdownOpen && (
                 <div className="mt-2 pl-4 space-y-2 border-l border-[#2f2a63]">
-                  {services.map((service) => (
-                    <Link
-                      key={service.slug}
-                      href={`/${service.slug}`}
-                      onClick={() => {
-                        setIsMobileMenuOpen(false);
-                        setIsServicesDropdownOpen(false);
-                      }}
-                      className="block text-gray-400 text-sm hover:text-[#0fdac2] transition-colors py-1"
-                    >
-                      <div className="font-medium text-white">{service.title}</div>
-                      <div className="text-xs">{service.tagline}</div>
-                    </Link>
-                  ))}
+                  {services.map((service) => {
+                    const isActiveService = pathname?.startsWith(`/${service.slug}`);
+                    return (
+                      <Link
+                        key={service.slug}
+                        href={`/${service.slug}`}
+                        onClick={() => {
+                          setIsMobileMenuOpen(false);
+                          setIsMobileDesignDropdownOpen(false);
+                        }}
+                        className={`flex items-center gap-3 py-2 hover:text-[#0fdac2] transition-colors ${
+                          isActiveService ? "text-[#0fdac2]" : "text-gray-400"
+                        }`}
+                      >
+                        <div className={`flex-shrink-0 ${
+                          isActiveService ? 'text-[#0fdac2]' : 'text-[#643bff] opacity-70'
+                        }`}>
+                          {getServiceIcon(service.slug)}
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className={`font-medium text-sm ${
+                            isActiveService ? 'text-[#0fdac2]' : 'text-white'
+                          }`}>
+                            {service.title || 'Service Name'}
+                          </div>
+                          <div className="text-xs text-gray-400 mt-0.5">
+                            {service.tagline || 'Service description'}
+                          </div>
+                        </div>
+                      </Link>
+                    );
+                  })}
                 </div>
               )}
             </div>
 
-            {NAVIGATION_LINKS.map((link) => (
+            {/* Mobile Services Dropdown */}
+            <div className="mb-2">
+              <button
+                onClick={() => setIsMobileServicesDropdownOpen(!isMobileServicesDropdownOpen)}
+                className={`text-white text-base font-medium hover:text-[#0fdac2] transition-colors py-2 w-full text-left flex items-center justify-between ${
+                  servicesMenuItems.some(item => pathname?.startsWith(item.href)) ? "text-[#0fdac2]" : ""
+                }`}
+                style={
+                  servicesMenuItems.some(item => pathname?.startsWith(item.href))
+                    ? {
+                        textShadow:
+                          "-9px 0 17px #00dbc1e6, 0px 6px 8px #0fdac287, 0 0 56px #0fdac2cc",
+                      }
+                    : {}
+                }
+              >
+                Services
+                <svg
+                  className={`w-4 h-4 transition-transform ${isMobileServicesDropdownOpen ? "rotate-180" : ""}`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              {isMobileServicesDropdownOpen && (
+                <div className="mt-2 pl-4 space-y-2 border-l border-[#2f2a63]">
+                  {servicesMenuItems.map((item) => {
+                    const isActiveService = pathname?.startsWith(item.href);
+                    return (
+                      <Link
+                        key={item.slug}
+                        href={item.href}
+                        onClick={() => {
+                          setIsMobileMenuOpen(false);
+                          setIsMobileServicesDropdownOpen(false);
+                        }}
+                        className={`flex items-center gap-3 py-2 hover:text-[#0fdac2] transition-colors ${
+                          isActiveService ? "text-[#0fdac2]" : "text-gray-400"
+                        }`}
+                      >
+                        <div className={`flex-shrink-0 ${
+                          isActiveService ? 'text-[#0fdac2]' : 'text-[#643bff] opacity-70'
+                        }`}>
+                          {getServicesMenuIcon(item.slug)}
+                        </div>
+                        <div className={`font-medium text-sm ${
+                          isActiveService ? 'text-[#0fdac2]' : 'text-white'
+                        }`}>
+                          {item.label}
+                        </div>
+                      </Link>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+
+            {/* Other Navigation Links (excluding Home) */}
+            {NAVIGATION_LINKS.filter(link => link.label !== "Home").map((link) => (
               <a
                 key={link.href}
                 href={link.href}
@@ -571,17 +827,27 @@ export default function Header() {
                 {link.label}
               </a>
             ))}
-            <div className=" pt-4">
+
+            {/* ROI Calculator Link */}
+            <Link 
+              href="/roi-calculator" 
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="text-white text-sm border border-[#2f2a63] bg-[#05032173] rounded-lg px-3 py-2 text-[#969696] font-medium hover:text-[#0fdac2] transition-colors"
+            >
+              ROI Calculator
+            </Link>
+
+            {/* CTA Button */}
+            <div className="pt-4">
               <Button
-                href="/demo"
+                href="/contact-us"
                 variant="green"
                 size="md"
-                icon="→"
                 iconPosition="right"
                 className="w-full text-center justify-center"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                Book A Demo
+                Hire Your Team
               </Button>
             </div>
           </div>

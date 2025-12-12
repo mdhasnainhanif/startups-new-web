@@ -14,9 +14,28 @@ const ServicesComparison: React.FC<ServicesComparisonProps> = ({ data }) => {
   return (
     <section className={`${styles.section} sectionPadding`}>
       <Container maxWidth="xl">
-        <div className="sectionHeading forH2 text-center max-w-4xl mx-auto">
-          <h2>{data.heading}</h2>
-          <p>{data.description}</p>
+        <div className="sectionHeading forH2 text-[#ffffff] text-center max-w-4xl mx-auto">
+          <h2 className="text-[#ffffff]">
+            {(() => {
+              if (data.heading.includes('[') && data.heading.includes(']')) {
+                return data.heading.split(/(\[.*?\])/).map((part, index) => {
+                  if (part.startsWith('[') && part.endsWith(']')) {
+                    return (
+                      <span 
+                        key={index} 
+                        className="text-[#0fdac2]"
+                      >
+                        {part.replace(/[\[\]]/g, '')}
+                      </span>
+                    );
+                  }
+                  return <span key={index}>{part}</span>;
+                });
+              }
+              return data.heading;
+            })()}
+          </h2>
+          <p className="text-[#ffffff]">{data.description}</p>
         </div>
 
         <div className={styles.tableWrapper}>

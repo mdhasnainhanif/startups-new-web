@@ -86,7 +86,7 @@ const ServicesCounter: React.FC<ServicesCounterProps> = ({ data }) => {
   return (
     <section ref={sectionRef} className="bg-black relative overflow-hidden sectionPadding">
       <Container maxWidth="xl">
-        <div className="sectionHeading forH2 text-center gap-3 flex flex-col mb-12 md:mb-8 max-w-5xl mx-auto">
+        <div className="sectionHeading forH2 text-center text-[#ffffff] gap-3 flex flex-col mb-12 md:mb-8 max-w-5xl mx-auto">
           <h2 className="">
             {(() => {
               if (data.heading.includes('[') && data.heading.includes(']')) {
@@ -98,7 +98,7 @@ const ServicesCounter: React.FC<ServicesCounterProps> = ({ data }) => {
                         className="bracket-text-green text-[#0fdac2]"
                         style={{ color: "#0fdac2" }}
                       >
-                        {part}
+                        {part.replace(/[\[\]]/g, '')}
                       </span>
                     );
                   }

@@ -51,7 +51,7 @@ export default function FAQ({ faqs, sectionData, className = "" }: FAQProps) {
       <Container maxWidth="xl" className="px-0">
         <div className="flex flex-col items-center gap-8 sm:gap-10 md:gap-12 lg:gap-14">
           {/* Section Title */}
-          <div className="sectionHeading forH2 flex flex-col items-center justify-center gap-3">
+          <div className="sectionHeading forH2 text-[#ffffff] flex flex-col items-center justify-center gap-3">
             <h2 className="text-center">
               <span className="text-white">{sectionData.title.part1}</span>{" "}
               <span className="text-[#0fdac2]">{sectionData.title.part2}</span>

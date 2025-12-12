@@ -36,27 +36,27 @@ export const SERVICES_GROWTH_CARDS_SECTION: Record<string, ServicesGrowthCardsSe
     description: "Learn from expert guides and case studies on building successful digital products and web experiences."
   },
   "motion-video": {
-    heading: "Motion & Video Resources",
+    heading: "BUILT TO DELIVER MOTION THAT CONVERTS",
     description: "Access valuable resources and guides to enhance your motion graphics and video production capabilities."
   },
   "print": {
-    heading: "Print Design Resources",
+    heading: "WHAT WE DESIGN",
     description: "Explore guides and best practices for creating impactful print materials that drive results."
   },
   "illustration-artwork": {
-    heading: "Illustration Resources",
+    heading: "BUILT FOR BRANDS THAT WANT TO STAND OUT",
     description: "Discover resources and guides to elevate your illustration and artwork capabilities."
   },
   "ebooks-digital-report": {
-    heading: "Digital Report Resources",
+    heading: "BUILT TO DELIVER DOCUMENTS THAT CONVERT",
     description: "Access guides and templates for creating compelling eBooks and digital reports."
   },
   "presentations": {
-    heading: "Presentation Resources",
+    heading: "BUILT TO DELIVER PRESENTATIONS THAT CONVERT",
     description: "Learn how to create powerful presentations that captivate audiences and drive action."
   },
   "product-packaging": {
-    heading: "Packaging Design Resources",
+    heading: "BUILT TO DELIVER PACKAGING THAT CONVERTS",
     description: "Explore guides and case studies on creating packaging that stands out and drives sales."
   },
   "apparel-merchandise": {
@@ -64,7 +64,7 @@ export const SERVICES_GROWTH_CARDS_SECTION: Record<string, ServicesGrowthCardsSe
     description: "Discover resources and guides for creating branded apparel and merchandise that customers love."
   },
   "environmental-event": {
-    heading: "Event Design Resources",
+    heading: "BUILT TO DELIVER EVENTS THAT STRENGTHEN BRAND TRUST",
     description: "Access guides and best practices for creating immersive event and environmental graphics."
   },
   "corporate-internal": {
@@ -483,17 +483,17 @@ export const SERVICES_GROWTH_CARDS_CONTENT: ServicesGrowthCardsContentData = {
     {
       heading: "Quality talent, worldwide",
       bodyText: "We vet aggressively from thousands of marketers. Only operators who understand performance, systems, and scaling make it in.",
-      image: "/assets/images/blog/1.webp",
+      image: "/assets/images/services/brand-identity/1.webp",
     },
     {
       heading: "Conversion-first consistency",
       bodyText: "Every campaign follows proven growth frameworks. This keeps messaging aligned, funnels optimized, and performance improving over time.",
-      image: "/assets/images/blog/2.webp",
+      image: "/assets/images/services/brand-identity/2.webp",
     },
     {
       heading: "Always-on, always compliant",
       bodyText: "All campaigns use licensed tools and compliant ad practices. Your brand stays protected from platform risk and wasted spend.",
-      image: "/assets/images/blog/3.webp",
+      image: "/assets/images/services/brand-identity/3.webp",
     },
   ],
   "digital-web": [
@@ -515,19 +515,19 @@ export const SERVICES_GROWTH_CARDS_CONTENT: ServicesGrowthCardsContentData = {
   ],
   "motion-video": [
     {
-      heading: "Quality talent, worldwide",
-      bodyText: "We review thousands of portfolios and only a small percent make it. You get access to top-tier creatives committed to your brand's long-term success.",
-      image: "/assets/images/blog/1.webp",
+      heading: "Clear, conversion-driven scripts",
+      bodyText: "No fluff, no wasted seconds. Every frame supports the message and moves the viewer closer to action.",
+      image: "/assets/images/services/brand-identity/1.webp",
     },
     {
-      heading: "Creative consistency",
-      bodyText: "Our designers follow proven systems built by Startups Advisory to help them adapt quickly to your brand and improve with every request and round of feedback.",
-      image: "/assets/images/blog/2.webp",
+      heading: "Consistent brand motion",
+      bodyText: "Animations follow defined visual systems. This keeps motion assets aligned with your brand across every platform.",
+      image: "/assets/images/services/brand-identity/2.webp",
     },
     {
-      heading: "Always-on, always legal",
-      bodyText: "Every creative uses a fully licensed commercial-safe tech stack ensuring your brand is protected from legal risks and uncertain quality.",
-      image: "/assets/images/blog/3.webp",
+      heading: "Commercial-safe, platform-ready",
+      bodyText: "All assets are created using licensed tools and formats. Your videos stay compliant, safe, and ready for paid distribution.",
+      image: "/assets/images/services/brand-identity/3.webp",
     },
   ],
   "print": [
@@ -549,70 +549,70 @@ export const SERVICES_GROWTH_CARDS_CONTENT: ServicesGrowthCardsContentData = {
   ],
   "illustration-artwork": [
     {
-      heading: "Quality talent, worldwide",
-      bodyText: "We review thousands of portfolios and only a small percent make it. You get access to top-tier creatives committed to your brand's long-term success.",
-      image: "/assets/images/blog/1.webp",
+      heading: "Original, custom artwork",
+      bodyText: "No templates. No stock reuse. Every illustration is created specifically for your brand and use case.",
+      image: "/assets/images/services/brand-identity/1.webp",
     },
     {
-      heading: "Creative consistency",
-      bodyText: "Our designers follow proven systems built by Startups Advisory to help them adapt quickly to your brand and improve with every request and round of feedback.",
-      image: "/assets/images/blog/2.webp",
+      heading: "Consistent visual language",
+      bodyText: "Styles, colors, and line work follow defined systems so your artwork stays cohesive as usage grows.",
+      image: "/assets/images/services/brand-identity/2.webp",
     },
     {
-      heading: "Always-on, always legal",
-      bodyText: "Every creative uses a fully licensed commercial-safe tech stack ensuring your brand is protected from legal risks and uncertain quality.",
-      image: "/assets/images/blog/3.webp",
+      heading: "Flexible, reusable assets",
+      bodyText: "Illustrations are delivered in formats that work across digital, print, and motion without needing redesigns every time.",
+      image: "/assets/images/services/brand-identity/3.webp",
     },
   ],
   "ebooks-digital-report": [
     {
-      heading: "Quality talent, worldwide",
-      bodyText: "We review thousands of portfolios and only a small percent make it. You get access to top-tier creatives committed to your brand's long-term success.",
-      image: "/assets/images/blog/1.webp",
+      heading: "Clear visual hierarchy",
+      bodyText: "Readers know exactly where to look next. Headings, spacing, and typography guide attention without friction.",
+      image: "/assets/images/services/brand-identity/1.webp",
     },
     {
-      heading: "Creative consistency",
-      bodyText: "Our designers follow proven systems built by Startups Advisory to help them adapt quickly to your brand and improve with every request and round of feedback.",
-      image: "/assets/images/blog/2.webp",
+      heading: "On-brand consistency",
+      bodyText: "Every document follows your brand system. Colors, fonts, and layouts stay aligned across all assets.",
+      image: "/assets/images/services/brand-identity/2.webp",
     },
     {
-      heading: "Always-on, always legal",
-      bodyText: "Every creative uses a fully licensed commercial-safe tech stack ensuring your brand is protected from legal risks and uncertain quality.",
-      image: "/assets/images/blog/3.webp",
+      heading: "Commercial-safe, print-ready",
+      bodyText: "All templates are created using licensed assets. Documents are ready for digital distribution and professional printing.",
+      image: "/assets/images/services/brand-identity/3.webp",
     },
   ],
   "presentations": [
     {
-      heading: "Quality talent, worldwide",
-      bodyText: "We review thousands of portfolios and only a small percent make it. You get access to top-tier creatives committed to your brand's long-term success.",
-      image: "/assets/images/blog/1.webp",
+      heading: "Clear visual hierarchy",
+      bodyText: "Audiences know where to look next. Typography, spacing, and layout guide focus without friction.",
+      image: "/assets/images/services/brand-identity/1.webp",
     },
     {
-      heading: "Creative consistency",
-      bodyText: "Our designers follow proven systems built by Startups Advisory to help them adapt quickly to your brand and improve with every request and round of feedback.",
-      image: "/assets/images/blog/2.webp",
+      heading: "On-brand slide systems",
+      bodyText: "Every deck follows your brand system. Colors, fonts, and layouts stay consistent across all presentations.",
+      image: "/assets/images/services/brand-identity/2.webp",
     },
     {
-      heading: "Always-on, always legal",
-      bodyText: "Every creative uses a fully licensed commercial-safe tech stack ensuring your brand is protected from legal risks and uncertain quality.",
-      image: "/assets/images/blog/3.webp",
+      heading: "Commercial-safe, presentation-ready",
+      bodyText: "All slides are created using licensed assets. Decks are ready for live delivery, sharing, and printing.",
+      image: "/assets/images/services/brand-identity/3.webp",
     },
   ],
   "product-packaging": [
     {
-      heading: "Quality talent, worldwide",
-      bodyText: "We review thousands of portfolios and only a small percent make it. You get access to top-tier creatives committed to your brand's long-term success.",
-      image: "/assets/images/blog/1.webp",
+      heading: "Clear visual hierarchy",
+      bodyText: "Buyers understand the product instantly. Typography, layout, and spacing guide attention without confusion.",
+      image: "/assets/images/services/brand-identity/1.webp",
     },
     {
-      heading: "Creative consistency",
-      bodyText: "Our designers follow proven systems built by Startups Advisory to help them adapt quickly to your brand and improve with every request and round of feedback.",
-      image: "/assets/images/blog/2.webp",
+      heading: "Consistent brand presence",
+      bodyText: "Every package follows your brand system. Colors, symbols, and layout remain recognizable across all products.",
+      image: "/assets/images/services/brand-identity/2.webp",
     },
     {
-      heading: "Always-on, always legal",
-      bodyText: "Every creative uses a fully licensed commercial-safe tech stack ensuring your brand is protected from legal risks and uncertain quality.",
-      image: "/assets/images/blog/3.webp",
+      heading: "Commercial-safe, production-ready",
+      bodyText: "All designs use licensed assets and print-safe formats. Packaging is ready for manufacturing and distribution.",
+      image: "/assets/images/services/brand-identity/3.webp",
     },
   ],
   "apparel-merchandise": [
@@ -634,19 +634,19 @@ export const SERVICES_GROWTH_CARDS_CONTENT: ServicesGrowthCardsContentData = {
   ],
   "environmental-event": [
     {
-      heading: "Quality talent, worldwide",
-      bodyText: "We review thousands of portfolios and only a small percent make it. You get access to top-tier creatives committed to your brand's long-term success.",
-      image: "/assets/images/blog/1.webp",
+      heading: "Clear visual hierarchy",
+      bodyText: "Attendees know where to look and go. Typography, spacing, and layouts guide attention in busy environments.",
+      image: "/assets/images/services/brand-identity/1.webp",
     },
     {
-      heading: "Creative consistency",
-      bodyText: "Our designers follow proven systems built by Startups Advisory to help them adapt quickly to your brand and improve with every request and round of feedback.",
-      image: "/assets/images/blog/2.webp",
+      heading: "Consistent brand presence",
+      bodyText: "Every element follows your brand system. Colors, logos, and messaging remain aligned across the entire event.",
+      image: "/assets/images/services/brand-identity/2.webp",
     },
     {
-      heading: "Always-on, always legal",
-      bodyText: "Every creative uses a fully licensed commercial-safe tech stack ensuring your brand is protected from legal risks and uncertain quality.",
-      image: "/assets/images/blog/3.webp",
+      heading: "Commercial-safe, production-ready",
+      bodyText: "All assets are created using licensed tools and print-safe formats. Designs are ready for vendors, printers, and AV teams.",
+      image: "/assets/images/services/brand-identity/3.webp",
     },
   ],
   "corporate-internal": [

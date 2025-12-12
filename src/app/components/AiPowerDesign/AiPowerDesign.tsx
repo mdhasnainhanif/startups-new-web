@@ -179,7 +179,7 @@ const AiPowerDesign = ({ data = AI_POWER_DESIGN_DATA }: AiPowerDesignProps) => {
     <section className={`sectionPadding ${styles.section} sectionPadding`}>
      <Container maxWidth="xl" className="px-0">
         {/* Header Section */}
-        <div className={`sectionHeading forH2 text-center max-w-5xl md:mx-auto`}>
+        <div className={`sectionHeading forH2 text-center text-[#ffffff] max-w-5xl md:mx-auto`}>
           <h2 dangerouslySetInnerHTML={renderHeadline()} />
           <p className={styles.description}>{data.description}</p>
         </div>
