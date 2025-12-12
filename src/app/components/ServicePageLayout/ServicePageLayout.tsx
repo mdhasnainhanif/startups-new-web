@@ -51,7 +51,7 @@ const ServicePageLayout: React.FC<ServicePageLayoutProps> = ({ serviceData }) =>
       <AiPowerDesign />
       {/* <Counter items={COUNTER_DATA.items} className="sectionPadding pt-0 pb-[15rem]" gridClassName="!mt-0" /> */}
       <Reviews limit={6} columns={3} equalHeight={true} />
-      {/* {comparisonData && <ServicesComparison data={comparisonData} />} */}
+         <ServicesComparison data={comparisonData} />
       <ServicesCalculator />
       <GrowthSlider items={GROWTH_GUIDES} />
       <FAQ faqs={faqsToShow} sectionData={FAQ_SECTION} />

@@ -94,20 +94,6 @@ const ServicesComparison: React.FC<ServicesComparisonProps> = ({ data }) => {
             </tbody>
           </table>
         </div>
-
-        {data.comparisonPoints && data.comparisonPoints.length > 0 && (
-          <div className={styles.comparisonPoints}>
-            <h3 className={styles.comparisonPointsHeading}>What the Comparison Shows</h3>
-            <div className={styles.comparisonPointsGrid}>
-              {data.comparisonPoints.map((point, index) => (
-                <div key={index} className={styles.comparisonPoint}>
-                  <div className={styles.comparisonPointLabel}>• {point.label}:</div>
-                  <div className={styles.comparisonPointDescription}>{point.description}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
       </Container>
     </section>
   );
