@@ -19,7 +19,7 @@ export default function Header() {
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
-  const [dropdownPosition, setDropdownPosition] = useState({ top: 30, left: 0 });
+  const [dropdownPosition, setDropdownPosition] = useState({ top: 0, left: 0 });
   const servicesDropdownRef = useRef<HTMLDivElement>(null);
   const dropdownButtonRef = useRef<HTMLButtonElement>(null);
   const services = getAllServices();
@@ -50,6 +50,11 @@ export default function Header() {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
+      // Close dropdown on scroll (desktop only)
+      if (!isMobile && isServicesDropdownOpen) {
+        setIsServicesDropdownOpen(false);
+      }
+
       // Apply fixed when scrolled
       setIsScrolled(currentScrollY > 50);
 
@@ -75,22 +80,33 @@ export default function Header() {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", checkMobile);
     };
-  }, [lastScrollY]);
+  }, [lastScrollY, isMobile, isServicesDropdownOpen]);
 
   // Update dropdown position
   useEffect(() => {
     const updatePosition = () => {
       if (dropdownButtonRef.current && isServicesDropdownOpen) {
         const rect = dropdownButtonRef.current.getBoundingClientRect();
+        // When header is fixed, getBoundingClientRect() returns viewport coordinates
+        // When header is relative, we need to add scrollY
+        const topPosition = isScrolled 
+          ? rect.bottom + 12  // Fixed header - use viewport coordinates
+          : rect.bottom + window.scrollY + 12;  // Relative header - add scroll
+        
         setDropdownPosition({
-          top: rect.bottom + window.scrollY + 12,
-          left: rect.left + rect.width / 2 + window.scrollX,
+          top: topPosition,
+          left: rect.left + rect.width / 2,
         });
       }
     };
 
     if (isServicesDropdownOpen) {
-      updatePosition();
+      // Use requestAnimationFrame to ensure DOM is ready
+      requestAnimationFrame(() => {
+        updatePosition();
+        // Also update after a small delay to ensure layout is complete
+        setTimeout(updatePosition, 0);
+      });
       window.addEventListener('scroll', updatePosition, true);
       window.addEventListener('resize', updatePosition);
     }
@@ -99,7 +115,7 @@ export default function Header() {
       window.removeEventListener('scroll', updatePosition, true);
       window.removeEventListener('resize', updatePosition);
     };
-  }, [isServicesDropdownOpen]);
+  }, [isServicesDropdownOpen, isScrolled]);
 
   // Close dropdown when clicking outside (only for mobile/click interactions)
   useEffect(() => {
@@ -270,8 +286,21 @@ export default function Header() {
                       <div 
                         key="services-dropdown"
                         className="relative" 
-                        onMouseEnter={() => setIsServicesDropdownOpen(true)}
-                        onMouseLeave={() => setIsServicesDropdownOpen(true)}
+                        onMouseEnter={() => {
+                          setIsServicesDropdownOpen(true);
+                          // Immediately calculate position when opening
+                          if (dropdownButtonRef.current) {
+                            const rect = dropdownButtonRef.current.getBoundingClientRect();
+                            const topPosition = isScrolled 
+                              ? rect.bottom + 12
+                              : rect.bottom + window.scrollY + 12;
+                            setDropdownPosition({
+                              top: topPosition,
+                              left: rect.left + rect.width / 2,
+                            });
+                          }
+                        }}
+                        onMouseLeave={() => setIsServicesDropdownOpen(false)}
                       >
                         <button
                           ref={dropdownButtonRef}
