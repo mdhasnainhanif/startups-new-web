@@ -104,7 +104,7 @@ const ServicesCalculator: React.FC = () => {
   return (
     <section className="bg-[#050321] pb-16 md:pb-20 lg:pb-[5.25rem] px-4 sm:px-6 lg:px-8">
       <Container maxWidth="xl">
-        <div className="bg-[#1a1a2e] border border-[#643bff] rounded-2xl p-4 sm:p-6 md:p-8 lg:p-10 relative items-center flex flex-col md:flex-row gap-4">
+        <div className="bg-[#110f29] border border-[#4e4989] rounded-2xl p-4 sm:p-6 md:p-8 lg:p-10 relative items-center flex flex-col md:flex-row gap-4">
           <div className="flex flex-col gap-4 w-full md:max-w-[15%] h-[100%]">            <h3 className="text-white text-lg font-semibold">Platform</h3>
             <div className="flex flex-col gap-4">
               <label className="flex items-center gap-3 cursor-pointer group">

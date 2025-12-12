@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 import { COMPANY_INFO, NAVIGATION_LINKS } from "../constants";
 import Container from "./Container";
 import Button from "./Button";
@@ -8,6 +9,7 @@ import Image from "next/image";
 import { ArrowRightIcon } from "./icons";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { getAllServices } from "../data/ServicesPageData";
 
 export default function Header() {
   const pathname = usePathname();
@@ -16,6 +18,11 @@ export default function Header() {
   const [isMobile, setIsMobile] = useState(false);
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
+  const [dropdownPosition, setDropdownPosition] = useState({ top: 30, left: 0 });
+  const servicesDropdownRef = useRef<HTMLDivElement>(null);
+  const dropdownButtonRef = useRef<HTMLButtonElement>(null);
+  const services = getAllServices();
 
    // Check if a link is active
    const isActive = (href: string) => {
@@ -23,6 +30,12 @@ export default function Header() {
       return pathname === "/";
     }
     return pathname?.startsWith(href);
+  };
+
+  // Check if current path is a service page
+  const isServicePage = () => {
+    if (!pathname) return false;
+    return services.some(service => pathname.startsWith(`/${service.slug}`));
   };
 
   useEffect(() => {
@@ -64,22 +77,154 @@ export default function Header() {
     };
   }, [lastScrollY]);
 
+  // Update dropdown position
+  useEffect(() => {
+    const updatePosition = () => {
+      if (dropdownButtonRef.current && isServicesDropdownOpen) {
+        const rect = dropdownButtonRef.current.getBoundingClientRect();
+        setDropdownPosition({
+          top: rect.bottom + window.scrollY + 12,
+          left: rect.left + rect.width / 2 + window.scrollX,
+        });
+      }
+    };
+
+    if (isServicesDropdownOpen) {
+      updatePosition();
+      window.addEventListener('scroll', updatePosition, true);
+      window.addEventListener('resize', updatePosition);
+    }
+
+    return () => {
+      window.removeEventListener('scroll', updatePosition, true);
+      window.removeEventListener('resize', updatePosition);
+    };
+  }, [isServicesDropdownOpen]);
+
+  // Close dropdown when clicking outside (only for mobile/click interactions)
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      // Only handle click outside on mobile or if dropdown was opened by click
+      if (
+        isMobile &&
+        servicesDropdownRef.current &&
+        !servicesDropdownRef.current.contains(event.target as Node)
+      ) {
+        setIsServicesDropdownOpen(false);
+      }
+    };
+
+    if (isServicesDropdownOpen && isMobile) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isServicesDropdownOpen, isMobile]);
+
+  // Service icons mapping
+  const getServiceIcon = (slug: string) => {
+    const iconMap: { [key: string]: React.ReactNode } = {
+      "brand-identity": (
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <path d="M12 2L2 7l10 5 10-5-10-5z" />
+          <path d="M2 17l10 5 10-5M2 12l10 5 10-5" />
+        </svg>
+      ),
+      "marketing-advertising": (
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <path d="M3 11c0-1.1.9-2 2-2h14c1.1 0 2 .9 2 2v10c0 1.1-.9 2-2 2H5c-1.1 0-2-.9-2-2V11z" />
+          <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+        </svg>
+      ),
+      "digital-web": (
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <circle cx="12" cy="12" r="10" />
+          <line x1="2" y1="12" x2="22" y2="12" />
+          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+        </svg>
+      ),
+      "motion-video": (
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <polygon points="23 7 16 12 23 17 23 7" />
+          <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
+        </svg>
+      ),
+      "print": (
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <polyline points="6 9 6 2 18 2 18 9" />
+          <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
+          <rect x="6" y="14" width="12" height="8" />
+        </svg>
+      ),
+      "illustration-artwork": (
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" />
+        </svg>
+      ),
+      "ebooks-digital-report": (
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+        </svg>
+      ),
+      "presentations": (
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <rect x="3" y="3" width="18" height="14" rx="2" ry="2" />
+          <line x1="9" y1="21" x2="15" y2="21" />
+          <line x1="12" y1="17" x2="12" y2="21" />
+        </svg>
+      ),
+      "product-packaging": (
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+          <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+          <line x1="12" y1="22.08" x2="12" y2="12" />
+        </svg>
+      ),
+      "apparel-merchandise": (
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <path d="M4 7h16M4 7c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2M4 7v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V7M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2" />
+        </svg>
+      ),
+      "environmental-event": (
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+          <circle cx="12" cy="9" r="2.5" />
+        </svg>
+      ),
+      "corporate-internal": (
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+          <line x1="9" y1="3" x2="9" y2="21" />
+          <line x1="3" y1="9" x2="21" y2="9" />
+        </svg>
+      ),
+    };
+    return iconMap[slug] || (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <circle cx="12" cy="12" r="10" />
+      </svg>
+    );
+  };
+
   return (
     <>
       {/* Header - Fixed when scrolled */}
       <header
         className={`${
           isScrolled ? "fixed top-4" : "relative md:absolute md:top-17"
-        } left-0 right-0 z-100 flex items-center justify-center w-full pb-4 bg-transparent md:bg-transparent transition-transform duration-300 ease-in-out`}
+        } left-0 right-0 z-100 flex items-center justify-center w-full pb-4 bg-transparent md:bg-transparent transition-transform duration-300 ease-in-out overflow-visible`}
         style={{
           willChange: "transform",
           transform: isHeaderVisible ? "translateY(0)" : "translateY(-100%)",
         }}
       >
-        <Container maxWidth="xl" className="px-0">
+        <Container maxWidth="xl" className="px-0 overflow-visible">
           <nav
             className="headerNav flex items-center justify-between w-full rounded-xl md:rounded-2xl px-4 md:px-6 
-            md:py-3  bg-[#1c1949] border border-[#2f2a63] relative"
+            md:py-3  bg-[#1c1949] border border-[#2f2a63] relative overflow-visible"
             style={{ minHeight: "64px" }}
           >
             <div className="flex items-center gap-2">
@@ -98,29 +243,152 @@ export default function Header() {
               </div>
             </div>
 
-            <div className="hidden md:flex items-center gap-6 flex-1 justify-center">
-              {NAVIGATION_LINKS.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className={`text-white font-medium hover:text-[#0fdac2] transition-colors ${
-                    isActive(link.href) ? "text-[#0fdac2]" : ""
-                  }`}
-                  style={
-                    isActive(link.href)
-                      ? {
-                          textShadow:
-                            "-9px 0 17px #00dbc1e6, 0px 6px 8px #0fdac287, 0 0 56px #0fdac2cc",
+            <div className="hidden md:flex items-center gap-6 flex-1 justify-center relative z-50">
+              {NAVIGATION_LINKS.map((link, index) => {
+                // Add Services Dropdown after Home (first item)
+                if (index === 0 && link.label === "Home") {
+                  return (
+                    <>
+                      <a
+                        key={link.href}
+                        href={link.href}
+                        className={`text-white font-medium hover:text-[#0fdac2] transition-colors ${
+                          isActive(link.href) ? "text-[#0fdac2]" : ""
+                        }`}
+                        style={
+                          isActive(link.href)
+                            ? {
+                                textShadow:
+                                  "-9px 0 17px #00dbc1e6, 0px 6px 8px #0fdac287, 0 0 56px #0fdac2cc",
+                              }
+                            : {}
                         }
-                      : {}
-                  }
-                >
-                  {link.label}
-                </a>
-              ))}
+                      >
+                        {link.label}
+                      </a>
+                      {/* Services Dropdown */}
+                      <div 
+                        key="services-dropdown"
+                        className="relative" 
+                        onMouseEnter={() => setIsServicesDropdownOpen(true)}
+                        onMouseLeave={() => setIsServicesDropdownOpen(true)}
+                      >
+                        <button
+                          ref={dropdownButtonRef}
+                          className={`text-white font-medium hover:text-[#0fdac2] transition-colors flex items-center justify-center gap-1 ${
+                            isServicePage() ? "text-[#0fdac2]" : ""
+                          }`}
+                          style={
+                            isServicePage()
+                              ? {
+                                  textShadow:
+                                    "-9px 0 17px #00dbc1e6, 0px 6px 8px #0fdac287, 0 0 56px #0fdac2cc",
+                                }
+                              : {}
+                          }
+                        >
+                          Design
+                          <svg
+                            className={`w-[0.85rem] h-[0.85rem] mt-[0.3rem] transition-transform ${isServicesDropdownOpen ? "rotate-180" : ""}`}
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                          </svg>
+                        </button>
+
+                        {/* Dropdown Menu */}
+                        {typeof window !== 'undefined' && isServicesDropdownOpen && createPortal(
+                          <div 
+                            ref={servicesDropdownRef}
+                            className="fixed w-[1000px] bg-[#050321] border border-[#26234fa8] rounded-xl shadow-2xl transition-all duration-200 opacity-100 visible pointer-events-auto"
+                            style={{ 
+                              zIndex: 99999,
+                              top: `${dropdownPosition.top}px`,
+                              left: `${dropdownPosition.left}px`,
+                              transform: 'translateX(-30%)',
+                              maxHeight: 'calc(100vh - 100px)',
+                              overflowY: 'auto',
+                            }}
+                            onMouseEnter={() => setIsServicesDropdownOpen(true)}
+                            onMouseLeave={() => setIsServicesDropdownOpen(false)}
+                          >
+                            <div className="p-6">
+                              <h3 className="text-white text-lg font-semibold mb-6">Solutions & Services</h3>
+                              <div className="grid grid-cols-4 gap-0">
+                                {services && services.length > 0 ? (
+                                  services.map((service, index) => {
+                                    const isLastRow = index >= services.length - 2;
+                                    const isLeftColumn = index % 2 === 0;
+                                    const isActive = pathname?.startsWith(`/${service.slug}`);
+                                    return (
+                                      <Link
+                                        key={service.slug}
+                                        href={`/${service.slug}`}
+                                        onClick={() => setIsServicesDropdownOpen(false)}
+                                        className={`flex items-start gap-3 py-2 px-4 hover:bg-[#2f2a63]/30 transition-all rounded-lg ${
+                                          isActive ? 'bg-[#2f2a63]/40' : ''
+                                        } ${
+                                          !isLastRow ? "" : ""
+                                        } ${isLeftColumn ? "pr-3" : "pl-3"}`}
+                                      >
+                                        <div className={`flex-shrink-0 mt-0.5 ${
+                                          isActive ? 'text-[#0fdac2]' : 'text-[#643bff] opacity-70'
+                                        }`}>
+                                          {getServiceIcon(service.slug)}
+                                        </div>
+                                        <div className="flex-1 min-w-0">
+                                          <div className={`font-semibold text-sm mb-1 ${
+                                            isActive ? 'text-[#0fdac2]' : 'text-white'
+                                          }`}>
+                                            {service.title || 'Service Name'}
+                                          </div>
+                                          <div className="text-gray-400 text-xs leading-relaxed">
+                                            {service.tagline || 'Service description'}
+                                          </div>
+                                        </div>
+                                      </Link>
+                                    );
+                                  })
+                                ) : (
+                                  <div className="col-span-2 text-white text-center py-4">
+                                    No services available
+                                  </div>
+                                )}
+                              </div>
+                            </div>
+                          </div>,
+                          document.body
+                        )}
+                      </div>
+                    </>
+                  );
+                }
+                // Render other links normally
+                return (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    className={`text-white font-medium hover:text-[#0fdac2] transition-colors ${
+                      isActive(link.href) ? "text-[#0fdac2]" : ""
+                    }`}
+                    style={
+                      isActive(link.href)
+                        ? {
+                            textShadow:
+                              "-9px 0 17px #00dbc1e6, 0px 6px 8px #0fdac287, 0 0 56px #0fdac2cc",
+                          }
+                        : {}
+                    }
+                  >
+                    {link.label}
+                  </a>
+                );
+              })}
             </div>
             <div className="hidden md:flex items-center gap-5">
-              <Link href="/roi-calculator" className="text-white text-sm border border-[#2f2a63] rounded-lg px-3 py-2 me-2 text-[#969696] font-medium hover:text-[#0fdac2] transition-colors">
+              <Link href="/roi-calculator" className="text-white text-sm border border-[#2f2a63] bg-[#05032173] rounded-lg px-3 py-2 me-2 text-[#969696] font-medium hover:text-[#0fdac2] transition-colors">
                 {/* <span className="bg-[#2f2a63] font-light text-xs border border-[#525252] rounded-lg px-2 py-1 me-2 text-[#969696]">
                   New
                 </span> */}
@@ -217,6 +485,42 @@ export default function Header() {
 
           {/* Sidebar Content */}
           <div className="flex flex-col flex-1 px-4 py-6 gap-4 overflow-y-auto">
+            {/* Mobile Services Dropdown */}
+            <div className="mb-2">
+              <button
+                onClick={() => setIsServicesDropdownOpen(!isServicesDropdownOpen)}
+                className="text-white text-base font-medium hover:text-[#0fdac2] transition-colors py-2 w-full text-left flex items-center justify-between"
+              >
+                Solutions & Services
+                <svg
+                  className={`w-4 h-4 transition-transform ${isServicesDropdownOpen ? "rotate-180" : ""}`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              {isServicesDropdownOpen && (
+                <div className="mt-2 pl-4 space-y-2 border-l border-[#2f2a63]">
+                  {services.map((service) => (
+                    <Link
+                      key={service.slug}
+                      href={`/${service.slug}`}
+                      onClick={() => {
+                        setIsMobileMenuOpen(false);
+                        setIsServicesDropdownOpen(false);
+                      }}
+                      className="block text-gray-400 text-sm hover:text-[#0fdac2] transition-colors py-1"
+                    >
+                      <div className="font-medium text-white">{service.title}</div>
+                      <div className="text-xs">{service.tagline}</div>
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
             {NAVIGATION_LINKS.map((link) => (
               <a
                 key={link.href}

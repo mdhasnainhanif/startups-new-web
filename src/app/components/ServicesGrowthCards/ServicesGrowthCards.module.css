@@ -69,6 +69,8 @@
 .imageWrapper {
   overflow: hidden;
   margin-bottom: 1.325rem;
+  border-radius: 1rem;
+  box-shadow: 0 .125rem 1.125rem #0fdac2;
 }
 
 .image {
@@ -186,4 +188,3 @@
     height: 12rem;
   }
 } */
-

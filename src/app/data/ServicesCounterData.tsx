@@ -18,80 +18,80 @@ export interface ServicesCounterDataMap {
 
 export const SERVICES_COUNTER_DATA: ServicesCounterDataMap = {
   "brand-identity": {
-    tagline: "CREATIVE THAT COUNTS",
-    heading: "$48000+ Worth of Advanced AI Tools Growing Your Business 10x",
+    tagline: "WE DON'T MISS BRAND WORK THAT BUILDS TRUST",
+    heading: "WE DON'T MISS BRAND WORK THAT BUILDS TRUST",
     stats: [
       {
         id: "bi-1",
         value: "25+",
-        label: "Brand-focused creatives supporting visual direction across customer accounts.",
+        label: "Brand-focused creatives driving visual direction and consistency across active customer accounts.",
       },
       {
         id: "bi-2",
         value: "10,000+",
-        label: "Brands we support with consistent, on-brand creative.",
+        label: "Brands supported with clear, consistent, and professional brand identities.",
       },
       {
         id: "bi-3",
         value: "4.8/5",
-        label: "Satisfaction with brand and identity work. Measured by consistency, visual quality, and turnaround.",
+        label: "Client satisfaction with brand and identity work — measured by consistency, visual quality, and turnaround.",
       },
       {
         id: "bi-4",
         value: "125,000+",
-        label: "Logos created, powering visual identities across every industry we touch.",
+        label: "Logos and brand assets delivered, powering identities across every industry we serve.",
       },
     ],
   },
   "marketing-advertising": {
-    tagline: "CREATIVE THAT COUNTS",
-    heading: "$48000+ Worth of Advanced AI Tools Growing Your Business 10x",
+    tagline: "WE DON'T MISS CAMPAIGNS THAT CONVERT",
+    heading: "WE DON'T MISS CAMPAIGNS THAT CONVERT",
     stats: [
       {
         id: "ma-1",
-        value: "30+",
-        label: "Marketing creatives driving results across customer campaigns.",
+        value: "25+",
+        label: "Performance marketers actively managing paid campaigns and funnels across live accounts.",
       },
       {
         id: "ma-2",
-        value: "15,000+",
-        label: "Campaigns we've supported with creative that converts.",
+        value: "10,000+",
+        label: "Brands supported with revenue-focused marketing across platforms and industries.",
       },
       {
         id: "ma-3",
-        value: "4.9/5",
-        label: "Satisfaction with marketing and advertising work. Measured by campaign performance and creative quality.",
+        value: "4.8/5",
+        label: "Client satisfaction with marketing outcomes — measured by ROI, lead quality, and speed.",
       },
       {
         id: "ma-4",
-        value: "200,000+",
-        label: "Ad creatives designed, driving measurable results for brands.",
+        value: "125,000+",
+        label: "Ads, funnels, and landing pages launched to drive demand and conversions.",
       },
     ],
   },
   "digital-web": {
-    tagline: "CREATIVE THAT COUNTS",
-    heading: "$48000+ Worth of Advanced AI Tools Growing Your Business 10x",
+    tagline: "WE BUILD DIGITAL EXPERIENCES THAT CONVERT",
+    heading: "WE BUILD DIGITAL EXPERIENCES THAT CONVERT",
     stats: [
       {
         id: "dw-1",
-        value: "35+",
-        label: "Digital designers creating interfaces that captivate and convert.",
+        value: "18+",
+        label: "Years of hands-on experience delivering high-performing digital products across platforms.",
       },
       {
         id: "dw-2",
-        value: "8,000+",
-        label: "Digital experiences we've designed for businesses worldwide.",
+        value: "2,400+",
+        label: "Websites, landing pages, and digital systems launched for growing businesses.",
       },
       {
         id: "dw-3",
         value: "4.7/5",
-        label: "Satisfaction with digital and web design. Measured by user experience and conversion rates.",
+        label: "Client satisfaction driven by speed, usability, and measurable performance gains.",
       },
       {
         id: "dw-4",
-        value: "50,000+",
-        label: "UI screens designed, creating engaging digital experiences.",
+        value: "95%",
+        label: "Projects delivered on time, optimized for speed, scalability, and long-term growth.",
       },
     ],
   },

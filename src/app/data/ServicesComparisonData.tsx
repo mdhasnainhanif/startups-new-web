@@ -10,6 +10,11 @@ export interface Competitor {
   description: string;
 }
 
+export interface ComparisonPoint {
+  label: string;
+  description: string;
+}
+
 export interface ServicesComparisonData {
   badge?: string;
   heading: string;
@@ -18,6 +23,7 @@ export interface ServicesComparisonData {
   serviceName: string;
   criteria: string[];
   competitors: Competitor[];
+  comparisonPoints?: ComparisonPoint[];
   cta?: ComparisonCTA;
 }
 
@@ -27,28 +33,46 @@ export interface ServicesComparisonDataMap {
 
 export const SERVICES_COMPARISON_DATA: ServicesComparisonDataMap = {
   "brand-identity": {
-    badge: "BUILT FOR YOU",
-    heading: "Growth Guides & Resources",
-    description: "Explore our comprehensive collection of growth guides, case studies, and resources designed to help your business scale and succeed.",
+    badge: "BUILT FOR RESULTS",
+    heading: "Why Smart Businesses Choose Us",
+    description: "When you compare options side-by-side, the difference becomes obvious. This isn't about design preference — it's about clarity, consistency, and trust at scale.",
     logo: "/assets/images/logo.svg",
-    serviceName: "Startups Advisory",
+    serviceName: "Startups Advisory (Our Platform)",
     criteria: ["Platform", "Speed", "Quality", "Support", "Cost"],
     competitors: [
       {
-        name: "In-house team",
-        description: "Hiring takes time, replacements are slow, and ongoing salaries make in-house design costly, especially when needs fluctuate.",
+        name: "In-House Team",
+        description: "Hiring takes time. Replacements are slow. Salaries and downtime make brand work expensive and inflexible.",
       },
       {
         name: "Freelancers",
-        description: "Hit or miss. Sourcing and managing talent for every project keeps you chasing consistency, not building your brand.",
+        description: "Hit or miss. Managing multiple designers leads to inconsistency and diluted brand identity.",
       },
       {
         name: "Agencies",
-        description: "Strategic partners, but high-cost retainers, rigid scopes, and slow timelines make them a poor fit for everyday creative needs.",
+        description: "Strong strategy, but high retainers, rigid scopes, and slow timelines.",
       },
       {
         name: "DIY Tools",
-        description: "Quick to use — but the output is off-brand, inconsistent, and still needs heavy manual effort to finish.",
+        description: "Quick to use — but output is off-brand, inconsistent, and damages credibility over time.",
+      },
+    ],
+    comparisonPoints: [
+      {
+        label: "Speed",
+        description: "Immediate execution vs hiring delays",
+      },
+      {
+        label: "Quality",
+        description: "System-driven branding vs scattered visuals",
+      },
+      {
+        label: "Support",
+        description: "Always-on specialists vs limited access",
+      },
+      {
+        label: "Cost",
+        description: "Predictable pricing vs escalating expenses",
       },
     ],
     cta: {
@@ -57,28 +81,46 @@ export const SERVICES_COMPARISON_DATA: ServicesComparisonDataMap = {
     },
   },
   "marketing-advertising": {
-    badge: "BUILT FOR YOU",
-    heading: "Growth Guides & Resources",
-    description: "Explore our comprehensive collection of growth guides, case studies, and resources designed to help your business scale and succeed.",
+    badge: "BUILT FOR RESULTS",
+    heading: "Why Smart Businesses Choose Us",
+    description: "When you compare options side-by-side, the difference becomes obvious. This isn't about running ads — it's about scaling demand without burning cash.",
     logo: "/assets/images/logo.svg",
-    serviceName: "Startups Advisory",
+    serviceName: "Startups Advisory (Our Platform)",
     criteria: ["Platform", "Speed", "Quality", "Support", "Cost"],
     competitors: [
       {
-        name: "In-house team",
-        description: "Building a marketing team requires significant investment in recruitment, training, and ongoing salaries that don't scale with campaign needs.",
+        name: "In-House Team",
+        description: "Hiring takes time. Replacements are slow. Fixed salaries and downtime make growth expensive and inflexible.",
       },
       {
         name: "Freelancers",
-        description: "Inconsistent quality and availability. Managing multiple freelancers for different campaigns creates coordination challenges and brand inconsistency.",
+        description: "Hit or miss. Fragmented execution leads to inconsistency and wasted budget.",
       },
       {
         name: "Agencies",
-        description: "Premium pricing and long lead times. Agency retainers lock you into contracts that don't adapt to changing marketing priorities.",
+        description: "High retainers, rigid scopes, and slow testing cycles reduce agility and ROI.",
       },
       {
         name: "DIY Tools",
-        description: "Limited design capabilities and brand alignment. Templates require extensive customization and still lack professional polish.",
+        description: "Quick to start, but results are inconsistent and still require heavy manual effort.",
+      },
+    ],
+    comparisonPoints: [
+      {
+        label: "Speed",
+        description: "Immediate execution vs hiring delays",
+      },
+      {
+        label: "Quality",
+        description: "System-driven optimization vs guesswork",
+      },
+      {
+        label: "Support",
+        description: "Always-on specialists vs limited access",
+      },
+      {
+        label: "Cost",
+        description: "Predictable pricing vs uncontrolled spend",
       },
     ],
     cta: {
@@ -87,28 +129,46 @@ export const SERVICES_COMPARISON_DATA: ServicesComparisonDataMap = {
     },
   },
   "digital-web": {
-    badge: "BUILT FOR YOU",
-    heading: "Growth Guides & Resources",
-    description: "Explore our comprehensive collection of growth guides, case studies, and resources designed to help your business scale and succeed.",
+    badge: "BUILT FOR DIGITAL RESULTS",
+    heading: "Why Businesses Choose Our Digital & Web Services",
+    description: "When you compare options side-by-side, the difference is clear. This isn't about aesthetics — it's about speed, scalability, performance, and long-term ROI.",
     logo: "/assets/images/logo.svg",
-    serviceName: "Startups Advisory",
+    serviceName: "Startups Advisory (Our Platform)",
     criteria: ["Platform", "Speed", "Quality", "Support", "Cost"],
     competitors: [
       {
-        name: "In-house team",
-        description: "High overhead costs and limited expertise. Maintaining a full design team for web projects is expensive and often underutilized.",
+        name: "In-House Team",
+        description: "Hiring developers takes time. Managing design, performance, and maintenance internally adds cost and slows execution — especially when priorities shift.",
       },
       {
         name: "Freelancers",
-        description: "Unreliable delivery and communication gaps. Finding skilled web designers who understand your brand is time-consuming and inconsistent.",
+        description: "Quality varies. Communication breaks. Documentation gets lost. Results depend on individuals instead of systems, making long-term consistency difficult.",
       },
       {
         name: "Agencies",
-        description: "Expensive and slow. Agency web design projects come with premium pricing and extended timelines that delay your digital presence.",
+        description: "Strong branding, but slow delivery. High retainers, rigid scopes, and extended timelines make agencies inefficient for ongoing digital iteration.",
       },
       {
-        name: "DIY Tools",
-        description: "Generic templates that lack customization. Website builders produce cookie-cutter results that don't reflect your unique brand identity.",
+        name: "DIY Builders",
+        description: "Easy to start, hard to scale. Limited flexibility, performance issues, and generic layouts reduce credibility and conversion over time.",
+      },
+    ],
+    comparisonPoints: [
+      {
+        label: "Speed",
+        description: "Faster launches vs long dev cycles",
+      },
+      {
+        label: "Quality",
+        description: "System-driven UX vs fragmented builds",
+      },
+      {
+        label: "Support",
+        description: "Always-on help vs limited availability",
+      },
+      {
+        label: "Cost",
+        description: "Predictable investment vs hidden expenses",
       },
     ],
     cta: {

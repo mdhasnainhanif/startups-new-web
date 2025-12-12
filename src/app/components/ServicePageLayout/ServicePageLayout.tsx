@@ -24,6 +24,7 @@ import ServicesComparison from '../ServicesComparison/ServicesComparison';
 import { SERVICES_COMPARISON_DATA } from '../../data/ServicesComparisonData';
 import ServiceFeatures from '../ServiceFeatures/ServiceFeatures';
 import { getServiceFeaturesData } from '../../data/ServiceFeaturesData';
+import { getServiceFAQData } from '../../data/ServicesFAQData';
 interface ServicePageLayoutProps {
   serviceData: ServicePageData;
 }
@@ -34,6 +35,8 @@ const ServicePageLayout: React.FC<ServicePageLayoutProps> = ({ serviceData }) =>
   const statsData = SERVICES_STATS_DATA[serviceData.slug];
   const comparisonData = SERVICES_COMPARISON_DATA[serviceData.slug];
   const featuresData = getServiceFeaturesData(serviceData.slug);
+  const faqData = getServiceFAQData(serviceData.slug);
+  const faqsToShow = faqData.length > 0 ? faqData : FAQ_CONTACT;
   
   return (
     <>
@@ -46,12 +49,12 @@ const ServicePageLayout: React.FC<ServicePageLayoutProps> = ({ serviceData }) =>
       <Reviews limit={6} columns={3} equalHeight={true} />
       <ServicesGrowthCards content={growthCardsContent} sectionData={growthCardsSection} />
       <AiPowerDesign />
-      <Counter items={COUNTER_DATA.items} className="sectionPadding pt-0" gridClassName="!mt-0" />
+      {/* <Counter items={COUNTER_DATA.items} className="sectionPadding pt-0 pb-[15rem]" gridClassName="!mt-0" /> */}
       <Reviews limit={6} columns={3} equalHeight={true} />
-      {comparisonData && <ServicesComparison data={comparisonData} />}
+      {/* {comparisonData && <ServicesComparison data={comparisonData} />} */}
       <ServicesCalculator />
       <GrowthSlider items={GROWTH_GUIDES} />
-      <FAQ faqs={FAQ_CONTACT} sectionData={FAQ_SECTION} />
+      <FAQ faqs={faqsToShow} sectionData={FAQ_SECTION} />
       <ContactTwo />
     </>
   );

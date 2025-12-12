@@ -1,10 +1,8 @@
 .section {
-  background: radial-gradient(
-    circle at top left,
-    #1a0b3f 0,
-    #05001a 40%,
-    #020014 100%
-  );
+  background: radial-gradient(circle at top left,
+      #1a0b3f 0,
+      #05001a 40%,
+      #020014 100%);
   min-height: 100vh;
 }
 
@@ -23,9 +21,11 @@
   color: #ffffff;
   margin-bottom: 1.5rem;
 }
+
 .highlighted {
   color: #0fdac2;
 }
+
 .headline .highlighted {
   color: #0fdac2;
 }
@@ -38,7 +38,7 @@
 }
 
 .mainContentBox {
-  background: #21164c;
+  background: #1d1343;
   border-radius: 1.5rem;
   padding: 2.5rem;
   display: grid;
@@ -106,6 +106,7 @@
   flex-direction: column;
   gap: 1.5rem;
 }
+
 .aeroicon {
   position: absolute;
   left: 0;
@@ -142,18 +143,28 @@
   font-size: 0.875rem;
   transition: all 0.3s;
   position: relative;
+  border: 2px solid transparent;
 }
 
 .gridItem:hover {
-  background: rgba(101, 59, 255, 0.4);
+  /* background: rgba(101, 59, 255, 0.4);
   border-color: rgba(101, 59, 255, 0.6);
   transform: translateY(-0.125rem);
-  box-shadow: 0 0.25rem 0.5rem rgba(101, 59, 255, 0.3);
+  box-shadow: 0 0.25rem 0.5rem rgba(101, 59, 255, 0.3); */
+  /* background: #0fdac2;
+  border-color: #0fdac29e;
+  transform: translateY(-.125rem);
+  color: #000; */
+  color: #0fdac2;
+  box-shadow: 0 .25rem .5rem #0fdac2c9;
+  background: linear-gradient(135deg, #0fdac233, #643bff33);
+  border: 2px solid #0fdac2;
 }
 
 .gridItem:active {
   transform: translateY(0);
 }
+
 /* 
 .gridItemActive {
   background: #653bff;
@@ -162,9 +173,15 @@
 } */
 
 .gridItemActive:hover {
-  background: #653bff66;
-    border-color: #653bff99;
-  box-shadow: 0 0.375rem 1rem rgba(101, 59, 255, 0.5);
+  /* background: #0fdac2;
+  border-color: #0fdac29e;
+  transform: translateY(-.125rem);
+  box-shadow: 0 .25rem .5rem #0fdac2c9;
+  color: #000; */
+  color: #0fdac2;
+  box-shadow: 0 .25rem .5rem #0fdac2c9;
+  background: linear-gradient(135deg, #0fdac233, #643bff33);
+  border: 2px solid #0fdac2;
 }
 
 .lifetimeValue {
@@ -214,6 +231,7 @@
     opacity: 0;
     transform: scale(0.95);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
@@ -267,9 +285,11 @@
     padding: 0.5rem 1rem;
     font-size: 0.875rem;
   }
+
   .tabsContainer {
     border-radius: 0 !important;
   }
+
   tab:before {
     display: none;
   }
@@ -279,6 +299,7 @@
   .imageWrapper {
     height: auto;
   }
+
   .aeroicon {
     display: none;
   }

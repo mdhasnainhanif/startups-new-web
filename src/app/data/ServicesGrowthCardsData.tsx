@@ -465,51 +465,51 @@ export const SERVICES_GROWTH_CARDS_CONTENT: ServicesGrowthCardsContentData = {
   "brand-identity": [
     {
       heading: "Quality talent, worldwide",
-      bodyText: "We review thousands of portfolios and only a small percent make it. You get access to top-tier creatives committed to your brand's long-term success.",
+      bodyText: "We filter aggressively from thousands of portfolios. Only top-tier brand designers who understand systems and long-term growth make it in.",
       image: "/assets/images/services/brand-identity/1.webp",
     },
     {
       heading: "Creative consistency",
-      bodyText: "Our designers follow proven systems built by Startups Advisory to help them adapt quickly to your brand and improve with every request and round of feedback.",
+      bodyText: "Every designer works inside proven brand frameworks. This keeps your identity aligned, sharp, and improving with every request and revision.",
       image: "/assets/images/services/brand-identity/2.webp",
     },
     {
       heading: "Always-on, always legal",
-      bodyText: "Every creative uses a fully licensed commercial-safe tech stack ensuring your brand is protected from legal risks and uncertain quality.",
+      bodyText: "All brand work is produced using fully licensed, commercial-safe tools. Your brand stays protected from legal risk and inconsistent quality.",
       image: "/assets/images/services/brand-identity/3.webp",
     },
   ],
   "marketing-advertising": [
     {
       heading: "Quality talent, worldwide",
-      bodyText: "We review thousands of portfolios and only a small percent make it. You get access to top-tier creatives committed to your brand's long-term success.",
+      bodyText: "We vet aggressively from thousands of marketers. Only operators who understand performance, systems, and scaling make it in.",
       image: "/assets/images/blog/1.webp",
     },
     {
-      heading: "Creative consistency",
-      bodyText: "Our designers follow proven systems built by Startups Advisory to help them adapt quickly to your brand and improve with every request and round of feedback.",
+      heading: "Conversion-first consistency",
+      bodyText: "Every campaign follows proven growth frameworks. This keeps messaging aligned, funnels optimized, and performance improving over time.",
       image: "/assets/images/blog/2.webp",
     },
     {
-      heading: "Always-on, always legal",
-      bodyText: "Every creative uses a fully licensed commercial-safe tech stack ensuring your brand is protected from legal risks and uncertain quality.",
+      heading: "Always-on, always compliant",
+      bodyText: "All campaigns use licensed tools and compliant ad practices. Your brand stays protected from platform risk and wasted spend.",
       image: "/assets/images/blog/3.webp",
     },
   ],
   "digital-web": [
     {
-      heading: "Quality talent, worldwide",
-      bodyText: "We review thousands of portfolios and only a small percent make it. You get access to top-tier creatives committed to your brand's long-term success.",
+      heading: "Conversion-first design",
+      bodyText: "Every screen serves a purpose. Layouts, CTAs, and flows are built to guide users toward action — not distract them.",
       image: "/assets/images/blog/1.webp",
     },
     {
-      heading: "Creative consistency",
-      bodyText: "Our designers follow proven systems built by Startups Advisory to help them adapt quickly to your brand and improve with every request and round of feedback.",
+      heading: "Scalable development systems",
+      bodyText: "We build with clean, modular structures. This keeps your website flexible, easy to update, and ready to grow with your business.",
       image: "/assets/images/blog/2.webp",
     },
     {
-      heading: "Always-on, always legal",
-      bodyText: "Every creative uses a fully licensed commercial-safe tech stack ensuring your brand is protected from legal risks and uncertain quality.",
+      heading: "Secure, compliant, future-ready",
+      bodyText: "All builds follow modern security, accessibility, and performance standards. Your digital presence stays protected, compliant, and future-proof.",
       image: "/assets/images/blog/3.webp",
     },
   ],

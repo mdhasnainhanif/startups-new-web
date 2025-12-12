@@ -29,14 +29,14 @@ export const SERVICES_STATS_DATA: ServicesStatsDataMap = {
       {
         id: "bi-stat-1",
         image: "/assets/images/services/brand-identity/stat1.webp",
-        value: "",
-        label: "Designs created for our customers",
+        value: "3M+",
+        label: "Brand assets designed for customers, built to perform across platforms, channels, and touchpoints.",
       },
       {
         id: "bi-stat-2",
         image: "/assets/images/services/brand-identity/stat2.webp",
-        value: "",
-        label: "Creatives and art directors",
+        value: "320+",
+        label: "Creatives and art directors actively producing, reviewing, and refining brand work at scale.",
         overlays: [
           { label: "Russ", top: "10%", left: "75%", color: "#2a2a2a" },
           { label: "Sarah", top: "40%", left: "10%", color: "#ff6b35" },
@@ -48,8 +48,8 @@ export const SERVICES_STATS_DATA: ServicesStatsDataMap = {
       {
         id: "bi-stat-3",
         image: "/assets/images/services/brand-identity/stat3.webp",
-        value: "",
-        label: "Customer satisfaction rate (and counting)",
+        value: "4.8/5★",
+        label: "Customer satisfaction score — driven by reliability, clarity, and execution speed.",
       },
     ],
   },
@@ -58,14 +58,14 @@ export const SERVICES_STATS_DATA: ServicesStatsDataMap = {
       {
         id: "ma-stat-1",
         image: "/assets/images/services/marketing-advertising/1.webp",
-        value: "5M+",
-        label: "Campaign creatives delivered",
+        value: "3M+",
+        label: "Leads, impressions, and conversion events generated across paid channels and campaigns.",
       },
       {
         id: "ma-stat-2",
         image: "/assets/images/services/marketing-advertising/2.webp",
-        value: "450+",
-        label: "Marketing specialists and strategists",
+        value: "320+",
+        label: "Marketers, creatives, and analysts producing, testing, and scaling campaigns daily.",
         overlays: [
           { label: "Mike", top: "12%", left: "70%", color: "#2a2a2a" },
           { label: "Emma", top: "45%", left: "15%", color: "#ff6b35" },
@@ -75,8 +75,8 @@ export const SERVICES_STATS_DATA: ServicesStatsDataMap = {
       {
         id: "ma-stat-3",
         image: "/assets/images/services/marketing-advertising/3.webp",
-        value: "4.9/5★",
-        label: "Client satisfaction with campaign results",
+        value: "4.8/5★",
+        label: "Customer satisfaction score — driven by performance, transparency, and execution speed.",
       },
     ],
   },
@@ -85,14 +85,14 @@ export const SERVICES_STATS_DATA: ServicesStatsDataMap = {
       {
         id: "dw-stat-1",
         image: "/assets/images/services/digital-web/1.webp",
-        value: "2.5M+",
-        label: "Digital interfaces designed",
+        value: "1.2M+",
+        label: "Pages designed and deployed to support marketing, sales, and product growth.",
       },
       {
         id: "dw-stat-2",
         image: "/assets/images/services/digital-web/2.webp",
-        value: "380+",
-        label: "UI/UX designers and developers",
+        value: "210+",
+        label: "Designers and developers collaborating across UX, frontend, and performance.",
         overlays: [
           { label: "Alex", top: "15%", left: "72%", color: "#2a2a2a" },
           { label: "Lisa", top: "42%", left: "12%", color: "#ff6b35" },
@@ -103,7 +103,7 @@ export const SERVICES_STATS_DATA: ServicesStatsDataMap = {
         id: "dw-stat-3",
         image: "/assets/images/services/digital-web/3.webp",
         value: "4.7/5★",
-        label: "User experience satisfaction rating",
+        label: "Average rating for reliability, clarity, and post-launch support.",
       },
     ],
   },

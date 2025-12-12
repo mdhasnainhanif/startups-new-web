@@ -3,11 +3,9 @@
 import { useState, useEffect, useRef } from "react";
 import Container from "../Container";
 import { ServicesCounterData } from "../../data/ServicesCounterData";
-
 interface ServicesCounterProps {
   data: ServicesCounterData;
 }
-
 const ServicesCounter: React.FC<ServicesCounterProps> = ({ data }) => {
   const [counts, setCounts] = useState<number[]>(new Array(data.stats.length).fill(0));
   const [hasAnimated, setHasAnimated] = useState(false);
@@ -27,7 +25,7 @@ const ServicesCounter: React.FC<ServicesCounterProps> = ({ data }) => {
       return {
         number: parseFloat(match[1]),
         suffix: match[2] || "",
-        isDecimal: match[1].includes("."),
+        isDecimal: match[2].includes("."),
       };
     }
     return { number: 0, suffix: "", isDecimal: false };
@@ -91,7 +89,6 @@ const ServicesCounter: React.FC<ServicesCounterProps> = ({ data }) => {
         <div className="sectionHeading forH2 text-center gap-3 flex flex-col mb-12 md:mb-8 max-w-5xl mx-auto">
           <h2 className="">
             {(() => {
-              // Handle square brackets
               if (data.heading.includes('[') && data.heading.includes(']')) {
                 return data.heading.split(/(\[.*?\])/).map((part, index) => {
                   if (part.startsWith('[') && part.endsWith(']')) {
@@ -108,7 +105,6 @@ const ServicesCounter: React.FC<ServicesCounterProps> = ({ data }) => {
                   return <span key={index}>{part}</span>;
                 });
               }
-              // Handle "Advanced AI" if no brackets
               if (data.heading.includes("Advanced AI")) {
                 return (
                   <>
@@ -140,8 +136,16 @@ const ServicesCounter: React.FC<ServicesCounterProps> = ({ data }) => {
                   ${isLeftColumn ? '' : 'pl-8 md:pl-6 sm:pl-0'}
                 `}
               >
-                <div className="text-6xl font-graphik-bold md:text-7xl sm:text-6xl font-bold text-[#0fdac2] leading-none mb-4 md:mb-3">
-                  {displayValue}{suffix}
+                <div className="text-6xl md:text-7xl sm:text-6xl font-bold text-[#0fdac2] leading-none mb-4 md:mb-3">
+                  {displayValue}
+                  {suffix.startsWith('/') ? (
+                    <>
+                      <span className="text-[#643BFF]">/</span>
+                      <span className="text-[#0fdac2]">{suffix.substring(1)}</span>
+                    </>
+                  ) : (
+                    <span className="text-[#643BFF]">{suffix}</span>
+                  )}
                 </div>
                 <p className="text-base md:text-lg sm:text-xs font-normal text-white leading-6 md:leading-5">
                   {stat.label}
@@ -154,6 +158,5 @@ const ServicesCounter: React.FC<ServicesCounterProps> = ({ data }) => {
     </section>
   );
 };
-
 export default ServicesCounter;
 
