@@ -182,7 +182,7 @@ export const webDevelopmentCaseStudyData: CaseStudySectionData = {
         "Full-stack implementation",
         "Technical SEO installation",
         "Page speed refinement",
-        "Schema and metadata configuration",
+        "Schema & metadata configuration",
         "Security essentials",
         "Hosting and deployment support",
         "Responsive coding standards",

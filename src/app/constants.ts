@@ -13,7 +13,7 @@ export const NAVIGATION_LINKS = [
   // { label: "Pricing", href: "/pricing" },
   // { label: "Your Ai Agent", href: "/ai-agent" },
   { label: "Home", href: "/" },
-  { label: "Designer", href: "/designer" },
+  // { label: "Designer", href: "/designer" },
   { label: "About Us", href: "/about-us" },
   { label: "Key Growth", href: "/key-growth" },
   { label: "Contact Us", href: "/contact-us" },

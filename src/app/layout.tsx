@@ -4,9 +4,7 @@ import localFont from "next/font/local";
 import Image from "next/image";
 import Script from "next/script";
 import "./globals.css";
-import TopHeader from "./components/TopHeader";
-import Header from "./components/Header";
-import Footer from "./components/Footer/Footer";
+import ConditionalLayout from "./components/ConditionalLayout/ConditionalLayout";
 
 
 const geistSans = Geist({
@@ -96,10 +94,7 @@ export default function RootLayout({
 
         {/* Content with higher z-index */}
         <div className="relative z-10">
-          <TopHeader />
-          <Header />
-          {children}
-          <Footer />
+          <ConditionalLayout>{children}</ConditionalLayout>
         </div>
 
         {/* Kogents Chat Widget */}

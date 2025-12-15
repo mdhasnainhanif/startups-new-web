@@ -71,7 +71,13 @@ export default function HeroBanner({
         />
       </div>
       <Container maxWidth="2xl" className={`${styles.content} relative z-2`}>
-        <div className="flex flex-col items-center text-center gap-6 md:gap-5 lg:pt-48 pt-10 sectionHeading">
+        <div className="flex flex-col items-center text-center gap-6 md:gap-5 lg:pt-40 pt-10 sectionHeading">
+          {/* 300+ Companies Badge */}
+          <div>
+              <p className={`text-white text-base sm:text-lg font-semibold ${styles.purpleBadge}`}>
+                <span className="text-[#0fdac2]">300+</span> Companies
+              </p>
+            </div>
           <h1 className="max-w-5xl">
             <span className="text-white">{headline}</span>
             {headlineHighlight && (

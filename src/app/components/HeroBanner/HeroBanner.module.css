@@ -48,6 +48,14 @@
   /* Removed will-change to prevent scroll performance issues */
 }
 
+.purpleBadge {
+  border: 1px solid #3d2695;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem 0.6rem;
+  box-shadow: 0 3px 1px #643bff;
+  font-size: 1rem;
+}
+
 .plasmaContainer {
   opacity: 0;
   animation: fadeIn 1s ease-in-out 0.2s forwards;
@@ -82,10 +90,10 @@ section.bottomZero {
 }
 
 @media screen and (max-width: 768px) {
-    .heroBackground {
-      background: none;
-    }
+  .heroBackground {
+    background: none;
   }
+}
 
 @media screen and (max-width: 576px) {
   .heroBackground {

@@ -102,11 +102,12 @@ const ServicesCalculator: React.FC = () => {
     }, 100);
   }, [activeTab]);
   return (
-    <section className="bg-[#050321] pb-16 md:pb-20 lg:pb-[5.25rem] px-4 sm:px-6 lg:px-8">
+    <section className="bg-[#050321] pb-16 md:pb-20 lg:pb-[5.25rem] md:px-4 sm:px-6 lg:px-8">
       <Container maxWidth="xl">
-        <div className="bg-[#110f29] border border-[#4e4989] rounded-2xl p-4 sm:p-6 md:p-8 lg:p-10 relative items-center flex flex-col md:flex-row gap-4">
-          <div className="flex flex-col gap-4 w-full md:max-w-[15%] h-[100%]">            <h3 className="text-white text-lg font-semibold">Platform</h3>
-            <div className="flex flex-col gap-4">
+        <div className="bg-[#110f29] border border-[#4e4989] rounded-2xl p-4 sm:p-6 md:p-8 lg:p-10 relative items-center flex flex-col md:flex-row gap-6 md:gap-4">
+          <div className="flex flex-col gap-4 w-full md:max-w-[15%] h-[100%]">
+            <h3 className="text-white text-lg font-semibold">Platform</h3>
+            <div className="flex flex-row md:flex-col gap-4">
               <label className="flex items-center gap-3 cursor-pointer group">
                 <input
                   type="radio"
@@ -153,7 +154,7 @@ const ServicesCalculator: React.FC = () => {
               </label>
             </div>
           </div>
-          <span className='border border-dashed border-white/10 h-[12rem]'></span>
+          <span className='hidden md:block border border-dashed border-white/10 h-[12rem]'></span>
           <div className="flex flex-col gap-4 w-full md:max-w-[25%] h-full">
             <h3 className="text-white text-lg font-semibold">Creative services</h3>
             <div className="flex border-b border-white/10">
@@ -224,14 +225,14 @@ const ServicesCalculator: React.FC = () => {
               <div className="absolute bottom-[6px] left-0 right-0 h-px bg-white/10 z-0"></div>
             </div>
           </div>
-          <span className='border border-dashed border-white/10 h-[12rem]'></span>
+          <span className='hidden md:block border border-dashed border-white/10 h-[12rem]'></span>
           <div className="flex flex-col gap-4 w-full md:max-w-[50%] min-w-[16rem] h-fill">
             <h3 className="text-white text-lg font-semibold">Hours</h3>
             <p className="text-white/70 text-sm leading-relaxed">
               Total reserved hours each business day from your dedicated design team.
             </p>
-            <div className="flex items-center mt-2">
-              <span className="text-[#0fdac2] text-xl md:text-2xl lg:text-3xl font-bold min-w-[3rem] text-center">
+            <div className="flex items-center gap-2 mt-2">
+              <span className="text-[#0fdac2] text-3xl md:text-2xl lg:text-3xl font-bold min-w-[3rem] text-left">
                 {hours}H
               </span>
               <button
@@ -252,23 +253,23 @@ const ServicesCalculator: React.FC = () => {
               </button>
             </div>
           </div>
-          <span className='border border-dashed border-white/10 h-[12rem]'></span>
+          <span className='hidden md:block border border-dashed border-white/10 h-[12rem]'></span>
           <div className="flex flex-col relative w-full md:max-w-[55%] h-full">
             {savings > 0 && (
               <div className="absolute -top-2 right-0 bg-[#0fdac2] text-black text-xs font-bold px-3 py-1 rounded">
                 {savings}k saved
               </div>
             )}
-            <div className="flex items-baseline gap-2 mt-0 mb-0">
-              <span className="text-white text-xl md:text-xl lg:text-xl font-bold">
+            <div className="flex items-baseline gap-2 mt-0 mb-2">
+              <span className="text-white text-2xl md:text-xl lg:text-xl font-bold">
                 ${calculatePrice.toLocaleString()}
               </span>
-              <span className="text-white/60 text-xl md:text-xl lg:text-xl font-medium">
+              <span className="text-white/60 text-2xl md:text-xl lg:text-xl font-medium">
                 /mo
               </span>
             </div>
-            <p className="text-white/70 text-xs md:text-sm font-medium mt-0 mb-0 uppercase tracking-wider">SUMMARY</p>
-            <div className="flex flex-row gap-2 flex-wrap w-full min-w-[18rem] mt-[2.5rem]">
+            <p className="text-white/70 text-xs md:text-sm font-medium mt-0 mb-3 uppercase tracking-wider">SUMMARY</p>
+            <div className="flex flex-row gap-2 flex-wrap w-full min-w-[18rem] mt-0 md:mt-[2.5rem]">
               <button
                 className={`px-4 py-2 text-sm font-medium transition-all relative bg-transparent text-white ${
                   billingPeriod === 'monthly'
@@ -316,9 +317,9 @@ const ServicesCalculator: React.FC = () => {
               </button>
             </div>
           </div>
-          <span className='border border-dashed border-white/10 h-[12rem]'></span>
+          <span className='hidden md:block border border-dashed border-white/10 h-[12rem]'></span>
           <div className='flex flex-col gap-4 w-full md:max-w-[20%] min-w-[10rem] h-full'> 
-            <button className="bg-[#643BFF] hover:bg-[#0bc4ae] text-white font-bold text-base md:text-lg px-6 py-3 rounded-xl transition-all mt-4 hover:shadow-lg hover:shadow-[#643BFF]/30 hover:-translate-y-0.5">
+            <button className="bg-[#643BFF] hover:bg-[#0bc4ae] text-white font-bold text-base md:text-lg px-6 py-3 rounded-xl transition-all mt-0 md:mt-4 hover:shadow-lg hover:shadow-[#643BFF]/30 hover:-translate-y-0.5 w-full md:w-auto">
               Get started
             </button>
           </div>

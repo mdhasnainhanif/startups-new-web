@@ -87,7 +87,7 @@ const ServicesCounter: React.FC<ServicesCounterProps> = ({ data }) => {
     <section ref={sectionRef} className="bg-black relative overflow-hidden sectionPadding">
       <Container maxWidth="xl">
         <div className="sectionHeading forH2 text-center text-[#ffffff] gap-3 flex flex-col mb-12 md:mb-8 max-w-5xl mx-auto">
-          <h2 className="">
+          <h2>
             {(() => {
               if (data.heading.includes('[') && data.heading.includes(']')) {
                 return data.heading.split(/(\[.*?\])/).map((part, index) => {
@@ -118,22 +118,24 @@ const ServicesCounter: React.FC<ServicesCounterProps> = ({ data }) => {
             })()}
           </h2>
         </div>
-        <div className="grid grid-cols-2 gap-8 md:gap-6 relative">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-6 relative">
           {data.stats.map((stat, index) => {
             const { suffix, isDecimal } = parseValue(stat.value);
             const displayValue = formatNumber(counts[index], isDecimal);
             const isTopRow = index < 2;
             const isLeftColumn = index % 2 === 0;
             const isBottomRow = index > 1;
+            const isLastItem = index === data.stats.length - 1;
             return (
               <div
                 key={stat.id}
                 className={`
                   text-left
                   py-8 md:py-6 sm:py-6
-                  ${isTopRow ? 'border-b border-dashed border-white/20 pb-8 md:pb-6 sm:pb-6' : ''}
-                  ${isBottomRow ? 'border-b border-dashed border-white/20 pr-8 md:pr-6 sm:pr-0' : ''}
-                  ${isLeftColumn ? '' : 'pl-8 md:pl-6 sm:pl-0'}
+                  ${!isLastItem ? 'border-b border-dashed border-white/20 pb-8 sm:pb-6 md:pb-6' : ''}
+                  ${isTopRow && !isLastItem ? 'sm:border-b sm:border-dashed sm:border-white/20' : ''}
+                  ${isBottomRow ? 'pr-8 md:pr-6 sm:pr-0' : ''}
+                  ${isLeftColumn ? '' : 'md:pl-8 md:pl-6 sm:pl-0'}
                 `}
               >
                 <div className="text-6xl md:text-7xl sm:text-6xl font-bold text-[#0fdac2] leading-none mb-4 md:mb-3">

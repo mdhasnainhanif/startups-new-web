@@ -218,3 +218,6 @@ export const DownloadIcon = ({ style }: { style?: React.CSSProperties }) => (
     />
   </svg>
 );
+export const ArrowLeftIcon = ({ style }: { style?: React.CSSProperties }) => (
+  <svg width="20" height="20" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill={style?.fill || "#fff"} d="M21 11H5.41l5.3-5.29a1 1 0 1 0-1.42-1.42l-7 7a1 1 0 0 0 0 1.42l7 7a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42L5.41 13H21a1 1 0 0 0 0-2"/></svg>
+);

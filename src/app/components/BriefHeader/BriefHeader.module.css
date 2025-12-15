@@ -1,0 +1,74 @@
+.briefHeader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: transparent;
+  padding: 0.75rem 0;
+  transition: all 0.3s ease-in-out;
+  background: #020016;
+}
+
+.headerContainer {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.logoLink {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.logoLink:hover {
+  opacity: 0.8;
+}
+
+.logo {
+  height: auto;
+  width: auto;
+  max-height: 40px;
+}
+
+.phoneLink {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 400;
+  transition: opacity 0.2s ease;
+}
+
+.phoneLink:hover {
+  opacity: 0.8;
+}
+
+.phoneNumber {
+  white-space: nowrap;
+  font-family: var(--font-graphik-regular), Arial, Helvetica, sans-serif;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .briefHeader {
+    padding: 0.5rem 0;
+  }
+
+  .headerContainer {
+    padding: 0 0.75rem;
+  }
+
+  .logo {
+    max-height: 32px;
+  }
+
+  .phoneLink {
+    font-size: 0.875rem;
+  }
+}

@@ -6,7 +6,6 @@ import { COMPANY_INFO, NAVIGATION_LINKS } from "../constants";
 import Container from "./Container";
 import Button from "./Button";
 import Image from "next/image";
-import { ArrowRightIcon } from "./icons";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { getAllServices } from "../data/ServicesPageData";
@@ -21,25 +20,44 @@ export default function Header() {
   const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
   const [isServicesDropdownOpen2, setIsServicesDropdownOpen2] = useState(false);
   // Add separate state for mobile dropdowns
-  const [isMobileDesignDropdownOpen, setIsMobileDesignDropdownOpen] = useState(false);
-  const [isMobileServicesDropdownOpen, setIsMobileServicesDropdownOpen] = useState(false);
+  const [isMobileDesignDropdownOpen, setIsMobileDesignDropdownOpen] =
+    useState(false);
+  const [isMobileServicesDropdownOpen, setIsMobileServicesDropdownOpen] =
+    useState(false);
   const [dropdownPosition, setDropdownPosition] = useState({ top: 0, left: 0 });
-  const [dropdownPosition2, setDropdownPosition2] = useState({ top: 0, left: 0 });
+  const [dropdownPosition2, setDropdownPosition2] = useState({
+    top: 0,
+    left: 0,
+  });
   const servicesDropdownRef = useRef<HTMLDivElement>(null);
   const servicesDropdownRef2 = useRef<HTMLDivElement>(null);
   const dropdownButtonRef = useRef<HTMLButtonElement>(null);
   const dropdownButtonRef2 = useRef<HTMLButtonElement>(null);
+  const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const closeTimeoutRef2 = useRef<NodeJS.Timeout | null>(null);
   const services = getAllServices();
 
   // Services menu items
   const servicesMenuItems = [
-    { label: "Web Development", href: "/web-development", slug: "web-development" },
-    { label: "Content Writing", href: "/content-writing", slug: "content-writing" },
-    { label: "Social Media Marketing", href: "/social-media-marketing", slug: "social-media-marketing" },
+    {
+      label: "Web Development",
+      href: "/web-development",
+      slug: "web-development",
+    },
+    {
+      label: "Content Writing",
+      href: "/content-writing",
+      slug: "content-writing",
+    },
+    {
+      label: "Social Media Marketing",
+      href: "/social-media-marketing",
+      slug: "social-media-marketing",
+    },
   ];
 
-   // Check if a link is active
-   const isActive = (href: string) => {
+  // Check if a link is active
+  const isActive = (href: string) => {
     if (href === "/") {
       return pathname === "/";
     }
@@ -49,7 +67,7 @@ export default function Header() {
   // Check if current path is a service page
   const isServicePage = () => {
     if (!pathname) return false;
-    return services.some(service => pathname.startsWith(`/${service.slug}`));
+    return services.some((service) => pathname.startsWith(`/${service.slug}`));
   };
 
   useEffect(() => {
@@ -106,10 +124,10 @@ export default function Header() {
     const updatePosition = () => {
       if (dropdownButtonRef2.current && isServicesDropdownOpen2) {
         const rect = dropdownButtonRef2.current.getBoundingClientRect();
-        const topPosition = isScrolled 
-          ? rect.bottom + 4  // Reduced from 12 to 4
-          : rect.bottom + window.scrollY + 4;  // Reduced from 12 to 4
-        
+        const topPosition = isScrolled
+          ? rect.bottom + 4 // Reduced from 12 to 4
+          : rect.bottom + window.scrollY + 4; // Reduced from 12 to 4
+
         setDropdownPosition2({
           top: topPosition,
           left: rect.left + rect.width / 2,
@@ -122,11 +140,11 @@ export default function Header() {
         updatePosition();
         setTimeout(updatePosition, 0);
       });
-      window.addEventListener('resize', updatePosition);
+      window.addEventListener("resize", updatePosition);
     }
 
     return () => {
-      window.removeEventListener('resize', updatePosition);
+      window.removeEventListener("resize", updatePosition);
     };
   }, [isServicesDropdownOpen2, isScrolled]);
 
@@ -162,89 +180,194 @@ export default function Header() {
     };
   }, [isServicesDropdownOpen, isMobile, isServicesDropdownOpen2]);
 
+  // Cleanup timeouts on unmount
+  useEffect(() => {
+    return () => {
+      if (closeTimeoutRef.current) {
+        clearTimeout(closeTimeoutRef.current);
+      }
+      if (closeTimeoutRef2.current) {
+        clearTimeout(closeTimeoutRef2.current);
+      }
+    };
+  }, []);
+
   // Service icons mapping
   const getServiceIcon = (slug: string) => {
     const iconMap: { [key: string]: React.ReactNode } = {
       "brand-identity": (
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        >
           <path d="M12 2L2 7l10 5 10-5-10-5z" />
           <path d="M2 17l10 5 10-5M2 12l10 5 10-5" />
         </svg>
       ),
       "marketing-advertising": (
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        >
           <path d="M3 11c0-1.1.9-2 2-2h14c1.1 0 2 .9 2 2v10c0 1.1-.9 2-2 2H5c-1.1 0-2-.9-2-2V11z" />
           <path d="M7 11V7a5 5 0 0 1 10 0v4" />
         </svg>
       ),
       "digital-web": (
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        >
           <circle cx="12" cy="12" r="10" />
           <line x1="2" y1="12" x2="22" y2="12" />
           <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
         </svg>
       ),
       "motion-video": (
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        >
           <polygon points="23 7 16 12 23 17 23 7" />
           <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
         </svg>
       ),
-      "print": (
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      print: (
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        >
           <polyline points="6 9 6 2 18 2 18 9" />
           <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
           <rect x="6" y="14" width="12" height="8" />
         </svg>
       ),
       "illustration-artwork": (
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        >
           <path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" />
         </svg>
       ),
       "ebooks-digital-report": (
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        >
           <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
           <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
         </svg>
       ),
-      "presentations": (
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      presentations: (
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        >
           <rect x="3" y="3" width="18" height="14" rx="2" ry="2" />
           <line x1="9" y1="21" x2="15" y2="21" />
           <line x1="12" y1="17" x2="12" y2="21" />
         </svg>
       ),
       "product-packaging": (
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        >
           <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
           <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
           <line x1="12" y1="22.08" x2="12" y2="12" />
         </svg>
       ),
       "apparel-merchandise": (
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        >
           <path d="M4 7h16M4 7c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2M4 7v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V7M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2" />
         </svg>
       ),
       "environmental-event": (
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        >
           <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
           <circle cx="12" cy="9" r="2.5" />
         </svg>
       ),
       "corporate-internal": (
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        >
           <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
           <line x1="9" y1="3" x2="9" y2="21" />
           <line x1="3" y1="9" x2="21" y2="9" />
         </svg>
       ),
     };
-    return iconMap[slug] || (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <circle cx="12" cy="12" r="10" />
-      </svg>
+    return (
+      iconMap[slug] || (
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        >
+          <circle cx="12" cy="12" r="10" />
+        </svg>
+      )
     );
   };
 
@@ -252,13 +375,27 @@ export default function Header() {
   const getServicesMenuIcon = (slug: string) => {
     const iconMap: { [key: string]: React.ReactNode } = {
       "web-development": (
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        >
           <polyline points="16 18 22 12 16 6" />
           <polyline points="8 6 2 12 8 18" />
         </svg>
       ),
       "content-writing": (
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        >
           <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
           <polyline points="14 2 14 8 20 8" />
           <line x1="16" y1="13" x2="8" y2="13" />
@@ -267,7 +404,14 @@ export default function Header() {
         </svg>
       ),
       "social-media-marketing": (
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        >
           <circle cx="18" cy="5" r="3" />
           <circle cx="6" cy="12" r="3" />
           <circle cx="18" cy="19" r="3" />
@@ -276,10 +420,19 @@ export default function Header() {
         </svg>
       ),
     };
-    return iconMap[slug] || (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <circle cx="12" cy="12" r="10" />
-      </svg>
+    return (
+      iconMap[slug] || (
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+        >
+          <circle cx="12" cy="12" r="10" />
+        </svg>
+      )
     );
   };
 
@@ -322,9 +475,8 @@ export default function Header() {
                 // Add Services Dropdown after Home (first item)
                 if (index === 0 && link.label === "Home") {
                   return (
-                    <>
+                    <React.Fragment key={`home-with-dropdowns-${link.href}`}>
                       <a
-                        key={link.href}
                         href={link.href}
                         className={`text-white font-medium hover:text-[#0fdac2] transition-colors ${
                           isActive(link.href) ? "text-[#0fdac2]" : ""
@@ -341,141 +493,213 @@ export default function Header() {
                         {link.label}
                       </a>
                       {/* Services Dropdown */}
-                      <div 
+                      <div
                         key="services-dropdown"
-                        className="relative" 
+                        className="relative"
                         onMouseEnter={() => {
+                          // Clear any pending close timeout
+                          if (closeTimeoutRef.current) {
+                            clearTimeout(closeTimeoutRef.current);
+                            closeTimeoutRef.current = null;
+                          }
                           setIsServicesDropdownOpen(true);
                           // Immediately calculate position when opening
                           if (dropdownButtonRef.current) {
-                            const rect = dropdownButtonRef.current.getBoundingClientRect();
-                            const topPosition = isScrolled 
-                              ? rect.bottom + 4  // Reduced from 12 to 4
-                              : rect.bottom + window.scrollY + 4;  // Reduced from 12 to 4
+                            const rect =
+                              dropdownButtonRef.current.getBoundingClientRect();
+                            const topPosition = isScrolled
+                              ? rect.bottom + 4 // Reduced from 12 to 4
+                              : rect.bottom + window.scrollY + 4; // Reduced from 12 to 4
                             setDropdownPosition({
                               top: topPosition,
                               left: rect.left + rect.width / 2,
                             });
                           }
                         }}
-                        onMouseLeave={() => setIsServicesDropdownOpen(false)}
+                        onMouseLeave={() => {
+                          // Delay closing to allow mouse to move to dropdown
+                          closeTimeoutRef.current = setTimeout(() => {
+                            setIsServicesDropdownOpen(false);
+                          }, 150);
+                        }}
                       >
-                        <button
-                          ref={dropdownButtonRef}
-                          className={`text-white font-medium hover:text-[#0fdac2] transition-colors flex items-center justify-center gap-1 ${
-                            isServicePage() ? "text-[#0fdac2]" : ""
-                          }`}
-                          style={
-                            isServicePage()
-                              ? {
-                                  textShadow:
-                                    "-9px 0 17px #00dbc1e6, 0px 6px 8px #0fdac287, 0 0 56px #0fdac2cc",
-                                }
-                              : {}
-                          }
-                        >
-                          Design
-                          <svg
-                            className={`w-[0.85rem] h-[0.85rem] mt-[0.3rem] transition-transform ${isServicesDropdownOpen ? "rotate-180" : ""}`}
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
+                        <Link href="/designer">
+                          <button
+                            ref={dropdownButtonRef}
+                            className={`text-white font-medium hover:text-[#0fdac2] transition-colors flex items-center justify-center gap-1 ${
+                              isServicePage() ? "text-[#0fdac2]" : ""
+                            }`}
+                            style={
+                              isServicePage()
+                                ? {
+                                    textShadow:
+                                      "-9px 0 17px #00dbc1e6, 0px 6px 8px #0fdac287, 0 0 56px #0fdac2cc",
+                                  }
+                                : {}
+                            }
                           >
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                          </svg>
-                        </button>
+                            Designer
+                            <svg
+                              className={`w-[0.85rem] h-[0.85rem] mt-[0.3rem] transition-transform ${
+                                isServicesDropdownOpen ? "rotate-180" : ""
+                              }`}
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M19 9l-7 7-7-7"
+                              />
+                            </svg>
+                          </button>
+                        </Link>
 
                         {/* Dropdown Menu */}
-                        {typeof window !== 'undefined' && isServicesDropdownOpen && createPortal(
-                          <div 
-                            ref={servicesDropdownRef}
-                            className="fixed w-[1000px] bg-[#050321] border border-[#26234fa8] rounded-xl shadow-2xl transition-all duration-200 opacity-100 visible pointer-events-auto"
-                            style={{ 
-                              zIndex: 99999,
-                              top: `${dropdownPosition.top}px`,
-                              left: `${dropdownPosition.left}px`,
-                              transform: 'translateX(-30%)',
-                              maxHeight: 'calc(100vh - 100px)',
-                              overflowY: 'auto',
-                              paddingTop: '8px', // Add invisible bridge
-                            }}
-                            onMouseEnter={() => setIsServicesDropdownOpen(true)}
-                            onMouseLeave={() => setIsServicesDropdownOpen(false)}
-                          >
-                            <div className="p-6" style={{ marginTop: '-8px' }}> {/* Compensate for padding */}
-                              <h3 className="text-white text-lg font-semibold mb-6">Solutions & Services</h3>
-                              <div className="grid grid-cols-4 gap-0">
-                                {services && services.length > 0 ? (
-                                  services.map((service, index) => {
-                                    const isLastRow = index >= services.length - 2;
-                                    const isLeftColumn = index % 2 === 0;
-                                    const isActive = pathname?.startsWith(`/${service.slug}`);
-                                    return (
-                                      <Link
-                                        key={service.slug}
-                                        href={`/${service.slug}`}
-                                        onClick={() => setIsServicesDropdownOpen(false)}
-                                        className={`flex items-start gap-3 py-2 px-4 hover:bg-[#2f2a63]/30 transition-all rounded-lg ${
-                                          isActive ? 'bg-[#2f2a63]/40' : ''
-                                        } ${
-                                          !isLastRow ? "" : ""
-                                        } ${isLeftColumn ? "pr-3" : "pl-3"}`}
-                                      >
-                                        <div className={`flex-shrink-0 mt-0.5 ${
-                                          isActive ? 'text-[#0fdac2]' : 'text-[#643bff] opacity-70'
-                                        }`}>
-                                          {getServiceIcon(service.slug)}
-                                        </div>
-                                        <div className="flex-1 min-w-0">
-                                          <div className={`font-semibold text-sm mb-1 ${
-                                            isActive ? 'text-[#0fdac2]' : 'text-white'
-                                          }`}>
-                                            {service.title || 'Service Name'}
+                        {typeof window !== "undefined" &&
+                          isServicesDropdownOpen &&
+                          createPortal(
+                            <div
+                              ref={servicesDropdownRef}
+                              className="fixed w-[1000px] bg-[#050321] border border-[#26234fa8] rounded-xl shadow-2xl transition-all duration-200 opacity-100 visible pointer-events-auto"
+                              style={{
+                                zIndex: 99999,
+                                top: `${dropdownPosition.top}px`,
+                                left: `${dropdownPosition.left}px`,
+                                transform: "translateX(-30%)",
+                                maxHeight: "calc(100vh - 100px)",
+                                overflowY: "auto",
+                                paddingTop: "12px", // Increased invisible bridge
+                              }}
+                              onMouseEnter={() => {
+                                // Clear any pending close timeout
+                                if (closeTimeoutRef.current) {
+                                  clearTimeout(closeTimeoutRef.current);
+                                  closeTimeoutRef.current = null;
+                                }
+                                setIsServicesDropdownOpen(true);
+                              }}
+                              onMouseLeave={() => {
+                                // Delay closing to allow mouse to move back to button
+                                closeTimeoutRef.current = setTimeout(() => {
+                                  setIsServicesDropdownOpen(false);
+                                }, 150);
+                              }}
+                            >
+                              <div
+                                className="p-6"
+                                style={{ marginTop: "-12px" }}
+                              >
+                                {" "}
+                                {/* Compensate for padding */}
+                                <h3 className="text-white text-lg font-semibold mb-6">
+                                  Solutions & Services
+                                </h3>
+                                <div className="grid grid-cols-4 gap-0">
+                                  {services && services.length > 0 ? (
+                                    services.map((service, index) => {
+                                      const isLastRow =
+                                        index >= services.length - 2;
+                                      const isLeftColumn = index % 2 === 0;
+                                      const isActive = pathname?.startsWith(
+                                        `/${service.slug}`
+                                      );
+                                      return (
+                                        <Link
+                                          key={service.slug}
+                                          href={`/${service.slug}`}
+                                          onClick={() =>
+                                            setIsServicesDropdownOpen(false)
+                                          }
+                                          className={`flex items-start gap-3 py-2 px-4 hover:bg-[#2f2a63]/30 transition-all rounded-lg ${
+                                            isActive ? "bg-[#2f2a63]/40" : ""
+                                          } ${!isLastRow ? "" : ""} ${
+                                            isLeftColumn ? "pr-3" : "pl-3"
+                                          }`}
+                                        >
+                                          <div
+                                            className={`flex-shrink-0 mt-0.5 ${
+                                              isActive
+                                                ? "text-[#0fdac2]"
+                                                : "text-[#643bff] opacity-70"
+                                            }`}
+                                          >
+                                            {getServiceIcon(service.slug)}
                                           </div>
-                                          <div className="text-gray-400 text-xs leading-relaxed">
-                                            {service.tagline || 'Service description'}
+                                          <div className="flex-1 min-w-0">
+                                            <div
+                                              className={`font-semibold text-sm mb-1 ${
+                                                isActive
+                                                  ? "text-[#0fdac2]"
+                                                  : "text-white"
+                                              }`}
+                                            >
+                                              {service.title || "Service Name"}
+                                            </div>
+                                            <div className="text-gray-400 text-xs leading-relaxed">
+                                              {service.tagline ||
+                                                "Service description"}
+                                            </div>
                                           </div>
-                                        </div>
-                                      </Link>
-                                    );
-                                  })
-                                ) : (
-                                  <div className="col-span-2 text-white text-center py-4">
-                                    No services available
-                                  </div>
-                                )}
+                                        </Link>
+                                      );
+                                    })
+                                  ) : (
+                                    <div className="col-span-2 text-white text-center py-4">
+                                      No services available
+                                    </div>
+                                  )}
+                                </div>
                               </div>
-                            </div>
-                          </div>,
-                          document.body
-                        )}
+                            </div>,
+                            document.body
+                          )}
                       </div>
                       {/* Services Dropdown */}
-                      <div 
+                      <div
                         key="services-dropdown-2"
-                        className="relative" 
+                        className="relative"
                         onMouseEnter={() => {
+                          // Clear any pending close timeout
+                          if (closeTimeoutRef2.current) {
+                            clearTimeout(closeTimeoutRef2.current);
+                            closeTimeoutRef2.current = null;
+                          }
                           setIsServicesDropdownOpen2(true);
                           if (dropdownButtonRef2.current) {
-                            const rect = dropdownButtonRef2.current.getBoundingClientRect();
-                            const topPosition = isScrolled 
-                              ? rect.bottom + 4  // Reduced from 12 to 4
-                              : rect.bottom + window.scrollY + 4;  // Reduced from 12 to 4
+                            const rect =
+                              dropdownButtonRef2.current.getBoundingClientRect();
+                            const topPosition = isScrolled
+                              ? rect.bottom + 4 // Reduced from 12 to 4
+                              : rect.bottom + window.scrollY + 4; // Reduced from 12 to 4
                             setDropdownPosition2({
                               top: topPosition,
                               left: rect.left + rect.width / 2,
                             });
                           }
                         }}
-                        onMouseLeave={() => setIsServicesDropdownOpen2(false)}
+                        onMouseLeave={() => {
+                          // Delay closing to allow mouse to move to dropdown
+                          closeTimeoutRef2.current = setTimeout(() => {
+                            setIsServicesDropdownOpen2(false);
+                          }, 150);
+                        }}
                       >
                         <button
                           ref={dropdownButtonRef2}
                           className={`text-white font-medium hover:text-[#0fdac2] transition-colors flex items-center justify-center gap-1 ${
-                            servicesMenuItems.some(item => pathname?.startsWith(item.href)) ? "text-[#0fdac2]" : ""
+                            servicesMenuItems.some((item) =>
+                              pathname?.startsWith(item.href)
+                            )
+                              ? "text-[#0fdac2]"
+                              : ""
                           }`}
                           style={
-                            servicesMenuItems.some(item => pathname?.startsWith(item.href))
+                            servicesMenuItems.some((item) =>
+                              pathname?.startsWith(item.href)
+                            )
                               ? {
                                   textShadow:
                                     "-9px 0 17px #00dbc1e6, 0px 6px 8px #0fdac287, 0 0 56px #0fdac2cc",
@@ -485,63 +709,101 @@ export default function Header() {
                         >
                           Services
                           <svg
-                            className={`w-[0.85rem] h-[0.85rem] mt-[0.3rem] transition-transform ${isServicesDropdownOpen2 ? "rotate-180" : ""}`}
+                            className={`w-[0.85rem] h-[0.85rem] mt-[0.3rem] transition-transform ${
+                              isServicesDropdownOpen2 ? "rotate-180" : ""
+                            }`}
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
                           >
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M19 9l-7 7-7-7"
+                            />
                           </svg>
                         </button>
 
                         {/* Services Dropdown Menu */}
-                        {typeof window !== 'undefined' && isServicesDropdownOpen2 && createPortal(
-                          <div 
-                            ref={servicesDropdownRef2}
-                            className="fixed w-[280px] bg-[#050321] border border-[#26234fa8] rounded-xl shadow-2xl transition-all duration-200 opacity-100 visible pointer-events-auto"
-                            style={{ 
-                              zIndex: 99999,
-                              top: `${dropdownPosition2.top}px`,
-                              left: `${dropdownPosition2.left}px`,
-                              transform: 'translateX(-50%)',
-                              paddingTop: '8px', // Add invisible bridge
-                            }}
-                            onMouseEnter={() => setIsServicesDropdownOpen2(true)}
-                            onMouseLeave={() => setIsServicesDropdownOpen2(false)}
-                          >
-                            <div className="p-4" style={{ marginTop: '-8px' }}> {/* Compensate for padding */}
-                              <div className="space-y-1">
-                                {servicesMenuItems.map((item) => {
-                                  const isActive = pathname?.startsWith(item.href);
-                                  return (
-                                    <Link
-                                      key={item.slug}
-                                      href={item.href}
-                                      onClick={() => setIsServicesDropdownOpen2(false)}
-                                      className={`flex items-center gap-3 py-3 px-4 hover:bg-[#2f2a63]/30 transition-all rounded-lg ${
-                                        isActive ? 'bg-[#2f2a63]/40' : ''
-                                      }`}
-                                    >
-                                      <div className={`flex-shrink-0 ${
-                                        isActive ? 'text-[#0fdac2]' : 'text-[#643bff] opacity-70'
-                                      }`}>
-                                        {getServicesMenuIcon(item.slug)}
-                                      </div>
-                                      <div className={`font-semibold text-sm ${
-                                        isActive ? 'text-[#0fdac2]' : 'text-white'
-                                      }`}>
-                                        {item.label}
-                                      </div>
-                                    </Link>
-                                  );
-                                })}
+                        {typeof window !== "undefined" &&
+                          isServicesDropdownOpen2 &&
+                          createPortal(
+                            <div
+                              ref={servicesDropdownRef2}
+                              className="fixed w-[280px] bg-[#050321] border border-[#26234fa8] rounded-xl shadow-2xl transition-all duration-200 opacity-100 visible pointer-events-auto"
+                              style={{
+                                zIndex: 99999,
+                                top: `${dropdownPosition2.top}px`,
+                                left: `${dropdownPosition2.left}px`,
+                                transform: "translateX(-50%)",
+                                paddingTop: "12px", // Increased invisible bridge
+                              }}
+                              onMouseEnter={() => {
+                                // Clear any pending close timeout
+                                if (closeTimeoutRef2.current) {
+                                  clearTimeout(closeTimeoutRef2.current);
+                                  closeTimeoutRef2.current = null;
+                                }
+                                setIsServicesDropdownOpen2(true);
+                              }}
+                              onMouseLeave={() => {
+                                // Delay closing to allow mouse to move back to button
+                                closeTimeoutRef2.current = setTimeout(() => {
+                                  setIsServicesDropdownOpen2(false);
+                                }, 150);
+                              }}
+                            >
+                              <div
+                                className="p-4"
+                                style={{ marginTop: "-12px" }}
+                              >
+                                {" "}
+                                {/* Compensate for padding */}
+                                <div className="space-y-1">
+                                  {servicesMenuItems.map((item) => {
+                                    const isActive = pathname?.startsWith(
+                                      item.href
+                                    );
+                                    return (
+                                      <Link
+                                        key={item.slug}
+                                        href={item.href}
+                                        onClick={() =>
+                                          setIsServicesDropdownOpen2(false)
+                                        }
+                                        className={`flex items-center gap-3 py-3 px-4 hover:bg-[#2f2a63]/30 transition-all rounded-lg ${
+                                          isActive ? "bg-[#2f2a63]/40" : ""
+                                        }`}
+                                      >
+                                        <div
+                                          className={`flex-shrink-0 ${
+                                            isActive
+                                              ? "text-[#0fdac2]"
+                                              : "text-[#643bff] opacity-70"
+                                          }`}
+                                        >
+                                          {getServicesMenuIcon(item.slug)}
+                                        </div>
+                                        <div
+                                          className={`font-semibold text-sm ${
+                                            isActive
+                                              ? "text-[#0fdac2]"
+                                              : "text-white"
+                                          }`}
+                                        >
+                                          {item.label}
+                                        </div>
+                                      </Link>
+                                    );
+                                  })}
+                                </div>
                               </div>
-                            </div>
-                          </div>,
-                          document.body
-                        )}
+                            </div>,
+                            document.body
+                          )}
                       </div>
-                    </>
+                    </React.Fragment>
                   );
                 }
                 // Render other links normally
@@ -567,17 +829,16 @@ export default function Header() {
               })}
             </div>
             <div className="hidden md:flex items-center gap-5">
-              <Link href="/roi-calculator" className="text-white text-sm border border-[#2f2a63] bg-[#05032173] rounded-lg px-3 py-2 me-2 text-[#969696] font-medium hover:text-[#0fdac2] transition-colors">
+              <Link
+                href="/roi-calculator"
+                className="text-white text-sm border border-[#2f2a63] bg-[#05032173] rounded-lg px-3 py-2 me-2 text-[#969696] font-medium hover:text-[#0fdac2] transition-colors"
+              >
                 {/* <span className="bg-[#2f2a63] font-light text-xs border border-[#525252] rounded-lg px-2 py-1 me-2 text-[#969696]">
                   New
                 </span> */}
                 ROI Calculator
               </Link>
-              <Button
-                href="/contact-us"
-                variant="green"
-                iconPosition="right"
-              >
+              <Button href="/contact-us" variant="green" iconPosition="right">
                 Hire Your Team
               </Button>
             </div>
@@ -619,7 +880,7 @@ export default function Header() {
 
       {/* Sidebar */}
       <div
-        className={`fixed top-0 left-0 h-full w-80 max-w-[85vw] bg-[#0a0a1a] border-r border-[#1a1a2e]/50 md:hidden z-1000 transform transition-transform duration-300 ease-in-out ${ 
+        className={`fixed top-0 left-0 h-full w-80 max-w-[85vw] bg-[#0a0a1a] border-r border-[#1a1a2e]/50 md:hidden z-1000 transform transition-transform duration-300 ease-in-out ${
           isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
@@ -685,8 +946,8 @@ export default function Header() {
 
             {/* Mobile Design Dropdown */}
             <div className="mb-2">
+              <Link href="/designer">
               <button
-                onClick={() => setIsMobileDesignDropdownOpen(!isMobileDesignDropdownOpen)}
                 className={`text-white text-base font-medium hover:text-[#0fdac2] transition-colors py-2 w-full text-left flex items-center justify-between ${
                   isServicePage() ? "text-[#0fdac2]" : ""
                 }`}
@@ -699,20 +960,33 @@ export default function Header() {
                     : {}
                 }
               >
-                Design
+                Designer
                 <svg
-                  className={`w-4 h-4 transition-transform ${isMobileDesignDropdownOpen ? "rotate-180" : ""}`}
+                onClick={() =>
+                  setIsMobileDesignDropdownOpen(!isMobileDesignDropdownOpen)
+                }
+                  className={`w-4 h-4 transition-transform ${
+                    isMobileDesignDropdownOpen ? "rotate-180" : ""
+                  }`}
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 9l-7 7-7-7"
+                  />
                 </svg>
               </button>
+              </Link>
               {isMobileDesignDropdownOpen && (
                 <div className="mt-2 pl-4 space-y-2 border-l border-[#2f2a63]">
                   {services.map((service) => {
-                    const isActiveService = pathname?.startsWith(`/${service.slug}`);
+                    const isActiveService = pathname?.startsWith(
+                      `/${service.slug}`
+                    );
                     return (
                       <Link
                         key={service.slug}
@@ -725,19 +999,25 @@ export default function Header() {
                           isActiveService ? "text-[#0fdac2]" : "text-gray-400"
                         }`}
                       >
-                        <div className={`flex-shrink-0 ${
-                          isActiveService ? 'text-[#0fdac2]' : 'text-[#643bff] opacity-70'
-                        }`}>
+                        <div
+                          className={`flex-shrink-0 ${
+                            isActiveService
+                              ? "text-[#0fdac2]"
+                              : "text-[#643bff] opacity-70"
+                          }`}
+                        >
                           {getServiceIcon(service.slug)}
                         </div>
                         <div className="flex-1 min-w-0">
-                          <div className={`font-medium text-sm ${
-                            isActiveService ? 'text-[#0fdac2]' : 'text-white'
-                          }`}>
-                            {service.title || 'Service Name'}
+                          <div
+                            className={`font-medium text-sm ${
+                              isActiveService ? "text-[#0fdac2]" : "text-white"
+                            }`}
+                          >
+                            {service.title || "Service Name"}
                           </div>
                           <div className="text-xs text-gray-400 mt-0.5">
-                            {service.tagline || 'Service description'}
+                            {service.tagline || "Service description"}
                           </div>
                         </div>
                       </Link>
@@ -750,12 +1030,20 @@ export default function Header() {
             {/* Mobile Services Dropdown */}
             <div className="mb-2">
               <button
-                onClick={() => setIsMobileServicesDropdownOpen(!isMobileServicesDropdownOpen)}
+                onClick={() =>
+                  setIsMobileServicesDropdownOpen(!isMobileServicesDropdownOpen)
+                }
                 className={`text-white text-base font-medium hover:text-[#0fdac2] transition-colors py-2 w-full text-left flex items-center justify-between ${
-                  servicesMenuItems.some(item => pathname?.startsWith(item.href)) ? "text-[#0fdac2]" : ""
+                  servicesMenuItems.some((item) =>
+                    pathname?.startsWith(item.href)
+                  )
+                    ? "text-[#0fdac2]"
+                    : ""
                 }`}
                 style={
-                  servicesMenuItems.some(item => pathname?.startsWith(item.href))
+                  servicesMenuItems.some((item) =>
+                    pathname?.startsWith(item.href)
+                  )
                     ? {
                         textShadow:
                           "-9px 0 17px #00dbc1e6, 0px 6px 8px #0fdac287, 0 0 56px #0fdac2cc",
@@ -765,12 +1053,19 @@ export default function Header() {
               >
                 Services
                 <svg
-                  className={`w-4 h-4 transition-transform ${isMobileServicesDropdownOpen ? "rotate-180" : ""}`}
+                  className={`w-4 h-4 transition-transform ${
+                    isMobileServicesDropdownOpen ? "rotate-180" : ""
+                  }`}
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 9l-7 7-7-7"
+                  />
                 </svg>
               </button>
               {isMobileServicesDropdownOpen && (
@@ -789,14 +1084,20 @@ export default function Header() {
                           isActiveService ? "text-[#0fdac2]" : "text-gray-400"
                         }`}
                       >
-                        <div className={`flex-shrink-0 ${
-                          isActiveService ? 'text-[#0fdac2]' : 'text-[#643bff] opacity-70'
-                        }`}>
+                        <div
+                          className={`flex-shrink-0 ${
+                            isActiveService
+                              ? "text-[#0fdac2]"
+                              : "text-[#643bff] opacity-70"
+                          }`}
+                        >
                           {getServicesMenuIcon(item.slug)}
                         </div>
-                        <div className={`font-medium text-sm ${
-                          isActiveService ? 'text-[#0fdac2]' : 'text-white'
-                        }`}>
+                        <div
+                          className={`font-medium text-sm ${
+                            isActiveService ? "text-[#0fdac2]" : "text-white"
+                          }`}
+                        >
                           {item.label}
                         </div>
                       </Link>
@@ -807,30 +1108,32 @@ export default function Header() {
             </div>
 
             {/* Other Navigation Links (excluding Home) */}
-            {NAVIGATION_LINKS.filter(link => link.label !== "Home").map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className={`text-white text-base font-medium hover:text-[#0fdac2] transition-colors py-2 ${
-                  isActive(link.href) ? "text-[#0fdac2]" : ""
-                }`}
-                style={
-                  isActive(link.href)
-                    ? {
-                        textShadow:
-                          "-9px 0 17px #00dbc1e6, 0px 6px 8px #0fdac287, 0 0 56px #0fdac2cc",
-                      }
-                    : {}
-                }
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {link.label}
-              </a>
-            ))}
+            {NAVIGATION_LINKS.filter((link) => link.label !== "Home").map(
+              (link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className={`text-white text-base font-medium hover:text-[#0fdac2] transition-colors py-2 ${
+                    isActive(link.href) ? "text-[#0fdac2]" : ""
+                  }`}
+                  style={
+                    isActive(link.href)
+                      ? {
+                          textShadow:
+                            "-9px 0 17px #00dbc1e6, 0px 6px 8px #0fdac287, 0 0 56px #0fdac2cc",
+                        }
+                      : {}
+                  }
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {link.label}
+                </a>
+              )
+            )}
 
             {/* ROI Calculator Link */}
-            <Link 
-              href="/roi-calculator" 
+            <Link
+              href="/roi-calculator"
               onClick={() => setIsMobileMenuOpen(false)}
               className="text-white text-sm border border-[#2f2a63] bg-[#05032173] rounded-lg px-3 py-2 text-[#969696] font-medium hover:text-[#0fdac2] transition-colors"
             >

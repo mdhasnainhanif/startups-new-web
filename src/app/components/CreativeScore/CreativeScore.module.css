@@ -429,6 +429,9 @@
 }
 
 @media (max-width: 768px) {
+  .section{
+    border-radius: 1rem;
+  }
   .scoreValue {
     font-size: 3rem;
   }
@@ -1187,6 +1190,49 @@
   .agencyChartContent .optionsList{
     /* border: 2px solid red; */
     padding-top: 2rem;
+    position: relative !important;
+    top: auto !important;
+    grid-template-columns: 1fr !important;
+    grid-template-rows: repeat(4, auto) !important;
+    gap: 2rem !important;
+    max-width: 100% !important;
+  }
+
+  .agencyChartContent .optionItem {
+    grid-column: 1 / 2 !important;
+    align-items: flex-start !important;
+  }
+
+  .agencyChartContent .optionItem:nth-child(1) {
+    grid-row: 1 / 2 !important;
+  }
+
+  .agencyChartContent .optionItem:nth-child(2) {
+    grid-row: 2 / 3 !important;
+  }
+
+  .agencyChartContent .optionItem:nth-child(3) {
+    grid-row: 3 / 4 !important;
+  }
+
+  .agencyChartContent .optionItem:nth-child(4) {
+    grid-row: 4 / 5 !important;
+  }
+
+  .agencyChartWrapper {
+    position: relative !important;
+    top: auto !important;
+    margin: 2rem auto !important;
+    width: 100% !important;
+    max-width: 300px !important;
+  }
+
+  .agencyChartContent {
+    flex-direction: column !important;
+  }
+
+  .agencyChartContent .chartWrapper {
+    height: 250px !important;
   }
   
 }

@@ -480,8 +480,7 @@ p.conclusion {
   }
 
   .chartsContainer {
-    grid-template-columns: 1fr;
-    gap: 24px;
+    display: none !important;
   }
 
   .designServicesGrid {

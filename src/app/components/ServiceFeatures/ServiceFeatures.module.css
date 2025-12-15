@@ -89,20 +89,6 @@
   mix-blend-mode: normal;
 }
 
-.backgroundShape {
-  position: absolute;
-  top: -20%;
-  right: -10%;
-  width: 80%;
-  height: 120%;
-  border-radius: 50% 40% 60% 50%;
-  opacity: 0.6;
-  z-index: 1;
-  filter: blur(30px);
-  transform: rotate(-15deg);
-  background: linear-gradient(135deg, #aaff00 0%, #88dd00 100%);
-}
-
 .nameTag {
   position: absolute;
   top: 1rem;
@@ -191,6 +177,12 @@
 }
 
 @media (max-width: 767px) {
+  .largeCard {
+    padding: 1rem;
+  }
+  div.smallCard {
+    padding: 1rem;
+  }
   .smallCardsContainer {
     grid-template-columns: 1fr;
     grid-template-rows: auto;

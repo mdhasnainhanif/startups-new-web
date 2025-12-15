@@ -13,12 +13,14 @@ interface PersonalDetailsFormProps {
   }) => void;
   onBack: () => void;
   isSubmitting: boolean;
+  showBack?: boolean;
 }
 
 export default function PersonalDetailsForm({
   onSubmit,
   onBack,
   isSubmitting,
+  showBack = true,
 }: PersonalDetailsFormProps) {
   const [formData, setFormData] = useState({
     name: "",
@@ -107,13 +109,15 @@ export default function PersonalDetailsForm({
           {isSubmitting ? "Submitting..." : "Submit"}
         </Button>
         
-        <button
-          type="button"
-          onClick={onBack}
-          className={styles.backButton}
-        >
-          ← Back
-        </button>
+        {showBack && (
+          <button
+            type="button"
+            onClick={onBack}
+            className={styles.backButton}
+          >
+            ← Back
+          </button>
+        )}
       </form>
     </div>
   );

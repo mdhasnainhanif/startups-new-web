@@ -1,0 +1,86 @@
+.briefPage {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: visible;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  justify-content: center;
+  margin-top: 4rem;
+  padding-bottom: 5rem;
+  padding-top: 1rem;
+}
+
+.questionnaireSection {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+  overflow-y: visible;
+  min-height: 0;
+}
+
+.questionnaireWrapper {
+  padding-top: 0 !important;
+  padding-bottom: 2rem !important;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.briefPage :global(.container) {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Hide back button in form area for brief page */
+.briefPage :global(.personalDetailsForm) :global(.backButton),
+.briefPage :global(.formArea) :global(.backButton),
+.briefPage :global(.formArea) button:global(.backButton),
+.briefPage :global(.stepContainer) :global(.backButton),
+.briefPage :global(.stepWrapper) :global(.backButton),
+.briefPage form :global(.backButton),
+.briefPage :global(.personalDetailsContainer) :global(.backButton),
+.briefPage :global(.personalDetailsContainer) button:global(.backButton) {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  position: absolute !important;
+  width: 0 !important;
+  overflow: hidden !important;
+}
+
+/* Mobile specific adjustments */
+@media screen and (max-width: 768px) {
+  .briefPage {
+    margin-top: 2rem;
+    padding-bottom: 5rem;
+    padding-top: 1rem;
+    height: auto;
+    max-height: none;
+  }
+
+  .questionnaireSection {
+    min-height: auto;
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+    overflow-y: visible;
+  }
+
+  .questionnaireWrapper {
+    padding-bottom: 3rem !important;
+    overflow-y: visible;
+  }
+}

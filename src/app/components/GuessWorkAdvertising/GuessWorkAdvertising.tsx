@@ -4,7 +4,8 @@ import React, { useState } from 'react';
 import Container from '../Container';
 import styles from './GuessWorkAdvertising.module.css';
 import Button from '../Button';
-import CreativeScore from '../CreativeScore/CreativeScore';
+import Image from 'next/image';
+// import CreativeScore from '../CreativeScore/CreativeScore';
 
 export interface GuessWorkAdvertisingData {
   heading: {
@@ -119,7 +120,8 @@ const GuessWorkAdvertising = ({ data = GUESS_WORK_ADVERTISING_DATA }: GuessWorkA
 
           {/* Creative Score Dashboard */}
           <div className="w-full">
-            <CreativeScore />
+            {/* <CreativeScore /> */}
+            <Image className="mx-auto w-full d-block" src="/assets/images/infographic.webp" alt="Guesswork Advertising Analytics" width={1300} height={1000} />
           </div>
         </div>
       </Container>
