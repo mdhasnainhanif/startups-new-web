@@ -68,11 +68,11 @@ const HomeBanner = () => {
                     alt={HOME_BANNER_DATA.video.videoTitle}
                   />
                   {/* Google Image - Positioned Absolutely */}
-                  <img
+                  {/* <img
                     src={HOME_BANNER_DATA.review.logo}
                     alt="Google"
                     className={styles.googleImage}
-                  />
+                  /> */}
                   {/* Play Button Icon */}
                   <div className={styles.playButtonContainer}>
                     <div className={styles.playButton}>

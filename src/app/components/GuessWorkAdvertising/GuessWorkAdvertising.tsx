@@ -118,10 +118,44 @@ const GuessWorkAdvertising = ({ data = GUESS_WORK_ADVERTISING_DATA }: GuessWorkA
             </div>
           </form>
 
-          {/* Creative Score Dashboard */}
-          <div className="w-full">
-            {/* <CreativeScore /> */}
-            <Image className="mx-auto w-full d-block" src="/assets/images/infographic.webp" alt="Guesswork Advertising Analytics" width={1300} height={1000} />
+          {/* Infographic Images Grid */}
+          <div className={`w-full`}>
+            {/* <div className={styles.imageWrapper}>
+              <Image 
+                className="w-full h-auto" 
+                src="/assets/images/infographic1.webp" 
+                alt="Infographic 1" 
+                width={650} 
+                height={500} 
+              />
+            </div>
+            <div className={styles.imageWrapper}>
+              <Image 
+                className="w-full h-auto" 
+                src="/assets/images/infographic2.webp" 
+                alt="Infographic 2" 
+                width={650} 
+                height={500} 
+              />
+            </div>
+            <div className={styles.imageWrapper}>
+              <Image 
+                className="w-full h-auto" 
+                src="/assets/images/infographic3.webp" 
+                alt="Infographic 3" 
+                width={650} 
+                height={500} 
+              />
+            </div> */}
+            <div className={styles.imageWrapper}>
+              <Image 
+                className="block mx-auto h-auto w-[90%]" 
+                src="/assets/images/graph-image.webp" 
+                alt="Infographic 4" 
+                width={650} 
+                height={500} 
+              />
+            </div>
           </div>
         </div>
       </Container>

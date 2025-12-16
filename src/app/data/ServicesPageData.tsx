@@ -50,8 +50,9 @@ export const SERVICES_DATA: Record<string, ServicePageData> = {
         href: "/contact-us",
       },
       image: {
-        src: "/assets/images/homenewbanner-img.webp",
+        src: "/assets/images/brand-identity/banner.webp",
         alt: "Brand & Identity Design Service",
+        className: "banneFullMin",
       },
     },
   },
@@ -68,7 +69,7 @@ export const SERVICES_DATA: Record<string, ServicePageData> = {
     bannerData: {
       heading: {
         part1: "High-Impact ",
-        highlight1: "Marketing & Advertising",
+        highlight1: "Marketing And Advertising",
         highlight2: "",
         part2: " Systems That Drive Revenue",
       },
@@ -88,8 +89,9 @@ export const SERVICES_DATA: Record<string, ServicePageData> = {
         href: "/contact-us",
       },
       image: {
-        src: "/assets/images/homenewbanner-img.webp",
+        src: "/assets/images/marketing-advertising/banner.webp",
         alt: "Marketing & Advertising Design Service",
+        className: "banneFull",
       },
     },
   },
@@ -126,8 +128,9 @@ export const SERVICES_DATA: Record<string, ServicePageData> = {
         href: "/contact-us",
       },
       image: {
-        src: "/assets/images/homenewbanner-img.webp",
+        src: "/assets/images/digital-web/banner.webp",
         alt: "Digital & Web Design Service",
+        className: "digitalWebBanner",
       },
     },
   },
@@ -166,6 +169,7 @@ export const SERVICES_DATA: Record<string, ServicePageData> = {
       image: {
         src: "/assets/images/homenewbanner-img.webp",
         alt: "Motion & Video Design Service",
+        className: "motionVideoBanner",
       },
     },
   },
@@ -177,14 +181,14 @@ export const SERVICES_DATA: Record<string, ServicePageData> = {
     description: "Digital gets noticed. Print gets remembered. We design print materials that add weight to your brand — pieces that feel intentional, credible, and worth keeping. From first impressions to final handshakes, we create print that supports trust and reinforces your brand in the real world.",
     metadata: {
       title: "Print Design Services | Startups Advisory",
-      description: "HIGH-IMPACT PRINT THAT MAKES YOUR BRAND FEEL REAL. Turn Your Brand Into Something People Can Hold.",
+      description: "High-Impact Print That Makes Your Brand Feel Real. Turn Your Brand Into Something People Can Hold.",
     },
     bannerData: {
       heading: {
-        part1: "HIGH-IMPACT ",
-        highlight1: "PRINT",
+        part1: "High-Impact ",
+        highlight1: "Print That Makes ",
         highlight2: "",
-        part2: " THAT MAKES YOUR BRAND FEEL REAL",
+        part2: " Your Brand Feel Real",
       },
       description: "Turn Your Brand Into Something People Can Hold. Digital gets noticed. Print gets remembered. We design print materials that add weight to your brand — pieces that feel intentional, credible, and worth keeping. From first impressions to final handshakes, we create print that supports trust and reinforces your brand in the real world.",
       experienceBox: {
@@ -202,8 +206,9 @@ export const SERVICES_DATA: Record<string, ServicePageData> = {
         href: "/contact-us",
       },
       image: {
-        src: "/assets/images/homenewbanner-img.webp",
+        src: "/assets/images/print/banner.webp",
         alt: "Print Design Service",
+        className: "banneFull",
       },
     },
   },
@@ -240,8 +245,9 @@ export const SERVICES_DATA: Record<string, ServicePageData> = {
         href: "/contact-us",
       },
       image: {
-        src: "/assets/images/homenewbanner-img.webp",
+        src: "/assets/images/illustration-artwork/banner.webp",
         alt: "Illustration & Artwork Service",
+        className: "banneFull",
       },
     },
   },
@@ -278,8 +284,9 @@ export const SERVICES_DATA: Record<string, ServicePageData> = {
         href: "/contact-us",
       },
       image: {
-        src: "/assets/images/homenewbanner-img.webp",
+        src: "/assets/images/ebooks-digital-report/banner.webp",
         alt: "eBooks & Digital Report Design Service",
+        className: "banneFull",
       },
     },
   },
@@ -316,8 +323,9 @@ export const SERVICES_DATA: Record<string, ServicePageData> = {
         href: "/contact-us",
       },
       image: {
-        src: "/assets/images/homenewbanner-img.webp",
+        src: "/assets/images/presentations/banner.webp",
         alt: "Presentation Design Service",
+        className: "banneFull",
       },
     },
   },
@@ -354,8 +362,9 @@ export const SERVICES_DATA: Record<string, ServicePageData> = {
         href: "/contact-us",
       },
       image: {
-        src: "/assets/images/homenewbanner-img.webp",
+        src: "/assets/images/product-packaging/banner.webp",
         alt: "Product & Packaging Design Service",
+        className: "banneFull",
       },
     },
   },
@@ -392,8 +401,9 @@ export const SERVICES_DATA: Record<string, ServicePageData> = {
         href: "/contact-us",
       },
       image: {
-        src: "/assets/images/homenewbanner-img.webp",
+        src: "/assets/images/apparel-merchandise/banner.webp",
         alt: "Apparel & Merchandise Design Service",
+        className: "banneFull",
       },
     },
   },
@@ -432,6 +442,7 @@ export const SERVICES_DATA: Record<string, ServicePageData> = {
       image: {
         src: "/assets/images/homenewbanner-img.webp",
         alt: "Environmental & Event Graphics Service",
+        className: "environmentalEventBanner",
       },
     },
   },
@@ -470,6 +481,7 @@ export const SERVICES_DATA: Record<string, ServicePageData> = {
       image: {
         src: "/assets/images/homenewbanner-img.webp",
         alt: "Corporate & Internal Design Service",
+        className: "corporateInternalBanner",
       },
     },
   },

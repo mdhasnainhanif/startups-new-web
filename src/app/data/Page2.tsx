@@ -41,7 +41,7 @@ export interface HomeBannerData {
       href: '#',
     },
     video: {
-      thumbnail: '/assets/images/man.jpg',
+      thumbnail: '/assets/images/man.webp',
       videoUrl: '/assets/images/videoplayback.mp4',
       videoTitle: 'Pareto Talent Demo',
     },
@@ -188,15 +188,15 @@ export interface HomeBannerData {
       items: [
         {
           text: 'Trained to think strategically, not just "do tasks"',
-          icon: '/assets/images/globe1.png',
+          icon: '/assets/images/key-growth/why-it-works/1.svg',
         },
         {
           text: 'Supported by a team that guards consistency and performance',
-          icon: '/assets/images/globe1.png',
+          icon: '/assets/images/key-growth/why-it-works/2.svg',
         },
         {
           text: 'Committed to keeping your business in forward motion, always',
-          icon: '/assets/images/globe1.png',
+          icon: '/assets/images/key-growth/why-it-works/3.svg',
         },
       ],
     },
@@ -314,14 +314,14 @@ export interface HomeBannerData {
         description:
           'Your Growth Manager isn\'t here to "help out." They come in to organize, steady, and speed up the parts of your business that fall behind when things get busy. They think fast, move clean, and keep your daily operations running in a straight line — so you get reliable output every week without having to push, remind, or manage constantly.',
         backgroundImage: '/assets/images/businessdot.png',
-        image: '/assets/images/businessclient.png',
+        image: '/assets/images/key-growth/why-business-owners-choose/1.png',
       },
       {
         label: 'AI',
         title: 'AI-Enabled Growth Managers',
         description:
           'Your Growth Manager works faster because they use smart systems that take the slow work off their hands. Nothing for you to learn, nothing for you to set up — just cleaner tasks done quicker and a business that stays ahead instead of catching up. The result? Consistent output. Less waiting. More movement every single week.',
-        image: '/assets/images/businessowner1.png',
+        image: '/assets/images/key-growth/why-business-owners-choose/2.png',
       },
     ],
   };
@@ -352,7 +352,7 @@ export interface HomeBannerData {
       text: 'Book Free Strategy Call',
       href: '#',
     },
-    image: '/assets/images/replacement.png',
+    image: '/assets/images/key-growth/lifetime-replacement-guarantee/image.png',
   };
 
   export interface SupportAndTrainingData {
@@ -385,7 +385,7 @@ export interface HomeBannerData {
       'They step in ready — understanding how you track work, store files, manage tasks, communicate with customers, and keep things organized — so nothing starts slow and nothing needs explaining.',
       'Your Growth Manager plugs into your setup fast, keeps it clean, and makes it work smoother than before.',
     ],
-    image: '/assets/images/growthmanager.png',
+    image: '/assets/images/key-growth/tools-your-growth-manager-is-trained-on/growthmanager.png',
   };
 
   export interface ThreeEasyStepsData {

@@ -48,6 +48,11 @@
   font-size: 1.125rem;
 }
 
+.btnPrimary.xl {
+  padding: 0.825rem 2.625rem 0.925rem;
+  font-size: 1.2rem !important;
+}
+
 .btnPrimary::after {
   background-clip: padding-box;
   background-color: #643bff;
@@ -239,7 +244,7 @@
   }
 
   .btnPrimary.md {
-    font-size: 1rem !important;
+    font-size: 0.875rem !important;
   }
 
   .btnPrimary.lg {
@@ -253,7 +258,7 @@
 
 @media screen and (max-width: 576px) {
   .btnPrimary.lg {
-    font-size: 1rem !important;
+    font-size: 0.875rem !important;
     padding: 0.625rem 1.725rem 0.595rem;
   }
 }

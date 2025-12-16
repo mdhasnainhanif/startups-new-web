@@ -55,6 +55,7 @@ export default function Button({
     sm: styles.sm,
     md: styles.md,
     lg: styles.lg,
+    xl: styles.xl,
   };
 
   // Apply size class

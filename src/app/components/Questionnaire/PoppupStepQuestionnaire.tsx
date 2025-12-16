@@ -6,6 +6,8 @@ import styles from "./PoppupStepQuestionnaire.module.css";
 import { questionnaireData } from "./questionnaireData";
 import QuestionnaireStep from "./QuestionnaireStep";
 import PersonalDetailsForm from "./PersonalDetailsForm";
+import Button from "../Button";
+import { ArrowLeftIcon } from "../../icons";
 
 export interface QuestionnaireAnswers {
   [key: string]: string;
@@ -171,7 +173,7 @@ export default function PoppupStepQuestionnaire({
         {showThankYou ? (
           <div className={styles.thankYouArea}>
             <h1 className={styles.thankYouHeading}>Thank You!</h1>
-            <div className={styles.separator}></div>
+            {/* <div className={styles.separator}></div> */}
             <div className={styles.thankYouMessage}>
               <h2 className={styles.thankYouSubheading}>
                 We Will Get In Touch You Shortly
@@ -179,43 +181,63 @@ export default function PoppupStepQuestionnaire({
             </div>
           </div>
         ) : (
-          <div className={styles.questionnaireWrapper}>
-            {/* Header */}
-            <div className={styles.header}>
-              <h1 className={styles.mainHeading}>
-                Just Tell Us What You Need & Get <br />
-                The Best Price Instantly!
-              </h1>
-              <div className={styles.separator}></div>
-            </div>
+          <>
+            <div className={styles.questionnaireWrapper}>
+              {/* Header */}
+              <div className={styles.header}>
+                <h1 className={styles.mainHeading}>
+                  Just Tell Us What You Need & Get <br />
+                  The Best Price Instantly!
+                </h1>
+                <div className={styles.separator}></div>
+              </div>
 
-            {/* Form Area */}
-            <div className={styles.formArea}>
-              {currentStep === "questionnaire-personal-detail" ? (
-                <PersonalDetailsForm
-                  key="personal-details-form"
-                  onSubmit={handlePersonalDetailsSubmit}
-                  onBack={handleBack}
-                  isSubmitting={isSubmitting}
-                />
-              ) : (
-                <>
-                  {currentStepData && (
-                    <div className={`${styles.stepWrapper} ${fadeIn ? styles.fadeIn : styles.fadeOut}`}>
-                      <QuestionnaireStep
-                        key={currentStepData.id}
-                        step={currentStepData}
-                        onSelect={handleOptionSelect}
-                        onBack={handleBack}
-                        selectedValue={answers[currentStepData.id]}
-                        showBack={stepHistory.length > 1}
-                      />
-                    </div>
-                  )}
-                </>
-              )}
+              {/* Form Area */}
+              <div className={styles.formArea}>
+                {currentStep === "questionnaire-personal-detail" ? (
+                  <PersonalDetailsForm
+                    key="personal-details-form"
+                    onSubmit={handlePersonalDetailsSubmit}
+                    onBack={handleBack}
+                    isSubmitting={isSubmitting}
+                    showBack={false}
+                  />
+                ) : (
+                  <>
+                    {currentStepData && (
+                      <div className={`${styles.stepWrapper} ${fadeIn ? styles.fadeIn : styles.fadeOut}`}>
+                        <QuestionnaireStep
+                          key={currentStepData.id}
+                          step={currentStepData}
+                          onSelect={handleOptionSelect}
+                          onBack={handleBack}
+                          selectedValue={answers[currentStepData.id]}
+                          showBack={false}
+                        />
+                      </div>
+                    )}
+                  </>
+                )}
+              </div>
             </div>
-          </div>
+            
+            {/* Footer with Back Button - Outside scrollable area */}
+            {!showThankYou && (stepHistory.length > 1 || currentStep !== "step-1") && (
+              <div className={styles.popupFooter}>
+                <Button
+                  type="button"
+                  onClick={handleBack}
+                  variant="primary"
+                  size="md"
+                  className={styles.footerBackButton}
+                  icon={<ArrowLeftIcon />}
+                  iconPosition="left"
+                >
+                  Back
+                </Button>
+              </div>
+            )}
+          </>
         )}
       </div>
     </div>

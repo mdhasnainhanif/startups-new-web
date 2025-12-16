@@ -273,13 +273,13 @@ export const SERVICES_STATS_DATA: ServicesStatsDataMap = {
     stats: [
       {
         id: "am-stat-1",
-        image: "/assets/images/services/apparel-merchandise/1.webp",
+        image: "/assets/images/services/brand-identity/stat1.webp",
         value: "1.2M+",
         label: "Apparel and merchandise designs created",
       },
       {
         id: "am-stat-2",
-        image: "/assets/images/services/apparel-merchandise/2.webp",
+        image: "/assets/images/services/brand-identity/stat2.webp",
         value: "220+",
         label: "Apparel designers and merchandise specialists",
         overlays: [
@@ -290,7 +290,7 @@ export const SERVICES_STATS_DATA: ServicesStatsDataMap = {
       },
       {
         id: "am-stat-3",
-        image: "/assets/images/services/apparel-merchandise/3.webp",
+        image: "/assets/images/services/brand-identity/stat3.webp",
         value: "4.7/5★",
         label: "Apparel design and quality satisfaction",
       },
@@ -300,13 +300,13 @@ export const SERVICES_STATS_DATA: ServicesStatsDataMap = {
     stats: [
       {
         id: "ee-stat-1",
-        image: "/assets/images/services/environmental-event/1.webp",
+        image: "/assets/images/services/brand-identity/stat1.webp",
         value: "2.0M+",
         label: "Event attendees impacted by our design systems.",
       },
       {
         id: "ee-stat-2",
-        image: "/assets/images/services/environmental-event/2.webp",
+        image: "/assets/images/services/brand-identity/stat2.webp",
         value: "215+",
         label: "Event designers and brand specialists collaborating at scale.",
         overlays: [
@@ -317,7 +317,7 @@ export const SERVICES_STATS_DATA: ServicesStatsDataMap = {
       },
       {
         id: "ee-stat-3",
-        image: "/assets/images/services/environmental-event/3.webp",
+        image: "/assets/images/services/brand-identity/stat3.webp",
         value: "4.8/5★",
         label: "Average rating for reliability, quality, and turnaround.",
       },
@@ -327,13 +327,13 @@ export const SERVICES_STATS_DATA: ServicesStatsDataMap = {
     stats: [
       {
         id: "ci-stat-1",
-        image: "/assets/images/services/corporate-internal/1.webp",
+        image: "/assets/images/services/brand-identity/stat1.webp",
         value: "2.1M+",
         label: "Corporate materials and internal designs",
       },
       {
         id: "ci-stat-2",
-        image: "/assets/images/services/corporate-internal/2.webp",
+        image: "/assets/images/services/brand-identity/stat2.webp",
         value: "300+",
         label: "Corporate designers and internal comms specialists",
         overlays: [
@@ -344,7 +344,7 @@ export const SERVICES_STATS_DATA: ServicesStatsDataMap = {
       },
       {
         id: "ci-stat-3",
-        image: "/assets/images/services/corporate-internal/3.webp",
+        image: "/assets/images/services/brand-identity/stat3.webp",
         value: "4.6/5★",
         label: "Corporate design and alignment satisfaction",
       },

@@ -2,8 +2,10 @@ import styles from "./HomenewBanner.module.css";
 import Button from "../../Button";
 import { ArrowRightIcon } from "../../icons";
 import Container from "../../Container";
+import Image from "next/image";
 
 export interface HomenewBannerData {
+  className?: string;
   heading: {
     part1: string;
     highlight1: string;
@@ -22,6 +24,7 @@ export interface HomenewBannerData {
   image: {
     src: string;
     alt: string;
+    className?: string;
   };
 }
 
@@ -61,7 +64,7 @@ const DEFAULT_DATA: HomenewBannerData = {
 const HomenewBanner = ({ data = DEFAULT_DATA }: HomenewBannerProps) => {
   return (
     <section
-      className={`sectionPadding ${styles.extraPaddingTop} ${styles.HomenewBanner}`}
+      className={`sectionPadding ${styles.extraPaddingTop} ${styles.HomenewBanner} ${data.className}`}
     >
       <Container maxWidth="xl">
         <div className={`${styles.row} md:pt-20`}>
@@ -104,10 +107,15 @@ const HomenewBanner = ({ data = DEFAULT_DATA }: HomenewBannerProps) => {
           </div>
 
           <div className={styles.colRight}>
-            <img
+            <Image
               src={data.image.src}
               alt={data.image.alt}
-              className={`w-full ${styles.homenewbanner1}`}
+              width={800}
+              height={800}
+              priority
+              fetchPriority="high"
+              quality={85}
+              className={`w-full ${styles.homenewbanner1} ${data.image.className}`}
             />
           </div>
         </div>

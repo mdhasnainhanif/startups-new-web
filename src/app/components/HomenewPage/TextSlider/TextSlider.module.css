@@ -1,20 +1,3 @@
-/* .ctaBanner {
-  position: relative;
-  display: flex;
-  align-items: center;
-  background: url('../../../../public/assets/images/cta-banner.webp') no-repeat center center;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  padding: 2rem 0;
-}
-
-@media (max-width: 768px) {
-  .ctaBanner {
-    min-height: 10rem;
-  }
-} */
-
 .ctaBanner {
   position: relative;
   display: flex;
@@ -32,7 +15,7 @@
   content: "";
   position: absolute;
   top: 0;
-  width: 250px;    /* bigger shadow */
+  width: 250px;
   height: 100%;
   pointer-events: none;
 }

@@ -24,11 +24,16 @@ interface FAQProps {
 }
 
 export default function FAQ({ faqs, sectionData, className = "" }: FAQProps) {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [leftOpenIndex, setLeftOpenIndex] = useState<number | null>(0);
+  const [rightOpenIndex, setRightOpenIndex] = useState<number | null>(null);
   const [userQuestion, setUserQuestion] = useState<string>("");
 
-  const toggleFAQ = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
+  const toggleLeftFAQ = (index: number) => {
+    setLeftOpenIndex(leftOpenIndex === index ? null : index);
+  };
+
+  const toggleRightFAQ = (index: number) => {
+    setRightOpenIndex(rightOpenIndex === index ? null : index);
   };
 
   const handleQuestionChange = (value: string) => {
@@ -61,41 +66,88 @@ export default function FAQ({ faqs, sectionData, className = "" }: FAQProps) {
             </p>
           </div>
 
-          {/* FAQ Items */}
+          {/* FAQ Items - 2 Column Layout */}
           <div className="w-full">
-            <div className="space-y-0">
-              {faqs.map((faq, index) => (
-                <div
-                  key={index}
-                  className="border-b border-white/10 last:border-b-0"
-                >
-                  {/* FAQ Question */}
-                  <button
-                    onClick={() => toggleFAQ(index)}
-                    className="w-full px-0 py-4 sm:py-5 md:py-6 flex items-center justify-between text-left focus:outline-none transition-colors hover:opacity-80 gap-3 sm:gap-4 cursor-pointer"
-                  >
-                    <span className="text-white font-semibold text-base sm:text-lg md:text-xl lg:text-2xl pr-2 sm:pr-4 flex-1 leading-snug sm:leading-normal">
-                      {faq.question}
-                    </span>
-                    <span className="text-white text-xl sm:text-2xl md:text-3xl font-light shrink-0 w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 flex items-center justify-center">
-                      {openIndex === index ? "−" : "+"}
-                    </span>
-                  </button>
-                  
-                  {/* FAQ Answer */}
-                  <div
-                    className={`overflow-hidden transition-all duration-300 ${
-                      openIndex === index
-                        ? "max-h-[500px] pb-4 sm:pb-5 md:pb-6"
-                        : "max-h-0"
-                    }`}
-                  >
-                    <p className="text-white/80 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed pr-2 sm:pr-4 md:pr-8">
-                      {faq.answer}
-                    </p>
-                  </div>
-                </div>
-              ))}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-x-6">
+              {/* Left Column */}
+              <div className="space-y-0">
+                {faqs.slice(0, Math.ceil(faqs.length / 2)).map((faq, index) => {
+                  return (
+                    <div
+                      key={index}
+                      className="border-b-2 border-[#312d63a8] last:border-b-0"
+                    >
+                      {/* FAQ Question */}
+                      <button
+                        onClick={() => toggleLeftFAQ(index)}
+                        className="w-full px-0 py-4 sm:py-5 md:py-6 flex items-center justify-between text-left focus:outline-none transition-colors hover:opacity-80 gap-3 sm:gap-4 cursor-pointer"
+                      >
+                        <span className="text-white font-semibold text-base sm:text-lg md:text-xl lg:text-xl pr-2 sm:pr-4 flex-1 leading-snug sm:leading-normal">
+                          {faq.question}
+                        </span>
+                        <span className={`text-xl sm:text-2xl md:text-3xl font-light shrink-0 w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 flex items-center justify-center transition-colors ${
+                          leftOpenIndex === index ? "text-[#643bff]" : "text-[#0fdac2]"
+                        }`}>
+                          {leftOpenIndex === index ? "−" : "+"}
+                        </span>
+                      </button>
+                      
+                      {/* FAQ Answer */}
+                      <div
+                        className={`overflow-hidden transition-all duration-300 ${
+                          leftOpenIndex === index
+                            ? "max-h-[500px] pb-4 sm:pb-5 md:pb-6"
+                            : "max-h-0"
+                        }`}
+                      >
+                        <p className="text-white/80 text-sm sm:text-base md:text-lg lg:text-lg leading-relaxed pr-2 sm:pr-4 md:pr-8">
+                          {faq.answer}
+                        </p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+
+              {/* Right Column */}
+              <div className="space-y-0">
+                {faqs.slice(Math.ceil(faqs.length / 2)).map((faq, index) => {
+                  return (
+                    <div
+                      key={index}
+                      className="border-b-2 border-[#312d63a8] last:border-b-0"
+                    >
+                      {/* FAQ Question */}
+                      <button
+                        onClick={() => toggleRightFAQ(index)}
+                        className="w-full px-0 py-4 sm:py-5 md:py-6 flex items-center justify-between text-left focus:outline-none transition-colors hover:opacity-80 gap-3 sm:gap-4 cursor-pointer"
+                      >
+                        <span className="text-white font-semibold text-base sm:text-lg md:text-xl lg:text-xl pr-2 sm:pr-4 flex-1 leading-snug sm:leading-normal">
+                          {faq.question}
+                        </span>
+                        <span className={`text-xl sm:text-2xl md:text-3xl font-light shrink-0 w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 flex items-center justify-center transition-colors ${
+                          rightOpenIndex === index ? "text-[#643bff]" : "text-[#0fdac2]"
+                        }`}>
+                          {rightOpenIndex === index ? "−" : "+"}
+                        </span>
+                      </button>
+                      
+                      {/* FAQ Answer */}
+                      <div
+                        className={`overflow-hidden transition-all duration-300 ${
+                          rightOpenIndex === index
+                            ? "max-h-[500px] pb-4 sm:pb-5 md:pb-6"
+                            : "max-h-0"
+                        }`}
+                      >
+                        <p className="text-white/80 text-sm sm:text-base md:text-lg lg:text-lg leading-relaxed pr-2 sm:pr-4 md:pr-8">
+                          {faq.answer}
+                        </p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           </div>
 

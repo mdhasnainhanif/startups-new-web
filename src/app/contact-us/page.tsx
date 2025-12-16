@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   const ctaData = {
-    title: "Book a Strategy Call",
+    title: "Book a Strategy",
     highlight: "Call",
     description:
       "You deserve clarity. You deserve guidance. You deserve a partner who understands growth and helps you move forward with confidence.",
@@ -89,7 +89,7 @@ export default function ContactPage() {
       <BusinessSlider />
 
       {/* 🟢 Fix — pass props */}
-      <ContactCta {...ctaData} />
+      {/* <ContactCta {...ctaData} /> */}
       <BusinessPlaylist {...playlistData} />
 
       <GrowthSlider items={GROWTH_GUIDES} />

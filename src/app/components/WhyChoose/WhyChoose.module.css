@@ -100,13 +100,21 @@
 .accordionIcon {
   font-size: 1.5rem;
   font-weight: 300;
-  color: #ffffff;
   width: 2rem;
   height: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  transition: color 0.3s ease;
+}
+
+.accordionIconClosed {
+  color: #0fdac2; /* Green when closed */
+}
+
+.accordionIconOpen {
+  color: #643bff; /* Purple when open */
 }
 
 .accordionContent {
@@ -116,13 +124,13 @@
   padding: 0 1.5rem;
 }
 
+.accordionContent {
+  background: #2a1f5a;
+}
+
 .accordionContent.accordionOpen {
   max-height: 1000px;
   padding: 0 1.5rem 1.5rem 1.5rem;
-}
-.accordionContent
-{
-  background:#2a1f5a;  
 }
 
 .accordionButton {

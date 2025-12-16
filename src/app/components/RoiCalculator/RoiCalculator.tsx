@@ -15,7 +15,7 @@ import {
   AdditionalCost,
   TeamMember,
 } from "../../data/RoiCalculatorData";
-import { DownloadIcon } from "@/app/icons";
+import { AUFlagIcon, DownloadIcon, PakistanFlagIcon, UKFlagIcon, USFlagIcon } from "@/app/icons";
 
 interface RoiCalculatorProps {
   className?: string;
@@ -178,6 +178,15 @@ const RoiCalculator = ({ className = "" }: RoiCalculatorProps) => {
                 }`}
                 onClick={() => setSelectedCountry(country)}
               >
+                <span className={styles.countryFlag}>
+                  {country.code === "US" ? (
+                    <USFlagIcon />
+                  ) : country.code === "UK" ? (
+                    <UKFlagIcon />
+                  ) : (
+                    <AUFlagIcon />
+                  )}
+                </span>
                 {country.name}
               </button>
             ))}
@@ -426,14 +435,14 @@ const RoiCalculator = ({ className = "" }: RoiCalculatorProps) => {
               <div className={styles.savingsActions}>
                 <Button 
                   variant="green" 
-                  className={styles.actionButton}
+                  className={`${styles.actionButton} flex items-center justify-center`}
                   icon={<DownloadIcon />}
                 >
                   Download Report
                 </Button>
                 <Button 
                   variant="primary" 
-                  className={styles.actionButton}
+                  className={`${styles.actionButton} flex items-center justify-center`}
                   icon={
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -448,12 +457,7 @@ const RoiCalculator = ({ className = "" }: RoiCalculatorProps) => {
             <div className={styles.savingsCards}>
               <div className={styles.savingsCard}>
                 <div className={styles.cardFlag}>
-                  <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="40" height="40" fill="#01411C"/>
-                    <rect width="40" height="13.33" fill="#FFFFFF"/>
-                    <circle cx="12" cy="20" r="6" fill="#FFFFFF"/>
-                    <circle cx="12" cy="20" r="4" fill="#01411C"/>
-                  </svg>
+                  <PakistanFlagIcon />
                 </div>
                 <span className={styles.cardLabel}>Total Annual Cost in Pakistan</span>
                 <div className={styles.cardValueWrapper}>
@@ -464,30 +468,11 @@ const RoiCalculator = ({ className = "" }: RoiCalculatorProps) => {
               <div className={styles.savingsCard}>
                 <div className={styles.cardFlag}>
                   {selectedCountry.code === "US" ? (
-                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <rect width="40" height="40" fill="#B22234"/>
-                      <rect y="0" width="40" height="3" fill="#FFFFFF"/>
-                      <rect y="6" width="40" height="3" fill="#FFFFFF"/>
-                      <rect y="12" width="40" height="3" fill="#FFFFFF"/>
-                      <rect y="18" width="40" height="3" fill="#FFFFFF"/>
-                      <rect y="24" width="40" height="3" fill="#FFFFFF"/>
-                      <rect y="30" width="40" height="3" fill="#FFFFFF"/>
-                      <rect y="36" width="40" height="4" fill="#FFFFFF"/>
-                      <rect x="0" y="0" width="16" height="21" fill="#3C3B6E"/>
-                    </svg>
+                    <USFlagIcon />
                   ) : selectedCountry.code === "UK" ? (
-                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <rect width="40" height="40" fill="#012169"/>
-                      <path d="M0 0L40 40M40 0L0 40" stroke="#FFFFFF" strokeWidth="4"/>
-                      <path d="M0 20L40 20M20 0L20 40" stroke="#C8102E" strokeWidth="2.5"/>
-                    </svg>
+                    <UKFlagIcon />
                   ) : (
-                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <rect width="40" height="40" fill="#012169"/>
-                      <path d="M0 0L40 40M40 0L0 40" stroke="#FFFFFF" strokeWidth="3"/>
-                      <circle cx="20" cy="20" r="8" fill="#012169"/>
-                      <path d="M20 12L22 18L28 18L23 22L25 28L20 24L15 28L17 22L12 18L18 18Z" fill="#FFD700"/>
-                    </svg>
+                    <AUFlagIcon />
                   )}
                 </div>
                 <span className={styles.cardLabel}>

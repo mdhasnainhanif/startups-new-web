@@ -45,7 +45,7 @@ export default function Header() {
       slug: "web-development",
     },
     {
-      label: "Content Writing",
+      label: "Content Marketing",
       href: "/content-writing",
       slug: "content-writing",
     },
@@ -472,13 +472,35 @@ export default function Header() {
 
             <div className="hidden md:flex items-center gap-6 flex-1 justify-center relative z-50">
               {NAVIGATION_LINKS.map((link, index) => {
-                // Add Services Dropdown after Home (first item)
-                if (index === 0 && link.label === "Home") {
+                // Render Home normally
+                if (link.label === "Home") {
                   return (
-                    <React.Fragment key={`home-with-dropdowns-${link.href}`}>
+                    <a
+                      key={link.href}
+                      href={link.href}
+                      className={`text-white font-medium hover:text-[#0fdac2] transition-colors cursor-pointer ${
+                        isActive(link.href) ? "text-[#0fdac2]" : ""
+                      }`}
+                      style={
+                        isActive(link.href)
+                          ? {
+                              textShadow:
+                                "-9px 0 17px #00dbc1e6, 0px 6px 8px #0fdac287, 0 0 56px #0fdac2cc",
+                            }
+                          : {}
+                      }
+                    >
+                      {link.label}
+                    </a>
+                  );
+                }
+                // Add Services Dropdown after Designer
+                if (link.label === "Designer") {
+                  return (
+                    <React.Fragment key={`designer-with-services-${link.href}`}>
                       <a
                         href={link.href}
-                        className={`text-white font-medium hover:text-[#0fdac2] transition-colors ${
+                        className={`text-white font-medium hover:text-[#0fdac2] transition-colors cursor-pointer ${
                           isActive(link.href) ? "text-[#0fdac2]" : ""
                         }`}
                         style={
@@ -497,172 +519,6 @@ export default function Header() {
                         key="services-dropdown"
                         className="relative"
                         onMouseEnter={() => {
-                          // Clear any pending close timeout
-                          if (closeTimeoutRef.current) {
-                            clearTimeout(closeTimeoutRef.current);
-                            closeTimeoutRef.current = null;
-                          }
-                          setIsServicesDropdownOpen(true);
-                          // Immediately calculate position when opening
-                          if (dropdownButtonRef.current) {
-                            const rect =
-                              dropdownButtonRef.current.getBoundingClientRect();
-                            const topPosition = isScrolled
-                              ? rect.bottom + 4 // Reduced from 12 to 4
-                              : rect.bottom + window.scrollY + 4; // Reduced from 12 to 4
-                            setDropdownPosition({
-                              top: topPosition,
-                              left: rect.left + rect.width / 2,
-                            });
-                          }
-                        }}
-                        onMouseLeave={() => {
-                          // Delay closing to allow mouse to move to dropdown
-                          closeTimeoutRef.current = setTimeout(() => {
-                            setIsServicesDropdownOpen(false);
-                          }, 150);
-                        }}
-                      >
-                        <Link href="/designer">
-                          <button
-                            ref={dropdownButtonRef}
-                            className={`text-white font-medium hover:text-[#0fdac2] transition-colors flex items-center justify-center gap-1 ${
-                              isServicePage() ? "text-[#0fdac2]" : ""
-                            }`}
-                            style={
-                              isServicePage()
-                                ? {
-                                    textShadow:
-                                      "-9px 0 17px #00dbc1e6, 0px 6px 8px #0fdac287, 0 0 56px #0fdac2cc",
-                                  }
-                                : {}
-                            }
-                          >
-                            Designer
-                            <svg
-                              className={`w-[0.85rem] h-[0.85rem] mt-[0.3rem] transition-transform ${
-                                isServicesDropdownOpen ? "rotate-180" : ""
-                              }`}
-                              fill="none"
-                              stroke="currentColor"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M19 9l-7 7-7-7"
-                              />
-                            </svg>
-                          </button>
-                        </Link>
-
-                        {/* Dropdown Menu */}
-                        {typeof window !== "undefined" &&
-                          isServicesDropdownOpen &&
-                          createPortal(
-                            <div
-                              ref={servicesDropdownRef}
-                              className="fixed w-[1000px] bg-[#050321] border border-[#26234fa8] rounded-xl shadow-2xl transition-all duration-200 opacity-100 visible pointer-events-auto"
-                              style={{
-                                zIndex: 99999,
-                                top: `${dropdownPosition.top}px`,
-                                left: `${dropdownPosition.left}px`,
-                                transform: "translateX(-30%)",
-                                maxHeight: "calc(100vh - 100px)",
-                                overflowY: "auto",
-                                paddingTop: "12px", // Increased invisible bridge
-                              }}
-                              onMouseEnter={() => {
-                                // Clear any pending close timeout
-                                if (closeTimeoutRef.current) {
-                                  clearTimeout(closeTimeoutRef.current);
-                                  closeTimeoutRef.current = null;
-                                }
-                                setIsServicesDropdownOpen(true);
-                              }}
-                              onMouseLeave={() => {
-                                // Delay closing to allow mouse to move back to button
-                                closeTimeoutRef.current = setTimeout(() => {
-                                  setIsServicesDropdownOpen(false);
-                                }, 150);
-                              }}
-                            >
-                              <div
-                                className="p-6"
-                                style={{ marginTop: "-12px" }}
-                              >
-                                {" "}
-                                {/* Compensate for padding */}
-                                <h3 className="text-white text-lg font-semibold mb-6">
-                                  Solutions & Services
-                                </h3>
-                                <div className="grid grid-cols-4 gap-0">
-                                  {services && services.length > 0 ? (
-                                    services.map((service, index) => {
-                                      const isLastRow =
-                                        index >= services.length - 2;
-                                      const isLeftColumn = index % 2 === 0;
-                                      const isActive = pathname?.startsWith(
-                                        `/${service.slug}`
-                                      );
-                                      return (
-                                        <Link
-                                          key={service.slug}
-                                          href={`/${service.slug}`}
-                                          onClick={() =>
-                                            setIsServicesDropdownOpen(false)
-                                          }
-                                          className={`flex items-start gap-3 py-2 px-4 hover:bg-[#2f2a63]/30 transition-all rounded-lg ${
-                                            isActive ? "bg-[#2f2a63]/40" : ""
-                                          } ${!isLastRow ? "" : ""} ${
-                                            isLeftColumn ? "pr-3" : "pl-3"
-                                          }`}
-                                        >
-                                          <div
-                                            className={`flex-shrink-0 mt-0.5 ${
-                                              isActive
-                                                ? "text-[#0fdac2]"
-                                                : "text-[#643bff] opacity-70"
-                                            }`}
-                                          >
-                                            {getServiceIcon(service.slug)}
-                                          </div>
-                                          <div className="flex-1 min-w-0">
-                                            <div
-                                              className={`font-semibold text-sm mb-1 ${
-                                                isActive
-                                                  ? "text-[#0fdac2]"
-                                                  : "text-white"
-                                              }`}
-                                            >
-                                              {service.title || "Service Name"}
-                                            </div>
-                                            <div className="text-gray-400 text-xs leading-relaxed">
-                                              {service.tagline ||
-                                                "Service description"}
-                                            </div>
-                                          </div>
-                                        </Link>
-                                      );
-                                    })
-                                  ) : (
-                                    <div className="col-span-2 text-white text-center py-4">
-                                      No services available
-                                    </div>
-                                  )}
-                                </div>
-                              </div>
-                            </div>,
-                            document.body
-                          )}
-                      </div>
-                      {/* Services Dropdown */}
-                      <div
-                        key="services-dropdown-2"
-                        className="relative"
-                        onMouseEnter={() => {
-                          // Clear any pending close timeout
                           if (closeTimeoutRef2.current) {
                             clearTimeout(closeTimeoutRef2.current);
                             closeTimeoutRef2.current = null;
@@ -672,8 +528,8 @@ export default function Header() {
                             const rect =
                               dropdownButtonRef2.current.getBoundingClientRect();
                             const topPosition = isScrolled
-                              ? rect.bottom + 4 // Reduced from 12 to 4
-                              : rect.bottom + window.scrollY + 4; // Reduced from 12 to 4
+                              ? rect.bottom + 4
+                              : rect.bottom + window.scrollY + 4;
                             setDropdownPosition2({
                               top: topPosition,
                               left: rect.left + rect.width / 2,
@@ -681,7 +537,6 @@ export default function Header() {
                           }
                         }}
                         onMouseLeave={() => {
-                          // Delay closing to allow mouse to move to dropdown
                           closeTimeoutRef2.current = setTimeout(() => {
                             setIsServicesDropdownOpen2(false);
                           }, 150);
@@ -689,7 +544,7 @@ export default function Header() {
                       >
                         <button
                           ref={dropdownButtonRef2}
-                          className={`text-white font-medium hover:text-[#0fdac2] transition-colors flex items-center justify-center gap-1 ${
+                          className={`text-white font-medium hover:text-[#0fdac2] transition-colors flex items-center justify-center gap-1 cursor-pointer ${
                             servicesMenuItems.some((item) =>
                               pathname?.startsWith(item.href)
                             )
@@ -737,10 +592,9 @@ export default function Header() {
                                 top: `${dropdownPosition2.top}px`,
                                 left: `${dropdownPosition2.left}px`,
                                 transform: "translateX(-50%)",
-                                paddingTop: "12px", // Increased invisible bridge
+                                paddingTop: "12px",
                               }}
                               onMouseEnter={() => {
-                                // Clear any pending close timeout
                                 if (closeTimeoutRef2.current) {
                                   clearTimeout(closeTimeoutRef2.current);
                                   closeTimeoutRef2.current = null;
@@ -748,7 +602,6 @@ export default function Header() {
                                 setIsServicesDropdownOpen2(true);
                               }}
                               onMouseLeave={() => {
-                                // Delay closing to allow mouse to move back to button
                                 closeTimeoutRef2.current = setTimeout(() => {
                                   setIsServicesDropdownOpen2(false);
                                 }, 150);
@@ -758,8 +611,6 @@ export default function Header() {
                                 className="p-4"
                                 style={{ marginTop: "-12px" }}
                               >
-                                {" "}
-                                {/* Compensate for padding */}
                                 <div className="space-y-1">
                                   {servicesMenuItems.map((item) => {
                                     const isActive = pathname?.startsWith(
@@ -811,7 +662,7 @@ export default function Header() {
                   <a
                     key={link.href}
                     href={link.href}
-                    className={`text-white font-medium hover:text-[#0fdac2] transition-colors ${
+                    className={`text-white font-medium hover:text-[#0fdac2] transition-colors cursor-pointer ${
                       isActive(link.href) ? "text-[#0fdac2]" : ""
                     }`}
                     style={
@@ -1107,8 +958,8 @@ export default function Header() {
               )}
             </div>
 
-            {/* Other Navigation Links (excluding Home) */}
-            {NAVIGATION_LINKS.filter((link) => link.label !== "Home").map(
+            {/* Other Navigation Links (excluding Home and Designer) */}
+            {NAVIGATION_LINKS.filter((link) => link.label !== "Home" && link.label !== "Designer").map(
               (link) => (
                 <a
                   key={link.href}

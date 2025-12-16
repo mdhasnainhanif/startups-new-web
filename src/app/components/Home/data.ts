@@ -149,7 +149,7 @@ export const PROFESSIONAL_ONLINE = {
     },
   ],
   video: {
-    thumbnail: "/assets/images/man.jpg",
+    thumbnail: "/assets/images/man.webp",
     overlayText: "",
     videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     videoTitle: "Professional Online Video",

@@ -116,7 +116,7 @@ export const caseStudyDesignerPageData: CaseStudySectionData = {
         "Full brand identity system",
       ],
       buttonText: "Hire Brand Designer",
-      image: "/assets/images/2.png",
+      image: "/assets/images/video-animation.webp",
     },
     {
       id: "tabScroll2",
@@ -136,7 +136,7 @@ export const caseStudyDesignerPageData: CaseStudySectionData = {
         "Full UI UX redesign",
       ],
       buttonText: "Hire UI/UX Designer",
-      image: "/assets/images/ui-ux-designer.webp",
+      image: "/assets/images/dev.webp",
     },
     {
       id: "tabScroll3",
@@ -156,7 +156,7 @@ export const caseStudyDesignerPageData: CaseStudySectionData = {
         "Full visual campaign design",
       ],
       buttonText: "Hire Graphic Designer",
-      image: "/assets/images/graphic-designer.webp",
+      image: "/assets/images/marketing.webp",
     },
   ],
 };

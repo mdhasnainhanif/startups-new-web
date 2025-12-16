@@ -26,6 +26,10 @@
   border-right: 1px solid #ffffff1f;
 }
 
+.item:last-child {
+  border-right: none;
+}
+
 .iconWrapper {
   border-radius: 50%;
   flex-shrink: 0;

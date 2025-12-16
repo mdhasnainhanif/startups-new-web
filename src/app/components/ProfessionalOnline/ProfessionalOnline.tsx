@@ -59,22 +59,7 @@ const ProfessionalOnline = () => {
           <div className={styles.contentWrapper}>
             {/* Left Section */}
             <div className={`${styles.leftSection} sectionHeading forH2`}>
-              {/* <h2>
-                <span className={styles.headingPart1}>
-                  {PROFESSIONAL_ONLINE.heading.part1}
-                </span>
-                <span className={styles.headingPart2}>
-                  {PROFESSIONAL_ONLINE.heading.part2}
-                </span>
-                <span className={styles.headingPart3}>
-                  {PROFESSIONAL_ONLINE.heading.part3}
-                </span>
-              </h2>
-              <p className={styles.description}>
-                {PROFESSIONAL_ONLINE.description}
-              </p> */}
-
-              {/* STARTUPS FAIL STATISTICS SECTION */}
+             {/* STARTUPS FAIL STATISTICS SECTION */}
               {PROFESSIONAL_ONLINE.startupStats && PROFESSIONAL_ONLINE.startupStats.length > 0 && (
                 <div className={styles.statsGrid}>
                   {PROFESSIONAL_ONLINE.startupStats.map((stat, index) => (
@@ -104,11 +89,14 @@ const ProfessionalOnline = () => {
                     className={styles.videoImageWrapper}
                     onClick={() => setIsPopupOpen(true)}
                   >
-                    <img
+                    <Image
                       className={styles.videoImage}
-                      src="/assets/images/man.jpg"
+                      src="/assets/images/man.webp"
                       alt="Video"
-                    />
+                      width={500}
+                      height={500}
+                      loading="lazy"
+                    />  
                     {/* Play Button Icon */}
                     <div className={styles.playButtonContainer}>
                       <div className={styles.playButton}>

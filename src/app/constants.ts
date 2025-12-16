@@ -13,10 +13,10 @@ export const NAVIGATION_LINKS = [
   // { label: "Pricing", href: "/pricing" },
   // { label: "Your Ai Agent", href: "/ai-agent" },
   { label: "Home", href: "/" },
-  // { label: "Designer", href: "/designer" },
+  { label: "Designer", href: "/designer" },
   { label: "About Us", href: "/about-us" },
   { label: "Key Growth", href: "/key-growth" },
-  { label: "Contact Us", href: "/contact-us" },
+  { label: "Contact", href: "/contact-us" },
 ];
 
 export const TOP_BANNER = {
@@ -48,6 +48,13 @@ export const FOOTER_LINKS = {
     { label: "Key Growth", href: "/key-growth" },
     { label: "Contact", href: "/contact-us" },
 
+  ],
+  column5: [
+    { label: "Web Development", href: "/web-development" },
+    { label: "Content Marketing", href: "/content-writing" },
+    { label: "Social Media Marketing", href: "/social-media-marketing" },
+    {label: "Privacy Policy", href: "/privacy-policy" },
+    {label: "Terms & Conditions", href: "/terms-and-condition" },
   ],
   column2: [
     // { label: "How it works", href: "/how-it-works" },

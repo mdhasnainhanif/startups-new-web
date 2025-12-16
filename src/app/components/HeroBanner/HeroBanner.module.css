@@ -31,21 +31,11 @@
   }
 }
 
+/* Hero background styles removed - now using Next.js Image component */
 .heroBackground {
   position: relative;
   overflow: hidden;
-  opacity: 0;
-  animation: fadeIn 1.2s ease-in-out forwards;
-  background: url("../../../../public/assets/images/hero.webp") no-repeat center
-    center;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   padding-top: 6rem;
-  transform: translateZ(0);
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  /* Removed will-change to prevent scroll performance issues */
 }
 
 .purpleBadge {
@@ -89,14 +79,13 @@ section.bottomZero {
   padding-bottom: 0rem !important;
 }
 
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
   .heroBackground {
-    background: none;
+   
   }
-}
-
+} */
 @media screen and (max-width: 576px) {
   .heroBackground {
     padding-top: 0rem;
   }
-}
+} 

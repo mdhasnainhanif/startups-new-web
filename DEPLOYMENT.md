@@ -36,13 +36,12 @@ npm run build
 ### 3. Configure your web server:
 
 #### For Apache (.htaccess):
-Create a `.htaccess` file in your public directory:
-```apache
-RewriteEngine On
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ /index.html [L]
-```
+The `.htaccess` file is automatically included in the `out` folder from the `public` directory. It contains:
+- SPA routing rules
+- Cache headers for fonts, images, JS, CSS (1 year cache with immutable)
+- Compression settings
+
+If you need to customize, edit `public/.htaccess` before building.
 
 #### For Nginx:
 ```nginx
@@ -52,6 +51,40 @@ server {
     root /path/to/out;
     index index.html;
 
+    # Enable gzip compression
+    gzip on;
+    gzip_vary on;
+    gzip_min_length 1024;
+    gzip_types text/plain text/css text/xml text/javascript application/javascript application/json application/xml+rss image/svg+xml;
+
+    # Fonts - Cache for 1 year (immutable)
+    location ~* \.(ttf|otf|woff|woff2|eot)$ {
+        expires 1y;
+        add_header Cache-Control "public, max-age=31536000, immutable";
+        access_log off;
+    }
+
+    # Images - Cache for 1 year (immutable)
+    location ~* \.(jpg|jpeg|png|gif|webp|svg|ico)$ {
+        expires 1y;
+        add_header Cache-Control "public, max-age=31536000, immutable";
+        access_log off;
+    }
+
+    # JavaScript and CSS chunks - Cache for 1 year (immutable)
+    location ~* \.(js|css)$ {
+        expires 1y;
+        add_header Cache-Control "public, max-age=31536000, immutable";
+        access_log off;
+    }
+
+    # HTML files - Short cache
+    location ~* \.(html|htm)$ {
+        expires 1h;
+        add_header Cache-Control "public, max-age=3600, must-revalidate";
+    }
+
+    # SPA Routing
     location / {
         try_files $uri $uri/ /index.html;
     }
@@ -67,6 +100,7 @@ server {
 ### Vercel:
 1. Connect your repository
 2. Vercel will automatically detect Next.js and deploy
+3. For custom cache headers, create a `vercel.json` file in the root directory (see below)
 
 ### GitHub Pages:
 1. Upload `out` folder contents to your repository's `gh-pages` branch
@@ -75,6 +109,17 @@ server {
 ### Traditional Web Hosting:
 1. Upload all files from `out` folder to your `public_html` or `www` directory
 2. Ensure your server supports static file hosting
+3. The `.htaccess` file will automatically configure cache headers
+
+## Cache Configuration Summary:
+
+- **Fonts** (.ttf, .otf, .woff, .woff2): 1 year cache (immutable)
+- **Images** (.webp, .jpg, .png, .svg): 1 year cache (immutable)
+- **JS/CSS Chunks**: 1 year cache (immutable)
+- **HTML**: 1 hour cache (must-revalidate)
+- **Other assets**: 1 day cache
+
+This configuration will significantly improve repeat visit performance and reduce server load by enabling browser caching for static assets.
 
 ## Important Notes:
 

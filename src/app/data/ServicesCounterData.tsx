@@ -18,8 +18,8 @@ export interface ServicesCounterDataMap {
 
 export const SERVICES_COUNTER_DATA: ServicesCounterDataMap = {
   "brand-identity": {
-    tagline: "WE DON'T MISS BRAND WORK THAT BUILDS TRUST",
-    heading: "WE DON'T MISS BRAND WORK THAT BUILDS TRUST",
+    tagline: "We Don't Miss Brand [Work That Builds] Trust",
+    heading: "We Don't Miss Brand [Work That Builds] Trust",
     stats: [
       {
         id: "bi-1",
@@ -44,8 +44,8 @@ export const SERVICES_COUNTER_DATA: ServicesCounterDataMap = {
     ],
   },
   "marketing-advertising": {
-    tagline: "WE DON'T MISS CAMPAIGNS THAT CONVERT",
-    heading: "WE DON'T MISS [CAMPAIGNS] THAT CONVERT",
+    tagline: "We Don't Miss [Campaigns That] Convert",
+    heading: "We Don't Miss [Campaigns That] Convert",
     stats: [
       {
         id: "ma-1",
@@ -70,8 +70,8 @@ export const SERVICES_COUNTER_DATA: ServicesCounterDataMap = {
     ],
   },
   "digital-web": {
-    tagline: "WE BUILD DIGITAL EXPERIENCES THAT CONVERT",
-    heading: "WE BUILD DIGITAL EXPERIENCES THAT CONVERT",
+    tagline: "We Build [Digital Experiences] That Convert",
+    heading: "We Build [Digital Experiences] That Convert",
     stats: [
       {
         id: "dw-1",
@@ -96,8 +96,8 @@ export const SERVICES_COUNTER_DATA: ServicesCounterDataMap = {
     ],
   },
   "motion-video": {
-    tagline: "WE CREATE MOTION THAT HOLDS ATTENTION",
-    heading: "WE CREATE [MOTION] THAT HOLDS ATTENTION",
+    tagline: "We [Create] Motion That [Holds] Attention",
+    heading: "We [Create] Motion That [Holds] Attention",
     stats: [
       {
         id: "mv-1",
@@ -122,8 +122,8 @@ export const SERVICES_COUNTER_DATA: ServicesCounterDataMap = {
     ],
   },
   "print": {
-    tagline: "WE DON'T MISS THE DETAILS",
-    heading: "WE DON'T MISS THE [DETAILS]",
+    tagline: "We [Don't] Miss The [Details]",
+    heading: "We [Don't] Miss The [Details]",
     stats: [
       {
         id: "pr-1",
@@ -143,8 +143,8 @@ export const SERVICES_COUNTER_DATA: ServicesCounterDataMap = {
     ],
   },
   "illustration-artwork": {
-    tagline: "WE DON'T COMPROMISE ON QUALITY",
-    heading: "WE DON'T [COMPROMISE] ON QUALITY",
+    tagline: "We [Don't] Compromise [On] Quality",
+    heading: "We [Don't] Compromise [On] Quality",
     stats: [
       {
         id: "ia-1",
@@ -169,8 +169,8 @@ export const SERVICES_COUNTER_DATA: ServicesCounterDataMap = {
     ],
   },
   "ebooks-digital-report": {
-    tagline: "WE DESIGN DOCUMENTS THAT COMMAND ATTENTION",
-    heading: "WE DESIGN [DOCUMENTS] THAT COMMAND ATTENTION",
+    tagline: "We [Design] Documents That Command [Attention]",
+    heading: "We [Design] Documents That Command [Attention]",
     stats: [
       {
         id: "edr-1",
@@ -195,8 +195,8 @@ export const SERVICES_COUNTER_DATA: ServicesCounterDataMap = {
     ],
   },
   "presentations": {
-    tagline: "WE DESIGN PRESENTATIONS THAT HOLD ATTENTION",
-    heading: "WE DESIGN PRESENTATIONS THAT HOLD ATTENTION",
+    tagline: "We [Design] Presentations That Hold [Attention]",
+    heading: "We [Design] Presentations That Hold [Attention]",
     stats: [
       {
         id: "prs-1",
@@ -221,8 +221,8 @@ export const SERVICES_COUNTER_DATA: ServicesCounterDataMap = {
     ],
   },
   "product-packaging": {
-    tagline: "WE DESIGN PACKAGING THAT DRIVES PURCHASES",
-    heading: "WE DESIGN PACKAGING THAT DRIVES PURCHASES",
+    tagline: "We [Design] Packaging That Drives [Purchases]",
+    heading: "We [Design] Packaging That Drives [Purchases]",
     stats: [
       {
         id: "pp-1",
@@ -247,7 +247,7 @@ export const SERVICES_COUNTER_DATA: ServicesCounterDataMap = {
     ],
   },
   "apparel-merchandise": {
-    tagline: "CREATIVE THAT COUNTS",
+    tagline: "Creative That Counts",
     heading: "$48000+ Worth of Advanced AI Tools Growing Your Business 10x",
     stats: [
       {
@@ -273,8 +273,8 @@ export const SERVICES_COUNTER_DATA: ServicesCounterDataMap = {
     ],
   },
   "environmental-event": {
-    tagline: "WE DESIGN EVENTS THAT FEEL PREMIUM AND COORDINATED",
-    heading: "WE DESIGN EVENTS THAT FEEL PREMIUM AND COORDINATED",
+    tagline: "We Design [Events That] Feel Premium And Coordinated",
+    heading: "We Design [Events That] Feel Premium And Coordinated",
     stats: [
       {
         id: "ee-1",

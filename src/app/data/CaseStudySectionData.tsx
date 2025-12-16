@@ -7,6 +7,7 @@ export interface CardData {
   tags: string[];
   buttonText: string;
   image: string;
+  className?: string;
 }
 
 export interface TabData {
@@ -43,6 +44,7 @@ export const DEFAULT_CASE_STUDY_DATA: CaseStudySectionData = {
     // Creative & Design
     {
       id: "tabScroll1",
+      className: "brandDesigner",
       category: "creative",
       title: "Brand Designer",
       subtitle: "Creates a memorable visual identity that makes your business look professional and trusted.",
@@ -59,10 +61,11 @@ export const DEFAULT_CASE_STUDY_DATA: CaseStudySectionData = {
         "Full brand identity system",
       ],
       buttonText: "Hire Brand Designer",
-      image: "/assets/images/2.png",
+      image: "/assets/images/social-media-marketing.webp",
     },
     {
       id: "tabScroll2",
+      className: "uiUxDesigner",
       category: "creative",
       title: "UI UX Designer",
       subtitle: "Designs intuitive, smooth experiences that increase user satisfaction and conversions.",
@@ -79,10 +82,11 @@ export const DEFAULT_CASE_STUDY_DATA: CaseStudySectionData = {
         "Full UI UX redesign",
       ],
       buttonText: "Hire UI/UX Designer",
-      image: "/assets/images/ui-ux-designer.webp",
+      image: "/assets/images/dev.webp",
     },
     {
       id: "tabScroll3",
+      className: "graphicDesigner",
       category: "creative",
       title: "Graphic Designer",
       subtitle: "Creates visuals that grab attention and communicate messages clearly.",
@@ -99,11 +103,12 @@ export const DEFAULT_CASE_STUDY_DATA: CaseStudySectionData = {
         "Full visual campaign design",
       ],
       buttonText: "Hire Graphic Designer",
-      image: "/assets/images/graphic-designer.webp",
+      image: "/assets/images/video-animation.webp",
     },
     // Marketing & Growth
     {
       id: "tabScroll4",
+      className: "contentStrategist",
       category: "marketing",
       title: "Content Strategist",
       subtitle: "Builds content plans that bring traffic, trust, and conversions.",
@@ -120,10 +125,11 @@ export const DEFAULT_CASE_STUDY_DATA: CaseStudySectionData = {
         "Brand storytelling framework",
       ],
       buttonText: "Hire Content Strategist",
-      image: "/assets/images/content-strategist.webp",
+      image: "/assets/images/content-writer.webp",
     },
     {
       id: "tabScroll5",
+      className: "socialMediaMarketing", 
       category: "marketing",
       title: "Social Media Manager",
       subtitle: "Grows brand visibility and engagement across all social platforms.",
@@ -140,10 +146,11 @@ export const DEFAULT_CASE_STUDY_DATA: CaseStudySectionData = {
         "Multi-platform growth strategy",
       ],
       buttonText: "Hire Social Media Manager",
-      image: "/assets/images/social-media-manager.webp",
+      image: "/assets/images/social-media-marketing.webp",
     },
     {
       id: "tabScroll6",
+      className: "seoSpecialist",
       category: "marketing",
       title: "SEO Specialist",
       subtitle: "Improves search rankings so your business gets steady organic traffic.",
@@ -160,11 +167,12 @@ export const DEFAULT_CASE_STUDY_DATA: CaseStudySectionData = {
         "SEO growth roadmap",
       ],
       buttonText: "Hire SEO Specialist",
-      image: "/assets/images/seo-specialist.webp",
+      image: "/assets/images/marketing.webp",
     },
     // Development
     {
       id: "tabScroll7",
+      className: "frontendDeveloper",
       category: "development",
       title: "Front End Developer",
       subtitle: "Builds fast, visually clean, user friendly interfaces for web and mobile.",
@@ -181,10 +189,11 @@ export const DEFAULT_CASE_STUDY_DATA: CaseStudySectionData = {
         "Full front-end build",
       ],
       buttonText: "Hire Front End Developer",
-      image: "/assets/images/frontend-developer.webp",
+      image: "/assets/images/marketing.webp",
     },
     {
       id: "tabScroll8",
+      className: "backendDeveloper",
       category: "development",
       title: "Backend Developer",
       subtitle: "Builds the logic and systems that make your product reliable and scalable.",
@@ -201,10 +210,11 @@ export const DEFAULT_CASE_STUDY_DATA: CaseStudySectionData = {
         "Full backend architecture",
       ],
       buttonText: "Hire Backend Developer",
-      image: "/assets/images/backend-developer.webp",
+      image: "/assets/images/video-animation.webp",
     },
     {
       id: "tabScroll9",
+      className: "fullStackDeveloper",
       category: "development",
       title: "Full Stack Developer",
       subtitle: "Builds complete end to end products quickly — both frontend and backend.",
@@ -221,11 +231,12 @@ export const DEFAULT_CASE_STUDY_DATA: CaseStudySectionData = {
         "Full product development",
       ],
       buttonText: "Hire Full Stack Developer",
-      image: "/assets/images/full-stack-developer.webp",
+      image: "/assets/images/dev.webp",
     },
     // Key Growth
     {
       id: "tabScroll10",
+      className: "growthHacker",
       category: "keygrowth",
       title: "Growth Hacker",
       subtitle: "Drives rapid business growth using creative experiments and data.",
@@ -242,10 +253,11 @@ export const DEFAULT_CASE_STUDY_DATA: CaseStudySectionData = {
         "Growth engine design",
       ],
       buttonText: "Hire Growth Hacker",
-      image: "/assets/images/growth-hacker.webp",
+      image: "/assets/images/social-media-marketing.webp",
     },
     {
       id: "tabScroll11",
+      className: "marketingAutomationSpecialist",
       category: "keygrowth",
       title: "Marketing Automation Specialist",
       subtitle: "Automates your marketing to generate more leads without more work.",
@@ -262,10 +274,11 @@ export const DEFAULT_CASE_STUDY_DATA: CaseStudySectionData = {
         "Full automation system",
       ],
       buttonText: "Hire Marketing Automation Specialist",
-      image: "/assets/images/marketing-automation-specialist.webp",
+      image: "/assets/images/content-writer.webp",
     },
     {
       id: "tabScroll12",
+      className: "dataAnalyst",
       category: "keygrowth",
       title: "Data Analyst",
       subtitle: "Turns business data into insights that guide better decisions.",
@@ -283,7 +296,7 @@ export const DEFAULT_CASE_STUDY_DATA: CaseStudySectionData = {
         "Data insights system",
       ],
       buttonText: "Hire Data Analyst",
-      image: "/assets/images/data-analyst.webp",
+      image: "/assets/images/video-animation.webp",
     },
   ],
 };

@@ -4,8 +4,15 @@ import { HeroBannerProps } from "../../types/types";
 import Button from "../Button";
 import Container from "../Container";
 import { ArrowRightIcon } from "../icons";
-import Plasma from "../Plasma/Plasma";
+import Image from "next/image";
+import dynamic from "next/dynamic";
 import styles from "./HeroBanner.module.css";
+
+// Lazy load Plasma component to reduce initial bundle size
+const Plasma = dynamic(() => import("../Plasma/Plasma"), {
+  ssr: false,
+  loading: () => null,
+});
 
 export default function HeroBanner({
   headline,
@@ -58,9 +65,24 @@ export default function HeroBanner({
   };
 
   return (
-    <section className={`${styles.heroBackground} relative sectionPadding overflow-hidden ${className}`}>
+    <section className={`relative sectionPadding overflow-hidden ${className}`}>
+      {/* LCP Image - Optimized with Next.js Image */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/assets/images/hero.webp"
+          alt="Hero Background"
+          fill
+          priority
+          fetchPriority="high"
+          sizes="100vw"
+          className="object-cover"
+          style={{ objectFit: "cover" }}
+        />
+        <div className="absolute inset-0 bg-black/30" style={{ zIndex: 1 }}></div>
+      </div>
+      
       {/* Plasma Background Animation */}
-      <div className={`absolute inset-0 z-1 ${styles.plasmaContainer}`}>
+      <div className={`absolute inset-0 ${styles.plasmaContainer}`} style={{ zIndex: 2 }}>
         <Plasma 
           color="#8b5cf6"
           speed={0.8}
@@ -70,8 +92,8 @@ export default function HeroBanner({
           mouseInteractive={true}
         />
       </div>
-      <Container maxWidth="2xl" className={`${styles.content} relative z-2`}>
-        <div className="flex flex-col items-center text-center gap-6 md:gap-5 lg:pt-40 pt-10 sectionHeading">
+      <Container maxWidth="2xl" className={`${styles.content} relative z-10`}>
+        <div className="flex flex-col items-center text-center gap-6 md:gap-5 lg:pt-40 md:pt-10 sectionHeading">
           {/* 300+ Companies Badge */}
           <div>
               <p className={`text-white text-base sm:text-lg font-semibold ${styles.purpleBadge}`}>

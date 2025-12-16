@@ -944,7 +944,7 @@ const CaseStudySection = ({ data = DEFAULT_CASE_STUDY_DATA, isShowTabs = true, c
                       return (
                         <li
                           key={card.id}
-                          className="service-scrollerItemContainer stack-cards__item js-stack-cards__item"
+                          className={`service-scrollerItemContainer stack-cards__item js-stack-cards__item ${card.className}`}
                           id={card.id}
                         >
                           <div

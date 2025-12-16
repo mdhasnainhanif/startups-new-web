@@ -7,7 +7,7 @@ import { FAQ_CONTACT } from '../components/Home/data'
 import GrowthSlider from '../components/GrowthSlider/GrowthSlider'
 import Technologies from '../components/Technologies/Technologies';
 import TextSlider1 from '../components/HomenewPage/TextSlider/TextSlider';
-import { sliderData1, sliderData2, sliderData3 } from '../data/HomeNewData';
+import { sliderData } from '../data/HomeNewData';
 import Reviews from '../components/Reviews/Reviews';
 import ProfessionalDesign from '../components/ProfessionalDesign/ProfessionalDesign';
 import { designProfessionalPageData, caseStudyDesignerPageData } from '../data/DesignerPageData';
@@ -28,13 +28,13 @@ export default function homenew() {
   return (
     <>
       <HomenewBanner />
-      <TextSlider1 data={sliderData1}/>
+      <TextSlider1 data={sliderData.slider1}/>
       <CaseStudySection isShowTabs={false} data={caseStudyDesignerPageData} className="designerPageCaseStudy" />
       <AiPowerDesign/>
       <Technologies hideTabs={true} defaultTab="creative" />
-      <TextSlider1 data={sliderData2}/>
+      <TextSlider1 data={sliderData.slider2}/>
       <ProfessionalDesign className="designerPageProfessional" data={designProfessionalPageData} />
-      <TextSlider1 data={sliderData3}/>
+      <TextSlider1 data={sliderData.slider3}/>
       <GuessWorkAdvertising/>
       <RealCost/>
       <CompleteBusinessSetup/>

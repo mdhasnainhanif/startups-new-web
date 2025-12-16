@@ -11,7 +11,7 @@ import AiPowerDesign from '../AiPowerDesign/AiPowerDesign';
 import ContactTwo from '../ContactTwo/ContactTwo';
 import ServicesGrowthCards from '../ServicesGrowthCards/ServicesGrowthCards';
 import Counter from '../Counter/Counter';
-import { sliderData1 } from '../../data/HomeNewData';
+import { sliderData } from '../../data/HomeNewData';
 import { getServiceGrowthCardsContent, getServiceGrowthCardsSection } from '../../data/ServicesGrowthCardsData';
 import GrowthSlider from '../GrowthSlider/GrowthSlider';
 import { GROWTH_GUIDES } from '../../constants';
@@ -41,7 +41,7 @@ const ServicePageLayout: React.FC<ServicePageLayoutProps> = ({ serviceData }) =>
   return (
     <>
       <HomenewBanner data={serviceData.bannerData} />
-      <TextSlider1 data={sliderData1} />
+      <TextSlider1 data={sliderData.slider1} />
       <Technologies hideTabs={true} defaultTab="creative" />
       <ServiceFeatures data={featuresData} />
       {counterData && <ServicesCounter data={counterData} />}

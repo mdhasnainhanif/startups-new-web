@@ -67,14 +67,13 @@
 
 .number {
   font-size: 3.75rem;
-  font-weight: 500;
-  color: #ffffff;
-  font-family: var(--font-graphik-bold);
+  font-weight: 600;
+  color: var(--color-primary);
 }
 
 .cardHeading {
   color: #fff;
-  font-size: 2.5rem;
+  font-size: 2.225rem;
   font-weight: 800;
   line-height: 1.3;
 }

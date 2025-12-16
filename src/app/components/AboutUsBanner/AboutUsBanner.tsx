@@ -34,7 +34,7 @@ export default function AboutUsBanner({
               </>
             )}
           </h1>
-          <p className="lg:max-w-4xl">
+          <p className="lg:max-w-4xl text-white">
             {description}
           </p>
           <div className="mt-4">

@@ -1,0 +1,117 @@
+.contentSection {
+  background: var(--color-dark);
+  padding: 4rem 0;
+  min-height: 60vh;
+}
+
+.content {
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.8;
+}
+
+.mainHeading {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid var(--color-primary);
+  display: inline-block;
+}
+
+.policySection {
+  margin-bottom: 3rem;
+}
+
+.sectionHeading {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--color-primary);
+  display: inline-block;
+}
+
+.sectionHeading .highlight {
+  color: var(--color-primary);
+}
+
+.subHeading {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.content p {
+  margin-bottom: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+}
+
+.content ul {
+  margin: 1rem 0;
+  padding-left: 2rem;
+  list-style-type: disc;
+}
+
+.content ul li {
+  margin-bottom: 0.75rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.7;
+}
+
+.content ul li strong {
+  font-weight: 600;
+}
+
+.link {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.link:hover {
+  color: var(--color-primary);
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .contentSection {
+    padding: 3rem 0;
+  }
+
+  .mainHeading {
+    font-size: 1.75rem;
+  }
+
+  .sectionHeading {
+    font-size: 1.35rem;
+  }
+
+  .subHeading {
+    font-size: 1.15rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .contentSection {
+    padding: 2rem 0;
+  }
+
+  .mainHeading {
+    font-size: 1.5rem;
+  }
+
+  .sectionHeading {
+    font-size: 1.25rem;
+  }
+
+  .content p {
+    font-size: 0.95rem;
+  }
+}

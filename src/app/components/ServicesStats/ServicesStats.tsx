@@ -68,26 +68,62 @@ const ServicesStats: React.FC<ServicesStatsProps> = ({ data }) => {
   };
 
   const formatNumber = (num: number, isDecimal: boolean, suffix: string, hasM: boolean, hasK: boolean, originalValue: string): string => {
+    // Check for special formats first (M, K) before checking isDecimal
+    // If original had M, format as M - preserve original decimal places
+    if (hasM) {
+      const mValue = num / 1000000;
+      // Extract original format from originalValue
+      const originalMatch = originalValue.match(/^([\d.]+)M/i);
+      if (originalMatch) {
+        const originalNumStr = originalMatch[1];
+        const hasDecimal = originalNumStr.includes('.');
+        
+        if (hasDecimal) {
+          // Original had decimals, preserve them
+          const decimalPlaces = originalNumStr.split('.')[1]?.length || 1;
+          const formatted = mValue.toFixed(decimalPlaces);
+          return formatted + 'M' + suffix;
+        } else {
+          // No decimals in original, show as integer
+          return Math.floor(mValue).toString() + 'M' + suffix;
+        }
+      }
+      // Fallback if no match
+      const formatted = mValue.toFixed(mValue % 1 === 0 ? 0 : 1);
+      return formatted + 'M' + suffix;
+    }
+    
+    // If original had K, format as K - preserve original decimal places
+    if (hasK) {
+      const kValue = num / 1000;
+      // Extract original format from originalValue
+      const originalMatch = originalValue.match(/^([\d.]+)K/i);
+      if (originalMatch) {
+        const originalNumStr = originalMatch[1];
+        const hasDecimal = originalNumStr.includes('.');
+        
+        if (hasDecimal) {
+          // Original had decimals, preserve them
+          const decimalPlaces = originalNumStr.split('.')[1]?.length || 1;
+          const formatted = kValue.toFixed(decimalPlaces);
+          return formatted + 'K' + suffix;
+        } else {
+          // No decimals in original, show as integer
+          return Math.floor(kValue).toString() + 'K' + suffix;
+        }
+      }
+      // Fallback if no match
+      const formatted = kValue.toFixed(kValue % 1 === 0 ? 0 : 1);
+      return formatted + 'K' + suffix;
+    }
+    
+    // Handle decimal values like "4.8/5" (only if not M or K)
     if (isDecimal) {
       // For decimal values like 4.8/5, keep the format
       return num.toFixed(1) + suffix;
     }
     
-    // If original had M, format as M
-    if (hasM) {
-      const mValue = num / 1000000;
-      const formatted = mValue.toFixed(mValue % 1 === 0 ? 0 : 1);
-      return formatted + 'M' + suffix;
-    }
-    
-    // If original had K, format as K
-    if (hasK) {
-      const kValue = num / 1000;
-      const formatted = kValue.toFixed(kValue % 1 === 0 ? 0 : 1);
-      return formatted + 'K' + suffix;
-    }
-    
-    // Format large numbers
+    // Format large numbers (no M or K in original)
     if (num >= 1000000) {
       return (num / 1000000).toFixed(1) + 'M' + suffix;
     }

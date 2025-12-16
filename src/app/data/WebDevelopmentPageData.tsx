@@ -31,8 +31,9 @@ export const webDevelopmentBannerData: HomenewBannerData = {
     href: "#get-started",
   },
   image: {
-    src: "/assets/images/homenewbanner-img.webp",
+    src: "/assets/images/web-development/banner.webp",
     alt: "Web Development Service",
+    className: "banneFull",
   },
 };
 

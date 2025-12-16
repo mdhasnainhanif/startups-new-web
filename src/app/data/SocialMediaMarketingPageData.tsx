@@ -33,8 +33,9 @@ export const socialMediaMarketingBannerData: HomenewBannerData = {
     href: "#get-started",
   },
   image: {
-    src: "/assets/images/homenewbanner-img.webp",
+    src: "/assets/images/social-media-marketing/banner.webp",
     alt: "Social Media Marketing Service",
+    className: "banneFull",
   },
 };
 

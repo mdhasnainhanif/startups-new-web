@@ -5,14 +5,51 @@ import styles from "./TextSlider.module.css";
 import gsap from "gsap";
 
 type SliderItem = {
-  text: string;
-  highlight: string;
-  price: string;
+  sliderDataPara: string;
 };
 
 interface TextSlider1Props {
   data?: SliderItem[];
 }
+
+// Helper function to parse text and extract highlighted parts from [brackets]
+const parseTextWithHighlights = (text: string) => {
+  const parts: Array<{ text: string; isHighlight: boolean }> = [];
+  const regex = /\[([^\]]+)\]/g;
+  let lastIndex = 0;
+  let match;
+
+  while ((match = regex.exec(text)) !== null) {
+    // Add text before the bracket
+    if (match.index > lastIndex) {
+      parts.push({
+        text: text.substring(lastIndex, match.index),
+        isHighlight: false,
+      });
+    }
+    // Add highlighted text with a space after it
+    parts.push({
+      text: match[1] + " ", // Content inside brackets + space
+      isHighlight: true,
+    });
+    lastIndex = regex.lastIndex;
+  }
+
+  // Add remaining text after last bracket
+  if (lastIndex < text.length) {
+    parts.push({
+      text: text.substring(lastIndex),
+      isHighlight: false,
+    });
+  }
+
+  // If no brackets found, return the whole text as non-highlighted
+  if (parts.length === 0) {
+    parts.push({ text, isHighlight: false });
+  }
+
+  return parts;
+};
 
 const TextSlider1: React.FC<TextSlider1Props> = ({ data = [] }) => {
   const railRef = useRef<HTMLDivElement>(null);
@@ -190,13 +227,21 @@ const TextSlider1: React.FC<TextSlider1Props> = ({ data = [] }) => {
     <section className={styles.ctaBanner}>
       <div className={styles.scrollingText}>
         <div className={styles.rail} ref={railRef}>
-          {data.map((item, idx) => (
-            <h4 key={idx}>
-              {item.price}{" "}
-              {item.text}
-              <span className="text-[#0fdac2]">{item.highlight}</span>
-            </h4>
-          ))}
+          {data.map((item, idx) => {
+            const textParts = parseTextWithHighlights(item.sliderDataPara);
+            return (
+              <h4 key={idx}>
+                {textParts.map((part, partIdx) => (
+                  <span
+                    key={partIdx}
+                    className={part.isHighlight ? "text-[#0fdac2]" : ""}
+                  >
+                    {part.text}
+                  </span>
+                ))}
+              </h4>
+            );
+          })}
         </div>
       </div>
     </section>

@@ -14,6 +14,7 @@ export const contentWritingBannerData: HomenewBannerData = {
     highlight2: "",
     part2: "",
   },
+  className: "contentWritingBanner",
   description:
     "Writing shaped for presence, persuasion, and modern brand standards. A complete content layer built with clarity, rhythm, and commercial intent.",
   experienceBox: {
@@ -31,7 +32,7 @@ export const contentWritingBannerData: HomenewBannerData = {
     href: "#get-started",
   },
   image: {
-    src: "/assets/images/homenewbanner-img.webp",
+    src: "/assets/images/content-marketing-banner.webp",
     alt: "Content Writing Service",
   },
 };
@@ -455,7 +456,7 @@ export const contentWritingGuessWorkData: GuessWorkAdvertisingData = {
 
 // Slider data for Content Writing page
 export const contentWritingSliderData1 = [
-  { text: "Hiring a ", highlight: "content writer ", price: "$65,000+ a year " },
+  { text: "Hiring a ", highlight: "content writer ", price: " $65,000+ a year " },
   { text: "Hiring a ", highlight: "copywriter team", price: " $75,000+ a year " },
   { text: "Hiring a ", highlight: "content team", price: "$85,000+ a year " },
 ];

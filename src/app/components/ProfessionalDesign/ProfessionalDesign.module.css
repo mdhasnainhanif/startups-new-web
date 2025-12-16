@@ -30,21 +30,19 @@
   position: relative;
 }
 
-
 .rightSectionMain1 {
   border-radius: 1rem;
   width: fit-content;
   padding: 1.5rem;
   margin-top: 1rem;
-  position: absolute;      
-  right: 0;                
-  bottom: 0; 
+  position: absolute;
+  right: 0;
+  bottom: 0;
   justify-content: end;
-    text-align: start;
-    display: flex;
-    width: 38.4375rem;
-    margin-right: -3.5rem;
- 
+  text-align: start;
+  display: flex;
+  width: 38.4375rem;
+  margin-right: -3.5rem;
 }
 /* Left Section */
 .leftSection {
@@ -53,7 +51,7 @@
   gap: 1rem;
 }
 
-ul.factsList{
+ul.factsList {
   margin-top: 0rem;
 }
 
@@ -86,13 +84,14 @@ ul.factsList{
 /* --- New Styles for Facts List (Checkmarks) --- */
 
 .factsHeading {
-    color: #0fdac2;
-    font-size: 1.725rem;
-    font-weight: 600;
-    /* margin: 0 0 1.25rem 0; */
+  color: #0fdac2;
+  font-size: 1.725rem;
+  font-weight: 600;
+  /* margin: 0 0 1.25rem 0; */
 }
 
-.factsList, .rightFactsList {
+.factsList,
+.rightFactsList {
   list-style: none; /* Remove default bullet points */
   padding: 0;
   margin: 0;
@@ -101,7 +100,8 @@ ul.factsList{
   gap: 1rem; /* Spacing between list items */
 }
 
-.factsList, .rightFactsList1 {
+.factsList,
+.rightFactsList1 {
   list-style: none; /* Remove default bullet points */
   padding: 0;
   margin: 0;
@@ -110,7 +110,8 @@ ul.factsList{
   gap: 1rem; /* Spacing between list items */
 }
 
-.factsListItem, .rightFactsListItem {
+.factsListItem,
+.rightFactsListItem {
   position: relative;
   padding-left: 2.1875rem; /* Space for the custom bullet */
   color: rgba(255, 255, 255, 0.9);
@@ -118,8 +119,8 @@ ul.factsList{
   line-height: 1.6;
 }
 
-
-.factsListItem::before, .rightFactsListItem::before {
+.factsListItem::before,
+.rightFactsListItem::before {
   content: "";
   position: absolute;
   left: 0;
@@ -127,14 +128,13 @@ ul.factsList{
   width: 1.25rem;
   height: 1.25rem;
   /* Make sure you have tick.png in this path: /assets/icons/tick.png */
-  background-image: url("/assets/images/tick.png"); 
+  background-image: url("/assets/images/tick.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
 }
 
 /* The previous .barsContainer, .barWrapper, etc. styles are removed */
-
 
 /* Right Section */
 .rightSectionMain {
@@ -157,7 +157,8 @@ ul.factsList{
   border-radius: 1rem;
   overflow: hidden;
   border: 0.125rem solid rgba(100, 59, 255, 0.3);
-  box-shadow: 0 0 1.25rem rgba(100, 59, 255, 0.2), 0 0 2.5rem rgba(100, 59, 255, 0.1),
+  box-shadow: 0 0 1.25rem rgba(100, 59, 255, 0.2),
+    0 0 2.5rem rgba(100, 59, 255, 0.1),
     inset 0 0 1.25rem rgba(100, 59, 255, 0.05);
   background: rgba(2, 0, 22, 0.8);
   backdrop-filter: blur(0.625rem);
@@ -165,7 +166,8 @@ ul.factsList{
 }
 
 .videoWrapper:hover .videoCard {
-  box-shadow: 0 0 1.875rem rgba(100, 59, 255, 0.4), 0 0 3.75rem rgba(100, 59, 255, 0.2),
+  box-shadow: 0 0 1.875rem rgba(100, 59, 255, 0.4),
+    0 0 3.75rem rgba(100, 59, 255, 0.2),
     inset 0 0 1.25rem rgba(100, 59, 255, 0.05);
 }
 
@@ -182,7 +184,7 @@ ul.factsList{
   cursor: pointer;
   transition: transform 0.3s ease;
   width: 100%;
-  box-shadow: 0 .125rem 1.125rem #0fdac2;
+  box-shadow: 0 0.125rem 1.125rem #0fdac2;
   border-radius: 2rem;
 }
 
@@ -195,16 +197,16 @@ ul.factsList{
   box-shadow: 0 15px 40px rgba(100, 59, 255, 0.7);
 }
 
-.videoImage{
+.videoImage {
   max-width: 100%;
   display: block;
-  box-shadow: 0 .125rem 1.125rem #0fdac2;
+  box-shadow: 0 0.125rem 1.125rem #0fdac2;
   border-radius: 2rem;
   width: 100%;
   flex-shrink: 0;
 }
 
-.videoMain{
+.videoMain {
   background-color: #21164c;
   border-radius: 1rem;
   padding: 1.5rem;
@@ -427,7 +429,7 @@ ul.factsList{
 }
 
 @media (max-width: 768px) {
-  .videoImage{
+  .videoImage {
     border-radius: 1rem;
   }
   .section {

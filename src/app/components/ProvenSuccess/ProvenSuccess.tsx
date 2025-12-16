@@ -215,13 +215,17 @@ const PROVEN_SUCCESS_DATA: ProvenSuccessData = {
 };
 
 const ProvenSuccess = () => {
-  const [activeTab, setActiveTab] = useState<string>(PROVEN_SUCCESS_DATA.tabs[0].id);
+  // Filter to only show Social Media Post tab
+  const socialMediaTab = PROVEN_SUCCESS_DATA.tabs.find((tab) => tab.id === 'social-media-post') || PROVEN_SUCCESS_DATA.tabs[0];
+  const filteredTabs = [socialMediaTab];
+  
+  const [activeTab, setActiveTab] = useState<string>('social-media-post');
   // const [activeCategory, setActiveCategory] = useState<string>(PROVEN_SUCCESS_DATA.categories[0].id);
   const [activeCategory, setActiveCategory] = useState<string>('');
   const [isBeginning, setIsBeginning] = useState<boolean>(true);
   const [isEnd, setIsEnd] = useState<boolean>(false);
   const [isFading, setIsFading] = useState<boolean>(false);
-  const [displayedTabId, setDisplayedTabId] = useState<string>(PROVEN_SUCCESS_DATA.tabs[0].id);
+  const [displayedTabId, setDisplayedTabId] = useState<string>('social-media-post');
   // const [displayedCategoryId, setDisplayedCategoryId] = useState<string>(PROVEN_SUCCESS_DATA.categories[0].id);
   const [displayedCategoryId, setDisplayedCategoryId] = useState<string>('');
   const swiperRef = useRef<SwiperType | null>(null);
@@ -230,8 +234,8 @@ const ProvenSuccess = () => {
   const [isTabsSwiperEnd, setIsTabsSwiperEnd] = useState(false);
   const categoriesScrollRef = useRef<HTMLDivElement>(null);
 
-  const currentTab = PROVEN_SUCCESS_DATA.tabs.find((tab) => tab.id === activeTab) || PROVEN_SUCCESS_DATA.tabs[0];
-  const displayedTab = PROVEN_SUCCESS_DATA.tabs.find((tab) => tab.id === displayedTabId) || PROVEN_SUCCESS_DATA.tabs[0];
+  const currentTab = filteredTabs.find((tab) => tab.id === activeTab) || filteredTabs[0];
+  const displayedTab = filteredTabs.find((tab) => tab.id === displayedTabId) || filteredTabs[0];
 
   // Handle fade effect when tab or category changes (Bootstrap-like smooth fade)
   useEffect(() => {
@@ -254,7 +258,7 @@ const ProvenSuccess = () => {
   // Sync Swiper to active tab when changed programmatically (for mobile)
   useEffect(() => {
     if (tabsSwiperRef.current) {
-      const activeIndex = PROVEN_SUCCESS_DATA.tabs.findIndex((tab) => tab.id === activeTab);
+      const activeIndex = filteredTabs.findIndex((tab) => tab.id === activeTab);
       if (activeIndex !== -1) {
         tabsSwiperRef.current.slideTo(activeIndex);
       }
@@ -284,138 +288,8 @@ const ProvenSuccess = () => {
           <p className={styles.description}>{PROVEN_SUCCESS_DATA.description}</p>
         </div>
 
-        {/* Tabs - Desktop View */}
-        <div className={`${styles.tabsContainer} hidden md:flex`}>
-          <Swiper
-            onSwiper={(swiper) => {
-              swiperRef.current = swiper;
-              setIsBeginning(swiper.isBeginning);
-              setIsEnd(swiper.isEnd);
-            }}
-            onSlideChange={(swiper) => {
-              setIsBeginning(swiper.isBeginning);
-              setIsEnd(swiper.isEnd);
-            }}
-            modules={[Navigation]}
-            slidesPerView="auto"
-            slidesPerGroup={1}
-            spaceBetween={10}
-            speed={500}
-            className={styles.swiperContainer}
-          >
-            {PROVEN_SUCCESS_DATA.tabs.map((tab) => (
-              <SwiperSlide key={tab.id} className={styles.swiperSlide}>
-                <button
-                  onClick={() => setActiveTab(tab.id)}
-                  className={`${styles.tab} ${activeTab === tab.id ? styles.activeTab : ''}`}
-                >
-                  {tab.label}
-                </button>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
-
-        {/* Tabs - Mobile View with Swiper */}
-        <div className={`${styles.tabsContainerMobile} relative md:hidden`}>
-          {/* Left Arrow */}
-          <button
-            onClick={() => tabsSwiperRef.current?.slidePrev()}
-            disabled={isTabsSwiperBeginning}
-            className={`absolute left-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full border-none text-white cursor-pointer flex items-center justify-center transition-all ${
-              isTabsSwiperBeginning
-                ? "opacity-30 cursor-not-allowed bg-[#1b1849]"
-                : "opacity-100 hover:bg-[#0fdac2]/80 bg-[#0fdac2]"
-            }`}
-            aria-label="Previous tab"
-          >
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M15 18l-6-6 6-6" />
-            </svg>
-          </button>
-
-          {/* Swiper for Tabs */}
-          <Swiper
-            modules={[Navigation]}
-            spaceBetween={0}
-            slidesPerView={1}
-            centeredSlides={false}
-            allowTouchMove={true}
-            speed={300}
-            watchOverflow={true}
-            onSwiper={(swiper) => {
-              tabsSwiperRef.current = swiper;
-              setIsTabsSwiperBeginning(swiper.isBeginning);
-              setIsTabsSwiperEnd(swiper.isEnd);
-            }}
-            onSlideChange={(swiper) => {
-              setIsTabsSwiperBeginning(swiper.isBeginning);
-              setIsTabsSwiperEnd(swiper.isEnd);
-              const activeIndex = swiper.activeIndex;
-              if (PROVEN_SUCCESS_DATA.tabs[activeIndex]) {
-                setActiveTab(PROVEN_SUCCESS_DATA.tabs[activeIndex].id);
-              }
-            }}
-            className={styles.tabsSwiper}
-            style={{ paddingLeft: "3rem", paddingRight: "3rem", overflow: "hidden" }}
-          >
-            {PROVEN_SUCCESS_DATA.tabs.map((tab) => (
-              <SwiperSlide key={tab.id} style={{ width: "100%" }}>
-                <div className="flex justify-center w-full">
-                  <button
-                    onClick={() => {
-                      setActiveTab(tab.id);
-                      // Sync swiper to active tab
-                      const tabIndex = PROVEN_SUCCESS_DATA.tabs.findIndex((t) => t.id === tab.id);
-                      if (tabsSwiperRef.current && tabIndex !== -1) {
-                        tabsSwiperRef.current.slideTo(tabIndex);
-                      }
-                    }}
-                    className={`${styles.tab} ${
-                      activeTab === tab.id ? styles.activeTab : ""
-                    }`}
-                  >
-                    {tab.label}
-                  </button>
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-
-          {/* Right Arrow */}
-          <button
-            onClick={() => tabsSwiperRef.current?.slideNext()}
-            disabled={isTabsSwiperEnd}
-            className={`absolute right-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full border-none text-white cursor-pointer flex items-center justify-center transition-all ${
-              isTabsSwiperEnd
-                ? "opacity-30 cursor-not-allowed bg-[#1b1849]"
-                : "opacity-100 hover:bg-[#0fdac2]/80 bg-[#0fdac2]"
-            }`}
-            aria-label="Next tab"
-          >
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M9 18l6-6-6-6" />
-            </svg>
-          </button>
-        </div>
+        {/* Tabs - Hidden (only showing Social Media Post content) */}
+        {/* Tabs removed - only Social Media Post content is displayed */}
 
         {/* Categories Tabs */}
         {/* <div ref={categoriesScrollRef} className={styles.categoriesContainer}>

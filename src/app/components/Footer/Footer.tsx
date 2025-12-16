@@ -1,11 +1,15 @@
 "use client";
 
 import Container from "../Container";
-import { FOOTER_LINKS, SOCIAL_MEDIA_LINKS, COMPANY_INFO } from "../../constants";
+import { FOOTER_LINKS, SOCIAL_MEDIA_LINKS, COMPANY_INFO, NAVIGATION_LINKS } from "../../constants";
 import styles from "./Footer.module.css";
 import { EmailIcon, LocationIcon, PhoneIcon } from "../../icons";
+import { getAllServices } from "../../data/ServicesPageData";
 
 export default function Footer() {
+  // Get first 5 services for Solutions & Services column
+  const allServices = getAllServices();
+  const firstFiveServices = allServices.slice(0, 5);
   return (
     <footer className={styles.footer}>
       <Container maxWidth="xl" className="px-0">
@@ -16,7 +20,7 @@ export default function Footer() {
             <div className={styles.logoContainer}>
               <img
                 src="/assets/images/logo.webp"
-                className={`img-fluid mx-auto block ${styles.footerlogo}`}
+                className={`${styles.footerlogo}`}
               />
             </div>
 
@@ -118,67 +122,69 @@ export default function Footer() {
                 </a>
               ))}
             </div>
-
-            {/* Contact Information */}
-            <div className={styles.contactInfo}>
-              <p className={styles.contactItem}>
-                <PhoneIcon />
-                <a href={`tel:${COMPANY_INFO.phone.replace(/\s/g, "")}`} className={styles.contactLink}>
-                  {COMPANY_INFO.phone}
-                </a>
-              </p>
-
-              <p className={styles.contactItem}>
-                <EmailIcon />
-                <a href={`mailto:${COMPANY_INFO.email}`} className={styles.contactLink}>
-                  {COMPANY_INFO.email}
-                </a>
-              </p>
-
-              <p className={styles.contactItem}>
-                <LocationIcon />
-                <span>{COMPANY_INFO.address}</span>
-              </p>
-            </div>
           </div>
 
-          {/* Right Side - Navigation Links */}
-          <div className={styles.rightSection}>
-            {/* Column 1 */}
-            <div className={styles.linkColumn}>
-              {FOOTER_LINKS.column1.map((link, index) => (
-                <a key={index} href={link.href} className={styles.footerLink}>
-                  {link.label}
-                </a>
-              ))}
-            </div>
-
-            {/* Column 2 */}
-            {/* <div className={styles.linkColumn}>
-              {FOOTER_LINKS.column2.map((link, index) => (
-                <a
-                  key={index}
-                  href={link.href}
-                  className={styles.footerLink}
-                >
-                  {link.label}
-                </a>
-              ))}
-            </div> */}
-
-            {/* Column 3 */}
-            {/* <div className={styles.linkColumn}>
-              {FOOTER_LINKS.column3.map((link, index) => (
-                <a
-                  key={index}
-                  href={link.href}
-                  className={styles.footerLink}
-                >
-                  {link.label}
-                </a>
-              ))}
-            </div> */}
+          {/* Column 2 - Quick Links */}
+          <div className={styles.linkColumn}>
+            <h3 className={styles.columnTitle}>Quick links</h3>
+            {NAVIGATION_LINKS.map((link, index) => (
+              <a key={index} href={link.href} className={styles.footerLink}>
+                {link.label}
+              </a>
+            ))}
           </div>
+
+          {/* Column 4 - Pages */}
+          <div className={styles.linkColumn}>
+            <h3 className={styles.columnTitle}>Pages</h3>
+            {FOOTER_LINKS.column5.map((link, index) => (
+              <a
+                key={index}
+                href={link.href}
+                className={styles.footerLink}
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+
+          {/* Column 3 - Solutions & Services */}
+          <div className={styles.linkColumn}>
+            <h3 className={styles.columnTitle}>Solutions & Services</h3>
+            {firstFiveServices.map((service, index) => (
+              <a
+                key={index}
+                href={`/${service.slug}`}
+                className={styles.footerLink}
+              >
+                {service.title}
+              </a>
+            ))}
+          </div>
+
+          {/* Column 5 - Contact */}
+          <div className={`${styles.linkColumn} ${styles.contactColumn}`}>
+            <h3 className={styles.columnTitle}>Contact</h3>
+            <a href={`tel:${COMPANY_INFO.phone.replace(/\s/g, "")}`} className={styles.footerLink}>
+              <PhoneIcon />
+              {COMPANY_INFO.phone}
+            </a>
+            <a href={`mailto:${COMPANY_INFO.email}`} className={styles.footerLink}>
+              <EmailIcon />
+              {COMPANY_INFO.email}
+            </a>
+            <span className={styles.footerLink}>
+              <LocationIcon />
+              {COMPANY_INFO.address}
+            </span>
+          </div>
+        </div>
+        
+        {/* Copyright Line */}
+        <div className={styles.copyright}>
+          <p className={styles.copyrightText}>
+            © {new Date().getFullYear()} Startups Advisory. All rights reserved.
+          </p>
         </div>
       </Container>
     </footer>

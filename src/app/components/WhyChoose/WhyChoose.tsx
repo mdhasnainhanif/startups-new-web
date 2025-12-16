@@ -57,7 +57,9 @@ export default function WhyChoose({
                     }`}
                   >
                     <span className={styles.accordionTitle}>{item.title}</span>
-                    <span className={styles.accordionIcon}>
+                    <span className={`${styles.accordionIcon} ${
+                      openIndex === index ? styles.accordionIconOpen : styles.accordionIconClosed
+                    }`}>
                       {openIndex === index ? "−" : "+"}
                     </span>
                   </button>

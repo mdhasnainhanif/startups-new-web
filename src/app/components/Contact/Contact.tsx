@@ -195,7 +195,7 @@ export default function Contact() {
                   className="w-full text-center justify-center items-center"
                   disabled={loading}
                 >
-                  <span>{loading ? "Sending..." : "Submit"}</span>
+                  <span>{loading ? "Sending..." : "Submit Your Query"}</span>
                   {!loading && (
                     <svg
                       width="20"
