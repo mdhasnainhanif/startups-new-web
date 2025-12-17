@@ -5,51 +5,14 @@ import styles from "./TextSlider.module.css";
 import gsap from "gsap";
 
 type SliderItem = {
-  sliderDataPara: string;
+  text: string;
+  highlight: string;
+  price: string;
 };
 
 interface TextSlider1Props {
   data?: SliderItem[];
 }
-
-// Helper function to parse text and extract highlighted parts from [brackets]
-const parseTextWithHighlights = (text: string) => {
-  const parts: Array<{ text: string; isHighlight: boolean }> = [];
-  const regex = /\[([^\]]+)\]/g;
-  let lastIndex = 0;
-  let match;
-
-  while ((match = regex.exec(text)) !== null) {
-    // Add text before the bracket
-    if (match.index > lastIndex) {
-      parts.push({
-        text: text.substring(lastIndex, match.index),
-        isHighlight: false,
-      });
-    }
-    // Add highlighted text with a space after it
-    parts.push({
-      text: match[1] + " ", // Content inside brackets + space
-      isHighlight: true,
-    });
-    lastIndex = regex.lastIndex;
-  }
-
-  // Add remaining text after last bracket
-  if (lastIndex < text.length) {
-    parts.push({
-      text: text.substring(lastIndex),
-      isHighlight: false,
-    });
-  }
-
-  // If no brackets found, return the whole text as non-highlighted
-  if (parts.length === 0) {
-    parts.push({ text, isHighlight: false });
-  }
-
-  return parts;
-};
 
 const TextSlider1: React.FC<TextSlider1Props> = ({ data = [] }) => {
   const railRef = useRef<HTMLDivElement>(null);
@@ -71,7 +34,7 @@ const TextSlider1: React.FC<TextSlider1Props> = ({ data = [] }) => {
       if (!railRef.current) return;
 
       const items = gsap.utils.toArray<HTMLElement>(railRef.current.querySelectorAll("h4"));
-      
+
       if (items.length === 0) return;
 
       // Remove any existing duplicates (items beyond the original data.length)
@@ -96,10 +59,10 @@ const TextSlider1: React.FC<TextSlider1Props> = ({ data = [] }) => {
       // Use requestAnimationFrame to ensure DOM is updated
       requestAnimationFrame(() => {
         if (!railRef.current) return;
-        
+
         // Get all items including duplicates
         const allItems = gsap.utils.toArray<HTMLElement>(railRef.current.querySelectorAll("h4"));
-        
+
         if (allItems.length === 0) return;
 
         // Reset transforms for all items before starting new animation
@@ -120,10 +83,10 @@ const TextSlider1: React.FC<TextSlider1Props> = ({ data = [] }) => {
       items = gsap.utils.toArray(items);
       config = config || {};
       let tl = gsap.timeline({
-          repeat: config.repeat,
-          paused: false,
-          defaults: { ease: "none" },
-        }),
+        repeat: config.repeat,
+        paused: false,
+        defaults: { ease: "none" },
+      }),
         length = items.length,
         startX = items[0].offsetLeft,
         widths: number[] = [],
@@ -148,7 +111,7 @@ const TextSlider1: React.FC<TextSlider1Props> = ({ data = [] }) => {
           ));
           xPercents[i] = snap(
             (parseFloat(gsap.getProperty(el, "x", "px") as string) / w) * 100 +
-              (gsap.getProperty(el, "xPercent") as number || 0)
+            (gsap.getProperty(el, "xPercent") as number || 0)
           );
           return xPercents[i];
         },
@@ -163,7 +126,7 @@ const TextSlider1: React.FC<TextSlider1Props> = ({ data = [] }) => {
         (xPercents[length - 1] / 100) * widths[length - 1] -
         startX +
         items[length - 1].offsetWidth *
-          (gsap.getProperty(items[length - 1], "scaleX") as number || 1) +
+        (gsap.getProperty(items[length - 1], "scaleX") as number || 1) +
         (parseFloat(config.paddingRight) || 0);
 
       // Create animation for each item
@@ -227,21 +190,13 @@ const TextSlider1: React.FC<TextSlider1Props> = ({ data = [] }) => {
     <section className={styles.ctaBanner}>
       <div className={styles.scrollingText}>
         <div className={styles.rail} ref={railRef}>
-          {data.map((item, idx) => {
-            const textParts = parseTextWithHighlights(item.sliderDataPara);
-            return (
-              <h4 key={idx}>
-                {textParts.map((part, partIdx) => (
-                  <span
-                    key={partIdx}
-                    className={part.isHighlight ? "text-[#0fdac2]" : ""}
-                  >
-                    {part.text}
-                  </span>
-                ))}
-              </h4>
-            );
-          })}
+          {data.map((item, idx) => (
+            <h4 key={idx}>
+              <span>{item.text}</span>
+              <span className="text-[#0fdac2]">{item.highlight}</span>
+              <span>{item.price}</span>
+            </h4>
+          ))}
         </div>
       </div>
     </section>
