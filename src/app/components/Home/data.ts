@@ -319,6 +319,28 @@ export const GROWTH_GUIDES = [
     href: "/blog-detail/web-development-in-2026-full-guide/",
   },
   {
+    id: "7",
+    image: "/assets/images/blog/3.webp",
+    category: "Content Writing",
+    title: "Content Writing in 2026 - Full Guide",
+    date: "Dec 5, 2025",
+    readTime: "21 min read",
+    excerpt:
+      "Content writing in 2026 is no longer about stuffing keywords into 800 words and hoping to rank. Search engines now prioritize experience, depth, and usefulness, while readers expect clarity, speed, and authenticity.",
+    href: "/blog-detail/content-writing-in-2026-full-guide/",
+  },
+  {
+    id: "8",
+    image: "/assets/images/blog/2.webp",
+    category: "Social Media Marketing",
+    title: "How to Grow on Social Media in 2026 - Full Guide",
+    date: "Dec 15, 2025",
+    readTime: "20 min read",
+    excerpt:
+      "Growing on social media in 2026 goes far beyond posting frequently. Algorithms now reward content that increases meaningful engagement, holds attention longer, and builds trust.",
+    href: "/blog-detail/how-to-grow-on-social-media-in-2026/",
+  },
+  {
     id: "2",
     image: "/assets/images/blog/2.webp",
     category: "Shopify Agent",

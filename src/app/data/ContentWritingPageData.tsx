@@ -150,7 +150,7 @@ export const contentWritingCaseStudyData: CaseStudySectionData = {
         "Full website content creation",
       ],
       buttonText: "Hire Web Content Writer",
-      image: "/assets/images/2.png",
+      image: "/assets/images/avatar/content-writer.webp",
     },
     {
       id: "tabScroll2",
@@ -170,7 +170,7 @@ export const contentWritingCaseStudyData: CaseStudySectionData = {
         "Commercial writing essentials",
       ],
       buttonText: "Hire Copywriter",
-      image: "/assets/images/ui-ux-designer.webp",
+      image: "/assets/images/avatar/content-writer.webp",
     },
     {
       id: "tabScroll3",
@@ -190,7 +190,7 @@ export const contentWritingCaseStudyData: CaseStudySectionData = {
         "Complete UX content refinement",
       ],
       buttonText: "Hire UI/UX Writer",
-      image: "/assets/images/graphic-designer.webp",
+      image: "/assets/images/avatar/content-writer.webp",
     },
     {
       id: "tabScroll4",
@@ -210,7 +210,7 @@ export const contentWritingCaseStudyData: CaseStudySectionData = {
         "Performance-aligned ad content",
       ],
       buttonText: "Hire Ads Writer",
-      image: "/assets/images/graphic-designer.webp",
+      image: "/assets/images/avatar/content-writer.webp",
     },
   ],
 };

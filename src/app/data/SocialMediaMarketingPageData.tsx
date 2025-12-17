@@ -152,7 +152,7 @@ export const socialMediaMarketingCaseStudyData: CaseStudySectionData = {
         "Full visual content production",
       ],
       buttonText: "Hire Social Media Designer",
-      image: "/assets/images/2.png",
+      image: "/assets/images/avatar/social-media-marketing.webp",
     },
     {
       id: "tabScroll2",
@@ -172,7 +172,7 @@ export const socialMediaMarketingCaseStudyData: CaseStudySectionData = {
         "Message-ready content compilation",
       ],
       buttonText: "Hire Content Curator",
-      image: "/assets/images/ui-ux-designer.webp",
+      image: "/assets/images/avatar/social-media-marketing.webp",
     },
     {
       id: "tabScroll3",
@@ -192,7 +192,7 @@ export const socialMediaMarketingCaseStudyData: CaseStudySectionData = {
         "Fast-cut creative planning",
       ],
       buttonText: "Hire Reels Creator",
-      image: "/assets/images/graphic-designer.webp",
+      image: "/assets/images/avatar/social-media-marketing.webp",
     },
     {
       id: "tabScroll4",
@@ -212,7 +212,7 @@ export const socialMediaMarketingCaseStudyData: CaseStudySectionData = {
         "Promotional content writing",
       ],
       buttonText: "Hire Campaign Writer",
-      image: "/assets/images/graphic-designer.webp",
+      image: "/assets/images/avatar/social-media-marketing.webp",
     },
   ],
 };

@@ -108,7 +108,7 @@ export interface WhyChooseProps {
 // DedicatedTeam Types
 export interface TeamMember {
   id: string;
-  name: string;
+  name?: string;
   title: string;
   image: string;
 }
