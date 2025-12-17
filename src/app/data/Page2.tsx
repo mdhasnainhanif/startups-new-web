@@ -68,10 +68,11 @@ export interface HomeBannerData {
       href: string;
     };
     calendly: {
-      url: string;
-      duration: string;
-      date: string;
-      timezone: string;
+      namespace: string;
+      calLink: string;
+      duration?: string;
+      date?: string;
+      timezone?: string;
     };
   }
 
@@ -98,7 +99,8 @@ export interface HomeBannerData {
       href: '#',
     },
     calendly: {
-      url: 'https://calendly.com/md-hasnain-developer/30min?month=2025-11',
+      namespace: "30min",
+      calLink: "inhouse-team-loexw9/30min",
       duration: '45 Mins',
       date: 'Thu, Nov 13, 2025',
       timezone: 'Asia/Karachi (GMT+5)',
@@ -262,7 +264,7 @@ export interface HomeBannerData {
   }
 
   export const CREATED_BY_ENTREPRENEURS_DATA: CreatedByEntrepreneursData = {
-    image: '/assets/images/entrepreneurs.webp',
+    image: '/assets/images/entrepreneurs.jpg',
     headline: {
       part1: 'Created By ',
       part2: 'Entrepreneurs',

@@ -381,8 +381,10 @@ export const CALENDLY_SECTION = {
     "Join us on a call and get a clear roadmap that shows how your business can increase clients improve consistency and grow steadily day by day.",
   buttonText: "Free Up Your Time",
   buttonHref: "#",
-  calendlyUrl: "https://calendly.com/md-hasnain-developer/30min",
   calendlyText:
     "You go from chasing opportunities to choosing the ones that fit your growth.",
+  // Cal.com props
+  calNamespace: "30min",
+  calLink: "inhouse-team-loexw9/30min",
 };
 

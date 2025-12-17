@@ -21,8 +21,22 @@ export const contactFormAddressData: ContactFormAddressConfig = {
     {
       id: "location",
       icon: "location",
-      label: "location",
+      label: "Location",
       value: "1007n Orange St, Wilmington, DE 19801, United States",
+      bgColor: "bg-purple-500",
+    },
+    {
+      id: "location2",
+      icon: "location",
+      label: "Location",
+      value: "123 Main Street, New York, NY 10001, United States",
+      bgColor: "bg-purple-500",
+    },
+    {
+      id: "location3",
+      icon: "location",
+      label: "Location",
+      value: "456 Business Ave, Los Angeles, CA 90001, United States",
       bgColor: "bg-purple-500",
     },
   ],

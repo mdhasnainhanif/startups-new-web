@@ -35,7 +35,9 @@ export default function PageTwo() {
       <CreatedByEntrepreneurs />
       <WhyChooseUs />
       <ReplacementGuarantee />
-      <SupportAndTraining />
+
+      {/* <SupportAndTraining /> */}
+
       <Technologies
         className={'keyGrowthTechnologySection'}
         heading={TECHNOLOGIES_PAGE2_DATA.heading}
@@ -43,6 +45,7 @@ export default function PageTwo() {
         subDescription={TECHNOLOGIES_PAGE2_DATA.subDescription}
         hideTabs={true}
       />
+      
       <ToolsTrained />
       <Reviews />
       <ThreeEasySteps />

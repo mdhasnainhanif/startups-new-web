@@ -623,12 +623,12 @@ export default function Header() {
                                         onClick={() =>
                                           setIsServicesDropdownOpen2(false)
                                         }
-                                        className={`flex items-center gap-3 py-3 px-4 hover:bg-[#2f2a63]/30 transition-all rounded-lg ${
+                                        className={`group flex items-center gap-3 py-3 px-4 hover:bg-[#2f2a63]/30 transition-all rounded-lg ${
                                           isActive ? "bg-[#2f2a63]/40" : ""
                                         }`}
                                       >
                                         <div
-                                          className={`flex-shrink-0 ${
+                                          className={`flex-shrink-0 transition-colors group-hover:text-[#039f8d] ${
                                             isActive
                                               ? "text-[#0fdac2]"
                                               : "text-[#643bff] opacity-70"
@@ -931,12 +931,12 @@ export default function Header() {
                           setIsMobileMenuOpen(false);
                           setIsMobileServicesDropdownOpen(false);
                         }}
-                        className={`flex items-center gap-3 py-2 hover:text-[#0fdac2] transition-colors ${
+                        className={`group flex items-center gap-3 py-2 hover:text-[#0fdac2] transition-colors ${
                           isActiveService ? "text-[#0fdac2]" : "text-gray-400"
                         }`}
                       >
                         <div
-                          className={`flex-shrink-0 ${
+                          className={`flex-shrink-0 transition-colors group-hover:text-[#039f8d] ${
                             isActiveService
                               ? "text-[#0fdac2]"
                               : "text-[#643bff] opacity-70"

@@ -38,7 +38,7 @@ const GUESS_WORK_ADVERTISING_DATA: GuessWorkAdvertisingData = {
   description:
     'Speak your heart out and get an actionable and clear plan built around your business. You’ll see what to focus on, what to fix, and what can push your growth faster. Your growth is now just a few taps away!',
   form: {
-    placeholder: 'Enter Your Website Link',
+    placeholder: 'Enter Your Business Name',
     buttonText: 'Get Started',
     buttonIcon: (
       <svg

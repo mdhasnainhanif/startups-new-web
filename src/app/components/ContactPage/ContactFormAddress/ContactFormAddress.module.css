@@ -121,6 +121,30 @@
   justify-content: center;
 }
 
+.locationSwiperWrapper {
+  width: 100%;
+  overflow: hidden;
+}
+
+.locationSwiper {
+  width: 100%;
+}
+
+.locationSwiper :global(.swiper-wrapper) {
+  align-items: center;
+}
+
+.locationSwiper :global(.swiper-slide) {
+  width: 100%;
+}
+
+/* Hide navigation and pagination */
+.locationSwiper :global(.swiper-button-next),
+.locationSwiper :global(.swiper-button-prev),
+.locationSwiper :global(.swiper-pagination) {
+  display: none !important;
+}
+
 /* Responsive Design */
 @media (max-width: 1280px) {
   .container {
