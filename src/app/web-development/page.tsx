@@ -17,7 +17,6 @@ import RealCost from '../components/RealCost/RealCost';
 import CompleteBusinessSetup from '../components/CompleteBusinessSetup/CompleteBusinessSetup';
 import Contact from '../components/Contact/Contact';
 import GuessWorkAdvertising from '../components/GuessWorkAdvertising/GuessWorkAdvertising';
-import ContactTwo from '../components/ContactTwo/ContactTwo';
 import { 
   webDevelopmentBannerData, 
   webDevelopmentAiPowerData, 
@@ -59,7 +58,7 @@ export default function WebDevelopmentPage() {
       <Reviews/>
       <GrowthSlider items={webDevelopmentBlogGuides} />
       <FAQ faqs={FAQ_CONTACT} sectionData={FAQ_SECTION} />
-      <ContactTwo/>
+      <Contact/>
     </>
   )
 }

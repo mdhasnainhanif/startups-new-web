@@ -16,7 +16,7 @@ import ProvenSuccess from '../components/ProvenSuccess/ProvenSuccess';
 import RealCost from '../components/RealCost/RealCost';
 import CompleteBusinessSetup from '../components/CompleteBusinessSetup/CompleteBusinessSetup';
 import GuessWorkAdvertising from '../components/GuessWorkAdvertising/GuessWorkAdvertising';
-import ContactTwo from '../components/ContactTwo/ContactTwo';
+import Contact from '../components/Contact/Contact';
 import { 
   socialMediaMarketingBannerData, 
   socialMediaMarketingAiPowerData, 
@@ -58,7 +58,7 @@ export default function SocialMediaMarketingPage() {
       <Reviews/>
       <GrowthSlider items={socialMediaMarketingBlogGuides} />
       <FAQ faqs={FAQ_CONTACT} sectionData={FAQ_SECTION} />
-      <ContactTwo/>
+      <Contact/>
     </>
   )
 }

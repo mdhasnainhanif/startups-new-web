@@ -59,7 +59,7 @@ export default function ContentWritingPage() {
       <Reviews/>
       <GrowthSlider items={contentWritingBlogGuides} />
       <FAQ faqs={FAQ_CONTACT} sectionData={FAQ_SECTION} />
-      <ContactTwo/>
+      <Contact/>
     </>
   )
 }

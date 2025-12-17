@@ -1,8 +1,9 @@
 "use client";
 
-import React, { useMemo } from "react";
+import React, { useMemo, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
+import type { Swiper as SwiperType } from "swiper";
 import "swiper/css";
 import { ContactFormAddressProps } from "@/app/types/types";
 import { contactFormAddressData } from "./data";
@@ -65,6 +66,10 @@ const IconComponent: React.FC<{ icon: string; className?: string }> = ({
 const ContactFormAddress: React.FC<ContactFormAddressProps> = ({
   config = contactFormAddressData,
 }) => {
+  const swiperRef = useRef<SwiperType | null>(null);
+  const [isBeginning, setIsBeginning] = useState(true);
+  const [isEnd, setIsEnd] = useState(false);
+
   // Filter only location items
   const locationItems = useMemo(() => {
     return config.items.filter((item) => item.icon === "location");
@@ -74,6 +79,19 @@ const ContactFormAddress: React.FC<ContactFormAddressProps> = ({
   const otherItems = useMemo(() => {
     return config.items.filter((item) => item.icon !== "location");
   }, [config.items]);
+
+  const handlePrev = () => {
+    swiperRef.current?.slidePrev();
+  };
+
+  const handleNext = () => {
+    swiperRef.current?.slideNext();
+  };
+
+  const handleSlideChange = (swiper: SwiperType) => {
+    setIsBeginning(swiper.isBeginning);
+    setIsEnd(swiper.isEnd);
+  };
 
   return (
     <div className={styles.container}>
@@ -117,6 +135,12 @@ const ContactFormAddress: React.FC<ContactFormAddressProps> = ({
               }}
               speed={800}
               loop={locationItems.length > 1}
+              onSwiper={(swiper) => {
+                swiperRef.current = swiper;
+                setIsBeginning(swiper.isBeginning);
+                setIsEnd(swiper.isEnd);
+              }}
+              onSlideChange={handleSlideChange}
               className={styles.locationSwiper}
             >
               {locationItems.map((item) => (
@@ -138,6 +162,27 @@ const ContactFormAddress: React.FC<ContactFormAddressProps> = ({
                 </SwiperSlide>
               ))}
             </Swiper>
+            {/* Navigation Arrows */}
+            {locationItems.length > 1 && (
+              <div className={styles.navButtonWrapper}>
+                <button
+                  onClick={handlePrev}
+                  aria-label="Previous"
+                  disabled={isBeginning}
+                  className={`${styles.navButton} ${styles.navButtonLeft}`}
+                >
+                  <span className={styles.arrowIcon}>‹</span>
+                </button>
+                <button
+                  onClick={handleNext}
+                  aria-label="Next"
+                  disabled={isEnd}
+                  className={`${styles.navButton} ${styles.navButtonRight}`}
+                >
+                  <span className={styles.arrowIcon}>›</span>
+                </button>
+              </div>
+            )}
           </div>
         )}
       </div>

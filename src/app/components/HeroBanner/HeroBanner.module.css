@@ -99,9 +99,7 @@ section.bottomZero {
   font-weight: 700;
   font-size: 1rem;
   line-height: 1.5;
-  box-shadow: 0 0 10px rgba(15, 218, 194, 0.3), 
-              0 0 20px rgba(15, 218, 194, 0.2),
-              inset 0 0 10px rgba(15, 218, 194, 0.1);
+  box-shadow: 0 .25rem .5rem #0fdac2c9;
   transition: all 0.3s ease;
 }
 
