@@ -1,29 +1,24 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { InlineWidget } from "react-calendly";
+import Cal, { getCalApi } from "@calcom/embed-react";
 import Container from "../Container";
 import styles from "./CalendlySection.module.css";
 import Button from "../Button";
-
 import { PlayIcon } from "@/app/icons";
-
 import { VideoIcon } from "../../icons";
 
 interface CalendlySectionProps {
-  heading?:
-    | string
-    | {
-        part1: string;
-        part2: string;
-        part3: string;
-      };
+  heading?: string | { part1: string; part2: string; part3: string };
   description?: string;
   buttonText?: string;
   buttonHref?: string;
-  calendlyUrl: string;
+  calendlyUrl?: string; // Keep for backward compatibility
   calendlyText?: string;
   className?: string;
+  // New Cal.com props
+  calNamespace?: string;
+  calLink?: string;
 }
 
 const CalendlySection = ({
@@ -31,20 +26,27 @@ const CalendlySection = ({
   description = "Book a quick video call to see how your Smart AI Business Team can free you to run jobs while your digital presence runs itself",
   buttonText = "Free Up Your Time",
   buttonHref = "#",
-  calendlyUrl = "https://calendly.com/md-hasnain-developer/30min?month=2025-11",
+  calendlyUrl,
   calendlyText = "In minutes, you'll see examples of what your team can handle — ads, social, website, graphics — and how it all works together seamlessly",
   className = "",
+  calNamespace = "30min",
+  calLink = "inhouse-team-loexw9/30min",
 }: CalendlySectionProps) => {
   const [isMounted, setIsMounted] = useState(false);
   const [selectedDropdownItem, setSelectedDropdownItem] = useState<string>(buttonText);
 
   useEffect(() => {
     setIsMounted(true);
-    // Log URL for debugging
-    if (calendlyUrl) {
-      console.log("Calendly URL:", calendlyUrl);
-    }
-  }, [calendlyUrl]);
+    
+    // Initialize Cal.com
+    (async function () {
+      const cal = await getCalApi({ namespace: calNamespace });
+      cal("ui", {
+        hideEventTypeDetails: false,
+        layout: "month_view",
+      });
+    })();
+  }, [calNamespace]);
 
   const handleDropdownSelect = (item: { label: string; href?: string; onClick?: () => void }) => {
     setSelectedDropdownItem(item.label);
@@ -52,7 +54,6 @@ const CalendlySection = ({
 
   // Parse heading to handle [Highlighted Word] format
   const renderHeading = () => {
-    // If heading is object (old format), use it
     if (typeof heading === "object" && heading !== null && "part1" in heading) {
       return (
         <>
@@ -63,7 +64,6 @@ const CalendlySection = ({
       );
     }
 
-    // If heading is string, parse [Highlighted Word] format
     if (typeof heading === "string") {
       const parts: React.ReactElement[] = [];
       const regex = /\[([^\]]+)\]/g;
@@ -72,7 +72,6 @@ const CalendlySection = ({
       let key = 0;
 
       while ((match = regex.exec(heading)) !== null) {
-        // Add text before the match
         if (match.index > lastIndex) {
           parts.push(
             <span key={key++} className={styles.headingPart1}>
@@ -80,7 +79,6 @@ const CalendlySection = ({
             </span>
           );
         }
-        // Add highlighted text
         parts.push(
           <span
             key={key++}
@@ -92,7 +90,6 @@ const CalendlySection = ({
         );
         lastIndex = regex.lastIndex;
       }
-      // Add remaining text
       if (lastIndex < heading.length) {
         parts.push(
           <span key={key++} className={styles.headingPart1}>
@@ -142,24 +139,22 @@ const CalendlySection = ({
             </div>
           </div>
 
-          {/* Right Section - Calendly Widget */}
+          {/* Right Section - Cal.com Widget */}
           <div className={styles.rightSection}>
             <div className={styles.calendlyContainer}>
               <div className={styles.calendlyWrapper}>
-                {calendlyUrl && isMounted ? (
-                  <InlineWidget
-                    url={calendlyUrl}
-                    styles={{
+                {isMounted ? (
+                  <Cal
+                    namespace={calNamespace}
+                    calLink={calLink}
+                    style={{
+                      width: "100%",
                       height: "650px",
                       minHeight: "650px",
+                      overflow: "scroll",
                     }}
-                    pageSettings={{
-                      backgroundColor: "ffffff",
-                      hideEventTypeDetails: false,
-                      hideLandingPageDetails: false,
-                      primaryColor: "643bff",
-                      textColor: "4d5055",
-                      hideGdprBanner: true,
+                    config={{
+                      layout: "month_view",
                     }}
                   />
                 ) : (
