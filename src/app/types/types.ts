@@ -233,9 +233,7 @@ export interface ContactFormAddressProps {
 }
 
 type SliderItem = {
-  text: string;
-  highlight: string;
-  price: string;
+  sliderDataPara: string;
 };
 
 interface TextSlider1Props {
