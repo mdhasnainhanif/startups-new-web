@@ -27,6 +27,7 @@ export default function FAQ({ faqs, sectionData, className = "" }: FAQProps) {
   const [leftOpenIndex, setLeftOpenIndex] = useState<number | null>(0);
   const [rightOpenIndex, setRightOpenIndex] = useState<number | null>(null);
   const [isFormOpen, setIsFormOpen] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
   const [question, setQuestion] = useState("");
   const [additionalDetails, setAdditionalDetails] = useState("");
 
@@ -40,16 +41,26 @@ export default function FAQ({ faqs, sectionData, className = "" }: FAQProps) {
 
   const handleToggleForm = () => {
     setIsFormOpen(!isFormOpen);
+    // Reset success message when opening/closing form
+    if (isFormOpen) {
+      setShowSuccess(false);
+    }
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (question.trim()) {
       // Handle form submission
-      alert(`Question submitted: ${question}`);
+      // Hide form and show success message
+      setIsFormOpen(false);
+      setShowSuccess(true);
       setQuestion("");
       setAdditionalDetails("");
-      setIsFormOpen(false);
+      
+      // Hide success message after 5 seconds
+      setTimeout(() => {
+        setShowSuccess(false);
+      }, 5000);
     }
   };
 
@@ -165,10 +176,44 @@ export default function FAQ({ faqs, sectionData, className = "" }: FAQProps) {
             </Button>
           </div>
 
+          {/* Success Message */}
+          {showSuccess && (
+            <div className="w-full overflow-hidden transition-all duration-500 ease-in-out max-h-[300px] opacity-100">
+              <div className="py-6 sm:py-8">
+                <div className="border border-[#0fdac2] rounded-xl bg-[#0b0a24] p-6 sm:p-8 text-center">
+                  {/* Circular Checkmark Icon */}
+                  <div className="flex items-center justify-center mb-4">
+                    <div className="w-16 h-16 rounded-full bg-[#0fdac2] flex items-center justify-center">
+                      <svg
+                        className="w-8 h-8 text-white"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={3}
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-semibold text-[#0fdac2] mb-2">
+                    Question Submitted Successfully!
+                  </h3>
+                  <p className="text-white/80 text-sm sm:text-base">
+                    Thank you for your question. We'll get back to you soon.
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
+
           {/* Slide Down Form */}
           <div
             className={`w-full overflow-hidden transition-all duration-500 ease-in-out ${
-              isFormOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+              isFormOpen && !showSuccess ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
             }`}
           >
             <div className="py-6 sm:py-8">
