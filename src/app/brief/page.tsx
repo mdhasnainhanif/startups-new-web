@@ -9,7 +9,7 @@ import QuestionnaireStep from "../components/Questionnaire/QuestionnaireStep";
 import PersonalDetailsForm from "../components/Questionnaire/PersonalDetailsForm";
 import BriefFooter from "../components/BriefFooter/BriefFooter";
 import { useRouter } from "next/navigation";
-
+import { submitBriefEmail } from '../lib/api/email';
 export interface QuestionnaireAnswers {
   [key: string]: string;
 }
@@ -104,27 +104,22 @@ export default function BriefPage() {
   }) => {
     setIsSubmitting(true);
     try {
-      // Combine all answers with personal details
       const submissionData = {
         ...answers,
         ...formData,
       };
-
+      
+   // Combine all answers with personal details
+      const submissionPayload = {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.contact,
+        company: formData.country,
+        message: JSON.stringify(submissionData, null, 2),
+        title: "Brief request from website",
+      };
       // Submit to API
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          phone: formData.contact,
-          company: formData.country,
-          message: JSON.stringify(submissionData, null, 2),
-        }),
-      });
-
+      const response = await submitBriefEmail(submissionPayload);
       if (response.ok) {
         setShowThankYou(true);
       } else {

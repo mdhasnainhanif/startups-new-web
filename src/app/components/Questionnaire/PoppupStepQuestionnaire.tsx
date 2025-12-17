@@ -8,7 +8,7 @@ import QuestionnaireStep from "./QuestionnaireStep";
 import PersonalDetailsForm from "./PersonalDetailsForm";
 import Button from "../Button";
 import { ArrowLeftIcon } from "../../icons";
-
+import { submitBriefEmail } from '../../lib/api/email';
 export interface QuestionnaireAnswers {
   [key: string]: string;
 }
@@ -124,20 +124,17 @@ export default function PoppupStepQuestionnaire({
         ...formData,
       };
 
+   // Combine all answers with personal details
+      const submissionPayload = {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.contact,
+        company: formData.country,
+        message: JSON.stringify(submissionData),
+        title: "Brief request from website",
+      };
       // Submit to API
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          phone: formData.contact,
-          company: formData.country,
-          message: JSON.stringify(submissionData, null, 2),
-        }),
-      });
+      const response = await submitBriefEmail(submissionPayload);
 
       if (response.ok) {
         setShowThankYou(true);
