@@ -150,7 +150,7 @@ export const webDevelopmentCaseStudyData: CaseStudySectionData = {
         "Full layout direction",
       ],
       buttonText: "Hire Web Designer",
-      image: "/assets/images/2.png",
+      image: "/assets/images/avatar/brand-designer.webp",
     },
     {
       id: "tabScroll2",
@@ -170,7 +170,7 @@ export const webDevelopmentCaseStudyData: CaseStudySectionData = {
         "Full experience consistency",
       ],
       buttonText: "Hire UI UX Designer",
-      image: "/assets/images/ui-ux-designer.webp",
+      image: "/assets/images/avatar/ui-ux-designer.webp",
     },
     {
       id: "tabScroll3",
@@ -190,7 +190,7 @@ export const webDevelopmentCaseStudyData: CaseStudySectionData = {
         "Complete website buildout",
       ],
       buttonText: "Hire Web Developer",
-      image: "/assets/images/graphic-designer.webp",
+      image: "/assets/images/avatar/graphic-designer.webp",
     },
   ],
 };
