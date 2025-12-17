@@ -456,21 +456,21 @@ export const contentWritingGuessWorkData: GuessWorkAdvertisingData = {
 
 // Slider data for Content Writing page
 export const contentWritingSliderData1 = [
-  { text: "Hiring a ", highlight: "content writer ", price: " $65,000+ a year " },
-  { text: "Hiring a ", highlight: "copywriter team", price: " $75,000+ a year " },
-  { text: "Hiring a ", highlight: "content team", price: "$85,000+ a year " },
+  { sliderDataPara: "Hiring a [content writer] $65,000+ a year" },
+  { sliderDataPara: "Hiring a [copywriter team] $75,000+ a year" },
+  { sliderDataPara: "Hiring a [content team] $85,000+ a year" },
 ];
 
 export const contentWritingSliderData2 = [
-  { text: "Content Production ", highlight: "Tools", price: "($12,000+ Annual Value)" },
-  { text: "Content Production ", highlight: "Tools", price: "($12,000+ Annual Value)" },
-  { text: "Content Production ", highlight: "Tools", price: "($12,000+ Annual Value)" },
-  { text: "Content Production ", highlight: "Tools", price: "($12,000+ Annual Value)" },
+  { sliderDataPara: "Content Production [Tools] ($12,000+ Annual Value)" },
+  { sliderDataPara: "Content Production [Tools] ($12,000+ Annual Value)" },
+  { sliderDataPara: "Content Production [Tools] ($12,000+ Annual Value)" },
+  { sliderDataPara: "Content Production [Tools] ($12,000+ Annual Value)" },
 ];
 
 export const contentWritingSliderData3 = [
-  { text: "Hiring a ", highlight: "content writer ", price: "$65,000+ a year " },
-  { text: "Hiring a ", highlight: "copywriter team", price: " $75,000+ a year " },
-  { text: "Hiring a ", highlight: "content team", price: "$85,000+ a year " },
+  { sliderDataPara: "Hiring a [content writer] $65,000+ a year" },
+  { sliderDataPara: "Hiring a [copywriter team] $75,000+ a year" },
+  { sliderDataPara: "Hiring a [content team] $85,000+ a year" },
 ];
 

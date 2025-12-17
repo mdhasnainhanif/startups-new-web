@@ -405,21 +405,21 @@ export const socialMediaMarketingGuessWorkData: GuessWorkAdvertisingData = {
 
 // Slider data for Social Media Marketing page
 export const socialMediaMarketingSliderData1 = [
-  { text: "Hiring a ", highlight: "social media designer ", price: "$65,000+ a year " },
-  { text: "Hiring a ", highlight: "content creator team", price: " $75,000+ a year " },
-  { text: "Hiring a ", highlight: "social media team", price: "$85,000+ a year " },
+  { sliderDataPara: "Hiring a [social media designer] $65,000+ a year" },
+  { sliderDataPara: "Hiring a [content creator team] $75,000+ a year" },
+  { sliderDataPara: "Hiring a [social media team] $85,000+ a year" },
 ];
 
 export const socialMediaMarketingSliderData2 = [
-  { text: "Creative Production ", highlight: "Tools", price: "($12,000+ Annual Value)" },
-  { text: "Creative Production ", highlight: "Tools", price: "($12,000+ Annual Value)" },
-  { text: "Creative Production ", highlight: "Tools", price: "($12,000+ Annual Value)" },
-  { text: "Creative Production ", highlight: "Tools", price: "($12,000+ Annual Value)" },
+  { sliderDataPara: "Creative Production [Tools] ($12,000+ Annual Value)" },
+  { sliderDataPara: "Creative Production [Tools] ($12,000+ Annual Value)" },
+  { sliderDataPara: "Creative Production [Tools] ($12,000+ Annual Value)" },
+  { sliderDataPara: "Creative Production [Tools] ($12,000+ Annual Value)" },
 ];
 
 export const socialMediaMarketingSliderData3 = [
-  { text: "Hiring a ", highlight: "social media designer ", price: "$65,000+ a year " },
-  { text: "Hiring a ", highlight: "content creator team", price: " $75,000+ a year " },
-  { text: "Hiring a ", highlight: "social media team", price: "$85,000+ a year " },
+  { sliderDataPara: "Hiring a [social media designer] $65,000+ a year" },
+  { sliderDataPara: "Hiring a [content creator team] $75,000+ a year" },
+  { sliderDataPara: "Hiring a [social media team] $85,000+ a year" },
 ];
 

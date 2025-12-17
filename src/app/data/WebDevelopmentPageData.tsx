@@ -379,21 +379,21 @@ export const webDevelopmentGuessWorkData: GuessWorkAdvertisingData = {
 
 // Slider data for Web Development page
 export const webDevelopmentSliderData1 = [
-  { text: "Hiring a ", highlight: "U.S. developer ", price: "$85,000+ a year " },
-  { text: "Hiring multiple ", highlight: "specialists", price: " $120,000+ a year " },
-  { text: "Tools and ", highlight: "platform subscriptions", price: "$15,000+ a year " },
+  { sliderDataPara: "Hiring a [U.S. developer] $85,000+ a year" },
+  { sliderDataPara: "Hiring multiple [specialists] $120,000+ a year" },
+  { sliderDataPara: "Tools and [platform subscriptions] $15,000+ a year" },
 ];
 
 export const webDevelopmentSliderData2 = [
-  { text: "Development and Production ", highlight: "Systems", price: "($12,000+ Annual Value)" },
-  { text: "Development and Production ", highlight: "Systems", price: "($12,000+ Annual Value)" },
-  { text: "Development and Production ", highlight: "Systems", price: "($12,000+ Annual Value)" },
-  { text: "Development and Production ", highlight: "Systems", price: "($12,000+ Annual Value)" },
+  { sliderDataPara: "Development and Production [Systems] ($12,000+ Annual Value)" },
+  { sliderDataPara: "Development and Production [Systems] ($12,000+ Annual Value)" },
+  { sliderDataPara: "Development and Production [Systems] ($12,000+ Annual Value)" },
+  { sliderDataPara: "Development and Production [Systems] ($12,000+ Annual Value)" },
 ];
 
 export const webDevelopmentSliderData3 = [
-  { text: "$48,000 plus Worth of ", highlight: "Web Production Capability ", price: "Working on Your Build" },
-  { text: "$48,000 plus Worth of ", highlight: "Web Production Capability ", price: "Working on Your Build" },
-  { text: "$48,000 plus Worth of ", highlight: "Web Production Capability ", price: "Working on Your Build" },
+  { sliderDataPara: "$48,000 plus Worth of [Web Production Capability] Working on Your Build" },
+  { sliderDataPara: "$48,000 plus Worth of [Web Production Capability] Working on Your Build" },
+  { sliderDataPara: "$48,000 plus Worth of [Web Production Capability] Working on Your Build" },
 ];
 
