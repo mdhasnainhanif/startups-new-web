@@ -6,6 +6,7 @@ import GrowthManager from '../components/page2/GrowthManager/GrowthManager';
 import TheProblem from '../components/page2/TheProblem/TheProblem';
 import WhyItWorks from '../components/page2/WhyItWorks/WhyItWorks';
 import TheGuarantees from '../components/page2/TheGuarantees/TheGuarantees';
+import AssistantCapabilities from '@/app/components/AssistantCapabilities/AssistantCapabilities';
 import CreatedByEntrepreneurs from '../components/page2/CreatedByEntrepreneurs/CreatedByEntrepreneurs';
 import WhyChooseUs from '../components/page2/WhyChooseUs/WhyChooseUs';
 import ReplacementGuarantee from '../components/page2/ReplacementGuarantee/ReplacementGuarantee';
@@ -32,6 +33,7 @@ export default function PageTwo() {
       <TheProblem />
       <WhyItWorks />
       <TheGuarantees />
+      <AssistantCapabilities />
       <CreatedByEntrepreneurs />
       <WhyChooseUs />
       <ReplacementGuarantee />
