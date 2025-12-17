@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { InlineWidget } from 'react-calendly';
+import Cal, { getCalApi } from "@calcom/embed-react";
 import Container from '../../Container';
 import Button from '../../Button';
 import { ArrowRightIcon } from '../../icons';
@@ -13,6 +13,15 @@ const GrowthManager = () => {
 
   useEffect(() => {
     setIsMounted(true);
+    
+    // Initialize Cal.com
+    (async function () {
+      const cal = await getCalApi({ namespace: GROWTH_MANAGER_DATA.calendly.namespace || "30min" });
+      cal("ui", {
+        hideEventTypeDetails: false,
+        layout: "month_view",
+      });
+    })();
   }, []);
 
   return (
@@ -23,20 +32,18 @@ const GrowthManager = () => {
           <div className={styles.leftSection}>
             <div className={styles.calendlyContainer}>
               <div className={styles.calendlyWrapper}>
-                {GROWTH_MANAGER_DATA.calendly.url && isMounted ? (
-                  <InlineWidget
-                    url={GROWTH_MANAGER_DATA.calendly.url}
-                    styles={{
-                      height: '650px',
-                      minHeight: '650px',
+                {isMounted ? (
+                  <Cal
+                    namespace={GROWTH_MANAGER_DATA.calendly.namespace || "30min"}
+                    calLink={GROWTH_MANAGER_DATA.calendly.calLink || "inhouse-team-loexw9/30min"}
+                    style={{
+                      width: "100%",
+                      height: "650px",
+                      minHeight: "650px",
+                      overflow: "scroll",
                     }}
-                    pageSettings={{
-                      backgroundColor: 'ffffff',
-                      hideEventTypeDetails: false,
-                      hideLandingPageDetails: false,
-                      primaryColor: '643bff',
-                      textColor: '4d5055',
-                      hideGdprBanner: true,
+                    config={{
+                      layout: "month_view",
                     }}
                   />
                 ) : (

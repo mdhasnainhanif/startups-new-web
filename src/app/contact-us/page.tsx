@@ -86,11 +86,12 @@ export default function ContactPage() {
         <ContactForm config={contactFormData} />
         <ContactFormAddress config={contactFormAddressData} />
       </div>
-      <BusinessSlider />
+
+      {/* <BusinessSlider /> */}
 
       {/* 🟢 Fix — pass props */}
       {/* <ContactCta {...ctaData} /> */}
-      <BusinessPlaylist {...playlistData} />
+      {/* <BusinessPlaylist {...playlistData} /> */}
 
       <GrowthSlider items={GROWTH_GUIDES} />
       <FAQ faqs={FAQ_DATA} sectionData={FAQ_SECTION} />

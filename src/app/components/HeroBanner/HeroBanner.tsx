@@ -96,10 +96,11 @@ export default function HeroBanner({
         <div className="flex flex-col items-center text-center gap-6 md:gap-5 lg:pt-40 md:pt-10 sectionHeading">
           {/* 300+ Companies Badge */}
           <div>
-              <p className={`text-white text-base sm:text-lg font-semibold ${styles.purpleBadge}`}>
-                <span className="text-[#0fdac2]">300+</span> Companies
-              </p>
-            </div>
+            <p className={`${styles.companiesBadge}`}>
+              <span className={styles.companiesNumber}>300+</span>{" "}
+              <span className={styles.companiesText}>Companies</span>
+            </p>
+          </div>
           <h1 className="max-w-5xl">
             <span className="text-white">{headline}</span>
             {headlineHighlight && (
@@ -130,9 +131,9 @@ export default function HeroBanner({
             ) : (
               <Button
                 href={ctaButton.href}
-                variant={ctaButton.variant || "secondary"}
+                variant={ctaButton.variant || "green"}
                 size="lg"
-                icon={<ArrowRightIcon />}
+                icon={<ArrowRightIcon style={{ fill: "#000" }} />}
                 iconPosition="right"
               >
                 {ctaButton.text}
