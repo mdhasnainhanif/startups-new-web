@@ -310,13 +310,13 @@ export const GROWTH_GUIDES = [
   {
     id: "1",
     image: "/assets/images/blog/1.webp",
-    category: "Shopify Agent",
-    title: "AI Agents Benefit From Data Quality Validation And More...",
+    category: "Web Development",
+    title: "Web Development in 2026 - Full Guide",
     date: "Nov 10, 2025",
-    readTime: "6 min read",
+    readTime: "15 min read",
     excerpt:
-      "Imagine launching a digital workforce of intelligent agents that operate on unstructured data — validated, enriched, and ready to act.",
-    href: "/blog/ai-agents-data-quality",
+      "The web in 2026 moves at a speed that forces developers, teams, and businesses to rethink how they build and maintain digital experiences.",
+    href: "/blog-detail/web-development-in-2026-full-guide/",
   },
   {
     id: "2",
