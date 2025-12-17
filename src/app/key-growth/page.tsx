@@ -26,28 +26,28 @@ export const metadata: Metadata = {
 export default function PageTwo() {
   return (
     <>
-          <HomeBanner />
-          <LogosSlider/>
-          <GrowthManager />
-          <TheProblem />
-          <WhyItWorks />
-          <TheGuarantees />
-          <CreatedByEntrepreneurs />
-          <WhyChooseUs />
-          <ReplacementGuarantee />
-          <SupportAndTraining />
-          <Technologies 
-          className={'keyGrowthTechnologySection'}
-            heading={TECHNOLOGIES_PAGE2_DATA.heading}
-            description={TECHNOLOGIES_PAGE2_DATA.description}
-            subDescription={TECHNOLOGIES_PAGE2_DATA.subDescription}
-            hideTabs={true}
-          />
-          <ToolsTrained />
-          <Reviews/>
-          <ThreeEasySteps />
-          <FAQ faqs={FAQ_DATA} sectionData={FAQ_SECTION} />
-          <ContactTwo />
+      <HomeBanner />
+      <LogosSlider />
+      <GrowthManager />
+      <TheProblem />
+      <WhyItWorks />
+      <TheGuarantees />
+      <CreatedByEntrepreneurs />
+      <WhyChooseUs />
+      <ReplacementGuarantee />
+      <SupportAndTraining />
+      <Technologies
+        className={'keyGrowthTechnologySection'}
+        heading={TECHNOLOGIES_PAGE2_DATA.heading}
+        description={TECHNOLOGIES_PAGE2_DATA.description}
+        subDescription={TECHNOLOGIES_PAGE2_DATA.subDescription}
+        hideTabs={true}
+      />
+      <ToolsTrained />
+      <Reviews />
+      <ThreeEasySteps />
+      <FAQ faqs={FAQ_DATA} sectionData={FAQ_SECTION} />
+      <ContactTwo />
     </>
   );
 }
