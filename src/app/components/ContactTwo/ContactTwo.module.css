@@ -1,4 +1,3 @@
-
 .contactSection {
   position: relative;
   background: #050321;
@@ -19,6 +18,7 @@
 .noPaddingBottom {
   padding-bottom: 0 !important;
 }
+
 .contactCard {
   position: relative;
   background: #1d0e57;
@@ -28,11 +28,9 @@
   grid-template-columns: 1fr 1fr;
   gap: 48px;
   z-index: 1;
-  background-image: radial-gradient(
-    circle,
-    rgba(15, 218, 194, 0.1) 1px,
-    transparent 1px
-  );
+  background-image: radial-gradient(circle,
+      rgba(15, 218, 194, 0.1) 1px,
+      transparent 1px);
   background-size: 24px 24px;
   border: 1px solid rgba(78, 73, 137, 0.3);
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
@@ -63,8 +61,8 @@
   justify-content: center;
   margin: 8px 0;
 }
-.imageWrapper img
-{
+
+.imageWrapper img {
   max-width: 400px;
 }
 
@@ -167,6 +165,16 @@
   color: rgba(255, 255, 255, 0.6);
 }
 
+.contactLink {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #0fdac2;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+}
+
 /* .submitButton {
   width: 100%;
   padding: 16px 24px;
@@ -243,4 +251,3 @@
     gap: 16px;
   }
 }
-

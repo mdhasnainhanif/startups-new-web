@@ -52,7 +52,7 @@ export const GlobeIcon = ({ style }: { style?: React.CSSProperties }) => (
     />
   </svg>
 );
-export const PhoneIcon = ({ style }: { style?: React.CSSProperties }) => (
+export const PhoneIcon = ({ fill, style }: { fill?: string, style?: React.CSSProperties }) => (
   <svg
     width="25"
     height="25"
@@ -60,12 +60,12 @@ export const PhoneIcon = ({ style }: { style?: React.CSSProperties }) => (
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
-      fill="#623BFF"
+      fill={fill || "#623BFF"}
       d="M12.2 10c-1.1-.1-1.7 1.4-2.5 1.8C8.4 12.5 6 10 6 10S3.5 7.6 4.1 6.3c.5-.8 2-1.4 1.9-2.5-.1-1-2.3-4.6-3.4-3.6C.2 2.4 0 3.3 0 5.1c-.1 3.1 3.9 7 3.9 7 .4.4 3.9 4 7 3.9 1.8 0 2.7-.2 4.9-2.6 1-1.1-2.5-3.3-3.6-3.4"
     />
   </svg>
 );
-export const EmailIcon = ({ style }: { style?: React.CSSProperties }) => (
+export const EmailIcon = ({ fill, style }: { fill?: string, style?: React.CSSProperties }) => (
   <svg
     baseProfile="tiny"
     xmlns="http://www.w3.org/2000/svg"
@@ -74,12 +74,12 @@ export const EmailIcon = ({ style }: { style?: React.CSSProperties }) => (
     viewBox="-0.5 0.5 42 42"
   >
     <path
-      fill="#623BFF"
+      fill={fill || "#623BFF"}
       d="M40.5 31.5v-18S22.3 26.2 20.53 26.859C18.79 26.23.5 13.5.5 13.5v18c0 2.5.53 3 3 3h34c2.529 0 3-.439 3-3m-.029-21.529c0-1.821-.531-2.471-2.971-2.471h-34c-2.51 0-3 .78-3 2.6l.03.28s18.069 12.44 20 13.12c2.04-.79 19.97-13.4 19.97-13.4z"
     />
   </svg>
 );
-export const LocationIcon = ({ style }: { style?: React.CSSProperties }) => (
+export const LocationIcon = ({ fill, style }: { fill?: string, style?: React.CSSProperties }) => (
   <svg
     width="25"
     height="25"
@@ -87,7 +87,7 @@ export const LocationIcon = ({ style }: { style?: React.CSSProperties }) => (
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
-      fill="#623BFF"
+      fill={fill || "#623BFF"}  
       fillRule="evenodd"
       d="M6 15c1.324 0 6-5.945 6-9.167S9.314 0 6 0 0 2.612 0 5.833 4.676 15 6 15m0-6.667c1.42 0 2.571-1.119 2.571-2.5 0-1.38-1.15-2.5-2.571-2.5-1.42 0-2.571 1.12-2.571 2.5 0 1.381 1.15 2.5 2.571 2.5"
     />

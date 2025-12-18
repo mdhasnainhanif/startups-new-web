@@ -387,6 +387,42 @@ export const DEDICATED_TEAM = {
       title: "Video Animator",
       image: "/assets/images/avatar-without-icons/graphic-designer.webp",
     },
+    {
+      id: "13",
+      // name: "Sophia Martinez",
+      title: "Ads Writer",
+      image: "/assets/images/avatar-without-icons/ads-writer.webp",
+    },
+    {
+      id: "14",
+      // name: "Sophia Martinez",
+      title: "Campaign Writer",
+      image: "/assets/images/avatar-without-icons/campaign-writer.webp",
+    },
+    {
+      id: "15",
+      // name: "Sophia Martinez",
+      title: "Content Curator",
+      image: "/assets/images/avatar-without-icons/content-curator.webp",
+    },
+    {
+      id: "16",
+      // name: "Sophia Martinez",
+      title: "Reels Creator",
+      image: "/assets/images/avatar-without-icons/reels-creator.webp",
+    },
+    {
+      id: "17",
+      // name: "Sophia Martinez",
+      title: "Copywriter",
+      image: "/assets/images/avatar-without-icons/copywriter.webp",
+    },
+    {
+      id: "18",
+      // name: "Sophia Martinez",
+      title: "UI/UX Writer",
+      image: "/assets/images/avatar-without-icons/ui-ux-writer.webp",
+    },
   ],
 };
 

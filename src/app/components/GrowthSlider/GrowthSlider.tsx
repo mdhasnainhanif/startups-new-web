@@ -92,12 +92,14 @@ export default function GrowthSlider({ items }: { items: Guide[] }) {
             {items.map((it) => (
               <SwiperSlide key={it.id}>
                 <article className={styles.card}>
+                  <div className={styles.imageContainer}>
                   <div className={styles.imageWrapper}>
                     <img
                       src={it.image}
                       alt={it.title}
                       className={styles.image}
                     />
+                  </div>
                   </div>
 
                   <div className={styles.category}>
@@ -133,8 +135,8 @@ export default function GrowthSlider({ items }: { items: Guide[] }) {
                   <div className={styles.readButtonWrapper}>
                     <Button
                       href={it.href}
-                      variant="primary"
-                      icon={<ArrowRightIcon style={{ fill: "#fff" }} />}
+                      variant="green"
+                      icon={<ArrowRightIcon style={{ fill: "#000" }} />}
                       iconPosition="right"
                       size="sm"
                     >

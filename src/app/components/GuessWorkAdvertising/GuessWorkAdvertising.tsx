@@ -5,6 +5,7 @@ import Container from '../Container';
 import styles from './GuessWorkAdvertising.module.css';
 import Button from '../Button';
 import Image from 'next/image';
+import AnalyticsDashboard from '../AnalyticsDashboard/AnalyticsDashboard';
 // import CreativeScore from '../CreativeScore/CreativeScore';
 
 export interface GuessWorkAdvertisingData {
@@ -147,7 +148,8 @@ const GuessWorkAdvertising = ({ data = GUESS_WORK_ADVERTISING_DATA }: GuessWorkA
                 height={500} 
               />
             </div> */}
-            <div className={styles.imageWrapper}>
+            <AnalyticsDashboard performanceScore={92} performanceLabel="EXCELLENT" />
+            {/* <div className={styles.imageWrapper}>
               <Image 
                 className="block mx-auto h-auto w-[90%]" 
                 src="/assets/images/graph-image.webp" 
@@ -155,7 +157,7 @@ const GuessWorkAdvertising = ({ data = GUESS_WORK_ADVERTISING_DATA }: GuessWorkA
                 width={650} 
                 height={500} 
               />
-            </div>
+            </div> */}
           </div>
         </div>
       </Container>
