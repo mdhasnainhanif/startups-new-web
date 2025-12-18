@@ -1,98 +1,94 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import Container from "../Container";
 import VideoPopup from "../VideoPopup/VideoPopup";
 import styles from "./ProfessionalDesign.module.css";
+import { PROFESSIONAL_DESIGN_DATA, ProfessionalDesignData } from "../../data/ProfessionalDesignData";
 
-const PROFESSIONAL_ONLINE = {
-  heading: {
-    part1: "Good Design",
-    part2: " Is Not Decoration. It is A Financial Driver.",
-  },
-  description: {
-    text1: "Customers judge your business in the first 3 seconds. They judge your professionalism, pricing, and reliability by how your brand looks. Strong design creates instant trust, higher perceived value, and more people choosing you over a ",
-    highlight: "competitor",
-  },
-  factsHeading: "Facts About U.S. Local Businesses Benefiting From Design:",
-  factsList: [
-    "Local service businesses with updated branding see an average revenue increase of 15-25 percent within the first 12 months",
-    "Contractors who refreshed their brand identity reported paying 20-40 percent less in ad spend for the same number of leads.",
-    "Local businesses with consistent visual design closed up to 30 percent more jobs.",
-    "Companies that invested in brand design increased their lifetime customer value by 28 percent.",
-  ],
-  bottomHeading: {
-    part1: "Your ",
-    part2: "Design Team",
-    part3: " Builds a Brand That Signals Credibility, & Business",
-  },
-  rightSectionFact:
-    "Home-service businesses using professional design saw a 2-3x improvement in lead conversion after updating visuals.",
-  videoOverlayText:
-    "Your Smart Marketing AI Team operate a behind-the-scenes planning promotions, creating visuals.",
-  video: {
-    videoUrl: "YOUR_VIDEO_URL_HERE",
-    videoTitle: "Smart Marketing AI Team Demo",
-  },
-};
+interface ProfessionalDesignProps {
+  data?: ProfessionalDesignData;
+  className?: string;
+}
 
-const ProfessionalDesign = () => {
+const ProfessionalDesign = ({ data = PROFESSIONAL_DESIGN_DATA, className }: ProfessionalDesignProps) => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+  // Helper function to get className with fallback
+  const getClassName = (classNameKey: string | undefined, defaultClass: string) => {
+    if (!classNameKey) return defaultClass;
+    // Check if classNameKey exists in styles object
+    const styleClass = styles[classNameKey as keyof typeof styles];
+    return styleClass || defaultClass;
+  };
 
   return (
     <>
-      <section className={styles.section + " sectionPadding"}>
+      <section className={`${getClassName(data.className?.section, styles.section)} ${className} sectionPadding`}>
         <Container maxWidth="xl">
-          <div className={styles.contentWrapper}>
+          <div className={getClassName(data.className?.contentWrapper, styles.contentWrapper)}>
             {/* Left Section */}
-            <div className={styles.leftSection}>
-              <h2 className={styles.heading}>
-                <span className={styles.headingPart1}>
-                  {PROFESSIONAL_ONLINE.heading.part1} 
+            <div className={getClassName(data.className?.leftSection, styles.leftSection) + " sectionHeading forH2"}>
+              <h2 className={getClassName(data.heading.className?.container, styles.heading)}>
+                <span className={getClassName(data.heading.className?.part1, styles.headingPart1)}>
+                  {data.heading.part1} 
                 </span>
-                <span className={styles.headingPart2}>
-                  {PROFESSIONAL_ONLINE.heading.part2}
+                <span className={getClassName(data.heading.className?.part2, styles.headingPart2)}>
+                  {data.heading.part2}
                 </span>
               </h2>
-              <p className={styles.description}>
-                {PROFESSIONAL_ONLINE.description.text1}
-                <span className={styles.descriptionHighlight}>
-                  {PROFESSIONAL_ONLINE.description.highlight}
-                </span>
+              <p className={getClassName(data.description.className?.text, styles.description)}>
+                {data.description.text2 ? (
+                  <>
+                    <span className={getClassName(data.description.className?.text1Highlight, "")}>
+                      {data.description.text1}
+                    </span>
+                    {data.description.text2}
+                    <span className={getClassName(data.description.className?.highlight, styles.descriptionHighlight)}>
+                      {data.description.highlight}
+                    </span>
+                  </>
+                ) : (
+                  <>
+                    {data.description.text1}
+                    <span className={getClassName(data.description.className?.highlight, styles.descriptionHighlight)}>
+                      {data.description.highlight}
+                    </span>
+                  </>
+                )}
               </p>
 
               {/* FACTS SECTION - Left side list matching the image */}
-              <h3 className={styles.factsHeading}>
-                {PROFESSIONAL_ONLINE.factsHeading}
+              <h3 className={getClassName(data.factsHeading.className, styles.factsHeading)}>
+                {data.factsHeading.text}
               </h3>
               <ul className={styles.factsList}>
-                {PROFESSIONAL_ONLINE.factsList.map((fact, index) => (
-                  <li key={index} className={styles.factsListItem}>
-                    {fact}
+                {data.factsList.map((fact, index) => (
+                  <li key={index} className={getClassName(fact.className, styles.factsListItem)}>
+                    {fact.text}
                   </li>
                 ))}
               </ul>
             </div>
 
             {/* Right Section - Video Player & Callout */}
-            <div className={styles.rightSectionMain}>
-              <div className={styles.videoMain}>
+            <div className={getClassName(data.className?.rightSectionMain, styles.rightSectionMain)}>
+              <div className={getClassName(data.className?.videoMain, styles.videoMain)}>
                 {/* Video Image Wrapper */}
                 <div
-                  className={styles.videoImageWrapper}
+                  className={`${getClassName(data.className?.videoImageWrapper, styles.videoImageWrapper)}`}
                   onClick={() => setIsPopupOpen(true)}
                 >
                   <img
-                    className={styles.videoImage}
-                    src="/assets/images/man.png"
-                    alt="Video Thumbnail"
+                    className={getClassName(data.videoImage.className, styles.videoImage)}
+                    src={data.videoImage.src}
+                    alt={data.videoImage.alt}
                   />
                   {/* Play Button Icon */}
-                  <div className={styles.playButtonContainer}>
-                    <div className={styles.playButton}>
+                  <div className={getClassName(data.className?.playButtonContainer, styles.playButtonContainer)}>
+                    <div className={getClassName(data.className?.playButton, styles.playButton)}>
                       <svg
-                        className={styles.playIcon}
+                        className={getClassName(data.className?.playIcon, styles.playIcon)}
                         fill="currentColor"
                         viewBox="0 0 24 24"
                       >
@@ -103,24 +99,24 @@ const ProfessionalDesign = () => {
                 </div>
 
                 {/* Bottom Heading Wrapper */}
-                <div>
-                  <h3 className={styles.bottomHeading}>
-                    <span className={styles.bottomHeadingPart1}>
-                      {PROFESSIONAL_ONLINE.bottomHeading.part1}
+                <div className="bottomHeadingWrapper">
+                  <h3 className={getClassName(data.bottomHeading.className?.container, styles.bottomHeading)}>
+                    <span className={getClassName(data.bottomHeading.className?.part1, styles.bottomHeadingPart1)}>
+                      {data.bottomHeading.part1}
                     </span>
-                    <span className={styles.bottomHeadingPart2}>
-                      {PROFESSIONAL_ONLINE.bottomHeading.part2}
+                    <span className={getClassName(data.bottomHeading.className?.part2, styles.bottomHeadingPart2)}>
+                      {data.bottomHeading.part2}
                     </span>
-                    <span className={styles.bottomHeadingPart3}>
-                      {PROFESSIONAL_ONLINE.bottomHeading.part3}
+                    <span className={getClassName(data.bottomHeading.className?.part3, styles.bottomHeadingPart3)}>
+                      {data.bottomHeading.part3}
                     </span>
                   </h3>                  
                 </div>
               </div>
 
               <ul className={styles.rightFactsList}>
-                <li className={styles.rightFactsListItem}>
-                  {PROFESSIONAL_ONLINE.rightSectionFact}
+                <li className={getClassName(data.rightSectionFact.className, styles.rightFactsListItem)}>
+                  {data.rightSectionFact.text}
                 </li>
               </ul>
             </div>
@@ -128,15 +124,15 @@ const ProfessionalDesign = () => {
         </Container>
 
         {/* Background Decorative Elements */}
-        <div className={styles.backgroundDecoration} />
+        <div className={getClassName(data.className?.backgroundDecoration, styles.backgroundDecoration)} />
       </section>
 
       {/* Video Popup */}
       <VideoPopup
         isOpen={isPopupOpen}
         onClose={() => setIsPopupOpen(false)}
-        videoUrl={PROFESSIONAL_ONLINE.video.videoUrl}
-        videoTitle={PROFESSIONAL_ONLINE.video.videoTitle}
+        videoUrl={data.video.videoUrl}
+        videoTitle={data.video.videoTitle}
         size="lg"
       />
     </>

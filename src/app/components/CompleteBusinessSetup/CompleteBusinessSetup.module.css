@@ -1,3 +1,16 @@
+.aeroicon {
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  width: 600px;
+  height: 600px;
+  opacity: 0.6;
+  z-index: 1;
+}
+.businesscontainer {
+  position: relative;
+  z-index: 2;
+}
 /* Swiper Customization */
 .brandingKitsSwiper :global(.swiper) {
   overflow: visible;
@@ -16,29 +29,56 @@
 .brandingKitsSwiper :global(.swiper-button-next) {
   display: none;
 }
-.sliderwrapper
-{
-    position: relative;
-    background:#050321;
-    justify-content: center;
-    border-radius: 20px;
+.sliderwrapper {
+  position: relative;
+  background: #050321;
+  justify-content: center;
+  border-radius: 20px;
+  border: 1px solid #9b7eff4d;
 }
-.brandingKitsTitle
-{
-    color: #fff;
-    width: fit-content;
-    display: block;
-    margin: 0 auto;
+.brandingKitsTitle {
+  color: #fff;
+  width: fit-content;
+  display: block;
+  margin: 0 auto;
 }
-.highlighted
-{
-    color:#0fdac2;
+.highlighted {
+  color: #0fdac2;
 }
-.navButton
-{
-    background:#0d0934;
-    width:40px;
-    height:40px;
-    border-radius:100px;
-    color:#fff;
+.navButton {
+  color: #fff;
+  background: #0d0934;
+  border-radius: 100px;
+  width: 40px;
+  height: 40px;
+  top: 50%;
+  transform: translate(0px, 50%);
+  border: 1px solid #6848df4d;
 }
+.navButton:hover {
+  background: var(--color-purple);
+}
+.separatorLine {
+  border: 1px solid #21164c;
+  background: #312763;
+  border-radius: 0.525rem;
+  padding: .22rem .225rem .345rem .525rem;
+}
+/* .separatorLine::after {
+  content: "";
+  background: #072e41;
+  width: 1px;
+  height: 100%;
+  position: absolute;
+  bottom: -0.225rem;
+  left: 45%;
+}
+.separatorLine > div::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.535rem;
+  width: 120%;
+  height: 1px;
+  background: #072e41;
+} */

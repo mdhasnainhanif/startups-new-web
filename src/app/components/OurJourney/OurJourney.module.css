@@ -18,6 +18,13 @@
   background-size: cover;
 }
 
+/* .listMain{
+  border: 1px solid red;
+  background: url("/assets/images/borderline.png");
+  background-size: cover;
+  background-position: center;
+} */
+
 .list {
   max-width: 1120px;
   margin: 0 auto;
@@ -183,7 +190,7 @@
 }
 
 .subtitle {
-  margin: 0 0 12px;
+  margin: 12px 0 12px;
   color: #0fdac2;
   font-family: var(--wfFont);
   font-size: 1.25rem;
@@ -225,7 +232,7 @@
 }
 
 .iconImage {
-  max-width: 150px;
+  max-width: 7.5rem;
 }
 
 .line {
@@ -248,6 +255,17 @@
 }
 
 @media (max-width: 1024px) {
+  .item {
+    border: 2px solid #272681;
+    padding: 1.5rem !important;
+    border-radius: 0.625rem;
+  }
+  .line01:after,
+  .line02:before,
+  .line03:after,
+  .line04:after {
+    content: none;
+  }
   .item[data-side="right"]::before,
   .item[data-side="left"]::before {
     display: none;
@@ -360,9 +378,26 @@
 }
 
 @media (max-width: 768px) {
+  .right .ring,
+  .left .ring {
+    justify-self: start;
+    margin-bottom: 1rem;
+    border: none;
+    width: 50px;
+    height: 50px;
+  }
+  .right img,
+  .left img {
+    max-width: 3rem;
+  }
+
   .wrap {
     width: 100%;
     border-radius: 0;
+  }
+
+  .badge {
+    display: none;
   }
 
   .list {
@@ -374,7 +409,7 @@
     grid-template-columns: 100px 1fr;
     gap: 1rem;
     padding: 1.25rem;
-    margin-top: -1.5rem;
+    margin-top: 0;
     width: 100%;
   }
 
@@ -463,11 +498,11 @@
   .item[data-side="left"]::before {
     display: none;
   }
-
+  /* 
   .left .ring,
   .right .ring {
     display: none;
-  }
+  } */
 
   .item {
     display: block;

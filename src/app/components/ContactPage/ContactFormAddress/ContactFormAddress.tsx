@@ -1,9 +1,14 @@
 "use client";
 
-import React from "react";
+import React, { useMemo, useRef, useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+import type { Swiper as SwiperType } from "swiper";
+import "swiper/css";
 import { ContactFormAddressProps } from "@/app/types/types";
 import { contactFormAddressData } from "./data";
 import styles from "./ContactFormAddress.module.css";
+import { LinkedInIcon2, PinterestIcon, TwitterIcon } from "@/app/icons";
 
 // Icon component - simple SVG-based icons
 const IconComponent: React.FC<{ icon: string; className?: string }> = ({
@@ -12,35 +17,27 @@ const IconComponent: React.FC<{ icon: string; className?: string }> = ({
 }) => {
   const iconMap: { [key: string]: React.ReactNode } = {
     mail: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2">
         <rect x="2" y="4" width="20" height="16" rx="2" />
         <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
       </svg>
     ),
     phone: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2">
         <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
       </svg>
     ),
     location: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2">
         <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
         <circle cx="12" cy="10" r="3" />
       </svg>
     ),
     linkedin: (
-      <svg viewBox="0 0 24 24" fill="currentColor">
-        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-      </svg>
+      <LinkedInIcon2 />
     ),
     pinterest: (
-      <svg viewBox="0 0 24 24" fill="currentColor">
-        <circle cx="12" cy="12" r="10" />
-        <path
-          d="M8 12c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2 2 .9 2 2zm6 0c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2 2 .9 2 2zm6 0c0 1.1-.9 2-2 2s-2-.9-2-2 .9-2 2-2 2 .9 2 2z"
-          fill="white"
-        />
-      </svg>
+      <PinterestIcon />
     ),
     instagram: (
       <svg viewBox="0 0 24 24" fill="currentColor">
@@ -50,9 +47,7 @@ const IconComponent: React.FC<{ icon: string; className?: string }> = ({
       </svg>
     ),
     twitter: (
-      <svg viewBox="0 0 24 24" fill="currentColor">
-        <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2s9 5 20 5a9.5 9.5 0 00-9-5.5c4.75 2.25 7-7 7-7" />
-      </svg>
+      <TwitterIcon />
     ),
     facebook: (
       <svg viewBox="0 0 24 24" fill="currentColor">
@@ -71,16 +66,44 @@ const IconComponent: React.FC<{ icon: string; className?: string }> = ({
 const ContactFormAddress: React.FC<ContactFormAddressProps> = ({
   config = contactFormAddressData,
 }) => {
+  const swiperRef = useRef<SwiperType | null>(null);
+  const [isBeginning, setIsBeginning] = useState(true);
+  const [isEnd, setIsEnd] = useState(false);
+
+  // Filter only location items
+  const locationItems = useMemo(() => {
+    return config.items.filter((item) => item.icon === "location");
+  }, [config.items]);
+
+  // Filter non-location items
+  const otherItems = useMemo(() => {
+    return config.items.filter((item) => item.icon !== "location");
+  }, [config.items]);
+
+  const handlePrev = () => {
+    swiperRef.current?.slidePrev();
+  };
+
+  const handleNext = () => {
+    swiperRef.current?.slideNext();
+  };
+
+  const handleSlideChange = (swiper: SwiperType) => {
+    setIsBeginning(swiper.isBeginning);
+    setIsEnd(swiper.isEnd);
+  };
+
   return (
     <div className={styles.container}>
       {/* Contact Items */}
       <div className={styles.itemsWrapper}>
-        {config.items.map((item) => (
+        {/* Non-location items */}
+        {otherItems.map((item) => (
           <div key={item.id} className={styles.item}>
             <div
               className={styles.iconWrapper}
               style={{
-                background: "linear-gradient(135deg, #7C3AED 0%, #6D28D9 100%)",
+                background: "#643BFF",
               }}
             >
               <IconComponent icon={item.icon} />
@@ -97,10 +120,75 @@ const ContactFormAddress: React.FC<ContactFormAddressProps> = ({
             </div>
           </div>
         ))}
+
+        {/* Location Swiper Slider */}
+        {locationItems.length > 0 && (
+          <div className={styles.locationSwiperWrapper}>
+            <Swiper
+              modules={[Autoplay]}
+              spaceBetween={0}
+              slidesPerView={1}
+              autoplay={{
+                delay: 3000,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: false,
+              }}
+              speed={800}
+              loop={locationItems.length > 1}
+              onSwiper={(swiper) => {
+                swiperRef.current = swiper;
+                setIsBeginning(swiper.isBeginning);
+                setIsEnd(swiper.isEnd);
+              }}
+              onSlideChange={handleSlideChange}
+              className={styles.locationSwiper}
+            >
+              {locationItems.map((item) => (
+                <SwiperSlide key={item.id}>
+                  <div className={styles.item}>
+                    <div
+                      className={styles.iconWrapper}
+                      style={{
+                        background: "#643BFF",
+                      }}
+                    >
+                      <IconComponent icon={item.icon} />
+                    </div>
+                    <div className={styles.content}>
+                      <div className={styles.label}>{item.label}</div>
+                      <div className={styles.value}>{item.value}</div>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+            {/* Navigation Arrows */}
+            {locationItems.length > 1 && (
+              <div className={styles.navButtonWrapper}>
+                <button
+                  onClick={handlePrev}
+                  aria-label="Previous"
+                  disabled={isBeginning}
+                  className={`${styles.navButton} ${styles.navButtonLeft}`}
+                >
+                  <span className={styles.arrowIcon}>‹</span>
+                </button>
+                <button
+                  onClick={handleNext}
+                  aria-label="Next"
+                  disabled={isEnd}
+                  className={`${styles.navButton} ${styles.navButtonRight}`}
+                >
+                  <span className={styles.arrowIcon}>›</span>
+                </button>
+              </div>
+            )}
+          </div>
+        )}
       </div>
 
       {/* Social Links */}
-      {config.socialLinks && config.socialLinks.length > 0 && (
+      {/* {config.socialLinks && config.socialLinks.length > 0 && (
         <div className={styles.socialLinksWrapper}>
           {config.socialLinks.map((link) => (
             <a
@@ -130,7 +218,7 @@ const ContactFormAddress: React.FC<ContactFormAddressProps> = ({
             </a>
           ))}
         </div>
-      )}
+      )} */}
     </div>
   );
 };

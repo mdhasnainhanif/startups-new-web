@@ -1,12 +1,10 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Plus_Jakarta_Sans } from "next/font/google";
 import localFont from "next/font/local";
 import Image from "next/image";
 import Script from "next/script";
 import "./globals.css";
-import TopHeader from "./components/TopHeader";
-import Header from "./components/Header";
-import Footer from "./components/Footer/Footer";
+import ConditionalLayout from "./components/ConditionalLayout/ConditionalLayout";
 
 
 const geistSans = Geist({
@@ -17,6 +15,11 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  variable: "--font-plus-jakarta-sans",
 });
 
 const wfVisualSans = localFont({
@@ -32,9 +35,27 @@ const graphikRegular = localFont({
   fallback: ["Arial", "Helvetica", "sans-serif"],
 });
 
+const graphikBold = localFont({
+  src: "../../public/assets/fonts/Graphik-Bold-Trial.otf",
+  variable: "--font-graphik-bold",
+  display: "swap",
+  fallback: ["Arial", "Helvetica", "sans-serif"],
+});
+
+const graphikSemiBold = localFont({
+  src: "../../public/assets/fonts/Graphik-Semibold-Trial.otf",
+  variable: "--font-graphik-semibold",
+  display: "swap",
+  fallback: ["Arial", "Helvetica", "sans-serif"],
+});
+
 export const metadata: Metadata = {
-  title: "Startups ADVISORY.Ai",
+  title: "Startups Advisory",
   description: "AI-powered advisory for startups",
+  robots: "nofollow",
+  icons: {
+    icon: "/assets/images/favicon.svg",
+  },
 };
 
 export default function RootLayout({
@@ -53,10 +74,10 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${wfVisualSans.variable} ${graphikRegular.variable} antialiased relative`}
+        className={`${geistSans.variable} ${geistMono.variable} ${plusJakartaSans.variable} ${graphikRegular.variable} ${graphikBold.variable} ${graphikSemiBold.variable} antialiased relative`}
       >
         {/* Shared Background Image - Behind Header and Hero */}
-        <div className="fixed inset-0 z-0">
+        {/* <div className="fixed inset-0 z-0">
           <Image
             src="/assets/images/hero.webp"
             alt="Background"
@@ -65,19 +86,39 @@ export default function RootLayout({
             priority
             quality={90}
             sizes="100vw"
-            style={{ objectFit: "cover" }}
+            style={{ objectFit: "cover", zIndex: 1 }}
           />
-          {/* Overlay for better text readability */}
-          <div className="absolute inset-0 bg-[#020016]/70"></div>
-        </div>
+          
+          <div className="absolute inset-0 bg-[#020016]/50 md:bg-[#020016]/70"></div>
+        </div> */}
 
         {/* Content with higher z-index */}
         <div className="relative z-10">
-          <TopHeader />
-          <Header />
-          {children}
-          <Footer />
+          <ConditionalLayout>{children}</ConditionalLayout>
         </div>
+
+        {/* Kogents Chat Widget */}
+        <Script
+          id="kogents-chat-widget"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.KogentsChat ||
+                (function (d, s, id) {
+                  var w = (window.KogentsChat = function (c) {
+                    w._.push(c);
+                  });
+                  w._ = [];
+                  var e = d.createElement(s);
+                  e.async = true;
+                  e.id = id;
+                  e.src = "https://api.autobotx.ai/widget/embed.js?key=cmizx8xe705g2h2z0hxruax7q";
+                  var t = d.getElementsByTagName(s)[0];
+                  t.parentNode.insertBefore(e, t);
+                })(document, "script", "kogents-chat-widget");
+            `,
+          }}
+        />
       </body>
     </html>
   );

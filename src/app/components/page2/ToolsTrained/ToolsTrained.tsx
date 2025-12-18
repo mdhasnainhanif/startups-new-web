@@ -1,0 +1,48 @@
+'use client';
+
+import Image from 'next/image';
+import Container from '../../Container';
+import { TOOLS_TRAINED_DATA } from '../../../data/Page2';
+import styles from './ToolsTrained.module.css';
+
+const ToolsTrained = () => {
+  return (
+    <section className={`sectionPadding bg-[#020016] ${styles.section}`}>
+      <Container maxWidth="xl">
+        <div className="flex flex-col gap-8">
+          {/* Heading */}
+          <div className="text-center max-w-2xl mx-auto sectionHeading forH2">
+            <h2>
+              <span className="text-white">{TOOLS_TRAINED_DATA.headline.part1}</span>
+              <span className="text-[#0fdac2]">{TOOLS_TRAINED_DATA.headline.part2}</span>
+              <span className="text-white">{TOOLS_TRAINED_DATA.headline.part3}</span>
+            </h2>
+            <div className="flex flex-col gap-2">
+              {TOOLS_TRAINED_DATA.description.map((paragraph, index) => (
+                <p key={index} className="text-lg md:text-xl text-white leading-relaxed">
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+          </div>
+
+          {/* Image */}
+          <div className="flex justify-center mt-8">
+            <div className="relative w-full max-w-4xl">
+              <Image
+                src={TOOLS_TRAINED_DATA.image}
+                alt="Growth Manager Tools"
+                width={1200}
+                height={800}
+                className="w-full h-auto object-contain"
+              />
+            </div>
+          </div>
+        </div>
+      </Container>
+    </section>
+  );
+};
+
+export default ToolsTrained;
+

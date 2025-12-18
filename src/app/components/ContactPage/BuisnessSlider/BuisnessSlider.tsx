@@ -12,12 +12,12 @@ import Button from "../../Button";
 import { ArrowRightIcon } from "../../icons";
 
 const videos = [
-  { img: "/assets/images/man.png" },
-  { img: "/assets/images/man.png" },
-  { img: "/assets/images/man.png" },
-  { img: "/assets/images/man.png" },
-  { img: "/assets/images/man.png" },
-  { img: "/assets/images/man.png" },
+  { img: "/assets/images/man.webp" },
+  { img: "/assets/images/man.webp" },
+  { img: "/assets/images/man.webp" },
+  { img: "/assets/images/man.webp" },
+  { img: "/assets/images/man.webp" },
+  { img: "/assets/images/man.webp" },
 ];
 
 const BusinessSlider: React.FC = () => {
@@ -25,23 +25,22 @@ const BusinessSlider: React.FC = () => {
     <section className={`${styles.section} sectionPadding`}>
       {/* Background Image */}
       <div className={styles.rocketWrapper}>
-  {/* <Image
+        {/* <Image
     src="/assets/images/rocket1.webp"
     alt="Rocket"
     fill
     className={styles.rocketImage}
   /> */}
-</div>
-
+      </div>
 
       <div className="max-w-7xl mx-auto px-4 relative z-10">
         {/* Heading */}
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-white">
-            Local <span className="text-teal-400">Businesses</span> Struggle to Stay Visible
+        <div className="text-center mb-12 sectionHeading forH2 md:max-w-3xl mx-auto">
+          <h2>
+          Growing <span className="text-teal-400">Businesses</span> Need Real Support
           </h2>
           <p className="mt-4 text-gray-300 max-w-2xl mx-auto">
-            You’re great at what you do, but your marketing falls behind. Agencies cost a fortune. Freelancers disappear.
+          You put in the work but the momentum slips. Your outreach slows down. Your efforts get scattered. Nothing stays consistent.
           </p>
         </div>
 
@@ -61,7 +60,9 @@ const BusinessSlider: React.FC = () => {
           {videos.map((video, index) => (
             <SwiperSlide key={index}>
               <div className="bg-[#181339] rounded-xl p-4 flex flex-col items-center relative group">
-                <div className={`relative w-full h-64 md:h-72 rounded-lg overflow-hidden mb-4 ${styles.videoCard}`}>
+                <div
+                  className={`relative w-full h-64 md:h-72 rounded-lg overflow-hidden ${styles.videoCard}`}
+                >
                   <Image
                     src={video.img}
                     alt="Video"
@@ -87,9 +88,14 @@ const BusinessSlider: React.FC = () => {
 
         {/* CTA Button */}
         <div className="mt-10 text-center">
-        <Button href="#" variant="primary" icon={<ArrowRightIcon style={{ fill: "#fff" }} />} iconPosition="right">
-          Book A Demo
-        </Button>
+          <Button
+            href="#"
+            variant="primary"
+            icon={<ArrowRightIcon style={{ fill: "#fff" }} />}
+            iconPosition="right"
+          >
+            Book A Demo
+          </Button>
         </div>
       </div>
     </section>

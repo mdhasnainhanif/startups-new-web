@@ -1,48 +1,60 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { InlineWidget } from "react-calendly";
+import Cal, { getCalApi } from "@calcom/embed-react";
 import Container from "../Container";
 import styles from "./CalendlySection.module.css";
 import Button from "../Button";
+import { PlayIcon } from "@/app/icons";
+import { VideoIcon } from "../../icons";
 
 interface CalendlySectionProps {
-  heading?: string | {
-    part1: string;
-    part2: string;
-    part3: string;
-  };
+  heading?: string | { part1: string; part2: string; part3: string };
   description?: string;
   buttonText?: string;
   buttonHref?: string;
-  calendlyUrl: string;
+  calendlyUrl?: string; // Keep for backward compatibility
   calendlyText?: string;
   className?: string;
+  // New Cal.com props
+  calNamespace?: string;
+  calLink?: string;
 }
 
 const CalendlySection = ({
-  heading = "Let's Talk About Taking [Marketing] Off Your Plate",
-  description = "Book a quick video call to see how your Smart Marketing AI Team can free you to run jobs while your digital presence runs itself",
+  heading = "Let's Get Your Business Talking",
+  description = "Book a quick video call to see how your Smart AI Business Team can free you to run jobs while your digital presence runs itself",
   buttonText = "Free Up Your Time",
   buttonHref = "#",
-  calendlyUrl = "https://calendly.com/md-hasnain-developer/30min?month=2025-11",
+  calendlyUrl,
   calendlyText = "In minutes, you'll see examples of what your team can handle — ads, social, website, graphics — and how it all works together seamlessly",
   className = "",
+  calNamespace = "30min",
+  calLink = "inhouse-team-loexw9/30min",
 }: CalendlySectionProps) => {
   const [isMounted, setIsMounted] = useState(false);
+  const [selectedDropdownItem, setSelectedDropdownItem] = useState<string>(buttonText);
 
   useEffect(() => {
     setIsMounted(true);
-    // Log URL for debugging
-    if (calendlyUrl) {
-      console.log('Calendly URL:', calendlyUrl);
-    }
-  }, [calendlyUrl]);
+    
+    // Initialize Cal.com
+    (async function () {
+      const cal = await getCalApi({ namespace: calNamespace });
+      cal("ui", {
+        hideEventTypeDetails: false,
+        layout: "month_view",
+      });
+    })();
+  }, [calNamespace]);
+
+  const handleDropdownSelect = (item: { label: string; href?: string; onClick?: () => void }) => {
+    setSelectedDropdownItem(item.label);
+  };
 
   // Parse heading to handle [Highlighted Word] format
   const renderHeading = () => {
-    // If heading is object (old format), use it
-    if (typeof heading === 'object' && heading !== null && 'part1' in heading) {
+    if (typeof heading === "object" && heading !== null && "part1" in heading) {
       return (
         <>
           <span className={styles.headingPart1}>{heading.part1}</span>
@@ -52,8 +64,7 @@ const CalendlySection = ({
       );
     }
 
-    // If heading is string, parse [Highlighted Word] format
-    if (typeof heading === 'string') {
+    if (typeof heading === "string") {
       const parts: React.ReactElement[] = [];
       const regex = /\[([^\]]+)\]/g;
       let lastIndex = 0;
@@ -61,7 +72,6 @@ const CalendlySection = ({
       let key = 0;
 
       while ((match = regex.exec(heading)) !== null) {
-        // Add text before the match
         if (match.index > lastIndex) {
           parts.push(
             <span key={key++} className={styles.headingPart1}>
@@ -69,15 +79,17 @@ const CalendlySection = ({
             </span>
           );
         }
-        // Add highlighted text
         parts.push(
-          <span key={key++} className={styles.headingPart2} style={{ color: '#0FDAC2' }}>
+          <span
+            key={key++}
+            className={styles.headingPart2}
+            style={{ color: "#0FDAC2" }}
+          >
             {match[1]}
           </span>
         );
         lastIndex = regex.lastIndex;
       }
-      // Add remaining text
       if (lastIndex < heading.length) {
         parts.push(
           <span key={key++} className={styles.headingPart1}>
@@ -92,50 +104,57 @@ const CalendlySection = ({
   };
 
   return (
-    <section className={`${styles.calendlySection} ${className} sectionPadding`}>
+    <section
+      className={`${styles.calendlySection} ${className} sectionPadding`}
+    >
       <Container maxWidth="xl">
         <div className={styles.contentWrapper}>
           {/* Left Section */}
-          <div className={styles.leftSection}>
-            <h2 className={styles.heading}>
-              {renderHeading()}
-            </h2>
-
-            <p className={styles.description}>{description}</p>
-
-            <div className={styles.buttonWrapper}>
-              <Button href={buttonHref} variant="purple" size="lg" className={styles.ctaButton}>
+          <div className={`${styles.leftSection} sectionHeading forH2`}>
+            <h2>{renderHeading()}</h2>
+            <p>{description}</p>
+            <div>
+              <Button
+                variant="purple"
+                size="lg"
+                icon={<VideoIcon style={{ fill: "#643BFF" }} />}
+                className={styles.videoButton}
+                iconSpanClassName={styles.videoButtonText}
+                isDropdown={true}
+                selectedDropdownItem={selectedDropdownItem}
+                onDropdownSelect={handleDropdownSelect}
+                dropdownItems={[
+                  {
+                    label: "Google Meet",
+                    href: "#",
+                  },
+                  {
+                    label: "Zoom Meet",
+                    href: "#",
+                  },
+                ]}
+              >
                 <span>{buttonText}</span>
-                <div className={styles.playIconContainer}>
-                  <svg
-                    className={styles.playIcon}
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                </div>
               </Button>
             </div>
           </div>
 
-          {/* Right Section - Calendly Widget */}
+          {/* Right Section - Cal.com Widget */}
           <div className={styles.rightSection}>
             <div className={styles.calendlyContainer}>
               <div className={styles.calendlyWrapper}>
-                {calendlyUrl && isMounted ? (
-                  <InlineWidget 
-                    url={calendlyUrl}
-                    styles={{
-                      height: '650px',
-                      minHeight: '650px'
+                {isMounted ? (
+                  <Cal
+                    namespace={calNamespace}
+                    calLink={calLink}
+                    style={{
+                      width: "100%",
+                      height: "650px",
+                      minHeight: "650px",
+                      overflow: "scroll",
                     }}
-                    pageSettings={{
-                      backgroundColor: 'ffffff',
-                      hideEventTypeDetails: false,
-                      hideLandingPageDetails: false,
-                      primaryColor: '643bff',
-                      textColor: '4d5055'
+                    config={{
+                      layout: "month_view",
                     }}
                   />
                 ) : (
@@ -162,7 +181,9 @@ const CalendlySection = ({
                         <line x1="3" y1="10" x2="21" y2="10" />
                       </svg>
                     </div>
-                    <h3 className={styles.placeholderTitle}>Loading Calendar...</h3>
+                    <h3 className={styles.placeholderTitle}>
+                      Loading Calendar...
+                    </h3>
                   </div>
                 )}
               </div>

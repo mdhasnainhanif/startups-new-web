@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import styles from "./ContactCta.module.css";
+import Container from "../../Container";
 
 type BtnType = {
   label: string;
@@ -24,6 +25,7 @@ const ContactCta: React.FC<ContactCtaProps> = ({
 }) => {
   return (
     <section className="sectionPadding">
+      <Container maxWidth="2xl" className="px-0">
       <div
         className={`${styles.ctaBox} max-w-4xl mx-auto rounded-2xl px-8 py-12 text-center relative`}
       >
@@ -51,7 +53,7 @@ const ContactCta: React.FC<ContactCtaProps> = ({
               <img
                 src={btn.icon}
                 alt={btn.label}
-                className="w-5 h-5 object-contain"
+                className="w-5 h-5 object-contain rounded-full"
               />
 
               {/* Button label */}
@@ -79,6 +81,7 @@ const ContactCta: React.FC<ContactCtaProps> = ({
           className={`${styles.rocket2} z-0`}
         />
       </div>
+      </Container>
     </section>
   );
 };

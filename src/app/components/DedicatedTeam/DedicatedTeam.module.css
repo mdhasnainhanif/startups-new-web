@@ -4,6 +4,17 @@
   overflow: hidden;
 }
 
+.section::before {
+  content: "";
+  position: absolute;
+  top: -15%;
+  right: -10%;
+  width: 390px;
+  height: 500px;
+  background: url("/assets/images/1.webp") no-repeat;
+  background-size: cover;
+}
+
 .header {
   display: flex;
   align-items: center;
@@ -13,7 +24,7 @@
 
 .heading {
   font-size: 3rem;
-  font-weight: 800;
+  font-weight: 600;
   line-height: 1.2;
   text-align: center;
   margin: 0;
@@ -21,7 +32,7 @@
 
 .swiperWrapper {
   position: relative;
-  width: 105%;
+  width: 100%;
   min-height: 400px;
   margin: 0 auto;
 }
@@ -29,7 +40,7 @@
 .navButton {
   position: absolute;
   top: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -100%);
   width: 3rem;
   height: 3rem;
   border-radius: 100%;
@@ -62,7 +73,7 @@
 
 .navButtonRight {
   right: 0;
-  transform: translate(50%, -50%);
+  transform: translate(50%, -100%);
 }
 
 .navButton:hover:not(:disabled) {
@@ -71,11 +82,11 @@
 }
 
 .navButtonLeft:hover:not(:disabled) {
-  transform: translate(-50%, -50%) scale(1.1);
+  transform: translate(-50%, -100%);
 }
 
 .navButtonRight:hover:not(:disabled) {
-  transform: translate(50%, -50%) scale(1.1);
+  transform: translate(50%, -100%);
 }
 
 .navButton:disabled {
@@ -115,11 +126,12 @@
 }
 
 .card {
-  background: #070422;
+  background: #080524;
   border-radius: 1rem;
   padding: 1.5rem 1.5rem 0 1.5rem;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  border: 1px solid rgba(93, 81, 175, 0.2);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  border: 1px solid #211e3d;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -131,8 +143,7 @@
   margin-bottom: 1rem;
 }
 
-.card:hover
-{
+.card:hover {
   background: linear-gradient(to bottom, #080523, #1f1549);
 }
 .memberName {
@@ -266,5 +277,18 @@
 :global(.swiper-button-prev),
 :global(.swiper-button-next) {
   display: none !important;
+}
+
+@media (max-width: 576px) {
+    .navButtonLeft {
+      left: 1rem;
+      height: 2.5rem;
+      width: 2.5rem;
+    }
+    .navButtonRight {
+      right: 1rem;
+      height: 2.5rem;
+      width: 2.5rem;
+    }
 }
 

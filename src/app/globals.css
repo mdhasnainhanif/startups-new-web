@@ -4,8 +4,18 @@
   --background: #ffffff;
   --foreground: #171717;
   --color-primary: #0fdac2;
-  --color-dark: #020016;
   --color-purple: #643bff;
+  --color-dark: #020016;
+  --primary-color: #ff2a40;
+  --primary-dark: #118464;
+  --text-dark: #1b1b1b;
+  --text-muted: #666666;
+  --section-bg: #f7f9fb;
+  --soft-primary: #e7f0ff;
+  --card-hover: #f1f3f5;
+  --card-border: #dfe3e8;
+  --accent: #0a53ff;
+  --muted: #98a2b3;
 }
 
 @theme inline {
@@ -18,6 +28,7 @@
   --font-mono: var(--font-geist-mono);
   --font-wf: var(--font-wf-visual-sans);
   --font-graphik: var(--font-graphik-regular);
+  --font-graphik-bold: var(--font-graphik-bold);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -27,16 +38,28 @@
   }
 }
 
+.font-graphik-bold {
+  font-family: var(--font-graphik-bold) !important;
+}
+
+.font-graphik-semibold {
+  font-family: var(--font-graphik-semibold) !important;
+}
+
 body {
   background: var(--color-dark);
   color: var(--foreground);
   font-family: var(--font-graphik-regular), Arial, Helvetica, sans-serif;
 }
 
-
 .sectionPadding {
-  padding-top: 5.25rem;
-  padding-bottom: 5.25rem;
+  padding-top: 4.125rem;
+  padding-bottom: 4.125rem;
+}
+
+nav.headerNav {
+  box-shadow: 0 -10px 20px -10px rgba(0, 0, 0, 0.3),
+    0 10px 20px -10px rgba(0, 0, 0, 0.3);
 }
 
 .bottomZero {
@@ -50,7 +73,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-wf-visual-sans), sans-serif !important;
+  font-family: var(--font-plus-jakarta-sans), sans-serif !important;
 }
 
 /* Ensure headings in all components use WF font */
@@ -72,7 +95,7 @@ main h3,
 main h4,
 main h5,
 main h6 {
-  font-family: var(--font-wf-visual-sans), sans-serif !important;
+  font-family: var(--font-plus-jakarta-sans), sans-serif !important;
 }
 
 /* Apply Graphik font to paragraphs, buttons, lists, and other text elements */
@@ -93,6 +116,7 @@ label {
 header {
   contain: layout style paint;
   transform: translateZ(0);
+  z-index: 1000;
 }
 
 /* Optimize image loading */
@@ -107,21 +131,6 @@ img {
   padding-bottom: 4rem;
 }
 
-.tabBgbox {
-  background: rgba(100, 59, 255, 0.05);
-  border-radius: 1rem;
-  padding: 1rem;
-}
-
-.scroll2 {
-  position: sticky;
-  top: 100px;
-}
-
-.right-column {
-  position: relative;
-}
-
 .hideOnipad {
   display: block;
 }
@@ -134,8 +143,8 @@ img {
 
 /* Calendly Widget Styles - Show only calendar */
 .calendly-inline-widget {
-  min-width: 320px;
-  height: 650px;
+  min-width: 20rem;
+  height: 40.625rem;
 }
 
 .calendly-inline-widget iframe {
@@ -156,31 +165,386 @@ h2.headingSize {
   font-weight: 600 !important;
 }
 
-.sectionPaddingCase.pt-0{
+.sectionPaddingCase.pt-0 {
   padding-top: 0 !important;
 }
 
-@media screen and (max-width: 768px)
-{
+.provenSuccess .swiper {
+  overflow: hidden !important;
+}
+
+p.topPara {
+  font-size: 15px;
+  font-weight: 400;
+}
+
+@media screen and (max-width: 768px) {
   .topPara {
     font-size: 0.875rem;
   }
 }
 
-@media screen and (max-width: 576px)
-{
+@media screen and (max-width: 576px) {
+  button.inputFieldBtn {
+    --tw-translate-y: 0 !important;
+    translate: none !important;
+  }
+
+  .topHeader {
+    padding-bottom: 1rem;
+  }
+
+  .keyGrowthTechnologySection .sectionHeading {
+    max-width: 100% !important;
+  }
+
+  .inputFieldWrapper {
+    background: #1c0d54;
+    border-radius: 0.5rem;
+  }
+
+  .inputFieldWrapper input {
+    border: 0rem;
+    font-size: 0.975rem;
+  }
+
+  .inputFieldWrapper input:focus {
+    border: 0rem;
+    box-shadow: none;
+    outline: none;
+  }
+
+  .inputFieldBtn {
+    position: static !important;
+    width: 100% !important;
+  }
+
+  .headerLogo {
+    max-width: 6rem;
+  }
+
+  .mobile-padding-bottom-0 {
+    padding-bottom: 0rem !important;
+  }
+
+  div.sectionHeading.forH2 > p {
+    font-size: 1rem;
+  }
+
+  button.caseBtn {
+    margin: 0 auto;
+    font-size: 1rem;
+  }
+
+  button.caseBtn::before {
+    content: none;
+  }
+
+  div.sectionHeading > p {
+    font-size: 1rem;
+  }
+
+  div.sectionHeading > h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  div.sectionHeading.forH2 > h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 0rem;
+  }
+
   .sectionPadding {
-    padding-top: 4.25rem;
+    padding-top: 3.825rem;
     padding-bottom: 4.25rem;
   }
-  .topPara {
+
+  p.topPara {
     font-size: 0.655rem;
   }
-  h2.headingSize{
+
+  h2.headingSize {
     font-size: 2rem !important;
   }
-  .tabSection .px-4{
+
+  .tabSection .px-4 {
     padding-left: 0 !important;
     padding-right: 0 !important;
   }
+
+  .pt100.contactMain {
+    padding-top: 1.25rem;
+  }
+
+  .caseImg {
+    display: none;
+  }
+
+  div.scrollerItem {
+    border-radius: 0.5rem !important;
+  }
+
+  .sectionHeading > h2 {
+    font-size: 1.75rem !important;
+  }
+}
+
+.pt100 {
+  padding-top: 12.25rem;
+}
+
+.sectionHeading > h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1.125rem;
+}
+
+.sectionHeading > h2:has(+ h4) {
+  margin-bottom: 0.25rem;
+}
+
+.sectionHeading > h4 {
+  font-weight: 600;
+  font-size: 1.125rem;
+  margin-bottom: 1.125rem;
+}
+
+.sectionHeading > p.topHeading {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.sectionHeading.text-center > h2 {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sectionHeading > ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  margin-top: 1.5rem;
+}
+
+.sectionHeading > h1 {
+  font-size: 3.6rem;
+  font-weight: 700;
+  line-height: 1.09;
+  color: #ffffff;
+}
+
+.sectionHeading > p {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.sectionHeading > h2 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 0rem;
+  color: #ffffff;
+}
+
+.sectionHeading.forH2 > p {
+  font-size: 1.125rem;
+  line-height: 1.3;
+  margin-top: 1.25rem;
+  color: #ffffff;
+}
+
+.sectionHeading h2 > span.primaryColor {
+  color: var(--color-primary);
+}
+
+.sectionHeading.forH2 h2 .bracket-text-green,
+.sectionHeading h2 .bracket-text-green,
+h2 .bracket-text-green {
+  color: #0fdac2 !important;
+}
+
+.sectionHeading.forH2.text-center {
+  margin-bottom: 2.5rem;
+}
+
+.sectionHeading.forH2.text-center.mb-0 {
+  margin-bottom: 0rem;
+}
+
+.casestudysec{
+  padding-bottom: 11rem;
+}
+
+.caseBtn {
+  position: relative;
+  padding: 0.725rem 2rem 0.985rem;
+}
+
+.caseBtn::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -1.625rem;
+  width: 1px;
+  height: 60%;
+  background: rgba(255, 255, 255, 0.2);
+  pointer-events: none;
+  transform: translateY(-50%);
+  backface-visibility: hidden;
+}
+
+.caseBtn:first-child::before {
+  display: none;
+}
+
+/* Tabs Swiper Styles */
+.tabs-swiper {
+  overflow: hidden !important;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.tabs-swiper .swiper-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.tabs-swiper .swiper-slide {
+  width: 100% !important;
+  max-width: 100% !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.tabs-swiper .swiper-slide:not(.swiper-slide-active) {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.tabs-swiper .swiper-slide-active {
+  opacity: 1;
+}
+
+/* Hide Swiper scrollbar */
+.tabs-swiper::-webkit-scrollbar {
+  display: none;
+}
+
+.designerPageProfessional .bottomHeadingWrapper h3 {
+  max-width: 30rem;
+}
+
+.designerPageCaseStudy .stack-cards__item,
+section.designerPageCaseStudy .stack-cards__item {
+  top: 7vh;
+}
+
+button.inputFieldBtn {
+  position: absolute;
+  right: 0.725rem;
+}
+
+.keyGrowthTechnologySection .sectionHeading {
+  max-width: 50rem;
+}
+
+.faqSection {
+  position: relative;
+}
+
+.faqSection::before {
+  content: "";
+  position: absolute;
+  top: 35%;
+  right: 5%;
+  width: 28rem;
+  height: 35rem;
+  background: url("/assets/images/1.webp") no-repeat;
+  background-size: cover;
+  opacity: 0.6;
+}
+
+.faqInputWrapper {
+  position: relative;
+  background: #1c1949;
+}
+
+.faqInputWrapper button.px-10 {
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
+}
+
+.faqInputWrapper button.px-10::after {
+  border-bottom-width: 5px !important;
+}
+
+.webDevelopmentPageCaseStudy h2 {
+  max-width: 50rem;
+}
+
+div.webDevelopmentPageCaseStudy {
+  padding-bottom: 13rem;
+}
+
+/* Horizontal Scrollbar Styles for Services Calculator */
+.scrollbar-horizontal {
+  scrollbar-width: thin;
+  scrollbar-color: #0fdac2 transparent;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+.scrollbar-horizontal::-webkit-scrollbar {
+  height: 6px;
+}
+
+.scrollbar-horizontal::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-horizontal::-webkit-scrollbar-thumb {
+  background-color: #0fdac2;
+  border-radius: 3px;
+}
+
+.scrollbar-horizontal::-webkit-scrollbar-thumb:hover {
+  background-color: #0bc4ae;
+}
+
+.scrollbar-horizontal::-webkit-scrollbar-button {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+section.sectionPadding.pt-0 {
+  padding-top: 0 !important;
+}
+
+section.contentWritingBanner img {
+  max-width: 100%;
+  margin-left: 2rem;
+}
+
+section img.banneFull {
+  max-width: 100%;
+  margin-left: 2rem;
+}
+
+section img.banneFullMin {
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0rem;
+}
+
+.cursor-pointer{
+  cursor: pointer !important;
 }

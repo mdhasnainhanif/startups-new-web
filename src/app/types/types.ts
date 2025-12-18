@@ -2,7 +2,13 @@ import { ReactNode, ButtonHTMLAttributes, AnchorHTMLAttributes } from "react";
 
 // Button Types
 export type ButtonVariant = "primary" | "secondary" | "outline" | "dark" | "light" | "purple" | "green";
-export type ButtonSize = "sm" | "md" | "lg";
+export type ButtonSize = "sm" | "md" | "lg" | "xl";
+
+export interface DropdownItem {
+  label: string;
+  href?: string;
+  onClick?: () => void;
+}
 
 export interface BaseButtonProps {
   variant?: ButtonVariant;
@@ -11,6 +17,11 @@ export interface BaseButtonProps {
   className?: string;
   icon?: ReactNode;
   iconPosition?: "left" | "right";
+  iconSpanClassName?: string;
+  isDropdown?: boolean;
+  dropdownItems?: DropdownItem[];
+  selectedDropdownItem?: string;
+  onDropdownSelect?: (item: DropdownItem) => void;
 }
 
 export interface ButtonAsButton extends BaseButtonProps, Omit<ButtonHTMLAttributes<HTMLButtonElement>, "className" | "children"> {
@@ -27,7 +38,7 @@ export type ButtonProps = ButtonAsButton | ButtonAsLink;
 export interface ContainerProps {
   children: ReactNode;
   className?: string;
-  maxWidth?: "sm" | "md" | "lg" | "xl" | "2xl" | "full";
+  maxWidth?: "sm" | "md" | "lg" | "xl" | "2xl" | "full" | "mxl" | "sxl";
 }
 
 // HeroBanner Types
@@ -42,6 +53,7 @@ export interface HeroBannerProps {
     variant?: ButtonVariant;
   };
   className?: string;
+  onButtonClick?: () => void;
 }
 
 // AboutUsBanner Types
@@ -96,7 +108,7 @@ export interface WhyChooseProps {
 // DedicatedTeam Types
 export interface TeamMember {
   id: string;
-  name: string;
+  name?: string;
   title: string;
   image: string;
 }
@@ -148,6 +160,7 @@ export interface CounterItem {
 export interface CounterProps {
   items: CounterItem[];
   className?: string;
+  gridClassName?: string;
 }
 
 // ContactForm Types
@@ -220,9 +233,7 @@ export interface ContactFormAddressProps {
 }
 
 type SliderItem = {
-  text: string;
-  highlight: string;
-  price: string;
+  sliderDataPara: string;
 };
 
 interface TextSlider1Props {

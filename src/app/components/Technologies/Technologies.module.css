@@ -2,7 +2,6 @@
   background: #050321;
   position: relative;
   overflow: hidden;
-  mask-image: linear-gradient(to right, #fff0 0%, #000000 25%, #000000 75%, #fff0 100%);
 }
 
 .header {
@@ -21,30 +20,64 @@
   max-width: 62rem;
 }
 
+.descriptionWrapper {
+  display: block;
+  max-width: 75rem;
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+}
+
+.descriptionWrapper .description {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 18px;
+  line-height: 1.6;
+  max-width: 100%;
+  margin: 0 auto 1.5rem auto;
+  display: block;
+}
+
+.descriptionWrapper .description:last-child {
+  margin-bottom: 0;
+}
+
 .description {
   color: rgba(255, 255, 255, 0.8);
   font-size: 18px;
   line-height: 1.6;
-  max-width: 900px;
+  max-width: 75rem;
   margin: 0 auto;
 }
 
+.subDescription {
+  color: #ffffff;
+  font-size: 2.5rem;
+  line-height: 1.6;
+  max-width: 75rem;
+  margin: 0 auto;
+  font-weight: 700;
+}
 /* Tabs Container */
 .tabsContainer {
-    z-index: 1;
-    background: #0b0038;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 0;
-    width: fit-content;
-    margin-bottom: 40px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 10px 0;
+  z-index: 1;
+  background: #0b0038;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1rem 0;
+  display: none;
+  position: relative;
+  border-radius: 0.5rem;
+  width: fit-content;
+}
+
+@media (min-width: 768px) {
+  .tabsContainer {
     display: flex;
-    position: relative;
-    border-radius: 0.5rem;
+  }
 }
 
 .tabsContainer .tab:nth-child(2) {
@@ -52,36 +85,36 @@
 }
 
 .tab {
-  padding: 12px 20px;
+  padding: 12px 20px 16px;
   background: transparent;
   color: #403867;
   border: none;
   cursor: pointer;
-  font-size: 1.115rem;
+  font-size: 1.25rem;
   font-weight: 600;
   transition: all 0.3s ease;
   position: relative;
   border-radius: 0.5rem;
-  margin:0 20px 0 13px;
+  margin: 0 20px 0 13px;
   min-width: 4rem;
   letter-spacing: 0.03rem;
+  /* font-family: var(--font-graphik-bold) !important; */
 }
-.tab::before
-{
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -16.5px;
-    width: 1px;
-    height: 100%;
-    background: #372c6b;
+.tab::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -1rem;
+  width: 1px;
+  height: 100%;
+  background: #372c6b;
 }
-.tab:nth-child(2)::before {
-    left: -26px;
-}
+/* .tab:nth-child(2)::before {
+    left: -20%;
+} */
 .tab:first-child::before {
-   display: none;
-  }
+  display: none;
+}
 
 .tab:hover {
   color: rgba(255, 255, 255, 0.8);
@@ -93,6 +126,65 @@
   font-weight: 600;
 }
 
+/* Mobile Tabs Container with Swiper */
+.tabsContainerMobile {
+  z-index: 1;
+  background: #0b0038;
+  margin-bottom: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1rem 0;
+  position: relative;
+  border-radius: 0.5rem;
+  width: 100%;
+  max-width: 100%;
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .tabsContainerMobile {
+    display: none;
+  }
+}
+
+/* Tabs Swiper Styles */
+.tabsSwiper {
+  overflow: hidden !important;
+}
+
+.tabsSwiper .swiper-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.tabsSwiper .swiper-slide {
+  width: 100% !important;
+  max-width: 100% !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.tabsSwiper .swiper-slide:not(.swiper-slide-active) {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.tabsSwiper .swiper-slide-active {
+  opacity: 1;
+}
+
+/* Hide Swiper scrollbar */
+.tabsSwiper::-webkit-scrollbar {
+  display: none;
+}
+
+.tabsSwiper {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 /* Category Header */
 .categoryHeader {
   text-align: center;
@@ -102,7 +194,7 @@
 }
 
 .categoryTitle {
-  font-size: 24px;
+  font-size: 2.5rem;
   font-weight: 700;
   color: #ffffff;
 }
@@ -115,6 +207,13 @@
   position: relative;
   z-index: 1;
   overflow: hidden;
+  mask-image: linear-gradient(
+    to right,
+    #fff0 0%,
+    #000000 25%,
+    #000000 75%,
+    #fff0 100%
+  );
 }
 
 .slider {
@@ -134,13 +233,13 @@
 /* First and Third Slider - Right to Left */
 .sliderRightToLeft .sliderTrack {
   animation-name: slideRightToLeft;
-  animation-duration: 50s;
+  animation-duration: 100s;
 }
 
 /* Second Slider - Left to Right */
 .sliderLeftToRight .sliderTrack {
   animation-name: slideLeftToRight;
-  animation-duration: 35s;
+  animation-duration: 100s;
 }
 
 @keyframes slideRightToLeft {
@@ -185,6 +284,12 @@
   height: 32px;
 }
 
+.iconImage {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
 .toolName {
   color: #ffffff;
   font-size: 1.25rem;
@@ -196,7 +301,15 @@
   .section {
     padding: 60px 0;
   }
-
+  .tabsContainer
+  {
+    border-radius: 0px !important;
+    display: none !important;
+  }
+  tab:before
+  {
+    display: none !important;
+  }
   .heading {
     font-size: 36px;
   }
@@ -206,19 +319,19 @@
   }
 
   .tabsContainer {
-    flex-direction: column;
-    gap: 8px;
-    background:#0b0038;
-    border-radius: 100px;
-    padding: 12px;
-    width: 100%;
-    max-width: 300px;
-    margin-left: auto;
-    margin-right: auto;
+    display: none !important;
   }
 
-  .tab {
+  .tabsContainerMobile {
     width: 100%;
+    max-width: 100%;
+    padding: 1rem 0;
+    background-color: transparent;
+    margin-bottom: 3rem;
+  }
+
+  .tabsContainerMobile .tab {
+    width: auto;
     padding: 12px 20px;
     font-size: 0.9rem;
     margin: 0;
@@ -226,10 +339,9 @@
     text-align: center;
   }
 
-  .tabsContainer .tab:nth-child(2) {
-    margin-left: 0;
+  .tabsContainerMobile .tab::before {
+    display: none;
   }
-
 
   .categoryTitle {
     font-size: 20px;
@@ -245,8 +357,16 @@
 }
 
 @media (max-width: 640px) {
-  .tabsContainer{
+  .tabsContainer {
     background-color: transparent;
+  }
+  .tabsContainer
+  {
+    border-radius: 0px !important;
+  }
+  tab:before
+  {
+    display: none !important;
   }
   .heading {
     font-size: 28px;
@@ -259,8 +379,7 @@
   .categoryTitle {
     font-size: 18px;
   }
-  .tab::before{
+  .tab::before {
     content: none;
   }
 }
-

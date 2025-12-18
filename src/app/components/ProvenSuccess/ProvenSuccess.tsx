@@ -1,6 +1,11 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper/modules';
+import type { Swiper as SwiperType } from 'swiper';
+import 'swiper/css';
+import 'swiper/css/navigation';
 import Container from '../Container';
 import styles from './ProvenSuccess.module.css';
 
@@ -22,10 +27,10 @@ interface ProvenSuccessData {
   };
   description: string;
   tabs: TabData[];
-  categories: Array<{
-    id: string;
-    label: string;
-  }>;
+  // categories: Array<{
+  //   id: string;
+  //   label: string;
+  // }>;
 }
 
 const PROVEN_SUCCESS_DATA: ProvenSuccessData = {
@@ -34,20 +39,20 @@ const PROVEN_SUCCESS_DATA: ProvenSuccessData = {
     highlighted: 'Success',
   },
   description:
-    'Your Smart Marketing AI Team brings a fully loaded AI ecosystem for creative design and analytics automation — premium tools, no extra cost, no hassle.',
+    'Your Smart AI Business Team brings a fully loaded AI ecosystem for creative design and analytics automation — premium tools, no extra cost, no hassle.',
   tabs: [
     {
       id: 'branding-kit',
       label: 'Branding Kit',
       images: [
-        '/assets/images/aipower1.png',
-        '/assets/images/aipower1.png',
-        '/assets/images/aipower1.png',
-        '/assets/images/aipower1.png',
-        '/assets/images/aipower1.png',
-        '/assets/images/aipower1.png',
-        '/assets/images/aipower1.png',
-        '/assets/images/aipower1.png',
+        '/assets/images/portfolio/branding-kit/1-min.jpg',
+        '/assets/images/portfolio/branding-kit/2-min.jpg',
+        '/assets/images/portfolio/branding-kit/3-min.jpg',
+        '/assets/images/portfolio/branding-kit/4-min.jpg',
+        '/assets/images/portfolio/branding-kit/5-min.jpg',
+        '/assets/images/portfolio/branding-kit/6-min.jpg',
+        '/assets/images/portfolio/branding-kit/7-min.jpg',
+        '/assets/images/portfolio/branding-kit/8-min.jpg',
       ],
       gridItems: [
         { id: '1', label: 'Logo Design' },
@@ -80,14 +85,14 @@ const PROVEN_SUCCESS_DATA: ProvenSuccessData = {
       id: 'logo-design',
       label: 'Logo Design',
       images: [
-        '/assets/images/aipower1.png',
-        '/assets/images/aipower1.png',
-        '/assets/images/aipower1.png',
-        '/assets/images/aipower1.png',
-        '/assets/images/aipower1.png',
-        '/assets/images/aipower1.png',
-        '/assets/images/aipower1.png',
-        '/assets/images/aipower1.png',
+        '/assets/images/portfolio/logo-design/1-min.jpg',
+        '/assets/images/portfolio/logo-design/2-min.jpg',
+        '/assets/images/portfolio/logo-design/3-min.jpg',
+        '/assets/images/portfolio/logo-design/4-min.jpg',
+        '/assets/images/portfolio/logo-design/5-min.jpg',
+        '/assets/images/portfolio/logo-design/6-min.jpg',
+        '/assets/images/portfolio/logo-design/7-min.jpg',
+        '/assets/images/portfolio/logo-design/8-min.jpg',
       ],
       gridItems: [
         { id: '1', label: 'Primary Logo' },
@@ -120,14 +125,14 @@ const PROVEN_SUCCESS_DATA: ProvenSuccessData = {
       id: 'social-media-post',
       label: 'Social Media Post',
       images: [
-        '/assets/images/aipower1.png',
-        '/assets/images/aipower1.png',
-        '/assets/images/aipower1.png',
-        '/assets/images/aipower1.png',
-        '/assets/images/aipower1.png',
-        '/assets/images/aipower1.png',
-        '/assets/images/aipower1.png',
-        '/assets/images/aipower1.png',
+        '/assets/images/portfolio/social-media-post/1-min.jpg',
+        '/assets/images/portfolio/social-media-post/2-min.jpg',
+        '/assets/images/portfolio/social-media-post/3-min.jpg',
+        '/assets/images/portfolio/social-media-post/4-min.jpg',
+        '/assets/images/portfolio/social-media-post/5-min.jpg',
+        '/assets/images/portfolio/social-media-post/6-min.jpg',
+        '/assets/images/portfolio/social-media-post/7-min.jpg',
+        '/assets/images/portfolio/social-media-post/8-min.jpg',
       ],
       gridItems: [
         { id: '1', label: 'Facebook Post' },
@@ -160,14 +165,14 @@ const PROVEN_SUCCESS_DATA: ProvenSuccessData = {
       id: 'stationary',
       label: 'Stationary',
       images: [
-        '/assets/images/aipower1.png',
-        '/assets/images/aipower1.png',
-        '/assets/images/aipower1.png',
-        '/assets/images/aipower1.png',
-        '/assets/images/aipower1.png',
-        '/assets/images/aipower1.png',
-        '/assets/images/aipower1.png',
-        '/assets/images/aipower1.png',
+        '/assets/images/portfolio/stationary/1-min.jpg',
+        '/assets/images/portfolio/stationary/2-min.jpg',
+        '/assets/images/portfolio/stationary/3-min.jpg',
+        '/assets/images/portfolio/stationary/4-min.jpg',
+        '/assets/images/portfolio/stationary/5-min.jpg',
+        '/assets/images/portfolio/stationary/6-min.jpg',
+        '/assets/images/portfolio/stationary/7-min.jpg',
+        '/assets/images/portfolio/stationary/8-min.jpg',
       ],
       gridItems: [
         { id: '1', label: 'Business Card' },
@@ -197,27 +202,69 @@ const PROVEN_SUCCESS_DATA: ProvenSuccessData = {
       ],
     },
   ],
-  categories: [
-    { id: 'agriculture', label: 'Agriculture' },
-    { id: 'food-beverage', label: 'Food + Beverage' },
-    { id: 'health-lifestyle', label: 'Health + Lifestyle' },
-    { id: 'transportation', label: 'Transportation' },
-    { id: 'technology', label: 'Technology' },
-    { id: 'retail', label: 'Retail' },
-    { id: 'education', label: 'Education' },
-    { id: 'finance', label: 'Finance' },
-  ],
+  // categories: [
+  //   { id: 'agriculture', label: 'Agriculture' },
+  //   { id: 'food-beverage', label: 'Food + Beverage' },
+  //   { id: 'health-lifestyle', label: 'Health + Lifestyle' },
+  //   { id: 'transportation', label: 'Transportation' },
+  //   { id: 'technology', label: 'Technology' },
+  //   { id: 'retail', label: 'Retail' },
+  //   { id: 'education', label: 'Education' },
+  //   { id: 'finance', label: 'Finance' },
+  // ],
 };
 
 const ProvenSuccess = () => {
+  // Filter to only show Social Media Post tab
+  const filteredTabs = PROVEN_SUCCESS_DATA.tabs;
+
   const [activeTab, setActiveTab] = useState<string>(PROVEN_SUCCESS_DATA.tabs[0].id);
-  const [activeCategory, setActiveCategory] = useState<string>(PROVEN_SUCCESS_DATA.categories[0].id);
-  const tabsScrollRef = useRef<HTMLDivElement>(null);
+  // const [activeCategory, setActiveCategory] = useState<string>(PROVEN_SUCCESS_DATA.categories[0].id);
+  const [activeCategory, setActiveCategory] = useState<string>('');
+  const [isBeginning, setIsBeginning] = useState<boolean>(true);
+  const [isEnd, setIsEnd] = useState<boolean>(false);
+  const [isFading, setIsFading] = useState<boolean>(false);
+  const [displayedTabId, setDisplayedTabId] = useState<string>('social-media-post');
+  // const [displayedCategoryId, setDisplayedCategoryId] = useState<string>(PROVEN_SUCCESS_DATA.categories[0].id);
+  const [displayedCategoryId, setDisplayedCategoryId] = useState<string>('');
+  const swiperRef = useRef<SwiperType | null>(null);
+  const tabsSwiperRef = useRef<SwiperType | null>(null);
+  const [isTabsSwiperBeginning, setIsTabsSwiperBeginning] = useState(true);
+  const [isTabsSwiperEnd, setIsTabsSwiperEnd] = useState(false);
   const categoriesScrollRef = useRef<HTMLDivElement>(null);
 
-  const currentTab = PROVEN_SUCCESS_DATA.tabs.find((tab) => tab.id === activeTab) || PROVEN_SUCCESS_DATA.tabs[0];
+  const currentTab = filteredTabs.find((tab) => tab.id === activeTab) || filteredTabs[0];
+  const displayedTab = filteredTabs.find((tab) => tab.id === displayedTabId) || filteredTabs[0];
 
-  const scrollCategories = (direction: 'left' | 'right') => {
+  // Handle fade effect when tab or category changes (Bootstrap-like smooth fade)
+  useEffect(() => {
+    // Start fade out
+    setIsFading(true);
+
+    // After fade out completes (300ms), change content and fade in
+    const fadeTimer = setTimeout(() => {
+      setDisplayedTabId(activeTab);
+      // setDisplayedCategoryId(activeCategory);
+      // Small delay to ensure DOM update, then fade in
+      setTimeout(() => {
+        setIsFading(false);
+      }, 50);
+    }, 300);
+
+    return () => clearTimeout(fadeTimer);
+  }, [activeTab]); // Removed activeCategory from dependencies
+
+  // Sync Swiper to active tab when changed programmatically (for mobile)
+  useEffect(() => {
+    if (tabsSwiperRef.current) {
+      const activeIndex = filteredTabs.findIndex((tab) => tab.id === activeTab);
+      if (activeIndex !== -1) {
+        tabsSwiperRef.current.slideTo(activeIndex);
+      }
+    }
+  }, [activeTab]);
+
+  const scrollCategories = (direction: 'left' | 'right'): void => {
     if (categoriesScrollRef.current) {
       const scrollAmount = 150;
       categoriesScrollRef.current.scrollBy({
@@ -228,11 +275,11 @@ const ProvenSuccess = () => {
   };
 
   return (
-    <section className={`sectionPadding ${styles.section}`}>
-      <Container maxWidth="2xl" className="px-0">
+    <section className={`sectionPadding provenSuccess ${styles.section} ${styles.ProvenSuccess}`}>
+      <Container maxWidth="xl" className="px-0">
         {/* Header Section */}
-        <div className={styles.header}>
-          <h2 className={styles.heading}>
+        <div className={styles.header + " sectionHeading forH2"}>
+          <h2>
             <span className="text-white">Proven </span>
             <span className="text-[#0fdac2]">{PROVEN_SUCCESS_DATA.headline.highlighted}</span>
             <span className="text-white"> in Every Project</span>
@@ -240,21 +287,142 @@ const ProvenSuccess = () => {
           <p className={styles.description}>{PROVEN_SUCCESS_DATA.description}</p>
         </div>
 
-        {/* Tabs */}
-        <div ref={tabsScrollRef} className={styles.tabsContainer}>
-          {PROVEN_SUCCESS_DATA.tabs.map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              className={`${styles.tab} ${activeTab === tab.id ? styles.activeTab : ''}`}
+        {/* Tabs Swiper */}
+        {/* Tabs - Desktop/Tablet */}
+        <div className={styles.tabsContainer}>
+          <div className={`swiper-button-prev ${styles.navArrow} ${styles.navArrowLeft} ${isTabsSwiperBeginning ? styles.navArrowDisabled : ''}`} />
+
+          <Swiper
+            modules={[Navigation]}
+            onBeforeInit={(swiper) => {
+              tabsSwiperRef.current = swiper;
+            }}
+            onSlideChange={(swiper) => {
+              setIsTabsSwiperBeginning(swiper.isBeginning);
+              setIsTabsSwiperEnd(swiper.isEnd);
+            }}
+            navigation={{
+              prevEl: '.swiper-button-prev',
+              nextEl: '.swiper-button-next',
+            }}
+            spaceBetween={0}
+            slidesPerView="auto"
+            className={styles.tabsSwiper}
+          >
+            {PROVEN_SUCCESS_DATA.tabs.map((tab) => (
+              <SwiperSlide key={tab.id} className={styles.swiperSlide}>
+                <button
+                  onClick={() => setActiveTab(tab.id)}
+                  className={`${styles.tab} ${activeTab === tab.id ? styles.activeTab : ''}`}
+                >
+                  {tab.label}
+                </button>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+
+          <div className={`swiper-button-next ${styles.navArrow} ${styles.navArrowRight} ${isTabsSwiperEnd ? styles.navArrowDisabled : ''}`} />
+        </div>
+
+        {/* Tabs - Mobile */}
+        {/* Tabs - Mobile */}
+        <div className={styles.tabsContainerMobile}>
+          {/* Left Arrow */}
+          <button
+            onClick={() => tabsSwiperRef.current?.slidePrev()}
+            disabled={isTabsSwiperBeginning}
+            className={`absolute left-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full border-none text-white cursor-pointer flex items-center justify-center transition-all ${isTabsSwiperBeginning
+                ? "opacity-30 cursor-not-allowed bg-[#1b1849]"
+                : "opacity-100 hover:bg-[#0fdac2]/80 bg-[#0fdac2]"
+              }`}
+            aria-label="Previous tab"
+          >
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             >
-              {tab.label}
-            </button>
-          ))}
+              <path d="M15 18l-6-6 6-6" />
+            </svg>
+          </button>
+
+          <Swiper
+            modules={[Navigation]}
+            spaceBetween={0}
+            slidesPerView={1}
+            centeredSlides={false}
+            allowTouchMove={true}
+            speed={300}
+            watchOverflow={true}
+            onBeforeInit={(swiper) => {
+              tabsSwiperRef.current = swiper;
+            }}
+            onSlideChange={(swiper) => {
+              setIsTabsSwiperBeginning(swiper.isBeginning);
+              setIsTabsSwiperEnd(swiper.isEnd);
+              const activeIndex = swiper.activeIndex;
+              if (PROVEN_SUCCESS_DATA.tabs[activeIndex]) {
+                const selectedTab = PROVEN_SUCCESS_DATA.tabs[activeIndex];
+                setActiveTab(selectedTab.id);
+              }
+            }}
+            className={styles.tabsSwiper}
+            style={{ paddingLeft: "3rem", paddingRight: "3rem", overflow: "hidden" }}
+          >
+            {PROVEN_SUCCESS_DATA.tabs.map((tab) => (
+              <SwiperSlide key={tab.id} style={{ width: "100%" }}>
+                <div className="flex justify-center w-full">
+                  <button
+                    onClick={() => {
+                      setActiveTab(tab.id);
+                      // Sync swiper to active tab
+                      const tabIndex = PROVEN_SUCCESS_DATA.tabs.findIndex((t) => t.id === tab.id);
+                      if (tabsSwiperRef.current && tabIndex !== -1) {
+                        tabsSwiperRef.current.slideTo(tabIndex);
+                      }
+                    }}
+                    className={`${styles.tab} ${activeTab === tab.id ? styles.activeTab : ''}`}
+                    style={{ margin: 0 }}
+                  >
+                    {tab.label}
+                  </button>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+
+          {/* Right Arrow */}
+          <button
+            onClick={() => tabsSwiperRef.current?.slideNext()}
+            disabled={isTabsSwiperEnd}
+            className={`absolute right-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full border-none text-white cursor-pointer flex items-center justify-center transition-all ${isTabsSwiperEnd
+                ? "opacity-30 cursor-not-allowed bg-[#1b1849]"
+                : "opacity-100 hover:bg-[#0fdac2]/80 bg-[#0fdac2]"
+              }`}
+            aria-label="Next tab"
+          >
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M9 18l6-6-6-6" />
+            </svg>
+          </button>
         </div>
 
         {/* Categories Tabs */}
-        <div ref={categoriesScrollRef} className={styles.categoriesContainer}>
+        {/* <div ref={categoriesScrollRef} className={styles.categoriesContainer}>
           {PROVEN_SUCCESS_DATA.categories.map((category) => (
             <button
               key={category.id}
@@ -264,28 +432,32 @@ const ProvenSuccess = () => {
               {category.label}
             </button>
           ))}
-        </div>
+        </div> */}
 
         {/* Progress Bar */}
-        <div className={styles.progressBarContainer}>
+        {/* <div className={styles.progressBarContainer}>
           <div
             className={styles.progressBar}
             style={{
               width: `${((PROVEN_SUCCESS_DATA.categories.findIndex((cat) => cat.id === activeCategory) + 1) / PROVEN_SUCCESS_DATA.categories.length) * 100}%`,
             }}
           />
-        </div>
+        </div> */}
 
         {/* Images Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-          {currentTab.images.map((image, index) => (
+        <div
+          key={displayedTabId}
+          className={`grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 transition-opacity duration-300 ease-in-out ${isFading ? "opacity-0" : "opacity-100"
+            }`}
+        >
+          {displayedTab.images.map((image, index) => (
             <div
-              key={index}
-              className="aspect-square bg-[rgba(29,14,87,0.3)] rounded-lg overflow-hidden border border-[rgba(101,59,255,0.2)]"
+              key={`${displayedTabId}-${index}`}
+              className="aspect-square rounded-lg overflow-hidden"
             >
               <img
                 src={image}
-                alt={`${currentTab.label} ${index + 1}`}
+                alt={`${displayedTab.label} ${index + 1}`}
                 className="w-full h-full object-cover"
               />
             </div>

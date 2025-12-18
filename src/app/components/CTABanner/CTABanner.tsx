@@ -17,8 +17,8 @@ interface CTABannerProps {
 
 const CTABanner = ({
   question = "What's Your",
-  questionHighlight = "Challenge",
-  buttonText = "Let's Get Your Marketing Handled",
+  questionHighlight = "Challenge?",
+  buttonText = "Let’s Solve It on a Call",
   buttonHref = "#",
   backgroundImage = "/assets/images/cta-banner.webp",
   className = "",
@@ -27,13 +27,12 @@ const CTABanner = ({
     <section className={`${styles.ctaBanner} ${className} relative overflow-hidden`}>
       {/* Content */}
       <Container maxWidth="xl" className="relative z-10">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8">
+        <div className="flex flex-col md:flex-row items-center justify-between md:justify-center gap-6 md:gap-8 max-w-7xl mx-auto">
           {/* Left Side - Question */}
-          <div className="flex-1">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold text-center md:text-left">
+          <div className="sectionHeading forH2 mb-0">
+            <h2 className="w-fit">
               <span className="text-white">{question} </span>
               <span className="text-[#0fdac2]">{questionHighlight}</span>
-              <span className="text-white">?</span>
             </h2>
           </div>
 
@@ -41,9 +40,9 @@ const CTABanner = ({
           <div className="shrink-0">
             <Button
               href={buttonHref}
-              variant="secondary"
-              size="lg"
-              icon={<ArrowRightIcon style={{ fill: "#fff" }} />}
+              variant="green"
+              size="xl"
+              icon={<ArrowRightIcon style={{ fill: "#000" }} />}
               iconPosition="right"
               className="whitespace-nowrap"
             >

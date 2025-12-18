@@ -1,14 +1,29 @@
+
 .contactSection {
   position: relative;
   background: #050321;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
+.contactSection::before {
+  content: "";
+  position: absolute;
+  top: 3%;
+  left: -5%;
+  width: 390px;
+  height: 500px;
+  background: url("/assets/images/1.webp") no-repeat;
+  background-size: cover;
+}
+
+.noPaddingBottom {
+  padding-bottom: 0 !important;
+}
 .contactCard {
   position: relative;
   background: #1d0e57;
-  border-radius: 24px;
-  padding: 48px;
+  border-radius: 1rem;
+  padding: 4rem 5rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 48px;
@@ -73,7 +88,7 @@
 
 .formHeading {
   color: #ffffff;
-  font-size: 28px;
+  font-size: 2.5rem;
   font-weight: 700;
   line-height: 1.3;
   margin: 0;
@@ -105,49 +120,60 @@
 
 .inputField {
   width: 100%;
-  padding: 14px 16px;
-  background: #ffffff;
-  border: none;
-  border-radius: 100px;
-  font-size: 14px;
-  color: #1a0a2e;
+  padding: 0.875rem 1rem;
+  background: #0e1030;
+  border: 2px solid transparent;
+  background-image: linear-gradient(#0e1030, #0e1030),
+    linear-gradient(to right, #0fdac2, #643bff);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  color: #ffffff;
   font-family: inherit;
   outline: none;
-  transition: box-shadow 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .textareaField {
   width: 100%;
-  padding: 14px 16px;
-  background: #ffffff;
-  border: none;
-  border-radius: 25px;
-  font-size: 14px;
-  color: #1a0a2e;
+  padding: 0.875rem 1rem;
+  background: #0e1030;
+  border: 2px solid transparent;
+  background-image: linear-gradient(#0e1030, #0e1030),
+    linear-gradient(to right, #0fdac2, #643bff);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  color: #ffffff;
   font-family: inherit;
   outline: none;
-  transition: box-shadow 0.3s ease;
+  transition: all 0.3s ease;
   resize: vertical;
   min-height: 120px;
 }
 
 .inputField:focus,
 .textareaField:focus {
-  box-shadow: 0 0 0 3px rgba(15, 218, 194, 0.2);
+  background-image: linear-gradient(#0e1030, #0e1030),
+    linear-gradient(to right, #0fdac2, #732BFF);
+  outline: none;
+  box-shadow: none;
 }
 
 .inputField::placeholder,
 .textareaField::placeholder {
-  color: #6b7280;
+  color: rgba(255, 255, 255, 0.6);
 }
 
-.submitButton {
+/* .submitButton {
   width: 100%;
   padding: 16px 24px;
   background: #0fdac2;
   color: #ffffff;
   border: none;
-  border-radius: 100px;
+  border-radius: 10px;
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
@@ -157,8 +183,8 @@
   gap: 8px;
   transition: background 0.3s ease, transform 0.2s ease;
   margin-top: 8px;
-}
-
+} */
+/* 
 .submitButton:hover {
   background: #0bc4a8;
   transform: translateY(-2px);
@@ -166,7 +192,7 @@
 
 .submitButton:active {
   transform: translateY(0);
-}
+} */
 
 /* Responsive Styles */
 @media (max-width: 1024px) {

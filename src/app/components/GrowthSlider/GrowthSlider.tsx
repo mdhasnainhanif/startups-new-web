@@ -50,21 +50,16 @@ export default function GrowthSlider({ items }: { items: Guide[] }) {
   return (
     <section className={`${styles.section} sectionPadding`}>
       <Container maxWidth="xl">
-        <div className={styles.header}>
-          <h2 className={`${styles.heading} ${styles.headingText}`}>
-            Growth <span className={`${styles.titleGradient} ${styles.textLight}`}>Guides</span>
+        <div className="sectionHeading forH2 text-center text-[#ffffff]">
+          <h2>
+            Growth{" "}
+            <span className={`${styles.titleGradient} ${styles.textLight}`}>
+              Guides
+            </span>
           </h2>
         </div>
 
         <div className={styles.swiperWrapper}>
-          <button
-            onClick={handlePrev}
-            aria-label="Previous"
-            disabled={isBeginning}
-            className={`${styles.navButton} ${styles.navButtonLeft}`}
-          >
-            <span className={styles.arrowIcon}>‹</span>
-          </button>
           <Swiper
             modules={[Navigation]}
             spaceBetween={24}
@@ -90,7 +85,9 @@ export default function GrowthSlider({ items }: { items: Guide[] }) {
               setIsBeginning(swiper.isBeginning);
               setIsEnd(swiper.isEnd);
             }}
-            className={`${styles.swiperContainer} ${isSwiperReady ? styles.swiperReady : ''}`}
+            className={`${styles.swiperContainer} ${
+              isSwiperReady ? styles.swiperReady : ""
+            }`}
           >
             {items.map((it) => (
               <SwiperSlide key={it.id}>
@@ -134,22 +131,38 @@ export default function GrowthSlider({ items }: { items: Guide[] }) {
                   <p className={styles.excerpt}>{it.excerpt}</p>
 
                   <div className={styles.readButtonWrapper}>
-                  <Button href="#" variant="primary" icon={<ArrowRightIcon style={{ fill: "#fff" }} />} iconPosition="right">
-                    Read More
-                  </Button>
+                    <Button
+                      href={it.href}
+                      variant="primary"
+                      icon={<ArrowRightIcon style={{ fill: "#fff" }} />}
+                      iconPosition="right"
+                      size="sm"
+                    >
+                      Read More
+                    </Button>
                   </div>
                 </article>
               </SwiperSlide>
             ))}
           </Swiper>
-          <button
-            onClick={handleNext}
-            aria-label="Next"
-            disabled={isEnd}
-            className={`${styles.navButton} ${styles.navButtonRight}`}
-          >
-            <span className={styles.arrowIcon}>›</span>
-          </button>
+          <div className={styles.navButtonWrapper}>
+            <button
+              onClick={handleNext}
+              aria-label="Next"
+              disabled={isEnd}
+              className={`${styles.navButton} ${styles.navButtonRight}`}
+            >
+              <span className={styles.arrowIcon}>›</span>
+            </button>
+            <button
+              onClick={handlePrev}
+              aria-label="Previous"
+              disabled={isBeginning}
+              className={`${styles.navButton} ${styles.navButtonLeft}`}
+            >
+              <span className={styles.arrowIcon}>‹</span>
+            </button>
+          </div>
         </div>
       </Container>
     </section>

@@ -1,10 +1,11 @@
 'use client';
 
-import { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Container from '../Container';
 import styles from './RealCost.module.css';
+import Image from 'next/image';
 
-interface RealCostData {
+export interface RealCostData {
   heading: {
     part1: string;
     part2: string;
@@ -36,10 +37,15 @@ interface RealCostData {
           label: string;
           value: number;
           color: string;
+          gradient: string[];
         }>;
       };
     };
   };
+}
+
+interface RealCostProps {
+  data?: RealCostData;
 }
 
 const REAL_COST_DATA: RealCostData = {
@@ -94,45 +100,149 @@ const REAL_COST_DATA: RealCostData = {
       costBreakdown: {
         label: 'Cost Breakdown',
         segments: [
-          { label: 'Salary', value: 50, color: '#0fdac2' },
-          { label: 'Tools', value: 25, color: '#643bff' },
-          { label: 'Overhead', value: 25, color: '#1a0b3f' },
+          { label: 'Segment 1', value: 50, color: '#0fdac2', gradient: ['#0fdac2', '#0fdac2'] },
+          { label: 'Segment 2', value: 105, color: '#732BFF', gradient: ['#732BFF', '#732BFF'] },
         ],
       },
     },
   },
 };
 
-const RealCost = () => {
-  const [selectedDesignerType, setSelectedDesignerType] = useState<string>('');
+const RealCost = ({ data = REAL_COST_DATA }: RealCostProps) => {
+  const [selectedDesignerType, setSelectedDesignerType] = useState<string>(data.calculator.fields[0].options?.[0] || '');
   const [monthlyCost, setMonthlyCost] = useState<string>('');
   const [annualCost, setAnnualCost] = useState<string>('');
   const [estimatedTotal, setEstimatedTotal] = useState<number>(58000);
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const calculateTotal = () => {
-    const monthly = parseFloat(monthlyCost) || 0;
-    const annual = parseFloat(annualCost) || 0;
-    const total = monthly * 12 + annual;
-    setEstimatedTotal(total || 58000);
+  // Function to parse text and highlight content inside square brackets with green color
+  const parseHeadingWithBrackets = (text: string) => {
+    if (!text) return null;
+    
+    // Check if text contains square brackets
+    if (!text.includes('[') || !text.includes(']')) {
+      return text;
+    }
+    
+    // Split by brackets and process
+    const parts: (string | React.ReactElement)[] = [];
+    const segments = text.split(/(\[[^\]]+\])/g);
+    
+    segments.forEach((segment, index) => {
+      if (segment.startsWith('[') && segment.endsWith(']')) {
+        // This is a bracket segment - extract content and make it green
+        const content = segment.slice(1, -1); // Remove [ and ]
+        parts.push(
+          <span 
+            key={`bracket-${index}`} 
+            className={styles.bracketText}
+            style={{ color: '#0fdac2' }}
+          >
+            {content}
+          </span>
+        );
+      } else if (segment) {
+        // Regular text
+        parts.push(segment);
+      }
+    });
+
+    return <>{parts}</>;
   };
 
-  const handleMonthlyCostChange = (value: string) => {
-    setMonthlyCost(value);
-    if (value) {
-      const monthly = parseFloat(value);
-      setAnnualCost((monthly * 12).toString());
+  // Maximum allowed value (999,999,999)
+  const MAX_VALUE = 999999999;
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsDropdownOpen(false);
+      }
+    };
+
+    if (isDropdownOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
     }
-    calculateTotal();
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isDropdownOpen]);
+
+  // Format number with commas for display
+  const formatNumber = (value: string): string => {
+    // Remove all non-digit characters
+    const digitsOnly = value.replace(/\D/g, '');
+    
+    if (!digitsOnly) return '';
+    
+    // Convert to number and check max value
+    const numValue = parseInt(digitsOnly, 10);
+    if (isNaN(numValue)) return '';
+    
+    // Limit to max value
+    const limitedValue = Math.min(numValue, MAX_VALUE);
+    
+    // Format with commas
+    return limitedValue.toLocaleString('en-US');
+  };
+
+  // Get raw number value (without commas)
+  const getRawValue = (formattedValue: string): string => {
+    return formattedValue.replace(/,/g, '');
+  };
+
+
+  const handleMonthlyCostChange = (value: string) => {
+    // Format the input value
+    const formatted = formatNumber(value);
+    setMonthlyCost(formatted);
+    
+    if (formatted) {
+      const monthlyRaw = getRawValue(formatted);
+      const monthly = parseInt(monthlyRaw, 10);
+      if (!isNaN(monthly) && monthly > 0) {
+        const annual = monthly * 12;
+        const annualFormatted = formatNumber(annual.toString());
+        setAnnualCost(annualFormatted);
+        // Calculate total with new values
+        const total = monthly * 12 + parseInt(getRawValue(annualFormatted), 10);
+        setEstimatedTotal(total || 58000);
+      } else {
+        setAnnualCost('');
+        setEstimatedTotal(58000);
+      }
+    } else {
+      setAnnualCost('');
+      setEstimatedTotal(58000);
+    }
   };
 
   const handleAnnualCostChange = (value: string) => {
-    setAnnualCost(value);
-    if (value) {
-      const annual = parseFloat(value);
-      setMonthlyCost((annual / 12).toFixed(2));
+    // Format the input value
+    const formatted = formatNumber(value);
+    setAnnualCost(formatted);
+    
+    if (formatted) {
+      const annualRaw = getRawValue(formatted);
+      const annual = parseInt(annualRaw, 10);
+      if (!isNaN(annual) && annual > 0) {
+        const monthly = Math.round(annual / 12);
+        const monthlyFormatted = formatNumber(monthly.toString());
+        setMonthlyCost(monthlyFormatted);
+        // Calculate total with new values
+        const total = parseInt(getRawValue(monthlyFormatted), 10) * 12 + annual;
+        setEstimatedTotal(total || 58000);
+      } else {
+        setMonthlyCost('');
+        setEstimatedTotal(58000);
+      }
+    } else {
+      setMonthlyCost('');
+      setEstimatedTotal(58000);
     }
-    calculateTotal();
   };
 
   const formatCurrency = (amount: number): string => {
@@ -149,117 +259,114 @@ const RealCost = () => {
       <Container maxWidth="xl">
         <div className={styles.contentWrapper}>
           {/* Left Section */}
-          <div className={styles.leftSection}>
-            <h2 className={styles.heading}>
-              <span className={styles.headingPart1}>{REAL_COST_DATA.heading.part1}</span>
-              <br />
-              <span className={styles.headingPart2}>{REAL_COST_DATA.heading.part2}</span>
-              <br />
-              <span className={styles.headingPart3}>{REAL_COST_DATA.heading.part3}</span>
+          <div className={styles.leftSection + " sectionHeading forH2"}>
+            <h2>
+              <span className={styles.headingPart1}>{parseHeadingWithBrackets(data.heading.part1)}</span>
+              {data.heading.part2 && <span className={styles.headingPart2}>{parseHeadingWithBrackets(data.heading.part2)}</span>}
+              {data.heading.part3 && <span className={styles.headingPart3}>{parseHeadingWithBrackets(data.heading.part3)}</span>}
             </h2>
 
-            <p className={styles.callToAction}>{REAL_COST_DATA.callToAction}</p>
+            <p className={styles.callToAction}>{data.callToAction}</p>
 
             <ul className={styles.bulletList}>
-              {REAL_COST_DATA.bulletPoints.map((point, index) => (
+              {data.bulletPoints.map((point, index) => (
                 <li key={index} className={styles.bulletItem}>
                   {point}
                 </li>
               ))}
             </ul>
 
-            <p className={styles.conclusion}>{REAL_COST_DATA.conclusion}</p>
+            <p className={styles.conclusion}>{data.conclusion}</p>
           </div>
 
           {/* Right Section - Calculator */}
           <div className={styles.rightSection}>
             <div className={styles.calculatorCard}>
-              <h3 className={styles.calculatorTitle}>{REAL_COST_DATA.calculator.title}</h3>
+              <h3 className={styles.calculatorTitle}>{data.calculator.title}</h3>
 
               {/* Input Fields */}
               <div className={styles.fieldsContainer}>
-                {/* Designer Type Dropdown */}
+                {/* Writer Type Dropdown */}
                 <div className={styles.fieldWrapper}>
                   <div className={styles.fieldIcon}>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                      <circle cx="12" cy="8" r="4" stroke="currentColor" strokeWidth="2" />
-                      <path
-                        d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                      />
-                    </svg>
+                    <Image width={28} height={28} src="/assets/images/icons/icon_designer-type.svg" alt="" />
                   </div>
-                  <div className={styles.selectWrapper}>
-                    <select
+                  <div className={styles.selectWrapper} ref={dropdownRef}>
+                    <div
                       className={styles.selectField}
-                      value={selectedDesignerType}
-                      onChange={(e) => {
-                        setSelectedDesignerType(e.target.value);
-                        setIsDropdownOpen(false);
-                      }}
-                      onFocus={() => setIsDropdownOpen(true)}
-                      onBlur={() => setIsDropdownOpen(false)}
+                      onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                     >
-                      <option value="">Designer Type</option>
-                      {REAL_COST_DATA.calculator.fields[0].options?.map((option) => (
-                        <option key={option} value={option}>
-                          {option}
-                        </option>
-                      ))}
-                    </select>
-                    <div className={styles.chevronIcon}>
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                        <path
-                          d="M6 9l6 6 6-6"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
+                      <span className={styles.selectValue}>
+                        {selectedDesignerType || data.calculator.fields[0].label}
+                      </span>
+                      <div className={`${styles.chevronIcon} ${isDropdownOpen ? styles.chevronOpen : ''}`}>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                          <path
+                            d="M6 9l6 6 6-6"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      </div>
                     </div>
+                    {isDropdownOpen && (
+                      <div className={styles.dropdownMenu}>
+                        <div className={styles.dropdownHeader}>{data.calculator.fields[0].label}</div>
+                        {data.calculator.fields[0].options?.map((option) => (
+                          <div
+                            key={option}
+                            className={`${styles.dropdownOption} ${selectedDesignerType === option ? styles.dropdownOptionActive : ''}`}
+                            onClick={() => {
+                              setSelectedDesignerType(option);
+                              setIsDropdownOpen(false);
+                            }}
+                          >
+                            {option}
+                          </div>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 </div>
 
                 {/* Monthly Cost */}
                 <div className={styles.fieldWrapper}>
                   <div className={styles.fieldIcon}>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                      <rect x="2" y="6" width="20" height="12" rx="2" stroke="currentColor" strokeWidth="2" />
-                      <path d="M6 10h12M6 14h8" stroke="currentColor" strokeWidth="2" />
-                    </svg>
+                  <Image width={28} height={28} src="/assets/images/icons/icon_monthly-cost.svg" alt="" />
                   </div>
                   <input
-                    type="number"
+                    type="text"
+                    inputMode="numeric"
                     className={styles.inputField}
                     placeholder="Monthly Cost"
                     value={monthlyCost}
                     onChange={(e) => handleMonthlyCostChange(e.target.value)}
+                    maxLength={15}
                   />
                 </div>
 
                 {/* Annual Cost */}
                 <div className={styles.fieldWrapper}>
                   <div className={styles.fieldIcon}>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                      <rect x="3" y="4" width="18" height="18" rx="2" stroke="currentColor" strokeWidth="2" />
-                      <path d="M16 2v4M8 2v4M3 10h18" stroke="currentColor" strokeWidth="2" />
-                    </svg>
+                  <Image width={28} height={28} src="/assets/images/icons/icon_annual-cost.svg" alt="" />
                   </div>
                   <input
-                    type="number"
+                    type="text"
+                    inputMode="numeric"
                     className={styles.inputField}
                     placeholder="Annual Cost"
                     value={annualCost}
                     onChange={(e) => handleAnnualCostChange(e.target.value)}
+                    maxLength={15}
                   />
                 </div>
               </div>
 
               {/* Estimated Total Cost */}
               <div className={styles.totalCostSection}>
-                <p className={styles.totalCostLabel}>{REAL_COST_DATA.calculator.estimatedTotalLabel}</p>
+                <p className={styles.totalCostLabel}>{data.calculator.estimatedTotalLabel}</p>
                 <p className={styles.totalCostValue}>{formatCurrency(estimatedTotal)}</p>
               </div>
 
@@ -268,21 +375,21 @@ const RealCost = () => {
                 {/* Monthly vs Annual Bar Chart */}
                 <div className={styles.chartWrapper}>
                   <p className={styles.chartLabel}>
-                    {REAL_COST_DATA.calculator.charts.monthlyVsAnnual.label}
+                    {data.calculator.charts.monthlyVsAnnual.label}
                   </p>
                   <div className={styles.barChart}>
                     <div className={styles.barChartContainer}>
                       <div
                         className={styles.bar}
                         style={{
-                          height: `${REAL_COST_DATA.calculator.charts.monthlyVsAnnual.monthlyValue}%`,
+                          height: `${data.calculator.charts.monthlyVsAnnual.monthlyValue}%`,
                           backgroundColor: '#0fdac2',
                         }}
                       />
                       <div
                         className={styles.bar}
                         style={{
-                          height: `${REAL_COST_DATA.calculator.charts.monthlyVsAnnual.annualValue}%`,
+                          height: `${data.calculator.charts.monthlyVsAnnual.annualValue}%`,
                           backgroundColor: '#643bff',
                         }}
                       />
@@ -293,39 +400,41 @@ const RealCost = () => {
                 {/* Cost Breakdown Donut Chart */}
                 <div className={styles.chartWrapper}>
                   <p className={styles.chartLabel}>
-                    {REAL_COST_DATA.calculator.charts.costBreakdown.label}
+                    {data.calculator.charts.costBreakdown.label}
                   </p>
                   <div className={styles.donutChart}>
-                    <svg width="80" height="80" viewBox="0 0 80 80">
-                      <circle
-                        cx="40"
-                        cy="40"
-                        r="30"
-                        fill="none"
-                        stroke="#1a0b3f"
-                        strokeWidth="20"
-                      />
-                      {REAL_COST_DATA.calculator.charts.costBreakdown.segments.map(
+                    <svg width="120" height="130" viewBox="0 0 120 120">
+                      <defs>
+                        {data.calculator.charts.costBreakdown.segments.map((segment, index) => (
+                          <linearGradient key={index} id={`gradient${index}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stopColor={segment.gradient[0]} />
+                            <stop offset="100%" stopColor={segment.gradient[1]} />
+                          </linearGradient>
+                        ))}
+                      </defs>
+                      {data.calculator.charts.costBreakdown.segments.map(
                         (segment, index, array) => {
                           const previousValue = array
                             .slice(0, index)
                             .reduce((sum, s) => sum + s.value, 0);
                           const offset = (previousValue / 100) * 360;
-                          const dashArray = (segment.value / 100) * 188.5;
-                          const dashOffset = 188.5 - (previousValue / 100) * 188.5;
+                          const circumference = 2 * Math.PI * 45;
+                          const dashArray = (segment.value / 100) * circumference;
+                          const dashOffset = circumference - (previousValue / 100) * circumference;
 
                           return (
                             <circle
                               key={index}
-                              cx="40"
-                              cy="40"
-                              r="30"
+                              cx="60"
+                              cy="60"
+                              r="45"
                               fill="none"
-                              stroke={segment.color}
+                              stroke={`url(#gradient${index})`}
                               strokeWidth="20"
-                              strokeDasharray={`${dashArray} 188.5`}
+                              strokeDasharray={`${dashArray} ${circumference}`}
                               strokeDashoffset={dashOffset}
-                              transform="rotate(-90 40 40)"
+                              strokeLinecap="butt"
+                              transform="rotate(-90 60 60)"
                             />
                           );
                         }
@@ -338,6 +447,7 @@ const RealCost = () => {
           </div>
         </div>
       </Container>
+      <img src="/assets/images/1.webp" alt="" className={styles.aeroicon} />
     </section>
   );
 };

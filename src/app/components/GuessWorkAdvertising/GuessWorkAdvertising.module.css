@@ -3,59 +3,213 @@
 }
 
 .section::before {
-  content: '';
+  content: "";
   position: absolute;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('/assets/images/rocket-bg.png');
+  top: 10%;
+  right: 5%;
+  width: 50rem;
+  height: 50rem;
+  opacity: 0.6;
+  background-image: url("/assets/images/1.webp");
   background-size: contain;
-  background-position: top right;
   background-repeat: no-repeat;
-  opacity: 0.1;
+  background-position: center;
   pointer-events: none;
-  z-index: 0;
+}
+.leading-relaxed {
+  position: relative;
+  z-index: 1;
 }
 
 .inputWrapper {
+  position: relative;
+  z-index: 1;
   width: 100%;
 }
 
 .inputField {
-  font-size: 1rem;
   border: 2px solid #0fdac2;
-  border-radius: 100px;
+  border-radius: 1rem;
+  padding-top: 1.325rem;
+  padding-bottom: 1.425rem;
+  font-size: 1rem;
+  padding-left: 1rem;
 }
 
 .inputField:focus {
-  box-shadow: 0 0 0 3px rgba(15, 218, 194, 0.1);
+  box-shadow: 0 0 0 0.1875rem rgba(15, 218, 194, 0.1);
   border-color: #0fdac2;
 }
 
-.submitButton {
-  box-shadow: 0 4px 12px rgba(100, 59, 255, 0.3);
-  border: none;
-  border-radius: 100px;
-}
-
-.submitButton:hover {
-  box-shadow: 0 6px 16px rgba(100, 59, 255, 0.4);
-  transform: translateY(-2px);
-}
 
 .image {
   border-radius: 1rem;
 }
 
-/* Responsive adjustments */
-@media (max-width: 640px) {
-  .inputField {
-    font-size: 0.9rem;
-  }
-  
-  .submitButton {
-    width: 100%;
+/* Images Grid */
+.imagesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.imageWrapper {
+  width: 100%;
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.imageWrapper img {
+  /* width: 100%; */
+  height: auto;
+  display: block;
+}
+
+/* Desktop: 2 images per row */
+@media (min-width: 769px) {
+  .imagesGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
   }
 }
 
+/* Responsive adjustments */
+/* Mobile devices (320px - 640px) */
+@media (max-width: 640px) {
+  .section::before {
+    width: 12.5rem;
+    height: 12.5rem;
+    top: 5%;
+    right: -10%;
+    opacity: 0.3;
+  }
+
+  .inputField {
+    font-size: 0.775rem;
+    padding: 1.225rem 1rem;
+    padding-right: 6.25rem;
+  }
+
+  .submitButton {
+    padding: 0.625rem 1rem;
+    font-size: 0.875rem;
+    right: 0.25rem;
+    gap: 0.25rem;
+  }
+
+  .submitButton svg {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .image {
+    border-radius: 0.5rem;
+  }
+}
+
+/* Tablet devices (641px - 768px) */
+@media (min-width: 641px) and (max-width: 768px) {
+  .section::before {
+    width: 25rem;
+    height: 25rem;
+    top: 8%;
+    right: -5%;
+    opacity: 0.4;
+  }
+
+  .inputField {
+    font-size: 0.95rem;
+    padding: 0.875rem 1.25rem;
+    padding-right: 8.75rem;
+  }
+
+  .submitButton {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.95rem;
+  }
+}
+
+/* Small tablets and large phones (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .section::before {
+    width: 31.25rem;
+    height: 31.25rem;
+    top: 8%;
+    right: 0%;
+    opacity: 0.5;
+  }
+
+  .inputField {
+    font-size: 1rem;
+  }
+
+  .submitButton {
+    padding: 0.75rem 1.5rem;
+  }
+}
+
+/* Desktop (1025px - 1440px) */
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .section::before {
+    width: 37.5rem;
+    height: 37.5rem;
+    top: 10%;
+    right: 3%;
+    opacity: 0.6;
+  }
+}
+
+/* Large desktop (1441px+) */
+@media (min-width: 1441px) {
+  .section::before {
+    width: 50rem;
+    height: 50rem;
+    top: 10%;
+    right: 5%;
+    opacity: 0.6;
+  }
+}
+
+/* Extra small devices (below 480px) */
+@media (max-width: 480px) {
+
+  .section::before {
+    width: 9.375rem;
+    height: 9.375rem;
+    top: 3%;
+    right: -15%;
+    opacity: 0.2;
+    display: none;
+  }
+
+  .submitButton {
+    padding: 0.5rem 0.75rem !important;
+    font-size: 0.75rem !important;
+    right: 0.8125rem !important;
+  }
+
+  .submitButton svg {
+    width: 0.875rem;
+    height: 0.875rem;
+  }
+}
+
+/* Input wrapper responsive adjustments */
+@media (max-width: 640px) {
+  .inputWrapper {
+    padding: 0 0.5rem 0.5rem;
+  }
+}
+
+/* Landscape orientation adjustments */
+@media (max-width: 1024px) and (orientation: landscape) {
+  .section::before {
+    width: 18.75rem;
+    height: 18.75rem;
+    top: 5%;
+    right: -5%;
+    opacity: 0.3;
+  }
+}

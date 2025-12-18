@@ -7,6 +7,21 @@
 .section::before {
   content: "";
   position: absolute;
+  background: url(../../../../public/assets/images/1.webp) center right
+    no-repeat;
+  width: 100%;
+  max-width: 50rem;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: -2rem;
+  background-size: contain;
+  opacity: 0.7;
+}
+
+/* .section::before {
+  content: "";
+  position: absolute;
   top: 0;
   right: 0;
   width: 40%;
@@ -18,7 +33,7 @@
   );
   pointer-events: none;
   z-index: 0;
-}
+} */
 
 .header {
   text-align: center;
@@ -81,17 +96,17 @@
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
-  padding: 12px 20px;
+  /* Padding is now handled by Tailwind classes for equal left/right padding */
   border-radius: 8px;
-  min-width: 180px;
-  gap: 12px;
+  /* min-width: 11.25rem; */
+  gap: 0.75rem;
+  width: fit-content;
 }
 
 .badgeLogo {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 20px;
 }
 .badge {
   background: #110f29;
@@ -101,9 +116,9 @@
 .trustpilotLogo,
 .googleLogo,
 .facebookLogo {
-  height: 100%;
-  width: auto;
   object-fit: contain;
+  max-width: 5rem;
+  height: 2.5rem;
   display: block;
 }
 
@@ -116,9 +131,50 @@
 .reviewsMasonry {
   position: relative;
   z-index: 1;
-  column-count: 3;
+  column-count: 1;
   column-gap: 20px;
   column-fill: balance;
+}
+
+/* Responsive column-count for masonry layout */
+@media (min-width: 768px) {
+  .reviewsMasonry:not(.equalHeight) {
+    column-count: 2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .reviewsMasonry:not(.equalHeight) {
+    column-count: 3;
+  }
+}
+
+.reviewsMasonry.equalHeight {
+  display: grid;
+  gap: 20px;
+  column-count: unset;
+}
+
+.reviewsMasonry.equalHeight .reviewCard {
+  display: flex;
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.equalHeightCard {
+  height: 100%;
+  display: flex;
+}
+
+.equalHeightCard .reviewCardContent {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.equalHeightCard .reviewText {
+  flex: 1;
 }
 
 .reviewCard {
@@ -131,20 +187,25 @@
 }
 
 .reviewCardContent {
-  background: #110f29;
-  border: 1px solid #4e4989;
+  background: #120f36;
+  border: 1px solid #26234fa8;
   border-radius: 8px;
-  padding: 20px;
+  /* Padding is now handled by Tailwind classes for equal left/right padding */
   width: 100%;
   box-sizing: border-box;
+}
+
+.reviewCardContent:hover {
+  border: 1px solid #643bff;
 }
 
 .videoElement {
   height: 300px !important;
 }
-/* .highlightedCard .reviewCardContent {
+.highlightedCard .reviewCardContent {
   border: 5px solid #643bff !important;
-} */
+  background: #020016;
+}
 
 .reviewHeader {
   display: block;
@@ -238,76 +299,5 @@
   display: block;
 }
 
-/* Responsive Styles */
-@media (max-width: 1024px) {
-  .reviewsMasonry {
-    column-count: 2;
-  }
-}
-
-@media (max-width: 768px) {
-  .heading {
-    font-size: 36px;
-  }
-
-  .subtitle {
-    font-size: 16px;
-  }
-
-  .ctaText {
-    font-size: 14px;
-  }
-
-  .badgesContainer {
-    gap: 16px;
-  }
-
-  .badge {
-    min-width: 140px;
-    padding: 12px 20px;
-  }
-
-  .reviewsMasonry {
-    column-count: 1;
-  }
-}
-
-@media (max-width: 640px) {
-
-  .header {
-    margin-bottom: 32px;
-  }
-
-  .heading {
-    font-size: 28px;
-  }
-
-  .subtitleContainer {
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .subtitle {
-    font-size: 14px;
-    text-align: center;
-  }
-
-  .ctaText {
-    font-size: 13px;
-    text-align: center;
-  }
-
-  .badgesContainer {
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .badge {
-    width: 100%;
-    max-width: 200px;
-  }
-
-  .reviewCard {
-    padding: 0px;
-  }
-}
+/* Responsive styles are now handled by Tailwind classes */
+/* Keep only base styles that can't be handled by Tailwind */

@@ -1,0 +1,228 @@
+.aiIndustrySection {
+  padding: 70px 0;
+  background: var(--color-dark);
+}
+
+.sectionTitle {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.sectionTitle h2 {
+  font-weight: 800;
+  font-size: 3rem;
+  width: 100%;
+  max-width: 720px;
+  margin: auto;
+  color: #ffffff;
+}
+
+.sectionTitle p {
+  max-width: 620px;
+  margin: 0.4rem auto 0;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.industryAgentCard {
+  background: #21164c;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(100, 59, 255, 0.3);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 600px;
+}
+
+.agentVisualWrapper {
+  padding: 1.5rem;
+  min-height: 300px;
+  flex-shrink: 0;
+}
+
+.agent-bg-yellow {
+  background: linear-gradient(135deg, #633AFC 0%, #633AFC 100%);
+}
+
+.agent-bg-green {
+  background: linear-gradient(135deg, #0FDAC2 0%, #0FDAC2 100%);
+}
+
+.agentPhoneMockup {
+  height: 100%;
+}
+
+.agentPhoneScreen {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  padding: 1rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.agentPhoneHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 0.75rem;
+}
+
+.agentPhoneTitle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1b1b1b;
+}
+
+.agentPhoneTitle span {
+  color: #1b1b1b;
+}
+
+.agentStatus {
+  background: #10b981;
+  color: #fff;
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.agentPhoneChat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.agentChatStatus {
+  text-align: center;
+  font-size: 0.75rem;
+  color: #666666;
+  padding: 0.5rem 0;
+}
+
+.agentMessage {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-start;
+}
+
+.agentAiMsg {
+  flex-direction: row;
+}
+
+.agentUserMsg {
+  flex-direction: row-reverse;
+}
+
+.agentMsgAvatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #643bff;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+.agentMsgContent {
+  flex: 1;
+  max-width: 75%;
+  display: flex;
+  flex-direction: column;
+}
+
+.agentUserMsg .agentMsgContent {
+  align-items: flex-end;
+}
+
+.agentMsgName {
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  color: #1b1b1b;
+}
+
+.agentMsgText {
+  background: #f1f3f5;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: #1b1b1b;
+}
+
+.agentUserMsg .agentMsgText {
+  background: #643bff;
+  color: #fff;
+}
+
+.agentMsgTime {
+  font-size: 0.7rem;
+  color: #666666;
+  margin-top: 0.25rem;
+}
+
+.agentUserMsg .agentMsgContent {
+  align-items: flex-end;
+}
+
+.agentUserMsg .agentMsgTime {
+  text-align: right;
+  color: #666666;
+}
+
+.agentContent {
+  padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.agentCardTitle {
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.agentFeatures {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.agentFeatures li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.agentFeatures li i {
+  color: #0fdac2;
+  font-size: 0.5rem;
+  margin-top: 0.5rem;
+  flex-shrink: 0;
+}
+
+@media (max-width: 576px) {
+  .sectionTitle h2 {
+    font-size: 2rem;
+  }
+}
+

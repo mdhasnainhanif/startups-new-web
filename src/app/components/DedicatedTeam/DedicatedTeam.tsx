@@ -43,9 +43,9 @@ export default function DedicatedTeam({
 
   return (
     <section className={`${styles.section} sectionPadding ${className}`}>
-      <Container maxWidth="xl" className="px-0">
-        <div className={styles.header}>
-          <h2 className={styles.heading}>
+      <Container maxWidth="xl">
+        <div className="sectionHeading forH2 text-center md:max-w-xl mx-auto">
+          <h2>
             <span className="text-white">{heading.part1} </span>
             <span className="text-[#0fdac2]">{heading.highlight}</span>
             {heading.part2 && (
@@ -74,7 +74,7 @@ export default function DedicatedTeam({
               pauseOnMouseEnter: true,
             }}
             loop={true}
-            loopAdditionalSlides={2}
+            loopAdditionalSlides={0}
             allowSlidePrev={true}
             allowSlideNext={true}
             breakpoints={{
@@ -83,7 +83,11 @@ export default function DedicatedTeam({
                 spaceBetween: 24,
               },
               1024: {
-                slidesPerView: 3,
+                slidesPerView: 4,
+                spaceBetween: 24,
+              },
+              2080: {
+                slidesPerView: 4,
                 spaceBetween: 24,
               },
             }}
@@ -98,7 +102,9 @@ export default function DedicatedTeam({
               setIsBeginning(swiper.isBeginning);
               setIsEnd(swiper.isEnd);
             }}
-            className={`${styles.swiperContainer} ${isSwiperReady ? styles.swiperReady : ''}`}
+            className={`${styles.swiperContainer} ${
+              isSwiperReady ? styles.swiperReady : ""
+            }`}
           >
             {[...members, ...members].map((member, index) => (
               <SwiperSlide key={`${member.id}-${index}`}>
@@ -106,14 +112,14 @@ export default function DedicatedTeam({
                   <div className={styles.imageWrapper}>
                     <Image
                       src={member.image}
-                      alt={member.name}
+                      alt={member.name || ""}
                       width={300}
                       height={300}
                       className={styles.image}
                     />
                   </div>
                 </div>
-                <h3 className={styles.memberName}>{member.name}</h3>
+                <h3 className={styles.memberName}>{member.name || ""}</h3>
                 <p className={styles.memberTitle}>{member.title}</p>
               </SwiperSlide>
             ))}
@@ -130,4 +136,3 @@ export default function DedicatedTeam({
     </section>
   );
 }
-

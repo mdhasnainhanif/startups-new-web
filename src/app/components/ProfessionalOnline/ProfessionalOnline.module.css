@@ -3,6 +3,26 @@
   overflow: hidden;
 }
 
+.section::before {
+  content: "";
+  position: absolute;
+  background: url(../../../../public/assets/images/1.webp) center left no-repeat;
+  width: 100%;
+  max-width: 35rem;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 2rem;
+  background-size: contain;
+}
+
+.barContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
 .contentWrapper {
   position: relative;
   z-index: 1;
@@ -16,7 +36,7 @@
 .leftSection {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 1rem;
 }
 
 .heading {
@@ -45,50 +65,77 @@
   margin: 0;
 }
 
-.barsContainer {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+/* Startups Fail Statistics Grid */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  /* margin-top: 2rem; */
 }
 
-.barWrapper {
+.statBox {
+  background: #181339;
+  border-radius: 12px;
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 1rem;
+  position: relative;
 }
 
-.barLabel {
+/* Desktop: Icon on top */
+.statIcon {
+  width: 4rem;
+  height: 4rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  background: rgba(15, 218, 194, 0.1);
+  border-radius: 50%;
+  flex-shrink: 0;
+  align-self: flex-start;
 }
 
-.barLabel span {
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 14px;
-  font-weight: 500;
-}
-
-.barBackground {
+.statIcon img {
   width: 100%;
-  height: 12px;
-  background: #1a1a2e;
-  border-radius: 100px;
-  overflow: hidden;
-}
-
-.barFill {
   height: 100%;
-  border-radius: 100px;
-  transition: width 1s ease;
+  max-width: 2.5rem;
+  object-fit: contain;
 }
 
-.barFillPurple {
-  background: #643bff;
+.statContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  flex: 1;
 }
 
-.barFillTeal {
-  background: #0fdac2;
+.statHeader {
+  display: flex;
+  gap: 0.255rem;
+  align-items: baseline;
+}
+
+.statPercentage {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #0fdac2;
+  line-height: 1;
+}
+
+.statHeadline {
+  font-size: 1.425rem;
+  font-weight: 600;
+  color: #0fdac2;
+  line-height: 1.2;
+  font-family: var(--font-graphik-semibold) !important;
+}
+
+.statDescription {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 15px;
+  line-height: 1.5;
+  margin: 0;
 }
 
 /* Right Section */
@@ -98,7 +145,7 @@
   gap: 32px;
   background-color: #21164c;
   padding: 1rem;
-  border-radius: 1rem;
+  border-radius: 0.925rem;
 }
 
 .videoWrapper {
@@ -143,31 +190,40 @@
   transition: transform 0.3s ease;
   display: inline-block;
   width: 100%;
+  box-shadow: rgb(15, 218, 194) 0px 0.125rem 1.125rem;
+  border-radius: 1rem;
 }
 
-.videoImageWrapper:hover {
-  transform: translateY(-4px);
+.videoImageWrapper::before {
+  content: "";
+  z-index: 1;
+  background: #00000059;
+  border-radius: 0.925rem;
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.3s;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .videoImageWrapper:hover .playButton {
   transform: scale(1.1);
-  box-shadow: 0 15px 40px rgba(100, 59, 255, 0.7);
 }
 
-.videoImage{
-  max-width: 26rem;
+.videoImage {
   margin: 0 auto;
   display: block;
-  box-shadow: 0 2px 18px #1e365c;
-  border-radius: 1.4rem;
+  box-shadow: rgb(15, 218, 194) 0px 0.125rem 1.125rem;
+  border-radius: 0.925rem;
   width: 100%;
 }
 
-.videoMain{
+.videoMain {
   background-color: #21164c;
-  border-radius: 1rem;
+  border-radius: 0.925rem;
   padding: 1.5rem;
-  width: fit-content;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -225,17 +281,18 @@
   justify-content: center;
   pointer-events: none;
   z-index: 10;
+  border-radius: 0.925rem;
 }
 
 .playButton {
-  width: 80px;
-  height: 80px;
-  background: #643bffab;
+  width: 5.5rem;
+  height: 5.5rem;
+  background: #a295ff;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 10px 30px rgba(100, 59, 255, 0.5);
+  box-shadow: 0 0px 20px #a295ff;
   transition: all 0.3s ease;
   pointer-events: auto;
   cursor: pointer;
@@ -243,24 +300,23 @@
 
 .videoWrapper:hover .playButton {
   transform: scale(1.1);
-  box-shadow: 0 15px 40px rgba(100, 59, 255, 0.7);
 }
 
 .playIcon {
-  width: 40px;
-  height: 40px;
+  width: 2rem;
+  height: 2rem;
   color: #ffffff;
   margin-left: 4px;
 }
 
 .bottomHeading {
-  font-size: 1.725rem;
+  font-size: 2rem;
   font-weight: 800;
   line-height: 1.2;
-  margin: 0;
+  margin: 0 auto;
   max-width: 25rem;
   margin-top: 1rem;
-
+  text-align: center;
 }
 
 .bottomHeadingPart1 {
@@ -276,7 +332,7 @@
 }
 
 /* Background Decoration */
-.backgroundDecoration {
+/* .backgroundDecoration {
   position: absolute;
   top: 0;
   right: -10%;
@@ -289,7 +345,7 @@
   );
   pointer-events: none;
   z-index: 0;
-}
+} */
 
 .backgroundDecoration::before {
   content: "";
@@ -333,8 +389,8 @@
 }
 
 @media (max-width: 768px) {
-  .section {
-    padding: 60px 0;
+  .videoMain {
+    padding: 1rem;
   }
 
   .contentWrapper {
@@ -380,15 +436,46 @@
     font-size: 28px;
   }
 
-  .barsContainer {
-    gap: 16px;
+  .statsGrid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .statBox {
+    padding: 1.5rem;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  /* Mobile: Icon on right, centered vertically */
+  .statIcon {
+    align-self: center;
+    width: 56px;
+    height: 56px;
+    flex-shrink: 0;
+    order: 2;
+  }
+
+  .statContent {
+    flex: 1;
+    order: 1;
+  }
+
+  .statPercentage {
+    font-size: 2.5rem;
+  }
+
+  .statHeadline {
+    font-size: 1..425rem;
+  }
+
+  .statDescription {
+    font-size: 14px;
   }
 }
 
 @media (max-width: 640px) {
-  .section {
-    padding: 40px 0;
-  }
 
   .contentWrapper {
     gap: 40px;
@@ -427,5 +514,52 @@
 
   .bottomHeading {
     font-size: 24px;
+  }
+
+  .statHeader {
+    align-items: baseline;
+    gap: 0.325rem;
+  }
+
+  .statsGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .statBox {
+    padding: 1.25rem;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .statIcon img{
+    width: 2rem;
+  }
+
+  /* Mobile: Icon on right, centered vertically */
+  .statIcon {
+    width: 3rem;
+    height: 3rem;
+    order: 2;
+    flex-shrink: 0;
+    align-self: center;
+  }
+
+  .statContent {
+    order: 1;
+    flex: 1;
+  }
+
+  .statPercentage {
+    font-size: 2rem;
+  }
+
+  .statHeadline {
+    font-size: 1.425rem;
+  }
+
+  .statDescription {
+    font-size: 13px;
   }
 }

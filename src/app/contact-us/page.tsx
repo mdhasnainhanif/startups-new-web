@@ -1,60 +1,84 @@
-import React from 'react'
-import ContactForm from '../components/ContactPage/ContactForm/ContactForm'
-import { contactFormData } from '../components/ContactPage/ContactForm/data'
-import { contactFormAddressData } from '../components/ContactPage/ContactFormAddress/data'
-import { FAQ_DATA, FAQ_SECTION, GROWTH_GUIDES } from '../constants'
-import FAQ from '../components/FAQ/FAQ'
-import GrowthSlider from '../components/GrowthSlider/GrowthSlider'
-import ContactFormAddress from '../components/ContactPage/ContactFormAddress/ContactFormAddress'
-import ContactCta from '../components/ContactPage/ContactCta/ContactCta'
-import BusinessSlider from '../components/ContactPage/BuisnessSlider/BuisnessSlider'
-import BusinessPlaylist from '../components/ContactPage/BusinessPlaylist/BusinessPlaylist'
+import type { Metadata } from "next";
+import React from "react";
+import ContactForm from "../components/ContactPage/ContactForm/ContactForm";
+import { contactFormData } from "../components/ContactPage/ContactForm/data";
+import { contactFormAddressData } from "../components/ContactPage/ContactFormAddress/data";
+import { FAQ_DATA, FAQ_SECTION, GROWTH_GUIDES } from "../constants";
+import FAQ from "../components/FAQ/FAQ";
+import GrowthSlider from "../components/GrowthSlider/GrowthSlider";
+import ContactFormAddress from "../components/ContactPage/ContactFormAddress/ContactFormAddress";
+import ContactCta from "../components/ContactPage/ContactCta/ContactCta";
+import BusinessSlider from "../components/ContactPage/BuisnessSlider/BuisnessSlider";
+import BusinessPlaylist from "../components/ContactPage/BusinessPlaylist/BusinessPlaylist";
+import Container from "../components/Container";
+
+export const metadata: Metadata = {
+  robots: "nofollow",
+};
 
 export default function ContactPage() {
-
   const ctaData = {
-    title: "Schedule a",
-    highlight: "Meeting",
+    title: "Book a Strategy",
+    highlight: "Call",
     description:
-      "You’re great at what you do, but your marketing falls behind. Agencies cost a fortune. Freelancers disappear.",
+      "You deserve clarity. You deserve guidance. You deserve a partner who understands growth and helps you move forward with confidence.",
     buttons: [
-      { label: "Google Meet", icon: "/assets/images/google_meets.png", link: "https://meet.google.com" },
-      { label: "Zoom", icon: "/assets/images/zoom.png", link: "https://zoom.us" },
-      { label: "Calendly", icon: "/assets/images/calendly.png", link: "https://calendly.com" },
-      { label: "Whatsapp", icon: "/assets/images/whatsapp.png", link: "https://wa.me/923XXXXXXXXX" },
+      {
+        label: "Google Meet",
+        icon: "/assets/images/google_meets.png",
+        link: "https://meet.google.com",
+      },
+      {
+        label: "Zoom",
+        icon: "/assets/images/zoom.png",
+        link: "https://zoom.us",
+      },
+      {
+        label: "Calendly",
+        icon: "/assets/images/calendly.png",
+        link: "https://calendly.com",
+      },
+      {
+        label: "Whatsapp",
+        icon: "/assets/images/whatsapp.png",
+        link: "https://wa.me/923XXXXXXXXX",
+      },
     ],
   };
 
   const playlistData = {
-  mainTitle: "Local",
-  highlightTitle: "Businesses",
-  subtitle: "You're great at what you do, but your marketing falls behind. Agencies cost a fortune. Freelancers disappear.",
-  videoThumbnail: "/assets/images/video-thumbnail.webp",
-  videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-  playlistTitle: "Title of Your Playlist",
-  playlistInfo: {
-    totalLessons: 50,
-    totalDuration: "50h 40m",
-  },
-  playlistItems: [
-    { id: 1, number: "02.", title: "Custom Select Box", duration: "41:25" },
-    { id: 2, number: "03.", title: "Custom Select Box", duration: "16:59" },
-    { id: 3, number: "04.", title: "Custom Select Box", duration: "24:15", isPlaying: true },
-    { id: 4, number: "05.", title: "Custom Select Box", duration: "30:02" },
-    { id: 5, number: "06.", title: "Custom Select Box", duration: "15:25" },
-  ],
-};
+    mainTitle: "Growing Businesses Need",
+    highlightTitle: " Clear Direction",
+    subtitle:
+      "You're great at what you do, but your marketing falls behind. Agencies cost a fortune. Freelancers disappear.",
+    videoThumbnail: "/assets/images/tb.png",
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    playlistTitle: "Title of Your Playlist",
+    playlistInfo: {
+      totalLessons: 50,
+      totalDuration: "50h 40m",
+    },
+    playlistItems: [
+      { id: 1, number: "02.", title: "Custom Select Box", duration: "41:25" },
+      { id: 2, number: "03.", title: "Custom Select Box", duration: "16:59" },
+      {
+        id: 3,
+        number: "04.",
+        title: "Custom Select Box",
+        duration: "24:15",
+        isPlaying: true,
+      },
+      { id: 4, number: "05.", title: "Custom Select Box", duration: "30:02" },
+      { id: 5, number: "06.", title: "Custom Select Box", duration: "15:25" },
+    ],
+  };
 
   return (
-    <div className="min-h-screen pt-45 pb-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto mb-8 sm:mb-12 lg:mb-16 text-center">
-        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2">
-          Let's Collaborate and <span className="text-[#0fdac2]">Create</span>
+    <>
+      <div className="max-w-4xl mx-auto mb-8 sm:mb-12 lg:mb-16 text-center pt100 contactMain sectionHeading">
+        <h1 className="mb-2 max-w-4xl mx-auto md:pt-20">
+        Let’s Connect and Build <span className="text-[#0fdac2]">Your Next Growth</span> Chapter
         </h1>
-        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold">
-          <span className="text-[#0fdac2]">Powerful AI</span>{' '}
-          <span className="text-white">Solutions</span>
-        </h2>
       </div>
 
       {/* Contact Form Section */}
@@ -62,14 +86,15 @@ export default function ContactPage() {
         <ContactForm config={contactFormData} />
         <ContactFormAddress config={contactFormAddressData} />
       </div>
-      <BusinessSlider />
+
+      {/* <BusinessSlider /> */}
 
       {/* 🟢 Fix — pass props */}
-      <ContactCta {...ctaData} />
-      <BusinessPlaylist {...playlistData} />
+      {/* <ContactCta {...ctaData} /> */}
+      {/* <BusinessPlaylist {...playlistData} /> */}
 
       <GrowthSlider items={GROWTH_GUIDES} />
       <FAQ faqs={FAQ_DATA} sectionData={FAQ_SECTION} />
-    </div>
+      </>
   );
 }

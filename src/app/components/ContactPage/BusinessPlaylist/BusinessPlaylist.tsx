@@ -2,8 +2,6 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import Button from "../../Button";
-import { ArrowRightIcon } from "../../icons";
 import styles from "./BusinessPlaylist.module.css";
 
 type PlaylistItem = {
@@ -56,13 +54,12 @@ const BusinessPlaylist: React.FC<BusinessPlaylistProps> = ({
     <section className={`${styles.section} sectionPadding`}>
       <div className="max-w-7xl mx-auto px-4">
         {/* Main Heading */}
-        <div className="text-center mb-12">
-          <h2 className={`${styles.mainHeading} text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4`}>
-            {mainTitle}{" "}
-            <span className="text-[#0fdac2]">{highlightTitle}</span>{" "}
-            Struggle to Stay Visible
+        <div className="sectionHeading forH2 mb-12 text-center md:max-w-2xl mx-auto">
+          <h2>
+            {mainTitle}
+            <span className="text-[#0fdac2]">{highlightTitle}</span>
           </h2>
-          <p className={`${styles.subtitle} text-lg md:text-xl text-white/80 max-w-3xl mx-auto`}>
+          <p>
             {subtitle}
           </p>
         </div>
@@ -105,7 +102,7 @@ const BusinessPlaylist: React.FC<BusinessPlaylistProps> = ({
                   </div>
                   <div className={styles.videoTextOverlay}>
                     <p className={styles.overlayText}>
-                      Your Smart Marketing AI Team like a behind-the-scenes ent:
+                      Your Smart AI Business Team like a behind-the-scenes ent:
                       planning promotions, visuals.
                     </p>
                   </div>

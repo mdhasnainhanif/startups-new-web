@@ -1,0 +1,15 @@
+.section{
+    position: relative;
+    overflow: hidden;
+}
+
+.section::before {
+    content: "";
+    position: absolute;
+    top: 10%;
+    left: 0;
+    width: 33.125rem;
+    height: 42rem;
+    background: url("/assets/images/1.webp") no-repeat;
+    background-size: cover;
+  }

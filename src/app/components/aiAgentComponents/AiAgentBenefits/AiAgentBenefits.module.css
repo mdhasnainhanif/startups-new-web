@@ -1,0 +1,88 @@
+.aiBenefitsSection {
+  padding: 70px 0;
+  background: radial-gradient(
+    circle at top left,
+    #1a0b3f 0,
+    #05001a 40%,
+    #020014 100%
+  );
+}
+
+.sectionTitle {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.sectionTitle h2 {
+  font-weight: 800;
+  font-size: 3rem;
+  width: 100%;
+  max-width: 720px;
+  margin: auto;
+  color: #ffffff;
+}
+
+.sectionTitle p {
+  max-width: 620px;
+  margin: 0.4rem auto 0;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.benefitCard {
+  background: #21164c;
+  border-radius: 16px;
+  padding: 2rem 1.8rem;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(100, 59, 255, 0.3);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.benefitTitle {
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.benefitDescription {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+  flex: 1;
+}
+
+.benefitStats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: auto;
+}
+
+.statBox {
+  text-align: center;
+  padding: 1rem;
+  background: rgba(100, 59, 255, 0.2);
+  border-radius: 12px;
+  border: 1px solid rgba(100, 59, 255, 0.3);
+}
+
+.statNumber {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #0fdac2;
+  margin-bottom: 0.25rem;
+}
+
+.statLabel {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+@media (max-width: 576px) {
+  .sectionTitle h2 {
+    font-size: 2rem;
+  }
+}
+

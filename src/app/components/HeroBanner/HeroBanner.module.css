@@ -1,11 +1,21 @@
-.heroBackground {
-  position: relative;
-  overflow: hidden;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
-.heading {
-  max-width: 70rem;
-  line-height: 1.2;
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes float {
@@ -21,27 +31,91 @@
   }
 }
 
-.content {
+/* Hero background styles removed - now using Next.js Image component */
+.heroBackground {
   position: relative;
-  z-index: 1;
+  overflow: hidden;
+  padding-top: 6rem;
 }
 
-.heroBackground {
-  background: url("../../../../public/assets/images/hero.webp") no-repeat center
-    center;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  padding-top: 4rem;
-  padding-bottom: 0rem !important;
+.purpleBadge {
+  border: 1px solid #3d2695;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem 0.6rem;
+  box-shadow: 0 3px 1px #643bff;
+  font-size: 1rem;
+}
+
+.plasmaContainer {
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out 0.2s forwards;
+  pointer-events: none; /* Ensure scroll works through plasma container */
+  /* Removed will-change to prevent scroll performance issues */
+}
+
+.heading {
+  max-width: 54rem;
+  line-height: 1.2;
+}
+
+.content {
+  position: relative;
+  z-index: 10;
+  opacity: 0;
+  animation: fadeInUp 1s ease-out 0.3s forwards;
+  /* Removed will-change to prevent scroll performance issues */
+}
+
+.heroBackground::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+  pointer-events: none;
 }
 
 section.bottomZero {
   padding-bottom: 0rem !important;
 }
 
-@media screen and (max-width: 768px){
+/* @media screen and (max-width: 768px) {
+  .heroBackground {
+   
+  }
+} */
+@media screen and (max-width: 576px) {
   .heroBackground {
     padding-top: 0rem;
   }
+} 
+
+.companiesBadge {
+  display: inline-block;
+  background: #03001D;
+  border: 1px solid #0fdac2;
+  border-radius: 0.75rem;
+  padding: 0.625rem 1.25rem;
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 1.5;
+  box-shadow: 0 .25rem .5rem #0fdac2c9;
+  transition: all 0.3s ease;
 }
+
+.companiesNumber {
+  color: #0fdac2;
+  font-weight: 700;
+}
+
+.companiesText {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+@media screen and (max-width: 576px) {
+  .companiesBadge {
+    font-size: 0.875rem;
+    padding: 0.5rem 1rem;
+  }
+} 

@@ -1,0 +1,76 @@
+# Fonts - Cache for 1 year (immutable)
+/_next/static/media/*.ttf
+  Cache-Control: public, max-age=31536000, immutable
+
+/_next/static/media/*.otf
+  Cache-Control: public, max-age=31536000, immutable
+
+/_next/static/media/*.woff
+  Cache-Control: public, max-age=31536000, immutable
+
+/_next/static/media/*.woff2
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Images - Cache for 1 year (immutable)
+/assets/images/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/images/**/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/images/**/**/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.webp
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.jpg
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.jpeg
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.png
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.svg
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.ico
+  Cache-Control: public, max-age=31536000, immutable
+
+# JavaScript and CSS chunks - Cache for 1 year (immutable)
+/_next/static/chunks/*.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/_next/static/chunks/*.css
+  Cache-Control: public, max-age=31536000, immutable
+
+/_next/static/*.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/_next/static/*.css
+  Cache-Control: public, max-age=31536000, immutable
+
+/_next/static/*/*.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/_next/static/*/*.css
+  Cache-Control: public, max-age=31536000, immutable
+
+# HTML files - Short cache (must revalidate)
+/*.html
+  Cache-Control: public, max-age=3600, must-revalidate
+
+# Other static assets
+/*.json
+  Cache-Control: public, max-age=86400
+
+/*.xml
+  Cache-Control: public, max-age=86400
+
+/*.txt
+  Cache-Control: public, max-age=86400

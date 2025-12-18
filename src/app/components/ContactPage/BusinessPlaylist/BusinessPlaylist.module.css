@@ -1,7 +1,24 @@
 .section {
   background: #080523;
   position: relative;
-  padding-bottom:0px;
+  overflow: hidden;
+}
+
+.section::before {
+  content: "";
+  position: absolute;
+  top: 0%;
+  right: -15rem;
+  width: 490px;
+  height: 650px;
+  background: url("/assets/images/1.webp") no-repeat;
+  background-size: cover;
+  opacity: 0.5;
+}
+
+.section > * {
+  position: relative;
+  z-index: 1;
 }
 
 .mainHeading {

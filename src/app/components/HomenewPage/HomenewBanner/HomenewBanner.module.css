@@ -1,38 +1,187 @@
-.HomenewBanner
-{
-  background: url("/assets/images/homenewbanner.png") no-repeat center center; 
+.HomenewBanner {
+  background: url("/assets/images/homenewbanner.png") no-repeat center center;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
-.homenewbanner1
-{
-  height: 760px;
-  object-fit: cover;
-  max-width: 100%;
-  margin-bottom: -90px;
+
+/* Bootstrap-like Row and Column System */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -0.9375rem;
+  margin-right: -0.9375rem;
+  align-items: center;
 }
+
+.colLeft {
+  flex: 0 0 100%;
+  max-width: 100%;
+  padding-left: 0.9375rem;
+  padding-right: 0.9375rem;
+}
+
+.colRight {
+  flex: 0 0 100%;
+  max-width: 100%;
+  padding-left: 0.9375rem;
+  padding-right: 0.9375rem;
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .colLeft {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  .colRight {
+    flex: 0 0 50%;
+    max-width: 50%;
+    margin-top: 0;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .colLeft {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+
+  .colRight {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+.homenewbanner1 {
+  /* height: 760px; */
+  object-fit: cover;
+  max-width: 80%;
+  margin-bottom: -5.625rem;
+  width: 100%;
+}
+
 .extraPaddingTop {
-  padding-top: 120px; /* 30 * 4 = 120px */
+  padding-top: 7.5rem; /* 30 * 4 = 120px */
+}
+
+/* Responsive Styles for homenewbanner1 */
+
+/* Large Desktop (1920px and above) */
+@media (min-width: 1920px) {
+  /* .homenewbanner1 {
+    height: 850px;
+    margin-bottom: -100px;
+  } */
+
+  .extraPaddingTop {
+    padding-top: 8.75rem;
+  }
+}
+
+/* Desktop/Laptop (1366px - 1919px) */
+@media (min-width: 1366px) and (max-width: 1919px) {
+  /* .homenewbanner1 {
+    height: 760px;
+    margin-bottom: -90px;
+  } */
+
+  .extraPaddingTop {
+    padding-top: 9rem;
+  }
+}
+
+/* iPad Pro (1024px - 1365px) */
+@media (min-width: 1024px) and (max-width: 1365px) {
+  /* .homenewbanner1 {
+    height: 650px;
+    margin-bottom: -70px;
+  } */
+
+  .extraPaddingTop {
+    padding-top: 6.25rem;
+  }
+}
+
+/* iPad (992px - 1023px) */
+@media (min-width: 992px) and (max-width: 1023px) {
+  /* .homenewbanner1 {
+    height: auto;
+    margin-bottom: 0;
+  } */
+
+  .extraPaddingTop {
+    padding-top: 5.625rem;
+  }
+}
+
+/* iPad (768px - 991px) */
+@media (min-width: 768px) and (max-width: 991px) {
+  /* .homenewbanner1 {
+    height: auto;
+    max-width: 300px;
+    margin: 0 auto -85px;
+  } */
+
+  .extraPaddingTop {
+    padding-top: 5rem;
+  }
+  .tabsContainer {
+    border-radius: 0 !important;
+  }
+}
+
+/* Mobile (576px - 767px) */
+@media (min-width: 576px) and (max-width: 767px) {
+  /* .homenewbanner1 {
+    height: auto;
+    margin-bottom: 0;
+  } */
+
+  .extraPaddingTop {
+    padding-top: 3.75rem;
+  }
+}
+
+/* Small Mobile (below 576px) */
+@media (max-width: 575px) {
+  /* .homenewbanner1 {
+    height: auto;
+    margin-bottom: 0;
+  } */
+
+  .homenewbanner1 {
+    margin-bottom: -4.325rem;
+  }
+  
+
+  .extraPaddingTop {
+    padding-top: 2.5rem;
+  }
 }
 .experienceBox {
   position: relative;
-  background-color: rgba(29, 14, 87, 0.5); /* Transparent overlay */
+  background-color: #21164c;
+  border: 0.0625rem solid #312367;
   overflow: hidden;
-  border:1px solid #3f3b72;
 }
 
 .experienceBox::before {
   content: "";
   position: absolute;
-  inset: 0;
-  background-image: url("/assets/images/homenew-bg_img.png"); 
+  bottom: 0%;
+  right: -1rem;
+  width: 10rem;
+  height: 15rem;
+  background: url("/assets/images/1.webp") no-repeat;
   background-size: cover;
-  background-position: center;
-  opacity: 0.2;
-
+  opacity: 0.6;
 }
-
 
 .experienceBox > * {
   position: relative;
@@ -41,18 +190,17 @@
 
 .checkItem {
   position: relative;
-  padding-left: 2rem; 
+  padding-left: 2rem;
 }
 
 .checkItem::before {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   top: 0.1rem;
-  width: 18px;
-  height: 18px;
-  background-image: url('/assets/images/tick.png');
+  width: 1.125rem;
+  height: 1.125rem;
+  background-image: url("/assets/images/tick.png");
   background-size: contain;
   background-repeat: no-repeat;
- 
 }
