@@ -377,13 +377,14 @@ export const webDevelopmentGuessWorkData: GuessWorkAdvertisingData = {
     src: '/assets/images/guesswork.png',
     alt: 'Growth Roadmap',
   },
+  analyticsDashboardData: undefined, // Web Development page uses AnalyticsDashboard separately, not in GuessWorkAdvertising
 };
 
 // Slider data for Web Development page
 export const webDevelopmentSliderData1 = [
-  { sliderDataPara: "Hiring a [U.S. developer] $85,000+ a year" },
-  { sliderDataPara: "Hiring multiple [specialists] $120,000+ a year" },
-  { sliderDataPara: "Tools and [platform subscriptions] $15,000+ a year" },
+  { sliderDataPara: "It costs [$162,643] annually to hire a [Full Stack Web Developer] in the US" },
+  { sliderDataPara: "It costs [$110,412] annually to hire a [Front End Developer] in the US" },
+  { sliderDataPara: "It costs [$114,432] annually to hire a [Back End Developer] in the US" },
 ];
 
 export const webDevelopmentSliderData2 = [
@@ -398,6 +399,7 @@ export const webDevelopmentSliderData3 = [
   { sliderDataPara: "$48,000 plus Worth of [Web Production Capability] Working on Your Build" },
   { sliderDataPara: "$48,000 plus Worth of [Web Production Capability] Working on Your Build" },
 ];
+
 
 // Web Development specific blog guides
 export const webDevelopmentBlogGuides = [

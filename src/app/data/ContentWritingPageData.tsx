@@ -5,6 +5,7 @@ import { AiPowerDesignData } from '../components/AiPowerDesign/AiPowerDesign';
 import { RealCostData } from '../components/RealCost/RealCost';
 import { CompleteBusinessSetupData } from '../components/CompleteBusinessSetup/CompleteBusinessSetup';
 import { GuessWorkAdvertisingData } from '../components/GuessWorkAdvertising/GuessWorkAdvertising';
+import { contentWritingAnalyticsDashboardData } from './AnalyticsDashboardData';
 
 // HomenewBanner data for Content Writing page
 export const contentWritingBannerData: HomenewBannerData = {
@@ -170,7 +171,7 @@ export const contentWritingCaseStudyData: CaseStudySectionData = {
         "Commercial writing essentials",
       ],
       buttonText: "Hire Copywriter",
-      image: "/assets/images/avatar/content-writer.webp",
+      image: "/assets/images/avatar/copywriter.webp",
     },
     {
       id: "tabScroll3",
@@ -190,7 +191,7 @@ export const contentWritingCaseStudyData: CaseStudySectionData = {
         "Complete UX content refinement",
       ],
       buttonText: "Hire UI/UX Writer",
-      image: "/assets/images/avatar/content-writer.webp",
+      image: "/assets/images/avatar/ui-ux-writer.webp",
     },
     {
       id: "tabScroll4",
@@ -210,7 +211,7 @@ export const contentWritingCaseStudyData: CaseStudySectionData = {
         "Performance-aligned ad content",
       ],
       buttonText: "Hire Ads Writer",
-      image: "/assets/images/avatar/content-writer.webp",
+      image: "/assets/images/avatar/ads-writer.webp",
     },
   ],
 };
@@ -452,13 +453,15 @@ export const contentWritingGuessWorkData: GuessWorkAdvertisingData = {
     src: '/assets/images/guesswork.png',
     alt: 'Content Performance Insights',
   },
+  analyticsDashboardData: contentWritingAnalyticsDashboardData,
 };
 
 // Slider data for Content Writing page
 export const contentWritingSliderData1 = [
-  { sliderDataPara: "Hiring a [content writer] $65,000+ a year" },
-  { sliderDataPara: "Hiring a [copywriter team] $75,000+ a year" },
-  { sliderDataPara: "Hiring a [content team] $85,000+ a year" },
+  { sliderDataPara: "It costs [$65,000] annually to hire a [Content Writer] in the US" },
+  { sliderDataPara: "It costs [$73,660] annually to hire a [Copywriter] in the US" },
+  { sliderDataPara: "It costs [$104,557] annually to hire a [Content Manager] in the US" },
+  { sliderDataPara: "It costs [$82,000] annually to hire a [Content Marketer] in the US" },
 ];
 
 export const contentWritingSliderData2 = [

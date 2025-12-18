@@ -130,7 +130,7 @@
 }
 
 .calendlyWrapper::before {
-  content: "Powered by Calendly";
+  /* content: "Powered by Calendly"; */
   position: absolute;
   top: 1rem;
   right: 1rem;

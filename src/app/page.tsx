@@ -4,6 +4,8 @@ import Questionnaire from "./components/Questionnaire/Questionnaire";
 import CaseStudySection from "./components/CaseStudySection";
 import { FAQ_SECTION, CALENDLY_SECTION, GROWTH_GUIDES } from "./constants";
 import { FAQ_CONTACT } from "./components/Home/data";
+import { sliderData } from "./data/HomeNewData";
+import TextSlider1 from "./components/HomenewPage/TextSlider/TextSlider";
 
 // Lazy load below-the-fold components to reduce initial bundle size and TBT
 const LogosSlider = dynamic(() => import("./components/LogosSlider/LogosSlider"), {
@@ -98,6 +100,7 @@ export default function Home() {
       <Technologies />
       {/* <AiTeamSection /> */}
       <CalendlySection {...CALENDLY_SECTION} />
+      <TextSlider1 data={sliderData.slider1} />
       <Reviews />
       <GrowthSlider items={filteredGrowthGuides.length > 0 ? filteredGrowthGuides : GROWTH_GUIDES} />
       <FAQ faqs={FAQ_CONTACT} sectionData={FAQ_SECTION} />

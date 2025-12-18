@@ -10,7 +10,7 @@ import TextSlider1 from '../components/HomenewPage/TextSlider/TextSlider';
 import { sliderData } from '../data/HomeNewData';
 import Reviews from '../components/Reviews/Reviews';
 import ProfessionalDesign from '../components/ProfessionalDesign/ProfessionalDesign';
-import { designProfessionalPageData, caseStudyDesignerPageData } from '../data/DesignerPageData';
+import { designProfessionalPageData, caseStudyDesignerPageData, designerGuessWorkData, designerSliderData1 } from '../data/DesignerPageData';
 import AiPowerDesign from '../components/AiPowerDesign/AiPowerDesign';
 import CaseStudySection from '../components/CaseStudySection';
 import ProvenSuccess from '../components/ProvenSuccess/ProvenSuccess';
@@ -32,7 +32,7 @@ export default function homenew() {
   return (
     <>
       <HomenewBanner />
-      <TextSlider1 data={sliderData.slider1}/>
+      <TextSlider1 data={designerSliderData1}/>
       <CaseStudySection isShowTabs={false} data={caseStudyDesignerPageData} className="designerPageCaseStudy" />
       <AiPowerDesign/>
       <Technologies hideTabs={true} defaultTab="creative" />
@@ -40,7 +40,7 @@ export default function homenew() {
       <ProfessionalDesign className="designerPageProfessional" data={designProfessionalPageData} />
       <TextSlider1 data={sliderData.slider3}/>
       <TwentyTwoDayDeliverable/>
-      <GuessWorkAdvertising/>
+      <GuessWorkAdvertising data={designerGuessWorkData}/>
       <RealCost/>
       <CompleteBusinessSetup/>
       <ProvenSuccess/>

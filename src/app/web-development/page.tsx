@@ -25,8 +25,10 @@ import {
   webDevelopmentGuessWorkData,
   webDevelopmentSliderData1, 
   webDevelopmentSliderData2, 
-  webDevelopmentSliderData3 
+  webDevelopmentSliderData3
 } from '../data/WebDevelopmentPageData';
+import { webDevelopmentAnalyticsDashboardData } from '../data/AnalyticsDashboardData';
+import AnalyticsDashboard from '../components/AnalyticsDashboard/AnalyticsDashboard';
 
 export const metadata: Metadata = {
   title: "22-Day Website Package | Market-Ready Website | Startups Advisory",
@@ -52,6 +54,7 @@ export default function WebDevelopmentPage() {
       <ProfessionalDesign className="designerPageProfessional" data={webDevelopmentProfessionalData} />
       <TextSlider1 data={webDevelopmentSliderData3}/>
       <GuessWorkAdvertising data={webDevelopmentGuessWorkData}/>
+      <AnalyticsDashboard {...webDevelopmentAnalyticsDashboardData} />
       <RealCost data={webDevelopmentRealCostData}/>
       <CompleteBusinessSetup data={webDevelopmentCompleteSetupData}/>
       <ProvenSuccess/>

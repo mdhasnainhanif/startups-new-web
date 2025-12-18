@@ -6,6 +6,7 @@ import { AiPowerDesignData } from '../components/AiPowerDesign/AiPowerDesign';
 import { RealCostData } from '../components/RealCost/RealCost';
 import { CompleteBusinessSetupData } from '../components/CompleteBusinessSetup/CompleteBusinessSetup';
 import { GuessWorkAdvertisingData } from '../components/GuessWorkAdvertising/GuessWorkAdvertising';
+import { socialMediaMarketingAnalyticsDashboardData } from './AnalyticsDashboardData';
 
 // Social Media Marketing Page Data
 // HomenewBanner data for Social Media Marketing page
@@ -172,7 +173,7 @@ export const socialMediaMarketingCaseStudyData: CaseStudySectionData = {
         "Message-ready content compilation",
       ],
       buttonText: "Hire Content Curator",
-      image: "/assets/images/avatar/social-media-marketing.webp",
+      image: "/assets/images/avatar/content-curator.webp",
     },
     {
       id: "tabScroll3",
@@ -192,7 +193,7 @@ export const socialMediaMarketingCaseStudyData: CaseStudySectionData = {
         "Fast-cut creative planning",
       ],
       buttonText: "Hire Reels Creator",
-      image: "/assets/images/avatar/social-media-marketing.webp",
+      image: "/assets/images/avatar/reels-creator.webp",
     },
     {
       id: "tabScroll4",
@@ -212,7 +213,7 @@ export const socialMediaMarketingCaseStudyData: CaseStudySectionData = {
         "Promotional content writing",
       ],
       buttonText: "Hire Campaign Writer",
-      image: "/assets/images/avatar/social-media-marketing.webp",
+      image: "/assets/images/avatar/campaign-writer.webp",
     },
   ],
 };
@@ -401,13 +402,14 @@ export const socialMediaMarketingGuessWorkData: GuessWorkAdvertisingData = {
     src: '/assets/images/guesswork.png',
     alt: 'Social Media Performance Insights',
   },
+  analyticsDashboardData: socialMediaMarketingAnalyticsDashboardData,
 };
 
 // Slider data for Social Media Marketing page
 export const socialMediaMarketingSliderData1 = [
-  { sliderDataPara: "Hiring a [social media designer] $65,000+ a year" },
-  { sliderDataPara: "Hiring a [content creator team] $75,000+ a year" },
-  { sliderDataPara: "Hiring a [social media team] $85,000+ a year" },
+  { sliderDataPara: "It costs [$74,536] annually to hire a [Social Media Manager] in the US" },
+  { sliderDataPara: "It costs [$54,455] annually to hire a [Social Media Marketer] in the US" },
+  { sliderDataPara: "It costs [$68,770] annually to hire a [Community Manager] in the US" },
 ];
 
 export const socialMediaMarketingSliderData2 = [

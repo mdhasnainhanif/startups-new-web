@@ -52,7 +52,7 @@ export const GlobeIcon = ({ style }: { style?: React.CSSProperties }) => (
     />
   </svg>
 );
-export const PhoneIcon = ({ style }: { style?: React.CSSProperties }) => (
+export const PhoneIcon = ({ fill, style }: { fill?: string, style?: React.CSSProperties }) => (
   <svg
     width="25"
     height="25"
@@ -60,12 +60,12 @@ export const PhoneIcon = ({ style }: { style?: React.CSSProperties }) => (
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
-      fill="#623BFF"
+      fill={fill || "#623BFF"}
       d="M12.2 10c-1.1-.1-1.7 1.4-2.5 1.8C8.4 12.5 6 10 6 10S3.5 7.6 4.1 6.3c.5-.8 2-1.4 1.9-2.5-.1-1-2.3-4.6-3.4-3.6C.2 2.4 0 3.3 0 5.1c-.1 3.1 3.9 7 3.9 7 .4.4 3.9 4 7 3.9 1.8 0 2.7-.2 4.9-2.6 1-1.1-2.5-3.3-3.6-3.4"
     />
   </svg>
 );
-export const EmailIcon = ({ style }: { style?: React.CSSProperties }) => (
+export const EmailIcon = ({ fill, style }: { fill?: string, style?: React.CSSProperties }) => (
   <svg
     baseProfile="tiny"
     xmlns="http://www.w3.org/2000/svg"
@@ -74,12 +74,12 @@ export const EmailIcon = ({ style }: { style?: React.CSSProperties }) => (
     viewBox="-0.5 0.5 42 42"
   >
     <path
-      fill="#623BFF"
+      fill={fill || "#623BFF"}
       d="M40.5 31.5v-18S22.3 26.2 20.53 26.859C18.79 26.23.5 13.5.5 13.5v18c0 2.5.53 3 3 3h34c2.529 0 3-.439 3-3m-.029-21.529c0-1.821-.531-2.471-2.971-2.471h-34c-2.51 0-3 .78-3 2.6l.03.28s18.069 12.44 20 13.12c2.04-.79 19.97-13.4 19.97-13.4z"
     />
   </svg>
 );
-export const LocationIcon = ({ style }: { style?: React.CSSProperties }) => (
+export const LocationIcon = ({ fill, style }: { fill?: string, style?: React.CSSProperties }) => (
   <svg
     width="25"
     height="25"
@@ -87,19 +87,20 @@ export const LocationIcon = ({ style }: { style?: React.CSSProperties }) => (
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
-      fill="#623BFF"
+      fill={fill || "#623BFF"}  
       fillRule="evenodd"
       d="M6 15c1.324 0 6-5.945 6-9.167S9.314 0 6 0 0 2.612 0 5.833 4.676 15 6 15m0-6.667c1.42 0 2.571-1.119 2.571-2.5 0-1.38-1.15-2.5-2.571-2.5-1.42 0-2.571 1.12-2.571 2.5 0 1.381 1.15 2.5 2.571 2.5"
     />
   </svg>
 );
-export const BulbIcon = ({ style }: { style?: React.CSSProperties }) => (
+export const BulbIcon = ({ className }: { className?: string }) => (
   <svg
     width="25"
     height="25"
     viewBox="0 0 15 15"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    className={className}
   >
     <path
       d="m4.076 6.47.495.07zm-.01.07-.495-.07zm6.858-.07.495-.07zm.01.07-.495.07zM9.5 12.5v.5a.5.5 0 0 0 .5-.5zm-4 0H5a.5.5 0 0 0 .5.5zm-.745-3.347.396-.306zm5.49 0-.396-.306zM6 15h3v-1H6zM3.58 6.4l-.01.07.99.14.01-.07zM7.5 3a3.96 3.96 0 0 0-3.92 3.4l.99.14A2.96 2.96 0 0 1 7.5 4zm3.92 3.4A3.96 3.96 0 0 0 7.5 3v1a2.96 2.96 0 0 1 2.93 2.54zm.01.07-.01-.07-.99.14.01.07zm-.79 2.989c.63-.814.948-1.875.79-2.99l-.99.142a2.95 2.95 0 0 1-.59 2.236zM9 10.9v1.6h1v-1.599zm.5 1.1h-4v1h4zm-3.5.5v-1.599H5V12.5zM3.57 6.47a3.95 3.95 0 0 0 .79 2.989l.79-.612a2.95 2.95 0 0 1-.59-2.236zM6 10.9c0-.823-.438-1.523-.85-2.054l-.79.612c.383.495.64.968.64 1.442zm3.85-2.054C9.437 9.378 9 10.077 9 10.9h1c0-.474.257-.947.64-1.442zM7 0v2h1V0zM0 8h2V7H0zm13 0h2V7h-2zM3.354 3.646l-1.5-1.5-.708.708 1.5 1.5zm9 .708 1.5-1.5-.708-.708-1.5 1.5z"

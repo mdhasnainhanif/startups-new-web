@@ -1,5 +1,7 @@
 import { ProfessionalDesignData } from './ProfessionalDesignData';
 import { CaseStudySectionData, DEFAULT_CASE_STUDY_DATA } from './CaseStudySectionData';
+import { GuessWorkAdvertisingData } from '../components/GuessWorkAdvertising/GuessWorkAdvertising';
+import { designerAnalyticsDashboardData } from './AnalyticsDashboardData';
 
 // ProfessionalDesign component data for Designer page
 export const designProfessionalPageData: ProfessionalDesignData = {
@@ -160,4 +162,44 @@ export const caseStudyDesignerPageData: CaseStudySectionData = {
     },
   ],
 };
+
+// GuessWorkAdvertising data for Designer page
+export const designerGuessWorkData: GuessWorkAdvertisingData = {
+  heading: {
+    part1: 'Unlock Your Growth ',
+    highlight: 'Roadmap',
+    part2: '',
+  },
+  description:
+    'Share your objectives and receive a clear, actionable outline for your online presence. You will know what to build, what to improve, and what supports faster customer acquisition.',
+  form: {
+    placeholder: 'Enter Your Business Name',
+    buttonText: 'Get Started',
+    buttonIcon: (
+      <svg
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M5 12h14M12 5l7 7-7 7" />
+      </svg>
+    ),
+  },
+  image: {
+    src: '/assets/images/guesswork.png',
+    alt: 'Growth Roadmap',
+  },
+  analyticsDashboardData: designerAnalyticsDashboardData,
+};
+
+// Slider data for Designer page
+export const designerSliderData1 = [
+  { sliderDataPara: "It costs [$57,000] annually to hire a [Graphics Designer] in the US" },
+  { sliderDataPara: "It costs [$67,000] annually to hire an [Animator] in the US" },
+];
 

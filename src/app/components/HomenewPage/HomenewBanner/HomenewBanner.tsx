@@ -56,15 +56,16 @@ const DEFAULT_DATA: HomenewBannerData = {
     href: "#",
   },
   image: {
-    src: "/assets/images/homenewbanner-img.webp",
+    src: "/assets/images/designer/banner.webp",
     alt: "AI Design Team Character",
+    className: "designerBanner",
   },
 };
 
 const HomenewBanner = ({ data = DEFAULT_DATA }: HomenewBannerProps) => {
   return (
     <section
-      className={`sectionPadding ${styles.extraPaddingTop} ${styles.HomenewBanner} ${data.className}`}
+      className={`sectionPadding relative ${styles.extraPaddingTop} ${styles.HomenewBanner} ${data.className}`}
     >
       <Container maxWidth="xl">
         <div className={`${styles.row} md:pt-20`}>

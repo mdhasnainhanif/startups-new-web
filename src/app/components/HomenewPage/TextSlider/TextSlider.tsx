@@ -235,6 +235,7 @@ const TextSlider1: React.FC<TextSlider1Props> = ({ data = [] }) => {
         verticalAlign: "middle",
         marginLeft: "0.2em",
         marginRight: "0.2em",
+        marginBottom: "0.2em",
         flexShrink: 0,
       }}
     >
