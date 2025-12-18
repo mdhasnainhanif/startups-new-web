@@ -115,11 +115,11 @@ const CalendlySection = ({
             <p>{description}</p>
             <div>
               <Button
-                variant="purple"
+                variant="green"
                 size="lg"
-                icon={<VideoIcon style={{ fill: "#643BFF" }} />}
+                icon={<VideoIcon style={{ fill: "#fff" }} />}
                 className={styles.videoButton}
-                iconSpanClassName={styles.videoButtonText}
+                iconSpanClassName={styles.videoButtonText} 
                 isDropdown={true}
                 selectedDropdownItem={selectedDropdownItem}
                 onDropdownSelect={handleDropdownSelect}

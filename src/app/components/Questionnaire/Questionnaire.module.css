@@ -61,12 +61,38 @@
   font-family: var(--font-wf-visual-sans), sans-serif;
 }
 
+/* Progress Container */
+.progressContainer {
+  margin-top: 1.5rem;
+  width: 100%;
+  max-width: 18.75rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1.5rem;
+}
+
+.progressInfo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.progressText {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+  font-family: var(--font-graphik-regular), Arial, Helvetica, sans-serif;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
 /* Progress Bar */
 .progressBar {
   width: 100%;
-  height: 4px;
+  height: 6px;
   background: rgba(255, 255, 255, 0.1);
-  border-radius: 2px;
+  border-radius: 10px;
   overflow: hidden;
   position: relative;
 }
@@ -78,8 +104,9 @@
     var(--color-primary) 0%,
     var(--color-purple) 100%
   );
-  border-radius: 2px;
+  border-radius: 10px;
   transition: width 0.5s ease-in-out;
+  box-shadow: 0 0 10px rgba(100, 59, 255, 0.5);
 }
 
 /* Form Area */
@@ -107,7 +134,7 @@
 /* Step Container */
 .stepContainer {
   width: 100%;
-  min-height: 22.5rem;
+  min-height: 18.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -126,6 +153,14 @@
   font-family: var(--font-wf-visual-sans), sans-serif;
 }
 
+.multiSelectHint {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  margin-bottom: 1rem;
+  font-family: var(--font-graphik-regular), Arial, Helvetica, sans-serif;
+}
+
 /* Options Container */
 .optionsContainer {
   display: flex;
@@ -140,6 +175,17 @@
   position: relative;
   width: 100%;
   cursor: pointer;
+}
+
+.optionWrapper.optionDisabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.optionLabel.optionSelected {
+  background: rgba(100, 59, 255, 0.15);
+  border-color: var(--color-purple);
+  color: var(--color-purple);
 }
 
 .radioInput {
@@ -180,7 +226,8 @@
   background: transparent;
 }
 
-.radioInput:checked + .optionLabel::before {
+.radioInput:checked + .optionLabel::before,
+input[type="checkbox"].radioInput:checked + .optionLabel::before {
   background: var(--color-purple);
   border-color: var(--color-purple);
   box-shadow: 0 0 10px var(--color-purple);
@@ -198,7 +245,8 @@
   }
 }
 
-.radioInput:checked + .optionLabel::after {
+.radioInput:checked + .optionLabel::after,
+input[type="checkbox"].radioInput:checked + .optionLabel::after {
   content: "✓";
   position: absolute;
   left: 1.25rem;
@@ -257,7 +305,12 @@
 .radioInput:checked + .yellowLabel,
 .radioInput:checked + .blueLabel,
 .radioInput:checked + .purpleLabel,
-.radioInput:checked + .pinkLabel {
+.radioInput:checked + .pinkLabel,
+input[type="checkbox"].radioInput:checked + .greenLabel,
+input[type="checkbox"].radioInput:checked + .yellowLabel,
+input[type="checkbox"].radioInput:checked + .blueLabel,
+input[type="checkbox"].radioInput:checked + .purpleLabel,
+input[type="checkbox"].radioInput:checked + .pinkLabel {
   background: rgba(100, 59, 255, 0.1);
   border-color: var(--color-purple);
   color: var(--color-purple);
@@ -283,6 +336,30 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
+}
+
+/* Continue Button for Multi-Select */
+.continueButton {
+  margin-top: 1.5rem;
+  padding: 1rem 2rem;
+  background: var(--color-purple);
+  border: 2px solid var(--color-purple);
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: var(--font-graphik-regular), Arial, Helvetica, sans-serif;
+  box-shadow: 0 0 20px rgba(100, 59, 255, 0.3);
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.continueButton:hover {
+  box-shadow: 0 0 30px rgba(100, 59, 255, 0.5);
+  transform: translateY(-2px);
 }
 
 /* Back Button */

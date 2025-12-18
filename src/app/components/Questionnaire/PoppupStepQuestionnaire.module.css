@@ -149,6 +149,52 @@
   margin: 0 auto;
 }
 
+/* Progress Container */
+.progressContainer {
+  margin-top: 1.5rem;
+  width: 100%;
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.progressInfo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.progressText {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+  font-family: var(--font-graphik-regular), Arial, Helvetica, sans-serif;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.progressBar {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progressBarFill {
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    var(--color-primary) 0%,
+    var(--color-purple) 100%
+  );
+  border-radius: 10px;
+  transition: width 0.5s ease-in-out;
+  box-shadow: 0 0 10px rgba(100, 59, 255, 0.5);
+}
+
 /* Form Area */
 /* .formArea {
   position: relative;
@@ -265,6 +311,14 @@
     line-height: 1.3;
   }
 
+  .progressContainer {
+    margin-top: 1rem;
+  }
+
+  .progressText {
+    font-size: 0.8rem;
+  }
+
   .thankYouHeading {
     font-size: 2.5rem;
   }
@@ -311,6 +365,18 @@
 
   .mainHeading {
     font-size: 1.225rem;
+  }
+
+  .progressContainer {
+    margin-top: 0.75rem;
+  }
+
+  .progressText {
+    font-size: 0.75rem;
+  }
+
+  .progressBar {
+    height: 4px;
   }
 
   .thankYouHeading {

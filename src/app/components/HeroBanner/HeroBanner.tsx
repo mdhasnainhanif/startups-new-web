@@ -121,9 +121,9 @@ export default function HeroBanner({
             {onButtonClick ? (
               <Button
                 onClick={onButtonClick}
-                variant={ctaButton.variant || "secondary"}
+                variant={"green"}
                 size="lg"
-                icon={<ArrowRightIcon />}
+                icon={<ArrowRightIcon style={{ fill: "#000" }} />}
                 iconPosition="right"
               >
                 {ctaButton.text}
@@ -131,7 +131,7 @@ export default function HeroBanner({
             ) : (
               <Button
                 href={ctaButton.href}
-                variant={ctaButton.variant || "green"}
+                variant={"green"}
                 size="lg"
                 icon={<ArrowRightIcon style={{ fill: "#000" }} />}
                 iconPosition="right"

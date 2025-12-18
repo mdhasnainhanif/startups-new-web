@@ -98,8 +98,8 @@ const HomenewBanner = ({ data = DEFAULT_DATA }: HomenewBannerProps) => {
 
             <Button
               href={data.cta.href}
-              variant="primary"
-              icon={<ArrowRightIcon style={{ fill: "#fff" }} />}
+              variant="green"
+              icon={<ArrowRightIcon style={{ fill: "#000" }} />}
               iconPosition="right"
             >
               {data.cta.text}

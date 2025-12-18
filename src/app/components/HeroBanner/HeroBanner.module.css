@@ -92,14 +92,19 @@ section.bottomZero {
 
 .companiesBadge {
   display: inline-block;
-  background: #03001D;
-  border: 1px solid #0fdac2;
+  /* background: #03001D;
+  border: 1px solid #0fdac2; */
+  /* box-shadow: 0 .25rem .5rem #0fdac2c9; */
+  
+  color: #0fdac2;
+  background: linear-gradient(135deg, #0fdac233, #643bff33);
+  border: 2px solid #0fdac2;
+  box-shadow: 0 .25rem .5rem #0fdac2c9;
   border-radius: 0.75rem;
   padding: 0.625rem 1.25rem;
   font-weight: 700;
   font-size: 1rem;
   line-height: 1.5;
-  box-shadow: 0 .25rem .5rem #0fdac2c9;
   transition: all 0.3s ease;
 }
 

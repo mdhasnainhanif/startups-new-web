@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 import TopHeader from "../TopHeader";
 import Header from "../Header";
 import Footer from "../Footer/Footer";
+import ScrollToTop from "../ScrollToTop/ScrollToTop";
 
 export default function ConditionalLayout({
   children,
@@ -15,7 +16,12 @@ export default function ConditionalLayout({
 
   if (isBriefPage) {
     // For brief page, don't render TopHeader, Header, or Footer
-    return <>{children}</>;
+    return (
+      <>
+        {children}
+        <ScrollToTop />
+      </>
+    );
   }
 
   // For all other pages, render with headers and footer
@@ -25,6 +31,7 @@ export default function ConditionalLayout({
       <Header />
       {children}
       <Footer />
+      <ScrollToTop />
     </>
   );
 }

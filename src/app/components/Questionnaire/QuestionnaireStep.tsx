@@ -1,6 +1,7 @@
 "use client";
 
 import styles from "./Questionnaire.module.css";
+import Button from "../Button";
 
 export interface Option {
   id: string;
@@ -18,13 +19,15 @@ export interface Step {
   backTo?: string;
   isFiftyPercent?: boolean;
   columns?: 2 | 3;
+  multiSelect?: boolean;
+  maxSelections?: number;
 }
 
 interface QuestionnaireStepProps {
   step: Step;
   onSelect: (stepId: string, value: string, nextStep: string) => void;
   onBack: () => void;
-  selectedValue?: string;
+  selectedValue?: string | string[];
   showBack?: boolean;
 }
 
@@ -35,8 +38,37 @@ export default function QuestionnaireStep({
   selectedValue,
   showBack = true,
 }: QuestionnaireStepProps) {
+  const isMultiSelect = step.multiSelect === true;
+  const maxSelections = step.maxSelections || 3;
+  const selectedValues = isMultiSelect 
+    ? (Array.isArray(selectedValue) ? selectedValue : [])
+    : [];
+
   const handleOptionClick = (option: Option) => {
-    onSelect(step.id, option.value, option.nextStep);
+    if (isMultiSelect) {
+      // For multi-select, toggle the selection
+      const currentValues = Array.isArray(selectedValue) ? selectedValue : [];
+      const isSelected = currentValues.includes(option.value);
+      
+      if (isSelected) {
+        // Deselect
+        const newValues = currentValues.filter(v => v !== option.value);
+        // Store as comma-separated string for compatibility (don't advance)
+        onSelect(step.id, newValues.join(","), "");
+      } else {
+        // Select (if under max)
+        if (currentValues.length < maxSelections) {
+          const newValues = [...currentValues, option.value];
+          const shouldAutoAdvance = newValues.length === maxSelections;
+          
+          // Store the selection and advance if max reached
+          onSelect(step.id, newValues.join(","), shouldAutoAdvance ? option.nextStep : "");
+        }
+      }
+    } else {
+      // Single select - proceed to next step
+      onSelect(step.id, option.value, option.nextStep);
+    }
   };
 
   const getColumnClass = () => {
@@ -46,37 +78,95 @@ export default function QuestionnaireStep({
     return "";
   };
 
+  const isOptionSelected = (value: string) => {
+    if (isMultiSelect) {
+      return selectedValues.includes(value);
+    }
+    return selectedValue === value;
+  };
+
+  const canProceed = () => {
+    if (isMultiSelect) {
+      return selectedValues.length > 0;
+    }
+    return true;
+  };
+
   return (
     <div
       className={`${styles.stepContainer} ${getColumnClass()}`}
     >
       <h2 className={styles.stepTitle}>{step.title}</h2>
+      {isMultiSelect && selectedValues.length > 0 && (
+        <p className={styles.multiSelectHint}>
+          ({selectedValues.length}/{maxSelections} selected)
+        </p>
+      )}
       
       <div className={styles.optionsContainer}>
-        {step.options.map((option) => (
-          <div 
-            key={option.id} 
-            className={styles.optionWrapper}
-            onClick={() => handleOptionClick(option)}
-          >
-            <input
-              type="radio"
-              id={option.id}
-              name={step.id}
-              value={option.value}
-              checked={selectedValue === option.value}
-              onChange={() => handleOptionClick(option)}
-              className={styles.radioInput}
-            />
-            <label
-              htmlFor={option.id}
-              className={`${styles.optionLabel} ${styles[option.color + "Label"]}`}
+        {step.options.map((option) => {
+          const optionSelected = isOptionSelected(option.value);
+          const isDisabled = isMultiSelect && !optionSelected && selectedValues.length >= maxSelections;
+          
+          return (
+            <div 
+              key={option.id} 
+              className={`${styles.optionWrapper} ${isDisabled ? styles.optionDisabled : ""}`}
+              onClick={(e) => {
+                e.preventDefault();
+                if (!isDisabled) {
+                  handleOptionClick(option);
+                }
+              }}
             >
-              {option.label}
-            </label>
-          </div>
-        ))}
+              <input
+                type={isMultiSelect ? "checkbox" : "radio"}
+                id={option.id}
+                name={step.id}
+                value={option.value}
+                checked={optionSelected}
+                onChange={(e) => {
+                  e.stopPropagation();
+                  if (!isDisabled) {
+                    handleOptionClick(option);
+                  }
+                }}
+                disabled={isDisabled}
+                className={styles.radioInput}
+              />
+              <label
+                htmlFor={option.id}
+                className={`${styles.optionLabel} ${styles[option.color + "Label"]} ${optionSelected ? styles.optionSelected : ""}`}
+                onClick={(e) => {
+                  if (isMultiSelect) {
+                    e.preventDefault();
+                  }
+                }}
+              >
+                {option.label}
+              </label>
+            </div>
+          );
+        })}
       </div>
+
+      {isMultiSelect && canProceed() && (
+        <Button
+          onClick={() => {
+            // Find the next step from any option (they all have the same nextStep)
+            const nextStep = step.options[0]?.nextStep;
+            if (nextStep) {
+              // Trigger navigation by calling onSelect with the current selections
+              onSelect(step.id, selectedValues.join(","), nextStep);
+            }
+          }}
+          variant="primary"
+          size="md"
+          className={styles.continueButton}
+        >
+          Continue
+        </Button>
+      )}
 
       {showBack && (
         <button

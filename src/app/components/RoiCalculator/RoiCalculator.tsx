@@ -201,7 +201,7 @@ const RoiCalculator = ({ className = "" }: RoiCalculatorProps) => {
               <div className={styles.teamMembersHeader}>
                 <h3 className={styles.teamMembersTitle}>Benefits & Additional Costs</h3>
                 <Button 
-                  variant="purple" 
+                  variant="green" 
                   onClick={addTeamMember}
                   icon={
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

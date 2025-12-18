@@ -45,8 +45,8 @@ const TheGuarantees = () => {
           <div className={styles.ctaWrapper}>
             <Button
               href={THE_GUARANTEES_DATA.cta.href}
-              variant="primary"
-              icon={<ArrowRightIcon style={{ fill: '#fff' }} />}
+              variant="green"
+              icon={<ArrowRightIcon style={{ fill: '#000' }} />}
               iconPosition="right"
             >
               {THE_GUARANTEES_DATA.cta.text}

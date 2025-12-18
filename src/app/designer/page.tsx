@@ -18,6 +18,11 @@ import RealCost from '../components/RealCost/RealCost';
 import CompleteBusinessSetup from '../components/CompleteBusinessSetup/CompleteBusinessSetup';
 import Contact from '../components/Contact/Contact';
 import GuessWorkAdvertising from '../components/GuessWorkAdvertising/GuessWorkAdvertising';
+import dynamic from 'next/dynamic';
+
+const TwentyTwoDayDeliverable = dynamic(() => import('../components/TwentyTwoDayDeliverable/TwentyTwoDayDeliverable'), {
+  ssr: true,
+});
 
 export const metadata: Metadata = {
   robots: "nofollow",
@@ -34,6 +39,7 @@ export default function homenew() {
       <TextSlider1 data={sliderData.slider2}/>
       <ProfessionalDesign className="designerPageProfessional" data={designProfessionalPageData} />
       <TextSlider1 data={sliderData.slider3}/>
+      <TwentyTwoDayDeliverable/>
       <GuessWorkAdvertising/>
       <RealCost/>
       <CompleteBusinessSetup/>

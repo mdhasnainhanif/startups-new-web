@@ -30,29 +30,58 @@ export default function BriefPage() {
       [stepId]: value,
     }));
 
-    // Navigate to next step with delay for tick animation
+    const currentStepData = questionnaireData.steps.find((s) => s.id === stepId);
+    const isMultiSelect = currentStepData?.multiSelect === true;
+    const maxSelections = currentStepData?.maxSelections || 3;
+    
+    // Check if max selections reached (count comma-separated values)
+    const selectionCount = value ? value.split(",").filter(v => v.trim()).length : 0;
+    const maxReached = isMultiSelect && selectionCount >= maxSelections;
+    
+    // Navigate to next step
     if (nextStep) {
-      setIsTransitioning(true);
-      setFadeIn(false);
-      
-      // Wait for tick animation (600ms) then transition to next step
-      setTimeout(() => {
-        // Only add to history if it's a new step
-        setStepHistory((prev) => {
-          const lastStep = prev[prev.length - 1];
-          if (lastStep !== nextStep) {
-            return [...prev, nextStep];
-          }
-          return prev;
-        });
-        setCurrentStep(nextStep);
+      // Auto-advance for single select OR when max selections reached in multi-select
+      if (!isMultiSelect || maxReached) {
+        setIsTransitioning(true);
+        setFadeIn(false);
         
-        // Fade in the next step
+        // Wait for tick animation (600ms) then transition to next step
         setTimeout(() => {
-          setFadeIn(true);
-          setIsTransitioning(false);
-        }, 50);
-      }, 600);
+          setStepHistory((prev) => {
+            const lastStep = prev[prev.length - 1];
+            if (lastStep !== nextStep) {
+              return [...prev, nextStep];
+            }
+            return prev;
+          });
+          setCurrentStep(nextStep);
+          
+          setTimeout(() => {
+            setFadeIn(true);
+            setIsTransitioning(false);
+          }, 50);
+        }, 600);
+      } else if (isMultiSelect && !maxReached) {
+        // For multi-select with continue button (not max reached)
+        setIsTransitioning(true);
+        setFadeIn(false);
+        
+        setTimeout(() => {
+          setStepHistory((prev) => {
+            const lastStep = prev[prev.length - 1];
+            if (lastStep !== nextStep) {
+              return [...prev, nextStep];
+            }
+            return prev;
+          });
+          setCurrentStep(nextStep);
+          
+          setTimeout(() => {
+            setFadeIn(true);
+            setIsTransitioning(false);
+          }, 50);
+        }, 300);
+      }
     }
   };
 
@@ -138,6 +167,20 @@ export default function BriefPage() {
   };
 
   const currentStepData = questionnaireData.steps.find((s) => s.id === currentStep);
+  
+  // Calculate progress
+  const totalSteps = questionnaireData.steps.length + 1; // +1 for personal details form
+  let currentStepNumber: number;
+  let progressPercentage: number;
+  
+  if (currentStep === "questionnaire-personal-detail") {
+    currentStepNumber = totalSteps;
+    progressPercentage = 100;
+  } else {
+    const currentStepIndex = questionnaireData.steps.findIndex((s) => s.id === currentStep);
+    currentStepNumber = currentStepIndex >= 0 ? currentStepIndex + 1 : 1;
+    progressPercentage = currentStepData?.progress || ((currentStepNumber / totalSteps) * 100);
+  }
 
   if (showThankYou) {
     return (
@@ -173,6 +216,23 @@ export default function BriefPage() {
                     The Best Price Instantly!
                   </h1>
                   <div className={styles.separator}></div>
+                  
+                  {/* Progress Indicator */}
+                  {!showThankYou && (
+                    <div className={styles.progressContainer}>
+                      <div className={styles.progressInfo}>
+                        <span className={styles.progressText}>
+                          Step {currentStepNumber} of {totalSteps}
+                        </span>
+                      </div>
+                      <div className={styles.progressBar}>
+                        <div 
+                          className={styles.progressBarFill}
+                          style={{ width: `${progressPercentage}%` }}
+                        ></div>
+                      </div>
+                    </div>
+                  )}
                 </div>
 
                 {/* Form Area */}
@@ -196,7 +256,10 @@ export default function BriefPage() {
                             step={currentStepData}
                             onSelect={handleOptionSelect}
                             onBack={handleBack}
-                            selectedValue={answers[currentStepData.id]}
+                            selectedValue={currentStepData.multiSelect 
+                              ? (answers[currentStepData.id] ? answers[currentStepData.id].split(",") : [])
+                              : answers[currentStepData.id]
+                            }
                             showBack={false}
                           />
                         </div>

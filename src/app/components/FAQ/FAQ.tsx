@@ -29,7 +29,6 @@ export default function FAQ({ faqs, sectionData, className = "" }: FAQProps) {
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
   const [question, setQuestion] = useState("");
-  const [additionalDetails, setAdditionalDetails] = useState("");
 
   const toggleLeftFAQ = (index: number) => {
     setLeftOpenIndex(leftOpenIndex === index ? null : index);
@@ -47,15 +46,13 @@ export default function FAQ({ faqs, sectionData, className = "" }: FAQProps) {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = () => {
     if (question.trim()) {
       // Handle form submission
       // Hide form and show success message
       setIsFormOpen(false);
       setShowSuccess(true);
       setQuestion("");
-      setAdditionalDetails("");
       
       // Hide success message after 5 seconds
       setTimeout(() => {
@@ -176,9 +173,44 @@ export default function FAQ({ faqs, sectionData, className = "" }: FAQProps) {
             </Button>
           </div>
 
+          {/* Slide Down Form */}
+          <div
+            className={`w-full overflow-hidden transition-all duration-500 ease-in-out ${
+              isFormOpen && !showSuccess ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+            }`}
+          >
+            <div className="py-6 sm:py-8">
+              <div className="py-3 sm:py-4 border border-white/20 rounded-xl bg-white/5 faqInputWrapper">
+                <div className="px-3 sm:px-4">
+                  <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
+                    <div className="flex-1">
+                      <textarea
+                        placeholder="Ask your own question here..."
+                        value={question}
+                        onChange={(e) => setQuestion(e.target.value)}
+                        className="h-full w-full px-3 sm:px-4 py-2 sm:py-3 bg-white/5 border border-white/20 rounded-lg text-white placeholder-white/50 text-sm sm:text-base resize-none focus:outline-none focus:border-[#0fdac2] focus:ring-1 focus:ring-[#0fdac2] transition-all duration-200"
+                        rows={2}
+                      ></textarea>
+                    </div>
+                    <Button
+                      type="button"
+                      variant="green"
+                      size="md"
+                      onClick={handleSubmit}
+                      disabled={!question.trim()}
+                      className="hover:bg-[#0fdac2]/90 px-10"
+                    >
+                      Submit Question
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* Success Message */}
           {showSuccess && (
-            <div className="w-full overflow-hidden transition-all duration-500 ease-in-out max-h-[300px] opacity-100">
+            <div className="w-full overflow-hidden transition-all duration-500 ease-in-out max-h-[300px] opacity-100 mt-6">
               <div className="py-6 sm:py-8">
                 <div className="border border-[#0fdac2] rounded-xl bg-[#0b0a24] p-6 sm:p-8 text-center">
                   {/* Circular Checkmark Icon */}
@@ -209,73 +241,6 @@ export default function FAQ({ faqs, sectionData, className = "" }: FAQProps) {
               </div>
             </div>
           )}
-
-          {/* Slide Down Form */}
-          <div
-            className={`w-full overflow-hidden transition-all duration-500 ease-in-out ${
-              isFormOpen && !showSuccess ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
-            }`}
-          >
-            <div className="py-6 sm:py-8">
-              <div className="border border-white/20 rounded-xl bg-white/5 p-6 sm:p-8">
-                {/* Heading */}
-                <h3 className="text-2xl sm:text-3xl font-semibold text-white mb-6 text-center">
-                  Ask A Question
-                </h3>
-
-                {/* Form */}
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  {/* Question Input */}
-                  <div>
-                    <input
-                      type="text"
-                      value={question}
-                      onChange={(e) => setQuestion(e.target.value)}
-                      placeholder="Question"
-                      required
-                      className="w-full px-4 py-3 bg-[#0e1030] border-2 border-transparent rounded-lg text-white placeholder-white/50 text-base focus:outline-none focus:border-[#0fdac2] transition-all duration-200"
-                      style={{
-                        backgroundImage: `linear-gradient(#0e1030, #0e1030),
-                          linear-gradient(to right, #0fdac2, #643bff)`,
-                        backgroundOrigin: "border-box",
-                        backgroundClip: "padding-box, border-box",
-                      }}
-                    />
-                  </div>
-
-                  {/* Additional Details Textarea */}
-                  <div>
-                    <textarea
-                      value={additionalDetails}
-                      onChange={(e) => setAdditionalDetails(e.target.value)}
-                      placeholder="Add additional details (optional)"
-                      rows={4}
-                      className="w-full px-4 py-3 bg-[#0e1030] border-2 border-transparent rounded-lg text-white placeholder-white/50 text-base resize-none focus:outline-none focus:border-[#0fdac2] transition-all duration-200"
-                      style={{
-                        backgroundImage: `linear-gradient(#0e1030, #0e1030),
-                          linear-gradient(to right, #0fdac2, #643bff)`,
-                        backgroundOrigin: "border-box",
-                        backgroundClip: "padding-box, border-box",
-                      }}
-                    />
-                  </div>
-
-                  {/* Submit Button */}
-                  <div className="flex justify-center pt-2">
-                    <Button
-                      type="submit"
-                      variant="green"
-                      size="lg"
-                      disabled={!question.trim()}
-                      className="px-8 py-3"
-                    >
-                      Submit Question
-                    </Button>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
         </div>
       </Container>
     </section>

@@ -544,11 +544,12 @@ export default function Header() {
                       >
                         <button
                           ref={dropdownButtonRef2}
-                          className={`text-white font-medium hover:text-[#0fdac2] transition-colors flex items-center justify-center gap-1 cursor-pointer ${
+                          className={`text-white font-medium hover:text-[#0FDAC2] transition-colors flex items-center 
+                            justify-center gap-1 cursor-pointer ${
                             servicesMenuItems.some((item) =>
                               pathname?.startsWith(item.href)
                             )
-                              ? "text-[#0fdac2]"
+                              ? "text-[#0FDAC2]"
                               : ""
                           }`}
                           style={
@@ -628,9 +629,9 @@ export default function Header() {
                                         }`}
                                       >
                                         <div
-                                          className={`flex-shrink-0 transition-colors group-hover:text-[#039f8d] ${
+                                          className={`flex-shrink-0 transition-colors group-hover:text-[#0FDAC2] group-hover:opacity-100 ${
                                             isActive
-                                              ? "text-[#0fdac2]"
+                                              ? "text-[#0FDAC2]"
                                               : "text-[#643bff] opacity-70"
                                           }`}
                                         >
@@ -936,7 +937,7 @@ export default function Header() {
                         }`}
                       >
                         <div
-                          className={`flex-shrink-0 transition-colors group-hover:text-[#039f8d] ${
+                          className={`flex-shrink-0 transition-colors group-hover:text-[#0FDAC2] group-hover:opacity-100 ${
                             isActiveService
                               ? "text-[#0fdac2]"
                               : "text-[#643bff] opacity-70"

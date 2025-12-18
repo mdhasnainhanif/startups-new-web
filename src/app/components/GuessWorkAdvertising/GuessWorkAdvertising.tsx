@@ -104,7 +104,7 @@ const GuessWorkAdvertising = ({ data = GUESS_WORK_ADVERTISING_DATA }: GuessWorkA
                 className={`w-full bg-[rgba(29,14,87,0.5)] border border-[rgba(100,59,255,0.3)] text-white placeholder:text-white/50 focus:outline-none focus:border-[#0fdac2] transition-all ${styles.inputField}`}
               />
               <Button
-                variant="purple"
+                variant="green"
                 size="lg"
                 type="submit"
                 className={`absolute inputFieldBtn right-1 md:right-2 top-1/2 -translate-y-1/2 px-4 md:px-6 py-2 md:py-3  rounded-4xl text-white font-semibold hover:opacity-90 transition-all flex items-center justify-center gap-1 md:gap-2 whitespace-nowrap text-sm md:text-base`}>

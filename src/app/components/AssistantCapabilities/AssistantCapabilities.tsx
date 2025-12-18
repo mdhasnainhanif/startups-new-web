@@ -107,7 +107,7 @@ export default function AssistantCapabilities() {
             modules={[Navigation, Autoplay]}
             spaceBetween={24}
             slidesPerView={1}
-            autoplay={{
+            autoplay={{ 
               delay: 3000,
               disableOnInteraction: false,
               pauseOnMouseEnter: false,
@@ -119,6 +119,7 @@ export default function AssistantCapabilities() {
                 slidesPerView: 4,
                 spaceBetween: 24,
                 centeredSlides: true,
+                width: null,
               },
             }}
             onSwiper={(swiper) => {
@@ -164,7 +165,7 @@ export default function AssistantCapabilities() {
             modules={[Navigation, Autoplay]}
             spaceBetween={24}
             slidesPerView={1}
-            slidesOffsetBefore={0}
+            slidesOffsetBefore={370}
             autoplay={{
               delay: 3000,
               disableOnInteraction: false,
@@ -178,7 +179,7 @@ export default function AssistantCapabilities() {
                 slidesPerView: 4,
                 spaceBetween: 24,
                 centeredSlides: true,
-                slidesOffsetBefore: 150,
+                // slidesOffsetBefore: 150,
               },
             }}
             onSwiper={(swiper) => {
