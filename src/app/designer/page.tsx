@@ -18,7 +18,6 @@ import RealCost from '../components/RealCost/RealCost';
 import CompleteBusinessSetup from '../components/CompleteBusinessSetup/CompleteBusinessSetup';
 import Contact from '../components/Contact/Contact';
 import GuessWorkAdvertising from '../components/GuessWorkAdvertising/GuessWorkAdvertising';
-import ContactTwo from '../components/ContactTwo/ContactTwo';
 
 export const metadata: Metadata = {
   robots: "nofollow",
@@ -42,7 +41,7 @@ export default function homenew() {
       <Reviews/>
       <GrowthSlider items={GROWTH_GUIDES} />
       <FAQ faqs={FAQ_CONTACT} sectionData={FAQ_SECTION} />
-      <ContactTwo/>
+      <Contact/>
     </>
 
   )

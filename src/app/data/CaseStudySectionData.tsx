@@ -61,7 +61,7 @@ export const DEFAULT_CASE_STUDY_DATA: CaseStudySectionData = {
         "Full brand identity system",
       ],
       buttonText: "Hire Brand Designer",
-      image: "/assets/images/social-media-marketing.webp",
+      image: "/assets/images/avatar/brand-designer.webp",
     },
     {
       id: "tabScroll2",
@@ -82,7 +82,7 @@ export const DEFAULT_CASE_STUDY_DATA: CaseStudySectionData = {
         "Full UI UX redesign",
       ],
       buttonText: "Hire UI/UX Designer",
-      image: "/assets/images/dev.webp",
+      image: "/assets/images/avatar/ui-ux-designer.webp",
     },
     {
       id: "tabScroll3",
@@ -103,7 +103,7 @@ export const DEFAULT_CASE_STUDY_DATA: CaseStudySectionData = {
         "Full visual campaign design",
       ],
       buttonText: "Hire Graphic Designer",
-      image: "/assets/images/video-animation.webp",
+      image: "/assets/images/avatar/graphic-designer.webp",
     },
     // Marketing & Growth
     {
@@ -125,7 +125,7 @@ export const DEFAULT_CASE_STUDY_DATA: CaseStudySectionData = {
         "Brand storytelling framework",
       ],
       buttonText: "Hire Content Strategist",
-      image: "/assets/images/content-writer.webp",
+      image: "/assets/images/avatar/content-writer.webp",
     },
     {
       id: "tabScroll5",
@@ -146,7 +146,7 @@ export const DEFAULT_CASE_STUDY_DATA: CaseStudySectionData = {
         "Multi-platform growth strategy",
       ],
       buttonText: "Hire Social Media Manager",
-      image: "/assets/images/social-media-marketing.webp",
+      image: "/assets/images/avatar/social-media-marketing.webp",
     },
     {
       id: "tabScroll6",
@@ -167,7 +167,7 @@ export const DEFAULT_CASE_STUDY_DATA: CaseStudySectionData = {
         "SEO growth roadmap",
       ],
       buttonText: "Hire SEO Specialist",
-      image: "/assets/images/marketing.webp",
+      image: "/assets/images/avatar/marketing.webp",
     },
     // Development
     {
@@ -189,7 +189,7 @@ export const DEFAULT_CASE_STUDY_DATA: CaseStudySectionData = {
         "Full front-end build",
       ],
       buttonText: "Hire Front End Developer",
-      image: "/assets/images/marketing.webp",
+      image: "/assets/images/avatar/frontend-developer.webp",
     },
     {
       id: "tabScroll8",
@@ -210,7 +210,7 @@ export const DEFAULT_CASE_STUDY_DATA: CaseStudySectionData = {
         "Full backend architecture",
       ],
       buttonText: "Hire Backend Developer",
-      image: "/assets/images/video-animation.webp",
+      image: "/assets/images/avatar/backend-developer.webp",
     },
     {
       id: "tabScroll9",
@@ -231,7 +231,7 @@ export const DEFAULT_CASE_STUDY_DATA: CaseStudySectionData = {
         "Full product development",
       ],
       buttonText: "Hire Full Stack Developer",
-      image: "/assets/images/dev.webp",
+      image: "/assets/images/avatar/dev.webp",
     },
     // Key Growth
     {
@@ -253,7 +253,7 @@ export const DEFAULT_CASE_STUDY_DATA: CaseStudySectionData = {
         "Growth engine design",
       ],
       buttonText: "Hire Growth Hacker",
-      image: "/assets/images/social-media-marketing.webp",
+      image: "/assets/images/avatar/growth-hacker.webp",
     },
     {
       id: "tabScroll11",
@@ -274,7 +274,7 @@ export const DEFAULT_CASE_STUDY_DATA: CaseStudySectionData = {
         "Full automation system",
       ],
       buttonText: "Hire Marketing Automation Specialist",
-      image: "/assets/images/content-writer.webp",
+      image: "/assets/images/avatar/marketing.webp",
     },
     {
       id: "tabScroll12",
@@ -296,7 +296,7 @@ export const DEFAULT_CASE_STUDY_DATA: CaseStudySectionData = {
         "Data insights system",
       ],
       buttonText: "Hire Data Analyst",
-      image: "/assets/images/video-animation.webp",
+      image: "/assets/images/avatar/data-analyst.webp",
     },
   ],
 };

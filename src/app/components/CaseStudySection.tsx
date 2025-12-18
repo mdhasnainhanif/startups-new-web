@@ -713,7 +713,7 @@ const CaseStudySection = ({ data = DEFAULT_CASE_STUDY_DATA, isShowTabs = true, c
   }, [filteredCards, activeCategory, data.cards]);
 
   return (
-    <div className={`pb_8 sectionPadding bg-cover mobile-padding-bottom-0 bg-[#03001D] ${className}`}>
+    <div className={`casestudysec sectionPadding bg-cover mobile-padding-bottom-0 bg-[#03001D] ${className}`}>
       <section className="sectionPaddingCase pt-0 mobile-padding-bottom-0">
         <Container maxWidth="xl">
           <div className="row align-items-center justify-content-center">

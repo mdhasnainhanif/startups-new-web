@@ -564,6 +564,7 @@ ul.factsList {
 .designerFirstSentence {
   color: rgba(255, 255, 255, 0.8);
   text-shadow: -7px 0 15px #0fdac2, 1px -1px 30px #0fdac2, 20px 6px 45px #0fdac2;
+  font-weight: bold;
 }
 
 .designerDescriptionHighlight {

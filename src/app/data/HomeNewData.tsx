@@ -1,18 +1,18 @@
 export const sliderData = {
   slider1: [
-    { sliderDataPara: " $85,000+ a year Hiring a [design team]" },
-    { sliderDataPara: " $65,000+ a year Outsourcing a [developer team]" },
-    { sliderDataPara: " $75,000+ a year Hiring a [UI/UX team]" },
+    { sliderDataPara: "Hiring a [design team] $85,000+ a year" },
+    { sliderDataPara: "Outsourcing a [developer team] $65,000+ a year" },
+    { sliderDataPara: "Hiring a [UI/UX team] $75,000+ a year" },
   ],
   slider2: [
-    { sliderDataPara: "($12,000+ Annual Value) Creative & [Design Tools]" },
-    { sliderDataPara: "($12,000+ Annual Value) Creative & [Design Tools]" },
-    { sliderDataPara: "($12,000+ Annual Value) Creative & [Design Tools]" },
-    { sliderDataPara: "($12,000+ Annual Value) Creative & [Design Tools]" },
+    { sliderDataPara: "Creative & [Design Tools] ($12,000+ Annual Value)" },
+    { sliderDataPara: "Creative & [Design Tools] ($12,000+ Annual Value)" },
+    { sliderDataPara: "Creative & [Design Tools] ($12,000+ Annual Value)" },
+    { sliderDataPara: "Creative & [Design Tools] ($12,000+ Annual Value)" },
   ],
   slider3: [
-    { sliderDataPara: " $85,000+ a year Hiring a [design team]" },
-    { sliderDataPara: " $65,000+ a year Outsourcing a [developer team]" },
-    { sliderDataPara: " $75,000+ a year Hiring a [UI/UX team]" },
+    { sliderDataPara: "Hiring a [design team] $85,000+ a year" },
+    { sliderDataPara: "Outsourcing a [developer team] $65,000+ a year" },
+    { sliderDataPara: "Hiring a [UI/UX team] $75,000+ a year" },
   ],
 };

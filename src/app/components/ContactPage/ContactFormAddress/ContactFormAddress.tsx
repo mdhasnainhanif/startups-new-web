@@ -1,6 +1,10 @@
 "use client";
 
-import React from "react";
+import React, { useMemo, useRef, useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+import type { Swiper as SwiperType } from "swiper";
+import "swiper/css";
 import { ContactFormAddressProps } from "@/app/types/types";
 import { contactFormAddressData } from "./data";
 import styles from "./ContactFormAddress.module.css";
@@ -62,11 +66,39 @@ const IconComponent: React.FC<{ icon: string; className?: string }> = ({
 const ContactFormAddress: React.FC<ContactFormAddressProps> = ({
   config = contactFormAddressData,
 }) => {
+  const swiperRef = useRef<SwiperType | null>(null);
+  const [isBeginning, setIsBeginning] = useState(true);
+  const [isEnd, setIsEnd] = useState(false);
+
+  // Filter only location items
+  const locationItems = useMemo(() => {
+    return config.items.filter((item) => item.icon === "location");
+  }, [config.items]);
+
+  // Filter non-location items
+  const otherItems = useMemo(() => {
+    return config.items.filter((item) => item.icon !== "location");
+  }, [config.items]);
+
+  const handlePrev = () => {
+    swiperRef.current?.slidePrev();
+  };
+
+  const handleNext = () => {
+    swiperRef.current?.slideNext();
+  };
+
+  const handleSlideChange = (swiper: SwiperType) => {
+    setIsBeginning(swiper.isBeginning);
+    setIsEnd(swiper.isEnd);
+  };
+
   return (
     <div className={styles.container}>
       {/* Contact Items */}
       <div className={styles.itemsWrapper}>
-        {config.items.map((item) => (
+        {/* Non-location items */}
+        {otherItems.map((item) => (
           <div key={item.id} className={styles.item}>
             <div
               className={styles.iconWrapper}
@@ -88,6 +120,71 @@ const ContactFormAddress: React.FC<ContactFormAddressProps> = ({
             </div>
           </div>
         ))}
+
+        {/* Location Swiper Slider */}
+        {locationItems.length > 0 && (
+          <div className={styles.locationSwiperWrapper}>
+            <Swiper
+              modules={[Autoplay]}
+              spaceBetween={0}
+              slidesPerView={1}
+              autoplay={{
+                delay: 3000,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: false,
+              }}
+              speed={800}
+              loop={locationItems.length > 1}
+              onSwiper={(swiper) => {
+                swiperRef.current = swiper;
+                setIsBeginning(swiper.isBeginning);
+                setIsEnd(swiper.isEnd);
+              }}
+              onSlideChange={handleSlideChange}
+              className={styles.locationSwiper}
+            >
+              {locationItems.map((item) => (
+                <SwiperSlide key={item.id}>
+                  <div className={styles.item}>
+                    <div
+                      className={styles.iconWrapper}
+                      style={{
+                        background: "#643BFF",
+                      }}
+                    >
+                      <IconComponent icon={item.icon} />
+                    </div>
+                    <div className={styles.content}>
+                      <div className={styles.label}>{item.label}</div>
+                      <div className={styles.value}>{item.value}</div>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+            {/* Navigation Arrows */}
+            {locationItems.length > 1 && (
+              <div className={styles.navButtonWrapper}>
+                <button
+                  onClick={handlePrev}
+                  aria-label="Previous"
+                  disabled={isBeginning}
+                  className={`${styles.navButton} ${styles.navButtonLeft}`}
+                >
+                  <span className={styles.arrowIcon}>‹</span>
+                </button>
+                <button
+                  onClick={handleNext}
+                  aria-label="Next"
+                  disabled={isEnd}
+                  className={`${styles.navButton} ${styles.navButtonRight}`}
+                >
+                  <span className={styles.arrowIcon}>›</span>
+                </button>
+              </div>
+            )}
+          </div>
+        )}
       </div>
 
       {/* Social Links */}

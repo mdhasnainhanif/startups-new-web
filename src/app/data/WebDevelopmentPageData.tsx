@@ -150,7 +150,7 @@ export const webDevelopmentCaseStudyData: CaseStudySectionData = {
         "Full layout direction",
       ],
       buttonText: "Hire Web Designer",
-      image: "/assets/images/2.png",
+      image: "/assets/images/avatar/brand-designer.webp",
     },
     {
       id: "tabScroll2",
@@ -170,7 +170,7 @@ export const webDevelopmentCaseStudyData: CaseStudySectionData = {
         "Full experience consistency",
       ],
       buttonText: "Hire UI UX Designer",
-      image: "/assets/images/ui-ux-designer.webp",
+      image: "/assets/images/avatar/ui-ux-designer.webp",
     },
     {
       id: "tabScroll3",
@@ -190,7 +190,7 @@ export const webDevelopmentCaseStudyData: CaseStudySectionData = {
         "Complete website buildout",
       ],
       buttonText: "Hire Web Developer",
-      image: "/assets/images/graphic-designer.webp",
+      image: "/assets/images/avatar/graphic-designer.webp",
     },
   ],
 };
@@ -210,30 +210,32 @@ export const webDevelopmentAiPowerData: AiPowerDesignData = {
       label: 'Homepage',
       image: '/assets/images/aipower1.png',
       deliverables: [
-        { id: '1', label: 'Homepage', image: '/assets/images/aipower1.png' },
-        { id: '2', label: 'Service Page', image: '/assets/images/aipower2.png' },
-        { id: '3', label: 'About Page', image: '/assets/images/aipower3.png' },
-        { id: '4', label: 'Contact Structure', image: '/assets/images/aipower4.png' },
-        { id: '5', label: 'Blog Setup', image: '/assets/images/aipower5.png' },
-        { id: '6', label: 'Landing Page', image: '/assets/images/aipower1.png' },
-        { id: '7', label: 'Homepage', image: '/assets/images/aipower2.png' },
-        { id: '8', label: 'Service Page', image: '/assets/images/aipower3.png' },
-        { id: '9', label: 'About Page', image: '/assets/images/aipower4.png' },
-        { id: '10', label: 'Contact Structure', image: '/assets/images/aipower5.png' },
-        { id: '11', label: 'Blog Setup', image: '/assets/images/aipower1.png' },
-        { id: '12', label: 'Landing Page', image: '/assets/images/aipower2.png' },
-        { id: '13', label: 'Homepage', image: '/assets/images/aipower3.png' },
-        { id: '14', label: 'Service Page', image: '/assets/images/aipower4.png' },
-        { id: '15', label: 'About Page', image: '/assets/images/aipower5.png' },
-        { id: '16', label: 'Contact Structure', image: '/assets/images/aipower1.png' },
-        { id: '17', label: 'Blog Setup', image: '/assets/images/aipower2.png' },
-        { id: '18', label: 'Landing Page', image: '/assets/images/aipower3.png' },
-        { id: '19', label: 'Homepage', image: '/assets/images/aipower4.png' },
-        { id: '20', label: 'Service Page', image: '/assets/images/aipower5.png' },
-        { id: '21', label: 'About Page', image: '/assets/images/aipower1.png' },
-        { id: '22', label: 'Contact Structure', image: '/assets/images/aipower2.png' },
+        { id: '1', label: 'Frontend Development', image: '/assets/images/aipower1.png' },
+        { id: '2', label: 'Backend Development', image: '/assets/images/aipower2.png' },
+        { id: '3', label: 'Full-Stack Development', image: '/assets/images/aipower3.png' },
+        { id: '4', label: 'Web App Development', image: '/assets/images/aipower4.png' },
+        { id: '5', label: 'Ecommerce Development', image: '/assets/images/aipower5.png' },
+        { id: '6', label: 'CMS Development', image: '/assets/images/aipower1.png' },
+        { id: '7', label: 'API Development & Integration', image: '/assets/images/aipower2.png' },
+        { id: '8', label: 'Database Development', image: '/assets/images/aipower3.png' },
+        { id: '9', label: 'UI/UX Web Design', image: '/assets/images/aipower4.png' },
+        { id: '10', label: 'Mobile-First Web Development', image: '/assets/images/aipower5.png' },
+        { id: '11', label: 'Website Redesign & Optimization', image: '/assets/images/aipower1.png' },
+        { id: '12', label: 'SEO Web Development', image: '/assets/images/aipower2.png' },
+        { id: '13', label: 'Landing Page Development', image: '/assets/images/aipower3.png' },
+        { id: '14', label: 'Web Hosting & Deployment', image: '/assets/images/aipower4.png' },
+        { id: '15', label: 'Performance Optimization', image: '/assets/images/aipower5.png' },
+        { id: '16', label: 'Security & Compliance', image: '/assets/images/aipower1.png' },
+        { id: '17', label: 'Custom Plugin & Module Development', image: '/assets/images/aipower2.png' },
+        { id: '18', label: 'Automation & Scripting', image: '/assets/images/aipower3.png' },
+        { id: '19', label: 'DevOps for Web Projects', image: '/assets/images/aipower4.png' },
+        { id: '20', label: 'Cloud Web Development', image: '/assets/images/aipower5.png' },
+        { id: '21', label: 'Enterprise Web Development', image: '/assets/images/aipower1.png' },
+        { id: '22', label: 'Maintenance & Support', image: '/assets/images/aipower2.png' },
+        { id: '23', label: 'QA & Testing', image: '/assets/images/aipower3.png' },
+        { id: '24', label: 'API-Driven Headless Development', image: '/assets/images/aipower4.png' },
       ],
-      gridItems: 22,
+      gridItems: 24,
     },
   ],
   lifetimeValue: {
@@ -379,21 +381,58 @@ export const webDevelopmentGuessWorkData: GuessWorkAdvertisingData = {
 
 // Slider data for Web Development page
 export const webDevelopmentSliderData1 = [
-  { text: "Hiring a ", highlight: "U.S. developer ", price: "$85,000+ a year " },
-  { text: "Hiring multiple ", highlight: "specialists", price: " $120,000+ a year " },
-  { text: "Tools and ", highlight: "platform subscriptions", price: "$15,000+ a year " },
+  { sliderDataPara: "Hiring a [U.S. developer] $85,000+ a year" },
+  { sliderDataPara: "Hiring multiple [specialists] $120,000+ a year" },
+  { sliderDataPara: "Tools and [platform subscriptions] $15,000+ a year" },
 ];
 
 export const webDevelopmentSliderData2 = [
-  { text: "Development and Production ", highlight: "Systems", price: "($12,000+ Annual Value)" },
-  { text: "Development and Production ", highlight: "Systems", price: "($12,000+ Annual Value)" },
-  { text: "Development and Production ", highlight: "Systems", price: "($12,000+ Annual Value)" },
-  { text: "Development and Production ", highlight: "Systems", price: "($12,000+ Annual Value)" },
+  { sliderDataPara: "Development and Production [Systems] ($12,000+ Annual Value)" },
+  { sliderDataPara: "Development and Production [Systems] ($12,000+ Annual Value)" },
+  { sliderDataPara: "Development and Production [Systems] ($12,000+ Annual Value)" },
+  { sliderDataPara: "Development and Production [Systems] ($12,000+ Annual Value)" },
 ];
 
 export const webDevelopmentSliderData3 = [
-  { text: "$48,000 plus Worth of ", highlight: "Web Production Capability ", price: "Working on Your Build" },
-  { text: "$48,000 plus Worth of ", highlight: "Web Production Capability ", price: "Working on Your Build" },
-  { text: "$48,000 plus Worth of ", highlight: "Web Production Capability ", price: "Working on Your Build" },
+  { sliderDataPara: "$48,000 plus Worth of [Web Production Capability] Working on Your Build" },
+  { sliderDataPara: "$48,000 plus Worth of [Web Production Capability] Working on Your Build" },
+  { sliderDataPara: "$48,000 plus Worth of [Web Production Capability] Working on Your Build" },
+];
+
+// Web Development specific blog guides
+export const webDevelopmentBlogGuides = [
+  {
+    id: "1",
+    image: "/assets/images/blog/1.webp",
+    category: "Web Development",
+    title: "Web Development in 2026 - Full Guide",
+    date: "Nov 10, 2025",
+    readTime: "15 min read",
+    excerpt:
+      "The web in 2026 moves at a speed that forces developers, teams, and businesses to rethink how they build and maintain digital experiences.",
+    href: "/blog-detail/web-development-in-2026-full-guide/",
+  },
+  {
+    id: "2",
+    image: "/assets/images/blog/2.webp",
+    category: "Web Development",
+    title: "How to Build Future‑Ready Websites in 2026 - Full Guide",
+    date: "Nov 15, 2025",
+    readTime: "18 min read",
+    excerpt:
+      "Websites built in 2026 must meet higher expectations than ever before. Users demand instant load times, frictionless navigation, and secure interactions across every device and network.",
+    href: "/blog-detail/how-to-build-future-ready-websites-in-2026/",
+  },
+  {
+    id: "3",
+    image: "/assets/images/blog/3.webp",
+    category: "Web Development",
+    title: "The 2026 Web Developer's Handbook - Full Guide",
+    date: "Nov 20, 2025",
+    readTime: "20 min read",
+    excerpt:
+      "The role of the web developer has evolved dramatically. Businesses expect developers to understand not only coding, but also user experience, performance engineering, AI‑supported workflows, DevOps fundamentals, and long-term system thinking.",
+    href: "/blog-detail/the-2026-web-developers-handbook/",
+  },
 ];
 

@@ -26,7 +26,10 @@ interface FAQProps {
 export default function FAQ({ faqs, sectionData, className = "" }: FAQProps) {
   const [leftOpenIndex, setLeftOpenIndex] = useState<number | null>(0);
   const [rightOpenIndex, setRightOpenIndex] = useState<number | null>(null);
-  const [userQuestion, setUserQuestion] = useState<string>("");
+  const [isFormOpen, setIsFormOpen] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [question, setQuestion] = useState("");
+  const [additionalDetails, setAdditionalDetails] = useState("");
 
   const toggleLeftFAQ = (index: number) => {
     setLeftOpenIndex(leftOpenIndex === index ? null : index);
@@ -36,18 +39,28 @@ export default function FAQ({ faqs, sectionData, className = "" }: FAQProps) {
     setRightOpenIndex(rightOpenIndex === index ? null : index);
   };
 
-  const handleQuestionChange = (value: string) => {
-    setUserQuestion(value);
+  const handleToggleForm = () => {
+    setIsFormOpen(!isFormOpen);
+    // Reset success message when opening/closing form
+    if (isFormOpen) {
+      setShowSuccess(false);
+    }
   };
 
-  const handleSubmitQuestion = () => {
-    const question = userQuestion.trim();
-    if (question) {
-      // Here you can handle the question submission
-      // For now, we'll just show an alert
-      alert(`Question submitted: ${question}`);
-      // Clear the input after submission
-      setUserQuestion("");
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (question.trim()) {
+      // Handle form submission
+      // Hide form and show success message
+      setIsFormOpen(false);
+      setShowSuccess(true);
+      setQuestion("");
+      setAdditionalDetails("");
+      
+      // Hide success message after 5 seconds
+      setTimeout(() => {
+        setShowSuccess(false);
+      }, 5000);
     }
   };
 
@@ -151,30 +164,115 @@ export default function FAQ({ faqs, sectionData, className = "" }: FAQProps) {
             </div>
           </div>
 
-          {/* User Question Input Box - Below all FAQs */}
-          <div className="w-full mt-6 sm:mt-8">
-            <div className="py-3 sm:py-4 border border-white/20 rounded-xl bg-white/5 faqInputWrapper">
-              <div className="px-3 sm:px-4">
-                <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
-                  <div className="flex-1">
-                    <textarea
-                      value={userQuestion}
-                      onChange={(e) => handleQuestionChange(e.target.value)}
-                      placeholder="Ask your own question here..."
-                      className="h-full w-full px-3 sm:px-4 py-2 sm:py-3 bg-white/5 border border-white/20 rounded-lg text-white placeholder-white/50 text-sm sm:text-base resize-none focus:outline-none focus:border-[#0fdac2] focus:ring-1 focus:ring-[#0fdac2] transition-all duration-200"
-                      rows={2}
+          {/* Center Button */}
+          <div className="w-full flex justify-center mt-6 sm:mt-8">
+            <Button
+              variant="green"
+              size="lg"
+              onClick={handleToggleForm}
+              className="px-8 py-3"
+            >
+              Ask A Question
+            </Button>
+          </div>
+
+          {/* Success Message */}
+          {showSuccess && (
+            <div className="w-full overflow-hidden transition-all duration-500 ease-in-out max-h-[300px] opacity-100">
+              <div className="py-6 sm:py-8">
+                <div className="border border-[#0fdac2] rounded-xl bg-[#0b0a24] p-6 sm:p-8 text-center">
+                  {/* Circular Checkmark Icon */}
+                  <div className="flex items-center justify-center mb-4">
+                    <div className="w-16 h-16 rounded-full bg-[#0fdac2] flex items-center justify-center">
+                      <svg
+                        className="w-8 h-8 text-white"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={3}
+                          d="M5 13l4 4L19 7"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-semibold text-[#0fdac2] mb-2">
+                    Question Submitted Successfully!
+                  </h3>
+                  <p className="text-white/80 text-sm sm:text-base">
+                    Thank you for your question. We'll get back to you soon.
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Slide Down Form */}
+          <div
+            className={`w-full overflow-hidden transition-all duration-500 ease-in-out ${
+              isFormOpen && !showSuccess ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+            }`}
+          >
+            <div className="py-6 sm:py-8">
+              <div className="border border-white/20 rounded-xl bg-white/5 p-6 sm:p-8">
+                {/* Heading */}
+                <h3 className="text-2xl sm:text-3xl font-semibold text-white mb-6 text-center">
+                  Ask A Question
+                </h3>
+
+                {/* Form */}
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  {/* Question Input */}
+                  <div>
+                    <input
+                      type="text"
+                      value={question}
+                      onChange={(e) => setQuestion(e.target.value)}
+                      placeholder="Question"
+                      required
+                      className="w-full px-4 py-3 bg-[#0e1030] border-2 border-transparent rounded-lg text-white placeholder-white/50 text-base focus:outline-none focus:border-[#0fdac2] transition-all duration-200"
+                      style={{
+                        backgroundImage: `linear-gradient(#0e1030, #0e1030),
+                          linear-gradient(to right, #0fdac2, #643bff)`,
+                        backgroundOrigin: "border-box",
+                        backgroundClip: "padding-box, border-box",
+                      }}
                     />
                   </div>
-                  <Button
-                    variant="green"
-                    size="md"
-                    onClick={handleSubmitQuestion}
-                    disabled={!userQuestion.trim()}
-                    className="hover:bg-[#0fdac2]/90 px-10"
-                  >
-                    Submit Question
-                  </Button>
-                </div>
+
+                  {/* Additional Details Textarea */}
+                  <div>
+                    <textarea
+                      value={additionalDetails}
+                      onChange={(e) => setAdditionalDetails(e.target.value)}
+                      placeholder="Add additional details (optional)"
+                      rows={4}
+                      className="w-full px-4 py-3 bg-[#0e1030] border-2 border-transparent rounded-lg text-white placeholder-white/50 text-base resize-none focus:outline-none focus:border-[#0fdac2] transition-all duration-200"
+                      style={{
+                        backgroundImage: `linear-gradient(#0e1030, #0e1030),
+                          linear-gradient(to right, #0fdac2, #643bff)`,
+                        backgroundOrigin: "border-box",
+                        backgroundClip: "padding-box, border-box",
+                      }}
+                    />
+                  </div>
+
+                  {/* Submit Button */}
+                  <div className="flex justify-center pt-2">
+                    <Button
+                      type="submit"
+                      variant="green"
+                      size="lg"
+                      disabled={!question.trim()}
+                      className="px-8 py-3"
+                    >
+                      Submit Question
+                    </Button>
+                  </div>
+                </form>
               </div>
             </div>
           </div>

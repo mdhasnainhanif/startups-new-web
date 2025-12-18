@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 import React from 'react'
 import HomenewBanner from '../components/HomenewPage/HomenewBanner/HomenewBanner';
 import FAQ from '../components/FAQ/FAQ'
-import { FAQ_SECTION, GROWTH_GUIDES } from '../constants'
+import { FAQ_SECTION } from '../constants'
 import { FAQ_CONTACT } from '../components/Home/data'
 import GrowthSlider from '../components/GrowthSlider/GrowthSlider'
 import Technologies from '../components/Technologies/Technologies';
 import TextSlider1 from '../components/HomenewPage/TextSlider/TextSlider';
 import Reviews from '../components/Reviews/Reviews';
 import ProfessionalDesign from '../components/ProfessionalDesign/ProfessionalDesign';
-import { webDevelopmentProfessionalData, webDevelopmentCaseStudyData } from '../data/WebDevelopmentPageData';
+import { webDevelopmentProfessionalData, webDevelopmentCaseStudyData, webDevelopmentBlogGuides } from '../data/WebDevelopmentPageData';
 import AiPowerDesign from '../components/AiPowerDesign/AiPowerDesign';
 import CaseStudySection from '../components/CaseStudySection';
 import ProvenSuccess from '../components/ProvenSuccess/ProvenSuccess';
@@ -17,7 +17,6 @@ import RealCost from '../components/RealCost/RealCost';
 import CompleteBusinessSetup from '../components/CompleteBusinessSetup/CompleteBusinessSetup';
 import Contact from '../components/Contact/Contact';
 import GuessWorkAdvertising from '../components/GuessWorkAdvertising/GuessWorkAdvertising';
-import ContactTwo from '../components/ContactTwo/ContactTwo';
 import { 
   webDevelopmentBannerData, 
   webDevelopmentAiPowerData, 
@@ -57,9 +56,9 @@ export default function WebDevelopmentPage() {
       <CompleteBusinessSetup data={webDevelopmentCompleteSetupData}/>
       <ProvenSuccess/>
       <Reviews/>
-      <GrowthSlider items={GROWTH_GUIDES} />
+      <GrowthSlider items={webDevelopmentBlogGuides} />
       <FAQ faqs={FAQ_CONTACT} sectionData={FAQ_SECTION} />
-      <ContactTwo/>
+      <Contact/>
     </>
   )
 }

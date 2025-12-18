@@ -152,7 +152,7 @@ export const socialMediaMarketingCaseStudyData: CaseStudySectionData = {
         "Full visual content production",
       ],
       buttonText: "Hire Social Media Designer",
-      image: "/assets/images/2.png",
+      image: "/assets/images/avatar/social-media-marketing.webp",
     },
     {
       id: "tabScroll2",
@@ -172,7 +172,7 @@ export const socialMediaMarketingCaseStudyData: CaseStudySectionData = {
         "Message-ready content compilation",
       ],
       buttonText: "Hire Content Curator",
-      image: "/assets/images/ui-ux-designer.webp",
+      image: "/assets/images/avatar/social-media-marketing.webp",
     },
     {
       id: "tabScroll3",
@@ -192,7 +192,7 @@ export const socialMediaMarketingCaseStudyData: CaseStudySectionData = {
         "Fast-cut creative planning",
       ],
       buttonText: "Hire Reels Creator",
-      image: "/assets/images/graphic-designer.webp",
+      image: "/assets/images/avatar/social-media-marketing.webp",
     },
     {
       id: "tabScroll4",
@@ -212,7 +212,7 @@ export const socialMediaMarketingCaseStudyData: CaseStudySectionData = {
         "Promotional content writing",
       ],
       buttonText: "Hire Campaign Writer",
-      image: "/assets/images/graphic-designer.webp",
+      image: "/assets/images/avatar/social-media-marketing.webp",
     },
   ],
 };
@@ -232,30 +232,30 @@ export const socialMediaMarketingAiPowerData: AiPowerDesignData = {
       label: 'Social Content',
       image: '/assets/images/aipower1.png',
       deliverables: [
-        { id: '1', label: 'Homepage Design', image: '/assets/images/aipower1.png' },
-        { id: '2', label: 'About Page', image: '/assets/images/aipower2.png' },
-        { id: '3', label: 'Services Page', image: '/assets/images/aipower3.png' },
-        { id: '4', label: 'Contact Page', image: '/assets/images/aipower4.png' },
-        { id: '5', label: 'Product Pages', image: '/assets/images/aipower5.png' },
-        { id: '6', label: 'Blog Layout', image: '/assets/images/aipower1.png' },
-        { id: '7', label: 'Portfolio', image: '/assets/images/aipower2.png' },
-        { id: '8', label: 'Landing Pages', image: '/assets/images/aipower3.png' },
-        { id: '9', label: '404 Page', image: '/assets/images/aipower4.png' },
-        { id: '10', label: 'Thank You Page', image: '/assets/images/aipower5.png' },
-        { id: '11', label: 'Mobile Design', image: '/assets/images/aipower1.png' },
-        { id: '12', label: 'Tablet Design', image: '/assets/images/aipower2.png' },
-        { id: '13', label: 'UI Components', image: '/assets/images/aipower3.png' },
-        { id: '14', label: 'Navigation Menu', image: '/assets/images/aipower4.png' },
-        { id: '15', label: 'Footer Design', image: '/assets/images/aipower5.png' },
-        { id: '16', label: 'Forms Design', image: '/assets/images/aipower1.png' },
-        { id: '17', label: 'CTA Buttons', image: '/assets/images/aipower2.png' },
-        { id: '18', label: 'Icons Set', image: '/assets/images/aipower3.png' },
-        { id: '19', label: 'Animations', image: '/assets/images/aipower4.png' },
-        { id: '20', label: 'Loading States', image: '/assets/images/aipower5.png' },
-        { id: '21', label: 'Error States', image: '/assets/images/aipower1.png' },
-        { id: '22', label: 'Email Templates', image: '/assets/images/aipower2.png' },
-        { id: '23', label: 'Dashboard UI', image: '/assets/images/aipower3.png' },
-        { id: '24', label: 'Admin Panel', image: '/assets/images/aipower4.png' },
+        { id: '1', label: 'Social Media Strategy Development', image: '/assets/images/aipower1.png' },
+        { id: '2', label: 'Social Media Content Creation', image: '/assets/images/aipower2.png' },
+        { id: '3', label: 'Social Media Calendar Planning', image: '/assets/images/aipower3.png' },
+        { id: '4', label: 'Social Media Account Management', image: '/assets/images/aipower4.png' },
+        { id: '5', label: 'Community Engagement & Management', image: '/assets/images/aipower5.png' },
+        { id: '6', label: 'Social Listening & Monitoring', image: '/assets/images/aipower1.png' },
+        { id: '7', label: 'Social Media Branding', image: '/assets/images/aipower2.png' },
+        { id: '8', label: 'Paid Social Media Advertising', image: '/assets/images/aipower3.png' },
+        { id: '9', label: 'Campaign Strategy & Management', image: '/assets/images/aipower4.png' },
+        { id: '10', label: 'Influencer Marketing Management', image: '/assets/images/aipower5.png' },
+        { id: '11', label: 'Social Media Analytics & Reporting', image: '/assets/images/aipower1.png' },
+        { id: '12', label: 'Reel & Short-Form Video Production', image: '/assets/images/aipower2.png' },
+        { id: '13', label: 'Hashtag Strategy Development', image: '/assets/images/aipower3.png' },
+        { id: '14', label: 'Social Media SEO', image: '/assets/images/aipower4.png' },
+        { id: '15', label: 'Crisis Management', image: '/assets/images/aipower5.png' },
+        { id: '16', label: 'Customer Support via Social Media', image: '/assets/images/aipower1.png' },
+        { id: '17', label: 'Platform-Specific Management', image: '/assets/images/aipower2.png' },
+        { id: '18', label: 'Brand Collaboration & Partnerships', image: '/assets/images/aipower3.png' },
+        { id: '19', label: 'Social Media Automation Setup', image: '/assets/images/aipower4.png' },
+        { id: '20', label: 'Lead Generation via Social Media', image: '/assets/images/aipower5.png' },
+        { id: '21', label: 'Live Session Management', image: '/assets/images/aipower1.png' },
+        { id: '22', label: 'UGC (User-Generated Content) Management', image: '/assets/images/aipower2.png' },
+        { id: '23', label: 'Social Media Funnel Development', image: '/assets/images/aipower3.png' },
+        { id: '24', label: 'Competitor Benchmarking', image: '/assets/images/aipower4.png' },
       ],
       gridItems: 24,
     },
@@ -405,21 +405,58 @@ export const socialMediaMarketingGuessWorkData: GuessWorkAdvertisingData = {
 
 // Slider data for Social Media Marketing page
 export const socialMediaMarketingSliderData1 = [
-  { text: "Hiring a ", highlight: "social media designer ", price: "$65,000+ a year " },
-  { text: "Hiring a ", highlight: "content creator team", price: " $75,000+ a year " },
-  { text: "Hiring a ", highlight: "social media team", price: "$85,000+ a year " },
+  { sliderDataPara: "Hiring a [social media designer] $65,000+ a year" },
+  { sliderDataPara: "Hiring a [content creator team] $75,000+ a year" },
+  { sliderDataPara: "Hiring a [social media team] $85,000+ a year" },
 ];
 
 export const socialMediaMarketingSliderData2 = [
-  { text: "Creative Production ", highlight: "Tools", price: "($12,000+ Annual Value)" },
-  { text: "Creative Production ", highlight: "Tools", price: "($12,000+ Annual Value)" },
-  { text: "Creative Production ", highlight: "Tools", price: "($12,000+ Annual Value)" },
-  { text: "Creative Production ", highlight: "Tools", price: "($12,000+ Annual Value)" },
+  { sliderDataPara: "Creative Production [Tools] ($12,000+ Annual Value)" },
+  { sliderDataPara: "Creative Production [Tools] ($12,000+ Annual Value)" },
+  { sliderDataPara: "Creative Production [Tools] ($12,000+ Annual Value)" },
+  { sliderDataPara: "Creative Production [Tools] ($12,000+ Annual Value)" },
 ];
 
 export const socialMediaMarketingSliderData3 = [
-  { text: "Hiring a ", highlight: "social media designer ", price: "$65,000+ a year " },
-  { text: "Hiring a ", highlight: "content creator team", price: " $75,000+ a year " },
-  { text: "Hiring a ", highlight: "social media team", price: "$85,000+ a year " },
+  { sliderDataPara: "Hiring a [social media designer] $65,000+ a year" },
+  { sliderDataPara: "Hiring a [content creator team] $75,000+ a year" },
+  { sliderDataPara: "Hiring a [social media team] $85,000+ a year" },
+];
+
+// Social Media Marketing specific blog guides
+export const socialMediaMarketingBlogGuides = [
+  {
+    id: "1",
+    image: "/assets/images/blog/1.webp",
+    category: "Social Media Marketing",
+    title: "Social Media Strategy for 2026 - Full Guide",
+    date: "Dec 10, 2025",
+    readTime: "23 min read",
+    excerpt:
+      "Social media has shifted from simple posting to strategic ecosystem building. Platforms reward consistency, originality, watch time, and meaningful engagement — not random uploads.",
+    href: "/blog-detail/social-media-strategy-for-2026/",
+  },
+  {
+    id: "2",
+    image: "/assets/images/blog/2.webp",
+    category: "Social Media Marketing",
+    title: "How to Grow on Social Media in 2026 - Full Guide",
+    date: "Dec 15, 2025",
+    readTime: "20 min read",
+    excerpt:
+      "Growing on social media in 2026 goes far beyond posting frequently. Algorithms now reward content that increases meaningful engagement, holds attention longer, and builds trust.",
+    href: "/blog-detail/how-to-grow-on-social-media-in-2026/",
+  },
+  {
+    id: "3",
+    image: "/assets/images/blog/3.webp",
+    category: "Social Media Marketing",
+    title: "The 2026 Social Media Manager's Guide - Full Guide",
+    date: "Dec 20, 2025",
+    readTime: "22 min read",
+    excerpt:
+      "Social media in 2026 is no longer managed with guesswork or inconsistent posting. Platforms evolve weekly, algorithms demand meaningful engagement, and audiences expect high-value content delivered with personality and consistency.",
+    href: "/blog-detail/the-2026-social-media-managers-guide/",
+  },
 ];
 

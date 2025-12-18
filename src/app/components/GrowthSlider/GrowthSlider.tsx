@@ -132,7 +132,7 @@ export default function GrowthSlider({ items }: { items: Guide[] }) {
 
                   <div className={styles.readButtonWrapper}>
                     <Button
-                      href="#"
+                      href={it.href}
                       variant="primary"
                       icon={<ArrowRightIcon style={{ fill: "#fff" }} />}
                       iconPosition="right"

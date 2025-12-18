@@ -310,13 +310,35 @@ export const GROWTH_GUIDES = [
   {
     id: "1",
     image: "/assets/images/blog/1.webp",
-    category: "Shopify Agent",
-    title: "AI Agents Benefit From Data Quality Validation And More...",
+    category: "Web Development",
+    title: "Web Development in 2026 - Full Guide",
     date: "Nov 10, 2025",
-    readTime: "6 min read",
+    readTime: "15 min read",
     excerpt:
-      "Imagine launching a digital workforce of intelligent agents that operate on unstructured data — validated, enriched, and ready to act.",
-    href: "/blog/ai-agents-data-quality",
+      "The web in 2026 moves at a speed that forces developers, teams, and businesses to rethink how they build and maintain digital experiences.",
+    href: "/blog-detail/web-development-in-2026-full-guide/",
+  },
+  {
+    id: "7",
+    image: "/assets/images/blog/3.webp",
+    category: "Content Writing",
+    title: "Content Writing in 2026 - Full Guide",
+    date: "Dec 5, 2025",
+    readTime: "21 min read",
+    excerpt:
+      "Content writing in 2026 is no longer about stuffing keywords into 800 words and hoping to rank. Search engines now prioritize experience, depth, and usefulness, while readers expect clarity, speed, and authenticity.",
+    href: "/blog-detail/content-writing-in-2026-full-guide/",
+  },
+  {
+    id: "8",
+    image: "/assets/images/blog/2.webp",
+    category: "Social Media Marketing",
+    title: "How to Grow on Social Media in 2026 - Full Guide",
+    date: "Dec 15, 2025",
+    readTime: "20 min read",
+    excerpt:
+      "Growing on social media in 2026 goes far beyond posting frequently. Algorithms now reward content that increases meaningful engagement, holds attention longer, and builds trust.",
+    href: "/blog-detail/how-to-grow-on-social-media-in-2026/",
   },
   {
     id: "2",
@@ -381,8 +403,10 @@ export const CALENDLY_SECTION = {
     "Join us on a call and get a clear roadmap that shows how your business can increase clients improve consistency and grow steadily day by day.",
   buttonText: "Free Up Your Time",
   buttonHref: "#",
-  calendlyUrl: "https://calendly.com/md-hasnain-developer/30min",
   calendlyText:
     "You go from chasing opportunities to choosing the ones that fit your growth.",
+  // Cal.com props
+  calNamespace: "30min",
+  calLink: "inhouse-team-loexw9/30min",
 };
 
