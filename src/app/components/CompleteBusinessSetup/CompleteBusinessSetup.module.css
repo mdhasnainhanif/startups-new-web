@@ -62,7 +62,8 @@
   border: 1px solid #21164c;
   background: #312763;
   border-radius: 0.525rem;
-  padding: .22rem .225rem .345rem .525rem;
+  padding: .52rem .225rem .845rem .525rem;
+  font-size: 1rem;
 }
 /* .separatorLine::after {
   content: "";
