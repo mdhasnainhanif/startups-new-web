@@ -4,9 +4,9 @@ import React, { useEffect, useRef } from "react";
 import styles from "./TextSlider.module.css";
 import gsap from "gsap";
 
-type SliderItem = {
-  sliderDataPara: string;
-};
+type SliderItem = 
+  | { sliderDataPara: string }
+  | { text: string; highlight: string; price: string };
 
 interface TextSlider1Props {
   data?: SliderItem[];
@@ -250,7 +250,18 @@ const TextSlider1: React.FC<TextSlider1Props> = ({ data = [] }) => {
       <div className={styles.scrollingText}>
         <div className={styles.rail} ref={railRef}>
           {data.map((item, idx) => {
-            const textParts = parseTextWithHighlights(item.sliderDataPara);
+            // Handle both data formats
+            let textParts: Array<{ text: string; isHighlight: boolean }>;
+            
+            if ('sliderDataPara' in item) {
+              // Old format: sliderDataPara with brackets
+              textParts = parseTextWithHighlights(item.sliderDataPara);
+            } else {
+              // New format: text, highlight, price
+              const combinedText = `${item.text}[${item.highlight}]${item.price}`;
+              textParts = parseTextWithHighlights(combinedText);
+            }
+            
             return (
               <h4 key={idx}>
                 {textParts.map((part, partIdx) => (
