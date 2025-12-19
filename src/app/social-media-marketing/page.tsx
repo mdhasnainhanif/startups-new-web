@@ -43,7 +43,7 @@ export default function SocialMediaMarketingPage() {
       <AiPowerDesign data={socialMediaMarketingAiPowerData}/>
       <Technologies 
         hideTabs={true} 
-        defaultTab="creative"
+        defaultTab="socialMediaMarketing"
         heading="$48,000 plus in Creative Output Delivered in 22 Days"
         description="A concentrated production period powered by structured tools and experienced creators replaces inconsistent visuals, slow content delivery, and unclear messaging."
         subDescription="Creative Production Tools ($12,000 plus Annual Value)"

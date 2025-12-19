@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import React from 'react'
 import HomenewBanner from '../components/HomenewPage/HomenewBanner/HomenewBanner';
 import FAQ from '../components/FAQ/FAQ'
 import { FAQ_SECTION } from '../constants'
@@ -17,7 +16,6 @@ import RealCost from '../components/RealCost/RealCost';
 import CompleteBusinessSetup from '../components/CompleteBusinessSetup/CompleteBusinessSetup';
 import Contact from '../components/Contact/Contact';
 import GuessWorkAdvertising from '../components/GuessWorkAdvertising/GuessWorkAdvertising';
-import ContactTwo from '../components/ContactTwo/ContactTwo';
 import { 
   contentWritingBannerData, 
   contentWritingAiPowerData, 
@@ -44,7 +42,7 @@ export default function ContentWritingPage() {
       <AiPowerDesign data={contentWritingAiPowerData}/>
       <Technologies 
         hideTabs={true} 
-        defaultTab="creative"
+        defaultTab="contentWriting"
         heading="$48,000 plus in Professional Writing Output Delivered in 22 Days"
         description="A condensed writing period supported by structured tools and seasoned writers replaces fragmented content, inconsistent tone, and time-consuming revisions."
         subDescription="Content Production Tools ($12,000 plus Annual Value)"

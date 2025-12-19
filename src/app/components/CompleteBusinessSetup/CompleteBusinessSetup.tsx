@@ -194,36 +194,27 @@
       },
     },
   };
-
   const CompleteBusinessSetup = ({ data = DEFAULT_DATA }: CompleteBusinessSetupProps) => {
     const swiperRef = useRef<SwiperType | null>(null);
     const [isBeginning, setIsBeginning] = useState(true);
     const [isEnd, setIsEnd] = useState(false);
-
     const handlePrev = () => {
       swiperRef.current?.slidePrev();
     };
-
     const handleNext = () => {
       swiperRef.current?.slideNext();
     };
-
     const handleSlideChange = (swiper: SwiperType) => {
       setIsBeginning(swiper.isBeginning);
       setIsEnd(swiper.isEnd);
     };
-
     const { heading, brandingKits, benefits } = data;
-
-    // Function to parse title and highlight price ($1,499) and make /mo smaller
     const parseTitleWithPrice = (text: string) => {
       const parts: Array<{ text: string; isHighlight: boolean; isSmall: boolean }> = [];
       const regex = /(\$\d{1,3}(?:,\d{3})*)\s*(\/mo)?/g;
       let lastIndex = 0;
       let match;
-
       while ((match = regex.exec(text)) !== null) {
-        // Add text before the price
         if (match.index > lastIndex) {
           parts.push({
             text: text.substring(lastIndex, match.index),
@@ -231,24 +222,20 @@
             isSmall: false,
           });
         }
-        // Add highlighted price
         parts.push({
-          text: match[1], // Price part
+          text: match[1], 
           isHighlight: true,
           isSmall: false,
-        });
-        // Add /mo if present with smaller font
+        }); 
         if (match[2]) {
           parts.push({
-            text: match[2], // /mo part
+            text: match[2], 
             isHighlight: false,
             isSmall: true,
           });
         }
         lastIndex = regex.lastIndex;
       }
-
-      // Add remaining text after last price
       if (lastIndex < text.length) {
         parts.push({
           text: text.substring(lastIndex),
@@ -256,8 +243,6 @@
           isSmall: false,
         });
       }
-
-      // If no price found, return the whole text as non-highlighted
       if (parts.length === 0) {
         parts.push({ text, isHighlight: false, isSmall: false });
       }
@@ -280,15 +265,16 @@
           >
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12">
               <div className={`flex flex-col md:col-span-7 ${styles.sliderwrapper}`}>
-                <div className="relative px-6 md:px-10 py-4">
+                <div className="relative px-6 md:px-10 py-4 flex items-center min-h-full w-full">
                   <button
                     onClick={handlePrev}
                     disabled={isBeginning}
-                    className={`absolute -left-4 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center transition-all ${
+                    className={`absolute left-0 top-1/2 z-10 flex items-center justify-center transition-all ${
                       isBeginning
                         ? "opacity-30 cursor-not-allowed"
                         : "hover:opacity-80"
                     } ${styles.navButton}`}
+                    style={{ transform: 'translate(-50%, -50%)' }}
                     aria-label="Previous"
                   >
                     <svg
@@ -307,9 +293,10 @@
                   <button
                     onClick={handleNext}
                     disabled={isEnd}
-                    className={`absolute -right-4 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center transition-all ${
+                    className={`absolute right-0 top-1/2 z-10 flex items-center justify-center transition-all ${
                       isEnd ? "opacity-30 cursor-not-allowed" : "hover:opacity-80"
                     } ${styles.navButton}`}
+                    style={{ transform: 'translate(50%, -50%)' }}
                     aria-label="Next"
                   >
                     <svg
