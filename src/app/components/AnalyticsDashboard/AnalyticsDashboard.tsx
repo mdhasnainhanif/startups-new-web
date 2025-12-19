@@ -110,7 +110,7 @@ export default function AnalyticsDashboard({
                 <div className="space-y-2.5 sm:space-y-3">
                   {leftColumnItems.left.map((item, index) => (
                     <div key={index} className="flex items-center space-x-3">
-                      <div className={`w-3 h-3 rounded-full bg-[#00ffff] shrink-0 ${styles.cyanBulletGlow}`}></div>
+                      <div className={`w-3 h-3 rounded-full bg-[#643BFF] shrink-0 ${styles.cyanBulletGlow}`}></div>
                       <span className={`text-sm sm:text-base text-white ${styles.fs2}`}>{item}</span>
                     </div>
                   ))}
@@ -118,7 +118,7 @@ export default function AnalyticsDashboard({
                 <div className="space-y-2.5 sm:space-y-3">
                   {leftColumnItems.right.map((item, index) => (
                     <div key={index} className="flex items-center space-x-3">
-                      <div className={`w-3 h-3 rounded-full bg-[#00ffff] shrink-0 ${styles.cyanBulletGlow}`}></div>
+                      <div className={`w-3 h-3 rounded-full bg-[#643BFF] shrink-0 ${styles.cyanBulletGlow}`}></div>
                       <span className={`text-sm sm:text-base text-white ${styles.fs2}`}>{item}</span>
                     </div>
                   ))}
@@ -259,7 +259,7 @@ export default function AnalyticsDashboard({
               <ul className="space-y-3 sm:space-y-4">
                 {middleRecommendations.map((rec, index) => (
                   <li key={index} className="flex items-start space-x-3">
-                    <span className="text-[#00ffff] text-lg sm:text-xl mt-2"><Image src="/assets/images/tick2.png" alt="bulb" width={20} height={20} /></span>
+                    <span className="text-[#00ffff] text-lg sm:text-xl mt-2"><Image src="/assets/images/tick.png" alt="bulb" width={20} height={20} /></span>
                     <span className={`text-sm sm:text-base text-white leading-relaxed text-left ${styles.fs2}`}>{rec}</span>
                   </li>
                 ))}

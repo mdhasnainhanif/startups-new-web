@@ -51,8 +51,9 @@ export default function GrowthSlider({ items }: { items: Guide[] }) {
   const shouldShowNavigation = items.length > 3;
 
   return (
-    <section className={`${styles.section} sectionPadding`}>
-      <Container maxWidth="xl">
+    <section className={`${styles.section} sectionPadding blogStarsBackground`}>
+      <div className="starsLayer3"></div>
+      <Container maxWidth="xl" >
         <div className="sectionHeading forH2 text-center text-[#ffffff]">
           <h2>
             Growth{" "}

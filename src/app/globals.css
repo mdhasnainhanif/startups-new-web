@@ -266,6 +266,319 @@ h2 .bracket-text-green {
 
 .casestudysec {
   padding-bottom: 11rem;
+  position: relative;
+}
+
+/* Starry Background Effect for Hero Banner */
+.heroStarsBackground {
+  position: relative;
+}
+
+.heroStarsBackground::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(2px 2px at 20% 30%, white, transparent),
+    radial-gradient(1.5px 1.5px at 60% 70%, white, transparent),
+    radial-gradient(1px 1px at 80% 20%, white, transparent);
+  background-repeat: repeat;
+  background-size: 500px 500px;
+  opacity: 0.15;
+  animation: twinkle1 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  animation-delay: 0s;
+  pointer-events: none;
+  filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.4));
+  transition: opacity 0.3s ease, filter 0.3s ease;
+  z-index: 3;
+}
+
+.heroStarsBackground::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(1.5px 1.5px at 40% 60%, white, transparent),
+    radial-gradient(1px 1px at 70% 30%, white, transparent),
+    radial-gradient(2px 2px at 90% 80%, white, transparent);
+  background-repeat: repeat;
+  background-size: 500px 500px;
+  opacity: 0.15;
+  animation: twinkle2 5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  animation-delay: 1.2s;
+  pointer-events: none;
+  filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.4));
+  transition: opacity 0.3s ease, filter 0.3s ease;
+  z-index: 3;
+}
+
+.heroStarsBackground .starsLayer3 {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(1px 1px at 30% 50%, white, transparent),
+    radial-gradient(1.5px 1.5px at 65% 15%, white, transparent),
+    radial-gradient(2px 2px at 85% 65%, white, transparent);
+  background-repeat: repeat;
+  background-size: 500px 500px;
+  opacity: 0.15;
+  animation: twinkle3 6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  animation-delay: 2s;
+  pointer-events: none;
+  filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.4));
+  z-index: 3;
+  transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+/* Starry Background Effect for Blog Section */
+.blogStarsBackground {
+  position: relative;
+}
+
+.blogStarsBackground::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(2px 2px at 20% 30%, white, transparent),
+    radial-gradient(1.5px 1.5px at 60% 70%, white, transparent),
+    radial-gradient(1px 1px at 80% 20%, white, transparent);
+  background-repeat: repeat;
+  background-size: 500px 500px;
+  opacity: 0.15;
+  animation: twinkle1 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  animation-delay: 0s;
+  pointer-events: none;
+  filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.4));
+  transition: opacity 0.3s ease, filter 0.3s ease;
+  z-index: 0;
+}
+
+.blogStarsBackground::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(1.5px 1.5px at 40% 60%, white, transparent),
+    radial-gradient(1px 1px at 70% 30%, white, transparent),
+    radial-gradient(2px 2px at 90% 80%, white, transparent);
+  background-repeat: repeat;
+  background-size: 500px 500px;
+  opacity: 0.15;
+  animation: twinkle2 5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  animation-delay: 1.2s;
+  pointer-events: none;
+  filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.4));
+  transition: opacity 0.3s ease, filter 0.3s ease;
+  z-index: 0;
+}
+
+.blogStarsBackground .starsLayer3 {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(1px 1px at 30% 50%, white, transparent),
+    radial-gradient(1.5px 1.5px at 65% 15%, white, transparent),
+    radial-gradient(2px 2px at 85% 65%, white, transparent);
+  background-repeat: repeat;
+  background-size: 500px 500px;
+  opacity: 0.15;
+  animation: twinkle3 6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  animation-delay: 2s;
+  pointer-events: none;
+  filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.4));
+  z-index: 0;
+  transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+/* Starry Background Effect for Case Study Section */
+.casestudysec::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(2px 2px at 15% 25%, white, transparent),
+    radial-gradient(1.5px 1.5px at 45% 65%, white, transparent),
+    radial-gradient(1px 1px at 75% 15%, white, transparent),
+    radial-gradient(2px 2px at 85% 35%, white, transparent),
+    radial-gradient(1px 1px at 25% 55%, white, transparent);
+  background-repeat: repeat;
+  background-size: 400px 400px;
+  opacity: 0.3;
+  animation: twinkle1 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  animation-delay: 0s;
+  pointer-events: none;
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.6));
+  transition: opacity 0.3s ease, filter 0.3s ease;
+  z-index: 0;
+}
+
+.casestudysec::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(1.5px 1.5px at 55% 75%, white, transparent),
+    radial-gradient(1px 1px at 35% 45%, white, transparent),
+    radial-gradient(2px 2px at 5% 85%, white, transparent),
+    radial-gradient(1px 1px at 65% 20%, white, transparent),
+    radial-gradient(1.5px 1.5px at 90% 60%, white, transparent);
+  background-repeat: repeat;
+  background-size: 400px 400px;
+  opacity: 0.3;
+  animation: twinkle2 5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  animation-delay: 1.2s;
+  pointer-events: none;
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.6));
+  transition: opacity 0.3s ease, filter 0.3s ease;
+  z-index: 0;
+}
+
+.casestudysec .starsLayer3 {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(1px 1px at 20% 10%, white, transparent),
+    radial-gradient(1.5px 1.5px at 40% 80%, white, transparent),
+    radial-gradient(2px 2px at 60% 50%, white, transparent),
+    radial-gradient(1px 1px at 80% 25%, white, transparent),
+    radial-gradient(1.5px 1.5px at 30% 70%, white, transparent);
+  background-repeat: repeat;
+  background-size: 400px 400px;
+  opacity: 0.3;
+  animation: twinkle3 6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  animation-delay: 2s;
+  pointer-events: none;
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.6));
+  z-index: 0;
+  transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+@keyframes twinkle1 {
+  0% { 
+    opacity: 0.15;
+    filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.3));
+  }
+  20% { 
+    opacity: 0.5;
+    filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.7));
+  }
+  40% { 
+    opacity: 0.8;
+    filter: drop-shadow(0 0 3.5px rgba(255, 255, 255, 1));
+  }
+  60% { 
+    opacity: 0.4;
+    filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.6));
+  }
+  80% { 
+    opacity: 0.9;
+    filter: drop-shadow(0 0 4px rgba(255, 255, 255, 1));
+  }
+  100% { 
+    opacity: 0.15;
+    filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.3));
+  }
+}
+
+@keyframes twinkle2 {
+  0% { 
+    opacity: 0.2;
+    filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.4));
+  }
+  15% { 
+    opacity: 0.4;
+    filter: drop-shadow(0 0 1.5px rgba(255, 255, 255, 0.6));
+  }
+  30% { 
+    opacity: 0.7;
+    filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.9));
+  }
+  50% { 
+    opacity: 0.95;
+    filter: drop-shadow(0 0 4px rgba(255, 255, 255, 1));
+  }
+  70% { 
+    opacity: 0.5;
+    filter: drop-shadow(0 0 2.5px rgba(255, 255, 255, 0.8));
+  }
+  85% { 
+    opacity: 0.3;
+    filter: drop-shadow(0 0 1.5px rgba(255, 255, 255, 0.5));
+  }
+  100% { 
+    opacity: 0.2;
+    filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.4));
+  }
+}
+
+@keyframes twinkle3 {
+  0% { 
+    opacity: 0.15;
+    filter: drop-shadow(0 0 0.5px rgba(255, 255, 255, 0.2));
+  }
+  12% { 
+    opacity: 0.35;
+    filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.4));
+  }
+  25% { 
+    opacity: 0.65;
+    filter: drop-shadow(0 0 2.5px rgba(255, 255, 255, 0.85));
+  }
+  37% { 
+    opacity: 0.3;
+    filter: drop-shadow(0 0 1.5px rgba(255, 255, 255, 0.5));
+  }
+  50% { 
+    opacity: 0.85;
+    filter: drop-shadow(0 0 3.5px rgba(255, 255, 255, 1));
+  }
+  62% { 
+    opacity: 0.5;
+    filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.7));
+  }
+  75% { 
+    opacity: 0.7;
+    filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.9));
+  }
+  87% { 
+    opacity: 0.4;
+    filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.6));
+  }
+  100% { 
+    opacity: 0.15;
+    filter: drop-shadow(0 0 0.5px rgba(255, 255, 255, 0.2));
+  }
 }
 
 .caseBtn {
@@ -288,6 +601,12 @@ h2 .bracket-text-green {
 
 .caseBtn:first-child::before {
   display: none;
+}
+
+/* Smooth transition for sticky tabs hide/show */
+.sticky.top-10 {
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out, visibility 0.5s ease-in-out;
+  will-change: opacity, transform;
 }
 
 /* Tabs Swiper Styles */

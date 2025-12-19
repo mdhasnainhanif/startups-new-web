@@ -21,7 +21,7 @@ export default function Questionnaire() {
         if (!buttonClickedRef.current) {
           setShowPopup(true);
         }
-      }, 400); // 40 seconds
+      }, 40000); // 40 seconds
     }
 
     // Cleanup timer on unmount or when conditions change

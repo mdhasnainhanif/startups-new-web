@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Container from "../components/Container";
 import styles from "../components/Questionnaire/Questionnaire.module.css";
 import briefStyles from "./page.module.css";
@@ -14,15 +14,107 @@ export interface QuestionnaireAnswers {
   [key: string]: string;
 }
 
+const STORAGE_KEY = "brief-progress";
+
+interface SavedProgress {
+  currentStep: string;
+  answers: QuestionnaireAnswers;
+  stepHistory: string[];
+  personalDetails?: {
+    name: string;
+    contact: string;
+    email: string;
+    country: string;
+  };
+}
+
+// Function to get initial state from localStorage synchronously
+function getInitialState() {
+  if (typeof window === "undefined") {
+    return {
+      currentStep: "step-1",
+      answers: {} as QuestionnaireAnswers,
+      stepHistory: ["step-1"],
+      personalDetails: null as {
+        name: string;
+        contact: string;
+        email: string;
+        country: string;
+      } | null,
+    };
+  }
+
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) {
+      const progress: SavedProgress = JSON.parse(saved);
+      return {
+        currentStep: progress.currentStep || "step-1",
+        answers: progress.answers || {},
+        stepHistory: progress.stepHistory && progress.stepHistory.length > 0 
+          ? progress.stepHistory 
+          : ["step-1"],
+        personalDetails: progress.personalDetails || null,
+      };
+    }
+  } catch (error) {
+    console.error("Error restoring progress:", error);
+  }
+
+  return {
+    currentStep: "step-1",
+    answers: {} as QuestionnaireAnswers,
+    stepHistory: ["step-1"],
+    personalDetails: null as {
+      name: string;
+      contact: string;
+      email: string;
+      country: string;
+    } | null,
+  };
+}
+
 export default function BriefPage() {
   const router = useRouter();
-  const [currentStep, setCurrentStep] = useState<string>("step-1");
-  const [answers, setAnswers] = useState<QuestionnaireAnswers>({});
-  const [showThankYou, setShowThankYou] = useState(false);
+  const initialState = getInitialState();
+  const [currentStep, setCurrentStep] = useState<string>(initialState.currentStep);
+  const [answers, setAnswers] = useState<QuestionnaireAnswers>(initialState.answers);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [stepHistory, setStepHistory] = useState<string[]>(["step-1"]);
+  const [stepHistory, setStepHistory] = useState<string[]>(initialState.stepHistory);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [fadeIn, setFadeIn] = useState(true);
+  // Initialize immediately - state is already loaded synchronously from localStorage
+  const [isInitialized, setIsInitialized] = useState(typeof window !== "undefined");
+  const [savedPersonalDetails, setSavedPersonalDetails] = useState<{
+    name: string;
+    contact: string;
+    email: string;
+    country: string;
+  } | null>(initialState.personalDetails);
+
+  // Ensure initialized state is set on client-side
+  useEffect(() => {
+    if (typeof window !== "undefined" && !isInitialized) {
+      setIsInitialized(true);
+    }
+  }, [isInitialized]);
+
+  // Save progress to localStorage whenever state changes
+  useEffect(() => {
+    if (!isInitialized || typeof window === "undefined") return;
+    
+    try {
+      const progress: SavedProgress = {
+        currentStep,
+        answers,
+        stepHistory,
+        ...(savedPersonalDetails && { personalDetails: savedPersonalDetails }),
+      };
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
+    } catch (error) {
+      console.error("Error saving progress:", error);
+    }
+  }, [currentStep, answers, stepHistory, savedPersonalDetails, isInitialized]);
 
   const handleOptionSelect = (stepId: string, value: string, nextStep: string) => {
     setAnswers((prev) => ({
@@ -155,7 +247,37 @@ export default function BriefPage() {
       });
 
       if (response.ok) {
-        setShowThankYou(true);
+        // Clear saved progress and cookies on successful submission
+        if (typeof window !== "undefined") {
+          try {
+            // Clear localStorage
+            localStorage.removeItem(STORAGE_KEY);
+            
+            // Clear all cookies
+            const cookies = document.cookie.split(";");
+            for (let i = 0; i < cookies.length; i++) {
+              const cookie = cookies[i];
+              const eqPos = cookie.indexOf("=");
+              const name = eqPos > -1 ? cookie.substr(0, eqPos).trim() : cookie.trim();
+              if (name) {
+                // Clear cookie for current path
+                document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/`;
+                // Clear cookie for current domain
+                document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/;domain=${window.location.hostname}`;
+                // Clear cookie for parent domain (if applicable)
+                const hostnameParts = window.location.hostname.split(".");
+                if (hostnameParts.length > 1) {
+                  const parentDomain = "." + hostnameParts.slice(-2).join(".");
+                  document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/;domain=${parentDomain}`;
+                }
+              }
+            }
+          } catch (error) {
+            console.error("Error clearing progress and cookies:", error);
+          }
+        }
+        // Redirect to thank-you page
+        router.push("/thank-you");
       } else {
         console.error("Failed to submit form");
       }
@@ -166,10 +288,21 @@ export default function BriefPage() {
     }
   };
 
+  const handlePersonalDetailsChange = (formData: {
+    name: string;
+    contact: string;
+    email: string;
+    country: string;
+  }) => {
+    setSavedPersonalDetails(formData);
+  };
+
   const currentStepData = questionnaireData.steps.find((s) => s.id === currentStep);
   
-  // Calculate progress
+  // Calculate total steps (needed for both initialized and non-initialized states)
   const totalSteps = questionnaireData.steps.length + 1; // +1 for personal details form
+  
+  // Calculate progress
   let currentStepNumber: number;
   let progressPercentage: number;
   
@@ -182,97 +315,88 @@ export default function BriefPage() {
     progressPercentage = currentStepData?.progress || ((currentStepNumber / totalSteps) * 100);
   }
 
-  if (showThankYou) {
-    return (
-      <section className={`${styles.questionnaireSection} sectionPadding`}>
-        <Container maxWidth="2xl" className={styles.container}>
-          <div className={styles.thankYouArea}>
-            <h1 className={styles.thankYouHeading}>Thank You!</h1>
-            <div className={styles.separator}></div>
-            <div className={styles.thankYouMessage}>
-              <h2 className={styles.thankYouSubheading}>
-                We Will Get In Touch You Shortly
-              </h2>
-            </div>
-          </div>
-        </Container>
-      </section>
-    );
-  }
 
   const showBackButton = stepHistory.length > 1 || currentStep !== "step-1";
 
   return (
     <>
       <div className={`relative w-full ${briefStyles.briefPage}`}>
-        <div className={`w-full ${fadeIn ? styles.fadeIn : styles.fadeOut}`}>
-          <section className={`${styles.questionnaireSection} ${briefStyles.questionnaireSection}`}>
-            <Container maxWidth="2xl" className={styles.container}>
-              <div className={`${styles.questionnaireWrapper} ${briefStyles.questionnaireWrapper}`}>
-                {/* Header */}
-                <div className={styles.header}>
-                  <h1 className={styles.mainHeading}>
-                    Just Tell Us What You Need & Get <br />
-                    The Best Price Instantly!
-                  </h1>
-                  <div className={styles.separator}></div>
-                  
-                  {/* Progress Indicator */}
-                  {!showThankYou && (
-                    <div className={styles.progressContainer}>
-                      <div className={styles.progressInfo}>
-                        <span className={styles.progressText}>
-                          Step {currentStepNumber} of {totalSteps}
-                        </span>
-                      </div>
-                      <div className={styles.progressBar}>
-                        <div 
-                          className={styles.progressBarFill}
-                          style={{ width: `${progressPercentage}%` }}
-                        ></div>
-                      </div>
+        {/* Remove fade wrapper - load state directly without animation */}
+        <section className={`${styles.questionnaireSection} ${briefStyles.questionnaireSection}`}>
+          <Container maxWidth="2xl" className={styles.container}>
+            <div className={`${styles.questionnaireWrapper} ${briefStyles.questionnaireWrapper}`}>
+              {/* Header - Always visible, fixed position */}
+              <div className={styles.header}>
+                <h1 className={styles.mainHeading}>
+                  Just Tell Us What You Need & Get <br />
+                  The Best Price Instantly!
+                </h1>
+                <div className={styles.separator}></div>
+                
+                {/* Progress Indicator - only show when initialized */}
+                {isInitialized && (
+                  <div className={styles.progressContainer}>
+                    <div className={styles.progressInfo}>
+                      <span className={styles.progressText}>
+                        Step {currentStepNumber} of {totalSteps}
+                      </span>
                     </div>
-                  )}
-                </div>
-
-                {/* Form Area */}
-                <div className={styles.formArea}>
-                {currentStep === "questionnaire-personal-detail" ? (
-                  <div>
-                    <PersonalDetailsForm
-                      key="personal-details-form"
-                      onSubmit={handlePersonalDetailsSubmit}
-                      onBack={handleBack}
-                      isSubmitting={isSubmitting}
-                      showBack={false}
-                    />
+                    <div className={styles.progressBar}>
+                      <div 
+                        className={styles.progressBarFill}
+                        style={{ width: `${progressPercentage}%` }}
+                      ></div>
+                    </div>
                   </div>
-                ) : (
-                    <>
-                      {currentStepData && (
-                        <div className={`${styles.stepWrapper} ${fadeIn ? styles.fadeIn : styles.fadeOut}`}>
-                          <QuestionnaireStep
-                            key={currentStepData.id}
-                            step={currentStepData}
-                            onSelect={handleOptionSelect}
-                            onBack={handleBack}
-                            selectedValue={currentStepData.multiSelect 
-                              ? (answers[currentStepData.id] ? answers[currentStepData.id].split(",") : [])
-                              : answers[currentStepData.id]
-                            }
-                            showBack={false}
-                          />
-                        </div>
-                      )}
-                    </>
-                  )}
-                </div>
+                )}
               </div>
-            </Container>
-          </section>
-        </div>
+
+              {/* Form Area - Only show content when initialized */}
+              <div className={styles.formArea}>
+                {!isInitialized ? (
+                  // Empty state while loading - maintains layout
+                  <div style={{ minHeight: '400px' }}></div>
+                ) : (
+                  <>
+                    {currentStep === "questionnaire-personal-detail" ? (
+                      <div>
+                        <PersonalDetailsForm
+                          key="personal-details-form"
+                          onSubmit={handlePersonalDetailsSubmit}
+                          onBack={handleBack}
+                          isSubmitting={isSubmitting}
+                          showBack={false}
+                          initialData={savedPersonalDetails}
+                          onDataChange={handlePersonalDetailsChange}
+                        />
+                      </div>
+                    ) : (
+                      <>
+                        {currentStepData && (
+                          <div className={styles.stepWrapper}>
+                            <QuestionnaireStep
+                              key={currentStepData.id}
+                              step={currentStepData}
+                              onSelect={handleOptionSelect}
+                              onBack={handleBack}
+                              selectedValue={currentStepData.multiSelect 
+                                ? (answers[currentStepData.id] ? answers[currentStepData.id].split(",") : [])
+                                : answers[currentStepData.id]
+                              }
+                              showBack={false}
+                            />
+                          </div>
+                        )}
+                      </>
+                    )}
+                  </>
+                )}
+              </div>
+            </div>
+          </Container>
+        </section>
       </div>
-      <BriefFooter onBack={handleBack} showBack={showBackButton} />
+      <BriefFooter onBack={handleBack} showBack={isInitialized ? showBackButton : false} />
     </>
   );
 }

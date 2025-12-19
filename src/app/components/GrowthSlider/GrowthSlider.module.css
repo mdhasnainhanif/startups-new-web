@@ -190,6 +190,8 @@
 .swiperContainer :global(.swiper-wrapper) {
   display: flex;
   align-items: stretch;
+  padding: 2rem 0rem;
+
 }
 
 .swiperContainer :global(.swiper-slide) {
@@ -202,14 +204,20 @@
   border: 1px solid #312d63a8;
   border-radius: 1rem;
   padding: 1.5rem;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  /* box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04); */
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
   height: 100%;
   width: 100%;
   box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 2px 13px -4px #643bff;
+  transform: translateY(-2px);
 }
 
 .imageContainer {

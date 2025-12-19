@@ -146,7 +146,7 @@ const TwentyTwoDayDeliverable = () => {
                       {phase.deliverables.map((item, itemIndex) => (
                         <li key={itemIndex} className={styles.deliverableItem}>
                           <img
-                            src="/assets/images/tick2.png"
+                            src="/assets/images/tick.png"
                             alt="check"
                             className={styles.checkIcon}
                           />

@@ -50,8 +50,16 @@
 }
 
 .phoneNumber {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   white-space: nowrap;
   font-family: var(--font-graphik-regular), Arial, Helvetica, sans-serif;
+}
+
+.phoneNumber svg {
+  width: 20px;
+  height: 20px;
 }
 
 /* Responsive */

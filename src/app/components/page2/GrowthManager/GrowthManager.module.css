@@ -7,7 +7,7 @@
 .growthManagerSection::before {
   content: "";
   position: absolute;
-  background: url(/public/assets/images/tick2.png) center bottom no-repeat;
+  background: url(/public/assets/images/tick.png) center bottom no-repeat;
   width: 89%;
   height: 100%;
   position: absolute;
@@ -99,21 +99,6 @@
   visibility: visible !important;
 }
 
-.calendlyWrapper::before {
-  content: "Powered by Calendly";
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  font-size: 0.75rem;
-  color: #9ca3af;
-  z-index: 10;
-  transform: rotate(15deg);
-  background: rgba(255, 255, 255, 0.9);
-  padding: 0.25rem 0.5rem;
-  border-radius: 0.25rem;
-  pointer-events: none;
-  font-weight: 500;
-}
 
 .placeholderMessage {
   display: flex;
@@ -134,7 +119,7 @@
 .placeholderTitle {
   font-size: 1.5rem;
   font-weight: 600;
-  color: #1f2937;
+  color: #fff;
   margin: 0 0 0.5rem 0;
 }
 

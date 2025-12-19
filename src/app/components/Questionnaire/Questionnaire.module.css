@@ -228,9 +228,9 @@
 
 .radioInput:checked + .optionLabel::before,
 input[type="checkbox"].radioInput:checked + .optionLabel::before {
-  background: var(--color-purple);
-  border-color: var(--color-purple);
-  box-shadow: 0 0 10px var(--color-purple);
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  box-shadow: 0 0 10px var(--color-primary);
   animation: checkboxFill 0.3s ease-out;
 }
 
@@ -425,9 +425,36 @@ input[type="checkbox"].radioInput:checked + .pinkLabel {
   font-family: var(--font-graphik-regular), Arial, Helvetica, sans-serif;
 }
 
+/* Fix autofill glitch - prevent browser autofill styling from causing jerky behavior */
+.formInput:-webkit-autofill,
+.formInput:-webkit-autofill:hover,
+.formInput:-webkit-autofill:focus,
+.formInput:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px rgba(255, 255, 255, 0.05) inset !important;
+  -webkit-text-fill-color: #ffffff !important;
+  transition: background-color 5000s ease-in-out 0s, color 5000s ease-in-out 0s;
+  caret-color: #ffffff;
+}
+
+.formInput:-webkit-autofill::first-line {
+  font-size: 1.125rem;
+  font-weight: 500;
+  font-family: var(--font-graphik-regular), Arial, Helvetica, sans-serif;
+}
+
 .formInputSmall {
   padding: 0.875rem 1.25rem;
   font-size: 0.95rem;
+}
+
+.formInputSmall:-webkit-autofill,
+.formInputSmall:-webkit-autofill:hover,
+.formInputSmall:-webkit-autofill:focus,
+.formInputSmall:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px rgba(255, 255, 255, 0.05) inset !important;
+  -webkit-text-fill-color: #ffffff !important;
+  transition: background-color 5000s ease-in-out 0s, color 5000s ease-in-out 0s;
+  caret-color: #ffffff;
 }
 
 .formInput::placeholder {

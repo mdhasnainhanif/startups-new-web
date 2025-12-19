@@ -135,6 +135,7 @@ export default function Button({
                     className={styles.dropdownItem}
                     onClick={() => handleDropdownItemClick(item)}
                   >
+                    {item.icon && <span className={styles.dropdownItemIcon}>{item.icon}</span>}
                     {item.label}
                   </Link>
                 ) : (
@@ -142,6 +143,7 @@ export default function Button({
                     className={styles.dropdownItem}
                     onClick={() => handleDropdownItemClick(item)}
                   >
+                    {item.icon && <span className={styles.dropdownItemIcon}>{item.icon}</span>}
                     {item.label}
                   </button>
                 )}

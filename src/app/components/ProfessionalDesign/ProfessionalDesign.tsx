@@ -115,9 +115,11 @@ const ProfessionalDesign = ({ data = PROFESSIONAL_DESIGN_DATA, className }: Prof
               </div>
 
               <ul className={styles.rightFactsList}>
-                <li className={getClassName(data.rightSectionFact.className, styles.rightFactsListItem)}>
-                  {data.rightSectionFact.text}
-                </li>
+                {data.rightSectionFact.map((fact, index) => (
+                  <li key={index} className={getClassName(fact.className, styles.rightFactsListItem)}>
+                    {fact.text}
+                  </li>
+                ))}
               </ul>
             </div>
           </div>

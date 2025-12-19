@@ -714,7 +714,8 @@ const CaseStudySection = ({ data = DEFAULT_CASE_STUDY_DATA, isShowTabs = true, c
 
   return (
     <div className={`casestudysec sectionPadding bg-cover mobile-padding-bottom-0 bg-[#03001D] ${className}`}>
-      <section className="sectionPaddingCase pt-0 mobile-padding-bottom-0">
+      <div className="starsLayer3"></div>
+      <section className="sectionPaddingCase pt-0 mobile-padding-bottom-0" style={{ position: 'relative', zIndex: 1 }}>
         <Container maxWidth="xl">
           <div className="row align-items-center justify-content-center">
             <div className="col-md-6 text-center mb-10 sectionHeading forH2 gap-3 flex flex-col items-center justify-center">
@@ -737,9 +738,9 @@ const CaseStudySection = ({ data = DEFAULT_CASE_STUDY_DATA, isShowTabs = true, c
             {/* Tabs Navigation - Desktop View */}
             {isShowTabs && (
               <div
-                className={`${
-                  shouldStick ? "sticky" : ""
-                } top-10 z-50 py-4 md:px-4 p-0 rounded-lg w-full mx-auto md:bg-[#0b0038] md:mb-8 mb-16 hidden md:flex items-end justify-between flex-wrap`}
+                className={`sticky top-10 z-50 py-4 md:px-4 p-0 rounded-lg w-full mx-auto md:bg-[#0b0038] md:mb-8 mb-16 hidden md:flex items-end justify-between flex-wrap transition-all duration-500 ease-in-out ${
+                  shouldStick ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4 pointer-events-none"
+                }`}
               >
               <button
                 onClick={() => {
@@ -814,9 +815,9 @@ const CaseStudySection = ({ data = DEFAULT_CASE_STUDY_DATA, isShowTabs = true, c
             {/* Tabs Navigation - Mobile View with Swiper */}
             {isShowTabs && (
               <div
-                className={`${
-                  shouldStick ? "sticky" : ""
-                } top-10 z-50 py-4 rounded-lg w-full mx-auto md:bg-[#0b0038] md:mb-8 mb-16 relative md:hidden`}
+                className={`sticky top-10 z-50 py-4 rounded-lg w-full mx-auto md:bg-[#0b0038] md:mb-8 mb-16 relative md:hidden transition-all duration-500 ease-in-out ${
+                  shouldStick ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4 pointer-events-none"
+                }`}
               >
               {/* Left Arrow */}
               <button

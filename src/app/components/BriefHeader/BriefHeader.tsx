@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { COMPANY_INFO } from "../../constants";
 import styles from "./BriefHeader.module.css";
+import { PhoneIcon } from "@/app/icons";
 
 export default function BriefHeader() {
   return (
@@ -24,7 +25,10 @@ export default function BriefHeader() {
 
         {/* Phone Number on Right */}
         <a href={`tel:${COMPANY_INFO.phone.replace(/\s/g, "")}`} className={styles.phoneLink}>
-          <span className={styles.phoneNumber}>{COMPANY_INFO.phone}</span>
+          <span className={styles.phoneNumber}>
+            <PhoneIcon fill="#00d4aa" style={{ width: "15px", height: "15px" }} />
+            {COMPANY_INFO.phone}
+          </span>
         </a>
       </div>
     </header>

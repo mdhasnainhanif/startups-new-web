@@ -8,6 +8,7 @@ export interface DropdownItem {
   label: string;
   href?: string;
   onClick?: () => void;
+  icon?: ReactNode;
 }
 
 export interface BaseButtonProps {

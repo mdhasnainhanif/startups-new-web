@@ -99,7 +99,7 @@ const GrowthManager = () => {
               {GROWTH_MANAGER_DATA.features.map((feature, index) => (
                 <li key={index} className="flex items-start gap-3 text-white">
                   <img
-                    src="/assets/images/tick2.png"
+                    src="/assets/images/tick.png"
                     alt="check"
                     className={styles.checkIcon}
                   />

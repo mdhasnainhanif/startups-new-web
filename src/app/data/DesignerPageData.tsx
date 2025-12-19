@@ -42,6 +42,10 @@ export const designProfessionalPageData: ProfessionalDesignData = {
       className: "factsListItem",
     },
     {
+      text: "Home-service businesses using professional design saw a 2-3x improvement in lead conversion after updating visuals.",
+      className: "factsListItem",
+    },
+    {
       text: "Companies that invested in brand design increased their lifetime customer value by 28 percent.",
       className: "factsListItem",
     },
@@ -57,10 +61,7 @@ export const designProfessionalPageData: ProfessionalDesignData = {
       container: "bottomHeading",
     },
   },
-  rightSectionFact: {
-    text: "Home-service businesses using professional design saw a 2-3x improvement in lead conversion after updating visuals.",
-    className: "rightFactsListItem",
-  },
+  rightSectionFact: [],
   videoOverlayText:
     "Your Smart AI Business Team operate a behind-the-scenes planning promotions, creating visuals.",
   video: {

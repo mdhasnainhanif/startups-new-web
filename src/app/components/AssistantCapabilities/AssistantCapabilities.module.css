@@ -27,6 +27,10 @@
   margin-bottom: 1.5rem;
 }
 
+.bracketText {
+  color: #0fdac2;
+}
+
 .description {
   font-size: 1.125rem;
   line-height: 1.6;
@@ -121,7 +125,7 @@
 }
 
 .card {
-  background: #120f36;
+  background: #643BFF;
   border: 1px solid #382972;
   border-radius: 0.75rem;
   padding: 2rem;
