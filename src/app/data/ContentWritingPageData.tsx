@@ -94,10 +94,10 @@ export const contentWritingProfessionalData: ProfessionalDesignData = {
     },
   },
   rightSectionFact: [
-   {
-    text: "Enduring Advantage: The service installs a complete written foundation designed to strengthen brand clarity, improve communication quality, and support marketing, sales, and customer experience long after the production cycle concludes.",
-    className: "rightFactsListItem",
-   }
+    {
+      text: "Enduring Advantage: The service installs a complete written foundation designed to strengthen brand clarity, improve communication quality, and support marketing, sales, and customer experience long after the production cycle concludes.",
+      className: "rightFactsListItem",
+    },
   ],
   videoOverlayText:
     "Your Smart AI Content Writing Team operates behind-the-scenes creating content, refining messaging, and building your brand voice.",
