@@ -25,7 +25,8 @@ import {
   socialMediaMarketingGuessWorkData,
   socialMediaMarketingSliderData1, 
   socialMediaMarketingSliderData2, 
-  socialMediaMarketingSliderData3 
+  socialMediaMarketingSliderData3,
+  socialMediaMarketingProvenSuccessData
 } from '../data/SocialMediaMarketingPageData';
 
 export const metadata: Metadata = {
@@ -54,7 +55,7 @@ export default function SocialMediaMarketingPage() {
       <GuessWorkAdvertising data={socialMediaMarketingGuessWorkData}/>
       <RealCost data={socialMediaMarketingRealCostData}/>
       <CompleteBusinessSetup data={socialMediaMarketingCompleteSetupData}/>
-      <ProvenSuccess/>
+      <ProvenSuccess data={socialMediaMarketingProvenSuccessData}/>
       <Reviews/>
       <GrowthSlider items={socialMediaMarketingBlogGuides} />
       <FAQ faqs={FAQ_CONTACT} sectionData={FAQ_SECTION} />

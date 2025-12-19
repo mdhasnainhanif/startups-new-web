@@ -21,7 +21,7 @@ export default function OurCoreValue({
               {/* Icon in top left */}
               <div className={styles.cardIcon}>
                 <Image
-                  src="/assets/images/globe1.png"
+                  src={card.icon as unknown as string}
                   alt={card.heading}
                   width={48}
                   height={48}
