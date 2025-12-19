@@ -357,10 +357,6 @@ export const WEB_DEVELOPMENT_DATA: WebDevelopmentData = {
       part2: " One-Time",
     },
     brandingKits: {
-      // title: {
-      //   highlight: "Website",
-      //   suffix: " KITs",
-      // },
       items: [
         { id: "1", number: "01", label: "Homepage" },
         { id: "2", number: "02", label: "Service Page" },
@@ -377,7 +373,7 @@ export const WEB_DEVELOPMENT_DATA: WebDevelopmentData = {
       ],
     },
     benefits: {
-      title: "You get:",
+      title: "Get This Package For ",
       items: [
         { id: "1", text: "A dedicated web team" },
         { id: "2", text: "22 essential website assets" },
@@ -386,11 +382,9 @@ export const WEB_DEVELOPMENT_DATA: WebDevelopmentData = {
         { id: "5", text: "Launch-ready files delivered" },
       ],
       ctaButton: {
-        text: "See what's included",
+        text: "Get My Package",
         href: "/contact",
       },
-      // footer:
-      //   "No additional charges. No ongoing retainers. You receive the full build your business needs to operate online confidently.",
     },
     // additionalText: {
     //   heading: "Consistent Performance Across All Builds",
