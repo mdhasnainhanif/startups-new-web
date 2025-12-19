@@ -46,8 +46,6 @@ export default function GrowthSlider({ items }: { items: Guide[] }) {
       setIsSwiperReady(true);
     }
   }, []);
-
-  // Check if we should show navigation arrows (only if more than 3 items)
   const shouldShowNavigation = items.length > 3;
 
   return (

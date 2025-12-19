@@ -92,10 +92,12 @@ export const webDevelopmentProfessionalData: ProfessionalDesignData = {
       container: "bottomHeading",
     },
   },
-  rightSectionFact: {
-    text: "Long-Term Advantage: You're receiving the structured digital foundation your business will rely on for sales, visibility, and client trust over the long run, not temporary pages or placeholder content.",
-    className: "rightFactsListItem",
-  },
+  rightSectionFact: [
+    {
+      text: "Long-Term Advantage: You're receiving the structured digital foundation your business will rely on for sales, visibility, and client trust over the long run, not temporary pages or placeholder content.",
+      className: "rightFactsListItem",
+    },
+  ],
   videoOverlayText:
     "Your 22-day web team executes a complete website operation from initial structure to final deployment. Each specialist focuses on a dedicated part of the build, keeping quality consistent and timelines controlled.",
   video: {

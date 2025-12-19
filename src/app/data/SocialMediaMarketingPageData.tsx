@@ -95,10 +95,12 @@ export const socialMediaMarketingProfessionalData: ProfessionalDesignData = {
       container: "bottomHeading",
     },
   },
-  rightSectionFact: {
-    text: "Long-Term Advantage: The service installs a complete visual and written foundation designed to strengthen brand presence, expand reach, and support marketing efforts across major social platforms. The content set continues performing beyond the initial cycle.",
-    className: "rightFactsListItem",
-  },
+  rightSectionFact: [
+    {
+      text: "Long-Term Advantage: The service installs a complete visual and written foundation designed to strengthen brand presence, expand reach, and support marketing efforts across major social platforms. The content set continues performing beyond the initial cycle.",
+      className: "rightFactsListItem",
+    },
+  ],
   videoOverlayText:
     "Your Smart AI Social Media Team operates behind-the-scenes creating graphics, reels, captions, and building your brand presence.",
   video: {
