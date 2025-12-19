@@ -75,15 +75,15 @@ export default function Contact() {
               </p>
               <p className={`${styles.descriptionText2}`}>Share as much detail as you like so our team can understand your goals and offer the best support possible for your business growth and needs today.</p>
               <div className="flex flex-col gap-4 mt-[2.5rem]">
-                  <a href="tel:+13466269169" className="flex items-center gap-3">
+                  <a href="tel:+13466269169" className="flex items-center gap-3 text-white">
                     <PhoneIcon fill="#00d4aa" style={{ width: "18px", height: "18px" }} />
                     +1 346-626-9169
                   </a>
-                <a href="mailto:info@startupsadvisory.ai" className="flex items-center gap-3">
+                <a href="mailto:info@startupsadvisory.ai" className="flex items-center gap-3 text-white">
                   <EmailIcon fill="#00d4aa" style={{ width: "18px", height: "18px" }} />
                   info@startupsadvisory.ai
                 </a>
-                <span className="flex items-center gap-3">
+                <span className="flex items-center gap-3 text-white">
                   <LocationIcon fill="#00d4aa" style={{ width: "18px", height: "18px" }} />
                   1007n Orange St, Wilmington, DE 19801, United States
                 </span>

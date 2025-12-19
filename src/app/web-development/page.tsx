@@ -54,7 +54,9 @@ export default function WebDevelopmentPage() {
       <ProfessionalDesign className="designerPageProfessional" data={webDevelopmentProfessionalData} />
       <TextSlider1 data={webDevelopmentSliderData3}/>
       <GuessWorkAdvertising data={webDevelopmentGuessWorkData}/>
-      <AnalyticsDashboard {...webDevelopmentAnalyticsDashboardData} />
+
+      {/* <AnalyticsDashboard {...webDevelopmentAnalyticsDashboardData} /> */}
+
       <RealCost data={webDevelopmentRealCostData}/>
       <CompleteBusinessSetup data={webDevelopmentCompleteSetupData}/>
       <ProvenSuccess/>

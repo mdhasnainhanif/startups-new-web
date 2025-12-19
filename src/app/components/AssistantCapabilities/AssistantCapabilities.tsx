@@ -165,7 +165,7 @@ export default function AssistantCapabilities() {
             modules={[Navigation, Autoplay]}
             spaceBetween={24}
             slidesPerView={1}
-            slidesOffsetBefore={370}
+            slidesOffsetBefore={0}
             autoplay={{
               delay: 3000,
               disableOnInteraction: false,
@@ -179,7 +179,7 @@ export default function AssistantCapabilities() {
                 slidesPerView: 4,
                 spaceBetween: 24,
                 centeredSlides: true,
-                // slidesOffsetBefore: 150,
+                slidesOffsetBefore: 370,
               },
             }}
             onSwiper={(swiper) => {

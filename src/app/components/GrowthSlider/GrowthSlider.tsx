@@ -47,6 +47,9 @@ export default function GrowthSlider({ items }: { items: Guide[] }) {
     }
   }, []);
 
+  // Check if we should show navigation arrows (only if more than 3 items)
+  const shouldShowNavigation = items.length > 3;
+
   return (
     <section className={`${styles.section} sectionPadding`}>
       <Container maxWidth="xl">
@@ -147,24 +150,26 @@ export default function GrowthSlider({ items }: { items: Guide[] }) {
               </SwiperSlide>
             ))}
           </Swiper>
-          <div className={styles.navButtonWrapper}>
-            <button
-              onClick={handleNext}
-              aria-label="Next"
-              disabled={isEnd}
-              className={`${styles.navButton} ${styles.navButtonRight}`}
-            >
-              <span className={styles.arrowIcon}>›</span>
-            </button>
-            <button
-              onClick={handlePrev}
-              aria-label="Previous"
-              disabled={isBeginning}
-              className={`${styles.navButton} ${styles.navButtonLeft}`}
-            >
-              <span className={styles.arrowIcon}>‹</span>
-            </button>
-          </div>
+          {shouldShowNavigation && (
+            <div className={styles.navButtonWrapper}>
+              <button
+                onClick={handleNext}
+                aria-label="Next"
+                disabled={isEnd}
+                className={`${styles.navButton} ${styles.navButtonRight}`}
+              >
+                <span className={styles.arrowIcon}>›</span>
+              </button>
+              <button
+                onClick={handlePrev}
+                aria-label="Previous"
+                disabled={isBeginning}
+                className={`${styles.navButton} ${styles.navButtonLeft}`}
+              >
+                <span className={styles.arrowIcon}>‹</span>
+              </button>
+            </div>
+          )}
         </div>
       </Container>
     </section>

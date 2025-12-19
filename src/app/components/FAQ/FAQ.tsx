@@ -188,7 +188,7 @@ export default function FAQ({ faqs, sectionData, className = "" }: FAQProps) {
                         placeholder="Ask your own question here..."
                         value={question}
                         onChange={(e) => setQuestion(e.target.value)}
-                        className="h-full w-full px-3 sm:px-4 py-2 sm:py-3 bg-white/5 border border-white/20 rounded-lg text-white placeholder-white/50 text-sm sm:text-base resize-none focus:outline-none focus:border-[#0fdac2] focus:ring-1 focus:ring-[#0fdac2] transition-all duration-200"
+                        className="faqaskquestion h-full w-full px-3 sm:px-4 py-2 sm:py-3 bg-white/5 border border-white/20 rounded-lg text-white placeholder-white/50 text-sm sm:text-base resize-none transition-all duration-200"
                         rows={2}
                       ></textarea>
                     </div>
@@ -214,7 +214,7 @@ export default function FAQ({ faqs, sectionData, className = "" }: FAQProps) {
               <div className="py-6 sm:py-8">
                 <div className="border border-[#0fdac2] rounded-xl bg-[#0b0a24] p-6 sm:p-8 text-center">
                   {/* Circular Checkmark Icon */}
-                  <div className="flex items-center justify-center mb-4">
+                  {/* <div className="flex items-center justify-center mb-4">
                     <div className="w-16 h-16 rounded-full bg-[#0fdac2] flex items-center justify-center">
                       <svg
                         className="w-8 h-8 text-white"
@@ -230,13 +230,13 @@ export default function FAQ({ faqs, sectionData, className = "" }: FAQProps) {
                         />
                       </svg>
                     </div>
-                  </div>
+                  </div> */}
                   <h3 className="text-xl sm:text-2xl font-semibold text-[#0fdac2] mb-2">
                     Question Submitted Successfully!
                   </h3>
-                  <p className="text-white/80 text-sm sm:text-base">
+                  {/* <p className="text-white/80 text-sm sm:text-base">
                     Thank you for your question. We'll get back to you soon.
-                  </p>
+                  </p> */}
                 </div>
               </div>
             </div>

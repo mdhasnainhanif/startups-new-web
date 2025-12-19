@@ -122,8 +122,8 @@
 }
 
 .locationSwiperWrapper {
-  width: 100%;
-  overflow: hidden;
+  width: 340px;
+  overflow: visible;
   position: relative;
 }
 
@@ -190,11 +190,11 @@
 }
 
 .navButtonLeft {
-  left: -3rem;
+  left: -2.8rem;
 }
 
 .navButtonRight {
-  right: -3rem;
+  right: -2.8rem;
 }
 
 .arrowIcon {

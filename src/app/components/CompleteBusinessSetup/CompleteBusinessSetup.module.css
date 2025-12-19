@@ -52,7 +52,7 @@
   width: 40px;
   height: 40px;
   top: 50%;
-  transform: translate(0px, 50%);
+  transform: translate(10%, -50%);
   border: 1px solid #6848df4d;
 }
 .navButton:hover {

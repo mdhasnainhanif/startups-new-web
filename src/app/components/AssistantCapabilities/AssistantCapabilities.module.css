@@ -63,6 +63,7 @@
 }
 
 @media (max-width: 1023px) {
+  
   .swiperWrapperOffset {
     transform: translateX(calc(50% - 0px));
     margin-left: 0;
@@ -315,4 +316,22 @@
   .arrowIcon {
     font-size: 1.125rem;
   }
+}
+
+
+
+@media (max-width: 1023px) {
+  .swiper :global(.swiper-slide) {
+    width: 100% !important;
+    flex: 0 0 100% !important;
+  }
+  .swiper {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  .swiper :global(.swiper-wrapper) {
+    align-items: stretch;
+  }
+
 }

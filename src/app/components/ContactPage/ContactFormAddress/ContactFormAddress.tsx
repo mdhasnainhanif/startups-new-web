@@ -9,6 +9,30 @@ import { ContactFormAddressProps } from "@/app/types/types";
 import { contactFormAddressData } from "./data";
 import styles from "./ContactFormAddress.module.css";
 import { LinkedInIcon2, PinterestIcon, TwitterIcon } from "@/app/icons";
+const ChevronLeft = () => (
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <path
+      d="M15 18l-6-6 6-6"
+      stroke="currentColor"
+      strokeWidth="2.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
+const ChevronRight = () => (
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <path
+      d="M9 6l6 6-6 6"
+      stroke="currentColor"
+      strokeWidth="2.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
 
 // Icon component - simple SVG-based icons
 const IconComponent: React.FC<{ icon: string; className?: string }> = ({
@@ -163,26 +187,32 @@ const ContactFormAddress: React.FC<ContactFormAddressProps> = ({
               ))}
             </Swiper>
             {/* Navigation Arrows */}
-            {locationItems.length > 1 && (
-              <div className={styles.navButtonWrapper}>
-                <button
-                  onClick={handlePrev}
-                  aria-label="Previous"
-                  disabled={isBeginning}
-                  className={`${styles.navButton} ${styles.navButtonLeft}`}
-                >
-                  <span className={styles.arrowIcon}>‹</span>
-                </button>
-                <button
-                  onClick={handleNext}
-                  aria-label="Next"
-                  disabled={isEnd}
-                  className={`${styles.navButton} ${styles.navButtonRight}`}
-                >
-                  <span className={styles.arrowIcon}>›</span>
-                </button>
-              </div>
-            )}
+            
+            {locationItems.length > 0 && (
+  <div className={styles.navButtonWrapper}>
+    <button
+      onClick={handlePrev}
+      aria-label="Previous"
+      disabled={locationItems.length <= 1}
+      className={`${styles.navButton} ${styles.navButtonLeft}`}
+      type="button"
+    >
+      <span className={styles.arrowIcon}><ChevronLeft /></span>
+    </button>
+
+    <button
+      onClick={handleNext}
+      aria-label="Next"
+      disabled={locationItems.length <= 1}
+      className={`${styles.navButton} ${styles.navButtonRight}`}
+      type="button"
+    >
+      <span className={styles.arrowIcon}><ChevronRight /></span>
+    </button>
+  </div>
+)}
+
+
           </div>
         )}
       </div>
