@@ -6,6 +6,8 @@ import { FAQ_SECTION, CALENDLY_SECTION, GROWTH_GUIDES } from "./constants";
 import { FAQ_CONTACT } from "./components/Home/data";
 import { sliderData } from "./data/HomeNewData";
 import TextSlider1 from "./components/HomenewPage/TextSlider/TextSlider";
+import { DESIGNER_GROWTH_GUIDES } from "./data/DesignerPageData";
+import { KEY_GROWTH_GUIDES } from "./data/Page2";
 
 // Lazy load below-the-fold components to reduce initial bundle size and TBT
 const LogosSlider = dynamic(() => import("./components/LogosSlider/LogosSlider"), {
@@ -52,6 +54,7 @@ export const metadata: Metadata = {
 };
 
 // Filter GROWTH_GUIDES to show one blog each for web-development, content-writing, and Social Media Marketing
+// Plus add one from Design and one from Key Growth
 function getFilteredGrowthGuides() {
   // Map target categories to exact category names in the data
   const categoryMap: Record<string, string[]> = {
@@ -83,6 +86,24 @@ function getFilteredGrowthGuides() {
       usedIds.add(found.id);
     }
   });
+
+  // Add one from Design (Designer page)
+  if (DESIGNER_GROWTH_GUIDES.length > 0) {
+    const designGuide = DESIGNER_GROWTH_GUIDES[0];
+    if (!usedIds.has(designGuide.id)) {
+      filtered.push(designGuide);
+      usedIds.add(designGuide.id);
+    }
+  }
+
+  // Add one from Key Growth (key-growth page)
+  if (KEY_GROWTH_GUIDES.length > 0) {
+    const keyGrowthGuide = KEY_GROWTH_GUIDES[0];
+    if (!usedIds.has(keyGrowthGuide.id)) {
+      filtered.push(keyGrowthGuide);
+      usedIds.add(keyGrowthGuide.id);
+    }
+  }
 
   return filtered;
 }

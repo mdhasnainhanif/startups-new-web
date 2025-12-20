@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import React from 'react'
 import HomenewBanner from '../components/HomenewPage/HomenewBanner/HomenewBanner';
 import FAQ from '../components/FAQ/FAQ'
-import { FAQ_SECTION, GROWTH_GUIDES } from '../constants'
+import { FAQ_SECTION } from '../constants'
 import { FAQ_CONTACT } from '../components/Home/data'
 import GrowthSlider from '../components/GrowthSlider/GrowthSlider'
 import Technologies from '../components/Technologies/Technologies';
@@ -10,7 +10,7 @@ import TextSlider1 from '../components/HomenewPage/TextSlider/TextSlider';
 import { sliderData } from '../data/HomeNewData';
 import Reviews from '../components/Reviews/Reviews';
 import ProfessionalDesign from '../components/ProfessionalDesign/ProfessionalDesign';
-import { designProfessionalPageData, caseStudyDesignerPageData, designerGuessWorkData, designerSliderData1 } from '../data/DesignerPageData';
+import { designProfessionalPageData, caseStudyDesignerPageData, designerGuessWorkData, designerSliderData1, DESIGNER_GROWTH_GUIDES } from '../data/DesignerPageData';
 import AiPowerDesign from '../components/AiPowerDesign/AiPowerDesign';
 import CaseStudySection from '../components/CaseStudySection';
 import ProvenSuccess from '../components/ProvenSuccess/ProvenSuccess';
@@ -45,7 +45,7 @@ export default function homenew() {
       <CompleteBusinessSetup/>
       <ProvenSuccess/>
       <Reviews/>
-      <GrowthSlider items={GROWTH_GUIDES} />
+      <GrowthSlider items={DESIGNER_GROWTH_GUIDES} />
       <FAQ faqs={FAQ_CONTACT} sectionData={FAQ_SECTION} />
       <Contact/>
     </>

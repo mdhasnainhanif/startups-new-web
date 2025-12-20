@@ -12,7 +12,6 @@ import ProfessionalDesign from '../components/ProfessionalDesign/ProfessionalDes
 import { socialMediaMarketingProfessionalData, socialMediaMarketingCaseStudyData, socialMediaMarketingBlogGuides } from '../data/SocialMediaMarketingPageData';
 import AiPowerDesign from '../components/AiPowerDesign/AiPowerDesign';
 import CaseStudySection from '../components/CaseStudySection';
-import ProvenSuccess from '../components/ProvenSuccess/ProvenSuccess';
 import RealCost from '../components/RealCost/RealCost';
 import CompleteBusinessSetup from '../components/CompleteBusinessSetup/CompleteBusinessSetup';
 import GuessWorkAdvertising from '../components/GuessWorkAdvertising/GuessWorkAdvertising';
@@ -54,7 +53,6 @@ export default function SocialMediaMarketingPage() {
       <GuessWorkAdvertising data={socialMediaMarketingGuessWorkData}/>
       <RealCost data={socialMediaMarketingRealCostData}/>
       <CompleteBusinessSetup data={socialMediaMarketingCompleteSetupData}/>
-      <ProvenSuccess/>
       <Reviews/>
       <GrowthSlider items={socialMediaMarketingBlogGuides} />
       <FAQ faqs={FAQ_CONTACT} sectionData={FAQ_SECTION} />

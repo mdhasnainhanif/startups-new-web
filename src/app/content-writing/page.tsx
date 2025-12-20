@@ -11,7 +11,6 @@ import ProfessionalDesign from '../components/ProfessionalDesign/ProfessionalDes
 import { contentWritingProfessionalData, contentWritingCaseStudyData, contentWritingBlogGuides } from '../data/ContentWritingPageData';
 import AiPowerDesign from '../components/AiPowerDesign/AiPowerDesign';
 import CaseStudySection from '../components/CaseStudySection';
-import ProvenSuccess from '../components/ProvenSuccess/ProvenSuccess';
 import RealCost from '../components/RealCost/RealCost';
 import CompleteBusinessSetup from '../components/CompleteBusinessSetup/CompleteBusinessSetup';
 import Contact from '../components/Contact/Contact';
@@ -53,7 +52,6 @@ export default function ContentWritingPage() {
       <GuessWorkAdvertising data={contentWritingGuessWorkData}/>
       <RealCost data={contentWritingRealCostData}/>
       <CompleteBusinessSetup data={contentWritingCompleteSetupData}/>
-      <ProvenSuccess/>
       <Reviews/>
       <GrowthSlider items={contentWritingBlogGuides} />
       <FAQ faqs={FAQ_CONTACT} sectionData={FAQ_SECTION} />

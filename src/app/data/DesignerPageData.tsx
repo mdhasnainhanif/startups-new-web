@@ -204,3 +204,40 @@ export const designerSliderData1 = [
   { sliderDataPara: "It costs [$67,000] annually to hire an [Animator] in the US" },
 ];
 
+// Growth Guides for Designer page (includes design guide)
+export const DESIGNER_GROWTH_GUIDES = [
+  {
+    id: "design-2026",
+    image: "/assets/images/blog/1.webp", // Dummy image - replace with actual design guide image
+    category: "Design",
+    title: "Design in 2026: How Modern Design Systems Drive Speed, Consistency, and Business Growth",
+    date: "Jan 15, 2026",
+    readTime: "18 min read",
+    excerpt:
+      "In 2026, design has moved beyond visuals and aesthetics into a core operational system that directly impacts business speed, scalability, and trust. Companies no longer compete only on features or pricing. They compete on execution quality, experience consistency, and how fast teams can ship without breaking brand integrity.",
+    href: "/blog-detail/design-in-2026-modern-design-systems/",
+  },
+  {
+    id: "from-visuals-to-value",
+    image: "/assets/images/blog/2.webp", // Dummy image
+    category: "Design",
+    title: "From Visuals To Value: How Strategic Design Impacts UX, Conversions, And Brand Trust In 2026",
+    date: "Jan 20, 2026",
+    readTime: "17 min read",
+    excerpt:
+      "By 2026, design is no longer judged by how attractive an interface looks. It is judged by how effectively it guides users, builds confidence, and drives meaningful action. Strategic design connects visual decisions directly to business outcomes such as engagement, conversion, and long-term brand trust.",
+    href: "/blog-detail/from-visuals-to-value-how-strategic-design-impacts-ux-conversions-and-brand-trust-in-2026/",
+  },
+  {
+    id: "future-of-design-teams",
+    image: "/assets/images/blog/3.webp", // Dummy image
+    category: "Design",
+    title: "The Future Of Design Teams In 2026: Tools, Workflows, And AI-Assisted Creative Systems",
+    date: "Jan 25, 2026",
+    readTime: "19 min read",
+    excerpt:
+      "By 2026, design teams have evolved from isolated creative units into core operators within product, marketing, and growth organizations. Faster release cycles, multi-platform demands, and rising expectations for consistency require design teams to operate with systems, not just talent.",
+    href: "/blog-detail/the-future-of-design-teams-in-2026-tools-workflows-and-ai-assisted-creative-systems/",
+  },
+];
+

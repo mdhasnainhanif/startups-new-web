@@ -17,15 +17,17 @@ interface TechnologiesProps {
   hideTabs?: boolean;
   defaultTab?: string;
   className?: string;
+  customTools?: Array<{ id: number; name: string; icon: string; iconColor: string }>;
 }
 
-export default function Technologies({ heading, description, subDescription, hideTabs = false, defaultTab = "creative", className = "" }: TechnologiesProps = {}) {
+export default function Technologies({ heading, description, subDescription, hideTabs = false, defaultTab = "creative", className = "", customTools }: TechnologiesProps = {}) {
   const [activeTab, setActiveTab] = useState(defaultTab);
   const tabsSwiperRef = useRef<SwiperType | null>(null);
   const [isTabsSwiperBeginning, setIsTabsSwiperBeginning] = useState(true);
   const [isTabsSwiperEnd, setIsTabsSwiperEnd] = useState(false);
 
-  const currentTools =
+  // Use customTools if provided, otherwise use default tools from TECHNOLOGIES_SECTION
+  const currentTools = customTools || 
     TECHNOLOGIES_SECTION.tools[
       activeTab as keyof typeof TECHNOLOGIES_SECTION.tools
     ];

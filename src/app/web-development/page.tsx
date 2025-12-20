@@ -54,7 +54,7 @@ export default function WebDevelopmentPage() {
       <GuessWorkAdvertising data={webDevelopmentGuessWorkData}/>
       <RealCost data={webDevelopmentRealCostData}/>
       <CompleteBusinessSetup data={webDevelopmentCompleteSetupData}/>
-      <ProvenSuccess/>
+      <ProvenSuccess variant="web-development" />
       <Reviews/>
       <GrowthSlider items={webDevelopmentBlogGuides} />
       <FAQ faqs={FAQ_CONTACT} sectionData={FAQ_SECTION} />

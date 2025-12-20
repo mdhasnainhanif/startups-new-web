@@ -233,8 +233,8 @@ const TextSlider1: React.FC<TextSlider1Props> = ({ data = [] }) => {
       style={{
         display: "inline-block",
         verticalAlign: "middle",
-        marginLeft: "0.2em",
-        marginRight: "0.2em",
+        marginLeft: "0.75em",
+        marginRight: "0.75em",
         marginBottom: "0.2em",
         alignItems: "center",
         flexShrink: 0,
