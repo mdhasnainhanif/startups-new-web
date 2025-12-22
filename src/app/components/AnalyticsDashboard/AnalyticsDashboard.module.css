@@ -65,10 +65,11 @@
 
 /* Border between Radar Chart and Recommendations in middle column */
 .middleRecommendations {
-    border-top: 1px solid #0C1426;
+    /* border-top: 1px solid #0C1426; */
     border-radius: 0 !important;
     margin-left: 0;
     margin-right: 0;
+    padding-left: 0rem;
 }
 
 /* Right Section Container */

@@ -68,7 +68,7 @@ export default function AnalyticsDashboard({
   return (
     <div className=" min-h-screen">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-12 max-w-7xl">
-        <div className="bg-[#000F21] rounded-2xl shadow-2xl border border-[#0C1426] pl-4 sm:pl-6 lg:pl-8 pr-4 sm:pr-6 lg:pr-8">
+        <div className="bg-[#000F21] rounded-2xl shadow-2xl border border-[#0C1426] pl-4 sm:pl-6 lg:pl-8 pr-4 sm:pr-6 lg:pr-8 py-10">
           <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 sm:gap-0 lg:gap-0 items-start ${styles.customGrid}`}>
           <div className="lg:col-span-1 space-y-0">
             <div className="bg-[#000F21] rounded-xl duration-300 overflow-visible">
@@ -254,7 +254,24 @@ export default function AnalyticsDashboard({
                 </svg>
               </div>
             </div>
-            <div className={`bg-[#000F21] rounded-none p-4 sm:p-6 duration-300 ${styles.middleRecommendations}`}>
+            <div className="space-y-3 sm:space-y-4 ps-10 text-left">
+                <div>
+                  <span className={`text-[#0FDAC2] text-xs sm:text-sm block mb-1 ${styles.fs1}`}>Asset Type:</span>
+                  <p className={`text-white font-medium text-sm sm:text-base ${styles.fs2}`}>{assetType}</p>
+                </div>
+                <div>
+                  <span className={`text-[#0FDAC2] text-xs sm:text-sm block mb-1 ${styles.fs1}`}>Purpose:</span>
+                  <p className={`text-white font-medium text-sm sm:text-base ${styles.fs2}`}>{purpose}</p>
+                </div>
+                {/* <div>
+                  <span className={`text-[#0FDAC2] text-xs sm:text-sm block mb-1 ${styles.fs1}`}>Audience:</span>
+                  <p className={`text-white font-medium text-sm sm:text-base ${styles.fs2}`}>{audience}</p>
+                </div> */}
+              </div>
+          </div>
+          <div className={`lg:col-span-1 space-y-4 sm:space-y-6 pl-4 sm:pl-6 lg:pl-8 ${styles.rightSectionContainer}`}>
+            <div className="bg-[#000F21] rounded-xl p-4 md:pt-0 sm:p-6 duration-300">
+            <div className={`bg-[#000F21] rounded-none p-4 sm:p-6 duration-300  ${styles.middleRecommendations}`}>
               <h3 className={`text-lg sm:text-xl font-semibold mb-4 sm:mb-5 text-white text-left ${styles.fs3}`}>Recommendations</h3>
               <ul className="space-y-3 sm:space-y-4">
                 {middleRecommendations.map((rec, index) => (
@@ -265,33 +282,17 @@ export default function AnalyticsDashboard({
                 ))}
               </ul>
             </div>
-          </div>
-          <div className={`lg:col-span-1 space-y-4 sm:space-y-6 pl-4 sm:pl-6 lg:pl-8 ${styles.rightSectionContainer}`}>
-            <div className="bg-[#000F21] rounded-xl p-4 sm:p-6 duration-300">
-              <div className="space-y-3 sm:space-y-4 text-left">
-                <div>
-                  <span className={`text-gray-400 text-xs sm:text-sm block mb-1 ${styles.fs1}`}>Asset Type:</span>
-                  <p className={`text-white font-medium text-sm sm:text-base ${styles.fs2}`}>{assetType}</p>
-                </div>
-                <div>
-                  <span className={`text-gray-400 text-xs sm:text-sm block mb-1 ${styles.fs1}`}>Purpose:</span>
-                  <p className={`text-white font-medium text-sm sm:text-base ${styles.fs2}`}>{purpose}</p>
-                </div>
-                <div>
-                  <span className={`text-gray-400 text-xs sm:text-sm block mb-1 ${styles.fs1}`}>Audience:</span>
-                  <p className={`text-white font-medium text-sm sm:text-base ${styles.fs2}`}>{audience}</p>
-                </div>
-              </div>
+              
             </div>
-            <div className="bg-[#000F21] rounded-xl p-3 sm:p-4 ml-6 border border-[#0C1426] duration-300">
-              <div className="bg-[#000F21] rounded-lg p-3 sm:p-4">
-                <div className="space-y-3 sm:space-y-4">
+            <div className="bg-[#000F21]  ml-6  duration-300">
+              <div className="bg-[#000F21]">
+                <div className="pt-2">
                   <div>
                     <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2 text-left">{headline}</h2>
                     <p className={`text-gray-400 text-xs sm:text-sm ${styles.fs2} mt-[19px] mb-[10px] text-left`}>{description}</p>
                   </div>
                   {<Button
-                  className="w-full justify-center items-center flex"
+                  className="w-full justify-center items-center flex mt-5"
                   variant="green"
                     icon={<ArrowRightIcon style={{ width: "16px", height: "16px", fill: "#000" }} />}
                     iconPosition="right"

@@ -12,8 +12,8 @@ export const NAVIGATION_LINKS = [
   { label: "Designer", href: "/designer" },
   { label: "About Us", href: "/about-us" },
   { label: "Key Growth", href: "/key-growth" },
-  { label: "Blogs", href: "/blogs" },
   { label: "Contact", href: "/contact-us" },
+  { label: "Blogs", href: "/blogs" },
 ];
 
 export const TOP_BANNER = {

@@ -125,10 +125,9 @@
 
 .statHeadline {
   font-size: 1.425rem;
-  font-weight: 600;
+  font-weight: 500;
   color: #0fdac2;
   line-height: 1.2;
-  font-family: var(--font-graphik-semibold) !important;
 }
 
 .statDescription {
