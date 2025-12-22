@@ -1,8 +1,12 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useLayoutEffect } from "react";
 import Container from "../Container";
 import styles from "./TwentyTwoDayDeliverable.module.css";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const phases = [
   {
@@ -12,6 +16,7 @@ const phases = [
     iconColor: "#0fdac2",
     iconType: "cube",
     borderColor: "rgba(15, 218, 194, 0.6)",
+    image: "/assets/images/aipower1.png",
     deliverables: [
       "Branding & Identity Design",
       "Typography & Lettering Design",
@@ -28,6 +33,7 @@ const phases = [
     iconColor: "#0fdac2",
     iconType: "person",
     borderColor: "rgba(100, 59, 255, 0.4)",
+    image: "/assets/images/aipower2.png",
     deliverables: [
       "Product Mockup & Visualization",
       "App UI/UX Design",
@@ -44,6 +50,7 @@ const phases = [
     iconColor: "#0fdac2",
     iconType: "globe",
     borderColor: "rgba(100, 59, 255, 0.4)",
+    image: "/assets/images/aipower3.png",
     deliverables: [
       "Digital Marketing Assets",
       "Presentation & Pitch Deck Design",
@@ -60,6 +67,7 @@ const phases = [
     iconColor: "#0fdac2",
     iconType: "gear",
     borderColor: "rgba(100, 59, 255, 0.4)",
+    image: "/assets/images/aipower4.png",
     deliverables: [
       "3D Modeling & Product Rendering",
       "Advertising & Campaign Design",
@@ -72,53 +80,109 @@ const phases = [
 ];
 
 const TwentyTwoDayDeliverable = () => {
-  const [expandedPhases, setExpandedPhases] = useState<Set<number>>(new Set([1])); // First phase open by default
+  const [activePhase, setActivePhase] = useState<number>(1); // First phase active by default
   const phaseRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const imageContainerRef = useRef<HTMLDivElement | null>(null);
+  const imageRefs = useRef<(HTMLImageElement | null)[]>([]);
+  const triggersRef = useRef<ScrollTrigger[]>([]);
 
-  useEffect(() => {
-    const observers: IntersectionObserver[] = [];
+  // Set initial image state on mount
+  useLayoutEffect(() => {
+    const images = imageRefs.current.filter(Boolean) as HTMLImageElement[];
+    images.forEach((img, index) => {
+      const phaseId = index + 1;
+      if (phaseId === 1) {
+        gsap.set(img, { opacity: 1, scale: 1 });
+      } else {
+        gsap.set(img, { opacity: 0, scale: 0.95 });
+      }
+    });
+  }, []);
 
-    phaseRefs.current.forEach((ref, index) => {
-      if (!ref) return;
-      
+  useLayoutEffect(() => {
+    if (!sectionRef.current) return;
+
+    // Clean up previous triggers
+    triggersRef.current.forEach((trigger) => trigger.kill());
+    triggersRef.current = [];
+
+    const phases = phaseRefs.current.filter(Boolean) as HTMLDivElement[];
+    if (phases.length === 0) return;
+
+    phases.forEach((phase, index) => {
       const phaseId = index + 1;
       
-      // Skip observing the first phase as it's already expanded
-      if (phaseId === 1) {
-        return;
-      }
-
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              setExpandedPhases((prev) => {
-                const newSet = new Set(prev);
-                newSet.add(phaseId);
-                return newSet;
-              });
-              // Disconnect after expanding to prevent re-triggering
-              observer.disconnect();
-            }
-          });
+      // Create scroll trigger for each phase
+      const trigger = ScrollTrigger.create({
+        trigger: phase,
+        start: "top 70%",
+        end: "bottom 30%",
+        onEnter: () => {
+          setActivePhase(phaseId);
         },
-        {
-          threshold: 0.3, // Trigger when 30% of the phase is visible
-          rootMargin: "0px 0px -100px 0px", // Trigger slightly before it's fully visible
-        }
-      );
+        onEnterBack: () => {
+          setActivePhase(phaseId);
+        },
+        onLeave: () => {
+          // When leaving downward, activate next phase if available
+          if (phaseId < phases.length) {
+            setActivePhase(phaseId + 1);
+          }
+        },
+        onLeaveBack: () => {
+          // When scrolling back upward, activate previous phase
+          if (phaseId > 1) {
+            setActivePhase(phaseId - 1);
+          }
+        },
+      });
 
-      observer.observe(ref);
-      observers.push(observer);
+      triggersRef.current.push(trigger);
     });
 
     return () => {
-      observers.forEach((observer) => observer.disconnect());
+      triggersRef.current.forEach((trigger) => trigger.kill());
+      triggersRef.current = [];
     };
   }, []);
 
+  // Animate images when active phase changes
+  useEffect(() => {
+    if (!imageContainerRef.current) return;
+
+    const images = imageRefs.current.filter(Boolean) as HTMLImageElement[];
+    
+    // Kill any ongoing animations first
+    images.forEach((img) => {
+      gsap.killTweensOf(img);
+    });
+    
+    images.forEach((img, index) => {
+      const phaseId = index + 1;
+      if (phaseId === activePhase) {
+        // Show active phase image
+        gsap.to(img, {
+          opacity: 1,
+          scale: 1,
+          duration: 0.8,
+          ease: "power2.out",
+          delay: 0.1,
+        });
+      } else {
+        // Hide inactive phase images
+        gsap.to(img, {
+          opacity: 0,
+          scale: 0.95,
+          duration: 0.6,
+          ease: "power2.in",
+        });
+      }
+    });
+  }, [activePhase]);
+
   return (
-    <section className={`${styles.section} sectionPadding`}>
+    <section ref={sectionRef} className={`${styles.section} sectionPadding`}>
       {/* Starry Background */}
       <div className={styles.starsBackground}></div>
       
@@ -136,7 +200,7 @@ const TwentyTwoDayDeliverable = () => {
           <div className={styles.phasesSection}>
             <div className={styles.phasesContainer}>
               {phases.map((phase, index) => {
-                const isExpanded = expandedPhases.has(phase.id);
+                const isExpanded = activePhase === phase.id;
                 return (
                   <div
                     key={phase.id}
@@ -148,13 +212,6 @@ const TwentyTwoDayDeliverable = () => {
                       borderColor: phase.borderColor,
                     }}
                   >
-                    {/* Connecting Line */}
-                    {index > 0 && (
-                      <div className={styles.connectingLine}>
-                        <div className={styles.lineDot}></div>
-                      </div>
-                    )}
-                    
                     {/* Phase Icon */}
                     <div 
                       className={`${styles.phaseIcon} ${isExpanded ? styles.phaseIconVisible : ''}`}
@@ -190,21 +247,27 @@ const TwentyTwoDayDeliverable = () => {
 
                     {/* Phase Content */}
                     <div className={`${styles.phaseContent} ${isExpanded ? styles.phaseContentExpanded : styles.phaseContentCollapsed}`}>
-                      <h3 className={styles.phaseTitle}>{phase.title}</h3>
+                      <h3 className={styles.phaseTitle}>
+                        <span className={styles.phaseNumber}>{phase.title.split('—')[0].trim()}</span>
+                        <span className={styles.phaseName}> — {phase.title.split('—')[1]?.trim()}</span>
+                      </h3>
                       <p className={styles.phaseDays}>{phase.days}</p>
                       {isExpanded && (
-                        <ul className={styles.deliverablesList}>
-                          {phase.deliverables.map((item, itemIndex) => (
-                            <li key={itemIndex} className={styles.deliverableItem}>
-                              <img
-                                src="/assets/images/tick.png"
-                                alt="check"
-                                className={styles.checkIcon}
-                              />
-                              <span>{item}</span>
-                            </li>
-                          ))}
-                        </ul>
+                        <>
+                          <div className={styles.separatorLine}></div>
+                          <ul className={styles.deliverablesList}>
+                            {phase.deliverables.map((item, itemIndex) => (
+                              <li key={itemIndex} className={styles.deliverableItem}>
+                                <img
+                                  src="/assets/images/tick.png"
+                                  alt="check"
+                                  className={styles.checkIcon}
+                                />
+                                <span>{item}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </>
                       )}
                     </div>
                   </div>
@@ -213,14 +276,20 @@ const TwentyTwoDayDeliverable = () => {
             </div>
           </div>
 
-          {/* Right Side - Image */}
+          {/* Right Side - Single Image per Phase */}
           <div className={styles.imageSection}>
-            <div className={styles.imageWrapper}>
-              <img
-                src="/assets/images/aipower2.png"
-                alt="22-Day Brand System"
-                className={styles.brandSystemImage}
-              />
+            <div ref={imageContainerRef} className={styles.imageContainer}>
+              {phases.map((phase, index) => (
+                <img
+                  key={phase.id}
+                  ref={(el) => {
+                    imageRefs.current[index] = el;
+                  }}
+                  src={phase.image}
+                  alt={phase.title}
+                  className={`${styles.phaseImage} ${activePhase === phase.id ? styles.phaseImageActive : styles.phaseImageInactive}`}
+                />
+              ))}
             </div>
           </div>
         </div>

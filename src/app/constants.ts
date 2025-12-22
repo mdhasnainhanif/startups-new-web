@@ -317,25 +317,33 @@ export const OUR_CORE_VALUES = {
       id: "1",
       number: "01",
       icon: '/assets/images/globe2.svg',
-      heading: "Innovation That Drives Revenue Forward",
+      heading: "Mission",
       description:
-        "We design growth focused solutions that remove bottlenecks help you move faster and give your business the structure it needs to scale.",
+        "Empower U.S. startups to improve their success odds by making global talent and AI-driven efficiency affordable, accessible, and built for real-world execution.",
     },
     {
       id: "2",
       number: "02",
-      icon: '/assets/images/globe3.svg',
-      heading: "Strong Reliable Business Systems",
+      icon: '/assets/images/globe4.svg',
+      heading: "Vision",
       description:
-        "Every system we build is created for long term stability giving you operations that run smoothly consistently and without hidden gaps.",
+        "A world where every startup can scale confidently by leveraging global talent and AI—without the traditional cost barriers that limit early-stage growth.",
     },
     {
       id: "3",
       number: "03",
-      icon: '/assets/images/globe4.svg',
-      heading: "A Global Mindset For Modern Businesses",
+      icon: '/assets/images/globe3.svg',
+      heading: "Objectives",
       description:
-        "With experience shaped across different markets we help businesses build models that scale easily adapt quickly and stay competitive everywhere they operate.",
+        "Provide startups with a lean, structured path to reduce hiring costs, implement AI tools, and build predictable systems that help them grow faster and more efficiently.",
+    },
+    {
+      id: "4",
+      number: "04",
+      icon: '/assets/images/globe3.svg',
+      heading: "Values",
+      description:
+        "We value efficiency, accessibility, and a deep commitment to levelling the playing field—making top-tier growth strategies, talent, and tools available to every early-stage business.",
     },
   ],
 };
