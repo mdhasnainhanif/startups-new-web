@@ -7,7 +7,7 @@ import styles from "./page.module.css";
 export const metadata: Metadata = {
   title: "Privacy Policy | Startups Advisory",
   description: "Privacy Policy for Startups Advisory services",
-  robots: "index, follow",
+  robots: "nofollow",
 };
 
 export default function PrivacyPolicyPage() {

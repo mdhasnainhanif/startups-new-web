@@ -15,6 +15,8 @@ import Counter from '../components/Counter/Counter'
 import OurJourney from '../components/OurJourney/OurJourney'
 
 export const metadata: Metadata = {
+  title: "About Us | Startups Advisory",
+  description: "Building stronger businesses that grow every day. StartupAdvisory is the partner founders choose when they want real growth, real structure, and real results.",
   robots: "nofollow",
 };
 

@@ -32,6 +32,7 @@ export const metadata: Metadata = {
   title: "22-Day Social Media Marketing Service | Market-Ready Social Content | Startups Advisory",
   description:
     "Market-Ready Social Content in 22 Days. Creative built for attention, precision, and brand presence. A complete social layer shaped with clarity, style, and strategic intent.",
+  robots: "nofollow",
 };
 
 export default function SocialMediaMarketingPage() {

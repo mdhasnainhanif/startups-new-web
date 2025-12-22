@@ -287,12 +287,9 @@ h2 .bracket-text-green {
     radial-gradient(1px 1px at 80% 20%, white, transparent);
   background-repeat: repeat;
   background-size: 500px 500px;
-  opacity: 0.15;
-  animation: twinkle1 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  animation-delay: 0s;
+  opacity: 0.2;
   pointer-events: none;
-  filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.4));
-  transition: opacity 0.3s ease, filter 0.3s ease;
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 4px rgba(15, 218, 194, 0.3));
   z-index: 3;
 }
 
@@ -309,12 +306,9 @@ h2 .bracket-text-green {
     radial-gradient(2px 2px at 90% 80%, white, transparent);
   background-repeat: repeat;
   background-size: 500px 500px;
-  opacity: 0.15;
-  animation: twinkle2 5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  animation-delay: 1.2s;
+  opacity: 0.2;
   pointer-events: none;
-  filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.4));
-  transition: opacity 0.3s ease, filter 0.3s ease;
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 4px rgba(15, 218, 194, 0.3));
   z-index: 3;
 }
 
@@ -331,13 +325,10 @@ h2 .bracket-text-green {
     radial-gradient(2px 2px at 85% 65%, white, transparent);
   background-repeat: repeat;
   background-size: 500px 500px;
-  opacity: 0.15;
-  animation: twinkle3 6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  animation-delay: 2s;
+  opacity: 0.2;
   pointer-events: none;
-  filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.4));
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 4px rgba(15, 218, 194, 0.3));
   z-index: 3;
-  transition: opacity 0.3s ease, filter 0.3s ease;
 }
 
 /* Starry Background Effect for Blog Section */
@@ -358,12 +349,9 @@ h2 .bracket-text-green {
     radial-gradient(1px 1px at 80% 20%, white, transparent);
   background-repeat: repeat;
   background-size: 500px 500px;
-  opacity: 0.15;
-  animation: twinkle1 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  animation-delay: 0s;
+  opacity: 0.2;
   pointer-events: none;
-  filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.4));
-  transition: opacity 0.3s ease, filter 0.3s ease;
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 4px rgba(15, 218, 194, 0.3));
   z-index: 0;
 }
 
@@ -380,12 +368,9 @@ h2 .bracket-text-green {
     radial-gradient(2px 2px at 90% 80%, white, transparent);
   background-repeat: repeat;
   background-size: 500px 500px;
-  opacity: 0.15;
-  animation: twinkle2 5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  animation-delay: 1.2s;
+  opacity: 0.2;
   pointer-events: none;
-  filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.4));
-  transition: opacity 0.3s ease, filter 0.3s ease;
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 4px rgba(15, 218, 194, 0.3));
   z-index: 0;
 }
 
@@ -402,13 +387,10 @@ h2 .bracket-text-green {
     radial-gradient(2px 2px at 85% 65%, white, transparent);
   background-repeat: repeat;
   background-size: 500px 500px;
-  opacity: 0.15;
-  animation: twinkle3 6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  animation-delay: 2s;
+  opacity: 0.2;
   pointer-events: none;
-  filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.4));
+  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.6)) drop-shadow(0 0 4px rgba(15, 218, 194, 0.3));
   z-index: 0;
-  transition: opacity 0.3s ease, filter 0.3s ease;
 }
 
 /* Starry Background Effect for Case Study Section */
@@ -427,12 +409,9 @@ h2 .bracket-text-green {
     radial-gradient(1px 1px at 25% 55%, white, transparent);
   background-repeat: repeat;
   background-size: 400px 400px;
-  opacity: 0.3;
-  animation: twinkle1 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  animation-delay: 0s;
+  opacity: 0.25;
   pointer-events: none;
-  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.6));
-  transition: opacity 0.3s ease, filter 0.3s ease;
+  filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.7)) drop-shadow(0 0 6px rgba(15, 218, 194, 0.4));
   z-index: 0;
 }
 
@@ -451,12 +430,9 @@ h2 .bracket-text-green {
     radial-gradient(1.5px 1.5px at 90% 60%, white, transparent);
   background-repeat: repeat;
   background-size: 400px 400px;
-  opacity: 0.3;
-  animation: twinkle2 5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  animation-delay: 1.2s;
+  opacity: 0.25;
   pointer-events: none;
-  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.6));
-  transition: opacity 0.3s ease, filter 0.3s ease;
+  filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.7)) drop-shadow(0 0 6px rgba(15, 218, 194, 0.4));
   z-index: 0;
 }
 
@@ -475,13 +451,10 @@ h2 .bracket-text-green {
     radial-gradient(1.5px 1.5px at 30% 70%, white, transparent);
   background-repeat: repeat;
   background-size: 400px 400px;
-  opacity: 0.3;
-  animation: twinkle3 6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  animation-delay: 2s;
+  opacity: 0.25;
   pointer-events: none;
-  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.6));
+  filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.7)) drop-shadow(0 0 6px rgba(15, 218, 194, 0.4));
   z-index: 0;
-  transition: opacity 0.3s ease, filter 0.3s ease;
 }
 
 @keyframes twinkle1 {
@@ -603,10 +576,10 @@ h2 .bracket-text-green {
   display: none;
 }
 
-/* Smooth transition for sticky tabs hide/show */
+/* Smooth transition for sticky tabs */
 .sticky.top-10 {
-  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out, visibility 0.5s ease-in-out;
-  will-change: opacity, transform;
+  transition: position 0.3s ease-in-out;
+  will-change: position;
 }
 
 /* Tabs Swiper Styles */
@@ -656,6 +629,7 @@ section.designerPageCaseStudy .stack-cards__item {
 button.inputFieldBtn {
   position: absolute;
   right: 0.725rem;
+  top: 2.129rem; 
 }
 
 .keyGrowthTechnologySection .sectionHeading {
@@ -899,5 +873,30 @@ section img.banneFullMin {
 
   .sectionHeading > h2 {
     font-size: 1.75rem !important;
+  }
+}
+
+/* Flippa Page Animations */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

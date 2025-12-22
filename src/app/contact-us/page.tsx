@@ -13,6 +13,8 @@ import BusinessPlaylist from "../components/ContactPage/BusinessPlaylist/Busines
 import Container from "../components/Container";
 
 export const metadata: Metadata = {
+  title: "Contact Us | Get in Touch | Startups Advisory",
+  description: "Let's connect and build your next growth chapter. Get in touch with our team to discuss how we can help accelerate your business growth.",
   robots: "nofollow",
 };
 

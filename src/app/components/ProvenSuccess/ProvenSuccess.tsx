@@ -6,8 +6,8 @@ import { Navigation } from 'swiper/modules';
 import type { Swiper as SwiperType } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import Container from '../Container';
 import styles from './ProvenSuccess.module.css';
+import Container from '../Container';
 
 interface TabData {
   id: string;
@@ -217,9 +217,10 @@ const PROVEN_SUCCESS_DATA: ProvenSuccessData = {
 
 interface ProvenSuccessProps {
   data?: ProvenSuccessData;
+  variant?: string;
 }
 
-const ProvenSuccess = ({ data }: ProvenSuccessProps) => {
+const ProvenSuccess = ({ data, variant }: ProvenSuccessProps) => {
   const provenSuccessData = data || PROVEN_SUCCESS_DATA;
   // Filter to only show Social Media Post tab
   const filteredTabs = provenSuccessData.tabs;

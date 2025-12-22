@@ -1,9 +1,7 @@
-"use client";
-
 import Container from "../Container";
 import styles from "./PageBanner.module.css";
 
-interface PageBannerProps {
+interface PageBannerProps { 
   title: string;
   className?: string;
 }

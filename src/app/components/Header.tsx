@@ -680,7 +680,7 @@ export default function Header() {
                 );
               })}
             </div>
-            <div className="hidden md:flex items-center gap-5">
+            <div className="hidden md:flex items-center gap-2">
               <Link
                 href="/roi-calculator"
                 className="text-white text-sm border border-[#2f2a63] bg-[#05032173] rounded-lg px-3 py-2 me-2 text-[#969696] font-medium hover:text-[#0fdac2] transition-colors"

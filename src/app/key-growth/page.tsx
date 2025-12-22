@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
 import LogosSlider from '../components/LogosSlider/LogosSlider';
-import HomeBanner from '../components/page2/HomeBanner/HomeBanner';
-import GrowthManager from '../components/page2/GrowthManager/GrowthManager';
-import TheProblem from '../components/page2/TheProblem/TheProblem';
-import WhyItWorks from '../components/page2/WhyItWorks/WhyItWorks';
-import TheGuarantees from '../components/page2/TheGuarantees/TheGuarantees';
+import HomeBanner from '../components/Page2/HomeBanner/HomeBanner';
+import GrowthManager from '../components/Page2/GrowthManager/GrowthManager';
+import TheProblem from '../components/Page2/TheProblem/TheProblem';
+import WhyItWorks from '../components/Page2/WhyItWorks/WhyItWorks';
+import TheGuarantees from '../components/Page2/TheGuarantees/TheGuarantees';
 import AssistantCapabilities from '@/app/components/AssistantCapabilities/AssistantCapabilities';
-import CreatedByEntrepreneurs from '../components/page2/CreatedByEntrepreneurs/CreatedByEntrepreneurs';
-import WhyChooseUs from '../components/page2/WhyChooseUs/WhyChooseUs';
-import ReplacementGuarantee from '../components/page2/ReplacementGuarantee/ReplacementGuarantee';
-import ToolsTrained from '../components/page2/ToolsTrained/ToolsTrained';
-import ThreeEasySteps from '../components/page2/ThreeEasySteps/ThreeEasySteps';
+import CreatedByEntrepreneurs from '../components/Page2/CreatedByEntrepreneurs/CreatedByEntrepreneurs';
+import WhyChooseUs from '../components/Page2/WhyChooseUs/WhyChooseUs';
+import ReplacementGuarantee from '../components/Page2/ReplacementGuarantee/ReplacementGuarantee';
+import ToolsTrained from '../components/Page2/ToolsTrained/ToolsTrained';
+import ThreeEasySteps from '../components/Page2/ThreeEasySteps/ThreeEasySteps';
 import { FAQ_DATA, FAQ_SECTION } from '../constants';
 import FAQ from '../components/FAQ/FAQ';
 import Reviews from '../components/Reviews/Reviews';
@@ -20,6 +20,8 @@ import GrowthSlider from '../components/GrowthSlider/GrowthSlider';
 import Contact from "../components/Contact/Contact";
 
 export const metadata: Metadata = {
+  title: "Key Growth Manager | Business Growth Services | Startups Advisory",
+  description: "A Key Growth Manager steps in to carry the weight — driving progress, clearing blockages, and keeping the machine in motion while you stay focused on the real work.",
   robots: "nofollow",
 };
 

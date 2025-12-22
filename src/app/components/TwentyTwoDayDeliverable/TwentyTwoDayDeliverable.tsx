@@ -1,31 +1,33 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Container from "../Container";
 import styles from "./TwentyTwoDayDeliverable.module.css";
 
 const phases = [
   {
     id: 1,
-    title: "Phase 1 — Foundation",
-    days: "Days 1–5",
-    iconColor: "#39ff14",
-    iconType: "arrow",
+    title: "Phase 01 — Foundation",
+    days: "Days 1-5",
+    iconColor: "#0fdac2",
+    iconType: "cube",
+    borderColor: "rgba(15, 218, 194, 0.6)",
     deliverables: [
       "Branding & Identity Design",
-      "Logo Design",
       "Typography & Lettering Design",
-      "Stationery & Corporate Collateral",
       "Print Media Design",
+      "Logo Design",
+      "Stationery & Corporate Collateral",
       "Packaging & Label Design",
     ],
   },
   {
     id: 2,
-    title: "Phase 2 — Brand Expansion",
-    days: "Days 6–11",
-    iconColor: "#ff6b9d",
-    iconType: "layers",
+    title: "Phase 02 — Brand Expansion",
+    days: "Days 6-11",
+    iconColor: "#0fdac2",
+    iconType: "person",
+    borderColor: "rgba(100, 59, 255, 0.4)",
     deliverables: [
       "Product Mockup & Visualization",
       "App UI/UX Design",
@@ -37,10 +39,11 @@ const phases = [
   },
   {
     id: 3,
-    title: "Phase 3 — Digital Presence",
-    days: "Days 12–17",
-    iconColor: "#4fc3f7",
-    iconType: "monitor",
+    title: "Phase 03 — Digital Presence",
+    days: "Days 12-17",
+    iconColor: "#0fdac2",
+    iconType: "globe",
+    borderColor: "rgba(100, 59, 255, 0.4)",
     deliverables: [
       "Digital Marketing Assets",
       "Presentation & Pitch Deck Design",
@@ -52,10 +55,11 @@ const phases = [
   },
   {
     id: 4,
-    title: "Phase 4 — Production & Collateral",
-    days: "Days 18–22",
-    iconColor: "#ffa726",
-    iconType: "cube",
+    title: "Phase 04 — Production & Collateral",
+    days: "Days 18-22",
+    iconColor: "#0fdac2",
+    iconType: "gear",
+    borderColor: "rgba(100, 59, 255, 0.4)",
     deliverables: [
       "3D Modeling & Product Rendering",
       "Advertising & Campaign Design",
@@ -68,6 +72,50 @@ const phases = [
 ];
 
 const TwentyTwoDayDeliverable = () => {
+  const [expandedPhases, setExpandedPhases] = useState<Set<number>>(new Set([1])); // First phase open by default
+  const phaseRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    const observers: IntersectionObserver[] = [];
+
+    phaseRefs.current.forEach((ref, index) => {
+      if (!ref) return;
+      
+      const phaseId = index + 1;
+      
+      // Skip observing the first phase as it's already expanded
+      if (phaseId === 1) {
+        return;
+      }
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              setExpandedPhases((prev) => {
+                const newSet = new Set(prev);
+                newSet.add(phaseId);
+                return newSet;
+              });
+              // Disconnect after expanding to prevent re-triggering
+              observer.disconnect();
+            }
+          });
+        },
+        {
+          threshold: 0.3, // Trigger when 30% of the phase is visible
+          rootMargin: "0px 0px -100px 0px", // Trigger slightly before it's fully visible
+        }
+      );
+
+      observer.observe(ref);
+      observers.push(observer);
+    });
+
+    return () => {
+      observers.forEach((observer) => observer.disconnect());
+    };
+  }, []);
 
   return (
     <section className={`${styles.section} sectionPadding`}>
@@ -87,76 +135,81 @@ const TwentyTwoDayDeliverable = () => {
           {/* Left Side - Phases */}
           <div className={styles.phasesSection}>
             <div className={styles.phasesContainer}>
-              {phases.map((phase, index) => (
-                <div
-                  key={phase.id}
-                  className={styles.phaseBox}
-                >
-                  {/* Connecting Line */}
-                  {index > 0 && (
-                    <div className={styles.connectingLine}>
-                      <div className={styles.lineDot}></div>
-                    </div>
-                  )}
-                  
-                  {/* Phase Icon */}
-                  <div 
-                    className={styles.phaseIcon}
-                    style={{ backgroundColor: phase.iconColor }}
+              {phases.map((phase, index) => {
+                const isExpanded = expandedPhases.has(phase.id);
+                return (
+                  <div
+                    key={phase.id}
+                    ref={(el) => {
+                      phaseRefs.current[index] = el;
+                    }}
+                    className={`${styles.phaseBox} ${isExpanded ? styles.phaseBoxExpanded : styles.phaseBoxCollapsed}`}
+                    style={{
+                      borderColor: phase.borderColor,
+                    }}
                   >
-                    {phase.iconType === "arrow" && (
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path
-                          d="M5 12h14M12 5l7 7-7 7"
-                          stroke="white"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
+                    {/* Connecting Line */}
+                    {index > 0 && (
+                      <div className={styles.connectingLine}>
+                        <div className={styles.lineDot}></div>
+                      </div>
                     )}
-                    {phase.iconType === "layers" && (
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <rect x="3" y="3" width="18" height="6" rx="1" fill="white" />
-                        <rect x="3" y="9" width="18" height="6" rx="1" fill="white" />
-                        <rect x="3" y="15" width="18" height="6" rx="1" fill="white" />
-                      </svg>
-                    )}
-                    {phase.iconType === "monitor" && (
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <rect x="2" y="3" width="20" height="14" rx="2" stroke="white" strokeWidth="2" />
-                        <path d="M8 21h8" stroke="white" strokeWidth="2" strokeLinecap="round" />
-                        <path d="M12 17v4" stroke="white" strokeWidth="2" strokeLinecap="round" />
-                      </svg>
-                    )}
-                    {phase.iconType === "cube" && (
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="white" strokeWidth="2" strokeLinejoin="round" />
-                        <path d="M2 17L12 22L22 17" stroke="white" strokeWidth="2" strokeLinejoin="round" />
-                        <path d="M2 12L12 17L22 12" stroke="white" strokeWidth="2" strokeLinejoin="round" />
-                      </svg>
-                    )}
-                  </div>
+                    
+                    {/* Phase Icon */}
+                    <div 
+                      className={`${styles.phaseIcon} ${isExpanded ? styles.phaseIconVisible : ''}`}
+                      style={{ backgroundColor: phase.iconColor }}
+                    >
+                      {phase.iconType === "cube" && (
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                          <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="white" strokeWidth="2" strokeLinejoin="round" />
+                          <path d="M2 17L12 22L22 17" stroke="white" strokeWidth="2" strokeLinejoin="round" />
+                          <path d="M2 12L12 17L22 12" stroke="white" strokeWidth="2" strokeLinejoin="round" />
+                        </svg>
+                      )}
+                      {phase.iconType === "person" && (
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                          <circle cx="12" cy="8" r="4" stroke="white" strokeWidth="2" />
+                          <path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2" stroke="white" strokeWidth="2" />
+                          <path d="M12 14v4M10 16h4" stroke="white" strokeWidth="2" strokeLinecap="round" />
+                        </svg>
+                      )}
+                      {phase.iconType === "globe" && (
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                          <circle cx="12" cy="12" r="10" stroke="white" strokeWidth="2" />
+                          <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" stroke="white" strokeWidth="2" />
+                        </svg>
+                      )}
+                      {phase.iconType === "gear" && (
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                          <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" stroke="white" strokeWidth="2" />
+                          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      )}
+                    </div>
 
-                  {/* Phase Content */}
-                  <div className={styles.phaseContent}>
-                    <h3 className={styles.phaseTitle}>{phase.title}</h3>
-                    <p className={styles.phaseDays}>{phase.days}</p>
-                    <ul className={styles.deliverablesList}>
-                      {phase.deliverables.map((item, itemIndex) => (
-                        <li key={itemIndex} className={styles.deliverableItem}>
-                          <img
-                            src="/assets/images/tick.png"
-                            alt="check"
-                            className={styles.checkIcon}
-                          />
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
+                    {/* Phase Content */}
+                    <div className={`${styles.phaseContent} ${isExpanded ? styles.phaseContentExpanded : styles.phaseContentCollapsed}`}>
+                      <h3 className={styles.phaseTitle}>{phase.title}</h3>
+                      <p className={styles.phaseDays}>{phase.days}</p>
+                      {isExpanded && (
+                        <ul className={styles.deliverablesList}>
+                          {phase.deliverables.map((item, itemIndex) => (
+                            <li key={itemIndex} className={styles.deliverableItem}>
+                              <img
+                                src="/assets/images/tick.png"
+                                alt="check"
+                                className={styles.checkIcon}
+                              />
+                              <span>{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
 

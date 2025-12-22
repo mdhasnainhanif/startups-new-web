@@ -30,6 +30,7 @@ export const metadata: Metadata = {
   title: "22-Day Content Writing Service | Market-Ready Content | Startups Advisory",
   description:
     "Market-Ready Content in 22 Days. Writing shaped for presence, persuasion, and modern brand standards. A complete content layer built with clarity, rhythm, and commercial intent.",
+  robots: "nofollow",
 };
 
 export default function ContentWritingPage() {

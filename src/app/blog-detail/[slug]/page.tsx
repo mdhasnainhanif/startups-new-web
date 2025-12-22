@@ -27,6 +27,7 @@ export async function generateMetadata({ params }: BlogDetailPageProps): Promise
   return {
     title: `${post.title} | Startups Advisory`,
     description: post.excerpt,
+    robots: "nofollow",
   };
 }
 export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
