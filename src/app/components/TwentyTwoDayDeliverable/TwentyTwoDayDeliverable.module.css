@@ -12,7 +12,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: 
+  background-image:
     radial-gradient(1.5px 1.5px at 15% 25%, white, transparent),
     radial-gradient(1.5px 1.5px at 45% 65%, white, transparent),
     radial-gradient(1px 1px at 35% 45%, white, transparent),
@@ -33,8 +33,13 @@
 }
 
 @keyframes twinkle {
-  0% { opacity: 0.3; }
-  100% { opacity: 0.6; }
+  0% {
+    opacity: 0.3;
+  }
+
+  100% {
+    opacity: 0.6;
+  }
 }
 
 .container {
@@ -100,62 +105,90 @@
   flex-direction: column;
   gap: 2rem;
   position: relative;
+  padding-left: 2rem;
 }
+
+/* Removed continuous vertical timeline line */
 
 .phaseBox {
   position: relative;
   background: rgba(24, 13, 51, 0.7);
   border: 1px solid rgba(100, 59, 255, 0.4);
   border-radius: 1rem;
-  padding: 2rem;
+  padding: 1.5rem 2rem;
+  /* padding-left: 3.5rem; */
   backdrop-filter: blur(10px);
-  box-shadow: 
+  box-shadow:
     0 0 25px rgba(100, 59, 255, 0.25),
     inset 0 0 25px rgba(100, 59, 255, 0.08),
     0 4px 15px rgba(0, 0, 0, 0.3);
   display: flex;
-  gap: 1.5rem;
-  transition: all 0.5s ease;
-  opacity: 0.5;
-  transform: translateY(20px);
+  flex-direction: column;
+  gap: 0;
+  transition: max-height 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    border-color 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    box-shadow 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  opacity: 0.4;
+  transform: translateY(0) scale(1);
   max-height: 120px;
+  z-index: 1;
+  margin-bottom: 0;
+  will-change: max-height, opacity, transform, border-color;
+}
+
+.phaseBox:last-child {
   overflow: hidden;
+  margin-bottom: 0;
 }
 
 .phaseBox:first-child {
-  border-color: rgba(15, 218, 194, 0.6);
+  border-top: 2px solid #0FDAC2;
+  border-left: 2px solid #0FDAC2;
+  border-right: 1px solid rgba(100, 59, 255, 0.4);
+  border-bottom: 1px solid rgba(100, 59, 255, 0.4);
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
   max-height: 1000px;
 }
 
 .phaseBoxExpanded {
-  opacity: 1;
-  transform: translateY(0);
-  max-height: 1000px;
-  border-color: rgba(15, 218, 194, 0.6);
-  box-shadow: 
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+  max-height: 1000px !important;
+  box-shadow:
     0 0 30px rgba(15, 218, 194, 0.3),
     inset 0 0 20px rgba(15, 218, 194, 0.1),
-    0 4px 15px rgba(0, 0, 0, 0.3);
+    0 4px 15px rgba(0, 0, 0, 0.3) !important;
 }
 
 .phaseBoxCollapsed {
-  opacity: 0.5;
-  transform: translateY(20px);
-  max-height: 120px;
+  opacity: 0.4 !important;
+  transform: translateY(0) scale(1) !important;
+  max-height: 120px !important;
+}
+
+.phaseBox:last-child.phaseBoxExpanded {
+  max-height: 1000px !important;
+  overflow: hidden;
+}
+
+.phaseBox:last-child.phaseBoxCollapsed {
+  max-height: 120px !important;
+  overflow: hidden;
 }
 
 .phaseBox:hover {
   border-color: rgba(100, 59, 255, 0.5);
-  box-shadow: 
+  box-shadow:
     0 0 30px rgba(100, 59, 255, 0.3),
     inset 0 0 20px rgba(100, 59, 255, 0.1);
 }
 
 .phaseBoxExpanded:hover {
   border-color: rgba(15, 218, 194, 0.8);
-  box-shadow: 
+  box-shadow:
     0 0 35px rgba(15, 218, 194, 0.4),
     inset 0 0 25px rgba(15, 218, 194, 0.15),
     0 4px 15px rgba(0, 0, 0, 0.3);
@@ -168,6 +201,7 @@
   width: 48px;
   height: 48px;
   border-radius: 50%;
+  background: rgba(24, 13, 51, 0.95);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -177,6 +211,7 @@
   transform: scale(0.8);
   transition: all 0.5s ease 0.2s;
   z-index: 2;
+  border: none;
 }
 
 .phaseIconVisible {
@@ -187,33 +222,83 @@
 .phaseBox:first-child .phaseIcon {
   opacity: 1;
   transform: scale(1);
+  background: rgba(24, 13, 51, 0.95);
+  border: none;
 }
 
-.connectingLine {
+/* Timeline Dot on Each Phase Box */
+/* .phaseBox::before {
+  content: '';
   position: absolute;
-  left: 24px;
-  top: -2rem;
+  left: 15px;
+  top: 2rem;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: rgba(100, 59, 255, 0.6);
+  border: 3px solid rgba(24, 13, 51, 0.9);
+  box-shadow: 0 0 15px rgba(100, 59, 255, 0.5);
+  z-index: 3;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+} */
+
+/* .phaseBoxExpanded::before {
+  background: #0FDAC2;
+  border-color: rgba(24, 13, 51, 0.9);
+  box-shadow: 0 0 20px rgba(15, 218, 194, 0.8), 0 0 30px rgba(15, 218, 194, 0.4);
+  transform: scale(1.2);
+} */
+
+/* Vertical Connector Line Below Each Box (except last) */
+.phaseBox::after {
+  content: '';
+  position: absolute;
+  left: 23px;
+  bottom: -2rem;
   width: 2px;
   height: 2rem;
-  background: linear-gradient(to bottom, #0FDAC2, transparent);
-  z-index: 1;
+  background: rgba(15, 218, 194, 0.6);
+  z-index: 2;
+  box-shadow: rgba(15, 218, 194, 0.6);
+  transition: background 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    box-shadow 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  opacity: 1;
+  pointer-events: none;
+}
+
+/* Hide connector on last box */
+.phaseBox:last-child::after {
+  display: none !important;
+  opacity: 0 !important;
+  height: 0 !important;
+  width: 0 !important;
+}
+
+/* Enhanced connector for expanded box */
+/* .phaseBoxExpanded::after {
+  background: linear-gradient(
+    to bottom,
+    rgba(15, 218, 194, 1) 0%,
+    rgba(15, 218, 194, 0.8) 50%,
+    rgba(15, 218, 194, 0.4) 100%
+  ) !important;
+  box-shadow: 0 0 12px rgba(15, 218, 194, 0.8) !important;
+  opacity: 1 !important;
+} */
+
+.connectingLine {
+  display: none;
 }
 
 .lineDot {
-  position: absolute;
-  top: -4px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #0FDAC2;
-  box-shadow: 0 0 10px #0FDAC2;
+  display: none;
 }
 
 .phaseContent {
   flex: 1;
-  transition: all 0.5s ease;
+  transition: opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s;
+  position: relative;
 }
 
 .phaseContentExpanded {
@@ -228,8 +313,44 @@
   font-size: 1.25rem;
   font-weight: 700;
   color: #ffffff;
-  margin: 0 0 0.5rem 0;
+  margin: 0 0 0.25rem 0;
   font-family: var(--font-plus-jakarta-sans), sans-serif;
+  display: flex;
+  align-items: baseline;
+  gap: 0;
+  position: relative;
+  padding-right: 3.5rem;
+  line-height: 1.4;
+}
+
+.phaseNumber {
+  color: #0FDAC2;
+  font-weight: 700;
+}
+
+.phaseName {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.phaseDays {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0 0 0 0;
+  font-weight: 400;
+}
+
+.separatorLine {
+  width: 100%;
+  height: 1px;
+  background: #0FDAC2;
+  margin: 1rem 0 1.5rem 0;
+  opacity: 0;
+  transition: opacity 0.6s ease 0.3s;
+}
+
+.phaseBoxExpanded .separatorLine {
+  opacity: 1;
 }
 
 .phaseDays {
@@ -245,7 +366,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0.75rem;
-  animation: fadeInUp 0.6s ease forwards;
+  animation: fadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
 
 @keyframes fadeInUp {
@@ -253,6 +374,7 @@
     opacity: 0;
     transform: translateY(10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -283,29 +405,45 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  /* height: 450px; */
-  /* max-height: 450px; */
   z-index: 10;
   width: 100%;
 }
 
-.imageWrapper {
+.imageContainer {
   position: relative;
   width: 100%;
-  max-width: 100%;
-  /* height: 450px; */
+  aspect-ratio: 4/3;
   border-radius: 1rem;
   overflow: hidden;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  background: rgba(24, 13, 51, 0.5);
 }
 
-.brandSystemImage {
+.phaseImage {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  /* max-height: 450px; */
-  object-fit: contain;
+  object-fit: cover;
   display: block;
-  transition: opacity 0.5s ease-in-out;
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: opacity, transform;
+}
+
+.phaseImageActive {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 2;
+}
+
+.phaseImageInactive {
+  opacity: 0;
+  transform: scale(0.95);
+  z-index: 1;
 }
 
 /* Responsive Design */
@@ -319,6 +457,28 @@
     order: -1;
     position: relative;
     top: 0;
+    margin-bottom: 2rem;
+  }
+
+  .imageContainer {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .phasesContainer {
+    padding-left: 1.5rem;
+  }
+
+  .phaseBox {
+    padding-left: 3rem;
+  }
+
+  /* .phaseBox::before {
+    left: 12px;
+  } */
+
+  .phaseBox::after {
+    left: 20px;
   }
 }
 
@@ -338,23 +498,74 @@
     font-size: 0.75rem;
   }
 
+  .section {
+    padding: 2rem 0;
+  }
+
+  .titleSection {
+    margin-bottom: 2rem;
+  }
+
+  .phasesContainer {
+    padding-left: 1rem;
+    gap: 1.5rem;
+  }
+
   .phaseBox {
     padding: 1.5rem;
+    padding-left: 2.5rem;
+    max-height: 100px;
+  }
+
+  .phaseBoxExpanded {
+    max-height: 800px !important;
+  }
+
+  /* .phaseBox::before {
+    left: 8px;
+    top: 1.5rem;
+    width: 12px;
+    height: 12px;
+  } */
+
+  .phaseBox::after {
+    left: 13px;
+    bottom: -1.5rem;
+    height: 1.5rem;
   }
 
   .phaseIcon {
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
+    top: 1rem;
+    right: 1rem;
   }
 
   .phaseTitle {
-    font-size: 1rem;
+    font-size: 0.9375rem;
+  }
+
+  .phaseDays {
+    font-size: 0.75rem;
   }
 
   .deliverablesList {
     grid-template-columns: 1fr;
+    gap: 0.5rem;
   }
 
+  .deliverableItem {
+    font-size: 0.875rem;
+  }
+
+  .checkIcon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .imageContainer {
+    aspect-ratio: 16/9;
+  }
 }
 
 @media (max-width: 480px) {
@@ -362,13 +573,59 @@
     font-size: 1.5rem;
   }
 
-  .phaseBox {
-    flex-direction: column;
+  .section {
+    padding: 1.5rem 0;
+  }
+
+  .titleSection {
+    margin-bottom: 1.5rem;
+  }
+
+  .phasesContainer {
+    padding-left: 0.75rem;
     gap: 1rem;
   }
 
-  .connectingLine {
-    display: none;
+  .phaseBox {
+    padding: 1rem;
+    padding-left: 2rem;
+    max-height: 90px;
   }
 
+  .phaseBoxExpanded {
+    max-height: 700px !important;
+  }
+
+  /* .phaseBox::before {
+    left: 6px;
+    width: 10px;
+    height: 10px;
+  } */
+
+  .phaseBox::after {
+    left: 10px;
+    bottom: -1rem;
+    height: 1rem;
+  }
+
+  .phaseIcon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .phaseTitle {
+    font-size: 0.875rem;
+  }
+
+  .phaseDays {
+    font-size: 0.6875rem;
+  }
+
+  .deliverableItem {
+    font-size: 0.8125rem;
+  }
+
+  .imageContainer {
+    aspect-ratio: 4/3;
+  }
 }
