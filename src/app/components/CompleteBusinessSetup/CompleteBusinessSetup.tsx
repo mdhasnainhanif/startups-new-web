@@ -344,7 +344,7 @@
                                 className={`${styles.separatorLine} pb-1 md:text-lg text-xs`}
                               >
                                 <div className="flex items-center gap-2">
-                                  <span className="text-white font-medium">
+                                  <span className="text-[#0FDAC2] font-medium">
                                     {item.number}.
                                   </span>
                                   <span className="text-white">{item.label}</span>

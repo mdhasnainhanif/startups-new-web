@@ -77,14 +77,16 @@
   background: var(--color-purple);
 }
 .separatorLine {
-  border: 1px solid #21164c;
   background: #312763;
   border-radius: 0.525rem;
-  padding: .52rem .225rem .845rem .525rem;
+  padding: 0.52rem 0.225rem 0.845rem 0.525rem;
   font-size: 1rem;
   display: block;
   visibility: visible;
   opacity: 1;
+  width: 100%;
+  max-width: 15rem;
+  border: 1px solid #4e4989;
 }
 /* .separatorLine::after {
   content: "";
