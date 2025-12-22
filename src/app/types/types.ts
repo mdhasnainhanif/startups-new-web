@@ -1,6 +1,6 @@
 import { ReactNode, ButtonHTMLAttributes, AnchorHTMLAttributes } from "react";
 
-// Button Types
+
 export type ButtonVariant = "primary" | "secondary" | "outline" | "dark" | "light" | "purple" | "green";
 export type ButtonSize = "sm" | "md" | "lg" | "xl";
 
@@ -35,14 +35,14 @@ export interface ButtonAsLink extends BaseButtonProps, Omit<AnchorHTMLAttributes
 
 export type ButtonProps = ButtonAsButton | ButtonAsLink;
 
-// Container Types
+
 export interface ContainerProps {
   children: ReactNode;
   className?: string;
   maxWidth?: "sm" | "md" | "lg" | "xl" | "2xl" | "full" | "mxl" | "sxl";
 }
 
-// HeroBanner Types
+
 export interface HeroBannerProps {
   headline: string;
   headlineHighlight?: string;
@@ -57,7 +57,7 @@ export interface HeroBannerProps {
   onButtonClick?: () => void;
 }
 
-// AboutUsBanner Types
+
 export interface AboutUsBannerProps {
   heading: {
     part1: string;
@@ -74,7 +74,7 @@ export interface AboutUsBannerProps {
   className?: string;
 }
 
-// OurCoreValue Types
+
 export interface CoreValueCard {
   id: string;
   number: string;
@@ -88,7 +88,7 @@ export interface OurCoreValueProps {
   className?: string;
 }
 
-// WhyChoose Types
+
 export interface WhyChooseItem {
   id: string;
   title: string;
@@ -106,7 +106,7 @@ export interface WhyChooseProps {
   className?: string;
 }
 
-// DedicatedTeam Types
+
 export interface TeamMember {
   id: string;
   name?: string;
@@ -124,7 +124,7 @@ export interface DedicatedTeamProps {
   className?: string;
 }
 
-// EmpowerBusiness Types
+
 export interface EmpowerBusinessProps {
   heading: string;
   description: string;
@@ -136,7 +136,7 @@ export interface EmpowerBusinessProps {
   className?: string;
 }
 
-// OurJourney Types
+
 export interface JourneyItem {
   id: string;
   number: string;
@@ -144,6 +144,7 @@ export interface JourneyItem {
   subtitle: string;
   description: string;
   imagePosition: "left" | "right";
+  icon: string;
 }
 
 export interface OurJourneyProps {
@@ -151,7 +152,7 @@ export interface OurJourneyProps {
   className?: string;
 }
 
-// Counter Types
+
 export interface CounterItem {
   id: string;
   value: string;
@@ -164,7 +165,7 @@ export interface CounterProps {
   gridClassName?: string;
 }
 
-// ContactForm Types
+
 export interface FormFieldConfig {
   id: string;
   name: string;
@@ -204,22 +205,22 @@ export interface FormData {
   [key: string]: string;
 }
 
-// ContactFormAddress Types
+
 export interface SocialLink {
   id: string;
-  icon: string; // Icon name or component path
+  icon: string; 
   url: string;
   label: string;
-  bgColor?: string; // Tailwind bg color class
+  bgColor?: string; 
 }
 
 export interface ContactItem {
   id: string;
-  icon: string; // Icon name
+  icon: string; 
   label: string;
   value: string;
-  bgColor?: string; // Tailwind bg color
-  href?: string; // Optional link for email/phone
+  bgColor?: string; 
+  href?: string; 
 }
 
 export interface ContactFormAddressConfig {

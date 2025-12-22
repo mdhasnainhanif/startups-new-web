@@ -8,8 +8,6 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import Container from '../Container';
 import styles from './ProvenSuccess.module.css';
-import { Fancybox } from '@fancyapps/ui';
-import '@fancyapps/ui/dist/fancybox/fancybox.css';
 
 interface TabData {
   id: string;
@@ -217,138 +215,22 @@ const PROVEN_SUCCESS_DATA: ProvenSuccessData = {
   // ],
 };
 
-// Portfolio data for web development
-const WEB_DEV_PORTFOLIO_DATA = [
-  {
-    id: '1',
-    mockup: '/assets/images/portfolio/web-dev/1/mockup.jpg',
-    website: '/assets/images/portfolio/web-dev/1/website.jpg',
-  },
-  {
-    id: '2',
-    mockup: '/assets/images/portfolio/web-dev/2/mockup.jpg',
-    website: '/assets/images/portfolio/web-dev/2/website.jpg',
-  },
-  {
-    id: '3',
-    mockup: '/assets/images/portfolio/web-dev/3/mockup.jpg',
-    website: '/assets/images/portfolio/web-dev/3/website.jpg',
-  },
-  {
-    id: '4',
-    mockup: '/assets/images/portfolio/web-dev/4/mockup.jpg',
-    website: '/assets/images/portfolio/web-dev/4/website.jpg',
-  },
-  {
-    id: '5',
-    mockup: '/assets/images/portfolio/web-dev/5/mockup.jpg',
-    website: '/assets/images/portfolio/web-dev/5/website.jpg',
-  },
-  {
-    id: '6',
-    mockup: '/assets/images/portfolio/web-dev/6/mockup.jpg',
-    website: '/assets/images/portfolio/web-dev/6/website.jpg',
-  },
-  {
-    id: '7',
-    mockup: '/assets/images/portfolio/web-dev/7/mockup.jpg',
-    website: '/assets/images/portfolio/web-dev/7/website.jpg',
-  },
-  {
-    id: '8',
-    mockup: '/assets/images/portfolio/web-dev/8/mockup.jpg',
-    website: '/assets/images/portfolio/web-dev/8/website.jpg',
-  },
-];
-
 interface ProvenSuccessProps {
-  variant?: 'default' | 'web-development';
+  data?: ProvenSuccessData;
 }
 
-const ProvenSuccess = ({ variant = 'default' }: ProvenSuccessProps) => {
-  // Web Development Portfolio (No Tabs)
-  useEffect(() => {
-    if (variant === 'web-development') {
-      // Initialize Fancybox for web development portfolio
-      Fancybox.bind('[data-fancybox="web-dev-portfolio"]');
+const ProvenSuccess = ({ data }: ProvenSuccessProps) => {
+  const provenSuccessData = data || PROVEN_SUCCESS_DATA;
+  // Filter to only show Social Media Post tab
+  const filteredTabs = provenSuccessData.tabs;
 
-      return () => {
-        Fancybox.unbind('[data-fancybox="web-dev-portfolio"]');
-        Fancybox.close();
-      };
-    }
-  }, [variant]);
-
-  // Render Web Development Portfolio (No Tabs)
-  if (variant === 'web-development') {
-    return (
-      <section className={`sectionPadding provenSuccess ${styles.section} ${styles.ProvenSuccess}`}>
-        <Container maxWidth="xl" className="px-0">
-          {/* Header Section */}
-          <div className={styles.header + " sectionHeading forH2"}>
-            <h2>
-              <span className="text-white">Proven </span>
-              <span className="text-[#0fdac2]">Success</span>
-              <span className="text-white"> in Every Project</span>
-            </h2>
-            <p className={styles.description}>
-              Your Smart AI Business Team brings a fully loaded AI ecosystem for creative design and analytics automation — premium tools, no extra cost, no hassle.
-            </p>
-          </div>
-
-          {/* Portfolio Grid - 4 items per row */}
-          <div className={styles.portfolioGrid}>
-            {WEB_DEV_PORTFOLIO_DATA.map((item) => (
-              <a
-                key={item.id}
-                href={item.website}
-                data-fancybox="web-dev-portfolio"
-                data-src={item.website}
-                className={styles.portfolioItem}
-              >
-                <div className={styles.imageWrapper}>
-                  <img
-                    src={item.mockup}
-                    alt={`Portfolio ${item.id}`}
-                    className={styles.portfolioImage}
-                  />
-                  <div className={styles.overlay}>
-                    <svg
-                      width="48"
-                      height="48"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className={styles.zoomIcon}
-                    >
-                      <circle cx="11" cy="11" r="8"></circle>
-                      <path d="m21 21-4.35-4.35"></path>
-                      <line x1="11" y1="8" x2="11" y2="14"></line>
-                      <line x1="8" y1="11" x2="14" y2="11"></line>
-                    </svg>
-                  </div>
-                </div>
-              </a>
-            ))}
-          </div>
-        </Container>
-      </section>
-    );
-  }
-
-  // Original Portfolio with Tabs (for other pages)
-  const filteredTabs = PROVEN_SUCCESS_DATA.tabs;
-
-  const [activeTab, setActiveTab] = useState<string>(PROVEN_SUCCESS_DATA.tabs[0].id);
+  const [activeTab, setActiveTab] = useState<string>(provenSuccessData.tabs[0].id);
   // const [activeCategory, setActiveCategory] = useState<string>(PROVEN_SUCCESS_DATA.categories[0].id);
   const [activeCategory, setActiveCategory] = useState<string>('');
   const [isBeginning, setIsBeginning] = useState<boolean>(true);
   const [isEnd, setIsEnd] = useState<boolean>(false);
   const [isFading, setIsFading] = useState<boolean>(false);
-  const [displayedTabId, setDisplayedTabId] = useState<string>('social-media-post');
+  const [displayedTabId, setDisplayedTabId] = useState<string>(provenSuccessData.tabs[0].id);
   // const [displayedCategoryId, setDisplayedCategoryId] = useState<string>(PROVEN_SUCCESS_DATA.categories[0].id);
   const [displayedCategoryId, setDisplayedCategoryId] = useState<string>('');
   const swiperRef = useRef<SwiperType | null>(null);
@@ -405,10 +287,10 @@ const ProvenSuccess = ({ variant = 'default' }: ProvenSuccessProps) => {
         <div className={styles.header + " sectionHeading forH2"}>
           <h2>
             <span className="text-white">Proven </span>
-            <span className="text-[#0fdac2]">{PROVEN_SUCCESS_DATA.headline.highlighted}</span>
+            <span className="text-[#0fdac2]">{provenSuccessData.headline.highlighted}</span>
             <span className="text-white"> in Every Project</span>
           </h2>
-          <p className={styles.description}>{PROVEN_SUCCESS_DATA.description}</p>
+          <p className={styles.description}>{provenSuccessData.description}</p>
         </div>
 
         {/* Tabs Swiper */}
@@ -433,7 +315,7 @@ const ProvenSuccess = ({ variant = 'default' }: ProvenSuccessProps) => {
             slidesPerView="auto"
             className={styles.tabsSwiper}
           >
-            {PROVEN_SUCCESS_DATA.tabs.map((tab) => (
+            {provenSuccessData.tabs.map((tab) => (
               <SwiperSlide key={tab.id} className={styles.swiperSlide}>
                 <button
                   onClick={() => setActiveTab(tab.id)}
@@ -490,22 +372,22 @@ const ProvenSuccess = ({ variant = 'default' }: ProvenSuccessProps) => {
               setIsTabsSwiperBeginning(swiper.isBeginning);
               setIsTabsSwiperEnd(swiper.isEnd);
               const activeIndex = swiper.activeIndex;
-              if (PROVEN_SUCCESS_DATA.tabs[activeIndex]) {
-                const selectedTab = PROVEN_SUCCESS_DATA.tabs[activeIndex];
+              if (provenSuccessData.tabs[activeIndex]) {
+                const selectedTab = provenSuccessData.tabs[activeIndex];
                 setActiveTab(selectedTab.id);
               }
             }}
             className={styles.tabsSwiper}
             style={{ paddingLeft: "3rem", paddingRight: "3rem", overflow: "hidden" }}
           >
-            {PROVEN_SUCCESS_DATA.tabs.map((tab) => (
+            {provenSuccessData.tabs.map((tab) => (
               <SwiperSlide key={tab.id} style={{ width: "100%" }}>
                 <div className="flex justify-center w-full">
                   <button
                     onClick={() => {
                       setActiveTab(tab.id);
                       // Sync swiper to active tab
-                      const tabIndex = PROVEN_SUCCESS_DATA.tabs.findIndex((t) => t.id === tab.id);
+                      const tabIndex = provenSuccessData.tabs.findIndex((t) => t.id === tab.id);
                       if (tabsSwiperRef.current && tabIndex !== -1) {
                         tabsSwiperRef.current.slideTo(tabIndex);
                       }

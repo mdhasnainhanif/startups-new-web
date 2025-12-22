@@ -24,9 +24,10 @@ import {
   socialMediaMarketingGuessWorkData,
   socialMediaMarketingSliderData1, 
   socialMediaMarketingSliderData2, 
-  socialMediaMarketingSliderData3 
+  socialMediaMarketingSliderData3,
+  socialMediaMarketingProvenSuccessData
 } from '../data/SocialMediaMarketingPageData';
-
+import ProvenSuccess from "../components/ProvenSuccess/ProvenSuccess";
 export const metadata: Metadata = {
   title: "22-Day Social Media Marketing Service | Market-Ready Social Content | Startups Advisory",
   description:
@@ -53,6 +54,7 @@ export default function SocialMediaMarketingPage() {
       <GuessWorkAdvertising data={socialMediaMarketingGuessWorkData}/>
       <RealCost data={socialMediaMarketingRealCostData}/>
       <CompleteBusinessSetup data={socialMediaMarketingCompleteSetupData}/>
+      <ProvenSuccess data={socialMediaMarketingProvenSuccessData}/>
       <Reviews/>
       <GrowthSlider items={socialMediaMarketingBlogGuides} />
       <FAQ faqs={FAQ_CONTACT} sectionData={FAQ_SECTION} />

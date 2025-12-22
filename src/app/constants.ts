@@ -315,7 +315,7 @@ export const OUR_CORE_VALUES = {
     {
       id: "1",
       number: "01",
-      icon: null,
+      icon: '/assets/images/globe2.svg',
       heading: "Innovation That Drives Revenue Forward",
       description:
         "We design growth focused solutions that remove bottlenecks help you move faster and give your business the structure it needs to scale.",
@@ -323,7 +323,7 @@ export const OUR_CORE_VALUES = {
     {
       id: "2",
       number: "02",
-      icon: null,
+      icon: '/assets/images/globe3.svg',
       heading: "Strong Reliable Business Systems",
       description:
         "Every system we build is created for long term stability giving you operations that run smoothly consistently and without hidden gaps.",
@@ -331,7 +331,7 @@ export const OUR_CORE_VALUES = {
     {
       id: "3",
       number: "03",
-      icon: null,
+      icon: '/assets/images/globe4.svg',
       heading: "A Global Mindset For Modern Businesses",
       description:
         "With experience shaped across different markets we help businesses build models that scale easily adapt quickly and stay competitive everywhere they operate.",
@@ -498,6 +498,7 @@ export const OUR_JOURNEY = {
       description:
         "We begin by listening to your challenges your goals and your roadblocks then identify what will move the needle fastest for your revenue and performance.",
       imagePosition: "left" as const,
+      icon: "/assets/images/journey1.svg",
     },
     {
       id: "2",
@@ -507,6 +508,7 @@ export const OUR_JOURNEY = {
       description:
         "We map your operations define your growth opportunities and design the systems that help your business operate stronger and sell smarter.",
       imagePosition: "right" as const,
+      icon: "/assets/images/journey2.svg",
     },
     {
       id: "3",
@@ -516,6 +518,7 @@ export const OUR_JOURNEY = {
       description:
         "We launch improved workflows refined systems and stronger structures that reduce wasted time boost output and drive measurable business growth.",
       imagePosition: "left" as const,
+      icon: "/assets/images/journey3.svg",
     },
   ],
 };
