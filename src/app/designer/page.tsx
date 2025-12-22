@@ -25,6 +25,8 @@ const TwentyTwoDayDeliverable = dynamic(() => import('../components/TwentyTwoDay
 });
 
 export const metadata: Metadata = {
+  title: "Designer Services | Professional Design Team | Startups Advisory",
+  description: "Get a complete design team in 22 days. Professional branding, graphics, and creative design services to build your brand identity and visual presence.",
   robots: "nofollow",
 };
 

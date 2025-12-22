@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   title: "AI Agent Services | Intelligent AI Solutions | Startups Advisory",
   description:
     "Transform your business with cutting-edge AI solutions that automate workflows, enhance customer experiences, and drive measurable results around the clock.",
+  robots: "nofollow",
 };
 
 const AI_AGENT_FAQS = [

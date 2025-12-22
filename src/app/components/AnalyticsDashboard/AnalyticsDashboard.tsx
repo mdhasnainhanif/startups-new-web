@@ -246,7 +246,7 @@ export default function AnalyticsDashboard({
                     <circle cx="77.84" cy="246.78" r="4.2" />
                     <circle cx="52.04" cy="136.60" r="4.2" />
                   </g>
-                <g fill="#c6cfdd" fontFamily="Inter, ui-sans-serif, system-ui" fontSize="18" opacity="0.9">
+                <g fill="#c6cfdd" fontFamily="Inter, ui-sans-serif, system-ui" fontSize="14" opacity="0.9">
                     {radarChartLabels.map((label, index) => (
                       <text key={index} x={label.x} y={label.y}>{label.text}</text>
                     ))}

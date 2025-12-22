@@ -6,8 +6,8 @@ import { Navigation } from 'swiper/modules';
 import type { Swiper as SwiperType } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import Container from '../Container';
 import styles from './ProvenSuccess.module.css';
+import Container from '../Container';
 
 interface TabData {
   id: string;
