@@ -895,10 +895,10 @@
 }
 
 .lightboxCloseButton {
-  position: absolute;
+  position: fixed;
   top: 1rem;
   right: 1rem;
-  z-index: 10000;
+  z-index: 10001;
   width: 2.5rem;
   height: 2.5rem;
   background: rgba(255, 255, 255, 0.1);
@@ -920,6 +920,31 @@
 
 .lightboxCloseButton:active {
   transform: scale(0.95);
+}
+
+/* Scrollable Lightbox for Web Development */
+.lightboxContentScrollable {
+  overflow: auto !important;
+  display: flex;
+  flex-direction: column;
+}
+
+.lightboxImageContainer {
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.lightboxImageScrollable {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+  display: block;
 }
 
 

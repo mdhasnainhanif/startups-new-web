@@ -80,16 +80,18 @@ const PROVEN_SUCCESS_DATA: ProvenSuccessData = {
   tabs: [
     {
       id: 'branding-kit',
-      label: 'CMS',
+      label: 'Branding Kit',
       images: [
-        '/assets/images/portfolio/cms/1.webp',
-        '/assets/images/portfolio/cms/2.webp',
-        '/assets/images/portfolio/cms/3.webp',
-        '/assets/images/portfolio/cms/4.webp',
-        '/assets/images/portfolio/cms/5.webp',
-        '/assets/images/portfolio/cms/6.webp',
-        '/assets/images/portfolio/cms/7.webp',
-        '/assets/images/portfolio/cms/8.webp',
+        '/assets/images/portfolio/branding-kit/1.jpg',
+        '/assets/images/portfolio/branding-kit/2.jpg',
+        '/assets/images/portfolio/branding-kit/3.jpg',
+        '/assets/images/portfolio/branding-kit/4.jpg',
+        '/assets/images/portfolio/branding-kit/5.jpg',
+        '/assets/images/portfolio/branding-kit/6.jpg',
+        '/assets/images/portfolio/branding-kit/7.jpg',
+        '/assets/images/portfolio/branding-kit/8.jpg',
+        '/assets/images/portfolio/branding-kit/9.jpg',
+        '/assets/images/portfolio/branding-kit/10.jpg',
       ],
       gridItems: [
         { id: '1', label: 'Logo Design' },
@@ -120,16 +122,38 @@ const PROVEN_SUCCESS_DATA: ProvenSuccessData = {
     },
     {
       id: 'logo-design',
-      label: 'Ecommerce',
+      label: 'Logo Design',
       images: [
-        '/assets/images/portfolio/ecommerce/1.webp',
-        '/assets/images/portfolio/ecommerce/2.webp',
-        '/assets/images/portfolio/ecommerce/3.webp',
-        '/assets/images/portfolio/ecommerce/4.webp',
-        '/assets/images/portfolio/ecommerce/5.webp',
-        '/assets/images/portfolio/ecommerce/6.webp',
-        '/assets/images/portfolio/ecommerce/7.webp',
-        '/assets/images/portfolio/ecommerce/8.webp',
+        '/assets/images/portfolio/logo-design/1.jpg',
+        '/assets/images/portfolio/logo-design/2.jpg',
+        '/assets/images/portfolio/logo-design/3.jpg',
+        '/assets/images/portfolio/logo-design/4.jpg',
+        '/assets/images/portfolio/logo-design/5.jpg',
+        '/assets/images/portfolio/logo-design/6.jpg',
+        '/assets/images/portfolio/logo-design/7.jpg',
+        '/assets/images/portfolio/logo-design/8.jpg',
+        '/assets/images/portfolio/logo-design/9.jpg',
+        '/assets/images/portfolio/logo-design/10.jpg',
+        '/assets/images/portfolio/logo-design/11.jpg',
+        '/assets/images/portfolio/logo-design/12.jpg',
+        '/assets/images/portfolio/logo-design/13.jpg',
+        '/assets/images/portfolio/logo-design/14.jpg',
+        '/assets/images/portfolio/logo-design/15.jpg',
+        '/assets/images/portfolio/logo-design/16.jpg',
+        '/assets/images/portfolio/logo-design/17.jpg',
+        '/assets/images/portfolio/logo-design/18.jpg',
+        '/assets/images/portfolio/logo-design/19.jpg',
+        '/assets/images/portfolio/logo-design/20.jpg',
+        '/assets/images/portfolio/logo-design/21.jpg',
+        '/assets/images/portfolio/logo-design/22.jpg',
+        '/assets/images/portfolio/logo-design/23.jpg',
+        '/assets/images/portfolio/logo-design/24.jpg',
+        '/assets/images/portfolio/logo-design/25.jpg',
+        '/assets/images/portfolio/logo-design/26.jpg',
+        '/assets/images/portfolio/logo-design/27.jpg',
+        '/assets/images/portfolio/logo-design/28.jpg',
+        '/assets/images/portfolio/logo-design/29.jpg',
+        '/assets/images/portfolio/logo-design/30.jpg',
       ],
       gridItems: [
         { id: '1', label: 'Primary Logo' },
@@ -210,11 +234,13 @@ interface ProvenSuccessProps {
 const ImageLightbox = ({ 
   isOpen, 
   onClose, 
-  imageUrl 
+  imageUrl,
+  isWebDevelopment = false
 }: { 
   isOpen: boolean; 
   onClose: () => void; 
   imageUrl: string | null;
+  isWebDevelopment?: boolean;
 }) => {
   useEffect(() => {
     if (isOpen) {
@@ -251,34 +277,36 @@ const ImageLightbox = ({
       className={styles.lightboxOverlay}
       onClick={onClose}
     >
+      <button
+        onClick={onClose}
+        className={styles.lightboxCloseButton}
+        aria-label="Close image"
+      >
+        <svg
+          className="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M6 18L18 6M6 6l12 12"
+          />
+        </svg>
+      </button>
       <div
-        className={styles.lightboxContent}
+        className={`${styles.lightboxContent} ${isWebDevelopment ? styles.lightboxContentScrollable : ''}`}
         onClick={(e) => e.stopPropagation()}
       >
-        <button
-          onClick={onClose}
-          className={styles.lightboxCloseButton}
-          aria-label="Close image"
-        >
-          <svg
-            className="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
-        </button>
-        <img
-          src={imageUrl}
-          alt="Portfolio zoom"
-          className={styles.lightboxImage}
-        />
+        <div className={isWebDevelopment ? styles.lightboxImageContainer : ''}>
+          <img
+            src={imageUrl}
+            alt="Portfolio zoom"
+            className={`${styles.lightboxImage} ${isWebDevelopment ? styles.lightboxImageScrollable : ''}`}
+          />
+        </div>
       </div>
     </div>
   );
@@ -565,6 +593,7 @@ const ProvenSuccess = ({ data, variant }: ProvenSuccessProps) => {
           isOpen={selectedImage !== null}
           onClose={() => setSelectedImage(null)}
           imageUrl={selectedImage}
+          isWebDevelopment={isWebDevelopment}
         />
       </Container>
     </section>
