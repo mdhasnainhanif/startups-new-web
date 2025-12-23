@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { EmailIcon, LocationIcon, PhoneIcon } from "../../icons";
+import Image from "next/image";
 import Button from "../Button";
 import Container from "../Container";
 import styles from "./Contact.module.css";
@@ -67,7 +67,7 @@ export default function Contact() {
             <div className={styles.infoContent}>
               <div className={styles.headingWithIcon}>
                 <h2 className={`${styles.formHeading}`}>
-                  Share what you’re <span className={styles.highlightText}>building and what you</span> want to fix
+                  Share what you're <span className={styles.highlightText}>building and what you</span> want to fix
                 </h2>
               </div>
               <p className={`${styles.descriptionText}`}>
@@ -76,15 +76,30 @@ export default function Contact() {
               <p className={`${styles.descriptionText2}`}>Share as much detail as you like so our team can understand your goals and offer the best support possible for your business growth and needs today.</p>
               <div className="flex flex-col gap-4 mt-[2.5rem]">
                   <a href="tel:+13466269169" className="flex items-center gap-3 text-white">
-                    <PhoneIcon fill="#00d4aa" style={{ width: "18px", height: "18px" }} />
+                    <Image 
+                      src="/assets/images/contact-icons/phone.svg" 
+                      alt="Phone" 
+                      width={18}
+                      height={18}
+                    />
                     +1 346-626-9169
                   </a>
                 <a href="mailto:info@startupsadvisory.ai" className="flex items-center gap-3 text-white">
-                  <EmailIcon fill="#00d4aa" style={{ width: "18px", height: "18px" }} />
+                  <Image 
+                    src="/assets/images/contact-icons/email.svg" 
+                    alt="Email" 
+                    width={18}
+                    height={18}
+                  />
                   info@startupsadvisory.ai
                 </a>
                 <span className="flex items-center gap-3 text-white">
-                  <LocationIcon fill="#00d4aa" style={{ width: "18px", height: "18px" }} />
+                  <Image 
+                    src="/assets/images/contact-icons/location.svg" 
+                    alt="Location" 
+                    width={18}
+                    height={18}
+                  />
                   1007n Orange St, Wilmington, DE 19801, United States
                 </span>
                 </div>
@@ -195,7 +210,13 @@ export default function Contact() {
           </div>
         </div>
       </Container>
-      <img src="/assets/images/rocket1.webp" className={`img-fluid ${styles.rocket1}`} />
+      <Image 
+        src="/assets/images/rocket1.webp" 
+        alt="Rocket" 
+        width={500}
+        height={500}
+        className={`img-fluid ${styles.rocket1}`}
+      />
     </section>
   );
 }

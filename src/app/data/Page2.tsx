@@ -511,6 +511,17 @@ export interface HomeBannerData {
         "Many startups fail despite strong products because growth is unmanaged. By 2026, growth involves multiple channels, tools, and teams, making coordination the primary challenge. Without a single owner, marketing runs campaigns without sales alignment, sales pursues leads without clear qualification, and founders become bottlenecks.",
       href: "/blog-detail/why-startups-fail-without-a-key-growth-manager-strategy-accountability-and-scalable-growth-systems/",
     },
+    {
+      id: "inside-key-growth-manager-playbook-2026",
+      image: "/assets/images/blog/1.webp", // Dummy image
+      category: "Key Growth",
+      title: "Inside The Key Growth Manager Playbook: Frameworks, Metrics, And Execution Models For 2026",
+      date: "Jan 30, 2026",
+      readTime: "25 min read",
+      excerpt:
+        "By 2026, sustainable growth is no longer driven by isolated tactics or short-term hacks. It is driven by structured execution, clear metrics, and repeatable systems. The Key Growth Manager operates with a playbook that turns complexity into clarity and effort into predictable outcomes.",
+      href: "/blog-detail/inside-the-key-growth-manager-playbook-frameworks-metrics-and-execution-models-for-2026/",
+    },
   ];
   
   
