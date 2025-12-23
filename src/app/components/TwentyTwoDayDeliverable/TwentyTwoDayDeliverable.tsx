@@ -80,12 +80,13 @@ const phases = [
 ];
 
 const TwentyTwoDayDeliverable = () => {
-  const [activePhase, setActivePhase] = useState<number>(1); // First phase active by default
+  const [activePhase, setActivePhase] = useState<number>(1);
   const phaseRefs = useRef<(HTMLDivElement | null)[]>([]);
   const sectionRef = useRef<HTMLElement | null>(null);
   const imageContainerRef = useRef<HTMLDivElement | null>(null);
   const imageRefs = useRef<(HTMLImageElement | null)[]>([]);
   const triggersRef = useRef<ScrollTrigger[]>([]);
+  const lastActivePhaseRef = useRef<number>(1);
 
   // Set initial image state on mount
   useLayoutEffect(() => {
@@ -107,39 +108,91 @@ const TwentyTwoDayDeliverable = () => {
     triggersRef.current.forEach((trigger) => trigger.kill());
     triggersRef.current = [];
 
-    const phases = phaseRefs.current.filter(Boolean) as HTMLDivElement[];
-    if (phases.length === 0) return;
+    const phaseElements = phaseRefs.current.filter(Boolean) as HTMLDivElement[];
+    if (phaseElements.length === 0) return;
 
-    phases.forEach((phase, index) => {
+    // Get the first and last phase positions
+    const firstPhase = phaseElements[0];
+    const lastPhase = phaseElements[phaseElements.length - 1];
+    
+    if (!firstPhase || !lastPhase) return;
+
+    // Create a single ScrollTrigger for the entire section
+    const mainTrigger = ScrollTrigger.create({
+      trigger: sectionRef.current,
+      start: "top top",
+      end: () => `+=${lastPhase.offsetTop + lastPhase.offsetHeight - firstPhase.offsetTop}`,
+      onUpdate: (self) => {
+        const scrollProgress = self.progress; // 0 to 1
+        const viewportCenter = window.innerHeight * 0.5;
+        
+        // Find which phase is closest to viewport center
+        let closestPhase = 1;
+        let closestDistance = Infinity;
+        let foundPhase = false;
+
+        phaseElements.forEach((phase, index) => {
+          const rect = phase.getBoundingClientRect();
+          const phaseCenter = rect.top + rect.height / 2;
+          const distance = Math.abs(viewportCenter - phaseCenter);
+          
+          // Check if phase is in viewport
+          if (rect.top < viewportCenter + 100 && rect.bottom > viewportCenter - 100) {
+            if (distance < closestDistance) {
+              closestDistance = distance;
+              closestPhase = index + 1;
+              foundPhase = true;
+            }
+          }
+        });
+
+        // If no phase found in viewport, use scroll progress to determine phase
+        if (!foundPhase) {
+          // Divide scroll progress into 4 equal parts for 4 phases
+          const phaseProgress = scrollProgress * (phaseElements.length - 1);
+          closestPhase = Math.min(
+            Math.floor(phaseProgress) + 1,
+            phaseElements.length
+          );
+        }
+
+        // Only update if phase actually changed
+        if (closestPhase !== lastActivePhaseRef.current && closestPhase >= 1 && closestPhase <= phaseElements.length) {
+          lastActivePhaseRef.current = closestPhase;
+          setActivePhase(closestPhase);
+        }
+      },
+    });
+
+    triggersRef.current.push(mainTrigger);
+
+    // Also create individual triggers for each phase with better thresholds
+    phaseElements.forEach((phase, index) => {
       const phaseId = index + 1;
       
-      // Create scroll trigger for each phase
       const trigger = ScrollTrigger.create({
         trigger: phase,
-        start: "top 70%",
-        end: "bottom 30%",
+        start: "top 65%",
+        end: "bottom 35%",
         onEnter: () => {
-          setActivePhase(phaseId);
-        },
-        onEnterBack: () => {
-          setActivePhase(phaseId);
-        },
-        onLeave: () => {
-          // When leaving downward, activate next phase if available
-          if (phaseId < phases.length) {
-            setActivePhase(phaseId + 1);
+          if (lastActivePhaseRef.current !== phaseId) {
+            lastActivePhaseRef.current = phaseId;
+            setActivePhase(phaseId);
           }
         },
-        onLeaveBack: () => {
-          // When scrolling back upward, activate previous phase
-          if (phaseId > 1) {
-            setActivePhase(phaseId - 1);
+        onEnterBack: () => {
+          if (lastActivePhaseRef.current !== phaseId) {
+            lastActivePhaseRef.current = phaseId;
+            setActivePhase(phaseId);
           }
         },
       });
 
       triggersRef.current.push(trigger);
     });
+
+    // Refresh ScrollTrigger after setup
+    ScrollTrigger.refresh();
 
     return () => {
       triggersRef.current.forEach((trigger) => trigger.kill());
