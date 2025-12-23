@@ -206,7 +206,7 @@
       {
         id: 'homepage',
         label: 'Homepage',
-        image: '/assets/images/aipower1.png',
+        image: '/assets/images/pakage/ui-ux-web-design.webp',
         deliverables: [
           { id: '1', label: 'Frontend Development', image: '/assets/images/pakage/frontend-development.webp' },
           { id: '2', label: 'Backend Development', image: '/assets/images/pakage/backend-development.webp' },

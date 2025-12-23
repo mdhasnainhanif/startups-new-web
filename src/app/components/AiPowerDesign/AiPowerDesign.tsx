@@ -47,7 +47,7 @@ const AI_POWER_DESIGN_DATA: AiPowerDesignData = {
     {
       id: 'website-design',
       label: 'Website Design',
-      image: '/assets/images/aipower1.png',
+      image: '/assets/images/pakage/ui-ux-web-design.webp',
       deliverables: [
         { id: '1', label: 'Branding & Identity Design', image: '/assets/images/aipower1.png' },
         { id: '2', label: 'Logo Design', image: '/assets/images/aipower2.png' },

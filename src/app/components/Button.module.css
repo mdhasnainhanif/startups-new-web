@@ -65,16 +65,7 @@
   z-index: -1;
 }
 
-<<<<<<< HEAD
-/* Old rocket animation removed - using new tail animation instead */
-=======
-/* .btnPrimary:active {
-  top: 3px;
-  box-shadow: 0 2px 0px #643bff;
-  transition: all 0.2s;
-} */
-
-.green:hover::after{
+/* .green:hover::after {
   content: "";
   position: absolute;
   top: 0;
@@ -89,7 +80,6 @@
   animation: rocketMove 0.6s ease-in-out forwards;
   pointer-events: none;
 }
->>>>>>> e482d0cc8e831a2c6840795adae751776ec1267e
 
 @keyframes rocketMove {
   0% {
@@ -105,7 +95,7 @@
     background-position: 120% center;
     opacity: 0;
   }
-}
+} */
 
 .purple {
   background-color: #5633dc;
@@ -144,7 +134,6 @@
   background-color: #0fdac2;
 }
 
-/* Rocket Tail Animation */
 .green::before {
   content: '';
   position: absolute;
@@ -206,7 +195,7 @@
   position: relative;
 }
 
-/* Make all icons white on hover for green buttons */
+
 .green:hover svg,
 .green:hover svg path,
 .green:hover svg * {
@@ -215,7 +204,7 @@
   color: #fff !important;
 }
 
-/* Target icon spans specifically */
+
 .green:hover span svg,
 .green:hover span svg path,
 .green:hover span svg * {
