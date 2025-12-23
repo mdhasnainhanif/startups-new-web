@@ -80,12 +80,17 @@ const phases = [
 ];
 
 const TwentyTwoDayDeliverable = () => {
-  const [activePhase, setActivePhase] = useState<number>(1); // First phase active by default
+  const [activePhase, setActivePhase] = useState<number>(1);
   const phaseRefs = useRef<(HTMLDivElement | null)[]>([]);
   const sectionRef = useRef<HTMLElement | null>(null);
   const imageContainerRef = useRef<HTMLDivElement | null>(null);
   const imageRefs = useRef<(HTMLImageElement | null)[]>([]);
   const triggersRef = useRef<ScrollTrigger[]>([]);
+  const lastActivePhaseRef = useRef<number>(1);
+  const isInSectionRef = useRef<boolean>(false);
+  const processTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const scrollQueueRef = useRef<string | null>(null);
+  const isProcessingRef = useRef<boolean>(false);
 
   // Set initial image state on mount
   useLayoutEffect(() => {
@@ -100,6 +105,48 @@ const TwentyTwoDayDeliverable = () => {
     });
   }, []);
 
+  const activateNextPhase = (direction: string) => {
+    if (isProcessingRef.current) {
+      scrollQueueRef.current = direction;
+      return;
+    }
+    isProcessingRef.current = true;
+
+    const currentPhaseIndex = phases.findIndex(
+      (phase) => phase.id === lastActivePhaseRef.current
+    );
+
+    if (currentPhaseIndex === -1) {
+      isProcessingRef.current = false;
+      return;
+    }
+
+    let nextPhaseIndex = currentPhaseIndex;
+
+    if (direction === 'down' && currentPhaseIndex < phases.length - 1) {
+      nextPhaseIndex = currentPhaseIndex + 1;
+    } else if (direction === 'up' && currentPhaseIndex > 0) {
+      nextPhaseIndex = currentPhaseIndex - 1;
+    } else {
+      isProcessingRef.current = false;
+      return;
+    }
+
+    const nextPhase = phases[nextPhaseIndex];
+    lastActivePhaseRef.current = nextPhase.id;
+    setActivePhase(nextPhase.id);
+    
+    setTimeout(() => {
+      isProcessingRef.current = false;
+      
+      if (scrollQueueRef.current) {
+        const queuedDirection = scrollQueueRef.current;
+        scrollQueueRef.current = null;
+        activateNextPhase(queuedDirection);
+      }
+    }, 1200); // Increased from 650ms to 1200ms to match CSS transition
+  };
+
   useLayoutEffect(() => {
     if (!sectionRef.current) return;
 
@@ -107,43 +154,87 @@ const TwentyTwoDayDeliverable = () => {
     triggersRef.current.forEach((trigger) => trigger.kill());
     triggersRef.current = [];
 
-    const phases = phaseRefs.current.filter(Boolean) as HTMLDivElement[];
-    if (phases.length === 0) return;
+    const phaseElements = phaseRefs.current.filter(Boolean) as HTMLDivElement[];
+    if (phaseElements.length === 0) return;
 
-    phases.forEach((phase, index) => {
-      const phaseId = index + 1;
+    const section = sectionRef.current;
+
+    // Handle wheel event for sequential phase activation
+    const handleWheel = (e: WheelEvent) => {
+      // Check if we're in the section
+      const sectionRect = section.getBoundingClientRect();
+      const isInSection = sectionRect.top <= window.innerHeight && sectionRect.bottom >= 0;
       
-      // Create scroll trigger for each phase
-      const trigger = ScrollTrigger.create({
-        trigger: phase,
-        start: "top 70%",
-        end: "bottom 30%",
-        onEnter: () => {
-          setActivePhase(phaseId);
-        },
-        onEnterBack: () => {
-          setActivePhase(phaseId);
-        },
-        onLeave: () => {
-          // When leaving downward, activate next phase if available
-          if (phaseId < phases.length) {
-            setActivePhase(phaseId + 1);
-          }
-        },
-        onLeaveBack: () => {
-          // When scrolling back upward, activate previous phase
-          if (phaseId > 1) {
-            setActivePhase(phaseId - 1);
-          }
-        },
-      });
+      if (!isInSection) {
+        isInSectionRef.current = false;
+        return;
+      }
 
-      triggersRef.current.push(trigger);
+      isInSectionRef.current = true;
+
+      // Determine scroll direction
+      const deltaY = e.deltaY;
+      const direction = deltaY > 0 ? 'down' : 'up';
+      
+      // Clear any existing timeout
+      if (processTimeoutRef.current) {
+        clearTimeout(processTimeoutRef.current);
+      }
+
+      // Debounce and process the scroll direction
+      processTimeoutRef.current = setTimeout(() => {
+        // Check if we have a queued direction that matches current scroll
+        if (scrollQueueRef.current && scrollQueueRef.current === direction) {
+          // Process queued direction
+          const queuedDirection = scrollQueueRef.current;
+          scrollQueueRef.current = null;
+          activateNextPhase(queuedDirection);
+        } else if (scrollQueueRef.current === null) {
+          // No queue, process current scroll
+          activateNextPhase(direction);
+        } else {
+          // Different direction, update queue
+          scrollQueueRef.current = direction;
+        }
+      }, 300);
+    };
+
+    // Create ScrollTrigger to detect when section enters viewport
+    const sectionTrigger = ScrollTrigger.create({
+      trigger: section,
+      start: "top top",
+      end: "bottom bottom",
+      onEnter: () => {
+        isInSectionRef.current = true;
+        // Reset to first phase when entering
+        lastActivePhaseRef.current = 1;
+        setActivePhase(1);
+        scrollQueueRef.current = null;
+        isProcessingRef.current = false;
+      },
+      onLeave: () => {
+        isInSectionRef.current = false;
+      },
+      onLeaveBack: () => {
+        isInSectionRef.current = false;
+      },
     });
+
+    triggersRef.current.push(sectionTrigger);
+
+    // Add wheel event listener
+    window.addEventListener('wheel', handleWheel, { passive: true });
+
+    // Refresh ScrollTrigger after setup
+    ScrollTrigger.refresh();
 
     return () => {
       triggersRef.current.forEach((trigger) => trigger.kill());
       triggersRef.current = [];
+      window.removeEventListener('wheel', handleWheel);
+      if (processTimeoutRef.current) {
+        clearTimeout(processTimeoutRef.current);
+      }
     };
   }, []);
 
@@ -153,7 +244,6 @@ const TwentyTwoDayDeliverable = () => {
 
     const images = imageRefs.current.filter(Boolean) as HTMLImageElement[];
     
-    // Kill any ongoing animations first
     images.forEach((img) => {
       gsap.killTweensOf(img);
     });
@@ -161,20 +251,18 @@ const TwentyTwoDayDeliverable = () => {
     images.forEach((img, index) => {
       const phaseId = index + 1;
       if (phaseId === activePhase) {
-        // Show active phase image
         gsap.to(img, {
           opacity: 1,
           scale: 1,
-          duration: 0.8,
+          duration: 1,
           ease: "power2.out",
-          delay: 0.1,
+          delay: 0.2,
         });
       } else {
-        // Hide inactive phase images
         gsap.to(img, {
           opacity: 0,
           scale: 0.95,
-          duration: 0.6,
+          duration: 0.8,
           ease: "power2.in",
         });
       }
@@ -200,7 +288,8 @@ const TwentyTwoDayDeliverable = () => {
           <div className={styles.phasesSection}>
             <div className={styles.phasesContainer}>
               {phases.map((phase, index) => {
-                const isExpanded = activePhase === phase.id;
+                const isExpanded = phase.id <= activePhase; // Show expanded if phase is active or above
+                const isActive = activePhase === phase.id;
                 return (
                   <div
                     key={phase.id}

@@ -238,7 +238,7 @@ export default function PoppupStepQuestionnaire({
         <div className={styles.questionnaireWrapper}>
           {/* Header */}
           <div className={styles.header}>
-            <h1 className={styles.mainHeading}>
+            <h1 className={`${styles.mainHeading} lg:max-w-3xl`}>
               Just Tell Us What You Need & Get
               The <span className="text-[#0fdac2]">Best Price</span> Instantly!
             </h1>
