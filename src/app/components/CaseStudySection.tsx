@@ -709,7 +709,7 @@ const CaseStudySection = ({ data = DEFAULT_CASE_STUDY_DATA, isShowTabs = true, c
 
   return (
     <div className={`casestudysec sectionPadding bg-cover mobile-padding-bottom-0 bg-[#03001D] ${className}`}>
-      <div className="starsLayer3"></div>
+      {/* <div className="starsLayer3"></div> */}
       <section className="sectionPaddingCase pt-0 mobile-padding-bottom-0" style={{ position: 'relative', zIndex: 1 }}>
         <Container maxWidth="xl">
           <div className="row align-items-center justify-content-center">

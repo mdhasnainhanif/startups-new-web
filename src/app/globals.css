@@ -294,7 +294,7 @@ h2 .bracket-text-green {
   display: none;
 }
 
-.heroStarsBackground .starsLayer3 {
+/* .heroStarsBackground .starsLayer3 {
   position: absolute;
   top: 0;
   left: 0;
@@ -307,7 +307,7 @@ h2 .bracket-text-green {
   opacity: 0.4;
   pointer-events: none;
   z-index: 3;
-}
+} */
 
 /* Starry Background Effect for Blog Section */
 .blogStarsBackground {
@@ -330,6 +330,11 @@ h2 .bracket-text-green {
   z-index: 0;
 }
 
+.blogStarsBackground > * {
+  position: relative;
+  z-index: 1;
+}
+
 .blogStarsBackground::after {
   display: none;
 }
@@ -344,7 +349,7 @@ h2 .bracket-text-green {
   background-repeat: repeat;
   background-size: contain;
   background-position: center;
-  opacity: 0.4;
+  opacity: 0.3;
   pointer-events: none;
   z-index: 0;
 }

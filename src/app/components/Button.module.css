@@ -15,7 +15,7 @@
   background-color: #311f77;
   border: 0 solid rgba(0, 0, 0, 0);
   border-radius: 7px;
-  box-shadow: 0 5px 0px #311f77;
+  /* box-shadow: 0 5px 0px #311f77; */
   outline: none;
   width: -moz-fit-content;
   width: fit-content;
@@ -69,17 +69,32 @@
   z-index: -1;
 }
 
-.btnPrimary:active {
+/* .btnPrimary:active {
   top: 3px;
   box-shadow: 0 2px 0px #643bff;
   transition: all 0.2s;
+} */
+
+
+@keyframes rocketMove {
+  0% {
+    background-position: -20% center;
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    background-position: 120% center;
+    opacity: 0;
+  }
 }
 
-.green:active {
+/* .green:active {
   top: 3px;
   box-shadow: 0 2px 0px #039f8d;
   transition: all 0.2s;
-}
+} */
 
 .purple {
   background-color: #5633dc;
@@ -95,30 +110,40 @@
 }
 
 .green {
-  background-color: #039f8d;
+  background-color: #0fdac2;
   color: #000 !important;
-  box-shadow: 0 5px 0px #039f8d;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  /* box-shadow: 0 5px 0px #039f8d; */
+}
+
+.green:hover {
+  background-color: #5633dc;
+  color: #fff !important;
 }
 
 .green::after {
   background-color: #0fdac2;
 }
 
-/* .green:before {
+.green:hover::after {
+  background-color: #5633dc;
+}
+
+.green:hover::before {
   content: "";
   position: absolute;
   top: 0;
-  left: -50%;
-  width: 0;
+  left: 0;
+  width: 100%;
   height: 100%;
-  background-color: #ffffff;
-  transform: skew(35deg);
-  z-index: -1;
-  transition: width 1s;
+  background: url("/assets/images/rocket-01.svg");
+  background-size: contain;
+  background-position: left center;
+  background-repeat: no-repeat;
+  z-index: 1;
+  animation: rocketMove 0.6s ease-in-out forwards;
+  pointer-events: none;
 }
-.green:hover:before {
-  width: 250%;
-} */
 
 
 /* Modifier classes - use :global() for classes passed via className */

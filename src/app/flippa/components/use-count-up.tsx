@@ -70,3 +70,4 @@ export const useCountUp = ({
   return { ref, formattedValue, count };
 };
 
+

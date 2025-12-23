@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   robots: "nofollow",
 };
 
-export default function homenew() {
+export default function DesignerPage() {
   return (
     <>
       <HomenewBanner />

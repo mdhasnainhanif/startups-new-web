@@ -19,7 +19,11 @@ export default function BlogsPage() {
 
   return (
     <>
-      <PageBanner title="Our Blogs" />
+      <PageBanner title={
+        <>
+          Our <span className="text-[#0fdac2]">Creative</span> Blogs
+        </>
+      } />
       <section className={`sectionPadding ${styles.blogsSection}`}>
         <Container maxWidth="xl">
           <div className={styles.blogsGrid}>
