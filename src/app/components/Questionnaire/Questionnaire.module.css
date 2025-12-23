@@ -59,6 +59,7 @@
   color: #ffffff;
   margin-bottom: 1rem;
   font-family: var(--font-wf-visual-sans), sans-serif;
+  max-width: 59rem;
 }
 
 /* Progress Container */
@@ -197,7 +198,7 @@
 .optionLabel {
   display: block;
   width: 100%;
-  padding: 1rem 1.25rem;
+  padding: 1rem 1.25rem 1rem 3.5rem;
   background: rgba(255, 255, 255, 0.05);
   border: 2px solid var(--color-primary);
   border-radius: 8px;

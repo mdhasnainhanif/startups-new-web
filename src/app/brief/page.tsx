@@ -328,8 +328,8 @@ export default function BriefPage() {
               {/* Header - Always visible, fixed position */}
               <div className={styles.header}>
                 <h1 className={styles.mainHeading}>
-                  Just Tell Us What You Need & Get <br />
-                  The Best Price Instantly!
+                  Just Tell Us What You Need & Get
+                  The <span className="text-[#0fdac2]">Best Price</span> Instantly
                 </h1>
                 <div className={styles.separator}></div>
                 
