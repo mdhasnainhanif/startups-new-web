@@ -230,7 +230,7 @@ export const TECHNOLOGIES_SECTION = {
       { id: 39, name: "Lumen5", icon: "/assets/images/technology/marketing-growth/Lumen5.svg", iconColor: "#00a8ff" },
       { id: 40, name: "Pictory", icon: "/assets/images/technology/marketing-growth/pictory.svg", iconColor: "#00a8ff" },
       { id: 41, name: "HubSpot Social", icon: "/assets/images/technology/marketing-growth/hubspot.svg", iconColor: "#ff7a59" },
-      { id: 42, name: "Zapier", icon: "/assets/images/technology/marketing-growth/zapier.svg", iconColor: "#ff4a00" },
+      { id: 42, name: "Zapier", icon: "/assets/images/marketing-growth/zapier.svg", iconColor: "#ff4a00" },
       { id: 43, name: "Make", icon: "/assets/images/technology/marketing-growth/Make.svg", iconColor: "#00a8ff" },
       { id: 44, name: "Notion", icon: "/assets/images/technology/marketing-growth/notion.svg", iconColor: "#ffffff" },
       { id: 45, name: "Airtable", icon: "/assets/images/technology/marketing-growth/Airtable.svg", iconColor: "#18bfff" },
@@ -289,7 +289,7 @@ export const TECHNOLOGIES_SECTION = {
       { id: 47, name: "Crazy Egg", icon: "/assets/images/content/crazy-egg.svg", iconColor: "#ff6b6b" },
       { id: 48, name: "Optimizely", icon: "/assets/images/content/Optimizely.svg", iconColor: "#00a8ff" },
       { id: 49, name: "VWO", icon: "/assets/images/content/vwo.svg", iconColor: "#00a8ff" },
-      { id: 50, name: "Zapier", icon: "/assets/images/content/zapier.svg", iconColor: "#ff4a00" },
+      { id: 50, name: "Zapier", icon: "/assets/images/marketing-growth/zapier.svg", iconColor: "#ff4a00" },
     ],
   },
 };

@@ -76,18 +76,17 @@
 .tabsContainer {
   z-index: 1;
   background: #0b0038;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
   gap: 0;
   width: 100%;
-  width: fit-content;  
   margin: 0 auto 20px;
-  padding: 10px 0px;
+  padding: 10px;
   display: flex;
   position: relative;
   border-radius: 0.5rem;
-  overflow: hidden;
+  overflow: visible;
   margin-bottom: 2.5rem;
 }
 

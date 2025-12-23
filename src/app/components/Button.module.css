@@ -1,4 +1,3 @@
-/* Button Primary Base Styles */
 .btnPrimary {
   -webkit-appearance: button;
   -moz-appearance: button;
@@ -15,7 +14,6 @@
   background-color: #311f77;
   border: 0 solid rgba(0, 0, 0, 0);
   border-radius: 7px;
-  /* box-shadow: 0 5px 0px #311f77; */
   outline: none;
   width: -moz-fit-content;
   width: fit-content;
@@ -32,7 +30,6 @@
   transition: all 0.2s;
 }
 
-/* Size variants */
 .btnPrimary.sm {
   padding: 0.425rem 1rem 0.495rem;
   font-size: 0.75rem !important;
@@ -41,7 +38,6 @@
 .btnPrimary.md {
   padding: 0.425rem 1.225rem 0.525rem;
   font-size: 1rem;
-  font-weight: 500 !important;
 }
 
 .btnPrimary.lg {
@@ -69,52 +65,29 @@
   z-index: -1;
 }
 
-/* .btnPrimary:active {
-  top: 3px;
-  box-shadow: 0 2px 0px #643bff;
-  transition: all 0.2s;
-} */
-
-.green:hover::after{
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url("/assets/images/rocket-01.svg");
-  background-size: contain;
-  background-position: left center;
-  background-repeat: no-repeat;
-  z-index: -1;
-  animation: rocketMove 0.6s ease-in-out forwards;
-}
+/* Old rocket animation removed - using new tail animation instead */
 
 @keyframes rocketMove {
   0% {
     background-position: -20% center;
     opacity: 0;
   }
+
   50% {
     opacity: 1;
   }
+
   100% {
     background-position: 120% center;
     opacity: 0;
   }
 }
 
-/* .green:active {
-  top: 3px;
-  box-shadow: 0 2px 0px #039f8d;
-  transition: all 0.2s;
-} */
-
 .purple {
   background-color: #5633dc;
 }
 
-.btnPrimary > * {
+.btnPrimary>* {
   position: relative;
   z-index: 100000;
 }
@@ -126,35 +99,108 @@
 .green {
   background-color: #0fdac2;
   color: #000 !important;
-  /* box-shadow: 0 5px 0px #039f8d; */
+  position: relative;
+  overflow: hidden;
+  transition: color 0.8s ease;
+}
+
+.green:hover {
+  color: #fff !important;
+}
+
+.green:hover svg,
+.green:hover path,
+.green:hover * {
+  color: #fff !important;
+  fill: #fff !important;
+  stroke: #fff !important;
 }
 
 .green::after {
   background-color: #0fdac2;
 }
 
-.green::after {
-  background-color: #0fdac2;
-}
-
-/* .green:before {
-  content: "";
+/* Rocket Tail Animation */
+.green::before {
+  content: '';
   position: absolute;
-  top: 0;
-  left: -50%;
-  width: 0;
-  height: 100%;
-  background-color: #ffffff;
-  transform: skew(35deg);
-  z-index: -1;
-  transition: width 1s;
+  top: 50%;
+  left: -50rem;
+  width: 27rem;
+  height: 7rem;
+  transform: translateY(-50%);
+  background-image: url('/assets/images/rocket-tail-01.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  pointer-events: none;
+  opacity: 0;
+  animation: none;
+  will-change: left, opacity;
+  z-index: 0;
 }
-.green:hover:before {
-  width: 250%;
-} */
+
+.green:hover::before {
+  opacity: 1;
+  animation: tailMoveIn 0.9s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.green.was-hovered:not(:hover)::before {
+  animation: tailMoveOut 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes tailMoveIn {
+  from {
+    left: -50rem;
+    opacity: 1;
+  }
+
+  to {
+    left: calc(100% - 330px);
+    opacity: 1;
+  }
+}
+
+@keyframes tailMoveOut {
+  from {
+    left: calc(100% - 550px);
+    opacity: 1;
+  }
+
+  to {
+    left: calc(100% + 50px);
+    opacity: 0;
+  }
+}
+
+.green>* {
+  position: relative;
+  z-index: 1;
+}
+
+.green span {
+  position: relative;
+}
+
+/* Make all icons white on hover for green buttons */
+.green:hover svg,
+.green:hover svg path,
+.green:hover svg * {
+  fill: #fff !important;
+  stroke: #fff !important;
+  color: #fff !important;
+}
+
+/* Target icon spans specifically */
+.green:hover span svg,
+.green:hover span svg path,
+.green:hover span svg * {
+  fill: #fff !important;
+  stroke: #fff !important;
+  color: #fff !important;
+}
 
 
-/* Modifier classes - use :global() for classes passed via className */
 :global(.nav) {
   padding: 7px 24px;
   padding-top: 8px;
@@ -172,7 +218,6 @@
   margin-bottom: 2.5rem;
 }
 
-/* Button Purple Styles */
 .buttonPurple {
   appearance: button;
   background-color: #5633dc;
@@ -236,7 +281,6 @@
   background: none;
 }
 
-/* Button Green Styles */
 .buttonGreen {
   appearance: button;
   background-color: #0fdac2;
@@ -314,6 +358,7 @@
   .btnPrimary.lg {
     font-size: 1rem !important;
   }
+
   .btnPrimary {
     white-space: break-spaces;
     text-align: left;
@@ -327,7 +372,6 @@
   }
 }
 
-/* Dropdown Styles */
 .dropdownWrapper {
   position: relative;
   display: inline-block;
@@ -359,7 +403,6 @@
   width: 100%;
   background: #0b0a24;
   border-radius: 0.5rem;
-  /* padding: 0.5rem 0; */
   z-index: 9999;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
   border: 1px solid rgba(15, 218, 194, 0.3);
@@ -374,6 +417,7 @@
     opacity: 0;
     transform: translateY(-10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);

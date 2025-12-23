@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ButtonProps, ButtonAsLink, ButtonAsButton } from "../types/types";
 import styles from "./Button.module.css";
 
+
 export default function Button({
   variant = "primary",
   size = "md",
@@ -21,6 +22,23 @@ export default function Button({
 }: ButtonProps) {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLElement>(null);
+  
+  // Apply rocket button effect for green variant
+  useEffect(() => {
+    const element = buttonRef.current;
+    if (!element) return;
+
+    const handleMouseEnter = () => {
+      element.classList.add('was-hovered');
+    };
+
+    element.addEventListener('mouseenter', handleMouseEnter);
+
+    return () => {
+      element.removeEventListener('mouseenter', handleMouseEnter);
+    };
+  }, []);
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -101,12 +119,13 @@ export default function Button({
     return (
       <div className={styles.dropdownWrapper} ref={dropdownRef}>
         <button
+          ref={buttonRef as React.RefObject<HTMLButtonElement>}
           className={`${combinedClasses} ${isOpen ? styles.dropdownOpen : ""}`}
           onClick={handleDropdownToggle}
           {...(props as ButtonAsButton)}
         >
           {iconPosition === "left" && iconElement}
-          {getButtonText()}
+          <span>{getButtonText()}</span>
           {iconPosition === "right" && iconElement}
           <svg
             className={styles.dropdownArrow}
@@ -159,9 +178,14 @@ export default function Button({
   if ("href" in props && props.href) {
     const { href, ...linkProps } = props as ButtonAsLink;
     return (
-      <Link href={href} className={combinedClasses} {...linkProps}>
+      <Link 
+        ref={buttonRef as React.RefObject<HTMLAnchorElement>}
+        href={href} 
+        className={combinedClasses} 
+        {...linkProps}
+      >
         {iconPosition === "left" && iconElement}
-        {children}
+        <span>{children}</span>
         {iconPosition === "right" && iconElement}
       </Link>
     );
@@ -169,9 +193,13 @@ export default function Button({
 
   const buttonProps = props as ButtonAsButton;
   return (
-    <button className={combinedClasses} {...buttonProps}>
+    <button 
+      ref={buttonRef as React.RefObject<HTMLButtonElement>}
+      className={combinedClasses} 
+      {...buttonProps}
+    >
       {iconPosition === "left" && iconElement}
-      {children}
+      <span>{children}</span>
       {iconPosition === "right" && iconElement}
     </button>
   );

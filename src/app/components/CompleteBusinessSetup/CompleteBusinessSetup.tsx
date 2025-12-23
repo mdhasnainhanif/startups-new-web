@@ -335,7 +335,7 @@
                       length: Math.ceil(brandingKits.items.length / 10),
                     }).map((_, groupIndex) => (
                       <SwiperSlide key={groupIndex}>
-                        <div className="grid grid-cols-2 md:gap-x-6 gap-y-3 gap-x-2">
+                        <div className="grid grid-cols-2 md:gap-x-0 gap-y-4 gap-x-0">
                           {brandingKits.items
                             .slice(groupIndex * 10, (groupIndex + 1) * 10)
                             .map((item) => (

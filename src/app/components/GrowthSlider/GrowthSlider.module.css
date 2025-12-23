@@ -222,12 +222,11 @@
 .imageContainer {
   margin-bottom: 1.5rem;
   border-radius: 1rem;
-  box-shadow: 0 .125rem 1.125rem #0fdac2;
 }
 
 .imageWrapper {
   border-radius: 1rem;
-  box-shadow: 0 .125rem 1.125rem #0fdac2;
+  border: 1px solid #223634;
 }
 
 .image {

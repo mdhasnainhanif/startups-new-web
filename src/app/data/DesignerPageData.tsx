@@ -208,7 +208,7 @@ export const designerSliderData1 = [
 export const DESIGNER_GROWTH_GUIDES = [
   {
     id: "design-2026",
-    image: "/assets/images/blog/1.webp", // Dummy image - replace with actual design guide image
+    image: "/assets/images/designer_blog/1.webp", // Dummy image - replace with actual design guide image
     category: "Design",
     title: "Design in 2026: How Modern Design Systems Drive Speed, Consistency, and Business Growth",
     date: "Jan 15, 2026",
@@ -219,7 +219,7 @@ export const DESIGNER_GROWTH_GUIDES = [
   },
   {
     id: "from-visuals-to-value",
-    image: "/assets/images/blog/2.webp", // Dummy image
+    image: "/assets/images/designer_blog/2.webp", // Dummy image
     category: "Design",
     title: "From Visuals To Value: How Strategic Design Impacts UX, Conversions, And Brand Trust In 2026",
     date: "Jan 20, 2026",
@@ -230,7 +230,7 @@ export const DESIGNER_GROWTH_GUIDES = [
   },
   {
     id: "future-of-design-teams",
-    image: "/assets/images/blog/3.webp", // Dummy image
+    image: "/assets/images/designer_blog/3.webp", // Dummy image
     category: "Design",
     title: "The Future Of Design Teams In 2026: Tools, Workflows, And AI-Assisted Creative Systems",
     date: "Jan 25, 2026",

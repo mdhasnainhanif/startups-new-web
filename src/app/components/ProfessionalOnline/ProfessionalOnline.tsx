@@ -9,19 +9,15 @@ import styles from "./ProfessionalOnline.module.css";
 
 const ProfessionalOnline = () => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
-
-  // Function to parse text and highlight text in brackets
   const parseBrackets = (text: string) => {
     if (!text) return null;
-    
     const parts: React.ReactNode[] = [];
     const bracketRegex = /\[([^\]]+)\]/g;
     let lastIndex = 0;
     let match;
     let key = 0;
-
     while ((match = bracketRegex.exec(text)) !== null) {
-      // Add text before the bracket
+      
       if (match.index > lastIndex) {
         parts.push(
           <span key={`text-${key++}`} className={styles.bottomHeadingPart1}>
@@ -30,7 +26,7 @@ const ProfessionalOnline = () => {
         );
       }
       
-      // Add highlighted text inside brackets
+      
       parts.push(
         <span key={`highlight-${key++}`} className={styles.bottomHeadingPart2}>
           {match[1]}
@@ -40,7 +36,7 @@ const ProfessionalOnline = () => {
       lastIndex = match.index + match[0].length;
     }
     
-    // Add remaining text after last bracket
+    
     if (lastIndex < text.length) {
       parts.push(
         <span key={`text-${key++}`} className={styles.bottomHeadingPart1}>
@@ -71,9 +67,11 @@ const ProfessionalOnline = () => {
                       <div className={styles.statContent}>
                         <div className={styles.statHeader}>
                           <span className={styles.statPercentage}>{stat.percentage}</span>
-                          <span className={styles.statHeadline}>{stat.headline}</span>
                         </div>
-                        <p className={styles.statDescription}>{stat.description}</p>
+                          <div className="">
+                          <span className={styles.statHeadline}>{stat.headline} </span>
+                          <span className={styles.statDescription}>{stat.description}</span>
+                          </div>
                       </div>
                     </div>
                   ))}

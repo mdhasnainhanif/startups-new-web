@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 export default function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);
 
-  // Show button when page is scrolled down
+  
   useEffect(() => {
     const toggleVisibility = () => {
       if (window.pageYOffset > 300) {
@@ -22,7 +22,7 @@ export default function ScrollToTop() {
     };
   }, []);
 
-  // Scroll to top function
+
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -40,7 +40,7 @@ export default function ScrollToTop() {
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        className="h-6 w-6"
+        className="h-4 w-4"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"

@@ -10,7 +10,10 @@ import TestimonialsSection from "./components/TestimonialsSection";
 import GuaranteeSection from "./components/GuaranteeSection";
 import ObjectionsSection from "./components/ObjectionsSection";
 import CTASection from "./components/CTASection";
-
+import Portfolio from "./components/portfolio";
+import CreativeServicesSection from "./components/CreativeServicesSection";
+import Calculator from "./components/Calculator";
+import WhyUsSection from "./components/WhyUsSection";
 export const metadata: Metadata = {
   title: "Flippa | Turn Your Business Into a High-Value Asset in 90 Days",
   description:
@@ -30,7 +33,6 @@ export const metadata: Metadata = {
     url: "https://startupsadvisory.ai/flippa",
   },
 };
-
 export default function FlippaPage() {
   return (
     <main className="relative bg-[var(--color-dark)]">
@@ -41,11 +43,14 @@ export default function FlippaPage() {
       <StatsSection />
       <ValueStackSection />
       <DifferentiatorsSection />
+      <Portfolio />
       <TestimonialsSection />
       <GuaranteeSection />
       <ObjectionsSection />
+      <CreativeServicesSection />
+      <WhyUsSection />
+      <Calculator />
       <CTASection />
     </main>
   );
 }
-
