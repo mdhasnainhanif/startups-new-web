@@ -58,15 +58,15 @@ const WEB_DEV_PORTFOLIO: PortfolioImage[] = [
   },
   {
     normal: '/assets/images/portfolio/web-dev/6/mockup.jpg',
-    zoom: '/assets/images/portfolio/web-dev/6/website.jpg',
+    zoom: '/assets/images/portfolio/web-dev/6/website.webp',
   },
   {
     normal: '/assets/images/portfolio/web-dev/7/mockup.jpg',
-    zoom: '/assets/images/portfolio/web-dev/7/website.jpg',
+    zoom: '/assets/images/portfolio/web-dev/7/website.webp',
   },
   {
     normal: '/assets/images/portfolio/web-dev/8/mockup.jpg',
-    zoom: '/assets/images/portfolio/web-dev/8/website.jpg',
+    zoom: '/assets/images/portfolio/web-dev/8/website.webp',
   },
 ];
 

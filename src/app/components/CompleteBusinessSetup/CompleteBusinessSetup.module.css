@@ -34,7 +34,7 @@
 }
 
 .brandingKitsSwiper :global(.swiper-slide) > div {
-  width: 100%;
+  width: fit-content;
   display: grid;
 }
 
