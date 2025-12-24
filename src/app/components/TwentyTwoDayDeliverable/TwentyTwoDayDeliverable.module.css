@@ -4,7 +4,28 @@
   min-height: 100vh;
   padding: 4rem 0;
   overscroll-behavior: contain;
+}
 
+.sectionheading{
+  position: relative;
+  background: linear-gradient(135deg, #0a0520 0%, #1a0b3f 50%, #0a0520 100%);
+  padding-top: 4rem;
+}
+.starsBackgroundheading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 550%;
+  background-image: url('/assets/images/star-bg.webp');
+  background-repeat: repeat;
+  background-size: contain;
+  background-position: center;
+  opacity: 0.5;
+  pointer-events: none;
+}
+.pin-spacer{
+  display: none !important;
 }
 
 /* Starry Background Effect */
@@ -32,7 +53,10 @@
   text-align: center;
   margin-bottom: 4rem;
 }
-
+.titleSectionheading{
+  text-align: center;
+  margin-bottom: 0;
+}
 .subtitle {
   display: flex;
   align-items: center;

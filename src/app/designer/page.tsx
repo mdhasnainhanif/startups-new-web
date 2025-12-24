@@ -25,6 +25,10 @@ const TwentyTwoDayDeliverable = dynamic(() => import('../components/TwentyTwoDay
   ssr: true,
 });
 
+const TwentyTwoHeading = dynamic(() => import('../components/TwentyTwoDayDeliverable/TwentyTwoHeading'), {
+  ssr: true,
+});
+
 // Custom data for ProvenSuccess on designer page
 const designerProvenSuccessData = {
   headline: {
@@ -184,6 +188,7 @@ export default function DesignerPage() {
       <TextSlider1 data={sliderData.slider2}/>
       <ProfessionalDesign className="designerPageProfessional" data={designProfessionalPageData} />
       <TextSlider1 data={sliderData.slider3}/>
+      <TwentyTwoHeading/>
       <TwentyTwoDayDeliverable/>
       <GuessWorkAdvertising data={designerGuessWorkData}/>
       <RealCost/>
