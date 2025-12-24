@@ -277,7 +277,7 @@ const TwentyTwoDayDeliverable = () => {
         gsap.to(img, {
           opacity: 1,
           scale: 1,
-          duration: 1,
+          duration: 0.8,
           ease: "power2.out",
           delay: 0.2,
         });
@@ -285,7 +285,7 @@ const TwentyTwoDayDeliverable = () => {
         gsap.to(img, {
           opacity: 0,
           scale: 0.95,
-          duration: 0.8,
+          duration: 0.6,
           ease: "power2.in",
         });
       }
@@ -298,13 +298,6 @@ const TwentyTwoDayDeliverable = () => {
       <div className={styles.starsBackground}></div>
       
       <Container maxWidth="xl" className={styles.container}>
-        {/* Top Title Section */}
-        {/* <div className={`${styles.titleSection} sectionHeading forH2 max-w-5xl md:mx-auto`}>
-          <h2>
-          <span className="text-[#0fdac2]">Everything</span> Your Business Needs — Delivered <span className="text-[#0fdac2]">in 22 Days</span>
-          </h2>
-        </div> */}
-
         {/* Main Content Grid */}
         <div className={styles.contentGrid}>
           {/* Left Side - Phases */}
