@@ -144,7 +144,7 @@ const TwentyTwoDayDeliverable = () => {
         scrollQueueRef.current = null;
         activateNextPhase(queuedDirection);
       }
-    }, 1200); // Increased from 650ms to 1200ms to match CSS transition
+    }, 800); // Increased from 650ms to 1200ms to match CSS transition
   };
 
   useLayoutEffect(() => {
@@ -254,7 +254,7 @@ const TwentyTwoDayDeliverable = () => {
         gsap.to(img, {
           opacity: 1,
           scale: 1,
-          duration: 1,
+          duration: 0.8,
           ease: "power2.out",
           delay: 0.2,
         });
@@ -262,7 +262,7 @@ const TwentyTwoDayDeliverable = () => {
         gsap.to(img, {
           opacity: 0,
           scale: 0.95,
-          duration: 0.8,
+          duration: 0.6,
           ease: "power2.in",
         });
       }
