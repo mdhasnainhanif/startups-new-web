@@ -138,7 +138,7 @@
   content: '';
   position: absolute;
   top: 50%;
-  left: -50rem; 
+  left: -50rem;
   width: 27rem;
   height: 7rem;
   transform: translateY(-50%);
@@ -169,14 +169,14 @@
   }
 
   to {
-    left: calc(100% - 320px);
+    left: calc(100% - 27rem);
     opacity: 1;
   }
 }
 
 @keyframes tailMoveOut {
   from {
-    left: calc(100% - 550px);
+    left: calc(100% - 27rem);
     opacity: 1;
   }
 
