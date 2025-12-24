@@ -177,7 +177,7 @@
         subtitle: "Builds the full website with stable code, fast performance, and complete stack integration.",
         tags: [
           "Frontend engineering",
-          "Backend functionality setup",
+        "Backend functionality setup",
           "Full-stack implementation",
           "Technical SEO installation",
           "Page speed refinement",

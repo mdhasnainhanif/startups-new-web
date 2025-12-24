@@ -10,7 +10,6 @@ const WhyItWorks = () => {
     <section className={`sectionPadding ${styles.whyItWorksSection}`}>
       <Container maxWidth="xl">
         <div className={styles.contentWrapper}>
-          {/* Left Section */}
           <div className={`${styles.leftSection} sectionHeading`}>
             <h2>
               <span className="text-white">{WHY_IT_WORKS_DATA.leftSection.headline.part1}</span>
@@ -24,8 +23,6 @@ const WhyItWorks = () => {
               ))}
             </div>
           </div>
-
-          {/* Right Section */}
           <div className={styles.rightSection}>
             <h3 className={styles.rightHeading}>
               {WHY_IT_WORKS_DATA.rightSection.headline}
