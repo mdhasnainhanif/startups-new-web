@@ -27,35 +27,35 @@ interface PortfolioImage {
 const WEB_DEV_PORTFOLIO: PortfolioImage[] = [
   {
     normal: '/assets/images/portfolio/web-dev/1/mockup.jpg',
-    zoom: '/assets/images/portfolio/web-dev/1/website.jpg',
+    zoom: '/assets/images/portfolio/web-dev/1/website.webp',
   },
   {
     normal: '/assets/images/portfolio/web-dev/2/mockup.jpg',
-    zoom: '/assets/images/portfolio/web-dev/2/website.jpg',
+    zoom: '/assets/images/portfolio/web-dev/2/website.webp',
   },
   {
     normal: '/assets/images/portfolio/web-dev/3/mockup.jpg',
-    zoom: '/assets/images/portfolio/web-dev/3/website.jpg',
+    zoom: '/assets/images/portfolio/web-dev/3/website.webp',
   },
   {
     normal: '/assets/images/portfolio/web-dev/4/mockup.jpg',
-    zoom: '/assets/images/portfolio/web-dev/4/website.jpg',
+    zoom: '/assets/images/portfolio/web-dev/4/website.webp',
   },
   {
     normal: '/assets/images/portfolio/web-dev/5/mockup.jpg',
-    zoom: '/assets/images/portfolio/web-dev/5/website.jpg',
+    zoom: '/assets/images/portfolio/web-dev/5/website.webp',
   },
   {
     normal: '/assets/images/portfolio/web-dev/6/mockup.jpg',
-    zoom: '/assets/images/portfolio/web-dev/6/website.jpg',
+    zoom: '/assets/images/portfolio/web-dev/6/website.webp',
   },
   {
     normal: '/assets/images/portfolio/web-dev/7/mockup.jpg',
-    zoom: '/assets/images/portfolio/web-dev/7/website.jpg',
+    zoom: '/assets/images/portfolio/web-dev/7/website.webp',
   },
   {
     normal: '/assets/images/portfolio/web-dev/8/mockup.jpg',
-    zoom: '/assets/images/portfolio/web-dev/8/website.jpg',
+    zoom: '/assets/images/portfolio/web-dev/8/website.webp',
   },
 ];
 const PROVEN_SUCCESS_DATA: ProvenSuccessData = {

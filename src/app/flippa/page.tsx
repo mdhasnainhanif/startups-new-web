@@ -12,7 +12,7 @@ import ObjectionsSection from "./components/ObjectionsSection";
 import CTASection from "./components/CTASection";
 import Portfolio from "./components/portfolio";
 import CreativeServicesSection from "./components/CreativeServicesSection";
-import Calculator from "./components/Calculator";
+import FlippaCalculator from "./components/FlippaCalculator";
 import WhyUsSection from "./components/WhyUsSection";
 export const metadata: Metadata = {
   title: "Flippa | Turn Your Business Into a High-Value Asset in 90 Days",
@@ -49,7 +49,7 @@ export default function FlippaPage() {
       <ObjectionsSection />
       <CreativeServicesSection />
       <WhyUsSection />
-      <Calculator />
+      <FlippaCalculator />
       <CTASection />
     </main>
   );

@@ -25,7 +25,7 @@
   top: 0;
   gap: 0.5rem;
   align-items: center;
-  font-size: 1rem !important;
+  font-size: 1.01rem !important;
   font-weight: 600 !important;
   transition: all 0.2s;
 }
@@ -42,15 +42,15 @@
 
 .btnPrimary.lg {
   padding: 0.625rem 1.725rem 0.725rem;
-  font-size: 1.125rem;
+  font-size: 1.135rem;
 }
 
 .btnPrimary.xl {
   padding: 0.825rem 2.625rem 0.925rem;
-  font-size: 1.2rem !important;
+  font-size: 1.225rem !important;
 }
 
-.btnPrimary::after {
+/* .btnPrimary::after {
   background-clip: padding-box;
   background-color: #643bff;
   border: solid transparent;
@@ -63,7 +63,7 @@
   right: 0;
   top: 0;
   z-index: -1;
-}
+} */
 
 /* .green:hover::after {
   content: "";
@@ -106,9 +106,9 @@
   z-index: 100000;
 }
 
-.purple::after {
+/* .purple::after {
   background-color: #311f77;
-}
+} */
 
 .green {
   background-color: #0fdac2;
@@ -116,6 +116,29 @@
   position: relative;
   overflow: hidden;
   transition: color 0.8s ease;
+}
+
+.green::after {
+  content: "";
+  position: absolute;
+  top: 0rem;
+  left: -44rem;
+  width: 100%;
+  height: 4rem;
+  background-color: #623BFF;
+  color: #000 !important;
+}
+
+.green:hover::after {
+  content: "";
+  position: absolute;
+  top: 0rem;
+  left: 0rem;
+  width: 100%;
+  height: 3rem;
+  background-color: #623BFF;
+  color: #000 !important;
+  transition: all 2.5s ease;
 }
 
 .green:hover {
@@ -130,16 +153,16 @@
   stroke: #fff !important;
 }
 
-.green::after {
+/* .green::after {
   background-color: #0fdac2;
-}
+} */
 
 .green::before {
   content: '';
   position: absolute;
   top: 50%;
   left: -50rem;
-  width: 27rem;
+  width: 29rem;
   height: 7rem;
   transform: translateY(-50%);
   background-image: url('/assets/images/rocket-tail-01.svg');
@@ -155,7 +178,7 @@
 
 .green:hover::before {
   opacity: 1;
-  animation: tailMoveIn 0.9s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation: tailMoveIn 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 .green.was-hovered:not(:hover)::before {
@@ -169,7 +192,7 @@
   }
 
   to {
-    left: calc(100% - 330px);
+    left: calc(100% - 320px);
     opacity: 1;
   }
 }
@@ -202,6 +225,7 @@
   fill: #fff !important;
   stroke: #fff !important;
   color: #fff !important;
+  /* transition: all 1s ease; */
 }
 
 
