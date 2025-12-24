@@ -183,7 +183,7 @@ export default function DesignerPage() {
       <TextSlider1 data={sliderData.slider2}/>
       <ProfessionalDesign className="designerPageProfessional" data={designProfessionalPageData} />
       <TextSlider1 data={sliderData.slider3}/>
-      <TwentyTwoDayDeliverable/>
+      {/* <TwentyTwoDayDeliverable/> */}
       <GuessWorkAdvertising data={designerGuessWorkData}/>
       <RealCost/>
       <CompleteBusinessSetup/>

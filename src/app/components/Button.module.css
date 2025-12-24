@@ -42,12 +42,12 @@
 
 .btnPrimary.lg {
   padding: 0.625rem 1.725rem 0.725rem;
-  font-size: 1.125rem;
+  font-size: 1.135rem;
 }
 
 .btnPrimary.xl {
   padding: 0.825rem 2.625rem 0.925rem;
-  font-size: 1.2rem !important;
+  font-size: 1.225rem !important;
 }
 
 .btnPrimary::after {
@@ -138,7 +138,7 @@
   content: '';
   position: absolute;
   top: 50%;
-  left: -50rem;
+  left: -50rem; 
   width: 27rem;
   height: 7rem;
   transform: translateY(-50%);
@@ -169,7 +169,7 @@
   }
 
   to {
-    left: calc(100% - 330px);
+    left: calc(100% - 320px);
     opacity: 1;
   }
 }
