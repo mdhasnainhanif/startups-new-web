@@ -16,13 +16,14 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 550%;
+  height: 600%;
   background-image: url('/assets/images/star-bg.webp');
   background-repeat: repeat;
   background-size: contain;
   background-position: center;
   opacity: 0.5;
   pointer-events: none;
+  margin-top: -7rem;
 }
 .pin-spacer{
   display: none !important;
@@ -451,7 +452,7 @@
 .imageContainer {
   position: relative;
   width: 100%;
-  aspect-ratio: 3/3;
+  aspect-ratio: 3/2.8;
   border-radius: 1rem;
   overflow: hidden;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
