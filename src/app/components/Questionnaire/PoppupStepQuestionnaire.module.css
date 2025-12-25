@@ -364,6 +364,7 @@
 
   .mainHeading {
     font-size: 1.225rem;
+    width: 90%;
   }
 
   .progressContainer {

@@ -816,7 +816,7 @@ export default function Header() {
               </button>
               </Link>
               {isMobileDesignDropdownOpen && (
-                <div className="mt-2 pl-4 space-y-2 border-l border-[#2f2a63]">
+                <div className="mt-2 pl-4 space-y-2">
                   {services.map((service) => {
                     const isActiveService = pathname?.startsWith(
                       `/${service.slug}`
@@ -902,7 +902,7 @@ export default function Header() {
                 </svg>
               </button>
               {isMobileServicesDropdownOpen && (
-                <div className="mt-2 pl-4 space-y-2 border-l border-[#2f2a63] bg-red-500">
+                <div className="mt-2 pl-4 space-y-2">
                   {servicesMenuItems.map((item) => {
                     const isActiveService = pathname?.startsWith(item.href);
                     return (

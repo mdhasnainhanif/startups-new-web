@@ -167,7 +167,6 @@
 
 .swiperContainer {
   width: 100%;
-  padding-bottom: 1rem;
   margin: 0;
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -190,7 +189,7 @@
 .swiperContainer :global(.swiper-wrapper) {
   display: flex;
   align-items: stretch;
-  padding: 2rem 0rem;
+  padding: 2rem 0rem 0rem 0rem;
 
 }
 

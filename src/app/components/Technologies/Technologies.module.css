@@ -298,9 +298,7 @@
 
 /* Responsive Styles */
 @media (max-width: 768px) {
-  .section {
-    padding: 60px 0;
-  }
+ 
   .tabsContainer
   {
     border-radius: 0px !important;
