@@ -1,0 +1,115 @@
+.section{
+    background:
+      radial-gradient(1200px 650px at 50% 0%, rgba(100,59,255,0.24), transparent 60%),
+      radial-gradient(900px 520px at 10% 30%, rgba(15, 218, 194, 0.14), transparent 60%),
+      #07061a;
+  }
+  
+  .accent{ color: #0fdac2; }
+  
+  .bgGlow{
+    position:absolute;
+    inset:-45%;
+    background: radial-gradient(circle at 50% 50%, rgba(100,59,255,0.22), transparent 55%);
+    pointer-events:none;
+  }
+  
+  .stars{
+    position:absolute;
+    inset:0;
+    background-image:
+      radial-gradient(rgba(255,255,255,0.10) 1px, transparent 1px),
+      radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px);
+    background-size: 90px 90px, 140px 140px;
+    background-position: 0 0, 30px 40px;
+    opacity: 0.22;
+    pointer-events:none;
+  }
+  
+  .rail{
+    position:absolute;
+    left: 10px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, rgba(15,218,194,0.0), rgba(15,218,194,0.40), rgba(15,218,194,0.0));
+    opacity: 0.95;
+  }
+  
+  /* viewport is dynamic height set by JS, this is only safe defaults */
+  .leftViewport{
+    position: relative;
+    overflow: hidden;
+    padding: 10px 0;
+    height: 680px;
+    mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
+  }
+  
+  .phaseCard{
+    position:relative;
+    padding: 22px 22px 18px 30px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03));
+    border: 1px solid rgba(100,59,255,0.25);
+    box-shadow: 0 14px 40px rgba(0,0,0,0.30);
+    backdrop-filter: blur(12px);
+    transform: translateZ(0);
+    will-change: height, opacity;
+  }
+  
+  .phaseCard::before{
+    content:"";
+    position:absolute;
+    left: 7px;
+    top: 26px;
+    width: 10px;
+    height: 10px;
+    border-radius:999px;
+    background: rgba(15,218,194,0.95);
+    box-shadow: 0 0 18px rgba(15,218,194,0.35);
+  }
+  
+  .iconBadge{
+    width: 40px;
+    height: 40px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.10);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  
+  .check{
+    width: 16px;
+    height: 16px;
+    border-radius: 999px;
+    margin-top: 3px;
+    background: rgba(15,218,194,0.16);
+    border: 1px solid rgba(15,218,194,0.35);
+    box-shadow: 0 0 12px rgba(15,218,194,0.14);
+    flex: 0 0 16px;
+  }
+  
+  .imagePanel{
+    position:relative;
+    height: 460px;
+    width: 100%;
+    max-width: 520px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+    border: 1px solid rgba(100,59,255,0.22);
+    box-shadow: 0 18px 55px rgba(0,0,0,0.38);
+    backdrop-filter: blur(10px);
+  }
+  
+  .imageLayer{
+    will-change: opacity;
+  }
+  
+  .imageOverlay{
+    position:absolute;
+    inset:0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.00), rgba(0,0,0,0.26));
+    pointer-events:none;
+  }
+  

@@ -7,7 +7,7 @@
 .growthManagerSection::before {
   content: "";
   position: absolute;
-  background: url(/public/assets/images/tick.png) center bottom no-repeat;
+  background: url(/public/assets/images/tick.webp) center bottom no-repeat;
   width: 89%;
   height: 100%;
   position: absolute;

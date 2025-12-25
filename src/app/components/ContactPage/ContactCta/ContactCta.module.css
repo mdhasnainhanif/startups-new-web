@@ -12,7 +12,7 @@
 .ctaBox::after {
   content: "";
   position: absolute;
-  background-image: url("/assets/cta-bg-pattern.png"); /* optional image */
+  background-image: url("/assets/cta-bg-pattern.webp"); /* optional image */
   background-repeat: no-repeat;
   background-size: 300px;
   opacity: 0.08;

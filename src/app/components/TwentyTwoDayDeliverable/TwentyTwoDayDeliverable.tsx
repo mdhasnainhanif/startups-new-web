@@ -16,7 +16,7 @@ const phases = [
     iconColor: "#0fdac2",
     iconType: "cube",
     borderColor: "rgba(15, 218, 194, 0.6)",
-    image: "/assets/images/aipower1.png",
+    image: "/assets/images/aipower1.webp",
     deliverables: [
       "Branding & Identity Design",
       "Typography & Lettering Design",
@@ -33,7 +33,7 @@ const phases = [
     iconColor: "#0fdac2",
     iconType: "person",
     borderColor: "rgba(100, 59, 255, 0.4)",
-    image: "/assets/images/aipower2.png",
+    image: "/assets/images/aipower2.webp",
     deliverables: [
       "Product Mockup & Visualization",
       "App UI/UX Design",
@@ -50,7 +50,7 @@ const phases = [
     iconColor: "#0fdac2",
     iconType: "globe",
     borderColor: "rgba(100, 59, 255, 0.4)",
-    image: "/assets/images/aipower3.png",
+    image: "/assets/images/aipower3.webp",
     deliverables: [
       "Digital Marketing Assets",
       "Presentation & Pitch Deck Design",
@@ -67,7 +67,7 @@ const phases = [
     iconColor: "#0fdac2",
     iconType: "gear",
     borderColor: "rgba(100, 59, 255, 0.4)",
-    image: "/assets/images/aipower4.png",
+    image: "/assets/images/aipower4.webp",
     deliverables: [
       "3D Modeling & Product Rendering",
       "Advertising & Campaign Design",
@@ -85,12 +85,9 @@ const TwentyTwoDayDeliverable = () => {
   const sectionRef = useRef<HTMLElement | null>(null);
   const imageContainerRef = useRef<HTMLDivElement | null>(null);
   const imageRefs = useRef<(HTMLImageElement | null)[]>([]);
-  const triggersRef = useRef<ScrollTrigger[]>([]);
-  const lastActivePhaseRef = useRef<number>(1);
-  const isInSectionRef = useRef<boolean>(false);
-  const processTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-  const scrollQueueRef = useRef<string | null>(null);
-  const isProcessingRef = useRef<boolean>(false);
+  const scrollTriggerRef = useRef<ScrollTrigger | null>(null);
+  const phasesContainerRef = useRef<HTMLDivElement | null>(null);
+  const activePhaseRef = useRef<number>(1);
 
   // Set initial image state on mount
   useLayoutEffect(() => {
@@ -105,135 +102,161 @@ const TwentyTwoDayDeliverable = () => {
     });
   }, []);
 
-  const activateNextPhase = (direction: string) => {
-    if (isProcessingRef.current) {
-      scrollQueueRef.current = direction;
-      return;
-    }
-    isProcessingRef.current = true;
-
-    const currentPhaseIndex = phases.findIndex(
-      (phase) => phase.id === lastActivePhaseRef.current
-    );
-
-    if (currentPhaseIndex === -1) {
-      isProcessingRef.current = false;
-      return;
-    }
-
-    let nextPhaseIndex = currentPhaseIndex;
-
-    if (direction === 'down' && currentPhaseIndex < phases.length - 1) {
-      nextPhaseIndex = currentPhaseIndex + 1;
-    } else if (direction === 'up' && currentPhaseIndex > 0) {
-      nextPhaseIndex = currentPhaseIndex - 1;
-    } else {
-      isProcessingRef.current = false;
-      return;
-    }
-
-    const nextPhase = phases[nextPhaseIndex];
-    lastActivePhaseRef.current = nextPhase.id;
-    setActivePhase(nextPhase.id);
-    
-    setTimeout(() => {
-      isProcessingRef.current = false;
-      
-      if (scrollQueueRef.current) {
-        const queuedDirection = scrollQueueRef.current;
-        scrollQueueRef.current = null;
-        activateNextPhase(queuedDirection);
-      }
-    }, 1200); // Increased from 650ms to 1200ms to match CSS transition
-  };
-
+  // Setup GSAP ScrollTrigger pinning for smooth left column scrolling
   useLayoutEffect(() => {
-    if (!sectionRef.current) return;
-
-    // Clean up previous triggers
-    triggersRef.current.forEach((trigger) => trigger.kill());
-    triggersRef.current = [];
-
-    const phaseElements = phaseRefs.current.filter(Boolean) as HTMLDivElement[];
-    if (phaseElements.length === 0) return;
+    if (!sectionRef.current || !phasesContainerRef.current) return;
 
     const section = sectionRef.current;
+    const phasesContainer = phasesContainerRef.current;
+    const phaseElements = phaseRefs.current.filter(Boolean) as HTMLDivElement[];
+    
+    if (phaseElements.length === 0) return;
 
-    // Handle wheel event for sequential phase activation
-    const handleWheel = (e: WheelEvent) => {
-      // Check if we're in the section
-      const sectionRect = section.getBoundingClientRect();
-      const isInSection = sectionRect.top <= window.innerHeight && sectionRect.bottom >= 0;
-      
-      if (!isInSection) {
-        isInSectionRef.current = false;
-        return;
-      }
-
-      isInSectionRef.current = true;
-
-      // Determine scroll direction
-      const deltaY = e.deltaY;
-      const direction = deltaY > 0 ? 'down' : 'up';
-      
-      // Clear any existing timeout
-      if (processTimeoutRef.current) {
-        clearTimeout(processTimeoutRef.current);
-      }
-
-      // Debounce and process the scroll direction
-      processTimeoutRef.current = setTimeout(() => {
-        // Check if we have a queued direction that matches current scroll
-        if (scrollQueueRef.current && scrollQueueRef.current === direction) {
-          // Process queued direction
-          const queuedDirection = scrollQueueRef.current;
-          scrollQueueRef.current = null;
-          activateNextPhase(queuedDirection);
-        } else if (scrollQueueRef.current === null) {
-          // No queue, process current scroll
-          activateNextPhase(direction);
-        } else {
-          // Different direction, update queue
-          scrollQueueRef.current = direction;
-        }
-      }, 300);
+    // Calculate scroll height after phases are rendered
+    const calculateScrollHeight = () => {
+      const viewportHeight = window.innerHeight;
+      const titleSectionHeight = 250;
+      const availableHeight = viewportHeight - titleSectionHeight;
+      const phasesContainerHeight = phasesContainer.scrollHeight;
+      const scrollableHeight = Math.max(0, phasesContainerHeight - availableHeight);
+      // Add extra space to ensure last box is fully visible + slow down scroll
+      return scrollableHeight + (viewportHeight * 0.8);
     };
+    
+    // Initial calculation
+    let totalScrollHeight = calculateScrollHeight();
+    
+    // Recalculate after a short delay to ensure phases are fully rendered
+    setTimeout(() => {
+      totalScrollHeight = calculateScrollHeight();
+      if (scrollTriggerRef.current) {
+        scrollTriggerRef.current.vars.end = `+=${totalScrollHeight}`;
+        scrollTriggerRef.current.refresh();
+      }
+    }, 200);
 
-    // Create ScrollTrigger to detect when section enters viewport
-    const sectionTrigger = ScrollTrigger.create({
+    // Create ScrollTrigger that pins the section
+    scrollTriggerRef.current = ScrollTrigger.create({
       trigger: section,
       start: "top top",
-      end: "bottom bottom",
+      end: `+=${totalScrollHeight}`,
+      pin: true,
+      pinSpacing: true,
+      anticipatePin: 1,
+      scrub: 1.5, // Slower, smoother scrubbing
+      onUpdate: (self) => {
+        const progress = self.progress; // 0 to 1
+        
+        // Calculate current scrollable height
+        const viewportHeight = window.innerHeight;
+        const titleSectionHeight = 250;
+        const availableHeight = viewportHeight - titleSectionHeight;
+        const phasesContainerHeight = phasesContainer.scrollHeight;
+        const currentScrollableHeight = Math.max(0, phasesContainerHeight - availableHeight);
+        
+        // Scroll the phases container based on progress
+        const scrollAmount = currentScrollableHeight * progress;
+        gsap.set(phasesContainer, {
+          y: -scrollAmount,
+        });
+        
+        // Determine which phase should be active based on scroll progress
+        // Calculate which phase is currently in view
+        const segmentSize = 1 / phases.length;
+        let targetPhase = 1;
+        
+        for (let i = 0; i < phases.length; i++) {
+          const segmentStart = i * segmentSize;
+          const segmentEnd = (i + 1) * segmentSize;
+          
+          if (progress >= segmentStart && progress < segmentEnd) {
+            targetPhase = i + 1;
+            break;
+          }
+        }
+        
+        // Handle the last phase (when progress = 1)
+        if (progress >= 1) {
+          targetPhase = phases.length;
+        }
+        
+        // Update active phase
+        if (targetPhase !== activePhaseRef.current) {
+          activePhaseRef.current = targetPhase;
+          setActivePhase(targetPhase);
+        }
+
+        // Animate phases based on scroll progress
+        phaseElements.forEach((phaseEl, index) => {
+          const phaseNum = index + 1;
+          const phaseStart = index * segmentSize;
+          const phaseEnd = (index + 1) * segmentSize;
+          
+          if (progress >= phaseStart) {
+            if (progress < phaseEnd) {
+              // Current phase - smooth opacity transition
+              const localProgress = (progress - phaseStart) / segmentSize;
+              const opacity = 0.4 + (localProgress * 0.6);
+              gsap.to(phaseEl, {
+                opacity: opacity,
+                duration: 0.1,
+                ease: "none",
+              });
+            } else {
+              // Past phase - fully visible
+              gsap.set(phaseEl, { opacity: 1 });
+            }
+          } else {
+            // Future phase - dimmed
+            gsap.set(phaseEl, { opacity: 0.4 });
+          }
+        });
+
+        // Animate images based on active phase
+        const images = imageRefs.current.filter(Boolean) as HTMLImageElement[];
+        images.forEach((img, index) => {
+          const phaseId = index + 1;
+          
+          if (phaseId === targetPhase) {
+            gsap.to(img, {
+              opacity: 1,
+              scale: 1,
+              duration: 0.8,
+              ease: "power2.out",
+            });
+          } else {
+            gsap.to(img, {
+              opacity: 0,
+              scale: 0.95,
+              duration: 0.6,
+              ease: "power2.in",
+            });
+          }
+        });
+      },
       onEnter: () => {
-        isInSectionRef.current = true;
-        // Reset to first phase when entering
-        lastActivePhaseRef.current = 1;
+        activePhaseRef.current = 1;
         setActivePhase(1);
-        scrollQueueRef.current = null;
-        isProcessingRef.current = false;
       },
       onLeave: () => {
-        isInSectionRef.current = false;
+        activePhaseRef.current = phases.length;
+        setActivePhase(phases.length);
       },
       onLeaveBack: () => {
-        isInSectionRef.current = false;
+        activePhaseRef.current = 1;
+        setActivePhase(1);
       },
     });
 
-    triggersRef.current.push(sectionTrigger);
-
-    // Add wheel event listener
-    window.addEventListener('wheel', handleWheel, { passive: true });
-
-    // Refresh ScrollTrigger after setup
-    ScrollTrigger.refresh();
+    // Refresh ScrollTrigger after a short delay
+    setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 100);
 
     return () => {
-      triggersRef.current.forEach((trigger) => trigger.kill());
-      triggersRef.current = [];
-      window.removeEventListener('wheel', handleWheel);
-      if (processTimeoutRef.current) {
-        clearTimeout(processTimeoutRef.current);
+      if (scrollTriggerRef.current) {
+        scrollTriggerRef.current.kill();
+        scrollTriggerRef.current = null;
       }
     };
   }, []);
@@ -254,7 +277,7 @@ const TwentyTwoDayDeliverable = () => {
         gsap.to(img, {
           opacity: 1,
           scale: 1,
-          duration: 1,
+          duration: 0.8,
           ease: "power2.out",
           delay: 0.2,
         });
@@ -262,7 +285,7 @@ const TwentyTwoDayDeliverable = () => {
         gsap.to(img, {
           opacity: 0,
           scale: 0.95,
-          duration: 0.8,
+          duration: 0.6,
           ease: "power2.in",
         });
       }
@@ -275,18 +298,11 @@ const TwentyTwoDayDeliverable = () => {
       <div className={styles.starsBackground}></div>
       
       <Container maxWidth="xl" className={styles.container}>
-        {/* Top Title Section */}
-        <div className={`${styles.titleSection} sectionHeading forH2 max-w-5xl md:mx-auto`}>
-          <h2>
-          <span className="text-[#0fdac2]">Everything</span> Your Business Needs — Delivered <span className="text-[#0fdac2]">in 22 Days</span>
-          </h2>
-        </div>
-
         {/* Main Content Grid */}
         <div className={styles.contentGrid}>
           {/* Left Side - Phases */}
           <div className={styles.phasesSection}>
-            <div className={styles.phasesContainer}>
+            <div ref={phasesContainerRef} className={styles.phasesContainer}>
               {phases.map((phase, index) => {
                 const isExpanded = phase.id <= activePhase; // Show expanded if phase is active or above
                 const isActive = activePhase === phase.id;
@@ -348,7 +364,7 @@ const TwentyTwoDayDeliverable = () => {
                             {phase.deliverables.map((item, itemIndex) => (
                               <li key={itemIndex} className={styles.deliverableItem}>
                                 <img
-                                  src="/assets/images/tick.png"
+                                  src="/assets/images/tick.webp"
                                   alt="check"
                                   className={styles.checkIcon}
                                 />

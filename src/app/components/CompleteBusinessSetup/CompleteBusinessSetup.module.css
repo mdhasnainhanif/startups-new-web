@@ -7,10 +7,12 @@
   opacity: 0.6;
   z-index: 1;
 }
+
 .businesscontainer {
   position: relative;
   z-index: 2;
 }
+
 /* Swiper Customization */
 .brandingKitsSwiper :global(.swiper) {
   overflow: visible;
@@ -33,8 +35,8 @@
   width: 100%;
 }
 
-.brandingKitsSwiper :global(.swiper-slide) > div {
-  width: fit-content;
+.brandingKitsSwiper :global(.swiper-slide)>div {
+  width: 98%;
   display: grid;
 }
 
@@ -43,6 +45,7 @@
 .brandingKitsSwiper :global(.swiper-button-next) {
   display: none;
 }
+
 .sliderwrapper {
   position: relative;
   background: #050321;
@@ -54,15 +57,18 @@
   min-height: 400px;
   width: 100%;
 }
+
 .brandingKitsTitle {
   color: #fff;
   width: fit-content;
   display: block;
   margin: 0 auto;
 }
+
 .highlighted {
   color: #0fdac2;
 }
+
 .navButton {
   color: #fff;
   background: #5633dc;
@@ -73,9 +79,11 @@
   transform: translateY(-50%);
   border: 1px solid #6848df4d;
 }
+
 .navButton:hover {
   background: #643bff;
 }
+
 .separatorLine {
   background: #312763;
   border-radius: 0.525rem;
@@ -93,6 +101,7 @@
   background-origin: border-box;
   background-clip: padding-box, border-box;
 }
+
 /* .separatorLine::after {
   content: "";
   background: #072e41;

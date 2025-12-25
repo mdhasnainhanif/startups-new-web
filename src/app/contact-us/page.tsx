@@ -20,22 +20,22 @@ export default function ContactPage() {
     buttons: [
       {
         label: "Google Meet",
-        icon: "/assets/images/google_meets.png",
+        icon: "/assets/images/google_meets.webp",
         link: "https://meet.google.com",
       },
       {
         label: "Zoom",
-        icon: "/assets/images/zoom.png",
+        icon: "/assets/images/zoom.webp",
         link: "https://zoom.us",
       },
       {
         label: "Calendly",
-        icon: "/assets/images/calendly.png",
+        icon: "/assets/images/calendly.webp",
         link: "https://calendly.com",
       },
       {
         label: "Whatsapp",
-        icon: "/assets/images/whatsapp.png",
+        icon: "/assets/images/whatsapp.webp",
         link: "https://wa.me/923XXXXXXXXX",
       },
     ],
@@ -45,7 +45,7 @@ export default function ContactPage() {
     highlightTitle: " Clear Direction",
     subtitle:
       "You're great at what you do, but your marketing falls behind. Agencies cost a fortune. Freelancers disappear.",
-    videoThumbnail: "/assets/images/tb.png",
+    videoThumbnail: "/assets/images/tb.webp",
     videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     playlistTitle: "Title of Your Playlist",
     playlistInfo: {

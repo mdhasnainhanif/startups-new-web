@@ -127,8 +127,8 @@ ul.factsList {
   top: 0.25rem; /* Adjust vertical alignment */
   width: 1.25rem;
   height: 1.25rem;
-  /* Make sure you have tick.png in this path: /assets/icons/tick.png */
-  background-image: url("/assets/images/tick.png");
+  /* Make sure you have tick.webp in this path: /assets/icons/tick.webp */
+  background-image: url("/assets/images/tick.webp");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;

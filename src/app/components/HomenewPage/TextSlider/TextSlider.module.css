@@ -8,6 +8,7 @@
   overflow: hidden;
   mask-image: linear-gradient(to right, #fff0 0%, #03001d 20% 65%, #fff0 100%);
   -webkit-mask-image: linear-gradient(to right, #fff0 0%, #03001d 20% 65%, #fff0 100%);
+  z-index: 1;
 }
 
 .ctaBanner::before,

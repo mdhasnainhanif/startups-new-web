@@ -42,7 +42,7 @@ const CONTACT_TWO_DATA: ContactTwoData = {
     text2:
       "Use this form to reach the team that gives you direction, solves your blockers, and shows you what to do next without wasting time.",
     image: {
-      src: "/assets/images/graph.png",
+      src: "/assets/images/graph.webp",
       alt: "Growth Chart",
     },
   },

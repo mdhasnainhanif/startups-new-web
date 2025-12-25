@@ -82,7 +82,7 @@ const GUESS_WORK_ADVERTISING_DATA: GuessWorkAdvertisingData = {
     ),
   },
   image: {
-    src: '/assets/images/guesswork.png',
+    src: '/assets/images/guesswork.webp',
     alt: 'Guesswork Advertising Analytics',
   },
 };
