@@ -1,18 +1,16 @@
-"use client";
-
 import { HeroBannerProps } from "../../types/types";
 import Button from "../Button";
 import Container from "../Container";
 import { ArrowRightIcon } from "../icons";
 import Image from "next/image";
-import dynamic from "next/dynamic";
 import styles from "./HeroBanner.module.css";
+import Plasma from "../Plasma/Plasma";
 
 // Lazy load Plasma component to reduce initial bundle size
-const Plasma = dynamic(() => import("../Plasma/Plasma"), {
-  ssr: false,
-  loading: () => null,
-});
+// const Plasma = dynamic(() => import("../Plasma/Plasma"), {
+//   ssr: false,
+//   loading: () => null,
+// });
 
 export default function HeroBanner({
   headline,
@@ -77,6 +75,7 @@ export default function HeroBanner({
           sizes="100vw"
           className="object-cover"
           style={{ objectFit: "cover" }}
+          priority
         />
         <div className="absolute inset-0 bg-black/30" style={{ zIndex: 1 }}></div>
       </div>
