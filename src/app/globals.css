@@ -54,7 +54,7 @@ body {
 
 .sectionPadding {
   padding-top: 4.125rem;
-  padding-bottom: 4.125rem;
+  padding-bottom: 4.725rem;
 }
 
 nav.headerNav {
@@ -282,7 +282,7 @@ h2 .bracket-text-green {
   height: 100%;
   background-image: url("/assets/images/star-bg.webp");
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
   background-position: center;
   opacity: 0.4;
   pointer-events: none;
@@ -322,7 +322,7 @@ h2 .bracket-text-green {
   height: 100%;
   background-image: url("/assets/images/star-bg.webp");
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
   background-position: center;
   opacity: 0.4;
   pointer-events: none;
@@ -346,7 +346,7 @@ h2 .bracket-text-green {
   height: 100%;
   background-image: url("/assets/images/star-bg.webp");
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
   background-position: center;
   opacity: 0.3;
   pointer-events: none;
@@ -363,7 +363,7 @@ h2 .bracket-text-green {
   height: 100%;
   background-image: url("/assets/images/star-bg.webp");
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
   background-position: center;
   background-attachment: fixed;
   opacity: 0.25;
@@ -383,7 +383,7 @@ h2 .bracket-text-green {
   height: 100%;
   background-image: url("/assets/images/star-bg.webp");
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
   background-position: center;
   opacity: 0.25;
   pointer-events: none;

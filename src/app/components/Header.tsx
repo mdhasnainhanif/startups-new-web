@@ -795,7 +795,7 @@ export default function Header() {
                 }
               >
                 Designer
-                <svg
+                {/* <svg
                 onClick={() =>
                   setIsMobileDesignDropdownOpen(!isMobileDesignDropdownOpen)
                 }
@@ -812,10 +812,10 @@ export default function Header() {
                     strokeWidth={2}
                     d="M19 9l-7 7-7-7"
                   />
-                </svg>
+                </svg> */}
               </button>
               </Link>
-              {isMobileDesignDropdownOpen && (
+              {/* {isMobileDesignDropdownOpen && (
                 <div className="mt-2 pl-4 space-y-2">
                   {services.map((service) => {
                     const isActiveService = pathname?.startsWith(
@@ -858,7 +858,7 @@ export default function Header() {
                     );
                   })}
                 </div>
-              )}
+              )} */}
             </div>
 
             <div className="mb-2">
