@@ -1,11 +1,10 @@
 .HomenewBanner {
-  background: url("/assets/images/homenewbanner.png") no-repeat center center;
+  background: url("/assets/images/homenewbanner.webp") no-repeat center center;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
-/* Bootstrap-like Row and Column System */
 .row {
   display: flex;
   flex-wrap: wrap;
@@ -32,7 +31,6 @@
   align-items: center;
 }
 
-/* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
   .colLeft {
     flex: 0 0 50%;
@@ -46,7 +44,6 @@
   }
 }
 
-/* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
   .colLeft {
     flex: 0 0 50%;
@@ -58,8 +55,9 @@
     max-width: 50%;
   }
 }
+
 .homenewbanner1 {
-  /* height: 760px; */
+
   object-fit: cover;
   max-width: 80%;
   margin-bottom: -5.625rem;
@@ -67,18 +65,10 @@
 }
 
 .extraPaddingTop {
-  padding-top: 7.5rem; /* 30 * 4 = 120px */
+  padding-top: 7.5rem;
 }
 
-/* Responsive Styles for homenewbanner1 */
-
-/* Large Desktop (1920px and above) */
 @media (min-width: 1920px) {
-  /* .homenewbanner1 {
-    height: 850px;
-    margin-bottom: -100px;
-  } */
-
   .extraPaddingTop {
     padding-top: 8.75rem;
   }
@@ -131,6 +121,7 @@
   .extraPaddingTop {
     padding-top: 5rem;
   }
+
   .tabsContainer {
     border-radius: 0 !important;
   }
@@ -158,12 +149,13 @@
   .homenewbanner1 {
     margin-bottom: -4.325rem;
   }
-  
+
 
   .extraPaddingTop {
     padding-top: 2.5rem;
   }
 }
+
 .experienceBox {
   position: relative;
   background-color: #21164c;
@@ -183,7 +175,7 @@
   opacity: 0.6;
 }
 
-.experienceBox > * {
+.experienceBox>* {
   position: relative;
   z-index: 1;
 }
@@ -200,7 +192,7 @@
   top: 0.1rem;
   width: 1.125rem;
   height: 1.125rem;
-  background-image: url("/assets/images/tick.png");
+  background-image: url("/assets/images/tick.webp");
   background-size: contain;
   background-repeat: no-repeat;
 }

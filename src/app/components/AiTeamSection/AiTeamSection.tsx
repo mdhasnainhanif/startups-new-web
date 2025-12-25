@@ -1,24 +1,18 @@
 "use client";
-
 import { useState, useEffect, useLayoutEffect, useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-
 import styles from "./AiTeamSection.module.css";
 import Container from "../Container";
-
 gsap.registerPlugin(ScrollTrigger);
-
 type TabId = "creative" | "marketing" | "development" | "growth";
-
 const TABS: { id: TabId; label: string }[] = [
   { id: "creative", label: "Creative & Design" },
   { id: "marketing", label: "Marketing & Growth" },
   { id: "development", label: "Development" },
   { id: "growth", label: "Key Growth" },
 ];
-
 const TAB_CONTENT: Record<
   TabId,
   {
@@ -95,7 +89,6 @@ const TAB_CONTENT: Record<
     cta: "Hire Growth Manager",
   },
 };
-
 export default function AiTeamSection() {
   const [activeTab, setActiveTab] = useState<TabId>("creative");
   const cardsContainerRef = useRef<HTMLDivElement>(null);
@@ -103,48 +96,31 @@ export default function AiTeamSection() {
   const triggersRef = useRef<ScrollTrigger[]>([]);
   const previousTabRef = useRef<TabId>(activeTab);
   const isMountedRef = useRef(true);
-
   const content = TAB_CONTENT[activeTab];
-
-  // Cleanup BEFORE React updates DOM - useLayoutEffect runs synchronously
   useLayoutEffect(() => {
-    // Get the PREVIOUS tab (before it changed)
     const previousTab = previousTabRef.current;
-    
-    // Only cleanup if tab actually changed
     if (previousTab !== activeTab) {
-      // Collect all triggers to kill
       const triggersToKill: ScrollTrigger[] = [];
-      
-      // Collect triggers from ref
       triggersRef.current.forEach((trigger) => {
         if (trigger) {
           triggersToKill.push(trigger);
         }
       });
-
-      // Collect triggers with matching IDs for previous tab
       ScrollTrigger.getAll().forEach((trigger) => {
         try {
           const triggerId = trigger.vars?.id?.toString() || "";
           if (triggerId.startsWith(`pin-${previousTab}`) || triggerId.startsWith(`scale-${previousTab}`)) {
             triggersToKill.push(trigger);
           }
-        } catch (e) {
-          // Ignore errors
+        } catch (e) { 
         }
       });
-
-      // Kill all triggers synchronously
-      // First, manually restore any pinned elements to their original state
       triggersToKill.forEach((trigger) => {
         try {
           if (trigger && trigger.vars?.pin) {
             const element = trigger.trigger;
             if (element instanceof HTMLElement && document.contains(element)) {
-              // Manually restore transform and position
               gsap.set(element, { clearProps: "all" });
-              // Remove any inline styles added by ScrollTrigger
               element.style.transform = "";
               element.style.position = "";
               element.style.top = "";
@@ -153,96 +129,61 @@ export default function AiTeamSection() {
               element.style.height = "";
             }
           }
-        } catch (e) {
-          // Ignore errors during restoration
+        } catch (e) { 
         }
       });
-
-      // Now kill all triggers
       triggersToKill.forEach((trigger) => {
         try {
           if (trigger) {
             trigger.disable();
-            trigger.kill(false); // Kill without DOM cleanup since we already restored
+            trigger.kill(false); 
           }
-        } catch (e) {
-          // Silently ignore errors - trigger might already be killed
+        } catch (e) { 
         }
       });
-
-      // Clear the ref
       triggersRef.current = [];
-      
-      // Update previous tab ref
       previousTabRef.current = activeTab;
     }
   }, [activeTab]);
-
-  // Cleanup on unmount
   useEffect(() => {
     isMountedRef.current = true;
     return () => {
       isMountedRef.current = false;
-      // Cleanup all triggers on unmount
       triggersRef.current.forEach((trigger) => {
         try {
           if (trigger) {
             trigger.kill(false);
           }
-        } catch (e) {
-          // Ignore errors
+        } catch (e) { 
         }
       });
       triggersRef.current = [];
     };
   }, []);
-
   useEffect(() => {
     const cardsContainer = cardsContainerRef.current;
     if (!cardsContainer || !isMountedRef.current) return;
-
-    // Store all ScrollTriggers for cleanup
     const triggers: ScrollTrigger[] = [];
-
-    // Small delay to ensure DOM is ready and cleanup from useLayoutEffect is complete
     const timeoutId = setTimeout(() => {
-      // Check if still mounted and container still exists
       if (!isMountedRef.current || !cardsContainerRef.current) return;
-
-      // Get all cards for current tab
       const cards = gsap.utils.toArray<HTMLElement>(
         cardsContainer.querySelectorAll(`[data-card="true"]`)
       );
-
       if (cards.length === 0) return;
-
-      // Verify all cards are still in DOM
       const validCards = cards.filter(card => document.contains(card));
       if (validCards.length === 0) return;
-
       const spacer = 20;
       const maxScale = 1.0;
       const minScale = 0.8;
-
       const distributor = gsap.utils.distribute({
         base: maxScale,
-        amount: minScale - maxScale, // Negative amount to go from max to min
+        amount: minScale - maxScale, 
       });
-
-      // Account for sticky tabs height (approximately 120px including padding)
       const tabsOffset = 120;
-
       validCards.forEach((card, index) => {
-        // Double check card is still in DOM before creating animations
         if (!document.contains(card)) return;
-
         const scaleVal = distributor(index, card, validCards);
-        
-        // Set initial scale - cards start at their distributed scale
         gsap.set(card, { scale: scaleVal });
-
-        // Pin animation for each card - cards start hidden below tabs
-        // Start position ensures cards are hidden below sticky tabs initially
         const pinTrigger = ScrollTrigger.create({
           trigger: card,
           start: `top-=${tabsOffset + 20 + index * spacer} top`,
@@ -254,11 +195,7 @@ export default function AiTeamSection() {
           id: `pin-${activeTab}-${index}`,
           markers: false,
         });
-
         triggers.push(pinTrigger);
-
-        // Scale animation - smoothly scale as card is pinned
-        // Scale from minScale to maxScale as card moves through pin range
         const scaleAnimation = gsap.fromTo(
           card,
           { scale: scaleVal },
@@ -275,35 +212,25 @@ export default function AiTeamSection() {
             ease: "none",
           }
         );
-
         const scaleTrigger = scaleAnimation.scrollTrigger;
         if (scaleTrigger) {
           triggers.push(scaleTrigger);
         }
       });
-
-      // Refresh ScrollTrigger after all animations are set up
       ScrollTrigger.refresh();
-
-      // Store triggers in ref for cleanup only if still mounted
       if (isMountedRef.current) {
-        triggersRef.current = [...triggers];
       } else {
-        // If unmounted during setup, clean up immediately
+        triggersRef.current = [...triggers];
         triggers.forEach(trigger => {
           try {
             trigger.kill(false);
           } catch (e) {
-            // Ignore errors
           }
         });
       }
     }, 100);
-
     return () => {
       clearTimeout(timeoutId);
-      // Cleanup any triggers that were created but component unmounted
-      // Use triggersRef to access triggers that might have been created
       const currentTriggers = triggersRef.current;
       currentTriggers.forEach(trigger => {
         try {
@@ -311,16 +238,13 @@ export default function AiTeamSection() {
             trigger.kill(false);
           }
         } catch (e) {
-          // Ignore errors
         }
       });
     };
   }, [activeTab]);
-
   return (
     <section ref={sectionRef} className={styles.section}>
       <Container maxWidth="xl" className="px-0">
-        {/* Heading */}
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="text-3xl md:text-5xl font-bold leading-tight text-white">
             Meet Your <span className={styles.aiText}>AI-Empowered</span> Team
@@ -334,8 +258,6 @@ export default function AiTeamSection() {
             deliverable builds lasting value for your business.
           </p>
         </div>
-
-        {/* Tabs */}
         <div className={`mt-10 ${styles.tabsContainer}`}>
           <div className={styles.tabsWrapper}>
             {TABS.map((tab) => (
@@ -352,8 +274,6 @@ export default function AiTeamSection() {
             ))}
           </div>
         </div>
-
-        {/* Cards container for GSAP ScrollTrigger animation */}
         <div
           key={activeTab}
           ref={cardsContainerRef}
@@ -365,7 +285,6 @@ export default function AiTeamSection() {
               data-card="true"
               className={`${styles.card} ${styles.cardFade} flex flex-col gap-8 md:flex-row md:items-stretch`}
             >
-              {/* Left: text */}
               <div className="flex-1">
                 <h3 className="text-2xl md:text-3xl font-bold text-white">
                   {content.title}
@@ -373,7 +292,6 @@ export default function AiTeamSection() {
                 <p className="mt-1 text-sm md:text-base font-semibold text-emerald-400">
                   {content.subtitle}
                 </p>
-
                 <div className="mt-5 flex flex-wrap gap-2">
                   {content.tags.map((tag) => (
                     <span key={tag} className={styles.chip}>
@@ -381,7 +299,6 @@ export default function AiTeamSection() {
                     </span>
                   ))}
                 </div>
-
                 <button
                   type="button"
                   className={`${styles.ctaButton} mt-7 inline-flex items-center gap-2 text-sm md:text-base font-semibold`}
@@ -390,11 +307,9 @@ export default function AiTeamSection() {
                   <span className="text-lg">↗</span>
                 </button>
               </div>
-
-              {/* Right: avatar */}
               <div className="relative flex flex-1 justify-center md:justify-end">
                 <Image
-                  src="/assets/images/2.png"
+                  src="/assets/images/2.webp"
                   alt="AI Team Section Avatar"
                   width={300}
                   height={300}

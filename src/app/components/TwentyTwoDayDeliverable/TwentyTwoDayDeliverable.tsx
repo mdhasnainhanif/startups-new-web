@@ -16,7 +16,7 @@ const phases = [
     iconColor: "#0fdac2",
     iconType: "cube",
     borderColor: "rgba(15, 218, 194, 0.6)",
-    image: "/assets/images/aipower1.png",
+    image: "/assets/images/aipower1.webp",
     deliverables: [
       "Branding & Identity Design",
       "Typography & Lettering Design",
@@ -33,7 +33,7 @@ const phases = [
     iconColor: "#0fdac2",
     iconType: "person",
     borderColor: "rgba(100, 59, 255, 0.4)",
-    image: "/assets/images/aipower2.png",
+    image: "/assets/images/aipower2.webp",
     deliverables: [
       "Product Mockup & Visualization",
       "App UI/UX Design",
@@ -50,7 +50,7 @@ const phases = [
     iconColor: "#0fdac2",
     iconType: "globe",
     borderColor: "rgba(100, 59, 255, 0.4)",
-    image: "/assets/images/aipower3.png",
+    image: "/assets/images/aipower3.webp",
     deliverables: [
       "Digital Marketing Assets",
       "Presentation & Pitch Deck Design",
@@ -67,7 +67,7 @@ const phases = [
     iconColor: "#0fdac2",
     iconType: "gear",
     borderColor: "rgba(100, 59, 255, 0.4)",
-    image: "/assets/images/aipower4.png",
+    image: "/assets/images/aipower4.webp",
     deliverables: [
       "3D Modeling & Product Rendering",
       "Advertising & Campaign Design",
@@ -348,7 +348,7 @@ const TwentyTwoDayDeliverable = () => {
                             {phase.deliverables.map((item, itemIndex) => (
                               <li key={itemIndex} className={styles.deliverableItem}>
                                 <img
-                                  src="/assets/images/tick.png"
+                                  src="/assets/images/tick.webp"
                                   alt="check"
                                   className={styles.checkIcon}
                                 />

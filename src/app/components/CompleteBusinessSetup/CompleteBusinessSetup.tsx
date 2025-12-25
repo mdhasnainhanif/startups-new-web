@@ -376,7 +376,7 @@
                     <li key={benefit.id} className="flex items-start gap-3">
                       <div className="flex-shrink-0 mt-1 w-5 h-5">
                         <img
-                          src="/assets/images/tick.png"
+                          src="/assets/images/tick.webp"
                           alt="checkmark"
                           className="w-full h-full object-contain"
                           loading="lazy"

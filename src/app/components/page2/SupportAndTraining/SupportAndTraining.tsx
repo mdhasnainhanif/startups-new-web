@@ -22,7 +22,7 @@ const SupportAndTraining = () => {
                   onClick={() => setIsPopupOpen(true)}
                 >
                   <Image
-                    src="/assets/images/image1.png"
+                    src="/assets/images/image1.webp"
                     alt="Weekly Support And Ongoing Training"
                     width={700}
                     height={500}
@@ -61,7 +61,7 @@ const SupportAndTraining = () => {
             <div className={`${styles.card} ${styles.card2}`}>
               <div className={styles.imageWrapper}>
                 <Image
-                  src="/assets/images/image2.png"
+                  src="/assets/images/image2.webp"
                   alt="Ongoing Training & Community"
                   width={700}
                   height={500}
