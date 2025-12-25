@@ -1,0 +1,159 @@
+.blogsSection {
+  padding-top: 4rem;
+  padding-bottom: 6rem;
+  min-height: 60vh;
+}
+
+.blogsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.blogCard {
+  background: #120f36;
+  border: 1px solid #312d63a8;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+.blogCard:hover {
+  border-color: #643bff;
+  box-shadow: 0 2px 13px -4px #643bff;
+  transform: translateY(-2px);
+}
+
+.imageContainer {
+  margin-bottom: 1.5rem;
+  border-radius: 1rem;
+}
+
+.imageWrapper {
+  border-radius: 1rem;
+  border: 1px solid #223634;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.blogImage {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 1rem;
+}
+
+.category {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.categoryTag {
+  font-size: 0.75rem;
+  background: #643bff;
+  color: #e9d7ff;
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.3rem;
+}
+
+.blogTitle {
+  font-size: 1rem;
+  color: #ffffff;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  line-height: 1.375;
+  margin-top: 0.525rem;
+}
+
+.blogMeta {
+  font-size: 0.75rem;
+  color: #0fdac2;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.metadataItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.metaIcon {
+  width: 0.75rem;
+  height: 0.75rem;
+  color: rgba(156, 163, 175, 1);
+}
+
+.blogExcerpt {
+  font-size: 0.875rem;
+  color: rgba(209, 213, 219, 1);
+  margin-bottom: 1.25rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.5;
+  max-height: 3.9375rem;
+}
+
+.readButtonWrapper {
+  margin-top: auto;
+}
+
+@media (max-width: 1024px) {
+  .blogsGrid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .blogTitle {
+    font-size: 1.125rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .blogsSection {
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+  }
+
+  .blogsGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .blogCard {
+    border-radius: 0.75rem;
+  }
+
+  .imageWrapper {
+    height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .blogsGrid {
+    gap: 1rem;
+  }
+
+  .imageWrapper {
+    height: 180px;
+  }
+}

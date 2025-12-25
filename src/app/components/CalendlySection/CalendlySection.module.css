@@ -16,6 +16,21 @@
   left: 0rem;
   background-size: contain;
 }
+.calendlySection::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/assets/images/star-bg.webp');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: 0;
+}
 .contentWrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -29,7 +44,7 @@
 .leftSection {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 .heading {
@@ -129,21 +144,6 @@
   visibility: visible !important;
 }
 
-.calendlyWrapper::before {
-  content: "Powered by Calendly";
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  font-size: 0.75rem;
-  color: #9ca3af;
-  z-index: 10;
-  transform: rotate(15deg);
-  background: rgba(255, 255, 255, 0.9);
-  padding: 0.25rem 0.5rem;
-  border-radius: 0.25rem;
-  pointer-events: none;
-  font-weight: 500;
-}
 
 .placeholderMessage {
   display: flex;
@@ -164,7 +164,7 @@
 .placeholderTitle {
   font-size: 1.5rem;
   font-weight: 600;
-  color: #1f2937;
+  color: #fff;
   margin: 0 0 0.5rem 0;
 }
 
@@ -204,7 +204,7 @@
 }
 
 .videoButton > .videoButtonText{
-  background-color: #fff;
+  background-color: #0cbba6;
   padding: 0.625rem;
   border-radius: 50%;
 }

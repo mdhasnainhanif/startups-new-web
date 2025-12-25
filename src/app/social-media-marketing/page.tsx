@@ -12,7 +12,6 @@ import ProfessionalDesign from '../components/ProfessionalDesign/ProfessionalDes
 import { socialMediaMarketingProfessionalData, socialMediaMarketingCaseStudyData, socialMediaMarketingBlogGuides } from '../data/SocialMediaMarketingPageData';
 import AiPowerDesign from '../components/AiPowerDesign/AiPowerDesign';
 import CaseStudySection from '../components/CaseStudySection';
-import ProvenSuccess from '../components/ProvenSuccess/ProvenSuccess';
 import RealCost from '../components/RealCost/RealCost';
 import CompleteBusinessSetup from '../components/CompleteBusinessSetup/CompleteBusinessSetup';
 import GuessWorkAdvertising from '../components/GuessWorkAdvertising/GuessWorkAdvertising';
@@ -25,13 +24,15 @@ import {
   socialMediaMarketingGuessWorkData,
   socialMediaMarketingSliderData1, 
   socialMediaMarketingSliderData2, 
-  socialMediaMarketingSliderData3 
+  socialMediaMarketingSliderData3,
+  socialMediaMarketingProvenSuccessData
 } from '../data/SocialMediaMarketingPageData';
-
+import ProvenSuccess from "../components/ProvenSuccess/ProvenSuccess";
 export const metadata: Metadata = {
   title: "22-Day Social Media Marketing Service | Market-Ready Social Content | Startups Advisory",
   description:
     "Market-Ready Social Content in 22 Days. Creative built for attention, precision, and brand presence. A complete social layer shaped with clarity, style, and strategic intent.",
+  robots: "nofollow",
 };
 
 export default function SocialMediaMarketingPage() {
@@ -43,7 +44,7 @@ export default function SocialMediaMarketingPage() {
       <AiPowerDesign data={socialMediaMarketingAiPowerData}/>
       <Technologies 
         hideTabs={true} 
-        defaultTab="creative"
+        defaultTab="socialMediaMarketing"
         heading="$48,000 plus in Creative Output Delivered in 22 Days"
         description="A concentrated production period powered by structured tools and experienced creators replaces inconsistent visuals, slow content delivery, and unclear messaging."
         subDescription="Creative Production Tools ($12,000 plus Annual Value)"
@@ -54,7 +55,7 @@ export default function SocialMediaMarketingPage() {
       <GuessWorkAdvertising data={socialMediaMarketingGuessWorkData}/>
       <RealCost data={socialMediaMarketingRealCostData}/>
       <CompleteBusinessSetup data={socialMediaMarketingCompleteSetupData}/>
-      <ProvenSuccess/>
+      <ProvenSuccess data={socialMediaMarketingProvenSuccessData}/>
       <Reviews/>
       <GrowthSlider items={socialMediaMarketingBlogGuides} />
       <FAQ faqs={FAQ_CONTACT} sectionData={FAQ_SECTION} />

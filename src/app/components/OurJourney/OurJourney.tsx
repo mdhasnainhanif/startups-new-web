@@ -6,7 +6,6 @@ import Container from "../Container";
 import styles from "./OurJourney.module.css";
 
 export default function OurJourney({ items, className = "" }: OurJourneyProps) {
-  // Map items to steps format with alternating sides
   const steps = items.map((item) => ({
     id: item.id,
     num: item.number,
@@ -14,6 +13,7 @@ export default function OurJourney({ items, className = "" }: OurJourneyProps) {
     subtitle: item.subtitle,
     desc: item.description,
     side: item.imagePosition || "right",
+    icon: item.icon as string,
   }));
 
   return (
@@ -38,10 +38,14 @@ export default function OurJourney({ items, className = "" }: OurJourneyProps) {
           >
             <div className={`${styles.ring} ${styles[s.side]}`}>
               <div className={styles.ringInner}>
-                <img
-                  src="/assets/images/journey1.webp"
+                <Image
+                  src={s.icon}
                   alt={s.title}
+                  width={120}
+                  height={120}
                   className={styles.iconImage}
+                  key={s.id}
+                  unoptimized
                 />
               </div>
             </div>

@@ -672,20 +672,15 @@ const CaseStudySection = ({ data = DEFAULT_CASE_STUDY_DATA, isShowTabs = true, c
       // Get the bounding rect of the last card
       const lastCardRect = lastCard.getBoundingClientRect();
 
-      // Get the entire cards container
-      const cardsListRect = cardsList.getBoundingClientRect();
-
-      // Check when cards section is finishing - when last card's bottom is passing viewport
-      // At this point, unstick tabs so they scroll up naturally with the page
-      // This ensures tabs scroll up smoothly, not hide
       const viewportHeight = window.innerHeight;
-
-      // When last card's bottom is above viewport bottom (cards finishing), tabs scroll up
-      // This makes tabs naturally scroll up as cards finish, not hide
+      
+      // When last card's bottom is above viewport bottom, tabs should scroll naturally
+      // This makes tabs naturally scroll up with cards section, not hide
       const shouldUnstick = lastCardRect.bottom < viewportHeight;
 
       // On mobile, tabs should never be sticky - always scroll naturally
-      // On desktop, apply sticky behavior based on scroll position
+      // On desktop, apply sticky behavior only when cards are still visible
+      // When cards finish, tabs become non-sticky and scroll up naturally
       setShouldStick(isDesktop && !shouldUnstick);
     };
 
@@ -710,11 +705,12 @@ const CaseStudySection = ({ data = DEFAULT_CASE_STUDY_DATA, isShowTabs = true, c
         rootEl.removeEventListener("scroll", handleScroll);
       }
     };
-  }, [filteredCards, activeCategory, data.cards]);
+  }, [filteredCards, activeCategory, data.cards, isDesktop]);
 
   return (
     <div className={`casestudysec sectionPadding bg-cover mobile-padding-bottom-0 bg-[#03001D] ${className}`}>
-      <section className="sectionPaddingCase pt-0 mobile-padding-bottom-0">
+      {/* <div className="starsLayer3"></div> */}
+      <section className="sectionPaddingCase pt-0 mobile-padding-bottom-0" style={{ position: 'relative', zIndex: 1 }}>
         <Container maxWidth="xl">
           <div className="row align-items-center justify-content-center">
             <div className="col-md-6 text-center mb-10 sectionHeading forH2 gap-3 flex flex-col items-center justify-center">
@@ -737,9 +733,7 @@ const CaseStudySection = ({ data = DEFAULT_CASE_STUDY_DATA, isShowTabs = true, c
             {/* Tabs Navigation - Desktop View */}
             {isShowTabs && (
               <div
-                className={`${
-                  shouldStick ? "sticky" : ""
-                } top-10 z-50 py-4 md:px-4 p-0 rounded-lg w-full mx-auto md:bg-[#0b0038] md:mb-8 mb-16 hidden md:flex items-end justify-between flex-wrap`}
+                className={`${shouldStick ? "sticky" : ""} top-10 z-50 py-4 md:px-4 p-0 rounded-lg w-full mx-auto md:bg-[#0b0038] md:mb-8 mb-16 hidden md:flex items-end justify-between flex-wrap transition-all duration-300 ease-in-out`}
               >
               <button
                 onClick={() => {
@@ -814,9 +808,7 @@ const CaseStudySection = ({ data = DEFAULT_CASE_STUDY_DATA, isShowTabs = true, c
             {/* Tabs Navigation - Mobile View with Swiper */}
             {isShowTabs && (
               <div
-                className={`${
-                  shouldStick ? "sticky" : ""
-                } top-10 z-50 py-4 rounded-lg w-full mx-auto md:bg-[#0b0038] md:mb-8 mb-16 relative md:hidden`}
+                className={`${shouldStick ? "sticky" : ""} top-10 z-50 py-4 rounded-lg w-full mx-auto md:bg-[#0b0038] md:mb-8 mb-16 relative md:hidden transition-all duration-300 ease-in-out`}
               >
               {/* Left Arrow */}
               <button
@@ -979,6 +971,7 @@ const CaseStudySection = ({ data = DEFAULT_CASE_STUDY_DATA, isShowTabs = true, c
                                   .replace(/\s+/g, "-")}
                                 width={300}
                                 height={200}
+                                loading="lazy"
                               />
                             </div>
                           </div>

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import React from "react";
 import ContactForm from "../components/ContactPage/ContactForm/ContactForm";
 import { contactFormData } from "../components/ContactPage/ContactForm/data";
 import { contactFormAddressData } from "../components/ContactPage/ContactFormAddress/data";
@@ -7,15 +6,11 @@ import { FAQ_DATA, FAQ_SECTION, GROWTH_GUIDES } from "../constants";
 import FAQ from "../components/FAQ/FAQ";
 import GrowthSlider from "../components/GrowthSlider/GrowthSlider";
 import ContactFormAddress from "../components/ContactPage/ContactFormAddress/ContactFormAddress";
-import ContactCta from "../components/ContactPage/ContactCta/ContactCta";
-import BusinessSlider from "../components/ContactPage/BuisnessSlider/BuisnessSlider";
-import BusinessPlaylist from "../components/ContactPage/BusinessPlaylist/BusinessPlaylist";
-import Container from "../components/Container";
-
 export const metadata: Metadata = {
+  title: "Contact Us | Get in Touch | Startups Advisory",
+  description: "Let's connect and build your next growth chapter. Get in touch with our team to discuss how we can help accelerate your business growth.",
   robots: "nofollow",
 };
-
 export default function ContactPage() {
   const ctaData = {
     title: "Book a Strategy",
@@ -45,7 +40,6 @@ export default function ContactPage() {
       },
     ],
   };
-
   const playlistData = {
     mainTitle: "Growing Businesses Need",
     highlightTitle: " Clear Direction",
@@ -72,7 +66,6 @@ export default function ContactPage() {
       { id: 5, number: "06.", title: "Custom Select Box", duration: "15:25" },
     ],
   };
-
   return (
     <>
       <div className="max-w-4xl mx-auto mb-8 sm:mb-12 lg:mb-16 text-center pt100 contactMain sectionHeading">
@@ -80,19 +73,10 @@ export default function ContactPage() {
         Let’s Connect and Build <span className="text-[#0fdac2]">Your Next Growth</span> Chapter
         </h1>
       </div>
-
-      {/* Contact Form Section */}
       <div className="max-w-6xl mx-auto">
         <ContactForm config={contactFormData} />
         <ContactFormAddress config={contactFormAddressData} />
       </div>
-
-      {/* <BusinessSlider /> */}
-
-      {/* 🟢 Fix — pass props */}
-      {/* <ContactCta {...ctaData} /> */}
-      {/* <BusinessPlaylist {...playlistData} /> */}
-
       <GrowthSlider items={GROWTH_GUIDES} />
       <FAQ faqs={FAQ_DATA} sectionData={FAQ_SECTION} />
       </>

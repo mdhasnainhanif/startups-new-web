@@ -7,6 +7,7 @@ import styles from "./CalendlySection.module.css";
 import Button from "../Button";
 import { PlayIcon } from "@/app/icons";
 import { VideoIcon } from "../../icons";
+import { GoogleMeetIcon, ZoomIcon } from "@/app/icons";
 
 interface CalendlySectionProps {
   heading?: string | { part1: string; part2: string; part3: string };
@@ -115,11 +116,11 @@ const CalendlySection = ({
             <p>{description}</p>
             <div>
               <Button
-                variant="purple"
+                variant="green"
                 size="lg"
-                icon={<VideoIcon style={{ fill: "#643BFF" }} />}
+                icon={<VideoIcon style={{ fill: "#fff" }} />}
                 className={styles.videoButton}
-                iconSpanClassName={styles.videoButtonText}
+                iconSpanClassName={styles.videoButtonText} 
                 isDropdown={true}
                 selectedDropdownItem={selectedDropdownItem}
                 onDropdownSelect={handleDropdownSelect}
@@ -127,10 +128,12 @@ const CalendlySection = ({
                   {
                     label: "Google Meet",
                     href: "#",
+                    icon: <GoogleMeetIcon />,
                   },
                   {
                     label: "Zoom Meet",
                     href: "#",
+                    icon: <ZoomIcon />,
                   },
                 ]}
               >

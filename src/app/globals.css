@@ -178,120 +178,6 @@ p.topPara {
   font-weight: 400;
 }
 
-@media screen and (max-width: 768px) {
-  .topPara {
-    font-size: 0.875rem;
-  }
-}
-
-@media screen and (max-width: 576px) {
-  button.inputFieldBtn {
-    --tw-translate-y: 0 !important;
-    translate: none !important;
-  }
-
-  .topHeader {
-    padding-bottom: 1rem;
-  }
-
-  .keyGrowthTechnologySection .sectionHeading {
-    max-width: 100% !important;
-  }
-
-  .inputFieldWrapper {
-    background: #1c0d54;
-    border-radius: 0.5rem;
-  }
-
-  .inputFieldWrapper input {
-    border: 0rem;
-    font-size: 0.975rem;
-  }
-
-  .inputFieldWrapper input:focus {
-    border: 0rem;
-    box-shadow: none;
-    outline: none;
-  }
-
-  .inputFieldBtn {
-    position: static !important;
-    width: 100% !important;
-  }
-
-  .headerLogo {
-    max-width: 6rem;
-  }
-
-  .mobile-padding-bottom-0 {
-    padding-bottom: 0rem !important;
-  }
-
-  div.sectionHeading.forH2 > p {
-    font-size: 1rem;
-  }
-
-  button.caseBtn {
-    margin: 0 auto;
-    font-size: 1rem;
-  }
-
-  button.caseBtn::before {
-    content: none;
-  }
-
-  div.sectionHeading > p {
-    font-size: 1rem;
-  }
-
-  div.sectionHeading > h1 {
-    font-size: 1.75rem;
-    font-weight: 700;
-    line-height: 1.2;
-  }
-
-  div.sectionHeading.forH2 > h2 {
-    font-size: 2rem;
-    font-weight: 700;
-    line-height: 1.3;
-    margin-bottom: 0rem;
-  }
-
-  .sectionPadding {
-    padding-top: 3.825rem;
-    padding-bottom: 4.25rem;
-  }
-
-  p.topPara {
-    font-size: 0.655rem;
-  }
-
-  h2.headingSize {
-    font-size: 2rem !important;
-  }
-
-  .tabSection .px-4 {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-  }
-
-  .pt100.contactMain {
-    padding-top: 1.25rem;
-  }
-
-  .caseImg {
-    display: none;
-  }
-
-  div.scrollerItem {
-    border-radius: 0.5rem !important;
-  }
-
-  .sectionHeading > h2 {
-    font-size: 1.75rem !important;
-  }
-}
-
 .pt100 {
   padding-top: 12.25rem;
 }
@@ -377,8 +263,228 @@ h2 .bracket-text-green {
   margin-bottom: 0rem;
 }
 
-.casestudysec{
+.casestudysec {
   padding-bottom: 11rem;
+  position: relative;
+}
+
+/* Starry Background Effect for Hero Banner */
+.heroStarsBackground {
+  position: relative;
+}
+
+.heroStarsBackground::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/assets/images/star-bg.webp");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.heroStarsBackground::after {
+  display: none;
+}
+
+/* .heroStarsBackground .starsLayer3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/assets/images/star-bg.webp');
+  background-repeat: repeat;
+  background-size: contain;
+  background-position: center;
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: 3;
+} */
+
+/* Starry Background Effect for Blog Section */
+.blogStarsBackground {
+  position: relative;
+}
+
+.blogStarsBackground::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/assets/images/star-bg.webp");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.blogStarsBackground > * {
+  position: relative;
+  z-index: 1;
+}
+
+.blogStarsBackground::after {
+  display: none;
+}
+
+.blogStarsBackground .starsLayer3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/assets/images/star-bg.webp");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  opacity: 0.3;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Starry Background Effect for Case Study Section */
+.casestudysec::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/assets/images/star-bg.webp");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  background-attachment: fixed;
+  opacity: 0.25;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.casestudysec::after {
+  display: none;
+}
+
+.casestudysec .starsLayer3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/assets/images/star-bg.webp");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  opacity: 0.25;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes twinkle1 {
+  0% {
+    opacity: 0.15;
+    filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.3));
+  }
+  20% {
+    opacity: 0.5;
+    filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.7));
+  }
+  40% {
+    opacity: 0.8;
+    filter: drop-shadow(0 0 3.5px rgba(255, 255, 255, 1));
+  }
+  60% {
+    opacity: 0.4;
+    filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.6));
+  }
+  80% {
+    opacity: 0.9;
+    filter: drop-shadow(0 0 4px rgba(255, 255, 255, 1));
+  }
+  100% {
+    opacity: 0.15;
+    filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.3));
+  }
+}
+
+@keyframes twinkle2 {
+  0% {
+    opacity: 0.4;
+    filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.4));
+  }
+  15% {
+    opacity: 0.4;
+    filter: drop-shadow(0 0 1.5px rgba(255, 255, 255, 0.6));
+  }
+  30% {
+    opacity: 0.7;
+    filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.9));
+  }
+  50% {
+    opacity: 0.95;
+    filter: drop-shadow(0 0 4px rgba(255, 255, 255, 1));
+  }
+  70% {
+    opacity: 0.5;
+    filter: drop-shadow(0 0 2.5px rgba(255, 255, 255, 0.8));
+  }
+  85% {
+    opacity: 0.3;
+    filter: drop-shadow(0 0 1.5px rgba(255, 255, 255, 0.5));
+  }
+  100% {
+    opacity: 0.4;
+    filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.4));
+  }
+}
+
+@keyframes twinkle3 {
+  0% {
+    opacity: 0.15;
+    filter: drop-shadow(0 0 0.5px rgba(255, 255, 255, 0.2));
+  }
+  12% {
+    opacity: 0.35;
+    filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.4));
+  }
+  25% {
+    opacity: 0.65;
+    filter: drop-shadow(0 0 2.5px rgba(255, 255, 255, 0.85));
+  }
+  37% {
+    opacity: 0.3;
+    filter: drop-shadow(0 0 1.5px rgba(255, 255, 255, 0.5));
+  }
+  50% {
+    opacity: 0.85;
+    filter: drop-shadow(0 0 3.5px rgba(255, 255, 255, 1));
+  }
+  62% {
+    opacity: 0.5;
+    filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.7));
+  }
+  75% {
+    opacity: 0.7;
+    filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.9));
+  }
+  87% {
+    opacity: 0.4;
+    filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.6));
+  }
+  100% {
+    opacity: 0.15;
+    filter: drop-shadow(0 0 0.5px rgba(255, 255, 255, 0.2));
+  }
 }
 
 .caseBtn {
@@ -401,6 +507,12 @@ h2 .bracket-text-green {
 
 .caseBtn:first-child::before {
   display: none;
+}
+
+/* Smooth transition for sticky tabs */
+.sticky.top-10 {
+  transition: position 0.3s ease-in-out;
+  will-change: position;
 }
 
 /* Tabs Swiper Styles */
@@ -450,6 +562,7 @@ section.designerPageCaseStudy .stack-cards__item {
 button.inputFieldBtn {
   position: absolute;
   right: 0.725rem;
+  top: 2.129rem;
 }
 
 .keyGrowthTechnologySection .sectionHeading {
@@ -538,6 +651,13 @@ section img.banneFull {
   margin-left: 2rem;
 }
 
+img.designerBanner {
+  position: absolute;
+  max-width: 43rem;
+  bottom: 0rem;
+  margin-bottom: 0rem !important;
+}
+
 section img.banneFullMin {
   max-width: 90%;
   margin-left: auto;
@@ -545,6 +665,178 @@ section img.banneFullMin {
   margin-bottom: 0rem;
 }
 
-.cursor-pointer{
+.cursor-pointer {
   cursor: pointer !important;
+}
+
+.faqaskquestion,
+.faqaskquestion:focus-visible {
+  background-color: #0e1030;
+  background-image: linear-gradient(#0e1030, #0e1030),
+    linear-gradient(to right, #0fdac2, #643bff);
+  background-position: 0 0;
+  background-repeat: repeat;
+  background-size: auto;
+  background-attachment: scroll;
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  border: 2px solid #0000;
+  outline-width: 0;
+  outline-color: transparent;
+}
+
+@media screen and (max-width: 768px) {
+  .topPara {
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 1400px) {
+  img.designerBanner {
+    max-width: 35rem !important;
+  }
+}
+@media (max-width: 576px) {
+  ul.stack-cards {
+    margin-bottom: 5vh !important;
+  }
+  .pl0mobile {
+    padding-left: 0rem !important;
+  }
+  img.designerBanner {
+    position: static !important;
+    top: unset;
+    bottom: unset;
+    margin-bottom: -4.3rem !important;
+  }
+  button.inputFieldBtn {
+    --tw-translate-y: 0 !important;
+    translate: none !important;
+  }
+
+  .topHeader {
+    padding-bottom: 1rem;
+  }
+
+  .keyGrowthTechnologySection .sectionHeading {
+    max-width: 100% !important;
+  }
+
+  .inputFieldWrapper {
+    background: #1c0d54;
+    border-radius: 0.5rem;
+  }
+
+  .inputFieldWrapper input {
+    border: 0rem;
+    font-size: 0.975rem;
+  }
+
+  .inputFieldWrapper input:focus {
+    border: 0rem;
+    box-shadow: none;
+    outline: none;
+  }
+
+  .inputFieldBtn {
+    position: static !important;
+    width: 100% !important;
+  }
+
+  .headerLogo {
+    max-width: 6rem;
+  }
+
+  .mobile-padding-bottom-0 {
+    padding-bottom: 0rem !important;
+  }
+
+  div.sectionHeading.forH2 > p {
+    font-size: 1rem;
+  }
+
+  button.caseBtn {
+    margin: 0 auto;
+    font-size: 1rem;
+  }
+
+  button.caseBtn::before {
+    content: none;
+  }
+
+  div.sectionHeading > p {
+    font-size: 1rem;
+  }
+
+  div.sectionHeading > h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  div.sectionHeading.forH2 > h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 0rem;
+  }
+
+  .sectionPadding {
+    padding-top: 3.925rem;
+    padding-bottom: 4.25rem;
+  }
+
+  p.topPara {
+    font-size: 0.655rem;
+  }
+
+  h2.headingSize {
+    font-size: 2rem !important;
+  }
+
+  .tabSection .px-4 {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .pt100.contactMain {
+    padding-top: 1.25rem;
+  }
+
+  .caseImg {
+    display: none;
+  }
+
+  div.scrollerItem {
+    border-radius: 0.5rem !important;
+  }
+
+  .sectionHeading > h2 {
+    font-size: 1.75rem !important;
+  }
+}
+
+/* Flippa Page Animations */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

@@ -9,7 +9,7 @@ import styles from './ReplacementGuarantee.module.css';
 
 const ReplacementGuarantee = () => {
   return (
-    <section className={` ${styles.replacementSection} py-4 pb-6`}>
+    <section className={` ${styles.replacementSection} py-4`}>
       <Container maxWidth="xl" className="px-0">
         <div className={styles.contentWrapper}>
           {/* Left Section - Content */}
@@ -31,8 +31,8 @@ const ReplacementGuarantee = () => {
             <div className={styles.ctaWrapper}>
               <Button
                 href={REPLACEMENT_GUARANTEE_DATA.cta.href}
-                variant="primary"
-                icon={<ArrowRightIcon style={{ fill: '#fff' }} />}
+                variant="green"
+                icon={<ArrowRightIcon style={{ fill: '#000' }} />}
                 iconPosition="right"
               >
                 {REPLACEMENT_GUARANTEE_DATA.cta.text}

@@ -32,7 +32,7 @@ const HomeBanner = () => {
                 {HOME_BANNER_DATA.features.map((feature, index) => (
                   <li key={index} className="flex items-start gap-3 text-white">
                     <img
-                      src="/assets/images/tick2.png"
+                      src="/assets/images/tick.png"
                       alt="check"
                       className={styles.checkIcon}
                     />
@@ -45,8 +45,8 @@ const HomeBanner = () => {
               <div className="mt-2">
                 <Button
                   href={HOME_BANNER_DATA.cta.href}
-                  variant="primary"
-                  icon={<ArrowRightIcon style={{ fill: '#fff' }} />}
+                  variant="green"
+                  icon={<ArrowRightIcon style={{ fill: '#000' }} />}
                   iconPosition="right"
                 >
                   {HOME_BANNER_DATA.cta.text}

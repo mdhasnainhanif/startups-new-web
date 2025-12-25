@@ -399,6 +399,7 @@ export default function AiTeamSection() {
                   width={300}
                   height={300}
                   className={styles.avatar}
+                  loading="lazy"
                 />
               </div>
             </div>

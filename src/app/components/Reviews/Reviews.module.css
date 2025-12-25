@@ -186,6 +186,10 @@
   vertical-align: top;
 }
 
+.reviewCard:last-child {
+  margin-bottom: 0;
+}
+
 .reviewCardContent {
   background: #120f36;
   border: 1px solid #26234fa8;

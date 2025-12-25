@@ -56,15 +56,16 @@ const DEFAULT_DATA: HomenewBannerData = {
     href: "#",
   },
   image: {
-    src: "/assets/images/homenewbanner-img.webp",
+    src: "/assets/images/designer/banner.webp",
     alt: "AI Design Team Character",
+    className: "designerBanner",
   },
 };
 
 const HomenewBanner = ({ data = DEFAULT_DATA }: HomenewBannerProps) => {
   return (
     <section
-      className={`sectionPadding ${styles.extraPaddingTop} ${styles.HomenewBanner} ${data.className}`}
+      className={`sectionPadding relative ${styles.extraPaddingTop} ${styles.HomenewBanner} ${data.className}`}
     >
       <Container maxWidth="xl">
         <div className={`${styles.row} md:pt-20`}>
@@ -98,8 +99,8 @@ const HomenewBanner = ({ data = DEFAULT_DATA }: HomenewBannerProps) => {
 
             <Button
               href={data.cta.href}
-              variant="primary"
-              icon={<ArrowRightIcon style={{ fill: "#fff" }} />}
+              variant="green"
+              icon={<ArrowRightIcon style={{ fill: "#000" }} />}
               iconPosition="right"
             >
               {data.cta.text}
@@ -112,7 +113,6 @@ const HomenewBanner = ({ data = DEFAULT_DATA }: HomenewBannerProps) => {
               alt={data.image.alt}
               width={800}
               height={800}
-              priority
               fetchPriority="high"
               quality={85}
               className={`w-full ${styles.homenewbanner1} ${data.image.className}`}

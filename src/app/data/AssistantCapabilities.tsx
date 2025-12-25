@@ -12,7 +12,7 @@ export interface AssistantCapabilitiesData {
 }
 
 export const ASSISTANT_CAPABILITIES_DATA: AssistantCapabilitiesData = {
-  heading: "Your Growth Manager Handles Far More Than You Expect",
+  heading: "Your [Growth Manager] Handles Far More Than You [Expect]",
   description: "We guide your Growth Manager with clear workflows and strong direction — so you always get higher output, tighter execution, and more time back in your week.",
   capabilities: [
     {

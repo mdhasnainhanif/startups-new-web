@@ -97,7 +97,8 @@
 }
 
 @media (max-width: 768px) {
-  .section {
+  .section::before{
+    content: none;
   }
 
   .contentWrapper {
@@ -116,8 +117,6 @@
 }
 
 @media (max-width: 640px) {
-  .section {
-  }
 
   .contentWrapper {
     gap: 1.5rem;
@@ -135,8 +134,7 @@
 }
 
 @media (max-width: 480px) {
-  .section {
-  }
+
 
   .contentWrapper {
     padding: 1rem;

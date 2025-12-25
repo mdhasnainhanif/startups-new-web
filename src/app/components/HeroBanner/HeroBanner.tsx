@@ -65,14 +65,14 @@ export default function HeroBanner({
   };
 
   return (
-    <section className={`relative sectionPadding overflow-hidden ${className}`}>
+    <section className={`relative sectionPadding overflow-hidden heroStarsBackground ${className}`}>
+      <div className="starsLayer3"></div>
       {/* LCP Image - Optimized with Next.js Image */}
       <div className="absolute inset-0 z-0">
         <Image
           src="/assets/images/hero.webp"
           alt="Hero Background"
           fill
-          priority
           fetchPriority="high"
           sizes="100vw"
           className="object-cover"
@@ -121,9 +121,9 @@ export default function HeroBanner({
             {onButtonClick ? (
               <Button
                 onClick={onButtonClick}
-                variant={ctaButton.variant || "secondary"}
+                variant={"green"}
                 size="lg"
-                icon={<ArrowRightIcon />}
+                icon={<ArrowRightIcon style={{ fill: "#000" }} />}
                 iconPosition="right"
               >
                 {ctaButton.text}
@@ -131,7 +131,7 @@ export default function HeroBanner({
             ) : (
               <Button
                 href={ctaButton.href}
-                variant={ctaButton.variant || "green"}
+                variant={"green"}
                 size="lg"
                 icon={<ArrowRightIcon style={{ fill: "#000" }} />}
                 iconPosition="right"

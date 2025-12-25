@@ -4,7 +4,6 @@ import { getBlogPost, getAllBlogPosts } from "../../data/blogData";
 import Container from "../../components/Container";
 import Image from "next/image";
 import styles from "./BlogDetail.module.css";
-
 interface BlogDetailPageProps {
   params: Promise<{
     slug: string;
@@ -27,6 +26,7 @@ export async function generateMetadata({ params }: BlogDetailPageProps): Promise
   return {
     title: `${post.title} | Startups Advisory`,
     description: post.excerpt,
+    robots: "nofollow",
   };
 }
 export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
@@ -43,7 +43,6 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
             <div className={styles.categoryTag}>{post.category}</div>
             <h1 className={styles.title}>{post.title}</h1>
             <h2 className={styles.subtitle}>{post.subtitle}</h2>
-            
             <div className={styles.metadata}>
               <span className={styles.metadataItem}>
                 <svg
@@ -66,7 +65,6 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
               <span>{post.readTime}</span>
             </div>
           </header>
-
           <div className={styles.imageWrapper}>
             <Image
               src={post.image}
@@ -74,21 +72,17 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
               width={1200}
               height={600}
               className={styles.featuredImage}
-              priority
+              loading="lazy"
             />
           </div>
-
           <div className={styles.content}>
             <p className={styles.introduction}>{post.content.introduction}</p>
-
             {post.content.sections.map((section, index) => (
               <section key={index} className={styles.section}>
                 <h2 className={styles.sectionTitle}>{section.title}</h2>
                 {section.content.map((paragraph, pIndex) => {
-                  
                   const isHeading = (paragraph.length < 80 && paragraph.endsWith(':')) || 
                     (paragraph.length < 100 && !paragraph.includes('.') && paragraph.length > 10);
-                  
                   if (isHeading) {
                     return (
                       <h3 key={pIndex} className={styles.subsectionTitle}>
@@ -104,7 +98,6 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
                 })}
               </section>
             ))}
-
             <div className={styles.conclusion}>
               <p className={styles.conclusionText}>{post.content.conclusion}</p>
             </div>
@@ -114,4 +107,3 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
     </div>
   );
 }
-

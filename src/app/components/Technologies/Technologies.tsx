@@ -17,15 +17,17 @@ interface TechnologiesProps {
   hideTabs?: boolean;
   defaultTab?: string;
   className?: string;
+  customTools?: Array<{ id: number; name: string; icon: string; iconColor: string }>;
 }
 
-export default function Technologies({ heading, description, subDescription, hideTabs = false, defaultTab = "creative", className = "" }: TechnologiesProps = {}) {
+export default function Technologies({ heading, description, subDescription, hideTabs = false, defaultTab = "creative", className = "", customTools }: TechnologiesProps = {}) {
   const [activeTab, setActiveTab] = useState(defaultTab);
   const tabsSwiperRef = useRef<SwiperType | null>(null);
   const [isTabsSwiperBeginning, setIsTabsSwiperBeginning] = useState(true);
   const [isTabsSwiperEnd, setIsTabsSwiperEnd] = useState(false);
 
-  const currentTools =
+  // Use customTools if provided, otherwise use default tools from TECHNOLOGIES_SECTION
+  const currentTools = customTools || 
     TECHNOLOGIES_SECTION.tools[
       activeTab as keyof typeof TECHNOLOGIES_SECTION.tools
     ];
@@ -33,31 +35,22 @@ export default function Technologies({ heading, description, subDescription, hid
     (tab) => tab.id === activeTab
   );
 
-  // Split tools into three groups for different rows
   const totalTools = currentTools.length;
-  const toolsPerRow = Math.ceil(totalTools / 3);
-  
+  const toolsPerRow = Math.ceil(totalTools / 3);  
   const toolsRow1Group = currentTools.slice(0, toolsPerRow);
   const toolsRow2Group = currentTools.slice(toolsPerRow, toolsPerRow * 2);
   const toolsRow3Group = currentTools.slice(toolsPerRow * 2);
-
-  // Duplicate each group for seamless infinite scroll within each row
   const toolsRow1 = [...toolsRow1Group, ...toolsRow1Group, ...toolsRow1Group];
   const toolsRow2 = [...toolsRow2Group, ...toolsRow2Group, ...toolsRow2Group];
   const toolsRow3 = [...toolsRow3Group, ...toolsRow3Group, ...toolsRow3Group];
-
-  // Function to parse text and highlight text in brackets
   const parseBrackets = (text: string) => {
     if (!text) return null;
-    
     const parts: React.ReactNode[] = [];
     const bracketRegex = /\[([^\]]+)\]/g;
     let lastIndex = 0;
     let match;
     let key = 0;
-
     while ((match = bracketRegex.exec(text)) !== null) {
-      // Add text before the bracket
       if (match.index > lastIndex) {
         parts.push(
           <span key={`text-${key++}`} className="text-white">
@@ -65,18 +58,13 @@ export default function Technologies({ heading, description, subDescription, hid
           </span>
         );
       }
-      
-      // Add highlighted text inside brackets
       parts.push(
         <span key={`highlight-${key++}`} className="text-[#0fdac2]">
           {match[1]}
         </span>
       );
-      
       lastIndex = match.index + match[0].length;
     }
-    
-    // Add remaining text after last bracket
     if (lastIndex < text.length) {
       parts.push(
         <span key={`text-${key++}`} className="text-white">
@@ -84,22 +72,17 @@ export default function Technologies({ heading, description, subDescription, hid
         </span>
       );
     }
-    
     return parts.length > 0 ? parts : <span className="text-white">{text}</span>;
   };
 
-  // Function to parse subDescription and highlight text in parentheses
   const parseSubDescription = (text: string) => {
-    if (!text) return null;
-    
+    if (!text) return null;    
     const parts: React.ReactNode[] = [];
     const parenRegex = /\(([^)]+)\)/g;
     let lastIndex = 0;
     let match;
     let key = 0;
-
     while ((match = parenRegex.exec(text)) !== null) {
-      // Add text before the parentheses
       if (match.index > lastIndex) {
         parts.push(
           <span key={`text-${key++}`} className="text-white">
@@ -107,18 +90,13 @@ export default function Technologies({ heading, description, subDescription, hid
           </span>
         );
       }
-      
-      // Add highlighted text inside parentheses
       parts.push(
         <span key={`highlight-${key++}`} className="text-[#0fdac2]">
           ({match[1]})
         </span>
       );
-      
       lastIndex = match.index + match[0].length;
     }
-    
-    // Add remaining text after last parentheses
     if (lastIndex < text.length) {
       parts.push(
         <span key={`text-${key++}`} className="text-white">
@@ -126,11 +104,8 @@ export default function Technologies({ heading, description, subDescription, hid
         </span>
       );
     }
-    
     return parts.length > 0 ? parts : <span className="text-white">{text}</span>;
   };
-
-  // Sync Swiper to active tab when changed programmatically
   useEffect(() => {
     if (tabsSwiperRef.current) {
       const activeIndex = TECHNOLOGIES_SECTION.tabs.findIndex((tab) => tab.id === activeTab);
@@ -139,11 +114,9 @@ export default function Technologies({ heading, description, subDescription, hid
       }
     }
   }, [activeTab]);
-
   return (
     <section className={`${styles.section} ${className} sectionPadding`}>
       <div>
-        {/* Header Section */}
         <Container maxWidth="2xl" className="px-0">
           <div className={`sectionHeading forH2 gap-3 flex flex-col items-center justify-center text-center max-w-5xl md:mx-auto`}>
             <h2 className="max-w-7xl mx-auto">
@@ -168,8 +141,6 @@ export default function Technologies({ heading, description, subDescription, hid
               </h3>
             )}
           </div>
-
-          {/* Tabs - Desktop View */}
           {!hideTabs && (
             <div className={`${styles.tabsContainer} hidden md:flex`}>
               {TECHNOLOGIES_SECTION.tabs.map((tab) => (
@@ -185,11 +156,8 @@ export default function Technologies({ heading, description, subDescription, hid
               ))}
             </div>
           )}
-
-          {/* Tabs - Mobile View with Swiper */}
           {!hideTabs && (
           <div className={`${styles.tabsContainerMobile} relative md:hidden`}>
-            {/* Left Arrow */}
             <button
               onClick={() => tabsSwiperRef.current?.slidePrev()}
               disabled={isTabsSwiperBeginning}
@@ -213,8 +181,6 @@ export default function Technologies({ heading, description, subDescription, hid
                 <path d="M15 18l-6-6 6-6" />
               </svg>
             </button>
-
-            {/* Swiper for Tabs */}
             <Swiper
               modules={[Navigation]}
               spaceBetween={0}
@@ -244,8 +210,7 @@ export default function Technologies({ heading, description, subDescription, hid
                   <div className="flex justify-center w-full">
                     <button
                       onClick={() => {
-                        setActiveTab(tab.id);
-                        // Sync swiper to active tab
+                        setActiveTab(tab.id);   
                         const tabIndex = TECHNOLOGIES_SECTION.tabs.findIndex((t) => t.id === tab.id);
                         if (tabsSwiperRef.current && tabIndex !== -1) {
                           tabsSwiperRef.current.slideTo(tabIndex);
@@ -261,8 +226,6 @@ export default function Technologies({ heading, description, subDescription, hid
                 </SwiperSlide>
               ))}
             </Swiper>
-
-            {/* Right Arrow */}
             <button
               onClick={() => tabsSwiperRef.current?.slideNext()}
               disabled={isTabsSwiperEnd}
@@ -288,8 +251,6 @@ export default function Technologies({ heading, description, subDescription, hid
             </button>
           </div>
           )}
-
-          {/* Tools Category Header */}
           {!heading && (
             <div className={styles.categoryHeader}>
               <h3 className={styles.categoryTitle}>
@@ -299,10 +260,7 @@ export default function Technologies({ heading, description, subDescription, hid
             </div>
           )}
         </Container>
-
-        {/* Three Animated Sliders */}
         <div className={styles.slidersContainer}>
-          {/* First Slider - Right to Left */}
           <div className={`${styles.slider} ${styles.sliderRightToLeft}`}>
             <div className={styles.sliderTrack}>
               {toolsRow1.map((tool, index) => (
@@ -312,7 +270,7 @@ export default function Technologies({ heading, description, subDescription, hid
                     style={{ color: tool.iconColor }}
                   >
                     {tool.icon.startsWith("/") ? (
-                      <img src={tool.icon} alt={tool.name} className={styles.iconImage} />
+                      <img src={tool.icon} alt={tool.name} className={styles.iconImage} loading="lazy" />
                     ) : (
                       tool.icon
                     )}
@@ -322,8 +280,6 @@ export default function Technologies({ heading, description, subDescription, hid
               ))}
             </div>
           </div>
-
-          {/* Second Slider - Left to Right */}
           <div className={`${styles.slider} ${styles.sliderLeftToRight}`}>
             <div className={styles.sliderTrack}>
               {toolsRow2.map((tool, index) => (
@@ -343,8 +299,6 @@ export default function Technologies({ heading, description, subDescription, hid
               ))}
             </div>
           </div>
-
-          {/* Third Slider - Right to Left */}
           <div className={`${styles.slider} ${styles.sliderRightToLeft}`}>
             <div className={styles.sliderTrack}>
               {toolsRow3.map((tool, index) => (
@@ -354,7 +308,7 @@ export default function Technologies({ heading, description, subDescription, hid
                     style={{ color: tool.iconColor }}
                   >
                     {tool.icon.startsWith("/") ? (
-                      <img src={tool.icon} alt={tool.name} className={styles.iconImage} />
+                      <img src={tool.icon} alt={tool.name} className={styles.iconImage} loading="lazy" />
                     ) : (
                       tool.icon
                     )}

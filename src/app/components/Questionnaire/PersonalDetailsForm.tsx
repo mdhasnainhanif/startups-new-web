@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./Questionnaire.module.css";
 import Button from "../Button";
 
@@ -14,6 +14,18 @@ interface PersonalDetailsFormProps {
   onBack: () => void;
   isSubmitting: boolean;
   showBack?: boolean;
+  initialData?: {
+    name: string;
+    contact: string;
+    email: string;
+    country: string;
+  } | null;
+  onDataChange?: (data: {
+    name: string;
+    contact: string;
+    email: string;
+    country: string;
+  }) => void;
 }
 
 export default function PersonalDetailsForm({
@@ -21,13 +33,25 @@ export default function PersonalDetailsForm({
   onBack,
   isSubmitting,
   showBack = true,
+  initialData,
+  onDataChange,
 }: PersonalDetailsFormProps) {
+  // Only use initialData for the initial state, don't sync back from it
+  // This prevents overwriting user input when initialData changes
+  // useState initializer only runs once on mount, so it won't overwrite user input
   const [formData, setFormData] = useState({
-    name: "",
-    contact: "",
-    email: "",
-    country: "",
+    name: initialData?.name || "",
+    contact: initialData?.contact || "",
+    email: initialData?.email || "",
+    country: initialData?.country || "",
   });
+
+  // Save form data whenever it changes
+  useEffect(() => {
+    if (onDataChange) {
+      onDataChange(formData);
+    }
+  }, [formData, onDataChange]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData((prev) => ({
@@ -55,6 +79,7 @@ export default function PersonalDetailsForm({
               value={formData.name}
               onChange={handleChange}
               required
+              autoComplete="name"
               className={`${styles.formInput} ${styles.formInputSmall} ${styles.greenInput}`}
               disabled={isSubmitting}
             />
@@ -67,6 +92,7 @@ export default function PersonalDetailsForm({
               value={formData.contact}
               onChange={handleChange}
               required
+              autoComplete="tel"
               className={`${styles.formInput} ${styles.formInputSmall} ${styles.greenInput}`}
               disabled={isSubmitting}
             />
@@ -81,6 +107,7 @@ export default function PersonalDetailsForm({
             value={formData.email}
             onChange={handleChange}
             required
+            autoComplete="email"
             className={`${styles.formInput} ${styles.formInputSmall} ${styles.greenInput}`}
             disabled={isSubmitting}
           />
@@ -94,6 +121,7 @@ export default function PersonalDetailsForm({
             value={formData.country}
             onChange={handleChange}
             required
+            autoComplete="country-name"
             className={`${styles.formInput} ${styles.formInputSmall} ${styles.greenInput}`}
             disabled={isSubmitting}
           />

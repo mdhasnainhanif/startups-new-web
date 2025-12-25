@@ -29,7 +29,7 @@
   position: relative;
   background: #1C1949;
   border-radius: 16px;
-  max-width: 1200px;
+  max-width: 65rem;
   width: 100%;
   max-height: 90vh;
   overflow: hidden;
@@ -102,7 +102,7 @@
 .questionnaireWrapper {
   position: relative;
   width: 100%;
-  padding: 2rem;
+  padding: 2rem 3rem;
   /* padding-bottom: 1rem; */
   display: flex;
   flex-direction: column;
@@ -115,14 +115,13 @@
 
 /* Header - Sticky on all screen sizes */
 .header {
-  text-align: center;
   margin-bottom: 1rem;
   flex-shrink: 0;
   position: sticky;
   top: 0;
   background: #1C1949;
   z-index: 20;
-  padding: 2rem 2rem 1rem 2rem;
+  padding: 2rem 2rem 1rem 0rem;
   margin-bottom: 1rem;
   border-bottom: 1px solid rgba(47, 42, 99, 0.5);
 }
@@ -147,6 +146,52 @@
   height: 15px;
   width: 1px;
   margin: 0 auto;
+}
+
+/* Progress Container */
+.progressContainer {
+  margin-top: 1.5rem;
+  width: 100%;
+  /* max-width: 300px; */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.progressInfo {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.progressText {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+  font-family: var(--font-graphik-regular), Arial, Helvetica, sans-serif;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.progressBar {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progressBarFill {
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    var(--color-primary) 0%,
+    var(--color-purple) 100%
+  );
+  border-radius: 10px;
+  transition: width 0.5s ease-in-out;
+  box-shadow: 0 0 10px rgba(100, 59, 255, 0.5);
 }
 
 /* Form Area */
@@ -265,6 +310,14 @@
     line-height: 1.3;
   }
 
+  .progressContainer {
+    margin-top: 1rem;
+  }
+
+  .progressText {
+    font-size: 0.8rem;
+  }
+
   .thankYouHeading {
     font-size: 2.5rem;
   }
@@ -311,6 +364,19 @@
 
   .mainHeading {
     font-size: 1.225rem;
+    width: 90%;
+  }
+
+  .progressContainer {
+    margin-top: 0.75rem;
+  }
+
+  .progressText {
+    font-size: 0.75rem;
+  }
+
+  .progressBar {
+    height: 4px;
   }
 
   .thankYouHeading {

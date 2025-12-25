@@ -1,5 +1,4 @@
 "use client";
-
 import { useState, useEffect, useRef } from "react";
 import Container from "../Container";
 import Button from "../Button";
@@ -16,13 +15,11 @@ import {
   TeamMember,
 } from "../../data/RoiCalculatorData";
 import { AUFlagIcon, DownloadIcon, PakistanFlagIcon, UKFlagIcon, USFlagIcon } from "@/app/icons";
-
 interface RoiCalculatorProps {
   className?: string;
 }
-
 const RoiCalculator = ({ className = "" }: RoiCalculatorProps) => {
-  const [selectedCountry, setSelectedCountry] = useState<Country>(COUNTRIES[2]); // Australia by default
+  const [selectedCountry, setSelectedCountry] = useState<Country>(COUNTRIES[2]); 
   const [teamMembers, setTeamMembers] = useState<TeamMember[]>([
     {
       id: "1",
@@ -33,9 +30,7 @@ const RoiCalculator = ({ className = "" }: RoiCalculatorProps) => {
   ]);
   const [additionalCostsEnabled, setAdditionalCostsEnabled] = useState<Record<string, boolean>>({});
   const [openDropdowns, setOpenDropdowns] = useState<Record<string, boolean>>({});
-  const dropdownRefs = useRef<Record<string, HTMLDivElement | null>>({});
-
-  // Close dropdowns when clicking outside
+  const dropdownRefs = useRef<Record<string, HTMLDivElement | null>>({}); 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       Object.keys(openDropdowns).forEach((key) => {
@@ -47,35 +42,26 @@ const RoiCalculator = ({ className = "" }: RoiCalculatorProps) => {
         }
       });
     };
-
     if (Object.values(openDropdowns).some((isOpen) => isOpen)) {
       document.addEventListener("mousedown", handleClickOutside);
     }
-
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [openDropdowns]);
-
-  // Calculate costs
   const calculateCosts = () => {
     let totalPakistanMonthly = 0;
     let totalComparisonMonthly = 0;
-
     teamMembers.forEach((member) => {
       const role = ROLES.find((r) => r.id === member.roleId);
       const experience = EXPERIENCE_LEVELS.find((e) => e.id === member.experienceId);
-
       if (role && experience) {
         const pakistanSalary = role.baseSalaryPakistan * experience.multiplier;
         const comparisonSalary = pakistanSalary * selectedCountry.salaryMultiplier;
-
         totalPakistanMonthly += pakistanSalary * member.quantity;
         totalComparisonMonthly += comparisonSalary * member.quantity;
       }
     });
-
-    // Add additional costs
     let additionalCostsPercentage = 0;
     Object.keys(additionalCostsEnabled).forEach((costId) => {
       if (additionalCostsEnabled[costId]) {
@@ -85,10 +71,8 @@ const RoiCalculator = ({ className = "" }: RoiCalculatorProps) => {
         }
       }
     });
-
     const pakistanWithAdditional = totalPakistanMonthly * (1 + additionalCostsPercentage / 100);
     const comparisonWithAdditional = totalComparisonMonthly * (1 + additionalCostsPercentage / 100);
-
     return {
       pakistanMonthly: pakistanWithAdditional,
       comparisonMonthly: comparisonWithAdditional,
@@ -98,9 +82,7 @@ const RoiCalculator = ({ className = "" }: RoiCalculatorProps) => {
       reductionPercentage: ((comparisonWithAdditional - pakistanWithAdditional) / comparisonWithAdditional) * 100,
     };
   };
-
   const costs = calculateCosts();
-
   const formatCurrency = (amount: number): string => {
     return new Intl.NumberFormat("en-US", {
       style: "currency",
@@ -109,7 +91,6 @@ const RoiCalculator = ({ className = "" }: RoiCalculatorProps) => {
       maximumFractionDigits: 0,
     }).format(amount);
   };
-
   const addTeamMember = () => {
     const newMember: TeamMember = {
       id: Date.now().toString(),
@@ -119,36 +100,29 @@ const RoiCalculator = ({ className = "" }: RoiCalculatorProps) => {
     };
     setTeamMembers([...teamMembers, newMember]);
   };
-
   const removeTeamMember = (id: string) => {
     setTeamMembers(teamMembers.filter((m) => m.id !== id));
   };
-
   const updateTeamMember = (id: string, updates: Partial<TeamMember>) => {
     setTeamMembers(
       teamMembers.map((m) => (m.id === id ? { ...m, ...updates } : m))
     );
   };
-
   const toggleAdditionalCost = (costId: string) => {
     setAdditionalCostsEnabled((prev) => ({
       ...prev,
       [costId]: !prev[costId],
     }));
   };
-
   const toggleDropdown = (key: string) => {
     setOpenDropdowns((prev) => ({ ...prev, [key]: !prev[key] }));
   };
-
   const getRoleName = (roleId: string) => {
     return ROLES.find((r) => r.id === roleId)?.name || "Select Role";
   };
-
   const getExperienceName = (experienceId: string) => {
     return EXPERIENCE_LEVELS.find((e) => e.id === experienceId)?.name || "Select Experience";
   };
-
   const getMemberSalary = (member: TeamMember) => {
     const role = ROLES.find((r) => r.id === member.roleId);
     const experience = EXPERIENCE_LEVELS.find((e) => e.id === member.experienceId);
@@ -159,11 +133,9 @@ const RoiCalculator = ({ className = "" }: RoiCalculatorProps) => {
     }
     return { pakistan: 0, comparison: 0 };
   };
-
   return (
     <section className={`sectionPadding ${styles.section} ${className}`} id="calculator">
       <Container maxWidth="xl">
-        {/* Choose Comparison Country Section */}
         <div className={styles.countrySection}>
           <h2 className={styles.sectionTitle}>Choose Comparison Country</h2>
           <p className={styles.sectionDescription}>
@@ -193,15 +165,13 @@ const RoiCalculator = ({ className = "" }: RoiCalculatorProps) => {
           </div>
         </div>
 
-        {/* Benefits & Additional Costs Section */}
         <div className={styles.inputSection}>
           <div className={styles.inputGrid}>
-            {/* Left Column - Team Members */}
             <div className={styles.teamMembersColumn}>
               <div className={styles.teamMembersHeader}>
                 <h3 className={styles.teamMembersTitle}>Benefits & Additional Costs</h3>
                 <Button 
-                  variant="purple" 
+                  variant="green" 
                   onClick={addTeamMember}
                   icon={
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -236,7 +206,6 @@ const RoiCalculator = ({ className = "" }: RoiCalculatorProps) => {
                     )}
                   </div>
 
-                  {/* Role Dropdown */}
                   <div
                     className={styles.dropdownWrapper}
                     ref={(el) => {
@@ -288,7 +257,6 @@ const RoiCalculator = ({ className = "" }: RoiCalculatorProps) => {
                     )}
                   </div>
 
-                  {/* Experience Dropdown */}
                   <div
                     className={styles.dropdownWrapper}
                     ref={(el) => {
@@ -340,7 +308,6 @@ const RoiCalculator = ({ className = "" }: RoiCalculatorProps) => {
                     )}
                   </div>
 
-                  {/* Salary Display */}
                   {member.roleId && member.experienceId && (
                     <div className={styles.salaryDisplay}>
                       <div className={styles.salaryRow}>
@@ -359,7 +326,6 @@ const RoiCalculator = ({ className = "" }: RoiCalculatorProps) => {
                     </div>
                   )}
 
-                  {/* Quantity Controls */}
                   <div className={styles.quantityControls}>
                     <button
                       className={styles.quantityButton}
@@ -386,7 +352,6 @@ const RoiCalculator = ({ className = "" }: RoiCalculatorProps) => {
               </div>
             </div>
 
-            {/* Right Column - Additional Costs */}
             <div className={styles.additionalCostsColumn}>
               <h3 className={styles.additionalCostsTitle}>Additional Costs/Benefits</h3>
               <div className={styles.additionalCostsList}>
@@ -414,7 +379,6 @@ const RoiCalculator = ({ className = "" }: RoiCalculatorProps) => {
           </div>
         </div>
 
-        {/* Cost Savings Analysis Section */}
         <div className={styles.savingsSection}>
           <div className={styles.savingsGrid}>
             <div className={styles.savingsMain}>
@@ -483,8 +447,6 @@ const RoiCalculator = ({ className = "" }: RoiCalculatorProps) => {
             </div>
           </div>
         </div>
-
-        {/* Comparative Analysis Section */}
         <div className={styles.comparativeSection}>
           <h2 className={styles.sectionTitle}>Your Custom Comparative Analysis</h2>
           <p className={styles.sectionDescription}>

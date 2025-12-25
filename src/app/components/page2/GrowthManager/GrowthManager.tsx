@@ -99,7 +99,7 @@ const GrowthManager = () => {
               {GROWTH_MANAGER_DATA.features.map((feature, index) => (
                 <li key={index} className="flex items-start gap-3 text-white">
                   <img
-                    src="/assets/images/tick2.png"
+                    src="/assets/images/tick.png"
                     alt="check"
                     className={styles.checkIcon}
                   />
@@ -116,8 +116,8 @@ const GrowthManager = () => {
             <div className="mt-2">
               <Button
                 href={GROWTH_MANAGER_DATA.cta.href}
-                variant="primary"
-                icon={<ArrowRightIcon style={{ fill: '#fff' }} />}
+                variant="green"
+                icon={<ArrowRightIcon style={{ fill: '#000' }} />}
                 iconPosition="right"
               >
                 {GROWTH_MANAGER_DATA.cta.text}

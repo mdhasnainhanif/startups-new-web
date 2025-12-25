@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { GlobeIcon } from "../../icons";
+import Image from "next/image";
 import Button from "../Button";
 import Container from "../Container";
 import styles from "./Contact.module.css";
@@ -49,8 +49,6 @@ export default function Contact() {
           message: "",
         });
       } else {
-        // Display detailed error message
-      
         console.error("API Error:", response);
       }
     } catch (error) {
@@ -65,47 +63,60 @@ export default function Contact() {
     <section className={`${styles.contactSection} sectionPadding`}>
       <Container maxWidth="xl" className="px-0">
         <div className={styles.contactCard}>
-          {/* Left Section - Information */}
           <div className={styles.leftSection}>
             <div className={styles.infoContent}>
-              {/* Heading 1 */}
               <div className={styles.headingWithIcon}>
-                <div className={styles.globeIcon}>
-                  <GlobeIcon />
-                </div>
-                <h2 className={`${styles.heading1} max-w-lg`}>Tell Us Where You Are and Where You Want to Go</h2>
+                <h2 className={`${styles.formHeading}`}>
+                  Share what you're <span className={styles.highlightText}>building and what you</span> want to fix
+                </h2>
               </div>
-
-              {/* Heading 2 */}
-              <div className={styles.headingWithIcon}>
-                <div className={styles.globeIcon}>
-                  <GlobeIcon />
-                </div>
-                <h3 className={styles.heading2}>
-                Share what you’re building and what you want to fix
-                </h3>
-              </div>
-
-              <img src="/assets/images/contact-client.webp" className={`img-fluid ${styles.client_image}`}/>
-
-              {/* Lorem Ipsum Text */}
-              <p className={styles.descriptionText}>
-              Tell us what you are working on and what challenges you want solved so we can guide you with clarity and next steps. Share as much detail as you like so our team can understand your goals and offer the best support possible for your business growth and needs today.
+              <p className={`${styles.descriptionText} hidden md:block`}>
+                Tell us what you are working on and what challenges you want solved so we can guide you with clarity and next steps.
               </p>
-            </div>
+              <p className={`${styles.descriptionText2} hidden md:block`}>Share as much detail as you like so our team can understand your goals and offer the best support possible for your business growth and needs today.</p>
+              <div className="flex flex-col gap-4 mt-[2.5rem] hidden md:block">
+                  <a href="tel:+13466269169" className="flex items-center gap-3 text-white">
+                    <div className="rounded-full bg-[#2E2277] p-2 flex items-center justify-center">
+                      <Image 
+                        src="/assets/images/contact-icons/phone.svg" 
+                        alt="Phone" 
+                        width={18}
+                        height={18}
+                      />
+                    </div>
+                    +1 346-626-9169
+                  </a>
+                <a href="mailto:info@startupsadvisory.ai" className="flex items-center gap-3 text-white">
+                  <div className="rounded-full bg-[#2E2277] p-2 flex items-center justify-center">
+                    <Image 
+                    src="/assets/images/contact-icons/email.svg" 
+                    alt="Email" 
+                    width={18}
+                    height={18}
+                  />
+                  </div>
+                  info@startupsadvisory.ai
+                </a>
+                <span className="flex items-center gap-3 text-white">
+                  <div className="rounded-full bg-[#2E2277] p-2 flex items-center justify-center">
+                  <Image 
+                    src="/assets/images/contact-icons/location.svg" 
+                    alt="Location" 
+                    width={18}
+                    height={18}
+                  />
+                  </div>
+                  1007n Orange St, Wilmington, DE 19801, United States
+                </span>
+                </div>
+              </div>
           </div>
-
-          {/* Right Section - Contact Form */}
           <div className={styles.rightSection}>
             <div className={styles.formContent}>
-              {/* Form Heading */}
-              <h2 className={styles.formHeading}>
+              <h2 className={`${styles.formHeading} hidden md:block`}>
                 Ready To <span className={styles.highlightText}>Connect</span>?
               </h2>
-
-              {/* Form */}
               <form className={styles.contactForm} onSubmit={handleSubmit}>
-                {/* Name and Email Row */}
                 <div className={styles.formRow}>
                   <div className={styles.formField}>
                     <input
@@ -130,8 +141,6 @@ export default function Contact() {
                     />
                   </div>
                 </div>
-
-                {/* Phone Number */}
                 <div className={styles.formRow}>
                   <div className={styles.formFieldFull}>
                     <input
@@ -145,8 +154,6 @@ export default function Contact() {
                     />
                   </div>
                 </div>
-
-                {/* Company Name */}
                 <div className={styles.formRow}>
                   <div className={styles.formFieldFull}>
                     <input
@@ -160,8 +167,6 @@ export default function Contact() {
                     />
                   </div>
                 </div>
-
-                {/* Message */}
                 <div className={styles.formRow}>
                   <div className={styles.formFieldFull}>
                     <textarea
@@ -175,8 +180,6 @@ export default function Contact() {
                     ></textarea>
                   </div>
                 </div>
-
-                {/* Success/Error Messages */}
                 {successMessage && (
                   <div style={{ color: "green", marginBottom: "1rem", fontSize: "0.9rem" }}>
                     {successMessage}
@@ -187,35 +190,42 @@ export default function Contact() {
                     {errorMessage}
                   </div>
                 )}
-
-                {/* Submit Button */}
-                <Button 
-                  variant="green" 
-                  type="submit" 
+                <Button
+                  variant="green"
+                  type="submit"
                   className="w-full text-center justify-center items-center"
                   disabled={loading}
+                  icon={
+                    !loading ? (
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                      >
+                        <line x1="5" y1="12" x2="19" y2="12" />
+                        <polyline points="12 5 19 12 12 19" />
+                      </svg>
+                    ) : undefined
+                  }
+                  iconPosition="right"
                 >
-                  <span>{loading ? "Sending..." : "Submit Your Query"}</span>
-                  {!loading && (
-                    <svg
-                      width="20"
-                      height="20"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                    >
-                      <line x1="5" y1="12" x2="19" y2="12" />
-                      <polyline points="12 5 19 12 12 19" />
-                    </svg>
-                  )}
+                  {loading ? "Sending..." : "Submit Your Query"}
                 </Button>
               </form>
             </div>
           </div>
         </div>
       </Container>
-      <img src="/assets/images/rocket1.webp" className={`img-fluid ${styles.rocket1}`}/>
+      <Image 
+        src="/assets/images/rocket1.webp" 
+        alt="Rocket" 
+        width={500}
+        height={500}
+        className={`img-fluid ${styles.rocket1}`}
+      />
     </section>
   );
 }

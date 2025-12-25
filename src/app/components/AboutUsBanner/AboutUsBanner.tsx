@@ -5,7 +5,6 @@ import Button from "../Button";
 import Container from "../Container";
 import { ArrowRightIcon } from "../icons";
 import styles from "./AboutUsBanner.module.css";
-
 export default function AboutUsBanner({
   heading,
   description,
@@ -33,13 +32,12 @@ export default function AboutUsBanner({
                 <span className="text-[#0fdac2]">{heading.highlight2}</span>
               </>
             )}
-          </h1>
+          </h1> 
           <p className="lg:max-w-4xl text-white">
             {description}
           </p>
           <div className="mt-4">
-           
-            <Button href="#" variant="primary" icon={<ArrowRightIcon style={{ fill: "#fff" }} />} iconPosition="right">
+            <Button href="#" variant="green" icon={<ArrowRightIcon style={{ fill: "#000" }} />} iconPosition="right">
               {ctaButton.text}
             </Button>
           </div>

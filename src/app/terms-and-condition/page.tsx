@@ -7,7 +7,7 @@ import styles from "./page.module.css";
 export const metadata: Metadata = {
   title: "Terms & Conditions | Startups Advisory",
   description: "Terms and Conditions for Startups Advisory services",
-  robots: "index, follow",
+  robots: "nofollow",
 };
 
 export default function TermsAndConditionPage() {

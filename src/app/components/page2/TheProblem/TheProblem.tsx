@@ -90,8 +90,8 @@ const TheProblem = () => {
           <div className={styles.ctaWrapper}>
             <Button
               href={THE_PROBLEM_DATA.cta.href}
-              variant="primary"
-              icon={<ArrowRightIcon style={{ fill: '#fff' }} />}
+              variant="green"
+              icon={<ArrowRightIcon style={{ fill: '#000' }} />}
               iconPosition="right"
             >
               {THE_PROBLEM_DATA.cta.text}

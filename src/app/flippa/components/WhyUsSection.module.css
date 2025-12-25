@@ -1,0 +1,270 @@
+.section {
+  padding: 5rem 0;
+  position: relative;
+  background: #020016;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  background-image: linear-gradient(rgba(15, 218, 194, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 218, 194, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+.headerSection {
+  text-align: center;
+  margin-bottom: 3rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.label {
+  color: #0fdac2;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.heading {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  font-family: var(--font-plus-jakarta-sans), sans-serif;
+}
+
+.subtitle {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.125rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+
+.tableWrapper {
+  overflow-x: auto;
+  margin-bottom: 3rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+.tableContainer {
+  min-width: 600px;
+  background: rgba(24, 13, 51, 0.6);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  backdrop-filter: blur(10px);
+}
+
+.comparisonTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0;
+}
+
+.tableHeader {
+  padding: 1rem 1.5rem;
+  text-align: center;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: var(--font-plus-jakarta-sans), sans-serif;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tableRow {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: background-color 0.3s ease;
+}
+
+.tableRow:hover {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+.highlightedRow {
+  background: rgba(15, 218, 194, 0.1);
+  border-left: 3px solid #0fdac2;
+}
+
+.highlightedRow:hover {
+  background: rgba(15, 218, 194, 0.15);
+}
+
+.solutionCell {
+  padding: 1.25rem 1.5rem;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: left;
+  font-family: var(--font-plus-jakarta-sans), sans-serif;
+}
+
+.highlightedSolution {
+  color: #0fdac2;
+  font-weight: 700;
+}
+
+.iconCell {
+  padding: 1.25rem 1.5rem;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.iconCell svg {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+
+.ctaSection {
+  text-align: right;
+  margin-top: 2rem;
+}
+
+.ctaButton {
+  background: linear-gradient(90deg, rgba(15, 218, 194, 0.8) 0%, #0fdac2 100%);
+  border: none;
+  color: #ffffff;
+  padding: 1rem 2.5rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: var(--font-plus-jakarta-sans), sans-serif;
+  box-shadow: 0 4px 15px rgba(15, 218, 194, 0.3);
+  margin: 0 auto;
+}
+
+.ctaButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(15, 218, 194, 0.4);
+  background: linear-gradient(90deg, rgba(15, 218, 194, 0.9) 0%, #0fdac2 100%);
+}
+
+.ctaButton:active {
+  transform: translateY(0);
+}
+
+
+@media (max-width: 1024px) {
+  .tableContainer {
+    min-width: 550px;
+    padding: 1.25rem;
+  }
+
+  .tableHeader {
+    padding: 0.875rem 1.25rem;
+    font-size: 0.9375rem;
+  }
+
+  .solutionCell {
+    padding: 1rem 1.25rem;
+    font-size: 0.9375rem;
+  }
+
+  .iconCell {
+    padding: 1rem 1.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 3rem 0;
+  }
+
+  .headerSection {
+    margin-bottom: 2rem;
+  }
+
+  .heading {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .tableContainer {
+    min-width: 500px;
+    padding: 1rem;
+  }
+
+  .tableHeader {
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+  }
+
+  .solutionCell {
+    padding: 0.875rem 1rem;
+    font-size: 0.875rem;
+  }
+
+  .iconCell {
+    padding: 0.875rem 1rem;
+  }
+
+  .iconCell svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .ctaSection {
+    text-align: center;
+  }
+
+  .ctaButton {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 2rem 0;
+  }
+
+  .heading {
+    font-size: 1.75rem;
+  }
+
+  .label {
+    font-size: 0.75rem;
+  }
+
+  .subtitle {
+    font-size: 0.9375rem;
+  }
+
+  .tableContainer {
+    min-width: 450px;
+    padding: 0.75rem;
+  }
+
+  .tableHeader {
+    padding: 0.625rem 0.75rem;
+    font-size: 0.8125rem;
+  }
+
+  .solutionCell {
+    padding: 0.75rem 0.75rem;
+    font-size: 0.8125rem;
+  }
+
+  .iconCell {
+    padding: 0.75rem 0.75rem;
+  }
+
+  .iconCell svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .ctaButton {
+    padding: 0.875rem 2rem;
+    font-size: 0.9375rem;
+  }
+}

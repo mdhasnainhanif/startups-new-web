@@ -24,6 +24,7 @@
   align-items: center;
   gap: 1.25rem;
   border-right: 1px solid #ffffff1f;
+  width: 90%;
 }
 
 .item:last-child {
@@ -122,8 +123,8 @@
 }
 
 .locationSwiperWrapper {
-  width: 100%;
-  overflow: hidden;
+  width: 340px;
+  overflow: visible;
   position: relative;
 }
 
@@ -160,11 +161,11 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2rem;
+  height: 2rem;
   border-radius: 50%;
-  background: rgba(13, 10, 28, 0.9);
-  border: 1px solid rgba(93, 81, 175, 0.4);
+  /* background: rgba(13, 10, 28, 0.9); */
+  /* border: 1px solid rgba(93, 81, 175, 0.4); */
   color: #ffffff;
   display: flex;
   align-items: center;
@@ -179,10 +180,17 @@
   font-family: inherit;
 }
 
-.navButton:hover:not(:disabled) {
+
+
+.navButton img{
+  width: 2rem;
+  height: 2rem;
+} 
+
+/* .navButton:hover:not(:disabled) {
   background: rgba(100, 59, 255, 0.8);
   border-color: rgba(100, 59, 255, 0.6);
-}
+} */
 
 .navButton:disabled {
   opacity: 0.3;
@@ -190,11 +198,11 @@
 }
 
 .navButtonLeft {
-  left: -3rem;
+  left: -3.8rem;
 }
 
 .navButtonRight {
-  right: -3rem;
+  right: -2.8rem;
 }
 
 .arrowIcon {
@@ -206,7 +214,7 @@
   width: 100%;
   height: 100%;
   text-align: center;
-  margin-top: -4px;
+  /* margin-top: -4px; */
 }
 
 /* Hide default navigation and pagination */

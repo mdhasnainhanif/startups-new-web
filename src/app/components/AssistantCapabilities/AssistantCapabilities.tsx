@@ -68,6 +68,23 @@ const IconComponent = ({ icon }: { icon: string }) => {
   return <div className={styles.iconWrapper}>{iconStyles[icon] || iconStyles.inbox}</div>;
 };
 
+// Helper function to highlight text inside brackets with green color (without showing brackets)
+const highlightBrackets = (text: string) => {
+  const parts = text.split(/(\[.*?\])/g);
+  return parts.map((part, index) => {
+    if (part.startsWith('[') && part.endsWith(']')) {
+      // Remove brackets and only show the text inside in green
+      const textInside = part.slice(1, -1); // Remove [ and ]
+      return (
+        <span key={index} className={styles.bracketText}>
+          {textInside}
+        </span>
+      );
+    }
+    return part;
+  });
+};
+
 export default function AssistantCapabilities() {
   const swiperRef1 = useRef<SwiperType | null>(null);
   const swiperRef2 = useRef<SwiperType | null>(null);
@@ -94,7 +111,7 @@ export default function AssistantCapabilities() {
         <div className={styles.contentWrapper}>
           {/* Heading */}
           <div className={`${styles.headingWrapper} sectionHeading forH2`}>
-            <h2 className={styles.heading}>{ASSISTANT_CAPABILITIES_DATA.heading}</h2>
+            <h2 className={styles.heading}>{highlightBrackets(ASSISTANT_CAPABILITIES_DATA.heading)}</h2>
             <p className={styles.description}>{ASSISTANT_CAPABILITIES_DATA.description}</p>
           </div>
         </div>
@@ -107,7 +124,7 @@ export default function AssistantCapabilities() {
             modules={[Navigation, Autoplay]}
             spaceBetween={24}
             slidesPerView={1}
-            autoplay={{
+            autoplay={{ 
               delay: 3000,
               disableOnInteraction: false,
               pauseOnMouseEnter: false,
@@ -119,6 +136,7 @@ export default function AssistantCapabilities() {
                 slidesPerView: 4,
                 spaceBetween: 24,
                 centeredSlides: true,
+                width: null,
               },
             }}
             onSwiper={(swiper) => {
@@ -178,7 +196,7 @@ export default function AssistantCapabilities() {
                 slidesPerView: 4,
                 spaceBetween: 24,
                 centeredSlides: true,
-                slidesOffsetBefore: 150,
+                slidesOffsetBefore: 370,
               },
             }}
             onSwiper={(swiper) => {

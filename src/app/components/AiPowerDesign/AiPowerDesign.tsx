@@ -47,32 +47,32 @@ const AI_POWER_DESIGN_DATA: AiPowerDesignData = {
     {
       id: 'website-design',
       label: 'Website Design',
-      image: '/assets/images/aipower1.png',
+      image: '/assets/images/pakage/ui-ux-web-design.webp',
       deliverables: [
-        { id: '1', label: 'Branding & Identity Design', image: '/assets/images/aipower1.png' },
-        { id: '2', label: 'Logo Design', image: '/assets/images/aipower2.png' },
-        { id: '3', label: 'Typography & Lettering Design', image: '/assets/images/aipower3.png' },
-        { id: '4', label: 'Stationery & Corporate Collateral', image: '/assets/images/aipower4.png' },
-        { id: '5', label: 'Print Media Design', image: '/assets/images/aipower5.png' },
-        { id: '6', label: 'Packaging & Label Design', image: '/assets/images/aipower1.png' },
-        { id: '7', label: 'Product Mockup & Visualization', image: '/assets/images/aipower2.png' },
-        { id: '8', label: 'App UI/UX Design', image: '/assets/images/aipower3.png' },
-        { id: '9', label: 'Website UI/UX Design', image: '/assets/images/aipower4.png' },
-        { id: '10', label: 'Dashboard & Web Application Design', image: '/assets/images/aipower5.png' },
-        { id: '11', label: 'Social Media Content Design', image: '/assets/images/aipower1.png' },
-        { id: '12', label: 'Social Media Advertising Creatives', image: '/assets/images/aipower2.png' },
-        { id: '13', label: 'Digital Marketing Assets', image: '/assets/images/aipower3.png' },
+        { id: '1', label: 'Branding & Identity Design', image: '/assets/images/designer-page/branding-identity Design.webp' },
+        { id: '2', label: 'Logo Design', image: '/assets/images/designer-page/logo-design.webp' },
+        { id: '3', label: 'Typography & Lettering Design', image: '/assets/images/designer-page/typography-lettering-design.webp' },
+        { id: '4', label: 'Stationery & Corporate Collateral', image: '/assets/images/designer-page/stationery-corporate-collateral.webp' },
+        { id: '5', label: 'Print Media Design', image: '/assets/images/designer-page/print-media-design.webp' },
+        { id: '6', label: 'Packaging & Label Design', image: '/assets/images/designer-page/packaging-label-design.webp' },
+        { id: '7', label: 'Product Mockup & Visualization', image: '/assets/images/designer-page/product-mockup-visualization.webp' },
+        { id: '8', label: 'App UI/UX Design', image: '/assets/images/designer-page/app-ui-ux-design.webp' },
+        { id: '9', label: 'Website UI/UX Design', image: '/assets/images/designer-page/website-ui-ux-design.webp' },
+        { id: '10', label: 'Dashboard & Web Application Design', image: '/assets/images/designer-page/dashboard-web-application-design.webp' },
+        { id: '11', label: 'Social Media Content Design', image: '/assets/images/designer-page/social-media-content-design.webp' },
+        { id: '12', label: 'Social Media Advertising Creatives', image: '/assets/images/designer-page/social-media-content-design.webp' },
+        { id: '13', label: 'Digital Marketing Assets', image: '/assets/images/designer-page/social-media-content-design.webp' },
         { id: '14', label: 'Presentation & Pitch Deck Design', image: '/assets/images/aipower4.png' },
-        { id: '15', label: 'Infographic Design', image: '/assets/images/aipower5.png' },
-        { id: '16', label: 'Illustration & Digital Art', image: '/assets/images/aipower1.png' },
-        { id: '17', label: 'Motion Graphics Design', image: '/assets/images/aipower2.png' },
-        { id: '18', label: 'Video Editing & Graphic Overlays', image: '/assets/images/aipower3.png' },
-        { id: '19', label: '3D Modeling & Product Rendering', image: '/assets/images/aipower4.png' },
-        { id: '20', label: 'Advertising & Campaign Design', image: '/assets/images/aipower5.png' },
-        { id: '21', label: 'Brochure, Flyer & Catalog Design', image: '/assets/images/aipower1.png' },
-        { id: '22', label: 'Ebook & Publication Layout Design', image: '/assets/images/aipower2.png' },
-        { id: '23', label: 'Email Newsletter & HTML Template Design', image: '/assets/images/aipower3.png' },
-        { id: '24', label: 'Environmental & Signage Design', image: '/assets/images/aipower4.png' },
+        { id: '15', label: 'Infographic Design', image: '/assets/images/aipower2.png' },
+        { id: '16', label: 'Illustration & Digital Art', image: '/assets/images/aipower3.png' },
+        { id: '17', label: 'Motion Graphics Design', image: '/assets/images/aipower1.png' },
+        { id: '18', label: 'Video Editing & Graphic Overlays', image: '/assets/images/aipower2.png' },
+        { id: '19', label: '3D Modeling & Product Rendering', image: '/assets/images/aipower3.png' },
+        { id: '20', label: 'Advertising & Campaign Design', image: '/assets/images/aipower4.png' },
+        { id: '21', label: 'Brochure, Flyer & Catalog Design', image: '/assets/images/aipower5.png  jjas;dj' },
+        { id: '22', label: 'Ebook & Publication Layout Design', image: '/assets/images/aipower5.png' },
+        { id: '23', label: 'Email Newsletter & HTML Template Design', image: '/assets/images/aipower1.png' },
+        { id: '24', label: 'Environmental & Signage Design', image: '/assets/images/aipower2.png' },
       ],
       gridItems: 24,
     },
@@ -201,7 +201,7 @@ const AiPowerDesign = ({ data = AI_POWER_DESIGN_DATA }: AiPowerDesignProps) => {
                     ))}
                   </>
                 ) : (
-                  <>Your <span className={styles.highlighted}>22-Day</span> Deliverable <br/> Package Includes:</>
+                  <>Your <span className={styles.highlighted}>22-Day</span> Deliverable Package Includes:</>
                 )}
               </h3>
               
@@ -228,7 +228,7 @@ const AiPowerDesign = ({ data = AI_POWER_DESIGN_DATA }: AiPowerDesignProps) => {
                 <p className={styles.lifetimeValueText}>{data.lifetimeValue.text}</p>
               </div>
 
-              <img src="/assets/images/1.webp" alt="" className={styles.aeroicon} />
+              <img src="/assets/images/1.webp" alt="arrow icon" loading="lazy" className={styles.aeroicon} />
             </div>
           </div>
 
@@ -238,6 +238,7 @@ const AiPowerDesign = ({ data = AI_POWER_DESIGN_DATA }: AiPowerDesignProps) => {
               <img
                 key={`${activeTab}-${hoveredItemIndex}`}
                 src={getCurrentImage()}
+                loading="lazy"
                 alt={hoveredItemIndex !== null ? currentTab.deliverables[hoveredItemIndex]?.label : currentTab.label}
                 className={styles.image}
               />
