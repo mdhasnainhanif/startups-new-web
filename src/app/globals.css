@@ -280,7 +280,7 @@ h2 .bracket-text-green {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url("/assets/images/star-bg.webp");
+  background-image: url("/assets/images/star-bg-01.webp");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -718,9 +718,6 @@ section img.banneFullMin {
 
 @media (max-width: 576px) {
 
-  /* section.heroStarsBackground {
-    padding-top: 11rem;
-  } */
   section.heroBannerPaddingTop,
   div.heroBannerPaddingTop {
     padding-top: 11rem;

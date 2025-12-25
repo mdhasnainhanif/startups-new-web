@@ -21,7 +21,7 @@ export const TOP_BANNER = {
   emoji: "🚀",
   text: "Big News: We Launched Key Growth Manager Services",
   buttonText: "Know More",
-  buttonLink: "/big-news",
+  buttonLink: "/key-growths",
 };
 
 
