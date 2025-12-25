@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import React from 'react'
 import HomenewBanner from '../components/HomenewPage/HomenewBanner/HomenewBanner';
 import FAQ from '../components/FAQ/FAQ'
 import { FAQ_SECTION } from '../constants'
@@ -18,13 +17,6 @@ import RealCost from '../components/RealCost/RealCost';
 import CompleteBusinessSetup from '../components/CompleteBusinessSetup/CompleteBusinessSetup';
 import Contact from '../components/Contact/Contact';
 import GuessWorkAdvertising from '../components/GuessWorkAdvertising/GuessWorkAdvertising';
-import dynamic from 'next/dynamic';
-
-const TwentyTwoDayDeliverable = dynamic(() => import('../components/TwentyTwoDayDeliverable/TwentyTwoDayDeliverable'), {
-  ssr: true,
-});
-
-// Custom data for ProvenSuccess on designer page
 const designerProvenSuccessData = {
   headline: {
     text: 'Proven Success in Every Project',
@@ -165,13 +157,11 @@ const designerProvenSuccessData = {
     },
   ],
 };
-
 export const metadata: Metadata = {
   title: "Designer Services | Professional Design Team | Startups Advisory",
   description: "Get a complete design team in 22 days. Professional branding, graphics, and creative design services to build your brand identity and visual presence.",
   robots: "nofollow",
 };
-
 export default function DesignerPage() {
   return (
     <>
@@ -183,7 +173,6 @@ export default function DesignerPage() {
       <TextSlider1 data={sliderData.slider2}/>
       <ProfessionalDesign className="designerPageProfessional" data={designProfessionalPageData} />
       <TextSlider1 data={sliderData.slider3}/>
-      {/* <TwentyTwoDayDeliverable/> */}
       <GuessWorkAdvertising data={designerGuessWorkData}/>
       <RealCost/>
       <CompleteBusinessSetup/>
@@ -193,6 +182,5 @@ export default function DesignerPage() {
       <FAQ faqs={FAQ_CONTACT} sectionData={FAQ_SECTION} />
       <Contact/>
     </>
-
   )
 }

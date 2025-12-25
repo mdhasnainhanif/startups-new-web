@@ -3,20 +3,16 @@ import { getAllBlogPosts } from "../data/blogData";
 import Container from "../components/Container";
 import PageBanner from "../components/PageBanner/PageBanner";
 import Image from "next/image";
-import Link from "next/link";
 import Button from "../components/Button";
 import { ArrowRightIcon } from "../components/icons";
 import styles from "./page.module.css";
-
 export const metadata: Metadata = {
   title: "Blogs | Startups Advisory",
   description: "Explore our latest articles on web development, content marketing, and business growth strategies.",
   robots: "nofollow",
 };
-
 export default function BlogsPage() {
-  const blogs = getAllBlogPosts();
-
+  const blogs = getAllBlogPosts()
   return (
     <>
       <PageBanner title={
@@ -40,13 +36,10 @@ export default function BlogsPage() {
                     />
                   </div>
                 </div>
-
                 <div className={styles.category}>
                   <span className={styles.categoryTag}>{blog.category}</span>
                 </div>
-
                 <h3 className={styles.blogTitle}>{blog.title}</h3>
-
                 <div className={styles.blogMeta}>
                   <span className={styles.metadataItem}>
                     <svg
@@ -68,9 +61,7 @@ export default function BlogsPage() {
                   <span>•</span>
                   <span>{blog.readTime}</span>
                 </div>
-
                 <p className={styles.blogExcerpt}>{blog.excerpt}</p>
-
                 <div className={styles.readButtonWrapper}>
                   <Button
                     href={`/blog-detail/${blog.slug}`}
@@ -90,4 +81,3 @@ export default function BlogsPage() {
     </>
   );
 }
-
