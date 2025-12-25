@@ -77,7 +77,7 @@ export default function FAQ({ faqs, sectionData, className = "" }: FAQProps) {
           </div>
 
           {/* FAQ Items - 2 Column Layout */}
-          <div className="w-full">
+          <div className="w-full md:mt-12">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-x-12">
               {/* Left Column */}
               <div className="space-y-0">

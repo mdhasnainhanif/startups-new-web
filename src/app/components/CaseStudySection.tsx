@@ -733,7 +733,7 @@ const CaseStudySection = ({ data = DEFAULT_CASE_STUDY_DATA, isShowTabs = true, c
             {/* Tabs Navigation - Desktop View */}
             {isShowTabs && (
               <div
-                className={`${shouldStick ? "sticky" : ""} top-10 z-50 py-4 md:px-4 p-0 rounded-lg w-full mx-auto md:bg-[#0b0038] md:mb-8 mb-16 hidden md:flex items-end justify-between flex-wrap transition-all duration-300 ease-in-out`}
+                className={`${shouldStick ? "sticky" : ""} top-10 z-50 py-4 md:px-4 p-0 rounded-lg gap-11 mx-auto md:bg-[#0b0038] md:mb-8 mb-16 hidden md:flex items-end w-fit flex-wrap transition-all duration-300 ease-in-out`}
               >
               <button
                 onClick={() => {
