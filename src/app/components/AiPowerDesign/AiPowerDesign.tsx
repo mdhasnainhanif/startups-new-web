@@ -69,7 +69,7 @@ const AI_POWER_DESIGN_DATA: AiPowerDesignData = {
         { id: '18', label: 'Video Editing & Graphic Overlays', image: '/assets/images/aipower2.png' },
         { id: '19', label: '3D Modeling & Product Rendering', image: '/assets/images/aipower3.png' },
         { id: '20', label: 'Advertising & Campaign Design', image: '/assets/images/aipower4.png' },
-        { id: '21', label: 'Brochure, Flyer & Catalog Design', image: '/assets/images/aipower5.png' },
+        { id: '21', label: 'Brochure, Flyer & Catalog Design', image: '/assets/images/aipower5.png  jjas;dj' },
         { id: '22', label: 'Ebook & Publication Layout Design', image: '/assets/images/aipower5.png' },
         { id: '23', label: 'Email Newsletter & HTML Template Design', image: '/assets/images/aipower1.png' },
         { id: '24', label: 'Environmental & Signage Design', image: '/assets/images/aipower2.png' },
