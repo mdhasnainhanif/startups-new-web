@@ -461,7 +461,7 @@ export default function Header() {
                     alt="Logo"
                     width={140}
                     height={40}
-                    priority
+                    loading="lazy"
                     style={{ objectFit: "contain" }}
                     className="headerLogo"
                   />
@@ -677,7 +677,7 @@ export default function Header() {
             <div className="hidden md:flex items-center gap-2">
               <Link
                 href="/roi-calculator"
-                className="text-white text-sm border border-[#2f2a63] bg-[#05032173] rounded-lg px-3 py-2 me-2 text-[#969696] font-medium hover:text-[#0fdac2] transition-colors"
+                className="text-sm border border-[#2f2a63] bg-[#05032173] rounded-lg px-3 py-2 me-2 text-white font-medium hover:text-[#0fdac2] transition-colors"
               >
                 ROI Calculator
               </Link>
@@ -734,7 +734,7 @@ export default function Header() {
                   alt="Logo"
                   width={100}
                   height={40}
-                  priority
+                  loading="lazy"
                   style={{ objectFit: "contain" }}
                 />
               </Link>

@@ -138,7 +138,7 @@
   height: 3rem;
   background-color: #623BFF;
   color: #000 !important;
-  transition: all 2.5s ease;
+  transition: all 2.2s ease;
 }
 
 .green:hover {
@@ -178,7 +178,7 @@
 
 .green:hover::before {
   opacity: 1;
-  animation: tailMoveIn 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation: tailMoveIn 1s cubic-bezier(0.1, 0, 0.2, 1) forwards;
 }
 
 .green.was-hovered:not(:hover)::before {

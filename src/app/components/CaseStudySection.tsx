@@ -971,6 +971,7 @@ const CaseStudySection = ({ data = DEFAULT_CASE_STUDY_DATA, isShowTabs = true, c
                                   .replace(/\s+/g, "-")}
                                 width={300}
                                 height={200}
+                                loading="lazy"
                               />
                             </div>
                           </div>

@@ -113,7 +113,6 @@ const HomenewBanner = ({ data = DEFAULT_DATA }: HomenewBannerProps) => {
               alt={data.image.alt}
               width={800}
               height={800}
-              priority
               fetchPriority="high"
               quality={85}
               className={`w-full ${styles.homenewbanner1} ${data.image.className}`}

@@ -75,7 +75,7 @@ export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
               width={1200}
               height={600}
               className={styles.featuredImage}
-              priority
+              loading="lazy"
             />
           </div>
 

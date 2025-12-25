@@ -447,7 +447,7 @@ const RealCost = ({ data = REAL_COST_DATA }: RealCostProps) => {
           </div>
         </div>
       </Container>
-      <img src="/assets/images/1.webp" alt="" className={styles.aeroicon} />
+      <img src="/assets/images/1.webp" alt="arrow icon" loading="lazy" className={styles.aeroicon} />
     </section>
   );
 };

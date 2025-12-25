@@ -73,7 +73,6 @@ export default function HeroBanner({
           src="/assets/images/hero.webp"
           alt="Hero Background"
           fill
-          priority
           fetchPriority="high"
           sizes="100vw"
           className="object-cover"

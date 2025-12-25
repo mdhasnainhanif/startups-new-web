@@ -46,7 +46,7 @@ const ServicesComparison: React.FC<ServicesComparisonProps> = ({ data }) => {
                 <th className={styles.logoCell}>
                   <div className={styles.logoContainer}>
                     {data.logo && (
-                      <img src={data.logo} alt={data.serviceName} />
+                      <img src={data.logo} alt={data.serviceName} loading="lazy" />
                     )}
                   </div>
                 </th>

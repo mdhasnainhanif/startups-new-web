@@ -17,7 +17,7 @@ export default function BriefHeader() {
             alt="Logo"
             width={140}
             height={40}
-            priority
+            loading="lazy"
             style={{ objectFit: "contain" }}
             className={styles.logo}
           />

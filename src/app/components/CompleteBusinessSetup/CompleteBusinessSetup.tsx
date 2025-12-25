@@ -379,6 +379,7 @@
                           src="/assets/images/tick.png"
                           alt="checkmark"
                           className="w-full h-full object-contain"
+                          loading="lazy"
                         />
                       </div>
                       <span className="text-white text-base md:text-lg">
@@ -409,7 +410,7 @@
             </div>
           </div>
         </Container>
-        <img src="/assets/images/1.webp" alt="" className={styles.aeroicon} />
+        <img src="/assets/images/1.webp" alt="arrow icon" loading="lazy" className={styles.aeroicon} />
       </section>
     );
   };

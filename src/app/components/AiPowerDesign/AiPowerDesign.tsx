@@ -228,7 +228,7 @@ const AiPowerDesign = ({ data = AI_POWER_DESIGN_DATA }: AiPowerDesignProps) => {
                 <p className={styles.lifetimeValueText}>{data.lifetimeValue.text}</p>
               </div>
 
-              <img src="/assets/images/1.webp" alt="" className={styles.aeroicon} />
+              <img src="/assets/images/1.webp" alt="arrow icon" loading="lazy" className={styles.aeroicon} />
             </div>
           </div>
 
@@ -238,6 +238,7 @@ const AiPowerDesign = ({ data = AI_POWER_DESIGN_DATA }: AiPowerDesignProps) => {
               <img
                 key={`${activeTab}-${hoveredItemIndex}`}
                 src={getCurrentImage()}
+                loading="lazy"
                 alt={hoveredItemIndex !== null ? currentTab.deliverables[hoveredItemIndex]?.label : currentTab.label}
                 className={styles.image}
               />

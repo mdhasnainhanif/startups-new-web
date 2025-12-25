@@ -391,7 +391,7 @@ input[type="checkbox"].radioInput:checked + .pinkLabel {
 
 /* Personal Details Form */
 .personalDetailsContainer {
-  max-width: 800px;
+  max-width: 40rem;
   margin: 0 auto;
   width: 100%;
 }
@@ -638,7 +638,7 @@ input[type="checkbox"].radioInput:checked + .pinkLabel {
 
 @media screen and (max-width: 576px) {
   .optionsContainer {
-    padding-top: 9rem;
+    padding-top: 0rem;
   }
 
   .questionnaireSection {

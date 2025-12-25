@@ -270,7 +270,7 @@ export default function Technologies({ heading, description, subDescription, hid
                     style={{ color: tool.iconColor }}
                   >
                     {tool.icon.startsWith("/") ? (
-                      <img src={tool.icon} alt={tool.name} className={styles.iconImage} />
+                      <img src={tool.icon} alt={tool.name} className={styles.iconImage} loading="lazy" />
                     ) : (
                       tool.icon
                     )}
@@ -308,7 +308,7 @@ export default function Technologies({ heading, description, subDescription, hid
                     style={{ color: tool.iconColor }}
                   >
                     {tool.icon.startsWith("/") ? (
-                      <img src={tool.icon} alt={tool.name} className={styles.iconImage} />
+                      <img src={tool.icon} alt={tool.name} className={styles.iconImage} loading="lazy" />
                     ) : (
                       tool.icon
                     )}

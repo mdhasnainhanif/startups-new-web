@@ -37,6 +37,7 @@ export default function BlogsPage() {
                       width={400}
                       height={250}
                       className={styles.blogImage}
+                      loading="lazy"
                     />
                   </div>
                 </div>
