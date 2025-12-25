@@ -488,7 +488,7 @@ export const SERVICES_GROWTH_CARDS_CONTENT: ServicesGrowthCardsContentData = {
     {
       heading: "Conversion-first consistency",
       bodyText: "Every campaign follows proven growth frameworks. This keeps messaging aligned, funnels optimized, and performance improving over time.",
-      image: "/assets/images/services/brand-identity/2.webp",
+      image: "/assets/images/services/brand-identity/2(1).webp",
     },
     {
       heading: "Always-on, always compliant",
