@@ -434,7 +434,7 @@
 
 .dropdownMenu {
   position: absolute;
-  top: calc(100% + 2px);
+  top: calc(100% + 0.5rem);
   left: 0;
   right: 0;
   width: 100%;
@@ -498,7 +498,7 @@
   color: #0fdac2;
 }
 
-.dropdownItem:first-child {
+/* .dropdownItem:first-child {
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
 }
@@ -506,4 +506,4 @@
 .dropdownItem:last-child {
   border-bottom-left-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
-}
+} */

@@ -2,7 +2,7 @@
   position: relative;
 }
 
-.section::before {
+/* .section::before {
   content: "";
   position: absolute;
   top: 10%;
@@ -15,7 +15,8 @@
   background-repeat: no-repeat;
   background-position: center;
   pointer-events: none;
-}
+} */
+
 .leading-relaxed {
   position: relative;
   z-index: 1;

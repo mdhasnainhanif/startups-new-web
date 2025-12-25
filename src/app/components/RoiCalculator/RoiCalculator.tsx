@@ -404,7 +404,7 @@ const RoiCalculator = ({ className = "" }: RoiCalculatorProps) => {
                 >
                   Download Report
                 </Button>
-                <Button 
+                {/* <Button 
                   variant="primary" 
                   className={`${styles.actionButton} flex items-center justify-center`}
                   icon={
@@ -415,7 +415,7 @@ const RoiCalculator = ({ className = "" }: RoiCalculatorProps) => {
                   iconPosition="right"
                 >
                   Get Started with Pakistan Hiring
-                </Button>
+                </Button> */}
               </div>
             </div>
             <div className={styles.savingsCards}>

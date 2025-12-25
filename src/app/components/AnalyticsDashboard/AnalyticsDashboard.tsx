@@ -9,7 +9,6 @@ interface RadarChartLabel {
   x: number
   y: number
 }
-
 interface AnalyticsDashboardProps {
   performanceScore?: number
   performanceLabel?: string
@@ -68,11 +67,11 @@ export default function AnalyticsDashboard({
   return (
     <div className=" min-h-screen">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-12 max-w-7xl">
-        <div className="bg-[#000F21] rounded-2xl shadow-2xl border border-[#0C1426] pl-4 sm:pl-6 lg:pl-8 pr-4 sm:pr-6 lg:pr-8 py-10">
+        <div className="bg-[#110E21] rounded-2xl shadow-2xl border border-[#221f33] pl-4 sm:pl-6 lg:pl-8 pr-4 sm:pr-6 lg:pr-8 py-10">
           <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 sm:gap-0 lg:gap-0 items-start ${styles.customGrid}`}>
           <div className="lg:col-span-1 space-y-0">
-            <div className="bg-[#000F21] rounded-xl duration-300 overflow-visible">
-              <div className="flex flex-col items-left justify-left py-4 sm:py-6 overflow-visible max-w-[20rem]">
+            <div className="bg-[##110E21] rounded-xl duration-300 overflow-visible">
+              <div className="flex flex-col items-left justify-left lg:py-4 sm:py-0 sm:pt-[0.5rem] overflow-visible max-w-[20rem]">
                 <div className={`relative mx-auto w-[209px] h-[209px] sm:w-[209px] sm:h-[257px] lg:w-[257px] lg:h-[257px] ${styles.performanceGauge} overflow-visible`}>
                   <svg className="transform -rotate-90 w-full h-full">
                     <defs>
@@ -105,7 +104,7 @@ export default function AnalyticsDashboard({
                 </div>
               </div>
             </div>
-            <div className="bg-[#000F21] rounded-xl pl-0 pb-4 sm:pb-6">
+            <div className="bg-[#110E21] rounded-xl pl-0 pb-4 sm:pb-6">
               <div className="grid grid-cols-2 gap-x-4 gap-y-2.5 sm:gap-y-3">
                 <div className="space-y-2.5 sm:space-y-3">
                   {leftColumnItems.left.map((item, index) => (
@@ -126,7 +125,7 @@ export default function AnalyticsDashboard({
               </div>
             </div>
 
-            {/* <div className="bg-[#000F21] rounded-xl p-4 sm:p-6 border border-[#0C1426] w-80 duration-300">
+            {/* <div className="bg-[##110E21] rounded-xl p-4 sm:p-6 border border-[#0C1426] w-80 duration-300">
               <h3 className={`text-lg sm:text-xl font-semibold mb-4 sm:mb-5 text-white text-left ${styles.fs3}`}>Recommendations</h3>
               <ul className="space-y-2 sm:space-y-2.5">
                 {recommendations.map((rec, index) => (
@@ -138,9 +137,9 @@ export default function AnalyticsDashboard({
             </div> */}
           </div>
           <div className={`lg:col-span-1 space-y-0 ${styles.middleColumn}`}>
-            <div className="bg-[#000F21] rounded-none duration-300">
-              <div className="flex items-center justify-center min-h-[400px] sm:min-h-[450px] lg:min-h-[405px] relative px-4 sm:px-6 overflow-hidden">
-                <svg viewBox="0 0 370 312" className="w-full h-auto max-w-full" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+            <div className="rounded-none duration-300">
+              <div className="d-block w-full h-full max-w-[24rem] mx-auto mb-[2rem] relative">
+                {/* <svg viewBox="0 0 370 312" className="w-full h-auto max-w-full" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
                   <defs>
                     <radialGradient id="bgGlow" cx="50%" cy="45%" r="70%">
                       <stop offset="0%" stopColor="#0b1a2f" stopOpacity="0.6" />
@@ -251,10 +250,11 @@ export default function AnalyticsDashboard({
                       <text key={index} x={label.x} y={label.y}>{label.text}</text>
                     ))}
                   </g>
-                </svg>
+                </svg> */}
+                <Image src="/assets/images/svgviewer-output.svg" alt="analytics dashboard" loading="lazy" width={370} height={312} className="w-full h-auto max-w-full" />
               </div>
             </div>
-            <div className="space-y-3 sm:space-y-4 md:ps-10 text-left">
+            <div className="space-y-3 sm:space-y-4 md:ps-10 text-left flex gap-[3rem]">
                 <div>
                   <span className={`text-[#0FDAC2] text-xs sm:text-sm block mb-1 ${styles.fs1}`}>Asset Type:</span>
                   <p className={`text-white font-medium text-sm sm:text-base ${styles.fs2}`}>{assetType}</p>
@@ -270,8 +270,8 @@ export default function AnalyticsDashboard({
               </div>
           </div>
           <div className={`lg:col-span-1 space-y-4 sm:space-y-6 md:pl-4 sm:pl-6 lg:pl-8 ${styles.rightSectionContainer}`}>
-            <div className="bg-[#000F21] pl0mobile rounded-xl p-4 md:pt-0 sm:p-6 duration-300 mb-0">
-            <div className={`bg-[#000F21] pl0mobile rounded-none p-4 sm:p-6 duration-300  ${styles.middleRecommendations}`}>
+            <div className="bg-[##110E21] pl0mobile rounded-xl p-4 md:pt-0 sm:p-6 duration-300 mb-0">
+            <div className={`bg-[##110E21] pl0mobile rounded-none p-4 sm:p-6 duration-300  ${styles.middleRecommendations}`}>
               <h3 className={`text-lg sm:text-xl font-semibold mb-4 sm:mb-5 text-white text-left ${styles.fs3}`}>Recommendations</h3>
               <ul className="space-y-3 sm:space-y-4">
                 {middleRecommendations.map((rec, index) => (
@@ -284,8 +284,8 @@ export default function AnalyticsDashboard({
             </div>
               
             </div>
-            <div className="bg-[#000F21]  md:ml-6  duration-300">
-              <div className="bg-[#000F21]">
+            <div className="bg-[##110E21]  md:ml-6  duration-300">
+              <div className="bg-[##110E21]">
                 <div className="pt-2">
                   <div>
                     <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2 text-left">{headline}</h2>
