@@ -254,7 +254,7 @@ export default function AnalyticsDashboard({
                 </svg>
               </div>
             </div>
-            <div className="space-y-3 sm:space-y-4 ps-10 text-left">
+            <div className="space-y-3 sm:space-y-4 md:ps-10 text-left">
                 <div>
                   <span className={`text-[#0FDAC2] text-xs sm:text-sm block mb-1 ${styles.fs1}`}>Asset Type:</span>
                   <p className={`text-white font-medium text-sm sm:text-base ${styles.fs2}`}>{assetType}</p>
@@ -269,9 +269,9 @@ export default function AnalyticsDashboard({
                 </div> */}
               </div>
           </div>
-          <div className={`lg:col-span-1 space-y-4 sm:space-y-6 pl-4 sm:pl-6 lg:pl-8 ${styles.rightSectionContainer}`}>
-            <div className="bg-[#000F21] rounded-xl p-4 md:pt-0 sm:p-6 duration-300">
-            <div className={`bg-[#000F21] rounded-none p-4 sm:p-6 duration-300  ${styles.middleRecommendations}`}>
+          <div className={`lg:col-span-1 space-y-4 sm:space-y-6 md:pl-4 sm:pl-6 lg:pl-8 ${styles.rightSectionContainer}`}>
+            <div className="bg-[#000F21] pl0mobile rounded-xl p-4 md:pt-0 sm:p-6 duration-300 mb-0">
+            <div className={`bg-[#000F21] pl0mobile rounded-none p-4 sm:p-6 duration-300  ${styles.middleRecommendations}`}>
               <h3 className={`text-lg sm:text-xl font-semibold mb-4 sm:mb-5 text-white text-left ${styles.fs3}`}>Recommendations</h3>
               <ul className="space-y-3 sm:space-y-4">
                 {middleRecommendations.map((rec, index) => (
@@ -284,7 +284,7 @@ export default function AnalyticsDashboard({
             </div>
               
             </div>
-            <div className="bg-[#000F21]  ml-6  duration-300">
+            <div className="bg-[#000F21]  md:ml-6  duration-300">
               <div className="bg-[#000F21]">
                 <div className="pt-2">
                   <div>

@@ -70,11 +70,11 @@ export default function Contact() {
                   Share what you're <span className={styles.highlightText}>building and what you</span> want to fix
                 </h2>
               </div>
-              <p className={`${styles.descriptionText}`}>
+              <p className={`${styles.descriptionText} hidden md:block`}>
                 Tell us what you are working on and what challenges you want solved so we can guide you with clarity and next steps.
               </p>
-              <p className={`${styles.descriptionText2}`}>Share as much detail as you like so our team can understand your goals and offer the best support possible for your business growth and needs today.</p>
-              <div className="flex flex-col gap-4 mt-[2.5rem]">
+              <p className={`${styles.descriptionText2} hidden md:block`}>Share as much detail as you like so our team can understand your goals and offer the best support possible for your business growth and needs today.</p>
+              <div className="flex flex-col gap-4 mt-[2.5rem] hidden md:block">
                   <a href="tel:+13466269169" className="flex items-center gap-3 text-white">
                     <div className="rounded-full bg-[#2E2277] p-2 flex items-center justify-center">
                       <Image 
@@ -113,7 +113,7 @@ export default function Contact() {
           </div>
           <div className={styles.rightSection}>
             <div className={styles.formContent}>
-              <h2 className={styles.formHeading}>
+              <h2 className={`${styles.formHeading} hidden md:block`}>
                 Ready To <span className={styles.highlightText}>Connect</span>?
               </h2>
               <form className={styles.contactForm} onSubmit={handleSubmit}>
