@@ -1,6 +1,11 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper/modules';
+import type { Swiper as SwiperType } from 'swiper';
+import 'swiper/css';
+import 'swiper/css/navigation';
 import Container from '../Container';
 import styles from './AiPowerDesign.module.css';
 
@@ -150,9 +155,21 @@ const AI_POWER_DESIGN_DATA: AiPowerDesignData = {
 const AiPowerDesign = ({ data = AI_POWER_DESIGN_DATA }: AiPowerDesignProps) => {
   const [activeTab, setActiveTab] = useState<string>(data.tabs[0].id);
   const [hoveredItemIndex, setHoveredItemIndex] = useState<number | null>(null);
+  const swiperRef = useRef<SwiperType | null>(null);
+  const [isBeginning, setIsBeginning] = useState(true);
+  const [isEnd, setIsEnd] = useState(false);
 
   const currentTab = data.tabs.find((tab) => tab.id === activeTab) || data.tabs[0];
-  
+
+  // Update swiper when tab changes to reset to beginning
+  useEffect(() => {
+    if (swiperRef.current) {
+      swiperRef.current.slideTo(0);
+      setIsBeginning(true);
+      setIsEnd(false);
+    }
+  }, [activeTab]);
+
   // Get the current image based on hover or default
   const getCurrentImage = () => {
     if (hoveredItemIndex !== null && currentTab.deliverables[hoveredItemIndex]) {
@@ -176,8 +193,8 @@ const AiPowerDesign = ({ data = AI_POWER_DESIGN_DATA }: AiPowerDesignProps) => {
   };
 
   return (
-    <section className={`sectionPadding ${styles.section} sectionPadding`}>
-     <Container maxWidth="xl" className="px-0">
+    <section className={`sectionPadding ${styles.section} aiPowerDesignSection`}>
+      <Container maxWidth="xl" className="px-0">
         {/* Header Section */}
         <div className={`sectionHeading forH2 text-center text-[#ffffff] max-w-5xl md:mx-auto`}>
           <h2 dangerouslySetInnerHTML={renderHeadline()} />
@@ -204,22 +221,92 @@ const AiPowerDesign = ({ data = AI_POWER_DESIGN_DATA }: AiPowerDesignProps) => {
                   <>Your <span className={styles.highlighted}>22-Day</span> Deliverable Package Includes:</>
                 )}
               </h3>
-              
-              {/* Grid */}
-              <div className={styles.gridContainer}>
-                {currentTab.deliverables.map((item, index) => (
-                  <div
-                    key={item.id}
-                    onMouseEnter={() => setHoveredItemIndex(index)}
-                    onMouseLeave={() => setHoveredItemIndex(null)}
-                    onClick={() => handleTabChange(currentTab.id)}
-                    className={`${styles.gridItem} ${index === 0 ? styles.gridItemActive : ''}`}
-                  >
-                    <p className="p-0 h-full flex items-center justify-center">
-                    {item.label}
-                    </p>
-                  </div>
-                ))}
+
+              {/* Grid - Desktop Only */}
+              <div className="hidden lg:block">
+                <div className={styles.gridContainer}>
+                  {currentTab.deliverables.map((item, index) => (
+                    <div
+                      key={item.id}
+                      onMouseEnter={() => setHoveredItemIndex(index)}
+                      onMouseLeave={() => setHoveredItemIndex(null)}
+                      onClick={() => handleTabChange(currentTab.id)}
+                      className={`${styles.gridItem} ${index === 0 ? styles.gridItemActive : ''}`}
+                    >
+                      <p className="p-0 h-full flex items-center justify-center">
+                        {item.label}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Swiper - Mobile Only */}
+              <div className="block lg:hidden relative w-full max-w-full overflow-hidden">
+                {/* Left Arrow */}
+                <button
+                  onClick={() => swiperRef.current?.slidePrev()}
+                  disabled={isBeginning}
+                  className={`absolute left-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full border-none text-white cursor-pointer flex items-center justify-center transition-all ${isBeginning
+                    ? "opacity-30 cursor-not-allowed bg-[#1b1849]"
+                    : "opacity-100 hover:bg-[#0fdac2]/80 bg-[#0fdac2]"
+                    }`}
+                  aria-label="Previous deliverable"
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M15 18l-6-6 6-6" />
+                  </svg>
+                </button>
+
+                <Swiper
+                  modules={[Navigation]}
+                  spaceBetween={20}
+                  slidesPerView={1}
+                  autoHeight={true}
+                  onSwiper={(swiper) => {
+                    swiperRef.current = swiper;
+                    setIsBeginning(swiper.isBeginning);
+                    setIsEnd(swiper.isEnd);
+                    setHoveredItemIndex(swiper.activeIndex);
+                  }}
+                  onSlideChange={(swiper) => {
+                    setIsBeginning(swiper.isBeginning);
+                    setIsEnd(swiper.isEnd);
+                    setHoveredItemIndex(swiper.activeIndex);
+                  }}
+                  className="w-full max-w-full"
+                >
+                  {currentTab.deliverables.map((item) => (
+                    <SwiperSlide key={item.id} className="w-full">
+                      <div className={`
+                        bg-[#643bff] text-white
+                        py-3 px-4 rounded-lg text-center font-semibold 
+                        flex items-center justify-center
+                        border border-[#643bff] shadow-[0_0.25rem_0.75rem_rgba(101,59,255,0.4)]
+                        w-full
+                        text-sm
+                        whitespace-normal break-words
+                      `}>
+                        {item.label}
+                      </div>
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+
+                {/* Right Arrow */}
+                <button
+                  onClick={() => swiperRef.current?.slideNext()}
+                  disabled={isEnd}
+                  className={`absolute right-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full border-none text-white cursor-pointer flex items-center justify-center transition-all ${isEnd
+                    ? "opacity-30 cursor-not-allowed bg-[#1b1849]"
+                    : "opacity-100 hover:bg-[#0fdac2]/80 bg-[#0fdac2]"
+                    }`}
+                  aria-label="Next deliverable"
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M9 18l6-6-6-6" />
+                  </svg>
+                </button>
               </div>
 
               {/* Lifetime Value */}

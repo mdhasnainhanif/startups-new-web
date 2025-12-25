@@ -266,7 +266,8 @@
   }
 
   .mainContentBox {
-    padding: 1.5rem;
+    padding: 1rem;
+    gap: 1rem;
   }
 
   .gridContainer {
@@ -298,6 +299,19 @@
 }
 
 @media (max-width: 576px) {
+  .deliverablesSection {
+    gap: 1rem;
+  }
+
+  .rightSection {
+    min-height: unset;
+  }
+
+  .lifetimeValueText,
+  .lifetimeValueHeading {
+    display: none;
+  }
+
   .imageWrapper {
     height: auto;
   }
