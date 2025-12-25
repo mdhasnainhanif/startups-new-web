@@ -9,7 +9,6 @@ interface RadarChartLabel {
   x: number
   y: number
 }
-
 interface AnalyticsDashboardProps {
   performanceScore?: number
   performanceLabel?: string
@@ -53,7 +52,7 @@ export default function AnalyticsDashboard({
     { text: 'Progress', x: 244, y: 275 },
     { text: 'Service Use', x: 140, y: 310 },
     { text: 'Goal', x: 54, y: 272 },
-    { text: 'Audience', x:0, y: 160 }
+    { text: 'Audience', x: 0, y: 160 }
   ]
 }: AnalyticsDashboardProps) {
   useEffect(() => {
@@ -67,66 +66,66 @@ export default function AnalyticsDashboard({
   const strokeDashoffset = circumference - (performanceScore / maxScore) * (circumference - 500)
   return (
     <div className=" min-h-screen">
-      <div className="container mx-auto md:px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-12 max-w-7xl">
-        <div className="bg-[#000F21] rounded-2xl shadow-2xl border border-[#0C1426] pl-4 sm:pl-6 lg:pl-8 pr-4 sm:pr-6 lg:pr-8 py-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-12 max-w-7xl">
+        <div className="bg-[#110E21] rounded-2xl shadow-2xl border border-[#221f33] pl-4 sm:pl-6 lg:pl-8 pr-4 sm:pr-6 lg:pr-8 py-10">
           <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 sm:gap-0 lg:gap-0 items-start ${styles.customGrid}`}>
-          <div className="lg:col-span-1 space-y-0">
-            <div className="bg-[#000F21] rounded-xl duration-300 overflow-visible">
-              <div className="flex flex-col items-left justify-left py-4 sm:py-6 overflow-visible max-w-[20rem]">
-                <div className={`relative mx-auto w-[209px] h-[209px] sm:w-[209px] sm:h-[257px] lg:w-[257px] lg:h-[257px] ${styles.performanceGauge} overflow-visible`}>
-                  <svg className="transform -rotate-90 w-full h-full">
-                    <defs>
-                      <linearGradient id="circleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="100%" stopColor="#002f3f" />
-                        <stop offset="100%" stopColor="#0a0a1a" />
-                      </linearGradient>
-                    </defs>
-                    <circle cx="50%" cy="50%" r="42%" stroke="url(#circleGradient)" strokeWidth="12" fill="none"/>
-                    <circle 
-                      cx="50%" 
-                      cy="50%" 
-                      r="42%" 
-                      stroke="currentColor" 
-                      strokeWidth="12" 
-                      fill="none" 
-                      strokeDasharray="1056" 
-                      strokeDashoffset={strokeDashoffset}
-                      className={`text-[#00ffff] ${styles.circularProgress}`} 
-                      strokeLinecap="round"
-                    />
-                  </svg>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-center relative">    
-                      <div className="absolute inset-0 rounded-full bg-gradient-radial-inner opacity-60 -z-10"></div>
-                      <div className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#00ffff] relative z-10">{performanceScore}</div>
-                      <div className="text-base sm:text-lg lg:text-xl font-semibold text-[#00ffff] mt-1 sm:mt-2 relative z-10">{performanceLabel}</div>
+            <div className="lg:col-span-1 space-y-0">
+              <div className="bg-[##110E21] rounded-xl duration-300 overflow-visible">
+                <div className="flex flex-col items-left justify-left lg:py-4 sm:py-0 sm:pt-[0.5rem] overflow-visible max-w-[20rem]">
+                  <div className={`relative mx-auto w-[209px] h-[209px] sm:w-[209px] sm:h-[257px] lg:w-[257px] lg:h-[257px] ${styles.performanceGauge} overflow-visible`}>
+                    <svg className="transform -rotate-90 w-full h-full">
+                      <defs>
+                        <linearGradient id="circleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="100%" stopColor="#002f3f" />
+                          <stop offset="100%" stopColor="#0a0a1a" />
+                        </linearGradient>
+                      </defs>
+                      <circle cx="50%" cy="50%" r="42%" stroke="url(#circleGradient)" strokeWidth="12" fill="none" />
+                      <circle
+                        cx="50%"
+                        cy="50%"
+                        r="42%"
+                        stroke="currentColor"
+                        strokeWidth="12"
+                        fill="none"
+                        strokeDasharray="1056"
+                        strokeDashoffset={strokeDashoffset}
+                        className={`text-[#00ffff] ${styles.circularProgress}`}
+                        strokeLinecap="round"
+                      />
+                    </svg>
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="text-center relative">
+                        <div className="absolute inset-0 rounded-full bg-gradient-radial-inner opacity-60 -z-10"></div>
+                        <div className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#00ffff] relative z-10">{performanceScore}</div>
+                        <div className="text-base sm:text-lg lg:text-xl font-semibold text-[#00ffff] mt-1 sm:mt-2 relative z-10">{performanceLabel}</div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="bg-[#000F21] rounded-xl pl-0 pb-4 sm:pb-6">
-              <div className="grid grid-cols-2 gap-x-4 gap-y-2.5 sm:gap-y-3">
-                <div className="space-y-2.5 sm:space-y-3">
-                  {leftColumnItems.left.map((item, index) => (
-                    <div key={index} className="flex items-center space-x-3">
-                      <div className={`w-3 h-3 rounded-full bg-[#643BFF] shrink-0 ${styles.cyanBulletGlow}`}></div>
-                      <span className={`text-sm sm:text-base text-white ${styles.fs2}`}>{item}</span>
-                    </div>
-                  ))}
-                </div>
-                <div className="space-y-2.5 sm:space-y-3">
-                  {leftColumnItems.right.map((item, index) => (
-                    <div key={index} className="flex items-center space-x-3">
-                      <div className={`w-3 h-3 rounded-full bg-[#643BFF] shrink-0 ${styles.cyanBulletGlow}`}></div>
-                      <span className={`text-sm sm:text-base text-white ${styles.fs2}`}>{item}</span>
-                    </div>
-                  ))}
+              <div className="bg-[#110E21] rounded-xl pl-0 pb-4 sm:pb-6">
+                <div className="grid grid-cols-2 gap-x-4 gap-y-2.5 sm:gap-y-3">
+                  <div className="space-y-2.5 sm:space-y-3">
+                    {leftColumnItems.left.map((item, index) => (
+                      <div key={index} className="flex items-center space-x-3">
+                        <div className={`w-3 h-3 rounded-full bg-[#643BFF] shrink-0 ${styles.cyanBulletGlow}`}></div>
+                        <span className={`text-sm sm:text-base text-white ${styles.fs2}`}>{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="space-y-2.5 sm:space-y-3">
+                    {leftColumnItems.right.map((item, index) => (
+                      <div key={index} className="flex items-center space-x-3">
+                        <div className={`w-3 h-3 rounded-full bg-[#643BFF] shrink-0 ${styles.cyanBulletGlow}`}></div>
+                        <span className={`text-sm sm:text-base text-white ${styles.fs2}`}>{item}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
 
-            {/* <div className="bg-[#000F21] rounded-xl p-4 sm:p-6 border border-[#0C1426] w-80 duration-300">
+              {/* <div className="bg-[##110E21] rounded-xl p-4 sm:p-6 border border-[#0C1426] w-80 duration-300">
               <h3 className={`text-lg sm:text-xl font-semibold mb-4 sm:mb-5 text-white text-left ${styles.fs3}`}>Recommendations</h3>
               <ul className="space-y-2 sm:space-y-2.5">
                 {recommendations.map((rec, index) => (
@@ -136,11 +135,11 @@ export default function AnalyticsDashboard({
                 ))}
               </ul>
             </div> */}
-          </div>
-          <div className={`lg:col-span-1 space-y-0 ${styles.middleColumn}`}>
-            <div className="bg-[#000F21] rounded-none duration-300">
-              <div className="flex items-center justify-center min-h-[400px] sm:min-h-[450px] lg:min-h-[405px] relative px-4 sm:px-6 overflow-hidden">
-                <svg viewBox="0 0 370 312" className="w-full h-auto max-w-full" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+            </div>
+            <div className={`lg:col-span-1 space-y-0 ${styles.middleColumn}`}>
+              <div className="rounded-none duration-300">
+                <div className="d-block w-full h-full max-w-[24rem] mx-auto mb-[2rem] relative">
+                  {/* <svg viewBox="0 0 370 312" className="w-full h-auto max-w-full" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
                   <defs>
                     <radialGradient id="bgGlow" cx="50%" cy="45%" r="70%">
                       <stop offset="0%" stopColor="#0b1a2f" stopOpacity="0.6" />
@@ -251,10 +250,11 @@ export default function AnalyticsDashboard({
                       <text key={index} x={label.x} y={label.y}>{label.text}</text>
                     ))}
                   </g>
-                </svg>
+                </svg> */}
+                  <Image src="/assets/images/svgviewer-output.svg" alt="analytics dashboard" loading="lazy" width={370} height={312} className="w-full h-auto max-w-full" />
+                </div>
               </div>
-            </div>
-            <div className="space-y-3 sm:space-y-4 md:ps-10 text-left">
+              <div className="space-y-3 sm:space-y-4 md:ps-10 text-left flex gap-[3rem]">
                 <div>
                   <span className={`text-[#0FDAC2] text-xs sm:text-sm block mb-1 ${styles.fs1}`}>Asset Type:</span>
                   <p className={`text-white font-medium text-sm sm:text-base ${styles.fs2}`}>{assetType}</p>
@@ -268,41 +268,41 @@ export default function AnalyticsDashboard({
                   <p className={`text-white font-medium text-sm sm:text-base ${styles.fs2}`}>{audience}</p>
                 </div> */}
               </div>
-          </div>
-          <div className={`lg:col-span-1 space-y-4 sm:space-y-6 md:pl-4 sm:pl-6 lg:pl-8 ${styles.rightSectionContainer}`}>
-            <div className="bg-[#000F21] pl0mobile rounded-xl p-4 md:pt-0 sm:p-6 duration-300 mb-0">
-            <div className={`bg-[#000F21] pl0mobile rounded-none p-4 sm:p-6 duration-300  ${styles.middleRecommendations}`}>
-              <h3 className={`text-lg sm:text-xl font-semibold mb-4 sm:mb-5 text-white text-left ${styles.fs3}`}>Recommendations</h3>
-              <ul className="space-y-3 sm:space-y-4">
-                {middleRecommendations.map((rec, index) => (
-                  <li key={index} className="flex items-start space-x-3">
-                    <span className="text-[#00ffff] text-lg sm:text-xl mt-2"><Image src="/assets/images/tick.webp" alt="bulb" loading="lazy" width={20} height={20} /></span>
-                    <span className={`text-sm sm:text-base text-white leading-relaxed text-left ${styles.fs2}`}>{rec}</span>
-                  </li>
-                ))}
-              </ul>
             </div>
-              
-            </div>
-            <div className="bg-[#000F21]  md:ml-6  duration-300">
-              <div className="bg-[#000F21]">
-                <div className="pt-2">
-                  <div>
-                    <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2 text-left">{headline}</h2>
-                    <p className={`text-gray-400 text-xs sm:text-sm ${styles.fs2} mt-[19px] mb-[10px] text-left`}>{description}</p>
+            <div className={`lg:col-span-1 space-y-4 sm:space-y-6 md:pl-4 sm:pl-6 lg:pl-8 ${styles.rightSectionContainer}`}>
+              <div className="bg-[##110E21] pl0mobile rounded-xl p-4 md:pt-0 sm:p-6 duration-300 mb-0">
+                <div className={`bg-[##110E21] pl0mobile rounded-none p-4 sm:p-6 duration-300  ${styles.middleRecommendations}`}>
+                  <h3 className={`text-lg sm:text-xl font-semibold mb-4 sm:mb-5 text-white text-left ${styles.fs3}`}>Recommendations</h3>
+                  <ul className="space-y-3 sm:space-y-4">
+                    {middleRecommendations.map((rec, index) => (
+                      <li key={index} className="flex items-start space-x-3">
+                        <span className="text-[#00ffff] text-lg sm:text-xl mt-2"><Image src="/assets/images/tick.webp" alt="bulb" loading="lazy" width={20} height={20} /></span>
+                        <span className={`text-sm sm:text-base text-white leading-relaxed text-left ${styles.fs2}`}>{rec}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+              </div>
+              <div className="bg-[##110E21]  md:ml-6  duration-300">
+                <div className="bg-[##110E21]">
+                  <div className="pt-2">
+                    <div>
+                      <h2 className="text-2xl sm:text-3xl font-bold text-white mb-2 text-left">{headline}</h2>
+                      <p className={`text-gray-400 text-xs sm:text-sm ${styles.fs2} mt-[19px] mb-[10px] text-left`}>{description}</p>
+                    </div>
+                    {<Button
+                      className="w-full justify-center items-center flex mt-5"
+                      variant="green"
+                      icon={<ArrowRightIcon style={{ width: "16px", height: "16px", fill: "#000" }} />}
+                      iconPosition="right"
+                    >
+                      {buttonText}
+                    </Button>}
                   </div>
-                  {<Button
-                  className="w-full justify-center items-center flex mt-5"
-                  variant="green"
-                    icon={<ArrowRightIcon style={{ width: "16px", height: "16px", fill: "#000" }} />}
-                    iconPosition="right"
-                  >
-                    {buttonText}
-                  </Button>} 
                 </div>
               </div>
             </div>
-          </div>
 
           </div>
         </div>

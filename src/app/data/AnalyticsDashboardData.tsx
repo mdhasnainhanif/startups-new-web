@@ -70,8 +70,8 @@ export const designerAnalyticsDashboardData = {
   description: 'Get your business off the ground with all help.',
   buttonText: 'Get Started',
   leftColumnItems: {
-    left: ['Exceptional', 'Focus Areas', 'Structure', 'Meaning', 'Goal', 'Audience'],
-    right: ['Human cues', 'Composition', 'Flow logic', 'Attention', 'Energy', 'Interfaces']
+    left: ['Exceptional', 'Focus Areas', 'Structure', 'Meaning', 'Goal'],
+    right: ['Human cues', 'Composition', 'Flow logic', 'Attention', 'Energy']
   },
   middleRecommendations: [
     'Sharpen layout intent',
