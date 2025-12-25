@@ -63,7 +63,7 @@ export default function HeroBanner({
   };
 
   return (
-    <section className={`relative sectionPadding overflow-hidden heroStarsBackground ${className}`}>
+    <section className={`relative sectionPadding overflow-hidden heroStarsBackground heroBannerPaddingTop ${className}`}>
       <div className="starsLayer3"></div>
       {/* LCP Image - Optimized with Next.js Image */}
       <div className="absolute inset-0 z-0">

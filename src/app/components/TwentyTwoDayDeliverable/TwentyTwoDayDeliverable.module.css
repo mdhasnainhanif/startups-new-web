@@ -3,6 +3,30 @@
   background: linear-gradient(135deg, #0a0520 0%, #1a0b3f 50%, #0a0520 100%);
   min-height: 100vh;
   padding: 4rem 0;
+  overscroll-behavior: contain;
+}
+
+.sectionheading{
+  position: relative;
+  background: linear-gradient(135deg, #0a0520 0%, #1a0b3f 50%, #0a0520 100%);
+  padding-top: 4rem;
+}
+.starsBackgroundheading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 600%;
+  background-image: url('/assets/images/star-bg.webp');
+  background-repeat: repeat;
+  background-size: contain;
+  background-position: center;
+  opacity: 0.5;
+  pointer-events: none;
+  margin-top: -7rem;
+}
+.pin-spacer{
+  display: none !important;
 }
 
 /* Starry Background Effect */
@@ -30,7 +54,10 @@
   text-align: center;
   margin-bottom: 4rem;
 }
-
+.titleSectionheading{
+  text-align: center;
+  margin-bottom: 0;
+}
 .subtitle {
   display: flex;
   align-items: center;
@@ -75,7 +102,10 @@
 .phasesSection {
   display: flex;
   flex-direction: column;
+  /* overflow: hidden; */
   overflow: visible;
+  max-height: calc(100vh - 300px);
+  position: relative;
 }
 
 .phasesContainer {
@@ -84,6 +114,8 @@
   gap: 2rem;
   position: relative;
   padding-left: 2rem;
+  padding-bottom: 200px; /* Extra space to ensure last box is fully visible */
+  will-change: transform;
 }
 
 /* Removed continuous vertical timeline line */
@@ -414,12 +446,13 @@
   justify-content: center;
   z-index: 10;
   width: 100%;
+  height: 100%;
 }
 
 .imageContainer {
   position: relative;
   width: 100%;
-  aspect-ratio: 4/3;
+  aspect-ratio: 3/2.8;
   border-radius: 1rem;
   overflow: hidden;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);

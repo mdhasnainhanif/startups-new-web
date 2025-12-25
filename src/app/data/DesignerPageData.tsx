@@ -69,7 +69,7 @@ export const designProfessionalPageData: ProfessionalDesignData = {
     videoTitle: "Smart AI Business Team Demo",
   },
   videoImage: {
-    src: "/assets/images/man.png",
+    src: "/assets/images/man.webp",
     alt: "Video Thumbnail",
     className: "videoImage",
   },
@@ -192,7 +192,7 @@ export const designerGuessWorkData: GuessWorkAdvertisingData = {
     ),
   },
   image: {
-    src: '/assets/images/guesswork.png',
+    src: '/assets/images/guesswork.webp',
     alt: 'Growth Roadmap',
   },
   analyticsDashboardData: designerAnalyticsDashboardData,

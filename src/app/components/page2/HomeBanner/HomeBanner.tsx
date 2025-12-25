@@ -13,7 +13,7 @@ const HomeBanner = () => {
 
   return (
     <>
-      <section className={`sectionPadding ${styles.section} ${styles.herobanner}`}>
+      <section className={`sectionPadding heroBannerPaddingTop ${styles.section} ${styles.herobanner}`}>
       <Container maxWidth="xl" className="px-0">
           <div className={`lg:pt-48 ${styles.contentWrapper}`}>
             {/* Left Section */}
@@ -32,7 +32,7 @@ const HomeBanner = () => {
                 {HOME_BANNER_DATA.features.map((feature, index) => (
                   <li key={index} className="flex items-start gap-3 text-white">
                     <img
-                      src="/assets/images/tick.png"
+                      src="/assets/images/tick.webp"
                       alt="check"
                       className={styles.checkIcon}
                     />

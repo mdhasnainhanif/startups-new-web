@@ -39,7 +39,7 @@
 
 .mainContentBox {
   background: #1d1343;
-  border-radius: 1.5rem;
+  border-radius: 1rem;
   padding: 2.5rem;
   display: grid;
   grid-template-columns: 1fr 1fr;

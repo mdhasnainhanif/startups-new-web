@@ -140,7 +140,7 @@
   flex-direction: column;
   align-items: center;
   /* justify-content: center; */
-  padding-top: 0.5rem;
+  padding-top: 2.5rem;
 }
 
 .stepTitle {
@@ -207,7 +207,7 @@
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
-  text-align: center;
+  text-align: left;
   position: relative;
   font-family: var(--font-graphik-regular), Arial, Helvetica, sans-serif;
   box-shadow: 0 0 20px rgba(15, 218, 194, 0.3);
@@ -637,6 +637,10 @@ input[type="checkbox"].radioInput:checked + .pinkLabel {
 }
 
 @media screen and (max-width: 576px) {
+  .radioInput:checked + .optionLabel::after,
+  input[type="checkbox"].radioInput:checked + .optionLabel::after {
+    left: 0.925rem;
+  }
   .optionsContainer {
     padding-top: 0rem;
   }

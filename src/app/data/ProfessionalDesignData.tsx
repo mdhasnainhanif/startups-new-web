@@ -128,7 +128,7 @@ export const PROFESSIONAL_DESIGN_DATA: ProfessionalDesignData = {
     videoTitle: "Smart AI Business Team Demo",
   },
   videoImage: {
-    src: "/assets/images/man.png",
+    src: "/assets/images/man.webp",
     alt: "Video Thumbnail",
     className: "videoImage",
   },

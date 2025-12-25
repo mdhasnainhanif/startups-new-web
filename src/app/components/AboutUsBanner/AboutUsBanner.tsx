@@ -13,7 +13,7 @@ export default function AboutUsBanner({
 }: AboutUsBannerProps) {
   return (
     <section
-      className={`${styles.bannerBackground} relative sectionPadding overflow-hidden ${className}`}
+      className={`${styles.bannerBackground} relative sectionPadding overflow-hidden heroBannerPaddingTop ${className}`}
     >
       <Container maxWidth="xl" className="px-0">
         <div className={`flex flex-col items-center text-center gap-6 md:gap-8 md:pt-50 sectionHeading max-w-4xl mx-auto`}>

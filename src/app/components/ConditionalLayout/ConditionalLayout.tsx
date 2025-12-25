@@ -27,8 +27,10 @@ export default function ConditionalLayout({
   // For all other pages, render with headers and footer
   return (
     <>
-      <TopHeader />
-      <Header />
+      <div className="headerMain">
+        <TopHeader />
+        <Header />
+      </div>
       {children}
       <Footer />
       <ScrollToTop />

@@ -9,7 +9,7 @@ import Container from "../../components/Container";
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen md:min-h-[90vh] flex items-center bg-[var(--color-dark)] overflow-hidden py-24 md:py-16 lg:py-28 pt-28 lg:pt-48">
+    <section className="relative min-h-screen md:min-h-[90vh] flex items-center heroBannerPaddingTop bg-[var(--color-dark)] overflow-hidden py-24 md:py-16 lg:py-28 pt-28 lg:pt-48">
       {/* Animated Gradient Background */}
       <div className="absolute inset-0 opacity-30 bg-gradient-to-br from-[var(--color-primary)]/30 via-[var(--color-dark)] to-[var(--color-purple)]/30 animate-pulse" />
 

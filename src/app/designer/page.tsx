@@ -17,6 +17,18 @@ import RealCost from '../components/RealCost/RealCost';
 import CompleteBusinessSetup from '../components/CompleteBusinessSetup/CompleteBusinessSetup';
 import Contact from '../components/Contact/Contact';
 import GuessWorkAdvertising from '../components/GuessWorkAdvertising/GuessWorkAdvertising';
+
+import dynamic from 'next/dynamic';
+
+const TwentyTwoDayDeliverable = dynamic(() => import('../components/TwentyTwoDayDeliverable/TwentyTwoDayDeliverable'), {
+  ssr: true,
+});
+
+const TwentyTwoHeading = dynamic(() => import('../components/TwentyTwoDayDeliverable/TwentyTwoHeading'), {
+  ssr: true,
+});
+
+// Custom data for ProvenSuccess on designer page
 const designerProvenSuccessData = {
   headline: {
     text: 'Proven Success in Every Project',
@@ -71,36 +83,26 @@ const designerProvenSuccessData = {
       id: 'logo-design',
       label: 'Logo Design',
       images: [
-        '/assets/images/portfolio/logo-design/1.jpg',
-        '/assets/images/portfolio/logo-design/2.jpg',
-        '/assets/images/portfolio/logo-design/3.jpg',
-        '/assets/images/portfolio/logo-design/4.jpg',
-        '/assets/images/portfolio/logo-design/5.jpg',
-        '/assets/images/portfolio/logo-design/6.jpg',
-        '/assets/images/portfolio/logo-design/7.jpg',
-        '/assets/images/portfolio/logo-design/8.jpg',
-        '/assets/images/portfolio/logo-design/9.jpg',
-        '/assets/images/portfolio/logo-design/10.jpg',
-        '/assets/images/portfolio/logo-design/11.jpg',
-        '/assets/images/portfolio/logo-design/12.jpg',
-        '/assets/images/portfolio/logo-design/13.jpg',
-        '/assets/images/portfolio/logo-design/14.jpg',
-        '/assets/images/portfolio/logo-design/15.jpg',
-        '/assets/images/portfolio/logo-design/16.jpg',
-        '/assets/images/portfolio/logo-design/17.jpg',
-        '/assets/images/portfolio/logo-design/18.jpg',
-        '/assets/images/portfolio/logo-design/19.jpg',
-        '/assets/images/portfolio/logo-design/20.jpg',
-        '/assets/images/portfolio/logo-design/21.jpg',
-        '/assets/images/portfolio/logo-design/22.jpg',
-        '/assets/images/portfolio/logo-design/23.jpg',
-        '/assets/images/portfolio/logo-design/24.jpg',
-        '/assets/images/portfolio/logo-design/25.jpg',
-        '/assets/images/portfolio/logo-design/26.jpg',
-        '/assets/images/portfolio/logo-design/27.jpg',
-        '/assets/images/portfolio/logo-design/28.jpg',
-        '/assets/images/portfolio/logo-design/29.jpg',
-        '/assets/images/portfolio/logo-design/30.jpg',
+        '/assets/images/portfolio/logo-design/1.webp',
+        '/assets/images/portfolio/logo-design/2.webp',
+        '/assets/images/portfolio/logo-design/3.webp',
+        '/assets/images/portfolio/logo-design/4.webp',
+        '/assets/images/portfolio/logo-design/5.webp',
+        '/assets/images/portfolio/logo-design/6.webp',
+        '/assets/images/portfolio/logo-design/7.webp',
+        '/assets/images/portfolio/logo-design/8.webp',
+        '/assets/images/portfolio/logo-design/9.webp',
+        '/assets/images/portfolio/logo-design/10.webp',
+        '/assets/images/portfolio/logo-design/11.webp',
+        '/assets/images/portfolio/logo-design/12.webp',
+        '/assets/images/portfolio/logo-design/13.webp',
+        '/assets/images/portfolio/logo-design/14.webp',
+        '/assets/images/portfolio/logo-design/15.webp',
+        '/assets/images/portfolio/logo-design/16.webp',
+        '/assets/images/portfolio/logo-design/17.webp',
+        '/assets/images/portfolio/logo-design/18.webp',
+        '/assets/images/portfolio/logo-design/19.webp',
+        '/assets/images/portfolio/logo-design/20.webp',
       ],
       gridItems: [
         { id: '1', label: 'Primary Logo' },
@@ -133,15 +135,15 @@ const designerProvenSuccessData = {
       id: 'stationary',
       label: 'Stationary',
       images: [
-        '/assets/images/portfolio/stationary/1.jpg',
-        '/assets/images/portfolio/stationary/2.jpg',
-        '/assets/images/portfolio/stationary/3.jpg',
-        '/assets/images/portfolio/stationary/4.jpg',
-        '/assets/images/portfolio/stationary/5.jpg',
-        '/assets/images/portfolio/stationary/6.jpg',
-        '/assets/images/portfolio/stationary/7.jpg',
-        '/assets/images/portfolio/stationary/8.jpg',
-        '/assets/images/portfolio/stationary/9.jpg',
+        '/assets/images/portfolio/stationary/1.webp',
+        '/assets/images/portfolio/stationary/2.webp',
+        '/assets/images/portfolio/stationary/3.webp',
+        '/assets/images/portfolio/stationary/4.webp',
+        '/assets/images/portfolio/stationary/5.webp',
+        '/assets/images/portfolio/stationary/6.webp',
+        '/assets/images/portfolio/stationary/7.webp',
+        '/assets/images/portfolio/stationary/8.webp',
+        '/assets/images/portfolio/stationary/9.webp',
       ],
       gridItems: [
         { id: '1', label: 'Business Card' },
@@ -173,6 +175,8 @@ export default function DesignerPage() {
       <TextSlider1 data={sliderData.slider2}/>
       <ProfessionalDesign className="designerPageProfessional" data={designProfessionalPageData} />
       <TextSlider1 data={sliderData.slider3}/>
+      <TwentyTwoHeading/>
+      <TwentyTwoDayDeliverable/>
       <GuessWorkAdvertising data={designerGuessWorkData}/>
       <RealCost/>
       <CompleteBusinessSetup/>

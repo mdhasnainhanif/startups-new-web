@@ -101,7 +101,7 @@
       videoTitle: "Web Development Team Demo",
     },
     videoImage: {
-      src: "/assets/images/man.png",
+      src: "/assets/images/man.webp",
       alt: "Video Thumbnail",
       className: "videoImage",
     },
@@ -478,7 +478,7 @@
       ),
     },
     image: {
-      src: '/assets/images/guesswork.png',
+      src: '/assets/images/guesswork.webp',
       alt: 'Growth Roadmap',
     },
     analyticsDashboardData: undefined, // Web Development page uses AnalyticsDashboard separately, not in GuessWorkAdvertising

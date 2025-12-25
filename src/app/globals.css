@@ -697,6 +697,12 @@ section img.banneFullMin {
   }
 }
 @media (max-width: 576px) {
+  /* section.heroStarsBackground {
+    padding-top: 11rem;
+  } */
+  section.heroBannerPaddingTop, div.heroBannerPaddingTop {
+    padding-top: 11rem;
+  }
   ul.stack-cards {
     margin-bottom: 5vh !important;
   }
@@ -814,6 +820,14 @@ section img.banneFullMin {
   .sectionHeading > h2 {
     font-size: 1.75rem !important;
   }
+}
+
+.headerMain {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
 }
 
 /* Flippa Page Animations */

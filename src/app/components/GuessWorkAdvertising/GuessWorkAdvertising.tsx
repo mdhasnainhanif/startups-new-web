@@ -6,6 +6,7 @@ import styles from './GuessWorkAdvertising.module.css';
 import Button from '../Button';
 import Image from 'next/image';
 import AnalyticsDashboard from '../AnalyticsDashboard/AnalyticsDashboard';
+import { ArrowRightIcon } from '../icons';
 // import CreativeScore from '../CreativeScore/CreativeScore';
 
 export interface RadarChartLabel {
@@ -82,7 +83,7 @@ const GUESS_WORK_ADVERTISING_DATA: GuessWorkAdvertisingData = {
     ),
   },
   image: {
-    src: '/assets/images/guesswork.png',
+    src: '/assets/images/guesswork.webp',
     alt: 'Guesswork Advertising Analytics',
   },
 };
@@ -133,13 +134,9 @@ const GuessWorkAdvertising = ({ data = GUESS_WORK_ADVERTISING_DATA }: GuessWorkA
                 variant="green"
                 size="lg"
                 type="submit"
+                icon={<ArrowRightIcon style={{ fill: "#000" }} />}
                 className={`absolute inputFieldBtn right-1 md:right-2 top-1/2 -translate-y-1/2 px-4 md:px-6 py-2 md:py-3  rounded-4xl text-white font-semibold hover:opacity-90 transition-all flex items-center justify-center gap-1 md:gap-2 whitespace-nowrap text-sm md:text-base`}>
                 {form.buttonText}
-                {form.buttonIcon && (
-                  <span className="inline-flex items-center">
-                    {form.buttonIcon}
-                  </span>
-                )}
               </Button>
             </div>
           </form>

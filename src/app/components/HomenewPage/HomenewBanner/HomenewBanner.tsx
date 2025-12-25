@@ -65,7 +65,7 @@ const DEFAULT_DATA: HomenewBannerData = {
 const HomenewBanner = ({ data = DEFAULT_DATA }: HomenewBannerProps) => {
   return (
     <section
-      className={`sectionPadding relative ${styles.extraPaddingTop} ${styles.HomenewBanner} ${data.className}`}
+      className={`sectionPadding relative heroBannerPaddingTop ${styles.extraPaddingTop} ${styles.HomenewBanner} ${data.className}`}
     >
       <Container maxWidth="xl">
         <div className={`${styles.row} md:pt-20`}>

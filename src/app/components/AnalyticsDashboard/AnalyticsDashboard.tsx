@@ -67,7 +67,7 @@ export default function AnalyticsDashboard({
   const strokeDashoffset = circumference - (performanceScore / maxScore) * (circumference - 500)
   return (
     <div className=" min-h-screen">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-12 max-w-7xl">
+      <div className="container mx-auto md:px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-12 max-w-7xl">
         <div className="bg-[#000F21] rounded-2xl shadow-2xl border border-[#0C1426] pl-4 sm:pl-6 lg:pl-8 pr-4 sm:pr-6 lg:pr-8 py-10">
           <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 sm:gap-0 lg:gap-0 items-start ${styles.customGrid}`}>
           <div className="lg:col-span-1 space-y-0">
@@ -276,7 +276,7 @@ export default function AnalyticsDashboard({
               <ul className="space-y-3 sm:space-y-4">
                 {middleRecommendations.map((rec, index) => (
                   <li key={index} className="flex items-start space-x-3">
-                    <span className="text-[#00ffff] text-lg sm:text-xl mt-2"><Image src="/assets/images/tick.png" alt="bulb" loading="lazy" width={20} height={20} /></span>
+                    <span className="text-[#00ffff] text-lg sm:text-xl mt-2"><Image src="/assets/images/tick.webp" alt="bulb" loading="lazy" width={20} height={20} /></span>
                     <span className={`text-sm sm:text-base text-white leading-relaxed text-left ${styles.fs2}`}>{rec}</span>
                   </li>
                 ))}

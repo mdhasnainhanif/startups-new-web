@@ -28,7 +28,7 @@ export default function BlogsPage() {
                 <div className={styles.imageContainer}>
                   <div className={styles.imageWrapper}>
                     <Image
-                      src={blog.image}
+                      src={blog.image} 
                       alt={blog.title}
                       width={400}
                       height={250}
