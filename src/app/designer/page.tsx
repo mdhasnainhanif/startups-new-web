@@ -17,6 +17,18 @@ import RealCost from '../components/RealCost/RealCost';
 import CompleteBusinessSetup from '../components/CompleteBusinessSetup/CompleteBusinessSetup';
 import Contact from '../components/Contact/Contact';
 import GuessWorkAdvertising from '../components/GuessWorkAdvertising/GuessWorkAdvertising';
+
+import dynamic from 'next/dynamic';
+
+const TwentyTwoDayDeliverable = dynamic(() => import('../components/TwentyTwoDayDeliverable/TwentyTwoDayDeliverable'), {
+  ssr: true,
+});
+
+const TwentyTwoHeading = dynamic(() => import('../components/TwentyTwoDayDeliverable/TwentyTwoHeading'), {
+  ssr: true,
+});
+
+// Custom data for ProvenSuccess on designer page
 const designerProvenSuccessData = {
   headline: {
     text: 'Proven Success in Every Project',
@@ -163,6 +175,8 @@ export default function DesignerPage() {
       <TextSlider1 data={sliderData.slider2}/>
       <ProfessionalDesign className="designerPageProfessional" data={designProfessionalPageData} />
       <TextSlider1 data={sliderData.slider3}/>
+      <TwentyTwoHeading/>
+      <TwentyTwoDayDeliverable/>
       <GuessWorkAdvertising data={designerGuessWorkData}/>
       <RealCost/>
       <CompleteBusinessSetup/>
