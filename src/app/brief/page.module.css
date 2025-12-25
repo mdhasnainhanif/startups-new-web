@@ -42,7 +42,6 @@
   justify-content: center !important;
 }
 
-/* Hide back button in form area for brief page */
 .briefPage :global(.personalDetailsForm) :global(.backButton),
 .briefPage :global(.formArea) :global(.backButton),
 .briefPage :global(.formArea) button:global(.backButton),
@@ -62,7 +61,6 @@
   overflow: hidden !important;
 }
 
-/* Mobile specific adjustments */
 @media screen and (max-width: 768px) {
   .briefPage {
     margin-top: 2rem;

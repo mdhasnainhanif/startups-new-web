@@ -62,14 +62,14 @@ const AI_POWER_DESIGN_DATA: AiPowerDesignData = {
         { id: '11', label: 'Social Media Content Design', image: '/assets/images/designer-page/social-media-content-design.webp' },
         { id: '12', label: 'Social Media Advertising Creatives', image: '/assets/images/designer-page/social-media-content-design.webp' },
         { id: '13', label: 'Digital Marketing Assets', image: '/assets/images/designer-page/social-media-content-design.webp' },
-        { id: '14', label: 'Presentation & Pitch Deck Design', image: '/assets/images/designer-page/presentation-pitch-deck-design.webp' },
-        { id: '15', label: 'Infographic Design', image: '/assets/images/designer-page/infographic-design.webp' },
-        { id: '16', label: 'Illustration & Digital Art', image: '/assets/images/designer-page/illustration-digital-art.webp' },
+        { id: '14', label: 'Presentation & Pitch Deck Design', image: '/assets/images/aipower4.png' },
+        { id: '15', label: 'Infographic Design', image: '/assets/images/aipower2.png' },
+        { id: '16', label: 'Illustration & Digital Art', image: '/assets/images/aipower3.png' },
         { id: '17', label: 'Motion Graphics Design', image: '/assets/images/aipower1.png' },
         { id: '18', label: 'Video Editing & Graphic Overlays', image: '/assets/images/aipower2.png' },
         { id: '19', label: '3D Modeling & Product Rendering', image: '/assets/images/aipower3.png' },
         { id: '20', label: 'Advertising & Campaign Design', image: '/assets/images/aipower4.png' },
-        { id: '21', label: 'Brochure, Flyer & Catalog Design', image: '/assets/images/aipower5.png' },
+        { id: '21', label: 'Brochure, Flyer & Catalog Design', image: '/assets/images/aipower5.png  jjas;dj' },
         { id: '22', label: 'Ebook & Publication Layout Design', image: '/assets/images/aipower5.png' },
         { id: '23', label: 'Email Newsletter & HTML Template Design', image: '/assets/images/aipower1.png' },
         { id: '24', label: 'Environmental & Signage Design', image: '/assets/images/aipower2.png' },
@@ -201,7 +201,7 @@ const AiPowerDesign = ({ data = AI_POWER_DESIGN_DATA }: AiPowerDesignProps) => {
                     ))}
                   </>
                 ) : (
-                  <>Your <span className={styles.highlighted}>22-Day</span> Deliverable <br/> Package Includes:</>
+                  <>Your <span className={styles.highlighted}>22-Day</span> Deliverable Package Includes:</>
                 )}
               </h3>
               
