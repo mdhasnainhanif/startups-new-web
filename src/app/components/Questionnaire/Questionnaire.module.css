@@ -46,7 +46,6 @@
 
 .header {
   text-align: center;
-  /* margin-bottom: 2rem; */
   margin-top: 0;
   margin-left: auto;
   margin-right: auto;
@@ -100,11 +99,9 @@
 
 .progressBarFill {
   height: 100%;
-  background: linear-gradient(
-    90deg,
-    var(--color-primary) 0%,
-    var(--color-purple) 100%
-  );
+  background: linear-gradient(90deg,
+      var(--color-primary) 0%,
+      var(--color-purple) 100%);
   border-radius: 10px;
   transition: width 0.5s ease-in-out;
   box-shadow: 0 0 10px rgba(100, 59, 255, 0.5);
@@ -139,8 +136,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* justify-content: center; */
-  padding-top: 2.5rem;
+  padding-top: 1.3rem;
 }
 
 .stepTitle {
@@ -148,7 +144,7 @@
   font-weight: 600;
   color: #ffffff;
   text-align: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   letter-spacing: 1px;
   line-height: 1.5;
   font-family: var(--font-wf-visual-sans), sans-serif;
@@ -227,8 +223,8 @@
   background: transparent;
 }
 
-.radioInput:checked + .optionLabel::before,
-input[type="checkbox"].radioInput:checked + .optionLabel::before {
+.radioInput:checked+.optionLabel::before,
+input[type="checkbox"].radioInput:checked+.optionLabel::before {
   background: var(--color-primary);
   border-color: var(--color-primary);
   box-shadow: 0 0 10px var(--color-primary);
@@ -240,14 +236,15 @@ input[type="checkbox"].radioInput:checked + .optionLabel::before {
     transform: translateY(-50%) scale(0.8);
     opacity: 0.5;
   }
+
   100% {
     transform: translateY(-50%) scale(1);
     opacity: 1;
   }
 }
 
-.radioInput:checked + .optionLabel::after,
-input[type="checkbox"].radioInput:checked + .optionLabel::after {
+.radioInput:checked+.optionLabel::after,
+input[type="checkbox"].radioInput:checked+.optionLabel::after {
   content: "✓";
   position: absolute;
   left: 1.25rem;
@@ -270,10 +267,12 @@ input[type="checkbox"].radioInput:checked + .optionLabel::after {
     transform: translateY(-50%) scale(0);
     opacity: 0;
   }
+
   50% {
     transform: translateY(-50%) scale(1.2);
     opacity: 1;
   }
+
   100% {
     transform: translateY(-50%) scale(1);
     opacity: 1;
@@ -302,16 +301,16 @@ input[type="checkbox"].radioInput:checked + .optionLabel::after {
   transform: translateY(-2px);
 }
 
-.radioInput:checked + .greenLabel,
-.radioInput:checked + .yellowLabel,
-.radioInput:checked + .blueLabel,
-.radioInput:checked + .purpleLabel,
-.radioInput:checked + .pinkLabel,
-input[type="checkbox"].radioInput:checked + .greenLabel,
-input[type="checkbox"].radioInput:checked + .yellowLabel,
-input[type="checkbox"].radioInput:checked + .blueLabel,
-input[type="checkbox"].radioInput:checked + .purpleLabel,
-input[type="checkbox"].radioInput:checked + .pinkLabel {
+.radioInput:checked+.greenLabel,
+.radioInput:checked+.yellowLabel,
+.radioInput:checked+.blueLabel,
+.radioInput:checked+.purpleLabel,
+.radioInput:checked+.pinkLabel,
+input[type="checkbox"].radioInput:checked+.greenLabel,
+input[type="checkbox"].radioInput:checked+.yellowLabel,
+input[type="checkbox"].radioInput:checked+.blueLabel,
+input[type="checkbox"].radioInput:checked+.purpleLabel,
+input[type="checkbox"].radioInput:checked+.pinkLabel {
   background: rgba(100, 59, 255, 0.1);
   border-color: var(--color-purple);
   color: var(--color-purple);
@@ -343,14 +342,14 @@ input[type="checkbox"].radioInput:checked + .pinkLabel {
 }
 
 /* Center last item in grid when it's alone in the row */
-.fiftyPercentBoxes .optionsContainer > .optionWrapper:last-child:nth-child(odd),
-.twoColumns .optionsContainer > .optionWrapper:last-child:nth-child(odd) {
+.fiftyPercentBoxes .optionsContainer>.optionWrapper:last-child:nth-child(odd),
+.twoColumns .optionsContainer>.optionWrapper:last-child:nth-child(odd) {
   grid-column: 1 / -1;
   justify-self: center;
   max-width: 50%;
 }
 
-.threeColumns .optionsContainer > .optionWrapper:last-child:nth-child(3n+1) {
+.threeColumns .optionsContainer>.optionWrapper:last-child:nth-child(3n+1) {
   grid-column: 2;
   justify-self: center;
 }
@@ -639,7 +638,7 @@ select.formInput option {
     height: 18px;
   }
 
-  .radioInput:checked + .optionLabel::after {
+  .radioInput:checked+.optionLabel::after {
     left: 1.25rem;
     width: 18px;
     height: 18px;
@@ -669,10 +668,12 @@ select.formInput option {
 }
 
 @media screen and (max-width: 576px) {
-  .radioInput:checked + .optionLabel::after,
-  input[type="checkbox"].radioInput:checked + .optionLabel::after {
+
+  .radioInput:checked+.optionLabel::after,
+  input[type="checkbox"].radioInput:checked+.optionLabel::after {
     left: 0.925rem;
   }
+
   .optionsContainer {
     padding-top: 0rem;
   }
@@ -709,7 +710,7 @@ select.formInput option {
     height: 16px;
   }
 
-  .radioInput:checked + .optionLabel::after {
+  .radioInput:checked+.optionLabel::after {
     left: 1rem;
     width: 16px;
     height: 16px;
@@ -730,6 +731,10 @@ select.formInput option {
   }
 
   .threeColumns .optionsContainer {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
   }
 }

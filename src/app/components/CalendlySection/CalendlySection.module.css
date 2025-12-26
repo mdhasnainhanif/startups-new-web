@@ -7,8 +7,7 @@
 .calendlySection::before {
   content: "";
   position: absolute;
-  background: url(../../../../public/assets/images/1.webp) center bottom
-    no-repeat;
+  background: url(../../../../public/assets/images/1.webp) center bottom no-repeat;
   width: 89%;
   height: 100%;
   position: absolute;
@@ -16,6 +15,7 @@
   left: 0rem;
   background-size: contain;
 }
+
 .calendlySection::after {
   content: "";
   position: absolute;
@@ -31,6 +31,7 @@
   pointer-events: none;
   z-index: 0;
 }
+
 .contentWrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -115,7 +116,7 @@
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
   overflow: hidden;
   position: relative;
-   /* max-height: 32rem; */
+  /* max-height: 32rem; */
   /* max-width: 32rem; */
   background-color: #21174C;
 }
@@ -206,7 +207,7 @@
   margin-left: 3rem;
 }
 
-.videoButton > .videoButtonText{
+.videoButton>.videoButtonText {
   background-color: #0cbba6;
   padding: 0.625rem;
   border-radius: 50%;
@@ -246,3 +247,8 @@
   }
 }
 
+@media (max-width: 576px) {
+  .calendlyText {
+    margin-left: 0;
+  }
+}

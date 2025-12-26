@@ -1,12 +1,10 @@
 'use client';
-
 import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import styles from './OfferPopup.module.css';
 import Image from 'next/image';
 import Button from '../Button';
 import { ArrowRightIcon } from '../icons';
-
 const avatars = [
   '/assets/images/avatar-without-icons/graphic-designer.webp',
   '/assets/images/avatar-without-icons/ui-ux-designer.webp',
@@ -14,17 +12,14 @@ const avatars = [
   '/assets/images/avatar-without-icons/video-animation.webp',
   '/assets/images/avatar-without-icons/content-writer.webp',
 ];
-
 const OfferPopup = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const [email, setEmail] = useState('');
-  const [activeAvatar, setActiveAvatar] = useState(2); // Third avatar highlighted
-
+  const [activeAvatar, setActiveAvatar] = useState(2); 
   useEffect(() => {
     setMounted(true);
   }, []);
-
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -35,7 +30,6 @@ const OfferPopup = () => {
       document.body.style.overflow = 'unset';
     };
   }, [isOpen]);
-
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
@@ -49,19 +43,14 @@ const OfferPopup = () => {
       window.removeEventListener('keydown', handleEscape);
     };
   }, [isOpen]);
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
     console.log('Email submitted:', email);
     setIsOpen(false);
   };
-
   if (!mounted) return null;
-
   return (
     <>
-      {/* Trigger Button - This will be added to header */}
       <button
         onClick={() => setIsOpen(true)}
         className={styles.triggerButton}
@@ -69,8 +58,6 @@ const OfferPopup = () => {
       >
         300+ Companies
       </button>
-
-      {/* Popup Modal */}
       {isOpen &&
         createPortal(
           <div className={styles.overlay} onClick={() => setIsOpen(false)}>
@@ -78,7 +65,6 @@ const OfferPopup = () => {
               className={styles.modal}
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Close Button */}
               <button
                 onClick={() => setIsOpen(false)}
                 className={styles.closeButton}
@@ -97,17 +83,13 @@ const OfferPopup = () => {
                   <line x1="18" y1="6" x2="6" y2="18" />
                   <line x1="6" y1="6" x2="18" y2="18" />
                 </svg>
-              </button>
-
-              {/* Decorative Fireworks */}
+              </button>              
               <div className={styles.fireworks}>
                 <div className={styles.firework1}></div>
                 <div className={styles.firework2}></div>
                 <div className={styles.firework3}></div>
               </div>
-
               <div className={styles.modalContent}>
-                {/* Left Section */}
                 <div className={styles.leftSection}>
                   <div className={styles.leftBackground}>
                     <div className={styles.leftText}>
@@ -155,8 +137,6 @@ const OfferPopup = () => {
                     <p className={styles.avatarsLabel}>Creative Directors</p>
                   </div>
                 </div>
-
-                {/* Right Section */}
                 <div className={styles.rightSection}>
                   <div className={styles.logo}>
                     <span className={styles.logoPart1}>Startups</span>
@@ -204,6 +184,4 @@ const OfferPopup = () => {
     </>
   );
 };
-
 export default OfferPopup;
-

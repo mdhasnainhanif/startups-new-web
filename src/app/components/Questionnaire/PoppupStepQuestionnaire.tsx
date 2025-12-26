@@ -29,7 +29,7 @@ export default function PoppupStepQuestionnaire({
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [fadeIn, setFadeIn] = useState(true);
 
-  // Reset state when popup opens
+  
   useEffect(() => {
     if (isOpen) {
       setCurrentStep("step-1");
@@ -46,22 +46,19 @@ export default function PoppupStepQuestionnaire({
     }));
 
     const currentStepData = questionnaireData.steps.find((s) => s.id === stepId);
-    // Override maxSelections to 2 for all steps in popup
-    const isMultiSelect = true; // Make all steps multi-select in popup
-    const maxSelections = 2; // Force maxSelections to 2 for popup
     
-    // Check if max selections reached (count comma-separated values)
+    const isMultiSelect = true; 
+    const maxSelections = 2; 
+    
+    
     const selectionCount = value ? value.split(",").filter(v => v.trim()).length : 0;
     const maxReached = isMultiSelect && selectionCount >= maxSelections;
     
-    // Navigate to next step
+    
     if (nextStep) {
-      // Auto-advance for single select OR when max selections reached in multi-select
       if (!isMultiSelect || maxReached) {
         setIsTransitioning(true);
         setFadeIn(false);
-        
-        // Wait for tick animation (600ms) then transition to next step
         setTimeout(() => {
           setStepHistory((prev) => {
             const lastStep = prev[prev.length - 1];
@@ -71,17 +68,14 @@ export default function PoppupStepQuestionnaire({
             return prev;
           });
           setCurrentStep(nextStep);
-          
           setTimeout(() => {
             setFadeIn(true);
             setIsTransitioning(false);
           }, 50);
         }, 600);
       } else if (isMultiSelect && !maxReached) {
-        // For multi-select with continue button (not max reached)
         setIsTransitioning(true);
-        setFadeIn(false);
-        
+        setFadeIn(false);    
         setTimeout(() => {
           setStepHistory((prev) => {
             const lastStep = prev[prev.length - 1];
@@ -100,29 +94,23 @@ export default function PoppupStepQuestionnaire({
       }
     }
   };
-
   const handleBack = () => {
     setFadeIn(false);
     setTimeout(() => {
-      // First try to use stepHistory
       if (stepHistory.length > 1) {
         const newHistory = [...stepHistory];
-        newHistory.pop(); // Remove current step
-        const previousStep = newHistory[newHistory.length - 1];
-        
-        // Ensure we're not going to the same step
+        newHistory.pop(); 
+        const previousStep = newHistory[newHistory.length - 1];    
         if (previousStep !== currentStep) {
           setStepHistory(newHistory);
           setCurrentStep(previousStep);
         } else if (newHistory.length > 1) {
-          // If previous step is same, go one more step back
           newHistory.pop();
           const earlierStep = newHistory[newHistory.length - 1];
           setStepHistory(newHistory);
           setCurrentStep(earlierStep);
         }
       } else {
-        // Fallback to backTo if available
         const currentStepData = questionnaireData.steps.find((s) => s.id === currentStep);
         if (currentStepData?.backTo) {
           const backToStep = currentStepData.backTo;
@@ -137,7 +125,6 @@ export default function PoppupStepQuestionnaire({
       }, 50);
     }, 200);
   };
-
   const handlePersonalDetailsSubmit = async (formData: {
     name: string;
     contact: string;
@@ -146,13 +133,10 @@ export default function PoppupStepQuestionnaire({
   }) => {
     setIsSubmitting(true);
     try {
-      // Combine all answers with personal details
       const submissionData = {
         ...answers,
         ...formData,
       };
-
-      // Submit to API
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
@@ -168,21 +152,21 @@ export default function PoppupStepQuestionnaire({
       });
 
       if (response.ok) {
-        // Clear cookies on successful submission
+        
         if (typeof window !== "undefined") {
           try {
-            // Clear all cookies
+            
             const cookies = document.cookie.split(";");
             for (let i = 0; i < cookies.length; i++) {
               const cookie = cookies[i];
               const eqPos = cookie.indexOf("=");
               const name = eqPos > -1 ? cookie.substr(0, eqPos).trim() : cookie.trim();
               if (name) {
-                // Clear cookie for current path
+                
                 document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/`;
-                // Clear cookie for current domain
+                
                 document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/;domain=${window.location.hostname}`;
-                // Clear cookie for parent domain (if applicable)
+                
                 const hostnameParts = window.location.hostname.split(".");
                 if (hostnameParts.length > 1) {
                   const parentDomain = "." + hostnameParts.slice(-2).join(".");
@@ -194,7 +178,7 @@ export default function PoppupStepQuestionnaire({
             console.error("Error clearing cookies:", error);
           }
         }
-        // Close popup and redirect to thank-you page
+        
         onClose();
         window.location.href = "/thank-you";
       } else {
@@ -215,8 +199,8 @@ export default function PoppupStepQuestionnaire({
 
   const currentStepData = questionnaireData.steps.find((s) => s.id === currentStep);
   
-  // Calculate progress
-  const totalSteps = questionnaireData.steps.length + 1; // +1 for personal details form
+  
+  const totalSteps = questionnaireData.steps.length + 1; 
   let currentStepNumber: number;
   let progressPercentage: number;
   
@@ -279,13 +263,13 @@ export default function PoppupStepQuestionnaire({
                       key={currentStepData.id}
                       step={{
                         ...currentStepData,
-                        multiSelect: true, // Force all steps to be multi-select in popup
-                        maxSelections: 2, // Force maxSelections to 2 for popup
+                        multiSelect: true, 
+                        maxSelections: 2, 
                       }}
                       onSelect={handleOptionSelect}
                       onBack={handleBack}
                       selectedValue={
-                        // Always treat as multi-select array for popup
+                        
                         answers[currentStepData.id] 
                           ? answers[currentStepData.id].split(",").filter(v => v.trim())
                           : []

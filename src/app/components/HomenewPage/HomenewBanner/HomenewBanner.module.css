@@ -196,3 +196,9 @@
   background-size: contain;
   background-repeat: no-repeat;
 }
+
+@media (max-width: 576px) {
+  .experienceBox {
+    padding: 1.25rem;
+  }
+}

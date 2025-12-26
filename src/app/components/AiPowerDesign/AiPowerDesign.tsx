@@ -285,6 +285,7 @@ const AiPowerDesign = ({ data = AI_POWER_DESIGN_DATA }: AiPowerDesignProps) => {
                         border border-[#643bff] shadow-[0_0.25rem_0.75rem_rgba(101,59,255,0.4)]
                         w-full
                         text-sm
+                        sm:text-[0.95rem]
                         whitespace-normal break-words
                       `}>
                         {item.label}

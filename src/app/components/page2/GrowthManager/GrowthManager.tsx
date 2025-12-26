@@ -7,14 +7,12 @@ import Button from '../../Button';
 import { ArrowRightIcon } from '../../icons';
 import { GROWTH_MANAGER_DATA } from '../../../data/Page2';
 import styles from './GrowthManager.module.css';
-
+import CalendlyPopup from '../../CalendlyPopup/CalendlyPopup';
 const GrowthManager = () => {
   const [isMounted, setIsMounted] = useState(false);
-
+  const [isCalendlyPopupOpen, setIsCalendlyPopupOpen] = useState(false);
   useEffect(() => {
     setIsMounted(true);
-    
-    // Initialize Cal.com
     (async function () {
       const cal = await getCalApi({ namespace: GROWTH_MANAGER_DATA.calendly.namespace || "30min" });
       cal("ui", {
@@ -23,12 +21,11 @@ const GrowthManager = () => {
       });
     })();
   }, []);
-
   return (
+    <>
     <section className={`sectionPadding ${styles.growthManagerSection}`}>
       <Container maxWidth="xl" className="px-0">
         <div className={styles.contentWrapper}>
-          {/* Left Section - Calendar */}
           <div className={styles.leftSection}>
             <div className={styles.calendlyContainer}>
               <div className={styles.calendlyWrapper}>
@@ -78,8 +75,6 @@ const GrowthManager = () => {
               </div>
             </div>
           </div>
-
-          {/* Right Section - Content */}
           <div className={`sectionHeading ${styles.rightSection}`}>
             <h2>
               <span className="text-white">{GROWTH_MANAGER_DATA.headline.part1}</span>
@@ -93,8 +88,6 @@ const GrowthManager = () => {
             <h3 className={`text-[#0fdac2] text-xl font-semibold`}>
               {GROWTH_MANAGER_DATA.subHeading}
             </h3>
-
-            {/* Features List */}
             <ul className="mt-0 space-y-3">
               {GROWTH_MANAGER_DATA.features.map((feature, index) => (
                 <li key={index} className="flex items-start gap-3 text-white">
@@ -107,15 +100,13 @@ const GrowthManager = () => {
                 </li>
               ))}
             </ul>
-
             <p className="text-white text-lg leading-relaxed opacity-90">
               {GROWTH_MANAGER_DATA.conclusion}
             </p>
-
-            {/* CTA Button */}
             <div className="mt-2">
               <Button
                 href={GROWTH_MANAGER_DATA.cta.href}
+                onClick={() => setIsCalendlyPopupOpen(true)}
                 variant="green"
                 icon={<ArrowRightIcon style={{ fill: '#000' }} />}
                 iconPosition="right"
@@ -127,6 +118,11 @@ const GrowthManager = () => {
         </div>
       </Container>
     </section>
+    <CalendlyPopup
+        isOpen={isCalendlyPopupOpen}
+        onClose={() => setIsCalendlyPopupOpen(false)}
+      />
+    </>
   );
 };
 

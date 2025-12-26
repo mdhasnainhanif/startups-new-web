@@ -150,7 +150,7 @@ export default function QuestionnaireStep({
         })}
       </div>
 
-      {isMultiSelect && canProceed() && (
+      {/* {isMultiSelect && canProceed() && (
         <Button
           onClick={() => {
             // Find the next step from any option (they all have the same nextStep)
@@ -166,7 +166,7 @@ export default function QuestionnaireStep({
         >
           Continue
         </Button>
-      )}
+      )} */}
 
       {showBack && (
         <button

@@ -190,7 +190,6 @@
   display: flex;
   align-items: stretch;
   padding: 2rem 0rem 0rem 0rem;
-
 }
 
 .swiperContainer :global(.swiper-slide) {
@@ -362,5 +361,21 @@
 @media (max-width: 576px) {
   .heading {
     font-size: 2rem;
+  }
+
+  .swiperContainer :global(.swiper-wrapper) {
+    padding: 0rem 0rem 0rem 0rem;
+  }
+
+  .card {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .navButtonRight {
+    top: 7rem;
+  }
+
+  .navButtonLeft {
+    top: 7rem;
   }
 }

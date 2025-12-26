@@ -319,6 +319,10 @@
   .aeroicon {
     display: none;
   }
+
+  .mainContentBox {
+    padding: 1.25rem;
+  }
 }
 
 @media (max-width: 480px) {

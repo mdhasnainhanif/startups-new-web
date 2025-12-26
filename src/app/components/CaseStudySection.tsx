@@ -28,7 +28,7 @@ const CaseStudySection = ({ data = DEFAULT_CASE_STUDY_DATA, isShowTabs = true, c
   const [isDesktop, setIsDesktop] = useState<boolean>(false);
   const [isCalendlyPopupOpen, setIsCalendlyPopupOpen] = useState(false);
   
-  // Helper function to check if button should open Calendly popup
+  
   const shouldOpenCalendly = (buttonText: string) => {
     return buttonText === "Hire Brand Designer" || 
            buttonText === "Hire UI/UX Designer" || 
@@ -42,16 +42,31 @@ const CaseStudySection = ({ data = DEFAULT_CASE_STUDY_DATA, isShowTabs = true, c
            buttonText === "Hire Full Stack Developer" ||
            buttonText === "Hire Growth Hacker" ||
            buttonText === "Hire Marketing Automation Specialist" ||
-           buttonText === "Hire Data Analyst";
-  };
+           buttonText === "Hire Data Analyst" ||
+           buttonText === "Hire Web Developer" ||
+           buttonText === "Hire Web Designer" ||
+           buttonText === "Hire Copywriter" ||
+           buttonText === "Hire UI/UX Writer" ||
+           buttonText === "Hire Content Curator" ||
+           buttonText === "Hire Reels Creator" ||
+           buttonText === "Hire Growth Hacker" ||
+           buttonText === "Hire Marketing Automation Specialist" ||
+           buttonText === "Hire Data Analyst" ||
+           buttonText === "Hire Web Content Writer" ||
+           buttonText === "Hire Ads Writer" ||
+           buttonText === "Hire Social Media Designer" ||
+           buttonText === "Hire Content Curator" ||
+           buttonText === "Hire Reels Creator" ||
+           buttonText === "Hire Campaign Writer";
+ };
 
-  // Initialize with first card from data
+  
   const getInitialActiveTab = () => {
     const firstCard = data.cards.find((card) => card.category === data.tabs[0]?.id);
     return firstCard?.id || "tabScroll1";
   };
   const [activeTab, setActiveTab] = useState<string>(getInitialActiveTab());
-  // If tabs are hidden, default to "creative" category (Designer)
+  
   const [activeCategory, setActiveCategory] = useState<string>(isShowTabs ? "creative" : "creative");
   const [isFading, setIsFading] = useState<boolean>(false);
   const [shouldStick, setShouldStick] = useState<boolean>(true);
@@ -59,38 +74,38 @@ const CaseStudySection = ({ data = DEFAULT_CASE_STUDY_DATA, isShowTabs = true, c
   const [isTabsSwiperBeginning, setIsTabsSwiperBeginning] = useState(true);
   const [isTabsSwiperEnd, setIsTabsSwiperEnd] = useState(false);
 
-  // Use data from props
+  
   const tabs: TabData[] = data.tabs;
   const cardsData: CardData[] = data.cards;
 
-  // Filter cards based on active category
+  
   const filteredCards = cardsData.filter(
     (card) => card.category === activeCategory
   );
 
-  // Initialize activeTab with first card on mount or when data changes
+  
   useEffect(() => {
     if (filteredCards.length > 0) {
       const firstCardId = filteredCards[0].id;
-      // Only update if current activeTab is not in filtered cards
+      
       if (!filteredCards.find(card => card.id === activeTab)) {
         setActiveTab(firstCardId);
       }
     }
-  }, [data.cards, activeCategory]); // Run when data or category changes
+  }, [data.cards, activeCategory]); 
 
-  // refs (TOP)
+  
   const stackCardsRef = useRef<HTMLUListElement>(null);
   const itemsRef = useRef<HTMLLIElement[]>([]);
   const scrollingFnRef = useRef<(() => void) | null>(null);
   const scrollingRef = useRef<boolean>(false);
   const animationFrameRef = useRef<number | null>(null);
-  const scrollContainerRef = useRef<HTMLDivElement>(null); // ✅ moved up
+  const scrollContainerRef = useRef<HTMLDivElement>(null); 
   const openModal = useModalStore(
     (state: { openModal: any }) => state.openModal
   );
 
-  // Helper functions
+  
   const hasClass = (el: HTMLElement, className: string): boolean => {
     if (el.classList) return el.classList.contains(className);
     else
@@ -123,7 +138,7 @@ const CaseStudySection = ({ data = DEFAULT_CASE_STUDY_DATA, isShowTabs = true, c
     return false;
   };
 
-  // Stack Cards functions
+  
   const setStackCards = (): void => {
     const element = stackCardsRef.current;
     if (!element) return;
@@ -131,31 +146,31 @@ const CaseStudySection = ({ data = DEFAULT_CASE_STUDY_DATA, isShowTabs = true, c
     const items = itemsRef.current;
     if (!items || items.length === 0) return;
 
-    // Reset all transformations if not desktop
+    
     if (!isDesktop) {
       element.style.paddingBottom = "0px";
       for (let i = 0; i < items.length; i++) {
         if (items[i]) {
           items[i].style.transform = "translate3d(0, 0, 0)";
-          // Remove stack card classes on mobile
+          
           items[i].classList.remove(
             "service-scrollerItemContainer",
             "stack-cards__item",
             "js-stack-cards__item"
           );
-          // Show all items on mobile
+          
           items[i].style.display = "block";
         }
       }
       return;
     }
 
-    // Desktop setup - show all items with stack effect
+    
     for (let i = 0; i < items.length; i++) {
       if (items[i]) {
         items[i].style.display = "block";
-        items[i].style.transition = "transform 0.2s cubic-bezier(0.4, 0, 0.2, 1)"; // ✅ Smoother transition
-        // Ensure classes are present on desktop (don't add if already there)
+        items[i].style.transition = "transform 0.2s cubic-bezier(0.4, 0, 0.2, 1)"; 
+        
         if (!items[i].classList.contains("service-scrollerItemContainer")) {
           items[i].classList.add(
             "service-scrollerItemContainer",
@@ -166,7 +181,7 @@ const CaseStudySection = ({ data = DEFAULT_CASE_STUDY_DATA, isShowTabs = true, c
       }
     }
 
-    // Check if we have at least one item before calling getComputedStyle
+    
     if (!items[0]) return;
 
     const marginYValue =
@@ -246,7 +261,7 @@ const CaseStudySection = ({ data = DEFAULT_CASE_STUDY_DATA, isShowTabs = true, c
   };
 
   useEffect(() => {
-    if (isDesktop) return; // desktop pe stack math hi chalegi
+    if (isDesktop) return; 
     const root: any = scrollContainerRef.current ?? window;
     let raf = 0;
     const onScroll = () => {
@@ -263,7 +278,7 @@ const CaseStudySection = ({ data = DEFAULT_CASE_STUDY_DATA, isShowTabs = true, c
     };
   }, [isDesktop]);
 
-  // ✅ New function to maintain scale based on current position
+  
   const maintainStackCardsScale = (): void => {
     if (!isDesktop) return;
 
@@ -297,7 +312,7 @@ const CaseStudySection = ({ data = DEFAULT_CASE_STUDY_DATA, isShowTabs = true, c
             : (cardHeight - scrolling * 0.05) / cardHeight;
         const boundedScaling = Math.max(0.7, Math.min(1, scaling));
         const translateY = Math.round(marginY * i);
-        const scaleValue = Math.round(boundedScaling * 100) / 100; // Round to 2 decimal places
+        const scaleValue = Math.round(boundedScaling * 100) / 100; 
         items[i].style.transform = `translate3d(0, ${translateY}px, 0) scale3d(${scaleValue}, ${scaleValue}, 1)`;
       } else {
         const translateY = Math.round(marginY * i);
@@ -350,7 +365,7 @@ const CaseStudySection = ({ data = DEFAULT_CASE_STUDY_DATA, isShowTabs = true, c
       0
     ) {
       scrollingRef.current = false;
-      // Re-enable transitions when scrolling stops
+      
       for (let i = 0; i < items.length; i++) {
         if (items[i]) {
           items[i].style.transition = "transform 0.2s cubic-bezier(0.4, 0, 0.2, 1)";
@@ -359,7 +374,7 @@ const CaseStudySection = ({ data = DEFAULT_CASE_STUDY_DATA, isShowTabs = true, c
       return;
     }
 
-    // Disable transitions during active scrolling for smoother performance
+    
     for (let i = 0; i < items.length; i++) {
       if (items[i]) {
         items[i].style.transition = "none";
@@ -381,7 +396,7 @@ const CaseStudySection = ({ data = DEFAULT_CASE_STUDY_DATA, isShowTabs = true, c
             : (cardHeight - scrolling * 0.05) / cardHeight;
         const boundedScaling = Math.max(0.7, Math.min(1, scaling));
         const translateY = Math.round(marginY * i);
-        const scaleValue = Math.round(boundedScaling * 100) / 100; // Round to 2 decimal places
+        const scaleValue = Math.round(boundedScaling * 100) / 100; 
         items[i].style.transform = `translate3d(0, ${translateY}px, 0) scale3d(${scaleValue}, ${scaleValue}, 1)`;
       } else {
         const translateY = Math.round(marginY * i);
@@ -400,7 +415,7 @@ const CaseStudySection = ({ data = DEFAULT_CASE_STUDY_DATA, isShowTabs = true, c
 
     scrollingRef.current = false;
     
-    // Re-enable transitions after a short delay when scrolling stops
+    
     setTimeout(() => {
       if (!scrollingRef.current) {
         for (let i = 0; i < items.length; i++) {
@@ -419,7 +434,7 @@ const CaseStudySection = ({ data = DEFAULT_CASE_STUDY_DATA, isShowTabs = true, c
   };
 
   const initStackCardsEffect = (): void => {
-    // Only initialize if we have the required elements
+    
     if (
       stackCardsRef.current &&
       itemsRef.current &&
@@ -446,28 +461,28 @@ const CaseStudySection = ({ data = DEFAULT_CASE_STUDY_DATA, isShowTabs = true, c
 
     const scroller = scrollContainerRef.current;
 
-    // Prefer container scroll if it's actually scrollable
+    
     if (scroller && scroller.scrollHeight > scroller.clientHeight) {
       const targetRect = target.getBoundingClientRect();
       const scrollerRect = scroller.getBoundingClientRect();
       const current = scroller.scrollTop;
-      const delta = targetRect.top - scrollerRect.top; // distance inside the box
+      const delta = targetRect.top - scrollerRect.top; 
       scroller.scrollTo({ top: current + delta, behavior: "smooth" });
       return;
     }
 
-    // Fallback: page scroll
-    const y = window.scrollY + target.getBoundingClientRect().top - 80; // adjust if you have a sticky header
+    
+    const y = window.scrollY + target.getBoundingClientRect().top - 80; 
     window.scrollTo({ top: y, behavior: "smooth" });
   };
 
-  // helper: fetch all card <li> by filtered cards ids (order preserved)
+  
   const getCardEls = () =>
     filteredCards
       .map((card) => document.getElementById(card.id))
       .filter(Boolean) as HTMLElement[];
 
-  // compute visible ratio of an element inside a root rect
+  
   const ratioInRoot = (rect: DOMRect, rootRect: DOMRect) => {
     const top = Math.max(rect.top, rootRect.top);
     const bottom = Math.min(rect.bottom, rootRect.bottom);
@@ -475,11 +490,11 @@ const CaseStudySection = ({ data = DEFAULT_CASE_STUDY_DATA, isShowTabs = true, c
     return rect.height > 0 ? visible / rect.height : 0;
   };
 
-  // 🔁 robust scroll-based sync (no IO)
+  
   useEffect(() => {
     const rootEl = scrollContainerRef.current ?? null;
 
-    // if right panel actually scrolls, use it as root; else viewport
+    
     const getRootRect = () =>
       rootEl && rootEl.scrollHeight > rootEl.clientHeight
         ? rootEl.getBoundingClientRect()
@@ -504,7 +519,7 @@ const CaseStudySection = ({ data = DEFAULT_CASE_STUDY_DATA, isShowTabs = true, c
         }
       }
 
-      // little hysteresis to avoid flicker
+      
       if (bestId !== activeTab && best >= 0.35) setActiveTab(bestId);
     };
 
@@ -513,11 +528,11 @@ const CaseStudySection = ({ data = DEFAULT_CASE_STUDY_DATA, isShowTabs = true, c
       raf = requestAnimationFrame(selectMostVisible);
     };
 
-    // attach to both roots so desktop/mobile both covered
+    
     (rootEl ?? window).addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll, { passive: true });
 
-    // initial sync
+    
     selectMostVisible();
 
     return () => {
@@ -525,34 +540,34 @@ const CaseStudySection = ({ data = DEFAULT_CASE_STUDY_DATA, isShowTabs = true, c
       window.removeEventListener("resize", onScroll);
       cancelAnimationFrame(raf);
     };
-  }, [scrollContainerRef.current, filteredCards, data.cards]); // rewire if the scrolling root or cards change
+  }, [scrollContainerRef.current, filteredCards, data.cards]); 
 
-  // Handle resize
+  
   useEffect(() => {
     const handleResize = () => {
       const desktop = window.innerWidth >= 1024;
       setIsDesktop(desktop);
 
-      // Clean up and reinitialize
+      
       cleanupStackCards();
-      // Add a small delay to ensure DOM is ready
+      
       setTimeout(() => {
         initStackCardsEffect();
       }, 100);
     };
 
-    // Initial setup
+    
     const desktop = window.innerWidth >= 1024;
     setIsDesktop(desktop);
 
-    // Initialize only if not reduced motion and after a delay to ensure DOM is ready
+    
     if (!osHasReducedMotion()) {
       setTimeout(() => {
         initStackCardsEffect();
       }, 200);
     }
 
-    // Set up resize listener
+    
     let resizeTimeout: NodeJS.Timeout;
     const resizeListener = () => {
       clearTimeout(resizeTimeout);
@@ -561,7 +576,7 @@ const CaseStudySection = ({ data = DEFAULT_CASE_STUDY_DATA, isShowTabs = true, c
 
     window.addEventListener("resize", resizeListener);
 
-    // Clean up
+    
     return () => {
       cleanupStackCards();
       window.removeEventListener("resize", resizeListener);
@@ -569,7 +584,7 @@ const CaseStudySection = ({ data = DEFAULT_CASE_STUDY_DATA, isShowTabs = true, c
     };
   }, [isDesktop, activeTab, data.cards]);
 
-  // Update service scroller class
+  
   useEffect(() => {
     const updateServiceScrollerClass = () => {
       const el = document.getElementById("serviceScrollerArea");
@@ -589,16 +604,16 @@ const CaseStudySection = ({ data = DEFAULT_CASE_STUDY_DATA, isShowTabs = true, c
     };
   }, []);
 
-  // Initialize items ref
+  
   useEffect(() => {
-    // Add a small delay to ensure DOM is fully rendered
+    
     const timer = setTimeout(() => {
       if (stackCardsRef.current) {
         itemsRef.current = Array.from(
           stackCardsRef.current.getElementsByClassName("js-stack-cards__item")
         ) as HTMLLIElement[];
 
-        // Only call setStackCards on mobile to remove classes
+        
         if (!isDesktop && itemsRef.current.length > 0) {
           setStackCards();
         }
@@ -608,7 +623,7 @@ const CaseStudySection = ({ data = DEFAULT_CASE_STUDY_DATA, isShowTabs = true, c
     return () => clearTimeout(timer);
   }, [isDesktop, activeCategory, data.cards]);
 
-  // Sync Swiper to active category
+  
   useEffect(() => {
     if (tabsSwiperRef.current) {
       const activeIndex = tabs.findIndex((tab) => tab.id === activeCategory);
@@ -618,23 +633,23 @@ const CaseStudySection = ({ data = DEFAULT_CASE_STUDY_DATA, isShowTabs = true, c
     }
   }, [activeCategory]);
 
-  // Reinitialize stack cards when category changes
+  
   useEffect(() => {
     cleanupStackCards();
 
-    // Reset sticky state when category changes
+    
     setShouldStick(true);
 
-    // Set active tab to first card of the category
+    
     if (filteredCards.length > 0) {
       setActiveTab(filteredCards[0].id);
     } else {
-      // Fallback: set to first card of first category
+      
       const firstCard = data.cards.find((card) => card.category === data.tabs[0]?.id);
       if (firstCard) setActiveTab(firstCard.id);
     }
 
-    // Scroll to top of cards section when category changes
+    
     if (scrollContainerRef.current) {
       scrollContainerRef.current.scrollTo({ top: 0, behavior: "smooth" });
     }
@@ -651,7 +666,7 @@ const CaseStudySection = ({ data = DEFAULT_CASE_STUDY_DATA, isShowTabs = true, c
     };
   }, [activeCategory, filteredCards, data.cards]);
 
-  // Handle fade effect when category changes
+  
   useEffect(() => {
     setIsFading(true);
     const fadeOutTimer = setTimeout(() => {
@@ -661,7 +676,7 @@ const CaseStudySection = ({ data = DEFAULT_CASE_STUDY_DATA, isShowTabs = true, c
     return () => clearTimeout(fadeOutTimer);
   }, [activeCategory]);
 
-  // ✅ Add intersection observer or interval to maintain scale when not scrolling
+  
   useEffect(() => {
     if (!isDesktop) return;
 
@@ -669,12 +684,12 @@ const CaseStudySection = ({ data = DEFAULT_CASE_STUDY_DATA, isShowTabs = true, c
       if (!scrollingRef.current) {
         maintainStackCardsScale();
       }
-    }, 16); // Check every 16ms (60fps) when not actively scrolling
+    }, 16); 
 
     return () => clearInterval(intervalId);
   }, [isDesktop]);
 
-  // ✅ Check if all cards are scrolled past to unstick tabs navigation
+  
   useEffect(() => {
     const checkScrollPosition = () => {
       const cardsList = stackCardsRef.current;
@@ -685,39 +700,39 @@ const CaseStudySection = ({ data = DEFAULT_CASE_STUDY_DATA, isShowTabs = true, c
       );
       if (cards.length === 0) return;
 
-      // Get the last card
+      
       const lastCard = cards[cards.length - 1];
       if (!lastCard) return;
 
-      // Get the bounding rect of the last card
+      
       const lastCardRect = lastCard.getBoundingClientRect();
 
       const viewportHeight = window.innerHeight;
       
-      // When last card's bottom is above viewport bottom, tabs should scroll naturally
-      // This makes tabs naturally scroll up with cards section, not hide
+      
+      
       const shouldUnstick = lastCardRect.bottom < viewportHeight;
 
-      // On mobile, tabs should never be sticky - always scroll naturally
-      // On desktop, apply sticky behavior only when cards are still visible
-      // When cards finish, tabs become non-sticky and scroll up naturally
+      
+      
+      
       setShouldStick(isDesktop && !shouldUnstick);
     };
 
-    // Check on scroll - handle both window and container scroll
+    
     const handleScroll = () => {
       requestAnimationFrame(checkScrollPosition);
     };
 
     const rootEl = scrollContainerRef.current;
 
-    // Listen to both window and container scroll if container is scrollable
+    
     window.addEventListener("scroll", handleScroll, { passive: true });
     if (rootEl) {
       rootEl.addEventListener("scroll", handleScroll, { passive: true });
     }
 
-    checkScrollPosition(); // Initial check
+    checkScrollPosition(); 
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -828,7 +843,7 @@ const CaseStudySection = ({ data = DEFAULT_CASE_STUDY_DATA, isShowTabs = true, c
             {/* Tabs Navigation - Mobile View with Swiper */}
             {isShowTabs && (
               <div
-                className={`${shouldStick ? "sticky" : ""} top-10 z-50 py-4 rounded-lg w-full mx-auto md:bg-[#0b0038] md:mb-8 mb-16 relative md:hidden transition-all duration-300 ease-in-out`}
+                className={`${shouldStick ? "sticky" : ""} md:top-10 sm:top-0 z-50 py-4 rounded-lg w-full mx-auto md:bg-[#0b0038] md:mb-8 mb-10 relative md:hidden transition-all duration-300 ease-in-out`}
               >
               {/* Left Arrow */}
               <button
@@ -895,7 +910,7 @@ const CaseStudySection = ({ data = DEFAULT_CASE_STUDY_DATA, isShowTabs = true, c
                             (card) => card.category === tab.id
                           );
                           if (firstCard) setActiveTab(firstCard.id);
-                          // Sync swiper to active tab
+                          
                           const tabIndex = data.tabs.findIndex((t) => t.id === tab.id);
                           if (tabsSwiperRef.current && tabIndex !== -1) {
                             tabsSwiperRef.current.slideTo(tabIndex);

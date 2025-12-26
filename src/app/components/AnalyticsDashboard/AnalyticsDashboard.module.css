@@ -37,7 +37,7 @@
     position: absolute;
     top: -2.5rem;
     left: 0rem;
-    min-height: 36.8rem;
+    min-height: 35.8rem;
 }
 
 .middleColumn::after {
@@ -48,7 +48,7 @@
     position: absolute;
     top: -2.5rem;
     left: 0rem;
-    min-height: 36.8rem;
+    min-height: 35.8rem;
 }
 
 .middleColumn {
@@ -188,5 +188,16 @@
 
     .middleColumn::after {
         display: none;
+    }
+
+    .innerPadding {
+        padding: 1.25rem !important;
+    }
+
+    .pl0mobile {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        padding-bottom: 1.25rem !important;
+        padding-top: 0 !important;
     }
 }

@@ -54,7 +54,7 @@
   border-radius: 20px;
   border: 1px solid #9b7eff4d;
   display: flex;
-  min-height: 400px;
+  min-height: 23rem;
   width: 100%;
 }
 
@@ -120,3 +120,9 @@
   height: 1px;
   background: #072e41;
 } */
+@media (max-width: 576px) {
+  .businesscontainer {
+    padding: 1.25rem;
+  }
+
+}

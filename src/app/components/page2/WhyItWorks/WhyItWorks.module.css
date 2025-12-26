@@ -150,8 +150,9 @@
   }
 
   .iconWrapper {
-    width: 40px;
-    height: 40px;
+    width: 43px;
+    height: 43px;
+    padding: 0.48rem;
   }
 
   .icon {
@@ -162,4 +163,5 @@
   .itemText {
     font-size: 0.9375rem;
   }
+
 }
