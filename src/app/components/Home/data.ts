@@ -213,6 +213,17 @@ export const REVIEWS_SECTION = {
       hasBorder: true,
     },
     {
+      id: 11,
+      name: "Oak Park Line Dance",
+      initials: "OP",
+      source: "Trustpilot",
+      date: "Sep 9, 2025",
+      rating: 5,
+      text: "Our experience with Startups Advisory was remarkably outstanding from the beginning of our project to the very end.",
+      isVideo: false,
+      hasBorder: false,
+    },
+    {
       id: 3,
       name: "Octavio Londono",
       initials: "O",

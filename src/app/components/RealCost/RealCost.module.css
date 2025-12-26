@@ -402,12 +402,23 @@ p.conclusion {
   height: 80%;
   background-color: #181847;
 }
+.barLabelsRow{
+  display:flex;
+  justify-content:space-between;
+  margin-top:10px;
+  font-size:12px;
+  opacity:.85;
+}
+.barLabelItem{
+  color:#fff;
+}
 
 .bar {
   width: 40px;
   border-radius: 4px 4px 0 0;
   transition: height 0.3s ease;
   min-height: 10px;
+  transform: translateZ(0);
 }
 
 .donutChart {

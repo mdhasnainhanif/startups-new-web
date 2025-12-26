@@ -95,10 +95,22 @@ export default function FAQ({ faqs, sectionData, className = "" }: FAQProps) {
                         <span className="text-white font-semibold text-base sm:text-lg md:text-xl lg:text-xl pr-2 sm:pr-4 flex-1 leading-snug sm:leading-normal">
                           {faq.question}
                         </span>
-                        <span className={`text-xl sm:text-2xl md:text-3xl font-light shrink-0 w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 flex items-center justify-center transition-colors ${
-                          leftOpenIndex === index ? "text-[#643bff]" : "text-[#0fdac2]"
+                        <span className={`shrink-0 w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 flex items-center justify-center transition-all duration-300 ${
+                          leftOpenIndex === index ? "text-[#643bff] rotate-180" : "text-[#0fdac2] rotate-0"
                         }`}>
-                          {leftOpenIndex === index ? "−" : "+"}
+                          <svg
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            className="w-full h-full"
+                          >
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                          </svg>
                         </span>
                       </button>
                       
@@ -135,10 +147,22 @@ export default function FAQ({ faqs, sectionData, className = "" }: FAQProps) {
                         <span className="text-white font-semibold text-base sm:text-lg md:text-xl lg:text-xl pr-2 sm:pr-4 flex-1 leading-snug sm:leading-normal">
                           {faq.question}
                         </span>
-                        <span className={`text-xl sm:text-2xl md:text-3xl font-light shrink-0 w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 flex items-center justify-center transition-colors ${
-                          rightOpenIndex === index ? "text-[#643bff]" : "text-[#0fdac2]"
+                        <span className={`shrink-0 w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 flex items-center justify-center transition-all duration-300 ${
+                          rightOpenIndex === index ? "text-[#643bff] rotate-180" : "text-[#0fdac2] rotate-0"
                         }`}>
-                          {rightOpenIndex === index ? "−" : "+"}
+                          <svg
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            className="w-full h-full"
+                          >
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                          </svg>
                         </span>
                       </button>
                       

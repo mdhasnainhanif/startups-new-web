@@ -15,6 +15,7 @@ import "../../../public/assets/css/casestudytwo.css";
 import Container from "./Container";
 import Button from "./Button";
 import { ArrowRightIcon } from "./icons";
+import CalendlyPopup from "./CalendlyPopup/CalendlyPopup";
 import { CaseStudySectionData, DEFAULT_CASE_STUDY_DATA, CardData, TabData } from "../data/CaseStudySectionData";
 
 interface CaseStudySectionProps {
@@ -25,6 +26,25 @@ interface CaseStudySectionProps {
 
 const CaseStudySection = ({ data = DEFAULT_CASE_STUDY_DATA, isShowTabs = true, className }: CaseStudySectionProps) => {
   const [isDesktop, setIsDesktop] = useState<boolean>(false);
+  const [isCalendlyPopupOpen, setIsCalendlyPopupOpen] = useState(false);
+  
+  // Helper function to check if button should open Calendly popup
+  const shouldOpenCalendly = (buttonText: string) => {
+    return buttonText === "Hire Brand Designer" || 
+           buttonText === "Hire UI/UX Designer" || 
+           buttonText === "Hire UI UX Designer" ||
+           buttonText === "Hire Graphic Designer" ||
+           buttonText === "Hire Content Strategist" ||
+           buttonText === "Hire Social Media Manager" ||
+           buttonText === "Hire SEO Specialist" ||
+           buttonText === "Hire Front End Developer" ||
+           buttonText === "Hire Backend Developer" ||
+           buttonText === "Hire Full Stack Developer" ||
+           buttonText === "Hire Growth Hacker" ||
+           buttonText === "Hire Marketing Automation Specialist" ||
+           buttonText === "Hire Data Analyst";
+  };
+
   // Initialize with first card from data
   const getInitialActiveTab = () => {
     const firstCard = data.cards.find((card) => card.category === data.tabs[0]?.id);
@@ -953,11 +973,14 @@ const CaseStudySection = ({ data = DEFAULT_CASE_STUDY_DATA, isShowTabs = true, c
                               </div>
                               <Button
                                 variant="green"
-                                href="#"
+                                href={shouldOpenCalendly(card.buttonText) ? undefined : "#"}
+                                onClick={shouldOpenCalendly(card.buttonText) ? () => setIsCalendlyPopupOpen(true) : undefined}
                                 icon={
                                   <ArrowRightIcon style={{ fill: "#000" }} />
                                 }
                                 iconPosition="right"
+                                className={shouldOpenCalendly(card.buttonText) ? "hire-brand-designer-btn" : ""}
+                                style={shouldOpenCalendly(card.buttonText) ? { backgroundColor: "#0fdac2" } : undefined}
                               >
                                 {card.buttonText}
                               </Button>
@@ -985,6 +1008,12 @@ const CaseStudySection = ({ data = DEFAULT_CASE_STUDY_DATA, isShowTabs = true, c
           </div>
         </Container>
       </section>
+      
+      {/* Calendly Popup */}
+      <CalendlyPopup
+        isOpen={isCalendlyPopupOpen}
+        onClose={() => setIsCalendlyPopupOpen(false)}
+      />
     </div>
   );
 };

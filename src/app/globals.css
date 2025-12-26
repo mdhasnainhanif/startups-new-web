@@ -62,6 +62,12 @@ nav.headerNav {
     0 10px 20px -10px rgba(0, 0, 0, 0.3);
 }
 
+/* Active navigation link styles - color #0fdac2, no text-shadow */
+nav.headerNav a.active {
+  color: #0fdac2 !important;
+  text-shadow: none !important;
+}
+
 .bottomZero {
   padding-bottom: 0rem;
 }
@@ -882,4 +888,10 @@ section img.banneFullMin {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* Hire Brand Designer button - background color #0fdac2 */
+.hire-brand-designer-btn,
+.hire-brand-designer-btn.green {
+  background-color: #0fdac2 !important;
 }

@@ -96,8 +96,8 @@ export default function HeroBanner({
           {/* 300+ Companies Badge */}
           <div>
             <p className={`${styles.companiesBadge}`}>
-              <span className={styles.companiesNumber}>300+</span>{" "}
-              <span className={styles.companiesText}>Companies</span>
+              <span className={styles.companiesNumber}>Business Powered by</span>{" "}
+              <span className={styles.companiesText}>AI</span>
             </p>
           </div>
           <h1 className="max-w-5xl">

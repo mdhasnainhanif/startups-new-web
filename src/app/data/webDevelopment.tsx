@@ -244,6 +244,10 @@ export interface PackageDetailsData {
     number: string;
     label: string;
   }>;
+  ctaButton?: {
+    text: string;
+    href: string;
+  };
 }
 
 export interface PricingData {

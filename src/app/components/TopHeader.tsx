@@ -56,7 +56,7 @@ export default function TopHeader() {
               {TOP_BANNER.text}
             </p>
             <Button
-              href="#"
+              href={TOP_BANNER.buttonLink}
               variant="secondary"
               size="sm"
               iconPosition="right"

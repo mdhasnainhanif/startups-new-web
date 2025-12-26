@@ -46,8 +46,9 @@ export default function PoppupStepQuestionnaire({
     }));
 
     const currentStepData = questionnaireData.steps.find((s) => s.id === stepId);
-    const isMultiSelect = currentStepData?.multiSelect === true;
-    const maxSelections = currentStepData?.maxSelections || 3;
+    // Override maxSelections to 2 for all steps in popup
+    const isMultiSelect = true; // Make all steps multi-select in popup
+    const maxSelections = 2; // Force maxSelections to 2 for popup
     
     // Check if max selections reached (count comma-separated values)
     const selectionCount = value ? value.split(",").filter(v => v.trim()).length : 0;
@@ -276,12 +277,18 @@ export default function PoppupStepQuestionnaire({
                   <div className={`${styles.stepWrapper} ${fadeIn ? styles.fadeIn : styles.fadeOut}`}>
                     <QuestionnaireStep
                       key={currentStepData.id}
-                      step={currentStepData}
+                      step={{
+                        ...currentStepData,
+                        multiSelect: true, // Force all steps to be multi-select in popup
+                        maxSelections: 2, // Force maxSelections to 2 for popup
+                      }}
                       onSelect={handleOptionSelect}
                       onBack={handleBack}
-                      selectedValue={currentStepData.multiSelect 
-                        ? (answers[currentStepData.id] ? answers[currentStepData.id].split(",") : [])
-                        : answers[currentStepData.id]
+                      selectedValue={
+                        // Always treat as multi-select array for popup
+                        answers[currentStepData.id] 
+                          ? answers[currentStepData.id].split(",").filter(v => v.trim())
+                          : []
                       }
                       showBack={false}
                     />

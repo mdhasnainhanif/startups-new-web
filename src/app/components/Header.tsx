@@ -470,43 +470,29 @@ export default function Header() {
             </div>
             <div className="hidden md:flex items-center gap-6 flex-1 justify-center relative z-50">
               {NAVIGATION_LINKS.map((link, index) => {
+                // Home link - Active class added, color #0fdac2, no text-shadow
                 if (link.label === "Home") {
                   return (
                     <a
                       key={link.href}
                       href={link.href}
                       className={`text-white font-medium hover:text-[#0fdac2] transition-colors cursor-pointer ${
-                        isActive(link.href) ? "text-[#0fdac2]" : ""
+                        isActive(link.href) ? "active text-[#0fdac2]" : ""
                       }`}
-                      style={
-                        isActive(link.href)
-                          ? {
-                              textShadow:
-                                "-9px 0 17px #00dbc1e6, 0px 6px 8px #0fdac287, 0 0 56px #0fdac2cc",
-                            }
-                          : {}
-                      }
                     >
                       {link.label}
                     </a>
                   );
                 }
+                // Designer link - Active class added, color #0fdac2, no text-shadow
                 if (link.label === "Designer") {
                   return (
                     <React.Fragment key={`designer-with-services-${link.href}`}>
                       <a
                         href={link.href}
                         className={`text-white font-medium hover:text-[#0fdac2] transition-colors cursor-pointer ${
-                          isActive(link.href) ? "text-[#0fdac2]" : ""
+                          isActive(link.href) ? "active text-[#0fdac2]" : ""
                         }`}
-                        style={
-                          isActive(link.href)
-                            ? {
-                                textShadow:
-                                  "-9px 0 17px #00dbc1e6, 0px 6px 8px #0fdac287, 0 0 56px #0fdac2cc",
-                              }
-                            : {}
-                        }
                       >
                         {link.label}
                       </a>
@@ -537,6 +523,7 @@ export default function Header() {
                           }, 150);
                         }}
                       >
+                        {/* Services dropdown button - Active class added, color #0fdac2, no text-shadow */}
                         <button
                           ref={dropdownButtonRef2}
                           className={`text-white font-medium hover:text-[#0FDAC2] transition-colors flex items-center 
@@ -544,19 +531,9 @@ export default function Header() {
                             servicesMenuItems.some((item) =>
                               pathname?.startsWith(item.href)
                             )
-                              ? "text-[#0FDAC2]"
+                              ? "active text-[#0FDAC2]"
                               : ""
                           }`}
-                          style={
-                            servicesMenuItems.some((item) =>
-                              pathname?.startsWith(item.href)
-                            )
-                              ? {
-                                  textShadow:
-                                    "-9px 0 17px #00dbc1e6, 0px 6px 8px #0fdac287, 0 0 56px #0fdac2cc",
-                                }
-                              : {}
-                          }
                         >
                           Services
                           <svg
@@ -652,22 +629,14 @@ export default function Header() {
                     </React.Fragment>
                   );
                 }
-                
+                // Other navigation links - Active class added, color #0fdac2, no text-shadow
                 return (
                   <a
                     key={link.href}
                     href={link.href}
                     className={`text-white font-medium hover:text-[#0fdac2] transition-colors cursor-pointer ${
-                      isActive(link.href) ? "text-[#0fdac2]" : ""
+                      isActive(link.href) ? "active text-[#0fdac2]" : ""
                     }`}
-                    style={
-                      isActive(link.href)
-                        ? {
-                            textShadow:
-                              "-9px 0 17px #00dbc1e6, 0px 6px 8px #0fdac287, 0 0 56px #0fdac2cc",
-                          }
-                        : {}
-                    }
                   >
                     {link.label}
                   </a>
@@ -761,38 +730,24 @@ export default function Header() {
           </div>
 
           <div className="flex flex-col flex-1 px-4 py-6 gap-4 overflow-y-auto">
+            {/* Mobile Home link - Active class added, color #0fdac2, no text-shadow */}
             <Link
               href="/"
               onClick={() => setIsMobileMenuOpen(false)}
               className={`text-white text-base font-medium hover:text-[#0fdac2] transition-colors py-2 ${
-                isActive("/") ? "text-[#0fdac2]" : ""
+                isActive("/") ? "active text-[#0fdac2]" : ""
               }`}
-              style={
-                isActive("/")
-                  ? {
-                      textShadow:
-                        "-9px 0 17px #00dbc1e6, 0px 6px 8px #0fdac287, 0 0 56px #0fdac2cc",
-                    }
-                  : {}
-              }
             >
               Home
             </Link>
 
+            {/* Mobile Designer link - Active class added, color #0fdac2, no text-shadow */}
             <div className="mb-2">
               <Link href="/designer">
               <button
                 className={`text-white text-base font-medium hover:text-[#0fdac2] transition-colors py-2 w-full text-left flex items-center justify-between ${
-                  isServicePage() ? "text-[#0fdac2]" : ""
+                  isServicePage() ? "active text-[#0fdac2]" : ""
                 }`}
-                style={
-                  isServicePage()
-                    ? {
-                        textShadow:
-                          "-9px 0 17px #00dbc1e6, 0px 6px 8px #0fdac287, 0 0 56px #0fdac2cc",
-                      }
-                    : {}
-                }
               >
                 Designer
                 {/* <svg
@@ -861,6 +816,7 @@ export default function Header() {
               )} */}
             </div>
 
+            {/* Mobile Services dropdown button - Active class added, color #0fdac2, no text-shadow */}
             <div className="mb-2">
               <button
                 onClick={() =>
@@ -870,19 +826,9 @@ export default function Header() {
                   servicesMenuItems.some((item) =>
                     pathname?.startsWith(item.href)
                   )
-                    ? "text-[#0fdac2]"
+                    ? "active text-[#0fdac2]"
                     : ""
                 }`}
-                style={
-                  servicesMenuItems.some((item) =>
-                    pathname?.startsWith(item.href)
-                  )
-                    ? {
-                        textShadow:
-                          "-9px 0 17px #00dbc1e6, 0px 6px 8px #0fdac287, 0 0 56px #0fdac2cc",
-                      }
-                    : {}
-                }
               >
                 Services
                 <svg
@@ -940,22 +886,15 @@ export default function Header() {
               )}
             </div>
 
+            {/* Mobile other navigation links - Active class added, color #0fdac2, no text-shadow */}
             {NAVIGATION_LINKS.filter((link) => link.label !== "Home" && link.label !== "Designer").map(
               (link) => (
                 <a
                   key={link.href}
                   href={link.href}
                   className={`text-white text-base font-medium hover:text-[#0fdac2] transition-colors py-2 ${
-                    isActive(link.href) ? "text-[#0fdac2]" : ""
+                    isActive(link.href) ? "active text-[#0fdac2]" : ""
                   }`}
-                  style={
-                    isActive(link.href)
-                      ? {
-                          textShadow:
-                            "-9px 0 17px #00dbc1e6, 0px 6px 8px #0fdac287, 0 0 56px #0fdac2cc",
-                        }
-                      : {}
-                  }
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.label}
