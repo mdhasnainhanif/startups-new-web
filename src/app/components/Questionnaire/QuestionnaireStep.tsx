@@ -39,7 +39,7 @@ export default function QuestionnaireStep({
   showBack = true,
 }: QuestionnaireStepProps) {
   const isMultiSelect = step.multiSelect === true;
-  const maxSelections = step.maxSelections || 3;
+  const maxSelections = step.maxSelections || 2;
   const selectedValues = isMultiSelect 
     ? (Array.isArray(selectedValue) ? selectedValue : [])
     : [];
@@ -47,22 +47,22 @@ export default function QuestionnaireStep({
   const handleOptionClick = (option: Option) => {
     if (isMultiSelect) {
       // For multi-select, toggle the selection
-      const currentValues = Array.isArray(selectedValue) ? selectedValue : [];
-      const isSelected = currentValues.includes(option.value);
+      // Use selectedValues (already parsed) instead of selectedValue
+      const isSelected = selectedValues.includes(option.value);
       
       if (isSelected) {
         // Deselect
-        const newValues = currentValues.filter(v => v !== option.value);
-        // Store as comma-separated string for compatibility (don't advance)
-        onSelect(step.id, newValues.join(","), "");
+        const newValues = selectedValues.filter(v => v !== option.value);
+        // Always use JSON string to handle values with commas
+        onSelect(step.id, JSON.stringify(newValues), "");
       } else {
         // Select (if under max)
-        if (currentValues.length < maxSelections) {
-          const newValues = [...currentValues, option.value];
+        if (selectedValues.length < maxSelections) {
+          const newValues = [...selectedValues, option.value];
           const shouldAutoAdvance = newValues.length === maxSelections;
           
-          // Store the selection and advance if max reached
-          onSelect(step.id, newValues.join(","), shouldAutoAdvance ? option.nextStep : "");
+          // Always use JSON string to handle values with commas
+          onSelect(step.id, JSON.stringify(newValues), shouldAutoAdvance ? option.nextStep : "");
         }
       }
     } else {

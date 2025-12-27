@@ -196,19 +196,21 @@ const RealCost = ({ data = REAL_COST_DATA }: RealCostProps) => {
 
 
   const handleMonthlyCostChange = (value: string) => {
-    // Format the input value
+    // Format the input value immediately
     const formatted = formatNumber(value);
+    
+    // Update monthly cost state - this triggers re-render immediately
     setMonthlyCost(formatted);
     
-    if (formatted) {
+    // Update annual cost only if monthly is valid
+    if (formatted && formatted.length > 0) {
       const monthlyRaw = getRawValue(formatted);
       const monthly = parseInt(monthlyRaw, 10);
       if (!isNaN(monthly) && monthly > 0) {
         const annual = monthly * 12;
         const annualFormatted = formatNumber(annual.toString());
         setAnnualCost(annualFormatted);
-        // Set total to annual cost
-        setEstimatedTotal(annual || 58000);
+        setEstimatedTotal(annual);
       } else {
         setAnnualCost('');
         setEstimatedTotal(58000);
@@ -220,19 +222,21 @@ const RealCost = ({ data = REAL_COST_DATA }: RealCostProps) => {
   };
 
   const handleAnnualCostChange = (value: string) => {
-    // Format the input value
+    // Format the input value immediately
     const formatted = formatNumber(value);
+    
+    // Update annual cost state - this triggers re-render immediately
     setAnnualCost(formatted);
     
-    if (formatted) {
+    // Update monthly cost only if annual is valid
+    if (formatted && formatted.length > 0) {
       const annualRaw = getRawValue(formatted);
       const annual = parseInt(annualRaw, 10);
       if (!isNaN(annual) && annual > 0) {
         const monthly = Math.round(annual / 12);
         const monthlyFormatted = formatNumber(monthly.toString());
         setMonthlyCost(monthlyFormatted);
-        // Set total to annual cost
-        setEstimatedTotal(annual || 58000);
+        setEstimatedTotal(annual);
       } else {
         setMonthlyCost('');
         setEstimatedTotal(58000);
@@ -253,31 +257,53 @@ const RealCost = ({ data = REAL_COST_DATA }: RealCostProps) => {
   };
 
   // Calculate bar heights based on monthly and annual costs - using real-time input values
+  // Calculate directly without useMemo to ensure real-time updates
   const calculateBarHeights = () => {
     // Get real-time values from input fields
-    const monthlyRaw = getRawValue(monthlyCost);
-    const annualRaw = getRawValue(annualCost);
+    const monthlyRaw = monthlyCost ? getRawValue(monthlyCost) : '';
+    const annualRaw = annualCost ? getRawValue(annualCost) : '';
     
-    // Parse to numbers
-    const monthlyNum = monthlyRaw ? parseInt(monthlyRaw, 10) : 0;
-    const annualNum = annualRaw ? parseInt(annualRaw, 10) : 0;
+    // Parse to numbers - handle partial input gracefully
+    const monthlyNum = monthlyRaw && monthlyRaw.length > 0 ? parseInt(monthlyRaw, 10) : 0;
+    const annualNum = annualRaw && annualRaw.length > 0 ? parseInt(annualRaw, 10) : 0;
     
-    // Fixed maximum value for scaling (adjust this based on your expected max values)
-    // This represents 100% height on the chart
-    const MAX_CHART_VALUE = 1000000; // 1 million as max for 100% height
+    // Check if values are valid numbers (not NaN and greater than 0)
+    const hasMonthly = !isNaN(monthlyNum) && monthlyNum > 0;
+    const hasAnnual = !isNaN(annualNum) && annualNum > 0;
+    
+    // If no valid values, return 0 heights
+    if (!hasMonthly && !hasAnnual) {
+      return { monthlyHeight: 0, annualHeight: 0 };
+    }
+    
+    // Dynamic maximum value for scaling - use the larger of the two values
+    // This ensures bars scale relative to each other
+    const maxValue = Math.max(
+      hasMonthly ? monthlyNum : 0,
+      hasAnnual ? annualNum : 0
+    );
+    
+    // Ensure we have a valid max value
+    if (maxValue <= 0 || isNaN(maxValue)) {
+      return { monthlyHeight: 0, annualHeight: 0 };
+    }
+    
+    // Add 20% padding at top for better visualization
+    const MAX_CHART_VALUE = maxValue * 1.2;
     
     // Calculate bar heights directly from input values
     // Convert actual values to percentage (0-100%)
-    const monthlyHeight = monthlyNum > 0 
-      ? Math.min(100, (monthlyNum / MAX_CHART_VALUE) * 100)
+    const monthlyHeight = hasMonthly
+      ? Math.max(2, Math.min(100, (monthlyNum / MAX_CHART_VALUE) * 100))
       : 0;
-    const annualHeight = annualNum > 0
-      ? Math.min(100, (annualNum / MAX_CHART_VALUE) * 100)
+    const annualHeight = hasAnnual
+      ? Math.max(2, Math.min(100, (annualNum / MAX_CHART_VALUE) * 100))
       : 0;
     
     return { monthlyHeight, annualHeight };
   };
 
+  // Calculate heights on every render for real-time updates
   const { monthlyHeight, annualHeight } = calculateBarHeights();
 
   return (

@@ -107,8 +107,18 @@ export default function BriefPage() {
     }));
     const currentStepData = questionnaireData.steps.find((s) => s.id === stepId);
     const isMultiSelect = currentStepData?.multiSelect === true;
-    const maxSelections = currentStepData?.maxSelections || 3;
-    const selectionCount = value ? value.split(",").filter(v => v.trim()).length : 0;
+    const maxSelections = currentStepData?.maxSelections || 2;
+    // Parse JSON string for multi-select, or count comma-separated for backward compatibility
+    let selectionCount = 0;
+    if (isMultiSelect && value) {
+      try {
+        const parsed = JSON.parse(value);
+        selectionCount = Array.isArray(parsed) ? parsed.length : 0;
+      } catch {
+        // Fallback to comma-separated for backward compatibility
+        selectionCount = value.split(",").filter(v => v.trim()).length;
+      }
+    }
     const maxReached = isMultiSelect && selectionCount >= maxSelections;
     if (nextStep) {
       if (!isMultiSelect || maxReached) {
@@ -315,7 +325,29 @@ export default function BriefPage() {
                               onSelect={handleOptionSelect}
                               onBack={handleBack}
                               selectedValue={currentStepData.multiSelect 
-                                ? (answers[currentStepData.id] ? answers[currentStepData.id].split(",") : [])
+                                ? (() => {
+                                    const answer = answers[currentStepData.id];
+                                    if (!answer || answer.trim() === "") {
+                                      return [];
+                                    }
+                                    // Always try JSON first
+                                    try {
+                                      const parsed = JSON.parse(answer);
+                                      if (Array.isArray(parsed)) {
+                                        return parsed;
+                                      }
+                                      return [];
+                                    } catch {
+                                      // If not JSON, check if it's step 7 (has values with commas)
+                                      // For step 7, never use comma-separated - return empty to force re-selection
+                                      if (currentStepData.id === "step-7") {
+                                        return [];
+                                      }
+                                      // For other steps, try comma-separated as fallback
+                                      const splitValues = answer.split(",").map(v => v.trim()).filter(v => v !== "");
+                                      return splitValues;
+                                    }
+                                  })()
                                 : answers[currentStepData.id]
                               }
                               showBack={false}
