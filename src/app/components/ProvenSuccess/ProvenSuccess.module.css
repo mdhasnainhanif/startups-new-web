@@ -952,3 +952,72 @@
   object-fit: contain;
   display: block;
 }
+
+/* Add these styles for the tabs-based grid images */
+.portfolioItem {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portfolioItem:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(15, 218, 194, 0.2);
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  background: #0d0934;
+  display: block;
+}
+
+.portfolioImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease, filter 0.3s ease;
+}
+
+.portfolioItem:hover .portfolioImage {
+  transform: scale(1.1);
+  filter: brightness(0.7);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #0fdac28a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 0.75rem;
+}
+
+.portfolioItem:hover .overlay {
+  opacity: 1;
+}
+
+.zoomIcon {
+  color: #ffffff;
+  width: 64px;
+  height: 64px;
+  transform: scale(0.8);
+  transition: transform 0.3s ease;
+  stroke-width: 2;
+}
+
+.portfolioItem:hover .zoomIcon {
+  transform: scale(1);
+}

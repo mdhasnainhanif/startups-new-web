@@ -4,6 +4,8 @@ import { useState, useRef, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import type { Swiper as SwiperType } from 'swiper';
+import { Fancybox } from '@fancyapps/ui';
+import '@fancyapps/ui/dist/fancybox/fancybox.css';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import styles from './ProvenSuccess.module.css';
@@ -332,6 +334,18 @@ const ProvenSuccess = ({ data, variant }: ProvenSuccessProps) => {
   const currentTab = filteredTabs.find((tab) => tab.id === activeTab) || filteredTabs[0];
   const displayedTab = filteredTabs.find((tab) => tab.id === displayedTabId) || filteredTabs[0];
 
+  // Initialize Fancybox
+  useEffect(() => {
+    Fancybox.bind('[data-fancybox]', {
+      // Basic options that work with Fancybox v6
+    });
+
+    return () => {
+      Fancybox.unbind('[data-fancybox]');
+      Fancybox.destroy();
+    };
+  }, [displayedTabId]);
+
   // Handle fade effect when tab or category changes (Bootstrap-like smooth fade)
   useEffect(() => {
     if (!isWebDevelopment && activeTab) {
@@ -557,7 +571,7 @@ const ProvenSuccess = ({ data, variant }: ProvenSuccessProps) => {
             ))}
           </div>
         ) : (
-          // Original Tabs-based Grid
+          // Original Tabs-based Grid with Fancybox and Magnifier
           <div
             key={displayedTabId}
             className={`grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 transition-opacity duration-300 ease-in-out ${isFading ? "opacity-0" : "opacity-100"
@@ -566,13 +580,36 @@ const ProvenSuccess = ({ data, variant }: ProvenSuccessProps) => {
             {displayedTab.images.map((image, index) => (
               <div
                 key={`${displayedTabId}-${index}`}
-                className="aspect-square rounded-lg overflow-hidden"
+                className={`${styles.portfolioItem} aspect-square rounded-lg overflow-hidden cursor-pointer`}
               >
-                <img
-                  src={image}
-                  alt={`${displayedTab.label} ${index + 1}`}
-                  className="w-full h-full object-cover"
-                />
+                <a
+                  href={image}
+                  data-fancybox={displayedTabId}
+                  data-caption={`${displayedTab.label} - Image ${index + 1}`}
+                  className={styles.imageWrapper}
+                >
+                  <img
+                    src={image}
+                    alt={`${displayedTab.label} ${index + 1}`}
+                    className={`${styles.portfolioImage} w-full h-full object-cover`}
+                  />
+                  <div className={styles.overlay}>
+                    <svg
+                      className={styles.zoomIcon}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"
+                      />
+                    </svg>
+                  </div>
+                </a>
               </div>
             ))}
           </div>
