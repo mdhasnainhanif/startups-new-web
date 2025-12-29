@@ -1,6 +1,7 @@
 'use client';
 
 import Container from '../../components/Container';
+import Button from '../../components/Button';
 import styles from './CreativeServicesSection.module.css';
 
 const features = [
@@ -161,10 +162,10 @@ const CreativeServicesSection = () => {
 
         {/* CTA Button */}
         <div className={styles.ctaSection}>
-          <button className={styles.ctaButton}>
-            View All 12 Services{' '}
-            <span className={styles.ctaArrow}>→</span>
-          </button>
+          <Button variant="green" size="lg" className="group flex items-center gap-2">
+            View All 12 Services
+            <span className="group-hover:translate-x-1 transition-transform">→</span>
+          </Button>
         </div>
       </Container>
     </section>

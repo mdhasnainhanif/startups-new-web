@@ -1,6 +1,7 @@
 'use client';
 
 import Container from '../../components/Container';
+import Button from '../../components/Button';
 import styles from './WhyUsSection.module.css';
 
 const comparisonData = [
@@ -111,9 +112,9 @@ const WhyUsSection = () => {
           </div>
         </div>
         <div className={styles.ctaSection}>
-          <button className={styles.ctaButton}>
+          <Button variant="green" size="lg">
             Get Started
-          </button>
+          </Button>
         </div>
       </Container>
     </section>

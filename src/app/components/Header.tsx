@@ -647,7 +647,14 @@ export default function Header() {
               >
                 ROI Calculator
               </Link>
-              <Button href="/contact-us" variant="green" iconPosition="right">
+              <Button 
+                variant="green" 
+                iconPosition="right"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setIsOfferPopupOpen(true);
+                }}
+              >
                 Hire Your Team
               </Button>
             </div>
@@ -836,12 +843,14 @@ export default function Header() {
             </Link>
             <div className="pt-4">
               <Button
-                href="/contact-us"
                 variant="green"
                 size="md"
                 iconPosition="right"
                 className="w-full text-center justify-center"
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  setIsOfferPopupOpen(true);
+                }}
               >
                 Hire Your Team
               </Button>
@@ -849,9 +858,10 @@ export default function Header() {
           </div>
         </div>
       </div>
-      {isOfferPopupOpen && (
-        <OfferPopup />
-      )}
+      <OfferPopup 
+        isOpen={isOfferPopupOpen} 
+        onClose={() => setIsOfferPopupOpen(false)} 
+      />
     </>
   );
 }

@@ -389,12 +389,16 @@
   overflow: hidden;
   border-radius: 0.75rem;
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease;
+  /* Ensure card doesn't scale or transform */
+  transform: none !important;
+  will-change: auto;
 }
 
 .portfolioItem:hover {
-  transform: translateY(-8px);
   box-shadow: 0 20px 40px rgba(15, 218, 194, 0.2);
+  /* Explicitly prevent card from scaling or moving */
+  transform: none !important;
 }
 
 .imageWrapper {
@@ -405,6 +409,8 @@
   overflow: hidden;
   border-radius: 0.75rem;
   background: #0d0934;
+  /* Ensure wrapper doesn't scale */
+  transform: none;
 }
 
 .portfolioImage {
@@ -415,10 +421,13 @@
   height: 100%;
   object-fit: cover;
   transition: transform 0.5s ease, filter 0.3s ease;
+  transform-origin: center center;
+  /* Only image will scale */
+  will-change: transform;
 }
 
 .portfolioItem:hover .portfolioImage {
-  transform: scale(1.1);
+  transform: scale(1.15);
   filter: brightness(0.7);
 }
 
@@ -963,12 +972,16 @@
   overflow: hidden;
   border-radius: 0.75rem;
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease;
+  /* Ensure card doesn't scale or transform */
+  transform: none !important;
+  will-change: auto;
 }
 
 .portfolioItem:hover {
-  transform: translateY(-8px);
   box-shadow: 0 20px 40px rgba(15, 218, 194, 0.2);
+  /* Explicitly prevent card from scaling */
+  transform: none !important;
 }
 
 .imageWrapper {
@@ -979,6 +992,8 @@
   border-radius: 0.75rem;
   background: #0d0934;
   display: block;
+  /* Ensure wrapper doesn't scale */
+  transform: none;
 }
 
 .portfolioImage {
@@ -986,10 +1001,13 @@
   height: 100%;
   object-fit: cover;
   transition: transform 0.5s ease, filter 0.3s ease;
+  transform-origin: center center;
+  /* Only image will scale */
+  will-change: transform;
 }
 
 .portfolioItem:hover .portfolioImage {
-  transform: scale(1.1);
+  transform: scale(1.15);
   filter: brightness(0.7);
 }
 

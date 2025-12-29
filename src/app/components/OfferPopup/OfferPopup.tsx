@@ -5,6 +5,8 @@ import styles from './OfferPopup.module.css';
 import Image from 'next/image';
 import Button from '../Button';
 import { ArrowRightIcon } from '../icons';
+import { COMPANY_INFO } from '../../constants';
+
 const avatars = [
   '/assets/images/avatar-without-icons/graphic-designer.webp',
   '/assets/images/avatar-without-icons/ui-ux-designer.webp',
@@ -12,14 +14,31 @@ const avatars = [
   '/assets/images/avatar-without-icons/video-animation.webp',
   '/assets/images/avatar-without-icons/content-writer.webp',
 ];
-const OfferPopup = () => {
-  const [isOpen, setIsOpen] = useState(false);
+
+interface OfferPopupProps {
+  isOpen?: boolean;
+  onClose?: () => void;
+  showTrigger?: boolean;
+}
+
+const OfferPopup = ({ isOpen: externalIsOpen, onClose: externalOnClose, showTrigger = false }: OfferPopupProps = {}) => {
+  const [internalIsOpen, setInternalIsOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
-  const [email, setEmail] = useState('');
-  const [activeAvatar, setActiveAvatar] = useState(2); 
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    company: '',
+    phone: '',
+  });
+  const [activeAvatar, setActiveAvatar] = useState(2);
+  
+  // Use external control if provided, otherwise use internal state
+  const isOpen = externalIsOpen !== undefined ? externalIsOpen : internalIsOpen;
+  
   useEffect(() => {
     setMounted(true);
   }, []);
+  
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -30,10 +49,15 @@ const OfferPopup = () => {
       document.body.style.overflow = 'unset';
     };
   }, [isOpen]);
+  
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
-        setIsOpen(false);
+        if (externalOnClose) {
+          externalOnClose();
+        } else {
+          setInternalIsOpen(false);
+        }
       }
     };
     if (isOpen) {
@@ -42,31 +66,50 @@ const OfferPopup = () => {
     return () => {
       window.removeEventListener('keydown', handleEscape);
     };
-  }, [isOpen]);
+  }, [isOpen, externalOnClose]);
+  
+  const handleClose = () => {
+    if (externalOnClose) {
+      externalOnClose();
+    } else {
+      setInternalIsOpen(false);
+    }
+  };
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Email submitted:', email);
-    setIsOpen(false);
+    console.log('Form submitted:', formData);
+    handleClose();
   };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+  
   if (!mounted) return null;
   return (
     <>
-      <button
-        onClick={() => setIsOpen(true)}
-        className={styles.triggerButton}
-        aria-label="Open offer popup"
-      >
-        300+ Companies
-      </button>
+      {showTrigger && (
+        <button
+          onClick={() => setInternalIsOpen(true)}
+          className={styles.triggerButton}
+          aria-label="Open offer popup"
+        >
+          300+ Companies
+        </button>
+      )}
       {isOpen &&
         createPortal(
-          <div className={styles.overlay} onClick={() => setIsOpen(false)}>
+          <div className={styles.overlay} onClick={handleClose}>
             <div
               className={styles.modal}
               onClick={(e) => e.stopPropagation()}
             >
               <button
-                onClick={() => setIsOpen(false)}
+                onClick={handleClose}
                 className={styles.closeButton}
                 aria-label="Close popup"
               >
@@ -84,11 +127,6 @@ const OfferPopup = () => {
                   <line x1="6" y1="6" x2="18" y2="18" />
                 </svg>
               </button>              
-              <div className={styles.fireworks}>
-                <div className={styles.firework1}></div>
-                <div className={styles.firework2}></div>
-                <div className={styles.firework3}></div>
-              </div>
               <div className={styles.modalContent}>
                 <div className={styles.leftSection}>
                   <div className={styles.leftBackground}>
@@ -97,71 +135,121 @@ const OfferPopup = () => {
                       <p className={styles.leftAmount}>$25,321</p>
                     </div>
                   </div>
-                  <div className={styles.avatarsSection}>
-                    <div className={styles.avatarsContainer}>
-                      {avatars.map((avatar, index) => (
-                        <div
-                          key={index}
-                          className={`${styles.avatarWrapper} ${
-                            index === activeAvatar ? styles.avatarActive : ''
-                          }`}
-                          onMouseEnter={() => setActiveAvatar(index)}
-                        >
-                          <div className={styles.avatarGlow}></div>
-                          <Image
-                            src={avatar}
-                            alt={`Creative Director ${index + 1}`}
-                            width={60}
-                            height={60}
-                            className={styles.avatar}
-                          />
-                          {index === activeAvatar && (
-                            <div className={styles.cursor}>
-                              <svg
-                                width="20"
-                                height="20"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="#0fdac2"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                              >
-                                <path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z" />
-                              </svg>
-                            </div>
-                          )}
-                        </div>
-                      ))}
+                  <div className={styles.leftContent}>
+                    <h2 className={styles.leftHeadline}>
+                      <span className={styles.leftHeadlinePart1}>Supercharge your</span>
+                      <span className={styles.leftHeadlinePart2}>entire creative</span>
+                      <span className={styles.leftHeadlinePart2}>operations in 2026</span>
+                    </h2>
+                    <p className={styles.leftSubtitle}>
+                      Unlock Startup Advisory's Biggest New Year Sale
+                    </p>
+                    <div className={styles.characterImage}>
+                      <Image
+                        src="/assets/images/popup-character.webp"
+                        alt="Creative character"
+                        width={200}
+                        height={300}
+                        className={styles.characterImg}
+                        onError={(e) => {
+                          // Hide image if not found
+                          e.currentTarget.style.display = 'none';
+                        }}
+                      />
                     </div>
-                    <p className={styles.avatarsLabel}>Creative Directors</p>
+                    <div className={styles.cursor}>
+                      <div className={styles.cursorBackground}></div>
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="#0fdac2"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className={styles.cursorIcon}
+                      >
+                        <path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z" />
+                      </svg>
+                    </div>
                   </div>
                 </div>
                 <div className={styles.rightSection}>
-                  <div className={styles.logo}>
-                    <span className={styles.logoPart1}>Startups</span>
-                    <span className={styles.logoPart2}> ADVISORY</span>
-                    <span className={styles.logoPart3}>.Ai</span>
+                  <div className={styles.fireworks}>
+                    <div className={styles.firework1}></div>
+                    <div className={styles.firework2}></div>
+                    <div className={styles.firework3}></div>
                   </div>
-                  <h2 className={styles.headline}>
-                    <span className={styles.headlinePart1}>Supercharge your entire creative operations</span>
-                    <span className={styles.headlinePart2}> in 2026</span>
-                  </h2>
-                  <p className={styles.subtitle}>
-                    Unlock Startup Advisory's Biggest New Year Sale
-                  </p>
+                  <div className={styles.logo}>
+                    <Image
+                      src={COMPANY_INFO.logo}
+                      alt="Startups ADVISORY.Ai Logo"
+                      width={140}
+                      height={40}
+                      loading="lazy"
+                      style={{ objectFit: "contain" }}
+                      className={styles.logoImage}
+                    />
+                  </div>
                   <form onSubmit={handleSubmit} className={styles.form}>
                     <div className={styles.inputGroup}>
+                      <label htmlFor="name" className={styles.label}>
+                        Your Name *
+                      </label>
+                      <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleInputChange}
+                        className={styles.input}
+                        placeholder="Your Name *"
+                        required
+                      />
+                    </div>
+                    <div className={styles.inputGroup}>
                       <label htmlFor="email" className={styles.label}>
-                        Your email *
+                        Email *
                       </label>
                       <input
                         type="email"
                         id="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
+                        name="email"
+                        value={formData.email}
+                        onChange={handleInputChange}
                         className={styles.input}
-                        placeholder="Enter your email"
+                        placeholder="Email *"
+                        required
+                      />
+                    </div>
+                    <div className={styles.inputGroup}>
+                      <label htmlFor="company" className={styles.label}>
+                        Your Company *
+                      </label>
+                      <input
+                        type="text"
+                        id="company"
+                        name="company"
+                        value={formData.company}
+                        onChange={handleInputChange}
+                        className={styles.input}
+                        placeholder="Your Company *"
+                        required
+                      />
+                    </div>
+                    <div className={styles.inputGroup}>
+                      <label htmlFor="phone" className={styles.label}>
+                        Phone Number *
+                      </label>
+                      <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleInputChange}
+                        className={styles.input}
+                        placeholder="Phone Number *"
                         required
                       />
                     </div>

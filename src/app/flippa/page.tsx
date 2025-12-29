@@ -45,11 +45,11 @@ export default function FlippaPage() {
       <DifferentiatorsSection />
       <Portfolio />
       <TestimonialsSection />
-      <GuaranteeSection />
-      <ObjectionsSection />
+      {/* <GuaranteeSection /> */}
+      {/* <ObjectionsSection /> */}
       <CreativeServicesSection />
-      <WhyUsSection />
-      <FlippaCalculator />
+      {/* <WhyUsSection /> */}
+      {/* <FlippaCalculator /> */}
       <CTASection />
     </main>
   );

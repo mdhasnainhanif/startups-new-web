@@ -1,5 +1,7 @@
 'use client';
 import { useState, useRef, useEffect } from 'react';
+import { Fancybox } from '@fancyapps/ui';
+import '@fancyapps/ui/dist/fancybox/fancybox.css';
 import styles from '../../components/ProvenSuccess/ProvenSuccess.module.css';
 import Container from '../../components/Container';
 interface TabData {
@@ -216,80 +218,6 @@ interface ProvenSuccessProps {
   data?: ProvenSuccessData;
   variant?: string;
 }
-const ImageLightbox = ({ 
-  isOpen, 
-  onClose, 
-  imageUrl,
-  isWebDevelopment = false
-}: { 
-  isOpen: boolean; 
-  onClose: () => void; 
-  imageUrl: string | null;
-  isWebDevelopment?: boolean;
-}) => {
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
-  }, [isOpen]);
-  useEffect(() => {
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        onClose();
-      }
-    };
-    if (isOpen) {
-      window.addEventListener('keydown', handleEscape);
-    }
-    return () => {
-      window.removeEventListener('keydown', handleEscape);
-    };
-  }, [isOpen, onClose]);
-  if (!isOpen || !imageUrl) return null;
-  return (
-    <div
-      className={styles.lightboxOverlay}
-      onClick={onClose}
-    >
-      <button
-        onClick={onClose}
-        className={styles.lightboxCloseButton}
-        aria-label="Close image"
-      >
-        <svg
-          className="w-6 h-6"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M6 18L18 6M6 6l12 12"
-          />
-        </svg>
-      </button>
-      <div
-        className={`${styles.lightboxContent} ${isWebDevelopment ? styles.lightboxContentScrollable : ''}`}
-        onClick={(e) => e.stopPropagation()}
-      >
-        <div className={isWebDevelopment ? styles.lightboxImageContainer : ''}>
-          <img
-            src={imageUrl}
-            alt="Portfolio zoom"
-            className={`${styles.lightboxImage} ${isWebDevelopment ? styles.lightboxImageScrollable : ''}`}
-          />
-        </div>
-      </div>
-    </div>
-  );
-};
 const portfolio = ({ data, variant }: ProvenSuccessProps) => {
   const portfolioData = data || PROVEN_SUCCESS_DATA;
   const isWebDevelopment = variant === 'web-development';
@@ -301,8 +229,16 @@ const portfolio = ({ data, variant }: ProvenSuccessProps) => {
   const [displayedTabId, setDisplayedTabId] = useState<string>(
     filteredTabs.length > 0 ? filteredTabs[0].id : ''
   );
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const displayedTab = filteredTabs.find((tab) => tab.id === displayedTabId) || filteredTabs[0];
+  useEffect(() => {
+    Fancybox.bind('[data-fancybox]', {
+    });
+    return () => {
+      Fancybox.unbind('[data-fancybox]');
+      Fancybox.destroy();
+    };
+  }, [displayedTabId, isWebDevelopment]);
+
   useEffect(() => {
     if (!isWebDevelopment && activeTab) {
       setIsFading(true);
@@ -346,14 +282,18 @@ const portfolio = ({ data, variant }: ProvenSuccessProps) => {
             {WEB_DEV_PORTFOLIO.map((item, index) => (
               <div
                 key={index}
-                className={styles.portfolioItem}
-                onClick={() => setSelectedImage(item.zoom)}
+                className={`${styles.portfolioItem} aspect-square rounded-lg overflow-hidden cursor-pointer`}
               >
-                <div className={styles.imageWrapper}>
+                <a
+                  href={item.zoom}
+                  data-fancybox="web-development"
+                  data-caption={`Web Development Portfolio ${index + 1}`}
+                  className={styles.imageWrapper}
+                >
                   <img
                     src={item.normal}
                     alt={`Web Development Portfolio ${index + 1}`}
-                    className={styles.portfolioImage}
+                    className={`${styles.portfolioImage} w-full h-full object-cover`}
                   />
                   <div className={styles.overlay}>
                     <svg
@@ -370,7 +310,7 @@ const portfolio = ({ data, variant }: ProvenSuccessProps) => {
                       />
                     </svg>
                   </div>
-                </div>
+                </a>
               </div>
             ))}
           </div>
@@ -383,23 +323,39 @@ const portfolio = ({ data, variant }: ProvenSuccessProps) => {
             {displayedTab.images.map((image, index) => (
               <div
                 key={`${displayedTabId}-${index}`}
-                className="aspect-square rounded-lg overflow-hidden"
+                className={`${styles.portfolioItem} aspect-square rounded-lg overflow-hidden cursor-pointer`}
               >
-                <img
-                  src={image}
-                  alt={`${displayedTab.label} ${index + 1}`}
-                  className="w-full h-full object-cover"
-                />
+                <a
+                  href={image}
+                  data-fancybox={displayedTabId}
+                  data-caption={`${displayedTab.label} - Image ${index + 1}`}
+                  className={styles.imageWrapper}
+                >
+                  <img
+                    src={image}
+                    alt={`${displayedTab.label} ${index + 1}`}
+                    className={`${styles.portfolioImage} w-full h-full object-cover`}
+                  />
+                  <div className={styles.overlay}>
+                    <svg
+                      className={styles.zoomIcon}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"
+                      />
+                    </svg>
+                  </div>
+                </a>
               </div>
             ))}
           </div>
         )}
-        <ImageLightbox
-          isOpen={selectedImage !== null}
-          onClose={() => setSelectedImage(null)}
-          imageUrl={selectedImage}
-          isWebDevelopment={isWebDevelopment}
-        />
       </Container>
     </section>
   );
