@@ -354,7 +354,7 @@
                     className={styles.brandingKitsSwiper}
                   >
                     {Array.from({
-                      length: Math.ceil(brandingKits.items.length / 10),
+                      length: Math.ceil(brandingKits.items.length / itemsPerPage),
                     }).map((_, groupIndex) => (
                       <SwiperSlide key={groupIndex}>
                         <div className="grid lg:grid-cols-2 grid-cols-1 md:grid-cols-2 md:gap-x-4 gap-y-4 gap-x-2 mx-auto" style={{placeItems: 'center'}}>

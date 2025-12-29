@@ -129,11 +129,14 @@ const OfferPopup = ({ isOpen: externalIsOpen, onClose: externalOnClose, showTrig
               </button>              
               <div className={styles.modalContent}>
                 <div className={styles.leftSection}>
-                  <div className={styles.leftBackground}>
-                    <div className={styles.leftText}>
-                      <p className={styles.leftSubtext}>Simplifying Access to Capital</p>
-                      <p className={styles.leftAmount}>$25,321</p>
-                    </div>
+                  <div className={styles.characterImage}>
+                    <Image
+                      src="/assets/images/offerpopup/1.webp"
+                      alt="Character"
+                      width={400}
+                      height={500}
+                      className={styles.characterImg}
+                    />
                   </div>
                   <div className={styles.leftContent}>
                     <h2 className={styles.leftHeadline}>
@@ -144,43 +147,19 @@ const OfferPopup = ({ isOpen: externalIsOpen, onClose: externalOnClose, showTrig
                     <p className={styles.leftSubtitle}>
                       Unlock Startup Advisory's Biggest New Year Sale
                     </p>
-                    <div className={styles.characterImage}>
-                      <Image
-                        src="/assets/images/popup-character.webp"
-                        alt="Creative character"
-                        width={200}
-                        height={300}
-                        className={styles.characterImg}
-                        onError={(e) => {
-                          // Hide image if not found
-                          e.currentTarget.style.display = 'none';
-                        }}
-                      />
-                    </div>
                     <div className={styles.cursor}>
-                      <div className={styles.cursorBackground}></div>
-                      <svg
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="#0fdac2"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className={styles.cursorIcon}
-                      >
-                        <path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z" />
-                      </svg>
+                      <Image
+                        src="/assets/images/offerpopup/cursor.webp"
+                        alt="Cursor"
+                        width={80}
+                        height={80}
+                        className={styles.cursorImg}
+                      />
                     </div>
                   </div>
                 </div>
                 <div className={styles.rightSection}>
-                  <div className={styles.fireworks}>
-                    <div className={styles.firework1}></div>
-                    <div className={styles.firework2}></div>
-                    <div className={styles.firework3}></div>
-                  </div>
+                  <div className={styles.fireworks}></div>
                   <div className={styles.logo}>
                     <Image
                       src={COMPANY_INFO.logo}
