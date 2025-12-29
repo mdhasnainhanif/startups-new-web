@@ -748,7 +748,7 @@ const CaseStudySection = ({ data = DEFAULT_CASE_STUDY_DATA, isShowTabs = true, c
       <section className="sectionPaddingCase pt-0 mobile-padding-bottom-0" style={{ position: 'relative', zIndex: 1 }}>
         <Container maxWidth="xl">
           <div className="row align-items-center justify-content-center">
-            <div className="col-md-6 text-center mb-10 sectionHeading forH2 gap-3 flex flex-col items-center justify-center">
+            <div className="col-md-6 text-center mb-10 sectionHeading forH2 flex flex-col items-center justify-center">
               <h2 className="mb-5 text-white text-center max-w-5xl mx-auto">
                 {data.heading.text.split(data.heading.highlighted).map((part, index, array) => (
                   <React.Fragment key={index}>

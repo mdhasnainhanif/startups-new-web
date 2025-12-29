@@ -66,7 +66,7 @@ export default function FAQ({ faqs, sectionData, className = "" }: FAQProps) {
       <Container maxWidth="xl" className="px-0">
         <div className="flex flex-col items-center">
           {/* Section Title */}
-          <div className="sectionHeading forH2 text-[#ffffff] flex flex-col items-center justify-center gap-3">
+          <div className="sectionHeading forH2 text-[#ffffff] flex flex-col items-center justify-center">
             <h2 className="text-center">
               <span className="text-white">{sectionData.title.part1}</span>{" "}
               <span className="text-[#0fdac2]">{sectionData.title.part2}</span>
@@ -212,7 +212,7 @@ export default function FAQ({ faqs, sectionData, className = "" }: FAQProps) {
                         placeholder="Ask your own question here..."
                         value={question}
                         onChange={(e) => setQuestion(e.target.value)}
-                        className="faqaskquestion h-full w-full px-3 sm:px-4 py-2 sm:py-3 bg-white/5 border border-white/20 rounded-lg text-white placeholder-white/50 text-sm sm:text-base resize-none transition-all duration-200"
+                        className="faqaskquestion h-full w-full px-3 sm:px-4 py-2 sm:py-[0.4rem] bg-white/5 border border-white/20 rounded-lg text-white placeholder-white/50 text-sm sm:text-base resize-none transition-all duration-200"
                         rows={2}
                       ></textarea>
                     </div>

@@ -127,11 +127,19 @@ export default function Footer() {
           {/* Column 2 - Quick Links */}
           <div className={styles.linkColumn}>
             <h3 className={styles.columnTitle}>Quick links</h3>
-            {NAVIGATION_LINKS.map((link, index) => (
-              <a key={index} href={link.href} className={styles.footerLink}>
-                {link.label}
+            
+              <a href="/" className={styles.footerLink}>
+                Home
               </a>
-            ))}
+              <a href="/designer" className={styles.footerLink}>
+                Designer
+              </a>
+              <a href="/about-us" className={styles.footerLink}>
+                About Us
+              </a>
+              <a href="/key-growth" className={styles.footerLink}>
+                Key Growth
+              </a>
           </div>
 
           {/* Column 4 - Pages */}
@@ -150,16 +158,25 @@ export default function Footer() {
 
           {/* Column 3 - Solutions & Services */}
           <div className={styles.linkColumn}>
-            <h3 className={styles.columnTitle}>Solutions & Services</h3>
-            {firstFiveServices.map((service, index) => (
+            <h3 className={styles.columnTitle}>Quick Links</h3>
               <a
-                key={index}
-                href={`/${service.slug}`}
+                href="/terms-and-condition"
                 className={styles.footerLink}
               >
-                {service.title}
+                Terms and Condition
               </a>
-            ))}
+              <a
+                href="/contact-us"
+                className={styles.footerLink}
+              >
+                Contact Us
+              </a>
+              <a
+                href="/blogs"
+                className={styles.footerLink}
+              >
+                Blogs
+              </a>
           </div>
 
           {/* Column 5 - Contact */}

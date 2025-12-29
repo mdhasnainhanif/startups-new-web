@@ -626,7 +626,7 @@ button.inputFieldBtn {
 }
 
 .faqInputWrapper button.px-10::after {
-  border-bottom-width: 5px !important;
+  border-bottom-width: 0px !important;
 }
 
 .webDevelopmentPageCaseStudy h2 {
