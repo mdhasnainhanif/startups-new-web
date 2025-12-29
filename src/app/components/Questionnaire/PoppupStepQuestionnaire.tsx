@@ -51,7 +51,15 @@ export default function PoppupStepQuestionnaire({
     const maxSelections = 2; 
     
     
-    const selectionCount = value ? value.split(",").filter(v => v.trim()).length : 0;
+    const selectionCount = value ? (() => {
+      try {
+        const parsed = JSON.parse(value);
+        return Array.isArray(parsed) ? parsed.length : 0;
+      } catch {
+        // Fallback for old format (comma-separated)
+        return value.split(",").filter(v => v.trim()).length;
+      }
+    })() : 0;
     const maxReached = isMultiSelect && selectionCount >= maxSelections;
     
     
@@ -270,7 +278,15 @@ export default function PoppupStepQuestionnaire({
                       selectedValue={
                         
                         answers[currentStepData.id] 
-                          ? answers[currentStepData.id].split(",").filter(v => v.trim())
+                          ? (() => {
+                              try {
+                                const parsed = JSON.parse(answers[currentStepData.id]);
+                                return Array.isArray(parsed) ? parsed : [];
+                              } catch {
+                                // Fallback for old format (comma-separated)
+                                return answers[currentStepData.id].split(",").filter(v => v.trim());
+                              }
+                            })()
                           : []
                       }
                       showBack={false}
