@@ -574,7 +574,7 @@ const ProvenSuccess = ({ data, variant }: ProvenSuccessProps) => {
           // Original Tabs-based Grid with Fancybox and Magnifier
           <div
             key={displayedTabId}
-            className={`grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 transition-opacity duration-300 ease-in-out ${isFading ? "opacity-0" : "opacity-100"
+            className={`grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-3 transition-opacity duration-300 ease-in-out ${isFading ? "opacity-0" : "opacity-100"
               }`}
           >
             {displayedTab.images.map((image, index) => (

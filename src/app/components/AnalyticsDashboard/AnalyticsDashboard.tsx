@@ -65,8 +65,8 @@ export default function AnalyticsDashboard({
   const circumference = 1056
   const strokeDashoffset = circumference - (performanceScore / maxScore) * (circumference - 500)
   return (
-    <div className=" min-h-screen">
-      <div className="container mx-auto md:px-4 sm:px-0 lg:px-8 py-6 sm:py-8 lg:py-12 max-w-7xl">
+    <div className="">
+      <div className="container mx-auto md:px-4 sm:px-0 lg:px-8 pt-6 sm:pt8 lg:pb-0 lg:pt-12 max-w-7xl">
         <div className="bg-[#110E21] rounded-2xl shadow-2xl border border-[#221f33] pl-4 sm:pl-6 lg:pl-8 pr-4 sm:pr-6 lg:pr-8 py-10 innerPadding">
           <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 sm:gap-0 lg:gap-0 items-start ${styles.customGrid}`}>
             <div className="lg:col-span-1 space-y-0">
