@@ -315,9 +315,22 @@ const RealCost = ({ data = REAL_COST_DATA }: RealCostProps) => {
     const monthlyNum = monthlyRaw && monthlyRaw.length > 0 ? parseInt(monthlyRaw, 10) : 0;
     const annualNum = annualRaw && annualRaw.length > 0 ? parseInt(annualRaw, 10) : 0;
     
-    // Ensure values don't exceed MAX_VALUE and are at least 0
-    const monthlyValue = Math.max(0, Math.min(monthlyNum, MAX_VALUE));
-    const annualValue = Math.max(0, Math.min(annualNum, MAX_VALUE));
+    // If both inputs are empty, use default values based on Estimated Total Cost
+    const hasMonthly = monthlyNum > 0;
+    const hasAnnual = annualNum > 0;
+    
+    let monthlyValue: number;
+    let annualValue: number;
+    
+    if (!hasMonthly && !hasAnnual) {
+      // Idle state - use default values from Estimated Total Cost
+      annualValue = estimatedTotal;
+      monthlyValue = Math.round(estimatedTotal / 12);
+    } else {
+      // Use input values
+      monthlyValue = Math.max(0, Math.min(monthlyNum, MAX_VALUE));
+      annualValue = Math.max(0, Math.min(annualNum, MAX_VALUE));
+    }
     
     return [
       {
@@ -331,7 +344,7 @@ const RealCost = ({ data = REAL_COST_DATA }: RealCostProps) => {
         color: '#643bff',
       },
     ];
-  }, [monthlyCost, annualCost]);
+  }, [monthlyCost, annualCost, estimatedTotal]);
 
   // Fixed Y-axis tick values (these won't change based on input)
   const yAxisTicks = [0, 125, 250, 375, 500];
@@ -344,7 +357,23 @@ const RealCost = ({ data = REAL_COST_DATA }: RealCostProps) => {
     const monthlyNum = monthlyRaw && monthlyRaw.length > 0 ? parseInt(monthlyRaw, 10) : 0;
     const annualNum = annualRaw && annualRaw.length > 0 ? parseInt(annualRaw, 10) : 0;
     
-    const total = monthlyNum + annualNum;
+    // If both inputs are empty, use default values based on Estimated Total Cost
+    const hasMonthly = monthlyNum > 0;
+    const hasAnnual = annualNum > 0;
+    
+    let monthlyValue: number;
+    let annualValue: number;
+    
+    if (!hasMonthly && !hasAnnual) {
+      // Idle state - use default values from Estimated Total Cost
+      annualValue = estimatedTotal;
+      monthlyValue = Math.round(estimatedTotal / 12);
+    } else {
+      monthlyValue = monthlyNum;
+      annualValue = annualNum;
+    }
+    
+    const total = monthlyValue + annualValue;
     
     if (total === 0) {
       return [
@@ -353,8 +382,8 @@ const RealCost = ({ data = REAL_COST_DATA }: RealCostProps) => {
       ];
     }
     
-    const monthlyPercent = (monthlyNum / total) * 100;
-    const annualPercent = (annualNum / total) * 100;
+    const monthlyPercent = (monthlyValue / total) * 100;
+    const annualPercent = (annualValue / total) * 100;
     
     return [
       {
@@ -370,7 +399,7 @@ const RealCost = ({ data = REAL_COST_DATA }: RealCostProps) => {
         gradient: ['#732BFF', '#732BFF'],
       },
     ];
-  }, [monthlyCost, annualCost]);
+  }, [monthlyCost, annualCost, estimatedTotal]);
 
   // Custom tooltip for bar chart
   const CustomBarTooltip = ({ active, payload }: any) => {
@@ -537,7 +566,7 @@ const RealCost = ({ data = REAL_COST_DATA }: RealCostProps) => {
                           interval={0}
                         />
                         <YAxis 
-                          domain={[0, 500]}
+                          domain={[0, 100000]}
                           tick={false}
                           axisLine={false}
                           tickLine={false}
@@ -586,9 +615,10 @@ const RealCost = ({ data = REAL_COST_DATA }: RealCostProps) => {
                           dataKey="value"
                           startAngle={90}
                           endAngle={-270}
+                          stroke="none"
                         >
                           {pieChartData.map((entry, index) => (
-                            <Cell key={`cell-${index}`} fill={`url(#gradient${index})`} />
+                            <Cell key={`cell-${index}`} fill={`url(#gradient${index})`} stroke="none" />
                           ))}
                         </Pie>
                         <Tooltip content={<CustomPieTooltip />} />
