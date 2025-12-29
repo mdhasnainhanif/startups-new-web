@@ -4,6 +4,7 @@
   import { Swiper, SwiperSlide } from "swiper/react";
   import { Navigation } from "swiper/modules";
   import type { Swiper as SwiperType } from "swiper";
+  import Link from "next/link";
   import Container from "../Container";
   import styles from "./CompleteBusinessSetup.module.css";
   import "swiper/css";
@@ -189,12 +190,22 @@
         { id: "5", text: "All files delivered print-ready and web-ready" },
       ],
       ctaButton: {
-        text: "Get My Package",
-        href: "/contact",
+        text: "$1,499 USD",
+        href: "#",
       },
     },
   };
+  
+  const baseCrmUrl = "https://startupsadvisory.ai/crm/payment/paynow";
   const CompleteBusinessSetup = ({ data = DEFAULT_DATA }: CompleteBusinessSetupProps) => {
+    const plan = {
+      name: data.heading.part1.replace(" — ", "").replace(/^(Complete |Your Complete )/i, "").trim() || "Business Package",
+      amount: data.heading.price.replace(/[$,]/g, ""),
+      category: data.heading.part1.toLowerCase().includes("content writing") ? "content-writing" :
+                data.heading.part1.toLowerCase().includes("social content") ? "social-media" :
+                data.heading.part1.toLowerCase().includes("website") ? "web-development" : "business-setup",
+      currency_code: "USD"
+    };
     const [itemsPerPage, setItemsPerPage] = useState(10);
     const swiperRef = useRef<SwiperType | null>(null);
     const [isBeginning, setIsBeginning] = useState(true);
@@ -403,9 +414,11 @@
                   ))}
                 </ul>
 
-                <Button href="#" variant="green" icon={<ArrowRightIcon style={{ fill: "#000" }} />} iconPosition="right">
-              {benefits.ctaButton.text}
-              </Button>
+                <Link href={`${baseCrmUrl}?item=${plan.name}&amount=${plan.amount}&category=${plan.category}&currency_code=${plan.currency_code}`}>
+                  <Button variant="green" icon={<ArrowRightIcon style={{ fill: "#000" }} />} iconPosition="right">
+                    {benefits.ctaButton.text}
+                  </Button>
+                </Link>
                 {data.additionalText && (
                   <div className="mt-6 pt-6 border-t border-[#2f2a63]">
                     {data.additionalText.heading && (

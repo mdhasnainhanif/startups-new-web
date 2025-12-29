@@ -694,6 +694,9 @@
 
 /* Small Mobile (below 576px) */
 @media (max-width: 575px) {
+  .tabsContainerMobile{
+    background: transparent;
+  }
   .header {
     margin-bottom: 20px;
   }

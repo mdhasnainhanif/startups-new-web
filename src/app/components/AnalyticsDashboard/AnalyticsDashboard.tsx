@@ -42,8 +42,8 @@ export default function AnalyticsDashboard({
     'Improve load handling'
   ],
   leftColumnItems = {
-    left: ['Exceptional', 'Focus Areas', 'Architecture', 'Performance', 'Behavior patterns', 'Interaction'],
-    right: ['Path logic', 'Response', 'Assurance', 'Core Thinking', 'Stability  ', 'Efficiency']
+    left: [ 'Focus Areas', 'Architecture', 'Performance', 'Behavior patterns', 'Interaction'],
+    right: ['Response', 'Assurance', 'Core Thinking', 'Stability  ', 'Efficiency']
   },
   radarChartLabels = [
     { text: 'Dependability', x: 35, y: 30 },
