@@ -724,11 +724,12 @@ export default function Header() {
             </button>
           </div>
           <div className="flex flex-col flex-1 px-4 py-6 gap-4 overflow-y-auto">
+            
             <Link
               href="/"
               onClick={() => setIsMobileMenuOpen(false)}
-              className={`text-white text-base font-medium hover:text-[#0fdac2] transition-colors py-2 ${
-                isActive("/") ? "active text-[#0fdac2]" : ""
+              className={`text-base font-medium hover:text-[#0fdac2] transition-colors py-2 ${
+                isActive("/") ? "text-[#0fdac2]" : "text-white"
               }`}
             >
               Home
@@ -736,8 +737,8 @@ export default function Header() {
             <div className="mb-2">
               <Link href="/designer">
               <button
-                className={`text-white text-base font-medium hover:text-[#0fdac2] transition-colors py-2 w-full text-left flex items-center justify-between ${
-                  isServicePage() ? "active text-[#0fdac2]" : ""
+                className={`text-base font-medium hover:text-[#0fdac2] transition-colors py-2 w-full text-left flex items-center justify-between ${
+                  isServicePage() ? "text-[#0fdac2]" : "text-white"
                 }`}
               >
                 Designer
@@ -749,12 +750,12 @@ export default function Header() {
                 onClick={() =>
                   setIsMobileServicesDropdownOpen(!isMobileServicesDropdownOpen)
                 }
-                className={`text-white text-base font-medium hover:text-[#0fdac2] transition-colors py-2 w-full text-left flex items-center justify-between ${
+                className={`text-base font-medium hover:text-[#0fdac2] transition-colors py-2 w-full text-left flex items-center justify-between ${
                   servicesMenuItems.some((item) =>
                     pathname?.startsWith(item.href)
                   )
-                    ? "active text-[#0fdac2]"
-                    : ""
+                    ? "text-[#0fdac2]"
+                    : "text-white"
                 }`}
               >
                 Services
@@ -817,8 +818,8 @@ export default function Header() {
                 <a
                   key={link.href}
                   href={link.href}
-                  className={`text-white text-base font-medium hover:text-[#0fdac2] transition-colors py-2 ${
-                    isActive(link.href) ? "active text-[#0fdac2]" : ""
+                  className={`text-base font-medium hover:text-[#0fdac2] transition-colors py-2 ${
+                    isActive(link.href) ? "text-[#0fdac2]" : "text-white"
                   }`}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >

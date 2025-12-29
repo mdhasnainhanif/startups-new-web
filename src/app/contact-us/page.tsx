@@ -71,7 +71,7 @@ export default function ContactPage() {
     <>
     <Container maxWidth="2xl">
       <div className="max-w-4xl mx-auto mb-8 sm:mb-12 lg:mb-16 text-center contactMain sectionHeading heroBannerPaddingTop">
-        <h1 className="mb-2 max-w-4xl mx-auto md:pt-20">
+        <h1 className="mb-2 max-w-4xl mx-auto md:pt-[14rem]">
         Let’s Connect and Build <span className="text-[#0fdac2]">Your Next Growth</span> Chapter
         </h1>
       </div>
