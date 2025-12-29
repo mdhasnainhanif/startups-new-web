@@ -367,7 +367,8 @@ p.conclusion {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
+  width: 100%;
 }
 
 .chartLabel {
@@ -379,32 +380,15 @@ p.conclusion {
 
 .barChart {
   width: 100%;
-  height: 120px;
+  height: 180px;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
+  padding: 10px 0;
 }
 
 .barChartContainer {
-  display: flex;
-  align-items: flex-end;
-  gap: 12px;
-  height: 100%;
-  width: 100%;
-  justify-content: center;
-  /* border-left: 1px solid #181847; */
-  border-bottom: 1px solid #181847;
-  position: relative;
-}
-
-.barChartContainer::before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 1px;
-  height: 80%;
-  background-color: #181847;
+  display: none; /* Hide old bar container */
 }
 
 .barLabelsRow {
@@ -420,17 +404,15 @@ p.conclusion {
 }
 
 .bar {
-  width: 40px;
-  border-radius: 4px 4px 0 0;
-  transition: height 0.3s ease;
-  min-height: 10px;
-  transform: translateZ(0);
+  display: none; /* Hide old bars */
 }
 
 .donutChart {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
+  height: 130px;
 }
 
 /* Responsive Styles */
@@ -528,4 +510,25 @@ p.conclusion {
   .calculatorCard {
     padding: 1.25rem;
   }
+}
+
+.customTooltip {
+  background: #0B0A24;
+  border: 1px solid rgba(15, 218, 194, 0.3);
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.tooltipLabel {
+  color: #bdd1f9;
+  font-size: 12px;
+  margin: 0 0 4px 0;
+}
+
+.tooltipValue {
+  color: #0fdac2;
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
 }
