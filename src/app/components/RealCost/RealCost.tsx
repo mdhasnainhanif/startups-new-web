@@ -536,19 +536,9 @@ const RealCost = ({ data = REAL_COST_DATA }: RealCostProps) => {
                         />
                         <YAxis 
                           domain={[0, 500]}
-                          ticks={yAxisTicks}
-                          tick={{ fill: '#bdd1f9', fontSize: 10 }}
+                          tick={false}
                           axisLine={{ stroke: '#181847' }}
-                          tickLine={{ stroke: '#181847' }}
-                          tickFormatter={(value) => {
-                            if (value >= 1000000) {
-                              return `$${(value / 1000000).toFixed(1)}M`;
-                            } else if (value >= 1000) {
-                              return `$${(value / 1000).toFixed(0)}k`;
-                            }
-                            return `$${value}`;
-                          }}
-                          width={50}
+                          tickLine={false}
                         />
                         <Tooltip content={<CustomBarTooltip />} />
                         <Bar 
