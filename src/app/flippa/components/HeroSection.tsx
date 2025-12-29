@@ -6,6 +6,83 @@ import { MotionDiv } from "./motion";
 import { heroData } from "../../data/FlippaPageData";
 import Button from "../../components/Button";
 import Container from "../../components/Container";
+import { useCountUp } from "./use-count-up";
+import { useRef } from "react";
+
+const StatItem = ({ stat, index }: { stat: { value: string; label: string }; index: number }) => {
+  // Parse the value to extract number and suffix/prefix
+  const parseValue = (value: string) => {
+    // Handle "2-5×" format - convert to 2.5× with animation
+    if (value.includes("-")) {
+      const [start, end] = value.split("-");
+      const startNum = parseFloat(start);
+      const suffix = end.replace(/[0-9.]/g, "");
+      // User wants 2.5×, so animate from 2 to 2.5
+      return { start: startNum, end: 2.5, suffix, prefix: "", isRange: false, decimals: 1 };
+    }
+    // Handle "$50M+" format
+    if (value.includes("$")) {
+      const numStr = value.replace(/[^0-9.]/g, "");
+      const num = parseFloat(numStr);
+      const prefix = "$";
+      const suffix = value.replace(/[$0-9.]/g, "");
+      return { start: 0, end: num, suffix, prefix, isRange: false, decimals: 0 };
+    }
+    // Handle "90" format
+    const numStr = value.replace(/[^0-9.]/g, "");
+    const num = parseFloat(numStr);
+    const suffix = value.replace(/[0-9.]/g, "");
+    return { start: 0, end: num, suffix, prefix: "", isRange: false, decimals: 0 };
+  };
+
+  const parsed = parseValue(stat.value);
+
+  // For all numeric values, use counter animation
+  const { ref, formattedValue } = useCountUp({
+    end: parsed.end,
+    duration: 2000,
+    prefix: parsed.prefix,
+    suffix: parsed.suffix,
+    decimals: parsed.decimals || 0,
+  });
+
+  return (
+    <div ref={ref} className="text-center">
+      <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--color-primary)]">
+        {formattedValue}
+      </div>
+      <div className="text-xs md:text-sm text-[var(--text-muted)] mt-1">
+        {stat.label}
+      </div>
+    </div>
+  );
+};
+
+const StatsCounter = ({ 
+  delay, 
+  title, 
+  stats 
+}: { 
+  delay: number; 
+  title: string; 
+  stats: Array<{ value: string; label: string }> 
+}) => {
+  return (
+    <MotionDiv
+      delay={delay}
+      className="mt-8 md:mt-12 pt-6 md:pt-8 border-t border-white/10 max-w-2xl mx-auto px-4"
+    >
+      <p className="text-xs md:text-sm text-[var(--text-muted)] mb-3 md:mb-4">
+        {title}
+      </p>
+      <div className="flex flex-wrap gap-4 md:gap-8 items-center justify-center">
+        {stats.map((stat, index) => (
+          <StatItem key={index} stat={stat} index={index} />
+        ))}
+      </div>
+    </MotionDiv>
+  );
+};
 
 export default function HeroSection() {
   return (
@@ -115,26 +192,11 @@ export default function HeroSection() {
               </Link>
             </Button> */}
           </MotionDiv>
-          <MotionDiv
+          <StatsCounter
             delay={0.5}
-            className="mt-8 md:mt-12 pt-6 md:pt-8 border-t border-white/10 max-w-2xl mx-auto px-4"
-          >
-            <p className="text-xs md:text-sm text-[var(--text-muted)] mb-3 md:mb-4">
-              {heroData.socialProof.title}
-            </p>
-            <div className="flex flex-wrap gap-4 md:gap-8 items-center justify-center">
-              {heroData.socialProof.stats.map((stat, index) => (
-                <div key={index} className="text-center">
-                  <div className="text-2xl md:text-3xl font-bold text-white">
-                    {stat.value}
-                  </div>
-                  <div className="text-xs md:text-sm text-[var(--text-muted)]">
-                    {stat.label}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </MotionDiv>
+            title={heroData.socialProof.title}
+            stats={heroData.socialProof.stats}
+          />
         </div>
       </Container>
     </section>

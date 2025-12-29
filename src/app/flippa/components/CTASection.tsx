@@ -57,18 +57,18 @@ export default function CTASection() {
             </StaggerContainer>
 
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-              <Button variant="green" size="lg" className="w-full flex items-center justify-center">
+              <Button variant="green" size="lg" className="w-fit flex items-center justify-center">
                 <Link href={ctaData.cta.primary.link} className="group flex items-center gap-2">
                   Book Your Free Strategy Call
                   <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>
-              <Button variant="green" size="lg" className="w-full flex items-center justify-center">
+              {/* <Button variant="green" size="lg" className="w-full flex items-center justify-center">
                 <Link href={ctaData.cta.secondary.link} className="group flex items-center gap-2">
                   View Our Services
                   <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
-              </Button>
+              </Button> */}
             </div>
           </div>
         </MotionDiv>

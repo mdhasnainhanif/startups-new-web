@@ -7,13 +7,10 @@ import StatsSection from "./components/StatsSection";
 import ValueStackSection from "./components/ValueStackSection";
 import DifferentiatorsSection from "./components/DifferentiatorsSection";
 import TestimonialsSection from "./components/TestimonialsSection";
-import GuaranteeSection from "./components/GuaranteeSection";
-import ObjectionsSection from "./components/ObjectionsSection";
 import CTASection from "./components/CTASection";
+import FlippaCTA from "./components/FlippaCTA";
 import Portfolio from "./components/portfolio";
 import CreativeServicesSection from "./components/CreativeServicesSection";
-import FlippaCalculator from "./components/FlippaCalculator";
-import WhyUsSection from "./components/WhyUsSection";
 export const metadata: Metadata = {
   title: "Flippa | Turn Your Business Into a High-Value Asset in 90 Days",
   description:
@@ -51,6 +48,7 @@ export default function FlippaPage() {
       {/* <WhyUsSection /> */}
       {/* <FlippaCalculator /> */}
       <CTASection />
+      <FlippaCTA />
     </main>
   );
 }

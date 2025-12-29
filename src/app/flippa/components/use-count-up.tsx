@@ -25,6 +25,32 @@ export const useCountUp = ({
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (!ref.current || hasAnimated) return;
+
+    // Check if element is already in view on mount
+    const checkInitialView = () => {
+      if (ref.current) {
+        const rect = ref.current.getBoundingClientRect();
+        const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+        
+        if (isVisible) {
+          // Small delay to ensure smooth animation
+          setTimeout(() => {
+            setIsInView(true);
+            setHasAnimated(true);
+          }, 300);
+          return true;
+        }
+      }
+      return false;
+    };
+
+    // If already visible, trigger animation
+    if (checkInitialView()) {
+      return;
+    }
+
+    // Otherwise, set up IntersectionObserver for scroll
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && !hasAnimated) {
@@ -32,14 +58,22 @@ export const useCountUp = ({
           setHasAnimated(true);
         }
       },
-      { threshold: 0.3 }
+      { 
+        threshold: 0.1,
+        rootMargin: '0px 0px 0px 0px'
+      }
     );
 
     if (ref.current) {
       observer.observe(ref.current);
     }
 
-    return () => observer.disconnect();
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
+      observer.disconnect();
+    };
   }, [hasAnimated]);
 
   useEffect(() => {
