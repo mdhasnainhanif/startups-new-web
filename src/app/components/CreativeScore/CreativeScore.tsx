@@ -11,6 +11,8 @@ import Container from "../Container";
 import styles from "./CreativeScore.module.css";
 import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
 import { useState, useEffect } from "react";
+import AnalyticsDashboard from "../AnalyticsDashboard/AnalyticsDashboard";
+// import AnalyticsDashboardModule from "../AnalyticsDashboard/AnalyticsDashboard.module.css";
 
 interface Category {
   name: string;
@@ -581,7 +583,7 @@ const CreativeScore = () => {
                 </div>
                 <div className={styles.optionsList}>
                   {agencyPerformanceData.map((option, index) => (
-                    <div key={index} className={styles.optionItem}>
+                               <div key={index} className={styles.optionItem}>
                       <div className={styles.optionHeader}>
                         <span
                           className={styles.optionLabel}
@@ -607,6 +609,7 @@ const CreativeScore = () => {
         </div>
       </Container>
       <div> 
+        {/* <AnalyticsDashboard performanceScore={performanceScore.value} performanceLabel={performanceScore.label} /> */}
         {/* <div className={styles.dashboardGrid}>
           <div className={styles.leftColumn}>
             <div className={styles.scoreCard}>

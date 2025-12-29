@@ -6,8 +6,8 @@ import { Navigation } from 'swiper/modules';
 import type { Swiper as SwiperType } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import Container from '../Container';
 import styles from './ProvenSuccess.module.css';
+import Container from '../Container';
 
 interface TabData {
   id: string;
@@ -27,11 +27,48 @@ interface ProvenSuccessData {
   };
   description: string;
   tabs: TabData[];
-  // categories: Array<{
-  //   id: string;
-  //   label: string;
-  // }>;
 }
+
+interface PortfolioImage {
+  normal: string;
+  zoom: string;
+}
+
+// Web Development Portfolio Images
+const WEB_DEV_PORTFOLIO: PortfolioImage[] = [
+  {
+    normal: '/assets/images/portfolio/web-dev/1/mockup.webp',
+    zoom: '/assets/images/portfolio/web-dev/1/website.webp',
+  },
+  {
+    normal: '/assets/images/portfolio/web-dev/2/mockup.webp',
+    zoom: '/assets/images/portfolio/web-dev/2/website.webp',
+  },
+  {
+    normal: '/assets/images/portfolio/web-dev/3/mockup.webp',
+    zoom: '/assets/images/portfolio/web-dev/3/website.webp',
+  },
+  {
+    normal: '/assets/images/portfolio/web-dev/4/mockup.webp',
+    zoom: '/assets/images/portfolio/web-dev/4/website.webp',
+  },
+  {
+    normal: '/assets/images/portfolio/web-dev/5/mockup.webp',
+    zoom: '/assets/images/portfolio/web-dev/5/website.webp',
+  },
+  {
+    normal: '/assets/images/portfolio/web-dev/6/mockup.webp',
+    zoom: '/assets/images/portfolio/web-dev/6/website.webp',
+  },
+  {
+    normal: '/assets/images/portfolio/web-dev/7/mockup.webp',
+    zoom: '/assets/images/portfolio/web-dev/7/website.webp',
+  },
+  {
+    normal: '/assets/images/portfolio/web-dev/8/mockup.webp',
+    zoom: '/assets/images/portfolio/web-dev/8/website.webp',
+  },
+];
 
 const PROVEN_SUCCESS_DATA: ProvenSuccessData = {
   headline: {
@@ -45,14 +82,16 @@ const PROVEN_SUCCESS_DATA: ProvenSuccessData = {
       id: 'branding-kit',
       label: 'Branding Kit',
       images: [
-        '/assets/images/portfolio/branding-kit/1-min.jpg',
-        '/assets/images/portfolio/branding-kit/2-min.jpg',
-        '/assets/images/portfolio/branding-kit/3-min.jpg',
-        '/assets/images/portfolio/branding-kit/4-min.jpg',
-        '/assets/images/portfolio/branding-kit/5-min.jpg',
-        '/assets/images/portfolio/branding-kit/6-min.jpg',
-        '/assets/images/portfolio/branding-kit/7-min.jpg',
-        '/assets/images/portfolio/branding-kit/8-min.jpg',
+        '/assets/images/portfolio/branding-kit/1.webp',
+        '/assets/images/portfolio/branding-kit/2.webp',
+        '/assets/images/portfolio/branding-kit/3.webp',
+        '/assets/images/portfolio/branding-kit/4.webp',
+        '/assets/images/portfolio/branding-kit/5.webp',
+        '/assets/images/portfolio/branding-kit/6.webp',
+        '/assets/images/portfolio/branding-kit/7.webp',
+        '/assets/images/portfolio/branding-kit/8.webp',
+        '/assets/images/portfolio/branding-kit/9.webp',
+        '/assets/images/portfolio/branding-kit/10.webp',
       ],
       gridItems: [
         { id: '1', label: 'Logo Design' },
@@ -85,14 +124,26 @@ const PROVEN_SUCCESS_DATA: ProvenSuccessData = {
       id: 'logo-design',
       label: 'Logo Design',
       images: [
-        '/assets/images/portfolio/logo-design/1-min.jpg',
-        '/assets/images/portfolio/logo-design/2-min.jpg',
-        '/assets/images/portfolio/logo-design/3-min.jpg',
-        '/assets/images/portfolio/logo-design/4-min.jpg',
-        '/assets/images/portfolio/logo-design/5-min.jpg',
-        '/assets/images/portfolio/logo-design/6-min.jpg',
-        '/assets/images/portfolio/logo-design/7-min.jpg',
-        '/assets/images/portfolio/logo-design/8-min.jpg',
+        '/assets/images/portfolio/logo-design/1.webp',
+        '/assets/images/portfolio/logo-design/2.webp',
+        '/assets/images/portfolio/logo-design/3.webp',
+        '/assets/images/portfolio/logo-design/4.webp',
+        '/assets/images/portfolio/logo-design/5.webp',
+        '/assets/images/portfolio/logo-design/6.webp',
+        '/assets/images/portfolio/logo-design/7.webp',
+        '/assets/images/portfolio/logo-design/8.webp',
+        '/assets/images/portfolio/logo-design/9.webp',
+        '/assets/images/portfolio/logo-design/10.webp',
+        '/assets/images/portfolio/logo-design/11.webp',
+        '/assets/images/portfolio/logo-design/12.webp',
+        '/assets/images/portfolio/logo-design/13.webp',
+        '/assets/images/portfolio/logo-design/14.webp',
+        '/assets/images/portfolio/logo-design/15.webp',
+        '/assets/images/portfolio/logo-design/16.webp',
+        '/assets/images/portfolio/logo-design/17.webp',
+        '/assets/images/portfolio/logo-design/18.webp',
+        '/assets/images/portfolio/logo-design/19.webp',
+        '/assets/images/portfolio/logo-design/20.webp',
       ],
       gridItems: [
         { id: '1', label: 'Primary Logo' },
@@ -123,16 +174,16 @@ const PROVEN_SUCCESS_DATA: ProvenSuccessData = {
     },
     {
       id: 'social-media-post',
-      label: 'Social Media Post',
+      label: 'Portal',
       images: [
-        '/assets/images/portfolio/social-media-post/1-min.jpg',
-        '/assets/images/portfolio/social-media-post/2-min.jpg',
-        '/assets/images/portfolio/social-media-post/3-min.jpg',
-        '/assets/images/portfolio/social-media-post/4-min.jpg',
-        '/assets/images/portfolio/social-media-post/5-min.jpg',
-        '/assets/images/portfolio/social-media-post/6-min.jpg',
-        '/assets/images/portfolio/social-media-post/7-min.jpg',
-        '/assets/images/portfolio/social-media-post/8-min.jpg',
+        '/assets/images/portfolio/portal/1.webp',
+        '/assets/images/portfolio/portal/2.webp',
+        '/assets/images/portfolio/portal/3.webp',
+        '/assets/images/portfolio/portal/4.webp',
+        '/assets/images/portfolio/portal/5.webp',
+        '/assets/images/portfolio/portal/6.webp',
+        '/assets/images/portfolio/portal/7.webp',
+        '/assets/images/portfolio/portal/8.webp',
       ],
       gridItems: [
         { id: '1', label: 'Facebook Post' },
@@ -161,108 +212,154 @@ const PROVEN_SUCCESS_DATA: ProvenSuccessData = {
         { id: '24', label: 'Case Study' },
       ],
     },
-    {
-      id: 'stationary',
-      label: 'Stationary',
-      images: [
-        '/assets/images/portfolio/stationary/1-min.jpg',
-        '/assets/images/portfolio/stationary/2-min.jpg',
-        '/assets/images/portfolio/stationary/3-min.jpg',
-        '/assets/images/portfolio/stationary/4-min.jpg',
-        '/assets/images/portfolio/stationary/5-min.jpg',
-        '/assets/images/portfolio/stationary/6-min.jpg',
-        '/assets/images/portfolio/stationary/7-min.jpg',
-        '/assets/images/portfolio/stationary/8-min.jpg',
-      ],
-      gridItems: [
-        { id: '1', label: 'Business Card' },
-        { id: '2', label: 'Letterhead' },
-        { id: '3', label: 'Envelope' },
-        { id: '4', label: 'Invoice' },
-        { id: '5', label: 'Receipt' },
-        { id: '6', label: 'Quote Template' },
-        { id: '7', label: 'Proposal' },
-        { id: '8', label: 'Report Cover' },
-        { id: '9', label: 'Folder Design' },
-        { id: '10', label: 'Presentation' },
-        { id: '11', label: 'Notepad' },
-        { id: '12', label: 'Sticky Notes' },
-        { id: '13', label: 'Labels' },
-        { id: '14', label: 'Tags' },
-        { id: '15', label: 'Certificates' },
-        { id: '16', label: 'Awards' },
-        { id: '17', label: 'Diplomas' },
-        { id: '18', label: 'Menus' },
-        { id: '19', label: 'Programs' },
-        { id: '20', label: 'Tickets' },
-        { id: '21', label: 'Vouchers' },
-        { id: '22', label: 'Gift Cards' },
-        { id: '23', label: 'Brochures' },
-        { id: '24', label: 'Flyers' },
-      ],
-    },
   ],
-  // categories: [
-  //   { id: 'agriculture', label: 'Agriculture' },
-  //   { id: 'food-beverage', label: 'Food + Beverage' },
-  //   { id: 'health-lifestyle', label: 'Health + Lifestyle' },
-  //   { id: 'transportation', label: 'Transportation' },
-  //   { id: 'technology', label: 'Technology' },
-  //   { id: 'retail', label: 'Retail' },
-  //   { id: 'education', label: 'Education' },
-  //   { id: 'finance', label: 'Finance' },
-  // ],
 };
 
-const ProvenSuccess = () => {
-  // Filter to only show Social Media Post tab
-  const filteredTabs = PROVEN_SUCCESS_DATA.tabs;
+interface ProvenSuccessProps {
+  data?: ProvenSuccessData;
+  variant?: string;
+}
 
-  const [activeTab, setActiveTab] = useState<string>(PROVEN_SUCCESS_DATA.tabs[0].id);
-  // const [activeCategory, setActiveCategory] = useState<string>(PROVEN_SUCCESS_DATA.categories[0].id);
+// Custom Image Lightbox Component
+const ImageLightbox = ({ 
+  isOpen, 
+  onClose, 
+  imageUrl,
+  isWebDevelopment = false
+}: { 
+  isOpen: boolean; 
+  onClose: () => void; 
+  imageUrl: string | null;
+  isWebDevelopment?: boolean;
+}) => {
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
+
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
+
+    if (isOpen) {
+      window.addEventListener('keydown', handleEscape);
+    }
+
+    return () => {
+      window.removeEventListener('keydown', handleEscape);
+    };
+  }, [isOpen, onClose]);
+
+  if (!isOpen || !imageUrl) return null;
+
+  return (
+    <div
+      className={styles.lightboxOverlay}
+      onClick={onClose}
+    >
+      <button
+        onClick={onClose}
+        className={styles.lightboxCloseButton}
+        aria-label="Close image"
+      >
+        <svg
+          className="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M6 18L18 6M6 6l12 12"
+          />
+        </svg>
+      </button>
+      <div
+        className={`${styles.lightboxContent} ${isWebDevelopment ? styles.lightboxContentScrollable : ''}`}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className={isWebDevelopment ? styles.lightboxImageContainer : ''}>
+          <img
+            src={imageUrl}
+            alt="Portfolio zoom"
+            className={`${styles.lightboxImage} ${isWebDevelopment ? styles.lightboxImageScrollable : ''}`}
+          />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const ProvenSuccess = ({ data, variant }: ProvenSuccessProps) => {
+  const provenSuccessData = data || PROVEN_SUCCESS_DATA;
+  const isWebDevelopment = variant === 'web-development';
+  
+  // For web development variant, we don't need tabs
+  const filteredTabs = isWebDevelopment ? [] : provenSuccessData.tabs;
+
+  const [activeTab, setActiveTab] = useState<string>(
+    filteredTabs.length > 0 ? filteredTabs[0].id : ''
+  );
   const [activeCategory, setActiveCategory] = useState<string>('');
   const [isBeginning, setIsBeginning] = useState<boolean>(true);
   const [isEnd, setIsEnd] = useState<boolean>(false);
   const [isFading, setIsFading] = useState<boolean>(false);
-  const [displayedTabId, setDisplayedTabId] = useState<string>('social-media-post');
-  // const [displayedCategoryId, setDisplayedCategoryId] = useState<string>(PROVEN_SUCCESS_DATA.categories[0].id);
+  const [displayedTabId, setDisplayedTabId] = useState<string>(
+    filteredTabs.length > 0 ? filteredTabs[0].id : ''
+  );
   const [displayedCategoryId, setDisplayedCategoryId] = useState<string>('');
   const swiperRef = useRef<SwiperType | null>(null);
   const tabsSwiperRef = useRef<SwiperType | null>(null);
   const [isTabsSwiperBeginning, setIsTabsSwiperBeginning] = useState(true);
   const [isTabsSwiperEnd, setIsTabsSwiperEnd] = useState(false);
   const categoriesScrollRef = useRef<HTMLDivElement>(null);
+  
+  // Image lightbox state
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const currentTab = filteredTabs.find((tab) => tab.id === activeTab) || filteredTabs[0];
   const displayedTab = filteredTabs.find((tab) => tab.id === displayedTabId) || filteredTabs[0];
 
   // Handle fade effect when tab or category changes (Bootstrap-like smooth fade)
   useEffect(() => {
-    // Start fade out
-    setIsFading(true);
+    if (!isWebDevelopment && activeTab) {
+      // Start fade out
+      setIsFading(true);
 
-    // After fade out completes (300ms), change content and fade in
-    const fadeTimer = setTimeout(() => {
-      setDisplayedTabId(activeTab);
-      // setDisplayedCategoryId(activeCategory);
-      // Small delay to ensure DOM update, then fade in
-      setTimeout(() => {
-        setIsFading(false);
-      }, 50);
-    }, 300);
+      // After fade out completes (300ms), change content and fade in
+      const fadeTimer = setTimeout(() => {
+        setDisplayedTabId(activeTab);
+        // Small delay to ensure DOM update, then fade in
+        setTimeout(() => {
+          setIsFading(false);
+        }, 50);
+      }, 300);
 
-    return () => clearTimeout(fadeTimer);
-  }, [activeTab]); // Removed activeCategory from dependencies
+      return () => clearTimeout(fadeTimer);
+    }
+  }, [activeTab, isWebDevelopment]);
 
   // Sync Swiper to active tab when changed programmatically (for mobile)
   useEffect(() => {
-    if (tabsSwiperRef.current) {
+    if (tabsSwiperRef.current && !isWebDevelopment) {
       const activeIndex = filteredTabs.findIndex((tab) => tab.id === activeTab);
       if (activeIndex !== -1) {
         tabsSwiperRef.current.slideTo(activeIndex);
       }
     }
-  }, [activeTab]);
+  }, [activeTab, isWebDevelopment, filteredTabs]);
 
   const scrollCategories = (direction: 'left' | 'right'): void => {
     if (categoriesScrollRef.current) {
@@ -281,188 +378,213 @@ const ProvenSuccess = () => {
         <div className={styles.header + " sectionHeading forH2"}>
           <h2>
             <span className="text-white">Proven </span>
-            <span className="text-[#0fdac2]">{PROVEN_SUCCESS_DATA.headline.highlighted}</span>
+            <span className="text-[#0fdac2]">{provenSuccessData.headline.highlighted}</span>
             <span className="text-white"> in Every Project</span>
           </h2>
-          <p className={styles.description}>{PROVEN_SUCCESS_DATA.description}</p>
+          <p className={styles.description}>{provenSuccessData.description}</p>
         </div>
 
-        {/* Tabs Swiper */}
-        {/* Tabs - Desktop/Tablet */}
-        <div className={styles.tabsContainer}>
-          <div className={`swiper-button-prev ${styles.navArrow} ${styles.navArrowLeft} ${isTabsSwiperBeginning ? styles.navArrowDisabled : ''}`} />
+        {/* Tabs Swiper - Only show if not web-development variant */}
+        {!isWebDevelopment && (
+          <>
+            {/* Tabs - Desktop/Tablet */}
+            <div className={styles.tabsContainer}>
+              <div className={`swiper-button-prev ${styles.navArrow} ${styles.navArrowLeft} ${isTabsSwiperBeginning ? styles.navArrowDisabled : ''}`} />
 
-          <Swiper
-            modules={[Navigation]}
-            onBeforeInit={(swiper) => {
-              tabsSwiperRef.current = swiper;
-            }}
-            onSlideChange={(swiper) => {
-              setIsTabsSwiperBeginning(swiper.isBeginning);
-              setIsTabsSwiperEnd(swiper.isEnd);
-            }}
-            navigation={{
-              prevEl: '.swiper-button-prev',
-              nextEl: '.swiper-button-next',
-            }}
-            spaceBetween={0}
-            slidesPerView="auto"
-            className={styles.tabsSwiper}
-          >
-            {PROVEN_SUCCESS_DATA.tabs.map((tab) => (
-              <SwiperSlide key={tab.id} className={styles.swiperSlide}>
-                <button
-                  onClick={() => setActiveTab(tab.id)}
-                  className={`${styles.tab} ${activeTab === tab.id ? styles.activeTab : ''}`}
+              <Swiper
+                modules={[Navigation]}
+                onBeforeInit={(swiper) => {
+                  tabsSwiperRef.current = swiper;
+                }}
+                onSlideChange={(swiper) => {
+                  setIsTabsSwiperBeginning(swiper.isBeginning);
+                  setIsTabsSwiperEnd(swiper.isEnd);
+                }}
+                navigation={{
+                  prevEl: '.swiper-button-prev',
+                  nextEl: '.swiper-button-next',
+                }}
+                spaceBetween={0}
+                slidesPerView="auto"
+                className={styles.tabsSwiper}
+              >
+                {provenSuccessData.tabs.map((tab) => (
+                  <SwiperSlide key={tab.id} className={styles.swiperSlide}>
+                    <button
+                      onClick={() => setActiveTab(tab.id)}
+                      className={`${styles.tab} ${activeTab === tab.id ? styles.activeTab : ''}`}
+                    >
+                      {tab.label}
+                    </button>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+
+              <div className={`swiper-button-next ${styles.navArrow} ${styles.navArrowRight} ${isTabsSwiperEnd ? styles.navArrowDisabled : ''}`} />
+            </div>
+
+            {/* Tabs - Mobile */}
+            <div className={styles.tabsContainerMobile}>
+              {/* Left Arrow */}
+              <button
+                onClick={() => tabsSwiperRef.current?.slidePrev()}
+                disabled={isTabsSwiperBeginning}
+                className={`absolute left-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full border-none text-white cursor-pointer flex items-center justify-center transition-all ${isTabsSwiperBeginning
+                    ? "opacity-30 cursor-not-allowed bg-[#1b1849]"
+                    : "opacity-100 hover:bg-[#0fdac2]/80 bg-[#0fdac2]"
+                  }`}
+                aria-label="Previous tab"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 >
-                  {tab.label}
-                </button>
-              </SwiperSlide>
-            ))}
-          </Swiper>
+                  <path d="M15 18l-6-6 6-6" />
+                </svg>
+              </button>
 
-          <div className={`swiper-button-next ${styles.navArrow} ${styles.navArrowRight} ${isTabsSwiperEnd ? styles.navArrowDisabled : ''}`} />
-        </div>
+              <Swiper
+                modules={[Navigation]}
+                spaceBetween={0}
+                slidesPerView={1}
+                centeredSlides={false}
+                allowTouchMove={true}
+                speed={300}
+                watchOverflow={true}
+                onBeforeInit={(swiper) => {
+                  tabsSwiperRef.current = swiper;
+                }}
+                onSlideChange={(swiper) => {
+                  setIsTabsSwiperBeginning(swiper.isBeginning);
+                  setIsTabsSwiperEnd(swiper.isEnd);
+                  const activeIndex = swiper.activeIndex;
+                  if (provenSuccessData.tabs[activeIndex]) {
+                    const selectedTab = provenSuccessData.tabs[activeIndex];
+                    setActiveTab(selectedTab.id);
+                  }
+                }}
+                className={styles.tabsSwiper}
+                style={{ paddingLeft: "3rem", paddingRight: "3rem", overflow: "hidden" }}
+              >
+                {provenSuccessData.tabs.map((tab) => (
+                  <SwiperSlide key={tab.id} style={{ width: "100%" }}>
+                    <div className="flex justify-center w-full">
+                      <button
+                        onClick={() => {
+                          setActiveTab(tab.id);
+                          // Sync swiper to active tab
+                          const tabIndex = provenSuccessData.tabs.findIndex((t) => t.id === tab.id);
+                          if (tabsSwiperRef.current && tabIndex !== -1) {
+                            tabsSwiperRef.current.slideTo(tabIndex);
+                          }
+                        }}
+                        className={`${styles.tab} ${activeTab === tab.id ? styles.activeTab : ''}`}
+                        style={{ margin: 0 }}
+                      >
+                        {tab.label}
+                      </button>
+                    </div>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
 
-        {/* Tabs - Mobile */}
-        {/* Tabs - Mobile */}
-        <div className={styles.tabsContainerMobile}>
-          {/* Left Arrow */}
-          <button
-            onClick={() => tabsSwiperRef.current?.slidePrev()}
-            disabled={isTabsSwiperBeginning}
-            className={`absolute left-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full border-none text-white cursor-pointer flex items-center justify-center transition-all ${isTabsSwiperBeginning
-                ? "opacity-30 cursor-not-allowed bg-[#1b1849]"
-                : "opacity-100 hover:bg-[#0fdac2]/80 bg-[#0fdac2]"
-              }`}
-            aria-label="Previous tab"
-          >
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M15 18l-6-6 6-6" />
-            </svg>
-          </button>
-
-          <Swiper
-            modules={[Navigation]}
-            spaceBetween={0}
-            slidesPerView={1}
-            centeredSlides={false}
-            allowTouchMove={true}
-            speed={300}
-            watchOverflow={true}
-            onBeforeInit={(swiper) => {
-              tabsSwiperRef.current = swiper;
-            }}
-            onSlideChange={(swiper) => {
-              setIsTabsSwiperBeginning(swiper.isBeginning);
-              setIsTabsSwiperEnd(swiper.isEnd);
-              const activeIndex = swiper.activeIndex;
-              if (PROVEN_SUCCESS_DATA.tabs[activeIndex]) {
-                const selectedTab = PROVEN_SUCCESS_DATA.tabs[activeIndex];
-                setActiveTab(selectedTab.id);
-              }
-            }}
-            className={styles.tabsSwiper}
-            style={{ paddingLeft: "3rem", paddingRight: "3rem", overflow: "hidden" }}
-          >
-            {PROVEN_SUCCESS_DATA.tabs.map((tab) => (
-              <SwiperSlide key={tab.id} style={{ width: "100%" }}>
-                <div className="flex justify-center w-full">
-                  <button
-                    onClick={() => {
-                      setActiveTab(tab.id);
-                      // Sync swiper to active tab
-                      const tabIndex = PROVEN_SUCCESS_DATA.tabs.findIndex((t) => t.id === tab.id);
-                      if (tabsSwiperRef.current && tabIndex !== -1) {
-                        tabsSwiperRef.current.slideTo(tabIndex);
-                      }
-                    }}
-                    className={`${styles.tab} ${activeTab === tab.id ? styles.activeTab : ''}`}
-                    style={{ margin: 0 }}
-                  >
-                    {tab.label}
-                  </button>
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-
-          {/* Right Arrow */}
-          <button
-            onClick={() => tabsSwiperRef.current?.slideNext()}
-            disabled={isTabsSwiperEnd}
-            className={`absolute right-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full border-none text-white cursor-pointer flex items-center justify-center transition-all ${isTabsSwiperEnd
-                ? "opacity-30 cursor-not-allowed bg-[#1b1849]"
-                : "opacity-100 hover:bg-[#0fdac2]/80 bg-[#0fdac2]"
-              }`}
-            aria-label="Next tab"
-          >
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M9 18l6-6-6-6" />
-            </svg>
-          </button>
-        </div>
-
-        {/* Categories Tabs */}
-        {/* <div ref={categoriesScrollRef} className={styles.categoriesContainer}>
-          {PROVEN_SUCCESS_DATA.categories.map((category) => (
-            <button
-              key={category.id}
-              onClick={() => setActiveCategory(category.id)}
-              className={`${styles.categoryTab} ${activeCategory === category.id ? styles.activeCategoryTab : ''}`}
-            >
-              {category.label}
-            </button>
-          ))}
-        </div> */}
-
-        {/* Progress Bar */}
-        {/* <div className={styles.progressBarContainer}>
-          <div
-            className={styles.progressBar}
-            style={{
-              width: `${((PROVEN_SUCCESS_DATA.categories.findIndex((cat) => cat.id === activeCategory) + 1) / PROVEN_SUCCESS_DATA.categories.length) * 100}%`,
-            }}
-          />
-        </div> */}
+              {/* Right Arrow */}
+              <button
+                onClick={() => tabsSwiperRef.current?.slideNext()}
+                disabled={isTabsSwiperEnd}
+                className={`absolute right-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full border-none text-white cursor-pointer flex items-center justify-center transition-all ${isTabsSwiperEnd
+                    ? "opacity-30 cursor-not-allowed bg-[#1b1849]"
+                    : "opacity-100 hover:bg-[#0fdac2]/80 bg-[#0fdac2]"
+                  }`}
+                aria-label="Next tab"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M9 18l6-6-6-6" />
+                </svg>
+              </button>
+            </div>
+          </>
+        )}
 
         {/* Images Grid */}
-        <div
-          key={displayedTabId}
-          className={`grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 transition-opacity duration-300 ease-in-out ${isFading ? "opacity-0" : "opacity-100"
-            }`}
-        >
-          {displayedTab.images.map((image, index) => (
-            <div
-              key={`${displayedTabId}-${index}`}
-              className="aspect-square rounded-lg overflow-hidden"
-            >
-              <img
-                src={image}
-                alt={`${displayedTab.label} ${index + 1}`}
-                className="w-full h-full object-cover"
-              />
-            </div>
-          ))}
-        </div>
+        {isWebDevelopment ? (
+          // Web Development Portfolio Grid
+          <div className={styles.portfolioGrid}>
+            {WEB_DEV_PORTFOLIO.map((item, index) => (
+              <div
+                key={index}
+                className={styles.portfolioItem}
+                onClick={() => setSelectedImage(item.zoom)}
+              >
+                <div className={styles.imageWrapper}>
+                  <img
+                    src={item.normal}
+                    alt={`Web Development Portfolio ${index + 1}`}
+                    className={styles.portfolioImage}
+                  />
+                  <div className={styles.overlay}>
+                    <svg
+                      className={styles.zoomIcon}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : (
+          // Original Tabs-based Grid
+          <div
+            key={displayedTabId}
+            className={`grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 transition-opacity duration-300 ease-in-out ${isFading ? "opacity-0" : "opacity-100"
+              }`}
+          >
+            {displayedTab.images.map((image, index) => (
+              <div
+                key={`${displayedTabId}-${index}`}
+                className="aspect-square rounded-lg overflow-hidden"
+              >
+                <img
+                  src={image}
+                  alt={`${displayedTab.label} ${index + 1}`}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* Image Lightbox */}
+        <ImageLightbox
+          isOpen={selectedImage !== null}
+          onClose={() => setSelectedImage(null)}
+          imageUrl={selectedImage}
+          isWebDevelopment={isWebDevelopment}
+        />
       </Container>
     </section>
   );

@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useState, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import { COMPANY_INFO, NAVIGATION_LINKS } from "../constants";
@@ -9,8 +8,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { getAllServices } from "../data/ServicesPageData";
-
+import OfferPopup from "./OfferPopup/OfferPopup";
 export default function Header() {
+  const [isOfferPopupOpen, setIsOfferPopupOpen] = useState(false);
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -19,7 +19,7 @@ export default function Header() {
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
   const [isServicesDropdownOpen2, setIsServicesDropdownOpen2] = useState(false);
-  // Add separate state for mobile dropdowns
+  
   const [isMobileDesignDropdownOpen, setIsMobileDesignDropdownOpen] =
     useState(false);
   const [isMobileServicesDropdownOpen, setIsMobileServicesDropdownOpen] =
@@ -37,7 +37,7 @@ export default function Header() {
   const closeTimeoutRef2 = useRef<NodeJS.Timeout | null>(null);
   const services = getAllServices();
 
-  // Services menu items
+  
   const servicesMenuItems = [
     {
       label: "Web Development",
@@ -56,7 +56,7 @@ export default function Header() {
     },
   ];
 
-  // Check if a link is active
+  
   const isActive = (href: string) => {
     if (href === "/") {
       return pathname === "/";
@@ -64,16 +64,16 @@ export default function Header() {
     return pathname?.startsWith(href);
   };
 
-  // Check if current path is a service page
+  
   const isServicePage = () => {
     if (!pathname) return false;
     return services.some((service) => pathname.startsWith(`/${service.slug}`));
   };
 
   useEffect(() => {
-    // Check if mobile
+    
     const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768); // md breakpoint
+      setIsMobile(window.innerWidth < 768); 
     };
 
     checkMobile();
@@ -83,8 +83,8 @@ export default function Header() {
       const currentScrollY = window.scrollY;
       const scrollDelta = Math.abs(currentScrollY - lastScrollY);
 
-      // Close dropdown on significant scroll (desktop only, and only if dropdown is open)
-      // Only close if scroll is more than 5px to avoid closing on tiny movements
+      
+      
       if (!isMobile && isServicesDropdownOpen && scrollDelta > 5) {
         setIsServicesDropdownOpen(false);
       }
@@ -92,18 +92,18 @@ export default function Header() {
         setIsServicesDropdownOpen2(false);
       }
 
-      // Apply fixed when scrolled
+      
       setIsScrolled(currentScrollY > 50);
 
-      // Scroll direction detection for header show/hide
+      
       if (currentScrollY < 10) {
-        // At top, always show
+        
         setIsHeaderVisible(true);
       } else if (currentScrollY > lastScrollY) {
-        // Scrolling down - hide header
+        
         setIsHeaderVisible(false);
       } else if (currentScrollY < lastScrollY) {
-        // Scrolling up - show header
+        
         setIsHeaderVisible(true);
       }
 
@@ -111,7 +111,7 @@ export default function Header() {
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll(); // Check initial position
+    handleScroll(); 
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -119,14 +119,14 @@ export default function Header() {
     };
   }, [lastScrollY, isMobile, isServicesDropdownOpen, isServicesDropdownOpen2]);
 
-  // Update dropdown position for Services dropdown
+  
   useEffect(() => {
     const updatePosition = () => {
       if (dropdownButtonRef2.current && isServicesDropdownOpen2) {
         const rect = dropdownButtonRef2.current.getBoundingClientRect();
         const topPosition = isScrolled
-          ? rect.bottom + 4 // Reduced from 12 to 4
-          : rect.bottom + window.scrollY + 4; // Reduced from 12 to 4
+          ? rect.bottom + 4 
+          : rect.bottom + window.scrollY + 4; 
 
         setDropdownPosition2({
           top: topPosition,
@@ -148,10 +148,10 @@ export default function Header() {
     };
   }, [isServicesDropdownOpen2, isScrolled]);
 
-  // Close dropdown when clicking outside (only for mobile/click interactions)
+  
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      // Only handle click outside on mobile or if dropdown was opened by click
+      
       if (
         isMobile &&
         servicesDropdownRef.current &&
@@ -180,7 +180,7 @@ export default function Header() {
     };
   }, [isServicesDropdownOpen, isMobile, isServicesDropdownOpen2]);
 
-  // Cleanup timeouts on unmount
+  
   useEffect(() => {
     return () => {
       if (closeTimeoutRef.current) {
@@ -192,7 +192,7 @@ export default function Header() {
     };
   }, []);
 
-  // Service icons mapping
+  
   const getServiceIcon = (slug: string) => {
     const iconMap: { [key: string]: React.ReactNode } = {
       "brand-identity": (
@@ -371,7 +371,7 @@ export default function Header() {
     );
   };
 
-  // Services menu icons mapping
+  
   const getServicesMenuIcon = (slug: string) => {
     const iconMap: { [key: string]: React.ReactNode } = {
       "web-development": (
@@ -438,7 +438,6 @@ export default function Header() {
 
   return (
     <>
-      {/* Header - Fixed when scrolled */}
       <header
         className={`${
           isScrolled ? "fixed top-4" : "relative md:absolute md:top-17"
@@ -462,59 +461,41 @@ export default function Header() {
                     alt="Logo"
                     width={140}
                     height={40}
-                    priority
+                    loading="lazy"
                     style={{ objectFit: "contain" }}
                     className="headerLogo"
                   />
                 </Link>
               </div>
             </div>
-
             <div className="hidden md:flex items-center gap-6 flex-1 justify-center relative z-50">
               {NAVIGATION_LINKS.map((link, index) => {
-                // Render Home normally
+                
                 if (link.label === "Home") {
                   return (
                     <a
                       key={link.href}
                       href={link.href}
                       className={`text-white font-medium hover:text-[#0fdac2] transition-colors cursor-pointer ${
-                        isActive(link.href) ? "text-[#0fdac2]" : ""
+                        isActive(link.href) ? "active text-[#0fdac2]" : ""
                       }`}
-                      style={
-                        isActive(link.href)
-                          ? {
-                              textShadow:
-                                "-9px 0 17px #00dbc1e6, 0px 6px 8px #0fdac287, 0 0 56px #0fdac2cc",
-                            }
-                          : {}
-                      }
                     >
                       {link.label}
                     </a>
                   );
                 }
-                // Add Services Dropdown after Designer
+                
                 if (link.label === "Designer") {
                   return (
                     <React.Fragment key={`designer-with-services-${link.href}`}>
                       <a
                         href={link.href}
                         className={`text-white font-medium hover:text-[#0fdac2] transition-colors cursor-pointer ${
-                          isActive(link.href) ? "text-[#0fdac2]" : ""
+                          isActive(link.href) ? "active text-[#0fdac2]" : ""
                         }`}
-                        style={
-                          isActive(link.href)
-                            ? {
-                                textShadow:
-                                  "-9px 0 17px #00dbc1e6, 0px 6px 8px #0fdac287, 0 0 56px #0fdac2cc",
-                              }
-                            : {}
-                        }
                       >
                         {link.label}
                       </a>
-                      {/* Services Dropdown */}
                       <div
                         key="services-dropdown"
                         className="relative"
@@ -544,23 +525,14 @@ export default function Header() {
                       >
                         <button
                           ref={dropdownButtonRef2}
-                          className={`text-white font-medium hover:text-[#0fdac2] transition-colors flex items-center justify-center gap-1 cursor-pointer ${
+                          className={`text-white font-medium hover:text-[#0FDAC2] transition-colors flex items-center 
+                            justify-center gap-1 cursor-pointer ${
                             servicesMenuItems.some((item) =>
                               pathname?.startsWith(item.href)
                             )
-                              ? "text-[#0fdac2]"
+                              ? "active text-[#0FDAC2]"
                               : ""
                           }`}
-                          style={
-                            servicesMenuItems.some((item) =>
-                              pathname?.startsWith(item.href)
-                            )
-                              ? {
-                                  textShadow:
-                                    "-9px 0 17px #00dbc1e6, 0px 6px 8px #0fdac287, 0 0 56px #0fdac2cc",
-                                }
-                              : {}
-                          }
                         >
                           Services
                           <svg
@@ -579,8 +551,6 @@ export default function Header() {
                             />
                           </svg>
                         </button>
-
-                        {/* Services Dropdown Menu */}
                         {typeof window !== "undefined" &&
                           isServicesDropdownOpen2 &&
                           createPortal(
@@ -623,14 +593,14 @@ export default function Header() {
                                         onClick={() =>
                                           setIsServicesDropdownOpen2(false)
                                         }
-                                        className={`flex items-center gap-3 py-3 px-4 hover:bg-[#2f2a63]/30 transition-all rounded-lg ${
+                                        className={`group flex items-center gap-3 py-3 px-4 hover:bg-[#2f2a63]/30 transition-all rounded-lg ${
                                           isActive ? "bg-[#2f2a63]/40" : ""
                                         }`}
                                       >
                                         <div
-                                          className={`flex-shrink-0 ${
+                                          className={`flex-shrink-0 transition-colors group-hover:text-[#0FDAC2] group-hover:opacity-100 ${
                                             isActive
-                                              ? "text-[#0fdac2]"
+                                              ? "text-[#0FDAC2]"
                                               : "text-[#643bff] opacity-70"
                                           }`}
                                         >
@@ -657,44 +627,30 @@ export default function Header() {
                     </React.Fragment>
                   );
                 }
-                // Render other links normally
                 return (
                   <a
                     key={link.href}
                     href={link.href}
                     className={`text-white font-medium hover:text-[#0fdac2] transition-colors cursor-pointer ${
-                      isActive(link.href) ? "text-[#0fdac2]" : ""
+                      isActive(link.href) ? "active text-[#0fdac2]" : ""
                     }`}
-                    style={
-                      isActive(link.href)
-                        ? {
-                            textShadow:
-                              "-9px 0 17px #00dbc1e6, 0px 6px 8px #0fdac287, 0 0 56px #0fdac2cc",
-                          }
-                        : {}
-                    }
                   >
                     {link.label}
                   </a>
                 );
               })}
             </div>
-            <div className="hidden md:flex items-center gap-5">
+            <div className="hidden md:flex items-center gap-2">
               <Link
                 href="/roi-calculator"
-                className="text-white text-sm border border-[#2f2a63] bg-[#05032173] rounded-lg px-3 py-2 me-2 text-[#969696] font-medium hover:text-[#0fdac2] transition-colors"
+                className="text-sm border border-[#2f2a63] bg-[#05032173] rounded-lg px-3 py-2 me-2 text-white font-medium hover:text-[#0fdac2] transition-colors"
               >
-                {/* <span className="bg-[#2f2a63] font-light text-xs border border-[#525252] rounded-lg px-2 py-1 me-2 text-[#969696]">
-                  New
-                </span> */}
                 ROI Calculator
               </Link>
               <Button href="/contact-us" variant="green" iconPosition="right">
                 Hire Your Team
               </Button>
             </div>
-
-            {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="md:hidden flex flex-col gap-1.5 p-2 z-101 relative"
@@ -719,24 +675,18 @@ export default function Header() {
           </nav>
         </Container>
       </header>
-
-      {/* Mobile Sidebar Menu - Slides from left */}
-      {/* Overlay */}
       {isMobileMenuOpen && (
         <div
           className="fixed inset-0 bg-black/50 z-99 md:hidden transition-opacity"
           onClick={() => setIsMobileMenuOpen(false)}
         />
       )}
-
-      {/* Sidebar */}
       <div
         className={`fixed top-0 left-0 h-full w-80 max-w-[85vw] bg-[#0a0a1a] border-r border-[#1a1a2e]/50 md:hidden z-1000 transform transition-transform duration-300 ease-in-out ${
           isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
         <div className="flex flex-col h-full">
-          {/* Sidebar Header */}
           <div className="flex items-center justify-between p-4 border-b border-[#1a1a2e]/50">
             <div
               className="flex flex-col relative"
@@ -748,7 +698,7 @@ export default function Header() {
                   alt="Logo"
                   width={100}
                   height={40}
-                  priority
+                  loading="lazy"
                   style={{ objectFit: "contain" }}
                 />
               </Link>
@@ -773,112 +723,27 @@ export default function Header() {
               </svg>
             </button>
           </div>
-
-          {/* Sidebar Content */}
           <div className="flex flex-col flex-1 px-4 py-6 gap-4 overflow-y-auto">
-            {/* Home Link */}
             <Link
               href="/"
               onClick={() => setIsMobileMenuOpen(false)}
               className={`text-white text-base font-medium hover:text-[#0fdac2] transition-colors py-2 ${
-                isActive("/") ? "text-[#0fdac2]" : ""
+                isActive("/") ? "active text-[#0fdac2]" : ""
               }`}
-              style={
-                isActive("/")
-                  ? {
-                      textShadow:
-                        "-9px 0 17px #00dbc1e6, 0px 6px 8px #0fdac287, 0 0 56px #0fdac2cc",
-                    }
-                  : {}
-              }
             >
               Home
             </Link>
-
-            {/* Mobile Design Dropdown */}
             <div className="mb-2">
               <Link href="/designer">
               <button
                 className={`text-white text-base font-medium hover:text-[#0fdac2] transition-colors py-2 w-full text-left flex items-center justify-between ${
-                  isServicePage() ? "text-[#0fdac2]" : ""
+                  isServicePage() ? "active text-[#0fdac2]" : ""
                 }`}
-                style={
-                  isServicePage()
-                    ? {
-                        textShadow:
-                          "-9px 0 17px #00dbc1e6, 0px 6px 8px #0fdac287, 0 0 56px #0fdac2cc",
-                      }
-                    : {}
-                }
               >
                 Designer
-                <svg
-                onClick={() =>
-                  setIsMobileDesignDropdownOpen(!isMobileDesignDropdownOpen)
-                }
-                  className={`w-4 h-4 transition-transform ${
-                    isMobileDesignDropdownOpen ? "rotate-180" : ""
-                  }`}
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
               </button>
               </Link>
-              {isMobileDesignDropdownOpen && (
-                <div className="mt-2 pl-4 space-y-2 border-l border-[#2f2a63]">
-                  {services.map((service) => {
-                    const isActiveService = pathname?.startsWith(
-                      `/${service.slug}`
-                    );
-                    return (
-                      <Link
-                        key={service.slug}
-                        href={`/${service.slug}`}
-                        onClick={() => {
-                          setIsMobileMenuOpen(false);
-                          setIsMobileDesignDropdownOpen(false);
-                        }}
-                        className={`flex items-center gap-3 py-2 hover:text-[#0fdac2] transition-colors ${
-                          isActiveService ? "text-[#0fdac2]" : "text-gray-400"
-                        }`}
-                      >
-                        <div
-                          className={`flex-shrink-0 ${
-                            isActiveService
-                              ? "text-[#0fdac2]"
-                              : "text-[#643bff] opacity-70"
-                          }`}
-                        >
-                          {getServiceIcon(service.slug)}
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <div
-                            className={`font-medium text-sm ${
-                              isActiveService ? "text-[#0fdac2]" : "text-white"
-                            }`}
-                          >
-                            {service.title || "Service Name"}
-                          </div>
-                          <div className="text-xs text-gray-400 mt-0.5">
-                            {service.tagline || "Service description"}
-                          </div>
-                        </div>
-                      </Link>
-                    );
-                  })}
-                </div>
-              )}
             </div>
-
-            {/* Mobile Services Dropdown */}
             <div className="mb-2">
               <button
                 onClick={() =>
@@ -888,19 +753,9 @@ export default function Header() {
                   servicesMenuItems.some((item) =>
                     pathname?.startsWith(item.href)
                   )
-                    ? "text-[#0fdac2]"
+                    ? "active text-[#0fdac2]"
                     : ""
                 }`}
-                style={
-                  servicesMenuItems.some((item) =>
-                    pathname?.startsWith(item.href)
-                  )
-                    ? {
-                        textShadow:
-                          "-9px 0 17px #00dbc1e6, 0px 6px 8px #0fdac287, 0 0 56px #0fdac2cc",
-                      }
-                    : {}
-                }
               >
                 Services
                 <svg
@@ -920,7 +775,7 @@ export default function Header() {
                 </svg>
               </button>
               {isMobileServicesDropdownOpen && (
-                <div className="mt-2 pl-4 space-y-2 border-l border-[#2f2a63]">
+                <div className="mt-2 pl-4 space-y-2">
                   {servicesMenuItems.map((item) => {
                     const isActiveService = pathname?.startsWith(item.href);
                     return (
@@ -931,12 +786,12 @@ export default function Header() {
                           setIsMobileMenuOpen(false);
                           setIsMobileServicesDropdownOpen(false);
                         }}
-                        className={`flex items-center gap-3 py-2 hover:text-[#0fdac2] transition-colors ${
+                        className={`group flex items-center gap-3 py-2 hover:text-[#0fdac2] transition-colors ${
                           isActiveService ? "text-[#0fdac2]" : "text-gray-400"
                         }`}
                       >
                         <div
-                          className={`flex-shrink-0 ${
+                          className={`flex-shrink-0 transition-colors group-hover:text-[#0FDAC2] group-hover:opacity-100 ${
                             isActiveService
                               ? "text-[#0fdac2]"
                               : "text-[#643bff] opacity-70"
@@ -957,41 +812,27 @@ export default function Header() {
                 </div>
               )}
             </div>
-
-            {/* Other Navigation Links (excluding Home and Designer) */}
             {NAVIGATION_LINKS.filter((link) => link.label !== "Home" && link.label !== "Designer").map(
               (link) => (
                 <a
                   key={link.href}
                   href={link.href}
                   className={`text-white text-base font-medium hover:text-[#0fdac2] transition-colors py-2 ${
-                    isActive(link.href) ? "text-[#0fdac2]" : ""
+                    isActive(link.href) ? "active text-[#0fdac2]" : ""
                   }`}
-                  style={
-                    isActive(link.href)
-                      ? {
-                          textShadow:
-                            "-9px 0 17px #00dbc1e6, 0px 6px 8px #0fdac287, 0 0 56px #0fdac2cc",
-                        }
-                      : {}
-                  }
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.label}
                 </a>
               )
             )}
-
-            {/* ROI Calculator Link */}
             <Link
               href="/roi-calculator"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="text-white text-sm border border-[#2f2a63] bg-[#05032173] rounded-lg px-3 py-2 text-[#969696] font-medium hover:text-[#0fdac2] transition-colors"
+              className="text-sm font-bold border-none bg-transparent py-2 text-[#0fdac2]"
             >
               ROI Calculator
             </Link>
-
-            {/* CTA Button */}
             <div className="pt-4">
               <Button
                 href="/contact-us"
@@ -1007,6 +848,9 @@ export default function Header() {
           </div>
         </div>
       </div>
+      {isOfferPopupOpen && (
+        <OfferPopup />
+      )}
     </>
   );
 }

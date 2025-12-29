@@ -1,18 +1,16 @@
 import type { Metadata } from "next";
-import React from "react";
 import AiAgentHero from "../components/aiAgentComponents/AiAgentHero/AiAgentHero";
 import AiAgentServices from "../components/aiAgentComponents/AiAgentServices/AiAgentServices";
 import AiAgentBenefits from "../components/aiAgentComponents/AiAgentBenefits/AiAgentBenefits";
 import AiAgentIndustry from "../components/aiAgentComponents/AiAgentIndustry/AiAgentIndustry";
 import AiAgentNetwork from "../components/aiAgentComponents/AiAgentNetwork/AiAgentNetwork";
 import FAQ from "../components/FAQ/FAQ";
-
 export const metadata: Metadata = {
   title: "AI Agent Services | Intelligent AI Solutions | Startups Advisory",
   description:
     "Transform your business with cutting-edge AI solutions that automate workflows, enhance customer experiences, and drive measurable results around the clock.",
+  robots: "nofollow",
 };
-
 const AI_AGENT_FAQS = [
   {
     question: "What are AI Agents?",
@@ -65,7 +63,6 @@ const AI_AGENT_FAQS = [
       "AI Agents improve customer service by providing instant responses 24/7, reducing wait times, handling multiple inquiries simultaneously, ensuring consistent service quality, and freeing up human agents to focus on complex issues. They can resolve up to 80% of common queries automatically.",
   },
 ];
-
 const AI_AGENT_FAQ_SECTION = {
   title: {
     part1: "Frequently Asked",
@@ -74,7 +71,6 @@ const AI_AGENT_FAQ_SECTION = {
   subtitle:
     "Explore answers to common questions about our AI Agent services and how they can transform your business operations.",
 };
-
 export default function AiAgentPage() {
   return (
     <>
@@ -87,4 +83,3 @@ export default function AiAgentPage() {
     </>
   );
 }
-

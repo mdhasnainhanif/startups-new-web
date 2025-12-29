@@ -4,9 +4,9 @@ import React, { useEffect, useRef } from "react";
 import styles from "./TextSlider.module.css";
 import gsap from "gsap";
 
-type SliderItem = {
-  sliderDataPara: string;
-};
+type SliderItem = 
+  | { sliderDataPara: string }
+  | { text: string; highlight: string; price: string };
 
 interface TextSlider1Props {
   data?: SliderItem[];
@@ -223,12 +223,47 @@ const TextSlider1: React.FC<TextSlider1Props> = ({ data = [] }) => {
     return parts;
   };
 
+  // SVG Star Icon Component
+  const StarIcon = () => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="0.8em"
+      height="0.8em"
+      viewBox="0 0 283.5 283.5"
+      style={{
+        display: "inline-block",
+        verticalAlign: "middle",
+        marginLeft: "0.75em",
+        marginRight: "0.75em",
+        marginBottom: "0.2em",
+        alignItems: "center",
+        flexShrink: 0,
+      }}
+    >
+      <path
+        d="M264.9 148.1c-76.5 19.6-103.5 55-118.1 117.3-1.4 6.1-10.2 6.2-11.7.1-15.5-62.7-49-102.4-116.4-118.5-6.1-1.5-6.2-10.1-.1-11.7 76.5-19.7 103.4-55 118-117.4 1.4-6.1 10.1-6.2 11.7-.1 15.7 62.8 49.9 102.5 116.6 118.6 6 1.5 6.1 10.2 0 11.7"
+        fill="#0fdac2"
+      />
+    </svg>
+  );
+
   return (
     <section className={styles.ctaBanner}>
       <div className={styles.scrollingText}>
         <div className={styles.rail} ref={railRef}>
           {data.map((item, idx) => {
-            const textParts = parseTextWithHighlights(item.sliderDataPara);
+            // Handle both data formats
+            let textParts: Array<{ text: string; isHighlight: boolean }>;
+            
+            if ('sliderDataPara' in item) {
+              // Old format: sliderDataPara with brackets
+              textParts = parseTextWithHighlights(item.sliderDataPara);
+            } else {
+              // New format: text, highlight, price
+              const combinedText = `${item.text}[${item.highlight}]${item.price}`;
+              textParts = parseTextWithHighlights(combinedText);
+            }
+            
             return (
               <h4 key={idx}>
                 {textParts.map((part, partIdx) => (
@@ -239,6 +274,7 @@ const TextSlider1: React.FC<TextSlider1Props> = ({ data = [] }) => {
                     {part.text}
                   </span>
                 ))}
+                <StarIcon />
               </h4>
             );
           })}

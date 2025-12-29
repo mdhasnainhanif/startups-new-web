@@ -24,18 +24,16 @@ export default function PoppupStepQuestionnaire({
 }: PoppupStepQuestionnaireProps) {
   const [currentStep, setCurrentStep] = useState<string>("step-1");
   const [answers, setAnswers] = useState<QuestionnaireAnswers>({});
-  const [showThankYou, setShowThankYou] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [stepHistory, setStepHistory] = useState<string[]>(["step-1"]);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [fadeIn, setFadeIn] = useState(true);
 
-  // Reset state when popup opens
+  
   useEffect(() => {
     if (isOpen) {
       setCurrentStep("step-1");
       setAnswers({});
-      setShowThankYou(false);
       setStepHistory(["step-1"]);
       setFadeIn(true);
     }
@@ -47,54 +45,72 @@ export default function PoppupStepQuestionnaire({
       [stepId]: value,
     }));
 
-    // Navigate to next step with delay for tick animation
+    const currentStepData = questionnaireData.steps.find((s) => s.id === stepId);
+    
+    const isMultiSelect = true; 
+    const maxSelections = 2; 
+    
+    
+    const selectionCount = value ? value.split(",").filter(v => v.trim()).length : 0;
+    const maxReached = isMultiSelect && selectionCount >= maxSelections;
+    
+    
     if (nextStep) {
-      setIsTransitioning(true);
-      setFadeIn(false);
-      
-      // Wait for tick animation (600ms) then transition to next step
-      setTimeout(() => {
-        // Only add to history if it's a new step
-        setStepHistory((prev) => {
-          const lastStep = prev[prev.length - 1];
-          if (lastStep !== nextStep) {
-            return [...prev, nextStep];
-          }
-          return prev;
-        });
-        setCurrentStep(nextStep);
-        
-        // Fade in the next step
+      if (!isMultiSelect || maxReached) {
+        setIsTransitioning(true);
+        setFadeIn(false);
         setTimeout(() => {
-          setFadeIn(true);
-          setIsTransitioning(false);
-        }, 50);
-      }, 600);
+          setStepHistory((prev) => {
+            const lastStep = prev[prev.length - 1];
+            if (lastStep !== nextStep) {
+              return [...prev, nextStep];
+            }
+            return prev;
+          });
+          setCurrentStep(nextStep);
+          setTimeout(() => {
+            setFadeIn(true);
+            setIsTransitioning(false);
+          }, 50);
+        }, 600);
+      } else if (isMultiSelect && !maxReached) {
+        setIsTransitioning(true);
+        setFadeIn(false);    
+        setTimeout(() => {
+          setStepHistory((prev) => {
+            const lastStep = prev[prev.length - 1];
+            if (lastStep !== nextStep) {
+              return [...prev, nextStep];
+            }
+            return prev;
+          });
+          setCurrentStep(nextStep);
+          
+          setTimeout(() => {
+            setFadeIn(true);
+            setIsTransitioning(false);
+          }, 50);
+        }, 300);
+      }
     }
   };
-
   const handleBack = () => {
     setFadeIn(false);
     setTimeout(() => {
-      // First try to use stepHistory
       if (stepHistory.length > 1) {
         const newHistory = [...stepHistory];
-        newHistory.pop(); // Remove current step
-        const previousStep = newHistory[newHistory.length - 1];
-        
-        // Ensure we're not going to the same step
+        newHistory.pop(); 
+        const previousStep = newHistory[newHistory.length - 1];    
         if (previousStep !== currentStep) {
           setStepHistory(newHistory);
           setCurrentStep(previousStep);
         } else if (newHistory.length > 1) {
-          // If previous step is same, go one more step back
           newHistory.pop();
           const earlierStep = newHistory[newHistory.length - 1];
           setStepHistory(newHistory);
           setCurrentStep(earlierStep);
         }
       } else {
-        // Fallback to backTo if available
         const currentStepData = questionnaireData.steps.find((s) => s.id === currentStep);
         if (currentStepData?.backTo) {
           const backToStep = currentStepData.backTo;
@@ -109,7 +125,6 @@ export default function PoppupStepQuestionnaire({
       }, 50);
     }, 200);
   };
-
   const handlePersonalDetailsSubmit = async (formData: {
     name: string;
     contact: string;
@@ -118,7 +133,6 @@ export default function PoppupStepQuestionnaire({
   }) => {
     setIsSubmitting(true);
     try {
-      // Combine all answers with personal details
       const submissionData = {
         ...answers,
         ...formData,
@@ -137,11 +151,35 @@ export default function PoppupStepQuestionnaire({
       const response = await submitBriefEmail(submissionPayload);
 
       if (response.ok) {
-        setShowThankYou(true);
-        // Close popup after 3 seconds
-        setTimeout(() => {
-          onClose();
-        }, 3000);
+        
+        if (typeof window !== "undefined") {
+          try {
+            
+            const cookies = document.cookie.split(";");
+            for (let i = 0; i < cookies.length; i++) {
+              const cookie = cookies[i];
+              const eqPos = cookie.indexOf("=");
+              const name = eqPos > -1 ? cookie.substr(0, eqPos).trim() : cookie.trim();
+              if (name) {
+                
+                document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/`;
+                
+                document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/;domain=${window.location.hostname}`;
+                
+                const hostnameParts = window.location.hostname.split(".");
+                if (hostnameParts.length > 1) {
+                  const parentDomain = "." + hostnameParts.slice(-2).join(".");
+                  document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/;domain=${parentDomain}`;
+                }
+              }
+            }
+          } catch (error) {
+            console.error("Error clearing cookies:", error);
+          }
+        }
+        
+        onClose();
+        window.location.href = "/thank-you";
       } else {
         console.error("Failed to submit form");
       }
@@ -159,6 +197,20 @@ export default function PoppupStepQuestionnaire({
   if (!isOpen) return null;
 
   const currentStepData = questionnaireData.steps.find((s) => s.id === currentStep);
+  
+  
+  const totalSteps = questionnaireData.steps.length + 1; 
+  let currentStepNumber: number;
+  let progressPercentage: number;
+  
+  if (currentStep === "questionnaire-personal-detail") {
+    currentStepNumber = totalSteps;
+    progressPercentage = 100;
+  } else {
+    const currentStepIndex = questionnaireData.steps.findIndex((s) => s.id === currentStep);
+    currentStepNumber = currentStepIndex >= 0 ? currentStepIndex + 1 : 1;
+    progressPercentage = currentStepData?.progress || ((currentStepNumber / totalSteps) * 100);
+  }
 
   return (
     <div className={styles.popupOverlay} onClick={handleClose}>
@@ -167,74 +219,84 @@ export default function PoppupStepQuestionnaire({
           ×
         </button>
         
-        {showThankYou ? (
-          <div className={styles.thankYouArea}>
-            <h1 className={styles.thankYouHeading}>Thank You!</h1>
-            {/* <div className={styles.separator}></div> */}
-            <div className={styles.thankYouMessage}>
-              <h2 className={styles.thankYouSubheading}>
-                We Will Get In Touch You Shortly
-              </h2>
+        <div className={styles.questionnaireWrapper}>
+          {/* Header */}
+          <div className={styles.header}>
+            <h1 className={`${styles.mainHeading} lg:max-w-3xl`}>
+              Just Tell Us What You Need & Get
+              The <span className="text-[#0fdac2]">Best Price</span> Instantly!
+            </h1>
+            <div className={styles.separator}></div>
+            
+            {/* Progress Indicator */}
+            <div className={styles.progressContainer}>
+              <div className={styles.progressInfo}>
+                <span className={styles.progressText}>
+                  Step {currentStepNumber} of {totalSteps}
+                </span>
+              </div>
+              <div className={styles.progressBar}>
+                <div 
+                  className={styles.progressBarFill}
+                  style={{ width: `${progressPercentage}%` }}
+                ></div>
+              </div>
             </div>
           </div>
-        ) : (
-          <>
-            <div className={styles.questionnaireWrapper}>
-              {/* Header */}
-              <div className={styles.header}>
-                <h1 className={styles.mainHeading}>
-                  Just Tell Us What You Need & Get <br />
-                  The Best Price Instantly!
-                </h1>
-                <div className={styles.separator}></div>
-              </div>
 
-              {/* Form Area */}
-              <div className={styles.formArea}>
-                {currentStep === "questionnaire-personal-detail" ? (
-                  <PersonalDetailsForm
-                    key="personal-details-form"
-                    onSubmit={handlePersonalDetailsSubmit}
-                    onBack={handleBack}
-                    isSubmitting={isSubmitting}
-                    showBack={false}
-                  />
-                ) : (
-                  <>
-                    {currentStepData && (
-                      <div className={`${styles.stepWrapper} ${fadeIn ? styles.fadeIn : styles.fadeOut}`}>
-                        <QuestionnaireStep
-                          key={currentStepData.id}
-                          step={currentStepData}
-                          onSelect={handleOptionSelect}
-                          onBack={handleBack}
-                          selectedValue={answers[currentStepData.id]}
-                          showBack={false}
-                        />
-                      </div>
-                    )}
-                  </>
+          {/* Form Area */}
+          <div className={styles.formArea}>
+            {currentStep === "questionnaire-personal-detail" ? (
+              <PersonalDetailsForm
+                key="personal-details-form"
+                onSubmit={handlePersonalDetailsSubmit}
+                onBack={handleBack}
+                isSubmitting={isSubmitting}
+                showBack={false}
+              />
+            ) : (
+              <>
+                {currentStepData && (
+                  <div className={`${styles.stepWrapper} ${fadeIn ? styles.fadeIn : styles.fadeOut}`}>
+                    <QuestionnaireStep
+                      key={currentStepData.id}
+                      step={{
+                        ...currentStepData,
+                        multiSelect: true, 
+                        maxSelections: 2, 
+                      }}
+                      onSelect={handleOptionSelect}
+                      onBack={handleBack}
+                      selectedValue={
+                        
+                        answers[currentStepData.id] 
+                          ? answers[currentStepData.id].split(",").filter(v => v.trim())
+                          : []
+                      }
+                      showBack={false}
+                    />
+                  </div>
                 )}
-              </div>
-            </div>
-            
-            {/* Footer with Back Button - Outside scrollable area */}
-            {!showThankYou && (stepHistory.length > 1 || currentStep !== "step-1") && (
-              <div className={styles.popupFooter}>
-                <Button
-                  type="button"
-                  onClick={handleBack}
-                  variant="primary"
-                  size="md"
-                  className={styles.footerBackButton}
-                  icon={<ArrowLeftIcon />}
-                  iconPosition="left"
-                >
-                  Back
-                </Button>
-              </div>
+              </>
             )}
-          </>
+          </div>
+        </div>
+        
+        {/* Footer with Back Button - Outside scrollable area */}
+        {(stepHistory.length > 1 || currentStep !== "step-1") && (
+          <div className={styles.popupFooter}>
+            <Button
+              type="button"
+              onClick={handleBack}
+              variant="primary"
+              size="md"
+              className={styles.footerBackButton}
+              icon={<ArrowLeftIcon />}
+              iconPosition="left"
+            >
+              Back
+            </Button>
+          </div>
         )}
       </div>
     </div>

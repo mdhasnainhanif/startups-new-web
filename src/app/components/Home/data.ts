@@ -125,26 +125,26 @@ export const PROFESSIONAL_ONLINE = {
   startupStats: [
     {
       percentage: "90%",
-      headline: "Startups",
-      description: "Fail within two years which shows how unforgiving early execution really is.",
+      headline: "Startups Fail",
+      description: " within two years which shows how unforgiving early execution really is.",
       image: "/assets/images/clock.svg",
     },
     {
       percentage: "38%",
-      headline: "Startups",
-      description: "Collapse because they run out of cash a signal that financial discipline is a survival skill not an accessory.",
+      headline: "Startups Collapse",
+      description: " because they run out of cash a signal that financial discipline is a survival skill not an accessory.",
       image: "/assets/images/money.svg",
     },
     {
       percentage: "14%",
-      headline: "Startups",
-      description: "Fail due to poor marketing proving that even great products die when visibility is weak.",
+      headline: "Startups Fail",
+      description: " due to poor marketing proving that even great products die when visibility is weak.",
       image: "/assets/images/marketing.svg",
     },
     {
       percentage: "20%",
-      headline: "Startups",
-      description: "Get outcompeted because speed learning and adaptation decide who stays in the market.",
+      headline: "Startups Get",
+      description: " outcompeted because speed learning and adaptation decide who stays in the market.",
       image: "/assets/images/exit.svg",
     },
   ],
@@ -211,6 +211,17 @@ export const REVIEWS_SECTION = {
       text: "Great Customer service, teams cares about their customers Overall, my experience with Orbit has been beyond amazing!!!Robert and the team behind the webpage design are beyond amazing. I originally connected with startups advoisry because I needed a logo for my new business and ended up with a new Webpage as well  . Yes they are that good I highly recommend them.",
       isVideo: false,
       hasBorder: true,
+    },
+    {
+      id: 11,
+      name: "Oak Park Line Dance",
+      initials: "OP",
+      source: "Trustpilot",
+      date: "Sep 9, 2025",
+      rating: 5,
+      text: "Our experience with Startups Advisory was remarkably outstanding from the beginning of our project to the very end.",
+      isVideo: false,
+      hasBorder: false,
     },
     {
       id: 3,
@@ -310,13 +321,35 @@ export const GROWTH_GUIDES = [
   {
     id: "1",
     image: "/assets/images/blog/1.webp",
-    category: "Shopify Agent",
-    title: "AI Agents Benefit From Data Quality Validation And More...",
+    category: "Web Development",
+    title: "Web Development in 2026 - Full Guide",
     date: "Nov 10, 2025",
-    readTime: "6 min read",
+    readTime: "15 min read",
     excerpt:
-      "Imagine launching a digital workforce of intelligent agents that operate on unstructured data — validated, enriched, and ready to act.",
-    href: "/blog/ai-agents-data-quality",
+      "The web in 2026 moves at a speed that forces developers, teams, and businesses to rethink how they build and maintain digital experiences.",
+    href: "/blog-detail/web-development-in-2026-full-guide/",
+  },
+  {
+    id: "7",
+    image: "/assets/images/blog/3.webp",
+    category: "Content Writing",
+    title: "Content Writing in 2026 - Full Guide",
+    date: "Dec 5, 2025",
+    readTime: "21 min read",
+    excerpt:
+      "Content writing in 2026 is no longer about stuffing keywords into 800 words and hoping to rank. Search engines now prioritize experience, depth, and usefulness, while readers expect clarity, speed, and authenticity.",
+    href: "/blog-detail/content-writing-in-2026-full-guide/",
+  },
+  {
+    id: "8",
+    image: "/assets/images/blog/2.webp",
+    category: "Social Media Marketing",
+    title: "How to Grow on Social Media in 2026 - Full Guide",
+    date: "Dec 15, 2025",
+    readTime: "20 min read",
+    excerpt:
+      "Growing on social media in 2026 goes far beyond posting frequently. Algorithms now reward content that increases meaningful engagement, holds attention longer, and builds trust.",
+    href: "/blog-detail/how-to-grow-on-social-media-in-2026/",
   },
   {
     id: "2",
@@ -381,8 +414,10 @@ export const CALENDLY_SECTION = {
     "Join us on a call and get a clear roadmap that shows how your business can increase clients improve consistency and grow steadily day by day.",
   buttonText: "Free Up Your Time",
   buttonHref: "#",
-  calendlyUrl: "https://calendly.com/md-hasnain-developer/30min",
   calendlyText:
     "You go from chasing opportunities to choosing the ones that fit your growth.",
+  // Cal.com props
+  calNamespace: "30min",
+  calLink: "inhouse-team-loexw9/30min",
 };
 

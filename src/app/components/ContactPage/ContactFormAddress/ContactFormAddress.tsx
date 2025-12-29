@@ -1,10 +1,15 @@
 "use client";
 
-import React from "react";
+import React, { useMemo, useRef, useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+import type { Swiper as SwiperType } from "swiper";
+import "swiper/css";
 import { ContactFormAddressProps } from "@/app/types/types";
 import { contactFormAddressData } from "./data";
 import styles from "./ContactFormAddress.module.css";
 import { LinkedInIcon2, PinterestIcon, TwitterIcon } from "@/app/icons";
+import Image from "next/image";
 
 // Icon component - simple SVG-based icons
 const IconComponent: React.FC<{ icon: string; className?: string }> = ({
@@ -29,12 +34,8 @@ const IconComponent: React.FC<{ icon: string; className?: string }> = ({
         <circle cx="12" cy="10" r="3" />
       </svg>
     ),
-    linkedin: (
-      <LinkedInIcon2 />
-    ),
-    pinterest: (
-      <PinterestIcon />
-    ),
+    linkedin: <LinkedInIcon2 />,
+    pinterest: <PinterestIcon />,
     instagram: (
       <svg viewBox="0 0 24 24" fill="currentColor">
         <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073z" />
@@ -42,9 +43,7 @@ const IconComponent: React.FC<{ icon: string; className?: string }> = ({
         <circle cx="18.406" cy="5.594" r="0.6" />
       </svg>
     ),
-    twitter: (
-      <TwitterIcon />
-    ),
+    twitter: <TwitterIcon />,
     facebook: (
       <svg viewBox="0 0 24 24" fill="currentColor">
         <path d="M18 2h-3a6 6 0 00-6 6v3H7v4h2v8h4v-8h3l1-4h-4V8a1 1 0 011-1h3z" />
@@ -62,11 +61,39 @@ const IconComponent: React.FC<{ icon: string; className?: string }> = ({
 const ContactFormAddress: React.FC<ContactFormAddressProps> = ({
   config = contactFormAddressData,
 }) => {
+  const swiperRef = useRef<SwiperType | null>(null);
+  const [isBeginning, setIsBeginning] = useState(true);
+  const [isEnd, setIsEnd] = useState(false);
+
+  // Filter only location items
+  const locationItems = useMemo(() => {
+    return config.items.filter((item) => item.icon === "location");
+  }, [config.items]);
+
+  // Filter non-location items
+  const otherItems = useMemo(() => {
+    return config.items.filter((item) => item.icon !== "location");
+  }, [config.items]);
+
+  const handlePrev = () => {
+    swiperRef.current?.slidePrev();
+  };
+
+  const handleNext = () => {
+    swiperRef.current?.slideNext();
+  };
+
+  const handleSlideChange = (swiper: SwiperType) => {
+    setIsBeginning(swiper.isBeginning);
+    setIsEnd(swiper.isEnd);
+  };
+
   return (
     <div className={styles.container}>
       {/* Contact Items */}
       <div className={styles.itemsWrapper}>
-        {config.items.map((item) => (
+        {/* Non-location items */}
+        {otherItems.map((item) => (
           <div key={item.id} className={styles.item}>
             <div
               className={styles.iconWrapper}
@@ -79,15 +106,94 @@ const ContactFormAddress: React.FC<ContactFormAddressProps> = ({
             <div className={styles.content}>
               <div className={styles.label}>{item.label}</div>
               <div className={styles.value}>
-                {item.href ? (
-                  <a href={item.href}>{item.value}</a>
-                ) : (
-                  item.value
-                )}
+                {item.href ? <a href={item.href}>{item.value}</a> : item.value}
               </div>
             </div>
           </div>
         ))}
+
+        {/* Location Swiper Slider */}
+        {locationItems.length > 0 && (
+          <div className={styles.locationSwiperWrapper}>
+            <Swiper
+              modules={[Autoplay]}
+              spaceBetween={0}
+              slidesPerView={1}
+              autoplay={{
+                delay: 3000,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: false,
+              }}
+              speed={800}
+              loop={locationItems.length > 1}
+              onSwiper={(swiper) => {
+                swiperRef.current = swiper;
+                setIsBeginning(swiper.isBeginning);
+                setIsEnd(swiper.isEnd);
+              }}
+              onSlideChange={handleSlideChange}
+              className={styles.locationSwiper}
+            >
+              {locationItems.map((item) => (
+                <SwiperSlide key={item.id}>
+                  <div className={styles.item}>
+                    <div
+                      className={styles.iconWrapper}
+                      style={{
+                        background: "#643BFF",
+                      }}
+                    >
+                      <IconComponent icon={item.icon} />
+                    </div>
+                    <div className={styles.content}>
+                      <div className={styles.label}>{item.label}</div>
+                      <div className={styles.value}>{item.value}</div>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+            {/* Navigation Arrows */}
+
+            {locationItems.length > 0 && (
+              <div className={styles.navButtonWrapper}>
+                <button
+                  onClick={handlePrev}
+                  aria-label="Previous"
+                  disabled={locationItems.length <= 1}
+                  className={`${styles.navButton} ${styles.navButtonLeft}`}
+                  type="button"
+                >
+                  <span className={styles.arrowIcon}>
+                    <Image
+                      src="/assets/images/icons/left.svg"
+                      alt="Previous"
+                      width={18}
+                      height={18}
+                    />
+                  </span>
+                </button>
+
+                <button
+                  onClick={handleNext}
+                  aria-label="Next"
+                  disabled={locationItems.length <= 1}
+                  className={`${styles.navButton} ${styles.navButtonRight}`}
+                  type="button"
+                >
+                  <span className={styles.arrowIcon}>
+                    <Image
+                      src="/assets/images/icons/right.svg"
+                      alt="Next"
+                      width={18}
+                      height={18}
+                    />
+                  </span>
+                </button>
+              </div>
+            )}
+          </div>
+        )}
       </div>
 
       {/* Social Links */}

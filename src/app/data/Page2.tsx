@@ -46,7 +46,7 @@ export interface HomeBannerData {
       videoTitle: 'Pareto Talent Demo',
     },
     review: {
-      logo: '/assets/images/google-image.png',
+      logo: '/assets/images/google-image.webp',
       companyName: 'Pareto Talent',
       rating: '5.0',
       reviewCount: '84 Google reviews',
@@ -68,10 +68,11 @@ export interface HomeBannerData {
       href: string;
     };
     calendly: {
-      url: string;
-      duration: string;
-      date: string;
-      timezone: string;
+      namespace: string;
+      calLink: string;
+      duration?: string;
+      date?: string;
+      timezone?: string;
     };
   }
 
@@ -98,7 +99,8 @@ export interface HomeBannerData {
       href: '#',
     },
     calendly: {
-      url: 'https://calendly.com/md-hasnain-developer/30min?month=2025-11',
+      namespace: "30min",
+      calLink: "inhouse-team-loexw9/30min",
       duration: '45 Mins',
       date: 'Thu, Nov 13, 2025',
       timezone: 'Asia/Karachi (GMT+5)',
@@ -313,15 +315,15 @@ export interface HomeBannerData {
         title: 'Work With Top-Tier Growth Managers',
         description:
           'Your Growth Manager isn\'t here to "help out." They come in to organize, steady, and speed up the parts of your business that fall behind when things get busy. They think fast, move clean, and keep your daily operations running in a straight line — so you get reliable output every week without having to push, remind, or manage constantly.',
-        backgroundImage: '/assets/images/businessdot.png',
-        image: '/assets/images/key-growth/why-business-owners-choose/1.png',
+        backgroundImage: '/assets/images/businessdot.webp',
+        image: '/assets/images/key-growth/why-business-owners-choose/1.webp',
       },
       {
         label: 'AI',
         title: 'AI-Enabled Growth Managers',
         description:
           'Your Growth Manager works faster because they use smart systems that take the slow work off their hands. Nothing for you to learn, nothing for you to set up — just cleaner tasks done quicker and a business that stays ahead instead of catching up. The result? Consistent output. Less waiting. More movement every single week.',
-        image: '/assets/images/key-growth/why-business-owners-choose/2.png',
+        image: '/assets/images/key-growth/why-business-owners-choose/2.webp',
       },
     ],
   };
@@ -352,7 +354,7 @@ export interface HomeBannerData {
       text: 'Book Free Strategy Call',
       href: '#',
     },
-    image: '/assets/images/key-growth/lifetime-replacement-guarantee/image.png',
+    image: '/assets/images/key-growth/lifetime-replacement-guarantee/image.webp',
   };
 
   export interface SupportAndTrainingData {
@@ -385,7 +387,7 @@ export interface HomeBannerData {
       'They step in ready — understanding how you track work, store files, manage tasks, communicate with customers, and keep things organized — so nothing starts slow and nothing needs explaining.',
       'Your Growth Manager plugs into your setup fast, keeps it clean, and makes it work smoother than before.',
     ],
-    image: '/assets/images/key-growth/tools-your-growth-manager-is-trained-on/growthmanager.png',
+    image: '/assets/images/key-growth/tools-your-growth-manager-is-trained-on/growthmanager.webp',
   };
 
   export interface ThreeEasyStepsData {
@@ -449,6 +451,7 @@ export interface HomeBannerData {
     heading: string;
     description: string | string[];
     subDescription: string;
+    tools?: Array<{ id: number; name: string; icon: string; iconColor: string }>;
   }
 
   export const TECHNOLOGIES_PAGE2_DATA: TechnologiesPage2Data = {
@@ -459,6 +462,66 @@ export interface HomeBannerData {
       'Your Growth Manager plugs into your setup fast, keeps it clean, and makes it work smoother than before.',
     ],
     subDescription: '',
+    tools: [
+      
+      { id: 1, name: "Figma", icon: "/assets/images/technology/web-development-design-tools/figma.svg", iconColor: "#a259ff" },
+      { id: 2, name: "Adobe Photoshop", icon: "/assets/images/creative-design/adobe-photoshop.svg", iconColor: "#31a8ff" },
+      { id: 3, name: "Adobe Illustrator", icon: "/assets/images/creative-design/adobe-illustrator.svg", iconColor: "#ff9a00" },
+      { id: 4, name: "Canva", icon: "/assets/images/creative-design/canva.svg", iconColor: "#00c4cc" },
+      
+      
+      { id: 5, name: "React", icon: "/assets/images/technology/web-development-design-tools/react.svg", iconColor: "#61dafb" },
+      { id: 6, name: "Next.js", icon: "/assets/images/technology/web-development-design-tools/next.js.svg", iconColor: "#000000" },
+      { id: 7, name: "WordPress", icon: "/assets/images/technology/web-development-design-tools/wordpress.svg", iconColor: "#21759b" },
+      { id: 8, name: "GitHub", icon: "/assets/images/technology/web-development-design-tools/github.svg", iconColor: "#000000" },
+      
+      
+      { id: 9, name: "Grammarly", icon: "/assets/images/content/grammarly.svg", iconColor: "#15c39a" },
+      { id: 10, name: "Notion", icon: "/assets/images/content/notion.svg", iconColor: "#ffffff" },
+      { id: 11, name: "Google Docs", icon: "/assets/images/content/google-docs.svg", iconColor: "#4285f4" },
+      { id: 12, name: "Ahrefs", icon: "/assets/images/content/ahrefs.svg", iconColor: "#1e90ff" },
+      
+      
+      { id: 13, name: "Hootsuite", icon: "/assets/images/technology/marketing-growth/hootsuite.svg", iconColor: "#1da1f2" },
+      { id: 14, name: "Buffer", icon: "/assets/images/technology/marketing-growth/buffer.svg", iconColor: "#168eea" },
+      { id: 15, name: "Zapier", icon: "/assets/images/marketing-growth/zapier.svg", iconColor: "#ff4a00" },
+    ],
   };
+  
+  export const KEY_GROWTH_GUIDES = [
+    {
+      id: "key-growth-manager-2026",
+      image: "/assets/images/key_growth_blog/1.webp", 
+      category: "Key Growth",
+      title: "The Key Growth Manager Role In 2026: How One Operator Aligns Marketing, Sales, And Execution",
+      date: "Jan 30, 2026",
+      readTime: "20 min read",
+      excerpt:
+        "By 2026, growth has become too complex to manage through disconnected tactics and scattered ownership. Companies run multiple channels, tools, and teams, yet struggle to grow predictably because no single role owns outcomes end to end. The Key Growth Manager exists to solve this problem.",
+      href: "/blog-detail/the-key-growth-manager-role-in-2026-how-one-operator-aligns-marketing-sales-and-execution/",
+    },
+    {
+      id: "why-startups-fail-without-key-growth-manager",
+      image: "/assets/images/key_growth_blog/2.webp", 
+      category: "Key Growth",
+      title: "Why Startups Fail Without A Key Growth Manager: Strategy, Accountability, And Scalable Growth Systems",
+      date: "Jan 30, 2026",
+      readTime: "20 min read",
+      excerpt:
+        "Many startups fail despite strong products because growth is unmanaged. By 2026, growth involves multiple channels, tools, and teams, making coordination the primary challenge. Without a single owner, marketing runs campaigns without sales alignment, sales pursues leads without clear qualification, and founders become bottlenecks.",
+      href: "/blog-detail/why-startups-fail-without-a-key-growth-manager-strategy-accountability-and-scalable-growth-systems/",
+    },
+    {
+      id: "inside-key-growth-manager-playbook-2026",
+      image: "/assets/images/blog/1.webp", 
+      category: "Key Growth",
+      title: "Inside The Key Growth Manager Playbook: Frameworks, Metrics, And Execution Models For 2026",
+      date: "Jan 30, 2026",
+      readTime: "25 min read",
+      excerpt:
+        "By 2026, sustainable growth is no longer driven by isolated tactics or short-term hacks. It is driven by structured execution, clear metrics, and repeatable systems. The Key Growth Manager operates with a playbook that turns complexity into clarity and effort into predictable outcomes.",
+      href: "/blog-detail/inside-the-key-growth-manager-playbook-frameworks-metrics-and-execution-models-for-2026/",
+    },
+  ];
   
   

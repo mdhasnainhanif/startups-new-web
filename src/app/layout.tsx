@@ -1,3 +1,4 @@
+import React from "react";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Plus_Jakarta_Sans } from "next/font/google";
 import localFont from "next/font/local";
@@ -72,6 +73,7 @@ export default function RootLayout({
           crossOrigin="anonymous"
           referrerPolicy="no-referrer"
         />
+        <link rel="preload" as="image" href="/assets/images/hero.webp"/>
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${plusJakartaSans.variable} ${graphikRegular.variable} ${graphikBold.variable} ${graphikSemiBold.variable} antialiased relative`}

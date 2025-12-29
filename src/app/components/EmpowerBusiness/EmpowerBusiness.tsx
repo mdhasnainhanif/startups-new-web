@@ -35,7 +35,7 @@ export default function EmpowerBusiness({
             <div className={styles.buttonWrapper}>
              
 
-              <Button href="#" variant="primary" icon={<ArrowRightIcon style={{ fill: "#fff" }} />} iconPosition="right">
+              <Button href="#" variant="green" icon={<ArrowRightIcon style={{ fill: "#000" }} />} iconPosition="right">
               {ctaButton.text}
               </Button>
               

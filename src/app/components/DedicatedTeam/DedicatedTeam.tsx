@@ -74,7 +74,7 @@ export default function DedicatedTeam({
               pauseOnMouseEnter: true,
             }}
             loop={true}
-            loopAdditionalSlides={2}
+            loopAdditionalSlides={0}
             allowSlidePrev={true}
             allowSlideNext={true}
             breakpoints={{
@@ -83,7 +83,11 @@ export default function DedicatedTeam({
                 spaceBetween: 24,
               },
               1024: {
-                slidesPerView: 3,
+                slidesPerView: 4,
+                spaceBetween: 24,
+              },
+              2080: {
+                slidesPerView: 4,
                 spaceBetween: 24,
               },
             }}
@@ -108,14 +112,14 @@ export default function DedicatedTeam({
                   <div className={styles.imageWrapper}>
                     <Image
                       src={member.image}
-                      alt={member.name}
+                      alt={member.name || ""}
                       width={300}
                       height={300}
                       className={styles.image}
                     />
                   </div>
                 </div>
-                <h3 className={styles.memberName}>{member.name}</h3>
+                <h3 className={styles.memberName}>{member.name || ""}</h3>
                 <p className={styles.memberTitle}>{member.title}</p>
               </SwiperSlide>
             ))}

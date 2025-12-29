@@ -7,8 +7,7 @@
 .section::before {
   content: "";
   position: absolute;
-  background: url(../../../../public/assets/images/1.webp) center right
-    no-repeat;
+  background: url(../../../../public/assets/images/1.webp) center right no-repeat;
   width: 100%;
   max-width: 50rem;
   height: 100%;
@@ -108,11 +107,13 @@
   align-items: center;
   justify-content: center;
 }
+
 .badge {
   background: #110f29;
   border: 1px solid #4e4989;
   color: #fff;
 }
+
 .trustpilotLogo,
 .googleLogo,
 .facebookLogo {
@@ -186,6 +187,10 @@
   vertical-align: top;
 }
 
+.reviewCard:last-child {
+  margin-bottom: 0;
+}
+
 .reviewCardContent {
   background: #120f36;
   border: 1px solid #26234fa8;
@@ -202,6 +207,7 @@
 .videoElement {
   height: 300px !important;
 }
+
 .highlightedCard .reviewCardContent {
   border: 5px solid #643bff !important;
   background: #020016;
@@ -301,3 +307,12 @@
 
 /* Responsive styles are now handled by Tailwind classes */
 /* Keep only base styles that can't be handled by Tailwind */
+@media (max-width: 576px) {
+  .reviewCardContent {
+    padding: 1.25rem;
+  }
+
+  .badge {
+    padding: 0.75rem 1.25rem;
+  }
+}

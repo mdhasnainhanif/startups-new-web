@@ -58,7 +58,7 @@ export function CWHero({ data }: CWHeroProps) {
                 href="#content-growth-plan"
                 variant="purple"
                 icon={<ArrowRightIcon style={{ fill: "#fff" }} />}
-                iconPosition="right"
+                iconPosition="right"  
               >
                 {data.cta.primary}
               </Button>

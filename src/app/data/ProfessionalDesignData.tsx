@@ -37,10 +37,10 @@ export interface ProfessionalDesignData {
       container?: string;
     };
   };
-  rightSectionFact: {
+  rightSectionFact: Array<{
     text: string;
     className?: string;
-  };
+  }>;
   videoOverlayText: string;
   video: {
     videoUrl: string;
@@ -101,6 +101,10 @@ export const PROFESSIONAL_DESIGN_DATA: ProfessionalDesignData = {
       className: "factsListItem",
     },
     {
+      text: "Home-service businesses using professional design saw a 2-3x improvement in lead conversion after updating visuals.",
+      className: "factsListItem",
+    },
+    {
       text: "Companies that invested in brand design increased their lifetime customer value by 28 percent.",
       className: "factsListItem",
     },
@@ -116,10 +120,7 @@ export const PROFESSIONAL_DESIGN_DATA: ProfessionalDesignData = {
       container: "bottomHeading",
     },
   },
-  rightSectionFact: {
-    text: "Home-service businesses using professional design saw a 2-3x improvement in lead conversion after updating visuals.",
-    className: "rightFactsListItem",
-  },
+  rightSectionFact: [],
   videoOverlayText:
     "Your Smart AI Business Team operate a behind-the-scenes planning promotions, creating visuals.",
   video: {
@@ -127,7 +128,7 @@ export const PROFESSIONAL_DESIGN_DATA: ProfessionalDesignData = {
     videoTitle: "Smart AI Business Team Demo",
   },
   videoImage: {
-    src: "/assets/images/man.png",
+    src: "/assets/images/man.webp",
     alt: "Video Thumbnail",
     className: "videoImage",
   },

@@ -93,18 +93,18 @@
 
 .iconWrapper {
   flex-shrink: 0;
-  width: 48px;
-  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 1rem;
+  background-color: #2E2277;
+  border-radius: 50%;
 }
 
 .icon {
-  width: 48px;
-  height: 48px;
+  width: 37px;
+  height: 37px;
   object-fit: contain;
-  /* filter: brightness(0) saturate(100%) invert(70%) sepia(100%) saturate(2000%) hue-rotate(140deg) brightness(0.9) contrast(1); */
 }
 
 .itemText {
@@ -115,7 +115,6 @@
   flex: 1;
 }
 
-/* Mobile Responsive */
 @media (max-width: 1024px) {
   .contentWrapper {
     grid-template-columns: 1fr;
@@ -151,8 +150,9 @@
   }
 
   .iconWrapper {
-    width: 40px;
-    height: 40px;
+    width: 43px;
+    height: 43px;
+    padding: 0.48rem;
   }
 
   .icon {
@@ -163,4 +163,5 @@
   .itemText {
     font-size: 0.9375rem;
   }
+
 }

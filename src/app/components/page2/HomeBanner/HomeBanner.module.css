@@ -4,7 +4,7 @@
 }
 
 .herobanner {
-  background: url('/assets/images/homenewbanner.png') no-repeat center center;
+  background: url('/assets/images/homenewbanner.webp') no-repeat center center;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -127,7 +127,7 @@
   margin-left: 4px;
 }
 
-.leftSection ul{
+.leftSection ul {
   margin-top: 0rem;
 }
 
@@ -171,6 +171,7 @@
   .googleImage {
     display: none;
   }
+
   .contentWrapper {
     gap: 40px;
   }
@@ -185,4 +186,3 @@
     height: 28px;
   }
 }
-

@@ -31,11 +31,11 @@
   opacity: 0.8;
 }
 
-.logo {
+/* .logo {
   height: auto;
   width: auto;
   max-height: 40px;
-}
+} */
 
 .phoneLink {
   color: #ffffff;
@@ -50,8 +50,16 @@
 }
 
 .phoneNumber {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   white-space: nowrap;
   font-family: var(--font-graphik-regular), Arial, Helvetica, sans-serif;
+}
+
+.phoneNumber svg {
+  width: 20px;
+  height: 20px;
 }
 
 /* Responsive */

@@ -3,15 +3,18 @@
   background: #050321;
   overflow: hidden;
 }
+
 .client_image {
   max-width: 15rem;
 }
+
 .rocket1 {
   position: absolute;
   top: 2rem;
   left: -28px;
   width: 445px;
 }
+
 .contactCard {
   position: relative;
   background: #1d0e57;
@@ -21,11 +24,9 @@
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
   z-index: 1;
-  background-image: radial-gradient(
-    circle,
-    rgba(15, 218, 194, 0.1) 2px,
-    transparent 1px
-  );
+  background-image: radial-gradient(circle,
+      rgba(15, 218, 194, 0.1) 2px,
+      transparent 1px);
   background-size: 24px 24px;
   border: 1px solid rgba(78, 73, 137, 0.3);
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
@@ -39,7 +40,7 @@
 .infoContent {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  /* gap: 24px; */
 }
 
 .headingWithIcon {
@@ -119,7 +120,15 @@
   font-size: 2.325rem;
   font-weight: 700;
   line-height: 1.3;
-  margin: 0;
+  margin-bottom: 24px;
+}
+
+.descriptionText2 {
+  color: #ffffff;
+  font-size: 1.25rem;
+  line-height: 1.6;
+  opacity: 0.8;
+  margin-top: 12px;
 }
 
 .highlightText {
@@ -141,33 +150,44 @@
 .formFieldFull {
   grid-column: 1 / -1;
 }
+
 .inputField {
   border-radius: 0.5rem;
 }
+
 .textareaField {
   border-radius: 0.5rem;
 }
+
 .inputField,
 .textareaField {
   width: 100%;
-  padding: 14px 16px;
-  background: #ffffff;
-  border: none;
-  font-size: 14px;
-  color: #1a0a2e;
+  padding: 0.875rem 1rem;
+  background: #0e1030;
+  border: 2px solid transparent;
+  background-image: linear-gradient(#0e1030, #0e1030),
+    linear-gradient(to right, #0fdac2, #643bff);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  color: #ffffff;
   font-family: inherit;
   outline: none;
-  transition: box-shadow 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .inputField:focus,
 .textareaField:focus {
-  box-shadow: 0 0 0 3px rgba(15, 218, 194, 0.2);
+  background-image: linear-gradient(#0e1030, #0e1030),
+    linear-gradient(to right, #0fdac2, #732BFF);
+  outline: none;
+  box-shadow: none;
 }
 
 .inputField::placeholder,
 .textareaField::placeholder {
-  color: #6b7280;
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .textareaField {
@@ -206,7 +226,7 @@
 @media (max-width: 1024px) {
   .contactCard {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 10px;
     padding: 40px;
   }
 
@@ -248,9 +268,6 @@
 }
 
 @media (max-width: 640px) {
-  .contactSection {
-    padding: 40px 0;
-  }
 
   .contactCard {
     padding: 24px 20px;
@@ -265,11 +282,7 @@
   }
 
   .formHeading {
-    font-size: 20px;
-  }
-
-  .infoContent {
-    gap: 20px;
+    font-size: 28px;
   }
 
   .formContent {
@@ -280,6 +293,7 @@
     gap: 16px;
   }
 }
+
 @media (max-width: 576px) {
   .rocket1 {
     display: none;

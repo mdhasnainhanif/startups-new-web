@@ -4,6 +4,10 @@ import Questionnaire from "./components/Questionnaire/Questionnaire";
 import CaseStudySection from "./components/CaseStudySection";
 import { FAQ_SECTION, CALENDLY_SECTION, GROWTH_GUIDES } from "./constants";
 import { FAQ_CONTACT } from "./components/Home/data";
+import { sliderData } from "./data/HomeNewData";
+import TextSlider1 from "./components/HomenewPage/TextSlider/TextSlider";
+import { DESIGNER_GROWTH_GUIDES } from "./data/DesignerPageData";
+import { KEY_GROWTH_GUIDES } from "./data/Page2";
 
 // Lazy load below-the-fold components to reduce initial bundle size and TBT
 const LogosSlider = dynamic(() => import("./components/LogosSlider/LogosSlider"), {
@@ -46,10 +50,75 @@ const Contact = dynamic(() => import("./components/Contact/Contact"), {
 });
 
 export const metadata: Metadata = {
+  title: "AI-Powered Business Growth Solutions | Startups Advisory",
+  description: "Get a complete AI-powered business team in 22 days. Professional web development, content marketing, social media management, and design services to accelerate your startup growth.",
   robots: "nofollow",
+  keywords: ["startup growth", "AI business team", "web development services", "content marketing", "social media marketing", "business automation"],
+  openGraph: {
+    title: "AI-Powered Business Growth Solutions | Startups Advisory",
+    description: "Get a complete AI-powered business team in 22 days. Professional web development, content marketing, and social media services.",
+    url: "https://startupsadvisory.ai",
+  },
 };
 
+// Filter GROWTH_GUIDES to show one blog each for web-development, content-writing, and Social Media Marketing
+// Plus add one from Design and one from Key Growth
+function getFilteredGrowthGuides() {
+  // Map target categories to exact category names in the data
+  const categoryMap: Record<string, string[]> = {
+    "web-development": ["Web Development", "web development", "web-development"],
+    "content-writing": ["Content Writing", "content writing", "content-writing"],
+    "social-media-marketing": ["Social Media Marketing", "social media marketing", "social-media-marketing"],
+  };
+
+  const filtered: typeof GROWTH_GUIDES = [];
+  const usedIds = new Set<string>();
+
+  Object.keys(categoryMap).forEach((targetCategory) => {
+    const variations = categoryMap[targetCategory];
+    
+    const found = GROWTH_GUIDES.find((guide) => {
+      if (usedIds.has(guide.id)) return false;
+      
+      const guideCategory = guide.category.trim();
+      return variations.some((variation) => {
+        return (
+          guideCategory.toLowerCase() === variation.toLowerCase() ||
+          guideCategory.toLowerCase().replace(/\s+/g, "-") === variation.toLowerCase().replace(/\s+/g, "-")
+        );
+      });
+    });
+
+    if (found) {
+      filtered.push(found);
+      usedIds.add(found.id);
+    }
+  });
+
+  // Add one from Design (Designer page)
+  if (DESIGNER_GROWTH_GUIDES.length > 0) {
+    const designGuide = DESIGNER_GROWTH_GUIDES[0];
+    if (!usedIds.has(designGuide.id)) {
+      filtered.push(designGuide);
+      usedIds.add(designGuide.id);
+    }
+  }
+
+  // Add one from Key Growth (key-growth page)
+  if (KEY_GROWTH_GUIDES.length > 0) {
+    const keyGrowthGuide = KEY_GROWTH_GUIDES[0];
+    if (!usedIds.has(keyGrowthGuide.id)) {
+      filtered.push(keyGrowthGuide);
+      usedIds.add(keyGrowthGuide.id);
+    }
+  }
+
+  return filtered;
+}
+
 export default function Home() {
+  const filteredGrowthGuides = getFilteredGrowthGuides();
+
   return (
     <main className="relative">
       <Questionnaire />
@@ -60,8 +129,9 @@ export default function Home() {
       <Technologies />
       {/* <AiTeamSection /> */}
       <CalendlySection {...CALENDLY_SECTION} />
+      <TextSlider1 data={sliderData.slider1} />
       <Reviews />
-      <GrowthSlider items={GROWTH_GUIDES} />
+      <GrowthSlider items={filteredGrowthGuides.length > 0 ? filteredGrowthGuides : GROWTH_GUIDES} />
       <FAQ faqs={FAQ_CONTACT} sectionData={FAQ_SECTION} />
       <Contact />
     </main>

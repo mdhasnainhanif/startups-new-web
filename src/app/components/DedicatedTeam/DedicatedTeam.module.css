@@ -68,12 +68,12 @@
 
 .navButtonLeft {
   left: 0;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -5rem);
 }
 
 .navButtonRight {
   right: 0;
-  transform: translate(50%, -100%);
+  transform: translate(50%, -5rem);
 }
 
 .navButton:hover:not(:disabled) {
@@ -81,13 +81,13 @@
   border-color: rgba(100, 59, 255, 0.6);
 }
 
-.navButtonLeft:hover:not(:disabled) {
+/* .navButtonLeft:hover:not(:disabled) {
   transform: translate(-50%, -100%);
 }
 
 .navButtonRight:hover:not(:disabled) {
   transform: translate(50%, -100%);
-}
+} */
 
 .navButton:disabled {
   opacity: 0.3;
@@ -155,7 +155,7 @@
 }
 
 .memberTitle {
-  font-size: 1rem;
+  font-size: 1.25rem;
   color: #0fdac2;
   margin: 0;
   font-weight: 500;
@@ -176,7 +176,14 @@
 }
 
 @media (max-width: 768px) {
-  .section {
+  .navButtonLeft {
+    left: 0;
+    transform: translate(-50%, -3rem);
+  }
+  
+  .navButtonRight {
+    right: 0;
+    transform: translate(50%, -3rem);
   }
 
   .heading {

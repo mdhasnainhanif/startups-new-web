@@ -76,18 +76,17 @@
 .tabsContainer {
   z-index: 1;
   background: #0b0038;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
   gap: 0;
-  width: 100%;
-  width: fit-content;  
+  width: fit-content;
   margin: 0 auto 20px;
-  padding: 10px 0px;
+  padding: 10px;
   display: flex;
   position: relative;
   border-radius: 0.5rem;
-  overflow: hidden;
+  overflow: visible;
   margin-bottom: 2.5rem;
 }
 
@@ -224,6 +223,7 @@
   transform: translateY(-50%);
   background: #1b1849;
 }
+
 .tabsContainer::-webkit-scrollbar {
   display: none;
 }
@@ -303,17 +303,17 @@
   scroll-behavior: smooth;
   border-radius: 4px;
 }
-.categoriesContainer:before
-  {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    border-radius: 4px;
-    background: #140a3c;
-  }
+
+.categoriesContainer:before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  border-radius: 4px;
+  background: #140a3c;
+}
 
 .categoryTab {
   padding: 8px 16px;
@@ -337,18 +337,19 @@
   color: #0fdac2;
   font-weight: 600;
 }
-.activeCategoryTab:before
-{
+
+.activeCategoryTab:before {
   content: "";
-    background: rgb(15, 218, 194);
-    border-radius: 2px;
-    width: 109px;
-    height: 4px;
-    position: absolute;
-    bottom: -9px;
-    left: 50%;
-    transform: translateX(-50%);
+  background: rgb(15, 218, 194);
+  border-radius: 2px;
+  width: 109px;
+  height: 4px;
+  position: absolute;
+  bottom: -9px;
+  left: 50%;
+  transform: translateX(-50%);
 }
+
 /* Progress Bar */
 .progressBarContainer {
   position: relative;
@@ -372,6 +373,106 @@
 .fadeIn {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Portfolio Grid Styles for Web Development */
+.portfolioGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.portfolioItem {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portfolioItem:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(15, 218, 194, 0.2);
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 100%;
+  /* 1:1 Aspect Ratio */
+  overflow: hidden;
+  border-radius: 0.75rem;
+  background: #0d0934;
+}
+
+.portfolioImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease, filter 0.3s ease;
+}
+
+.portfolioItem:hover .portfolioImage {
+  transform: scale(1.1);
+  filter: brightness(0.7);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 218, 194, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 0.75rem;
+}
+
+.portfolioItem:hover .overlay {
+  opacity: 1;
+}
+
+.zoomIcon {
+  color: #ffffff;
+  width: 48px;
+  height: 48px;
+  transform: scale(0.8);
+  transition: transform 0.3s ease;
+}
+
+.portfolioItem:hover .zoomIcon {
+  transform: scale(1);
+}
+
+/* Responsive Grid */
+@media (max-width: 1024px) {
+  .portfolioGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolioGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .portfolioGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
 }
 
 /* Responsive Styles */
@@ -647,4 +748,207 @@
   }
 }
 
+/* Image Magnifier Styles */
+.magnifierOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(2, 0, 22, 0.95);
+  backdrop-filter: blur(8px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  animation: fadeInOverlay 0.3s ease-in-out forwards;
+}
 
+@keyframes fadeInOverlay {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.magnifierContent {
+  position: relative;
+  width: 100%;
+  max-width: 90vw;
+  max-height: 90vh;
+  background: #020016;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(100, 59, 255, 0.3);
+  border: 2px solid rgba(100, 59, 255, 0.3);
+  transform: scale(0.9);
+  transition: transform 0.3s ease-in-out;
+  animation: scaleIn 0.3s ease-in-out forwards;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.9);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+.magnifierImage {
+  width: 100%;
+  height: 100%;
+  max-height: 90vh;
+  object-fit: contain;
+  display: block;
+}
+
+.magnifierCloseButton {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10000;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.magnifierCloseButton:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+.magnifierCloseButton:active {
+  transform: scale(0.95);
+}
+
+/* Image Lightbox Styles */
+.lightboxOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(2, 0, 22, 0.95);
+  backdrop-filter: blur(8px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  animation: fadeInOverlay 0.3s ease-in-out forwards;
+}
+
+@keyframes fadeInOverlay {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.lightboxContent {
+  position: relative;
+  width: 100%;
+  max-width: 90vw;
+  max-height: 90vh;
+  background: #020016;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(100, 59, 255, 0.3);
+  border: 2px solid rgba(100, 59, 255, 0.3);
+  transform: scale(0.9);
+  transition: transform 0.3s ease-in-out;
+  animation: scaleIn 0.3s ease-in-out forwards;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.9);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+.lightboxImage {
+  width: 100%;
+  height: 100%;
+  max-height: 90vh;
+  object-fit: contain;
+  display: block;
+}
+
+.lightboxCloseButton {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10001;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.lightboxCloseButton:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+.lightboxCloseButton:active {
+  transform: scale(0.95);
+}
+
+/* Scrollable Lightbox for Web Development */
+.lightboxContentScrollable {
+  overflow: auto !important;
+  display: flex;
+  flex-direction: column;
+}
+
+.lightboxImageContainer {
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.lightboxImageScrollable {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+  display: block;
+}

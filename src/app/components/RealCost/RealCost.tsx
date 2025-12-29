@@ -207,9 +207,8 @@ const RealCost = ({ data = REAL_COST_DATA }: RealCostProps) => {
         const annual = monthly * 12;
         const annualFormatted = formatNumber(annual.toString());
         setAnnualCost(annualFormatted);
-        // Calculate total with new values
-        const total = monthly * 12 + parseInt(getRawValue(annualFormatted), 10);
-        setEstimatedTotal(total || 58000);
+        // Set total to annual cost
+        setEstimatedTotal(annual || 58000);
       } else {
         setAnnualCost('');
         setEstimatedTotal(58000);
@@ -232,9 +231,8 @@ const RealCost = ({ data = REAL_COST_DATA }: RealCostProps) => {
         const monthly = Math.round(annual / 12);
         const monthlyFormatted = formatNumber(monthly.toString());
         setMonthlyCost(monthlyFormatted);
-        // Calculate total with new values
-        const total = parseInt(getRawValue(monthlyFormatted), 10) * 12 + annual;
-        setEstimatedTotal(total || 58000);
+        // Set total to annual cost
+        setEstimatedTotal(annual || 58000);
       } else {
         setMonthlyCost('');
         setEstimatedTotal(58000);
@@ -253,6 +251,34 @@ const RealCost = ({ data = REAL_COST_DATA }: RealCostProps) => {
       maximumFractionDigits: 0,
     }).format(amount);
   };
+
+  // Calculate bar heights based on monthly and annual costs - using real-time input values
+  const calculateBarHeights = () => {
+    // Get real-time values from input fields
+    const monthlyRaw = getRawValue(monthlyCost);
+    const annualRaw = getRawValue(annualCost);
+    
+    // Parse to numbers
+    const monthlyNum = monthlyRaw ? parseInt(monthlyRaw, 10) : 0;
+    const annualNum = annualRaw ? parseInt(annualRaw, 10) : 0;
+    
+    // Fixed maximum value for scaling (adjust this based on your expected max values)
+    // This represents 100% height on the chart
+    const MAX_CHART_VALUE = 1000000; // 1 million as max for 100% height
+    
+    // Calculate bar heights directly from input values
+    // Convert actual values to percentage (0-100%)
+    const monthlyHeight = monthlyNum > 0 
+      ? Math.min(100, (monthlyNum / MAX_CHART_VALUE) * 100)
+      : 0;
+    const annualHeight = annualNum > 0
+      ? Math.min(100, (annualNum / MAX_CHART_VALUE) * 100)
+      : 0;
+    
+    return { monthlyHeight, annualHeight };
+  };
+
+  const { monthlyHeight, annualHeight } = calculateBarHeights();
 
   return (
     <section className={`sectionPadding ${styles.section}`}>
@@ -382,15 +408,17 @@ const RealCost = ({ data = REAL_COST_DATA }: RealCostProps) => {
                       <div
                         className={styles.bar}
                         style={{
-                          height: `${data.calculator.charts.monthlyVsAnnual.monthlyValue}%`,
+                          height: `${monthlyHeight}%`,
                           backgroundColor: '#0fdac2',
+                          transition: 'height 0.3s ease-in-out',
                         }}
                       />
                       <div
                         className={styles.bar}
                         style={{
-                          height: `${data.calculator.charts.monthlyVsAnnual.annualValue}%`,
+                          height: `${annualHeight}%`,
                           backgroundColor: '#643bff',
+                          transition: 'height 0.3s ease-in-out',
                         }}
                       />
                     </div>
@@ -447,7 +475,7 @@ const RealCost = ({ data = REAL_COST_DATA }: RealCostProps) => {
           </div>
         </div>
       </Container>
-      <img src="/assets/images/1.webp" alt="" className={styles.aeroicon} />
+      <img src="/assets/images/1.webp" alt="arrow icon" loading="lazy" className={styles.aeroicon} />
     </section>
   );
 };

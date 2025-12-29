@@ -1,9 +1,11 @@
+'use client';
+import { useState } from 'react';
 import styles from "./HomenewBanner.module.css";
 import Button from "../../Button";
 import { ArrowRightIcon } from "../../icons";
 import Container from "../../Container";
 import Image from "next/image";
-
+import CalendlyPopup from '../../CalendlyPopup/CalendlyPopup';
 export interface HomenewBannerData {
   className?: string;
   heading: {
@@ -27,11 +29,9 @@ export interface HomenewBannerData {
     className?: string;
   };
 }
-
 interface HomenewBannerProps {
   data?: HomenewBannerData;
 }
-
 const DEFAULT_DATA: HomenewBannerData = {
   heading: {
     part1: "Your ",
@@ -56,15 +56,17 @@ const DEFAULT_DATA: HomenewBannerData = {
     href: "#",
   },
   image: {
-    src: "/assets/images/homenewbanner-img.webp",
+    src: "/assets/images/designer/banner.webp",
     alt: "AI Design Team Character",
+    className: "designerBanner",
   },
 };
-
 const HomenewBanner = ({ data = DEFAULT_DATA }: HomenewBannerProps) => {
+  const [isCalendlyPopupOpen, setIsCalendlyPopupOpen] = useState(false);
   return (
+    <>
     <section
-      className={`sectionPadding ${styles.extraPaddingTop} ${styles.HomenewBanner} ${data.className}`}
+      className={`sectionPadding relative heroBannerPaddingTop ${styles.extraPaddingTop} ${styles.HomenewBanner} ${data.className}`}
     >
       <Container maxWidth="xl">
         <div className={`${styles.row} md:pt-20`}>
@@ -76,13 +78,11 @@ const HomenewBanner = ({ data = DEFAULT_DATA }: HomenewBannerProps) => {
               {data.heading.part2}
               <br className="hidden md:block" />
             </h1>
-
             <p className="text-white text-lg mb-6">
               {data.description}
             </p>
-
             <div
-              className={`${styles.experienceBox} p-6 rounded-lg shadow-sm mb-6`}
+              className={`${styles.experienceBox} rounded-lg shadow-sm mb-6 p-6`}
             >
               <h3 className="text-xl font-semibold text-[#0fdac2] mb-4">
                 {data.experienceBox.title}
@@ -95,24 +95,22 @@ const HomenewBanner = ({ data = DEFAULT_DATA }: HomenewBannerProps) => {
                 ))}
               </ul>
             </div>
-
             <Button
               href={data.cta.href}
-              variant="primary"
-              icon={<ArrowRightIcon style={{ fill: "#fff" }} />}
+              variant="green"
+              icon={<ArrowRightIcon style={{ fill: "#000" }} />}
               iconPosition="right"
+              onClick={() => setIsCalendlyPopupOpen(true)}
             >
               {data.cta.text}
             </Button>
           </div>
-
           <div className={styles.colRight}>
             <Image
               src={data.image.src}
               alt={data.image.alt}
               width={800}
               height={800}
-              priority
               fetchPriority="high"
               quality={85}
               className={`w-full ${styles.homenewbanner1} ${data.image.className}`}
@@ -121,7 +119,11 @@ const HomenewBanner = ({ data = DEFAULT_DATA }: HomenewBannerProps) => {
         </div>
       </Container>
     </section>
+    <CalendlyPopup
+    isOpen={isCalendlyPopupOpen}
+    onClose={() => setIsCalendlyPopupOpen(false)}
+    />
+    </>
   );
 };
-
 export default HomenewBanner;

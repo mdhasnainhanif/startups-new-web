@@ -1,5 +1,6 @@
 .replacementSection {
   position: relative;
+  padding-bottom: 5rem;
   /* overflow: hidden; */
 }
 
@@ -100,6 +101,7 @@
   height: auto;
   object-fit: contain;
   display: block;
+  max-width: 19rem;
 }
 
 /* Mobile Responsive */

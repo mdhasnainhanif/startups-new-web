@@ -1,18 +1,16 @@
-"use client";
-
 import { HeroBannerProps } from "../../types/types";
 import Button from "../Button";
 import Container from "../Container";
 import { ArrowRightIcon } from "../icons";
 import Image from "next/image";
-import dynamic from "next/dynamic";
 import styles from "./HeroBanner.module.css";
+import Plasma from "../Plasma/Plasma";
 
 // Lazy load Plasma component to reduce initial bundle size
-const Plasma = dynamic(() => import("../Plasma/Plasma"), {
-  ssr: false,
-  loading: () => null,
-});
+// const Plasma = dynamic(() => import("../Plasma/Plasma"), {
+//   ssr: false,
+//   loading: () => null,
+// });
 
 export default function HeroBanner({
   headline,
@@ -65,18 +63,19 @@ export default function HeroBanner({
   };
 
   return (
-    <section className={`relative sectionPadding overflow-hidden ${className}`}>
+    <section className={`relative sectionPadding overflow-hidden heroStarsBackground heroBannerPaddingTop ${className}`}>
+      <div className="starsLayer3"></div>
       {/* LCP Image - Optimized with Next.js Image */}
       <div className="absolute inset-0 z-0">
         <Image
           src="/assets/images/hero.webp"
           alt="Hero Background"
           fill
-          priority
           fetchPriority="high"
           sizes="100vw"
           className="object-cover"
           style={{ objectFit: "cover" }}
+          priority
         />
         <div className="absolute inset-0 bg-black/30" style={{ zIndex: 1 }}></div>
       </div>
@@ -96,10 +95,11 @@ export default function HeroBanner({
         <div className="flex flex-col items-center text-center gap-6 md:gap-5 lg:pt-40 md:pt-10 sectionHeading">
           {/* 300+ Companies Badge */}
           <div>
-              <p className={`text-white text-base sm:text-lg font-semibold ${styles.purpleBadge}`}>
-                <span className="text-[#0fdac2]">300+</span> Companies
-              </p>
-            </div>
+            <p className={`${styles.companiesBadge}`}>
+              <span className={styles.companiesNumber}>Business Powered by</span>{" "}
+              <span className={styles.companiesText}>AI</span>
+            </p>
+          </div>
           <h1 className="max-w-5xl">
             <span className="text-white">{headline}</span>
             {headlineHighlight && (
@@ -120,9 +120,9 @@ export default function HeroBanner({
             {onButtonClick ? (
               <Button
                 onClick={onButtonClick}
-                variant={ctaButton.variant || "secondary"}
+                variant={"green"}
                 size="lg"
-                icon={<ArrowRightIcon />}
+                icon={<ArrowRightIcon style={{ fill: "#000" }} />}
                 iconPosition="right"
               >
                 {ctaButton.text}
@@ -130,9 +130,9 @@ export default function HeroBanner({
             ) : (
               <Button
                 href={ctaButton.href}
-                variant={ctaButton.variant || "secondary"}
+                variant={"green"}
                 size="lg"
-                icon={<ArrowRightIcon />}
+                icon={<ArrowRightIcon style={{ fill: "#000" }} />}
                 iconPosition="right"
               >
                 {ctaButton.text}

@@ -3,22 +3,18 @@ import PageBanner from "../components/PageBanner/PageBanner";
 import Container from "../components/Container";
 import { COMPANY_INFO } from "../constants";
 import styles from "./page.module.css";
-
 export const metadata: Metadata = {
   title: "Privacy Policy | Startups Advisory",
   description: "Privacy Policy for Startups Advisory services",
-  robots: "index, follow",
+  robots: "nofollow",
 };
-
 export default function PrivacyPolicyPage() {
   return (
     <>
       <PageBanner title="Privacy Policy" />
-      
       <section className={styles.contentSection}>
         <Container maxWidth="xl">
           <div className={styles.content}>
-            {/* Introduction */}
             <div className={styles.policySection}>
               <p>
                 Startups Advisory respects the privacy of its customers and visitors. We do not promote spam or any illegal thing. We strictly follow the global privacy policies and guidelines in order to maintain a legal environment on web. We've made our privacy policy clear below and by continuing to use our website, you agree to it. We highly recommend you to read our{" "}
@@ -28,8 +24,6 @@ export default function PrivacyPolicyPage() {
                 .
               </p>
             </div>
-
-            {/* Collection of customer's information */}
             <div className={styles.policySection}>
               <h3 className={styles.sectionHeading}>
                 <span className={styles.highlight}>Collection</span> of customer's information
@@ -47,8 +41,6 @@ export default function PrivacyPolicyPage() {
                 All these information is for our record purpose. We don't sell or leak our database information to anyone. If you want to review or revise your provided information, you can easily do it from My Account section.
               </p>
             </div>
-
-            {/* Security of customer's information */}
             <div className={styles.policySection}>
               <h3 className={styles.sectionHeading}>
                 <span className={styles.highlight}>Security</span> of customer's information
@@ -57,8 +49,6 @@ export default function PrivacyPolicyPage() {
                 We respect your trust on us when you submit your personal information to us. We take it seriously. We've a highly encrypted system embedded in our website to protect our databases. Our dedicated teams are always active in keeping the system up to date and safe from vulnerabilities.
               </p>
             </div>
-
-            {/* Children Policy */}
             <div className={styles.policySection}>
               <h3 className={styles.sectionHeading}>
                 <span className={styles.highlight}>Children</span> Policy
@@ -67,8 +57,6 @@ export default function PrivacyPolicyPage() {
                 We are not intended to provide services to anyone who is under the age of 13. If you're under 13 then you should not continue to use this site.
               </p>
             </div>
-
-            {/* External Linking Policy */}
             <div className={styles.policySection}>
               <h3 className={styles.sectionHeading}>
                 <span className={styles.highlight}>External Linking</span> Policy
@@ -77,8 +65,6 @@ export default function PrivacyPolicyPage() {
                 We may link to other third party sources that have their own privacy policies. We don't own or take responsibility for the linked sites. Furthermore, we link to external sites only for source purpose. We don't advertise or rent links on our site.
               </p>
             </div>
-
-            {/* Testimonials */}
             <div className={styles.policySection}>
               <h3 className={styles.sectionHeading}>
                 <span className={styles.highlight}>Testimonials</span>
@@ -91,16 +77,12 @@ export default function PrivacyPolicyPage() {
                 .
               </p>
             </div>
-
-            {/* Legal Disclaimer */}
             <div className={styles.policySection}>
               <h3 className={styles.sectionHeading}>Legal Disclaimer</h3>
               <p>
                 Startups Advisory have a right to disclose your personal information in awake of any legal action or to comply with the relevant laws. We may provide the non-personal and personal information to investigation agencies upon asking.
               </p>
             </div>
-
-            {/* Changes in this policy */}
             <div className={styles.policySection}>
               <h3 className={styles.sectionHeading}>
                 <span className={styles.highlight}>Changes</span> in this policy
@@ -109,8 +91,6 @@ export default function PrivacyPolicyPage() {
                 This privacy policy is depending upon the occasional revisions. If we make changes in any of its point or add any new points, we'll notify you by sending email to the email address you provided to us. Also we'll push notifications in your dashboard.
               </p>
             </div>
-
-            {/* Consumer Data Safety Measures */}
             <div className={styles.policySection}>
               <h3 className={styles.sectionHeading}>
                 Consumer Data <span className={styles.highlight}>Safety Measures</span>
@@ -122,8 +102,6 @@ export default function PrivacyPolicyPage() {
                 It is hereby declared that our company does not authorize its representatives to collect any confidential information from our customers i.e. credit card information etc. Accordingly, we advise our customers not to share any confidential and sensitive nature information with our employees. If you do so; you shall be doing at your own risk and our company shall not be liable for any misuse.
               </p>
             </div>
-
-            {/* Privacy Policy for Email Address & Mobile Number Collection */}
             <div className={styles.policySection}>
               <h3 className={styles.sectionHeading}>
                 Privacy Policy for <span className={styles.highlight}>Email Address & Mobile Number</span> Collection
@@ -189,8 +167,6 @@ export default function PrivacyPolicyPage() {
                 Startups Advisory may change this policy from time to time by updating this page. You should check this page periodically to ensure that you are comfortable with any changes.
               </p>
             </div>
-
-            {/* Pseudonym Policy */}
             <div className={styles.policySection}>
               <h3 className={styles.sectionHeading}>
                 <span className={styles.highlight}>Pseudonym</span> Policy
@@ -208,8 +184,6 @@ export default function PrivacyPolicyPage() {
                 </li>
               </ul>
             </div>
-
-            {/* Contact */}
             <div className={styles.policySection}>
               <h3 className={styles.sectionHeading}>
                 <span className={styles.highlight}>Contact</span>

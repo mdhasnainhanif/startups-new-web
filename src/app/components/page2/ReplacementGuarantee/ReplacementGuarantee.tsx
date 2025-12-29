@@ -6,13 +6,15 @@ import Button from '../../Button';
 import { ArrowRightIcon } from '../../icons';
 import { REPLACEMENT_GUARANTEE_DATA } from '../../../data/Page2';
 import styles from './ReplacementGuarantee.module.css';
-
+import { useState } from 'react';
+import CalendlyPopup from '../../CalendlyPopup/CalendlyPopup';
 const ReplacementGuarantee = () => {
+  const [isCalendlyPopupOpen, setIsCalendlyPopupOpen] = useState(false);
   return (
-    <section className={` ${styles.replacementSection} py-4 pb-6`}>
+    <>
+    <section className={` ${styles.replacementSection} py-4`}>
       <Container maxWidth="xl" className="px-0">
         <div className={styles.contentWrapper}>
-          {/* Left Section - Content */}
           <div className={styles.leftSection}>
             <h2 className={styles.heading}>
               <span className={styles.headingPart1}>
@@ -31,16 +33,15 @@ const ReplacementGuarantee = () => {
             <div className={styles.ctaWrapper}>
               <Button
                 href={REPLACEMENT_GUARANTEE_DATA.cta.href}
-                variant="primary"
-                icon={<ArrowRightIcon style={{ fill: '#fff' }} />}
+                variant="green"
+                onClick={() => setIsCalendlyPopupOpen(true)}
+                icon={<ArrowRightIcon style={{ fill: '#000' }} />}
                 iconPosition="right"
               >
                 {REPLACEMENT_GUARANTEE_DATA.cta.text}
               </Button>
             </div>
           </div>
-
-          {/* Right Section - Image */}
           <div className={styles.rightSection}>
             <div className={styles.imageWrapper}>
               <Image
@@ -55,8 +56,11 @@ const ReplacementGuarantee = () => {
         </div>
       </Container>
     </section>
+    <CalendlyPopup
+        isOpen={isCalendlyPopupOpen}
+        onClose={() => setIsCalendlyPopupOpen(false)}
+      />
+    </>
   );
 };
-
 export default ReplacementGuarantee;
-

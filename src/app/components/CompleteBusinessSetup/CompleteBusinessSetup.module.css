@@ -7,21 +7,37 @@
   opacity: 0.6;
   z-index: 1;
 }
+
 .businesscontainer {
   position: relative;
   z-index: 2;
 }
+
 /* Swiper Customization */
 .brandingKitsSwiper :global(.swiper) {
   overflow: visible;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 200px;
 }
 
 .brandingKitsSwiper :global(.swiper-wrapper) {
-  align-items: flex-start;
+  align-items: center;
+  display: flex;
+  width: 100%;
 }
 
 .brandingKitsSwiper :global(.swiper-slide) {
   height: auto;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.brandingKitsSwiper :global(.swiper-slide)>div {
+  width: 98%;
+  display: grid;
 }
 
 /* Hide default navigation */
@@ -29,41 +45,63 @@
 .brandingKitsSwiper :global(.swiper-button-next) {
   display: none;
 }
+
 .sliderwrapper {
   position: relative;
   background: #050321;
   justify-content: center;
+  align-items: center;
   border-radius: 20px;
   border: 1px solid #9b7eff4d;
+  display: flex;
+  min-height: 23rem;
+  width: 100%;
 }
+
 .brandingKitsTitle {
   color: #fff;
   width: fit-content;
   display: block;
   margin: 0 auto;
 }
+
 .highlighted {
   color: #0fdac2;
 }
+
 .navButton {
   color: #fff;
-  background: #0d0934;
+  background: #5633dc;
   border-radius: 100px;
   width: 40px;
   height: 40px;
   top: 50%;
-  transform: translate(0px, 50%);
+  transform: translateY(-50%);
   border: 1px solid #6848df4d;
 }
+
 .navButton:hover {
-  background: var(--color-purple);
+  background: #643bff;
 }
+
 .separatorLine {
-  border: 1px solid #21164c;
   background: #312763;
   border-radius: 0.525rem;
-  padding: .22rem .225rem .345rem .525rem;
+  padding: 0.52rem 0.225rem 0.845rem 0.525rem;
+  font-size: 1rem;
+  display: block;
+  visibility: visible;
+  opacity: 1;
+  width: 100%;
+  max-width: 15rem;
+  border: 2px solid transparent;
+  /* background-image: linear-gradient(#312763, #312763),
+    linear-gradient(to right, #0fdac2, #643bff); */
+  border: 1px solid #4e4989;
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
 }
+
 /* .separatorLine::after {
   content: "";
   background: #072e41;
@@ -82,3 +120,9 @@
   height: 1px;
   background: #072e41;
 } */
+@media (max-width: 576px) {
+  .businesscontainer {
+    padding: 1.25rem;
+  }
+
+}

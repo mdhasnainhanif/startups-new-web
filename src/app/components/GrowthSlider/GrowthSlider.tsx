@@ -46,11 +46,13 @@ export default function GrowthSlider({ items }: { items: Guide[] }) {
       setIsSwiperReady(true);
     }
   }, []);
+  const shouldShowNavigation = items.length > 3;
 
   return (
-    <section className={`${styles.section} sectionPadding`}>
-      <Container maxWidth="xl">
-        <div className="sectionHeading forH2 text-center text-[#ffffff]">
+    <section className={`${styles.section} sectionPadding blogStarsBackground`}>
+      <div className="starsLayer3"></div>
+      <Container maxWidth="xl" >
+        <div className="sectionHeading forH2 text-center text-[#ffffff] mb-6">
           <h2>
             Growth{" "}
             <span className={`${styles.titleGradient} ${styles.textLight}`}>
@@ -92,12 +94,14 @@ export default function GrowthSlider({ items }: { items: Guide[] }) {
             {items.map((it) => (
               <SwiperSlide key={it.id}>
                 <article className={styles.card}>
+                  <div className={styles.imageContainer}>
                   <div className={styles.imageWrapper}>
                     <img
                       src={it.image}
                       alt={it.title}
                       className={styles.image}
                     />
+                  </div>
                   </div>
 
                   <div className={styles.category}>
@@ -132,9 +136,9 @@ export default function GrowthSlider({ items }: { items: Guide[] }) {
 
                   <div className={styles.readButtonWrapper}>
                     <Button
-                      href="#"
-                      variant="primary"
-                      icon={<ArrowRightIcon style={{ fill: "#fff" }} />}
+                      href={it.href}
+                      variant="green"
+                      icon={<ArrowRightIcon style={{ fill: "#000" }} />}
                       iconPosition="right"
                       size="sm"
                     >
@@ -145,24 +149,26 @@ export default function GrowthSlider({ items }: { items: Guide[] }) {
               </SwiperSlide>
             ))}
           </Swiper>
-          <div className={styles.navButtonWrapper}>
-            <button
-              onClick={handleNext}
-              aria-label="Next"
-              disabled={isEnd}
-              className={`${styles.navButton} ${styles.navButtonRight}`}
-            >
-              <span className={styles.arrowIcon}>›</span>
-            </button>
-            <button
-              onClick={handlePrev}
-              aria-label="Previous"
-              disabled={isBeginning}
-              className={`${styles.navButton} ${styles.navButtonLeft}`}
-            >
-              <span className={styles.arrowIcon}>‹</span>
-            </button>
-          </div>
+          {shouldShowNavigation && (
+            <div className={styles.navButtonWrapper}>
+              <button
+                onClick={handleNext}
+                aria-label="Next"
+                disabled={isEnd}
+                className={`${styles.navButton} ${styles.navButtonRight}`}
+              >
+                <span className={styles.arrowIcon}>›</span>
+              </button>
+              <button
+                onClick={handlePrev}
+                aria-label="Previous"
+                disabled={isBeginning}
+                className={`${styles.navButton} ${styles.navButtonLeft}`}
+              >
+                <span className={styles.arrowIcon}>‹</span>
+              </button>
+            </div>
+          )}
         </div>
       </Container>
     </section>
