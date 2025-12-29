@@ -53,11 +53,12 @@ export default function TopHeader() {
           <div className="flex items-center md:gap-3 gap-1 flex-1 md:justify-center justify-between">
             <p className="text-white topPara">
             <span className="text-xl">{TOP_BANNER.emoji}</span>&nbsp;
-              {TOP_BANNER.text}
+              <span className="hidden md:inline">Big News: </span>
+              We Launched Key Growth Manager Services
             </p>
             <Button
               href={TOP_BANNER.buttonLink}
-              variant="secondary"
+              variant="green"
               size="sm"
               iconPosition="right"
               // icon={<ArrowRightIcon style={{ fill: "#fff" }} />}

@@ -214,7 +214,7 @@ export default function PoppupStepQuestionnaire({
 
   return (
     <div className={styles.popupOverlay} onClick={handleClose}>
-      <div className={styles.popupContent} onClick={(e) => e.stopPropagation()}>
+      <div className={`${styles.popupContent} popup-questionnaire`} onClick={(e) => e.stopPropagation()}>
         <button className={styles.closeButton} onClick={handleClose} aria-label="Close">
           ×
         </button>

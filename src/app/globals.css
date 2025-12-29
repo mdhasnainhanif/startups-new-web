@@ -610,6 +610,11 @@ button.inputFieldBtn {
   opacity: 0.6;
 }
 
+.faqSection > *{
+  position: relative;
+  z-index: 1;
+}
+
 .faqInputWrapper {
   position: relative;
   background: #1c1949;
@@ -710,9 +715,17 @@ section img.banneFullMin {
   outline-color: transparent;
 }
 
+.customdropdown{
+  padding: 0 !important;
+  border: 0 !important;
+}
+
 @media screen and (max-width: 768px) {
   .topPara {
     font-size: 0.875rem;
+  }
+  .heroStarsBackground::before{
+    display: none;
   }
 }
 
@@ -724,6 +737,12 @@ section img.banneFullMin {
 
 @media (max-width: 576px) {
 
+  .inner-div h3{
+    font-size: 1.75rem !important;
+  }
+  .inner-div p{
+    font-size: 1rem !important;
+  }
   section.heroBannerPaddingTop,
   div.heroBannerPaddingTop {
     padding-top: 12rem;

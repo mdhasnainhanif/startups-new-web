@@ -596,6 +596,10 @@ select.formInput option {
 
 /* Responsive Design */
 @media screen and (max-width: 1024px) {
+  .customdropdown{
+    padding: 0;
+    border: 0;
+  }
   .mainHeading {
     font-size: 3.5rem;
   }
@@ -611,6 +615,10 @@ select.formInput option {
 }
 
 @media screen and (max-width: 768px) {
+  .customdropdown{
+    padding: 0;
+    border: 0;
+  }
   .questionnaireSection {
     padding-top: 100px;
     padding-bottom: 100px;
@@ -668,6 +676,10 @@ select.formInput option {
 }
 
 @media screen and (max-width: 576px) {
+  .customdropdown{
+    padding: 0;
+    border: 0;
+  }
 
   .radioInput:checked+.optionLabel::after,
   input[type="checkbox"].radioInput:checked+.optionLabel::after {
@@ -737,4 +749,118 @@ select.formInput option {
     justify-content: center;
     gap: 0.75rem;
   }
+}
+
+/* Custom Dropdown Styles */
+.customDropdown {
+  position: relative;
+  width: 100%;
+}
+
+.dropdownTrigger {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.dropdownArrow {
+  font-size: 0.75rem;
+  color: var(--color-primary);
+  transition: transform 0.3s ease;
+}
+
+.customDropdown:has(.dropdownMenu) .dropdownArrow {
+  transform: rotate(180deg);
+}
+
+.dropdownMenu {
+  position: relative;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin-top: 0.5rem;
+  background: #282552;
+  border: none !important;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  overflow: hidden;
+  max-height: 200px;
+  display: flex;
+  flex-direction: column;
+  padding: 0 !important;
+}
+
+.dropdownSearch {
+  padding: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.searchInput {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: none !important;
+  border-radius: 0;
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-family: var(--font-graphik-regular), Arial, Helvetica, sans-serif;
+}
+
+.searchInput:focus {
+  outline: none;
+  border: none !important;
+}
+.customdropdown{
+  padding: 0;
+  border: 0;
+}
+.dropdownList {
+  overflow-y: auto;
+  max-height: 150px; /* Scrollable area */
+}
+
+.dropdownList::-webkit-scrollbar {
+  width: 8px;
+}
+
+.dropdownList::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.dropdownList::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 4px;
+}
+
+.dropdownList::-webkit-scrollbar-thumb:hover {
+  background: var(--color-purple);
+}
+
+.dropdownItem {
+  padding: 0.75rem 1rem;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: var(--font-graphik-regular), Arial, Helvetica, sans-serif;
+  font-size: 0.95rem;
+}
+
+.dropdownItem:hover {
+  background: rgba(15, 218, 194, 0.1);
+  color: var(--color-primary);
+}
+
+.dropdownItemSelected {
+  background: rgba(100, 59, 255, 0.2);
+  color: var(--color-purple);
+}
+
+.dropdownNoResults {
+  padding: 1rem;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.9rem;
 }
