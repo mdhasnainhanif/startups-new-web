@@ -522,28 +522,31 @@ const RealCost = ({ data = REAL_COST_DATA }: RealCostProps) => {
                     {data.calculator.charts.monthlyVsAnnual.label}
                   </p>
                   <div className={styles.barChart}>
-                    <ResponsiveContainer width="100%" height={120}>
+                    <ResponsiveContainer width="100%" height={180}>
                       <BarChart
                         data={barChartData}
-                        margin={{ top: 5, right: 5, left: 30, bottom: 5 }}
+                        margin={{ top: 10, right: 20, left: 0, bottom: 20 }}
                         barCategoryGap="20%"
+                        barSize={30}
                       >
                         <XAxis 
                           dataKey="name" 
                           tick={{ fill: '#bdd1f9', fontSize: 12 }}
                           axisLine={{ stroke: '#181847' }}
                           tickLine={{ stroke: '#181847' }}
+                          interval={0}
                         />
                         <YAxis 
                           domain={[0, 500]}
                           tick={false}
-                          axisLine={{ stroke: '#181847' }}
+                          axisLine={false}
                           tickLine={false}
+                          width={0}
                         />
                         <Tooltip content={<CustomBarTooltip />} />
                         <Bar 
                           dataKey="value" 
-                          radius={[4, 4, 0, 0]}
+                          radius={[6, 6, 0, 0]}
                           isAnimationActive={true}
                           animationDuration={500}
                           animationEasing="ease-in-out"
