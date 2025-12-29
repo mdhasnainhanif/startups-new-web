@@ -444,8 +444,8 @@
         { id: "5", text: "Launch-ready files delivered" },
       ],
       ctaButton: {
-        text: "Get My Package",
-        href: "/contact",
+        text: "$1,499 USD",
+        href: "#",
       },
     },
   };

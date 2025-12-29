@@ -473,8 +473,8 @@ export const socialMediaMarketingCompleteSetupData: CompleteBusinessSetupData = 
       { id: "5", text: "Content delivered platform-ready" },
     ],
     ctaButton: {
-      text: "Get My Package",
-      href: "/contact",
+      text: "$1,499 USD",
+      href: "#",
     },
   },
 };

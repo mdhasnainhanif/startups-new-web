@@ -524,8 +524,8 @@ export const contentWritingCompleteSetupData: CompleteBusinessSetupData = {
       { id: "5", text: "Content delivered in publish-ready format" },
     ],
       ctaButton: {
-      text: "Get My Package",
-      href: "/contact",
+      text: "$1,499 USD",
+      href: "#",
     },
   },
 };
