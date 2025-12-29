@@ -1,9 +1,10 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import Container from '../Container';
 import styles from './RealCost.module.css';
 import Image from 'next/image';
+import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, PieChart, Pie, Cell, Tooltip } from 'recharts';
 
 export interface RealCostData {
   heading: {
@@ -306,6 +307,97 @@ const RealCost = ({ data = REAL_COST_DATA }: RealCostProps) => {
   // Calculate heights on every render for real-time updates
   const { monthlyHeight, annualHeight } = calculateBarHeights();
 
+  // Calculate chart data dynamically based on input values
+  const barChartData = useMemo(() => {
+    const monthlyRaw = monthlyCost ? getRawValue(monthlyCost) : '';
+    const annualRaw = annualCost ? getRawValue(annualCost) : '';
+    
+    const monthlyNum = monthlyRaw && monthlyRaw.length > 0 ? parseInt(monthlyRaw, 10) : 0;
+    const annualNum = annualRaw && annualRaw.length > 0 ? parseInt(annualRaw, 10) : 0;
+    
+    // Ensure values don't exceed MAX_VALUE and are at least 0
+    const monthlyValue = Math.max(0, Math.min(monthlyNum, MAX_VALUE));
+    const annualValue = Math.max(0, Math.min(annualNum, MAX_VALUE));
+    
+    return [
+      {
+        name: 'Monthly',
+        value: !isNaN(monthlyValue) ? monthlyValue : 0,
+        color: '#0fdac2',
+      },
+      {
+        name: 'Annual',
+        value: !isNaN(annualValue) ? annualValue : 0,
+        color: '#643bff',
+      },
+    ];
+  }, [monthlyCost, annualCost]);
+
+  // Fixed Y-axis tick values (these won't change based on input)
+  const yAxisTicks = [0, 125, 250, 375, 500];
+
+  // Calculate pie chart data dynamically
+  const pieChartData = useMemo(() => {
+    const monthlyRaw = monthlyCost ? getRawValue(monthlyCost) : '';
+    const annualRaw = annualCost ? getRawValue(annualCost) : '';
+    
+    const monthlyNum = monthlyRaw && monthlyRaw.length > 0 ? parseInt(monthlyRaw, 10) : 0;
+    const annualNum = annualRaw && annualRaw.length > 0 ? parseInt(annualRaw, 10) : 0;
+    
+    const total = monthlyNum + annualNum;
+    
+    if (total === 0) {
+      return [
+        { name: 'Monthly', value: 50, color: '#0fdac2', gradient: ['#0fdac2', '#0fdac2'] },
+        { name: 'Annual', value: 50, color: '#732BFF', gradient: ['#732BFF', '#732BFF'] },
+      ];
+    }
+    
+    const monthlyPercent = (monthlyNum / total) * 100;
+    const annualPercent = (annualNum / total) * 100;
+    
+    return [
+      {
+        name: 'Monthly',
+        value: monthlyPercent,
+        color: '#0fdac2',
+        gradient: ['#0fdac2', '#0fdac2'],
+      },
+      {
+        name: 'Annual',
+        value: annualPercent,
+        color: '#732BFF',
+        gradient: ['#732BFF', '#732BFF'],
+      },
+    ];
+  }, [monthlyCost, annualCost]);
+
+  // Custom tooltip for bar chart
+  const CustomBarTooltip = ({ active, payload }: any) => {
+    if (active && payload && payload.length) {
+      return (
+        <div className={styles.customTooltip}>
+          <p className={styles.tooltipLabel}>{payload[0].name}</p>
+          <p className={styles.tooltipValue}>{formatCurrency(payload[0].value)}</p>
+        </div>
+      );
+    }
+    return null;
+  };
+
+  // Custom tooltip for pie chart
+  const CustomPieTooltip = ({ active, payload }: any) => {
+    if (active && payload && payload.length) {
+      return (
+        <div className={styles.customTooltip}>
+          <p className={styles.tooltipLabel}>{payload[0].name}</p>
+          <p className={styles.tooltipValue}>{payload[0].value.toFixed(1)}%</p>
+        </div>
+      );
+    }
+    return null;
+  };
+
   return (
     <section className={`sectionPadding ${styles.section}`}>
       <Container maxWidth="xl">
@@ -430,24 +522,48 @@ const RealCost = ({ data = REAL_COST_DATA }: RealCostProps) => {
                     {data.calculator.charts.monthlyVsAnnual.label}
                   </p>
                   <div className={styles.barChart}>
-                    <div className={styles.barChartContainer}>
-                      <div
-                        className={styles.bar}
-                        style={{
-                          height: `${monthlyHeight}%`,
-                          backgroundColor: '#0fdac2',
-                          transition: 'height 0.3s ease-in-out',
-                        }}
-                      />
-                      <div
-                        className={styles.bar}
-                        style={{
-                          height: `${annualHeight}%`,
-                          backgroundColor: '#643bff',
-                          transition: 'height 0.3s ease-in-out',
-                        }}
-                      />
-                    </div>
+                    <ResponsiveContainer width="100%" height={120}>
+                      <BarChart
+                        data={barChartData}
+                        margin={{ top: 5, right: 5, left: 30, bottom: 5 }}
+                        barCategoryGap="20%"
+                      >
+                        <XAxis 
+                          dataKey="name" 
+                          tick={{ fill: '#bdd1f9', fontSize: 12 }}
+                          axisLine={{ stroke: '#181847' }}
+                          tickLine={{ stroke: '#181847' }}
+                        />
+                        <YAxis 
+                          domain={[0, 500]}
+                          ticks={yAxisTicks}
+                          tick={{ fill: '#bdd1f9', fontSize: 10 }}
+                          axisLine={{ stroke: '#181847' }}
+                          tickLine={{ stroke: '#181847' }}
+                          tickFormatter={(value) => {
+                            if (value >= 1000000) {
+                              return `$${(value / 1000000).toFixed(1)}M`;
+                            } else if (value >= 1000) {
+                              return `$${(value / 1000).toFixed(0)}k`;
+                            }
+                            return `$${value}`;
+                          }}
+                          width={50}
+                        />
+                        <Tooltip content={<CustomBarTooltip />} />
+                        <Bar 
+                          dataKey="value" 
+                          radius={[4, 4, 0, 0]}
+                          isAnimationActive={true}
+                          animationDuration={500}
+                          animationEasing="ease-in-out"
+                        >
+                          {barChartData.map((entry, index) => (
+                            <Cell key={`cell-${index}`} fill={entry.color} />
+                          ))}
+                        </Bar>
+                      </BarChart>
+                    </ResponsiveContainer>
                   </div>
                 </div>
 
@@ -457,43 +573,34 @@ const RealCost = ({ data = REAL_COST_DATA }: RealCostProps) => {
                     {data.calculator.charts.costBreakdown.label}
                   </p>
                   <div className={styles.donutChart}>
-                    <svg width="120" height="130" viewBox="0 0 120 120">
-                      <defs>
-                        {data.calculator.charts.costBreakdown.segments.map((segment, index) => (
-                          <linearGradient key={index} id={`gradient${index}`} x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stopColor={segment.gradient[0]} />
-                            <stop offset="100%" stopColor={segment.gradient[1]} />
-                          </linearGradient>
-                        ))}
-                      </defs>
-                      {data.calculator.charts.costBreakdown.segments.map(
-                        (segment, index, array) => {
-                          const previousValue = array
-                            .slice(0, index)
-                            .reduce((sum, s) => sum + s.value, 0);
-                          const offset = (previousValue / 100) * 360;
-                          const circumference = 2 * Math.PI * 45;
-                          const dashArray = (segment.value / 100) * circumference;
-                          const dashOffset = circumference - (previousValue / 100) * circumference;
-
-                          return (
-                            <circle
-                              key={index}
-                              cx="60"
-                              cy="60"
-                              r="45"
-                              fill="none"
-                              stroke={`url(#gradient${index})`}
-                              strokeWidth="20"
-                              strokeDasharray={`${dashArray} ${circumference}`}
-                              strokeDashoffset={dashOffset}
-                              strokeLinecap="butt"
-                              transform="rotate(-90 60 60)"
-                            />
-                          );
-                        }
-                      )}
-                    </svg>
+                    <ResponsiveContainer width="100%" height={130}>
+                      <PieChart>
+                        <defs>
+                          {pieChartData.map((segment, index) => (
+                            <linearGradient key={index} id={`gradient${index}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                              <stop offset="0%" stopColor={segment.gradient[0]} />
+                              <stop offset="100%" stopColor={segment.gradient[1]} />
+                            </linearGradient>
+                          ))}
+                        </defs>
+                        <Pie
+                          data={pieChartData}
+                          cx="50%"
+                          cy="50%"
+                          innerRadius={35}
+                          outerRadius={55}
+                          paddingAngle={2}
+                          dataKey="value"
+                          startAngle={90}
+                          endAngle={-270}
+                        >
+                          {pieChartData.map((entry, index) => (
+                            <Cell key={`cell-${index}`} fill={`url(#gradient${index})`} />
+                          ))}
+                        </Pie>
+                        <Tooltip content={<CustomPieTooltip />} />
+                      </PieChart>
+                    </ResponsiveContainer>
                   </div>
                 </div>
               </div>
