@@ -15,6 +15,7 @@ import RealCost from '../components/RealCost/RealCost';
 import CompleteBusinessSetup from '../components/CompleteBusinessSetup/CompleteBusinessSetup';
 import Contact from '../components/Contact/Contact';
 import GuessWorkAdvertising from '../components/GuessWorkAdvertising/GuessWorkAdvertising';
+import BlogCarousel from '../components/BlogCarousel/BlogCarousel';
 import { 
   contentWritingBannerData, 
   contentWritingAiPowerData, 
@@ -52,7 +53,8 @@ export default function ContentWritingPage() {
       <RealCost data={contentWritingRealCostData}/>
       <CompleteBusinessSetup data={contentWritingCompleteSetupData}/>
       <Reviews/>
-      <GrowthSlider items={contentWritingBlogGuides} />
+      {/* <GrowthSlider items={contentWritingBlogGuides} /> */}
+      <BlogCarousel category="Content Writing" />
       <FAQ faqs={FAQ_CONTACT} sectionData={FAQ_SECTION} />
       <Contact/>
     </>

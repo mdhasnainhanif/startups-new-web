@@ -16,6 +16,7 @@ import RealCost from '../components/RealCost/RealCost';
 import CompleteBusinessSetup from '../components/CompleteBusinessSetup/CompleteBusinessSetup';
 import GuessWorkAdvertising from '../components/GuessWorkAdvertising/GuessWorkAdvertising';
 import Contact from '../components/Contact/Contact';
+import BlogCarousel from '../components/BlogCarousel/BlogCarousel';
 import { 
   socialMediaMarketingBannerData, 
   socialMediaMarketingAiPowerData, 
@@ -57,7 +58,8 @@ export default function SocialMediaMarketingPage() {
       <CompleteBusinessSetup data={socialMediaMarketingCompleteSetupData}/>
       <ProvenSuccess data={socialMediaMarketingProvenSuccessData}/>
       <Reviews/>
-      <GrowthSlider items={socialMediaMarketingBlogGuides} />
+      {/* <GrowthSlider items={socialMediaMarketingBlogGuides} /> */}
+      <BlogCarousel category="Social Media Marketing" />
       <FAQ faqs={FAQ_CONTACT} sectionData={FAQ_SECTION} />
       <Contact/>
     </>
