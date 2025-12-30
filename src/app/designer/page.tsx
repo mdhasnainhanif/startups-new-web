@@ -17,6 +17,7 @@ import RealCost from '../components/RealCost/RealCost';
 import CompleteBusinessSetup from '../components/CompleteBusinessSetup/CompleteBusinessSetup';
 import Contact from '../components/Contact/Contact';
 import GuessWorkAdvertising from '../components/GuessWorkAdvertising/GuessWorkAdvertising';
+import BlogCarousel from '../components/BlogCarousel/BlogCarousel';
 
 import dynamic from 'next/dynamic';
 
@@ -182,7 +183,8 @@ export default function DesignerPage() {
       <CompleteBusinessSetup/>
       <ProvenSuccess data={designerProvenSuccessData} />
       <Reviews/>
-      <GrowthSlider items={DESIGNER_GROWTH_GUIDES} />
+      {/* <GrowthSlider items={DESIGNER_GROWTH_GUIDES} /> */}
+      <BlogCarousel category="Design" />
       <FAQ faqs={FAQ_CONTACT} sectionData={FAQ_SECTION} />
       <Contact/>
     </>

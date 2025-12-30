@@ -41,6 +41,10 @@ const GrowthSlider = dynamic(() => import("./components/GrowthSlider/GrowthSlide
   loading: () => <div className="h-96" />,
 });
 
+const BlogCarousel = dynamic(() => import("./components/BlogCarousel/BlogCarousel"), {
+  loading: () => <div className="h-96" />,
+});
+
 const FAQ = dynamic(() => import("./components/FAQ/FAQ"), {
   loading: () => <div className="h-96" />,
 });
@@ -131,7 +135,7 @@ export default function Home() {
       <CalendlySection {...CALENDLY_SECTION} />
       <TextSlider1 data={sliderData.slider1} />
       <Reviews />
-      <GrowthSlider items={filteredGrowthGuides.length > 0 ? filteredGrowthGuides : GROWTH_GUIDES} />
+      <BlogCarousel showAllCategories={true} />
       <FAQ faqs={FAQ_CONTACT} sectionData={FAQ_SECTION} />
       <Contact />
     </main>

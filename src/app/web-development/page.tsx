@@ -17,6 +17,7 @@ import RealCost from '../components/RealCost/RealCost';
 import CompleteBusinessSetup from '../components/CompleteBusinessSetup/CompleteBusinessSetup';
 import Contact from '../components/Contact/Contact';
 import GuessWorkAdvertising from '../components/GuessWorkAdvertising/GuessWorkAdvertising';
+import BlogCarousel from '../components/BlogCarousel/BlogCarousel';
 import { 
   webDevelopmentBannerData, 
   webDevelopmentAiPowerData, 
@@ -52,12 +53,14 @@ export default function WebDevelopmentPage() {
       <TextSlider1 data={webDevelopmentSliderData2}/>
       <ProfessionalDesign className="designerPageProfessional" data={webDevelopmentProfessionalData} />
       <TextSlider1 data={webDevelopmentSliderData3}/>
+      
       <GuessWorkAdvertising data={webDevelopmentGuessWorkData}/>
       <RealCost data={webDevelopmentRealCostData}/>
       <CompleteBusinessSetup data={webDevelopmentCompleteSetupData}/>
       <ProvenSuccess variant="web-development" />
       <Reviews/>
-      <GrowthSlider items={webDevelopmentBlogGuides} />
+      {/* <GrowthSlider items={webDevelopmentBlogGuides} /> */}
+      <BlogCarousel category="Web Development" />
       <FAQ faqs={FAQ_CONTACT} sectionData={FAQ_SECTION} />
       <Contact/>
     </>
