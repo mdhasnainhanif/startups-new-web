@@ -6,6 +6,7 @@ import { MotionDiv, StaggerContainer, StaggerItem } from "./motion";
 import { solutionData } from "../../data/FlippaPageData";
 import Button from "../../components/Button";
 import Container from "../../components/Container";
+import Image from "next/image";
 
 export default function SolutionSection() {
   return (
@@ -37,8 +38,8 @@ export default function SolutionSection() {
                 return (
                   <StaggerItem key={solution.title} delay={index * 0.1}>
                     <div className="flex items-start gap-3">
-                      <div className="w-5 h-5 rounded-full bg-[var(--color-purple)]/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <Check className="w-3 h-3 text-[var(--color-purple)]" />
+                      <div className="mt-1">
+                        <Image src="/assets/images/tick2.webp" alt="Check" width={25} height={20} className="w-full h-full" />
                       </div>
                       <div>
                         <h4 className="text-white font-medium">{solution.title}</h4>

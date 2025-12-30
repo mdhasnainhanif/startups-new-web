@@ -33,7 +33,7 @@ const StatCard = ({ stat, index }: { stat: typeof statsData.stats[0]; index: num
         <IconComponent className="w-6 h-6 lg:w-7 lg:h-7 text-[var(--color-purple)]" />
       </div>
 
-      <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--color-purple)] mb-2">
+      <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--color-primary)] mb-2">
         {formattedValue}
       </div>
 
