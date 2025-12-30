@@ -2,12 +2,10 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from 'swiper/modules';
 import type { Swiper as SwiperType } from 'swiper';
 import { Fancybox } from '@fancyapps/ui';
 import '@fancyapps/ui/dist/fancybox/fancybox.css';
 import 'swiper/css';
-import 'swiper/css/navigation';
 import styles from './ProvenSuccess.module.css';
 import Container from '../Container';
 
@@ -324,8 +322,6 @@ const ProvenSuccess = ({ data, variant }: ProvenSuccessProps) => {
   const [displayedCategoryId, setDisplayedCategoryId] = useState<string>('');
   const swiperRef = useRef<SwiperType | null>(null);
   const tabsSwiperRef = useRef<SwiperType | null>(null);
-  const [isTabsSwiperBeginning, setIsTabsSwiperBeginning] = useState(true);
-  const [isTabsSwiperEnd, setIsTabsSwiperEnd] = useState(false);
   const categoriesScrollRef = useRef<HTMLDivElement>(null);
   
   // Image lightbox state
@@ -403,20 +399,9 @@ const ProvenSuccess = ({ data, variant }: ProvenSuccessProps) => {
           <>
             {/* Tabs - Desktop/Tablet */}
             <div className={styles.tabsContainer}>
-              <div className={`swiper-button-prev ${styles.navArrow} ${styles.navArrowLeft} ${isTabsSwiperBeginning ? styles.navArrowDisabled : ''}`} />
-
               <Swiper
-                modules={[Navigation]}
                 onBeforeInit={(swiper) => {
                   tabsSwiperRef.current = swiper;
-                }}
-                onSlideChange={(swiper) => {
-                  setIsTabsSwiperBeginning(swiper.isBeginning);
-                  setIsTabsSwiperEnd(swiper.isEnd);
-                }}
-                navigation={{
-                  prevEl: '.swiper-button-prev',
-                  nextEl: '.swiper-button-next',
                 }}
                 spaceBetween={0}
                 slidesPerView="auto"
@@ -433,38 +418,11 @@ const ProvenSuccess = ({ data, variant }: ProvenSuccessProps) => {
                   </SwiperSlide>
                 ))}
               </Swiper>
-
-              <div className={`swiper-button-next ${styles.navArrow} ${styles.navArrowRight} ${isTabsSwiperEnd ? styles.navArrowDisabled : ''}`} />
             </div>
 
             {/* Tabs - Mobile */}
             <div className={styles.tabsContainerMobile}>
-              {/* Left Arrow */}
-              <button
-                onClick={() => tabsSwiperRef.current?.slidePrev()}
-                disabled={isTabsSwiperBeginning}
-                className={`absolute left-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full border-none text-white cursor-pointer flex items-center justify-center transition-all ${isTabsSwiperBeginning
-                    ? "opacity-30 cursor-not-allowed bg-[#1b1849]"
-                    : "opacity-100 hover:bg-[#0fdac2]/80 bg-[#0fdac2]"
-                  }`}
-                aria-label="Previous tab"
-              >
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M15 18l-6-6 6-6" />
-                </svg>
-              </button>
-
               <Swiper
-                modules={[Navigation]}
                 spaceBetween={0}
                 slidesPerView={1}
                 centeredSlides={false}
@@ -475,8 +433,6 @@ const ProvenSuccess = ({ data, variant }: ProvenSuccessProps) => {
                   tabsSwiperRef.current = swiper;
                 }}
                 onSlideChange={(swiper) => {
-                  setIsTabsSwiperBeginning(swiper.isBeginning);
-                  setIsTabsSwiperEnd(swiper.isEnd);
                   const activeIndex = swiper.activeIndex;
                   if (provenSuccessData.tabs[activeIndex]) {
                     const selectedTab = provenSuccessData.tabs[activeIndex];
@@ -507,30 +463,6 @@ const ProvenSuccess = ({ data, variant }: ProvenSuccessProps) => {
                   </SwiperSlide>
                 ))}
               </Swiper>
-
-              {/* Right Arrow */}
-              <button
-                onClick={() => tabsSwiperRef.current?.slideNext()}
-                disabled={isTabsSwiperEnd}
-                className={`absolute right-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full border-none text-white cursor-pointer flex items-center justify-center transition-all ${isTabsSwiperEnd
-                    ? "opacity-30 cursor-not-allowed bg-[#1b1849]"
-                    : "opacity-100 hover:bg-[#0fdac2]/80 bg-[#0fdac2]"
-                  }`}
-                aria-label="Next tab"
-              >
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M9 18l6-6-6-6" />
-                </svg>
-              </button>
             </div>
           </>
         )}
