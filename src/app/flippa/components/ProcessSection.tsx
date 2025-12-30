@@ -127,7 +127,7 @@ export default function ProcessSection() {
 
         {/* Process Steps */}
         <div className="relative">
-          <div className="absolute left-8 lg:left-1/2 top-0 bottom-0 w-px bg-white/20 hidden md:block" />
+          <div className="absolute left-8 lg:left-1/2 top-1/2 bottom-0 w-px bg-white/20 hidden md:block translate-y-1/2" />
 
           <StaggerContainer className="space-y-8 md:space-y-12">
             {processData.phases.map((phase, index) => (
