@@ -297,6 +297,7 @@
   padding: 0;
   margin: 0;
   min-width: auto;
+  width: 100%;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -310,6 +311,7 @@
   border-right: 4px solid transparent;
   border-top: 5px solid #0fdac2;
   margin-left: 0.5rem;
+  transform: rotate(0deg);
 }
 
 .phoneInput :global(.PhoneInputInput) {
@@ -348,16 +350,19 @@
   background: #0e1030 !important;
   color: #ffffff !important;
   padding: 0.5rem;
+  width: 100% !important;
 }
 
 /* Dropdown menu styling */
 .phoneInput :global(.PhoneInputCountrySelect) {
   color: #ffffff !important;
+  width: 100% !important;
 }
 
 .phoneInput :global(.PhoneInputCountrySelect option) {
   background: #0e1030 !important;
   color: #ffffff !important;
+  width: 100% !important;
 }
 
 .submitButton {

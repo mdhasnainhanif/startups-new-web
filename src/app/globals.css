@@ -75,18 +75,21 @@ select.PhoneInputCountrySelect {
   appearance: none !important;
   -webkit-appearance: none !important;
   -moz-appearance: none !important;
+  width: 100% !important;
 }
 
 select.PhoneInputCountrySelect option {
   background: #0e1030 !important;
   color: #ffffff !important;
   padding: 0.5rem !important;
+  width: 100% !important;
 }
 
 /* Ensure dropdown options are visible */
 .PhoneInputCountrySelect option {
   background: #0e1030 !important;
   color: #ffffff !important;
+  width: 100% !important;
 }
 
 /* Custom dropdown menu (if library uses custom dropdown) */
@@ -96,12 +99,15 @@ select.PhoneInputCountrySelect option {
   border-radius: 0.5rem !important;
   color: #ffffff !important;
   z-index: 9999 !important;
+  width: 100% !important;
+  min-width: 100% !important;
 }
 
 .PhoneInputCountrySelectMenu__option {
   color: #ffffff !important;
   background: #0e1030 !important;
   padding: 0.75rem 1rem !important;
+  width: 100% !important;
 }
 
 .PhoneInputCountrySelectMenu__option:hover,

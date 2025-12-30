@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import styles from "./Questionnaire.module.css";
 import Button from "../Button";
 import CountryDropdown from "./CountryDropdown";
+import PhoneInput from 'react-phone-number-input';
+import 'react-phone-number-input/style.css';
 
 interface PersonalDetailsFormProps {
   onSubmit: (data: {
@@ -93,16 +95,19 @@ export default function PersonalDetailsForm({
             />
           </div>
           <div className={styles.formGroup}>
-            <input
-              type="tel"
-              name="contact"
-              placeholder="Enter Your Contact Number"
+            <PhoneInput
+              international
+              defaultCountry="US"
               value={formData.contact}
-              onChange={handleChange}
-              required
-              autoComplete="tel"
-              className={`${styles.formInput} ${styles.formInputSmall} ${styles.greenInput}`}
-              disabled={isSubmitting}
+              onChange={(value: string | undefined) => setFormData((prev) => ({ ...prev, contact: value || "" }))}
+              placeholder="Enter Your Contact Number"
+              className={`${styles.phoneInput} ${styles.formInputSmall} ${styles.greenInput}`}
+              numberInputProps={{
+                className: styles.phoneNumberInput,
+                required: true,
+                autoComplete: "tel",
+                disabled: isSubmitting,
+              }}
             />
           </div>
         </div>
