@@ -5,6 +5,7 @@ import { MotionDiv, StaggerContainer, StaggerItem } from "./motion";
 import { valueStackData } from "../../data/FlippaPageData";
 import Container from "../../components/Container";
 import Image from "next/image";
+import Button from "../../components/Button";
 
 export default function ValueStackSection() {
   return (
@@ -71,11 +72,17 @@ export default function ValueStackSection() {
                   </span>
                 </div>
                 <div className="bg-[var(--color-purple)]/10 border border-[var(--color-purple)]/20 rounded-lg md:rounded-xl p-3 md:p-4 text-center">
-                  <div className="text-xs md:text-sm text-[var(--color-purple)] mb-1">
+                  <div className="text-xs md:text-sm mb-1 text-[#0fdac2]">
                     {valueStackData.investment.title}
                   </div>
-                  <div className="text-xl md:text-3xl font-bold text-white">
-                    {valueStackData.investment.text}
+                  <div className="mt-2 mb-2">
+                    <Button
+                      variant="green"
+                      href="/contact-us"
+                      className="w-full text-base md:text-lg font-bold flex items-center justify-center"
+                    >
+                      {valueStackData.investment.text}
+                    </Button>
                   </div>
                   <div className="text-xs md:text-sm text-white/70 mt-2">
                     {valueStackData.investment.note}

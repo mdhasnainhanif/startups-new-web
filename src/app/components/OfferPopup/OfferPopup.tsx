@@ -6,6 +6,8 @@ import Image from 'next/image';
 import Button from '../Button';
 import { ArrowRightIcon } from '../icons';
 import { COMPANY_INFO } from '../../constants';
+import PhoneInput from 'react-phone-number-input';
+import 'react-phone-number-input/style.css';
 
 const avatars = [
   '/assets/images/avatar-without-icons/graphic-designer.webp',
@@ -140,9 +142,9 @@ const OfferPopup = ({ isOpen: externalIsOpen, onClose: externalOnClose, showTrig
                   </div>
                   <div className={styles.leftContent}>
                     <h2 className={styles.leftHeadline}>
-                      <span className={styles.leftHeadlinePart1}>Supercharge your</span>
-                      <span className={styles.leftHeadlinePart2}>entire creative</span>
-                      <span className={styles.leftHeadlinePart2}>operations in 2026</span>
+                      <span className={styles.leftHeadlinePart1}>Supercharge Your</span>
+                      <span className={styles.leftHeadlinePart2}>Entire Creative</span>
+                      <span className={styles.leftHeadlinePart2}>Operations In 2026</span>
                     </h2>
                     <p className={styles.leftSubtitle}>
                       Unlock Startup Advisory's Biggest New Year Sale
@@ -221,15 +223,17 @@ const OfferPopup = ({ isOpen: externalIsOpen, onClose: externalOnClose, showTrig
                       <label htmlFor="phone" className={styles.label}>
                         Phone Number *
                       </label>
-                      <input
-                        type="tel"
-                        id="phone"
-                        name="phone"
+                      <PhoneInput
+                        international
+                        defaultCountry="US"
                         value={formData.phone}
-                        onChange={handleInputChange}
-                        className={styles.input}
+                        onChange={(value) => setFormData((prev) => ({ ...prev, phone: value || "" }))}
                         placeholder="Phone Number *"
-                        required
+                        className={styles.phoneInput}
+                        numberInputProps={{
+                          className: styles.phoneNumberInput,
+                          required: true,
+                        }}
                       />
                     </div>
                     <Button

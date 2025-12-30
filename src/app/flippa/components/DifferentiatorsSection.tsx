@@ -28,18 +28,15 @@ export default function DifferentiatorsSection() {
 
       <Container maxWidth="xl" className="relative z-10">
         <MotionDiv className="max-w-3xl mx-auto text-center mb-8 sm:mb-12 lg:mb-16">
-          <span className="text-[var(--color-primary)] text-xs sm:text-sm font-semibold uppercase tracking-wider mb-3 sm:mb-4 block">
-            {differentiatorsData.label}
-          </span>
           <div className="sectionHeading">
             <h2>
               {differentiatorsData.title.main}{" "}
               <span className="text-[var(--color-primary)]">{differentiatorsData.title.highlight}</span>
             </h2>
-          </div>
-          <p className="text-sm sm:text-base lg:text-lg text-[var(--text-muted)]">
+          <p className="mt-3">
             {differentiatorsData.description}
           </p>
+          </div>
         </MotionDiv>
 
         <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
