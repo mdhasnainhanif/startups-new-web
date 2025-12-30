@@ -15,8 +15,7 @@ import { FAQ_DATA, FAQ_SECTION } from "../constants";
 import FAQ from "../components/FAQ/FAQ";
 import Reviews from "../components/Reviews/Reviews";
 import Technologies from "../components/Technologies/Technologies";
-import { TECHNOLOGIES_PAGE2_DATA, KEY_GROWTH_GUIDES } from "../data/Page2";
-import GrowthSlider from "../components/GrowthSlider/GrowthSlider";
+import { TECHNOLOGIES_PAGE2_DATA } from "../data/Page2";
 import BlogCarousel from "../components/BlogCarousel/BlogCarousel";
 import Contact from "../components/Contact/Contact";
 export const metadata: Metadata = {
