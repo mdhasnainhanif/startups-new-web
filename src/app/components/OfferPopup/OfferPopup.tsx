@@ -6,12 +6,9 @@ import Image from 'next/image';
 import Button from '../Button';
 import { ArrowRightIcon } from '../icons';
 import { COMPANY_INFO } from '../../constants';
-<<<<<<< HEAD
 import PhoneInput from 'react-phone-number-input';
 import 'react-phone-number-input/style.css';
-=======
 import { submitEmail } from '../../lib/api/email';
->>>>>>> e101cf683ee776ca96fe99f305584eb47a010509
 
 const avatars = [
   '/assets/images/avatar-without-icons/graphic-designer.webp',

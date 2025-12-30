@@ -51,7 +51,9 @@ export default function Contact() {
           message: "",
         });
       } else {
-        console.error("API Error:", response);
+        const errorData = await response.json().catch(() => ({}));
+        console.error("API Error:", response, errorData);
+        setErrorMessage(errorData.message || "Failed to send message. Please try again.");
       }
     } catch (error) {
       console.error("Form submission error:", error);
@@ -108,7 +110,7 @@ export default function Contact() {
                     height={18}
                   />
                   </div>
-                  1007n Orange St, Wilmington, DE 19801, United States
+                  1007 Orange St, Wilmington, DE 19801, United States
                 </span>
                 </div>
               </div>
@@ -176,7 +178,7 @@ export default function Contact() {
                         international
                         defaultCountry="US"
                         value={formData.phone}
-                        onChange={(value) => setFormData((prev) => ({ ...prev, phone: value || "" }))}
+                        onChange={(value: string | undefined) => setFormData((prev) => ({ ...prev, phone: value || "" }))}
                         placeholder="Phone Number*"
                         className={styles.phoneInput}
                         numberInputProps={{
