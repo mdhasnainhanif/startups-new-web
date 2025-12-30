@@ -26,9 +26,19 @@ interface WordPressPost {
     "wp:featuredmedia"?: Array<{
       source_url: string;
     }>;
+    "wp:term"?: Array<Array<{
+      id: number;
+      name: string;
+      slug: string;
+      taxonomy: string;
+    }>>;
   };
   link: string;
   categories: number[];
+  meta?: {
+    _reading_time?: string;
+    footnotes?: string;
+  };
 }
 
 interface BlogPost {
@@ -40,7 +50,7 @@ interface BlogPost {
   image: string;
   link: string;
   category: string;
-  readTime: string;
+  _reading_time?: string;
 }
 
 const API_URL = "https://startupsadvisory.ai/wordpress-blog/wp-json/wp/v2/posts";
@@ -59,12 +69,10 @@ const trimText = (text: string, maxLength: number): string => {
   return cleaned.substring(0, maxLength).trim() + "...";
 };
 
-// Helper function to calculate read time
-const calculateReadTime = (content: string): string => {
-  const text = stripHtml(content);
-  const words = text.split(/\s+/).length;
-  const readTime = Math.ceil(words / 200);
-  return `${readTime} min read`;
+// Helper function to format reading time from API
+const formatReadingTime = (readingTime: string | undefined): string => {
+  if (!readingTime || readingTime.trim() === "") return "";
+  return readingTime;
 };
 
 // Helper function to format date
@@ -108,7 +116,7 @@ export default function BlogsPage() {
       // Add timestamp to prevent caching
       const timestamp = new Date().getTime();
       const response = await fetch(
-        `${API_URL}?page=${page}&per_page=${POSTS_PER_PAGE}&_embed=wp:featuredmedia&_=${timestamp}`,
+        `${API_URL}?page=${page}&per_page=${POSTS_PER_PAGE}&_embed=wp:featuredmedia,wp:term&_=${timestamp}`,
         {
           cache: 'no-store',
         }
@@ -127,6 +135,10 @@ export default function BlogsPage() {
         const featuredImage =
           post._embedded?.["wp:featuredmedia"]?.[0]?.source_url || DUMMY_IMAGE;
         
+        // Get category from embedded terms
+        const categoryTerms = post._embedded?.["wp:term"]?.[0] || [];
+        const category = categoryTerms.find(term => term.taxonomy === 'category')?.name || "Startup";
+        
         return {
           id: post.id,
           title: trimText(post.title.rendered, 60),
@@ -135,8 +147,8 @@ export default function BlogsPage() {
           slug: post.slug,
           image: featuredImage,
           link: post.link,
-          category: "Startup",
-          readTime: calculateReadTime(post.content.rendered),
+          category: category,
+          _reading_time: post.meta?._reading_time,
         };
       });
 
@@ -315,8 +327,12 @@ export default function BlogsPage() {
                         </svg>
                         <span>{blog.date}</span>
                       </span>
-                      <span>•</span>
-                      <span>{blog.readTime}</span>
+                      {formatReadingTime(blog._reading_time) && (
+                        <>
+                          <span>•</span>
+                          <span>{formatReadingTime(blog._reading_time)}</span>
+                        </>
+                      )}
                     </div>
                     <p className={styles.blogExcerpt}>{blog.excerpt}</p>
                     <div className={styles.readButtonWrapper}>

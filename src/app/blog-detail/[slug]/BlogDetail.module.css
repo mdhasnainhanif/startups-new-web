@@ -94,7 +94,7 @@
 }
 
 .sectionTitle {
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: #0fdac2;
   margin-bottom: 1.5rem;
@@ -102,8 +102,8 @@
 }
 
 .subsectionTitle {
-  font-size: 1.25rem;
-  font-weight: 600;
+  font-size: 1.2rem;
+  font-weight: 700;
   color: #ffffff;
   margin-top: 2rem;
   margin-bottom: 1rem;
@@ -145,11 +145,12 @@
   }
 
   .sectionTitle {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
   }
 
   .subsectionTitle {
     font-size: 1.125rem;
+    font-weight: 700;
   }
 
   .introduction,

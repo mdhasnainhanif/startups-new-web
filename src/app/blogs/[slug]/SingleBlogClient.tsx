@@ -24,6 +24,10 @@ interface WordPressPost {
   };
   link: string;
   categories: number[];
+  meta?: {
+    _reading_time?: string;
+    footnotes?: string;
+  };
 }
 
 interface TableOfContentItem {
@@ -47,6 +51,12 @@ const formatDate = (dateString: string): string => {
     month: "short",
     day: "numeric",
   });
+};
+
+// Helper function to format reading time from API
+const formatReadingTime = (readingTime: string | undefined): string => {
+  if (!readingTime || readingTime.trim() === "") return "";
+  return readingTime;
 };
 
 // Extract headings from HTML content for TOC
@@ -284,6 +294,32 @@ export default function SingleBlogClient() {
                 </svg>
                 <span>{formatDate(post.date)}</span>
               </span>
+              {(() => {
+                const readingTime = post.meta?._reading_time || (post as any)._reading_time;
+                const formatted = formatReadingTime(readingTime);
+                return formatted ? (
+                  <>
+                    <span>•</span>
+                    <span className={styles.metadataItem}>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className={styles.metaIcon}
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={1.5}
+                          d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                        />
+                      </svg>
+                      <span>{formatted}</span>
+                    </span>
+                  </>
+                ) : null;
+              })()}
             </div>
 
             {/* Featured Image */}
