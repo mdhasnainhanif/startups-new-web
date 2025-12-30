@@ -6,6 +6,7 @@ import Image from 'next/image';
 import Button from '../Button';
 import { ArrowRightIcon } from '../icons';
 import { COMPANY_INFO } from '../../constants';
+import { submitEmail } from '../../lib/api/email';
 
 const avatars = [
   '/assets/images/avatar-without-icons/graphic-designer.webp',
@@ -30,6 +31,9 @@ const OfferPopup = ({ isOpen: externalIsOpen, onClose: externalOnClose, showTrig
     company: '',
     phone: '',
   });
+  const [loading, setLoading] = useState(false);
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const [activeAvatar, setActiveAvatar] = useState(2);
   
   // Use external control if provided, otherwise use internal state
@@ -75,10 +79,36 @@ const OfferPopup = ({ isOpen: externalIsOpen, onClose: externalOnClose, showTrig
       setInternalIsOpen(false);
     }
   };
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    handleClose();
+    setLoading(true);
+    setSuccessMessage("");
+    setErrorMessage("");
+
+    try {
+
+      const response = await submitEmail({
+        ...formData,
+        message: "Interested in Startup Advisory's New Year Sale offer"
+      });
+
+      if (response.ok) {
+        setSuccessMessage("Thank you! Your message has been sent successfully.");
+        setFormData({
+          name: "",
+          email: "",
+          company: "",
+          phone: "",
+        });
+      } else {
+        console.error("API Error:", response);
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
+      setErrorMessage("An error occurred. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -232,14 +262,25 @@ const OfferPopup = ({ isOpen: externalIsOpen, onClose: externalOnClose, showTrig
                         required
                       />
                     </div>
+                    {successMessage && (
+                      <div style={{ color: "green", marginBottom: "1rem", fontSize: "0.9rem" }}>
+                        {successMessage}
+                      </div>
+                    )}
+                    {errorMessage && (
+                      <div style={{ color: "red", marginBottom: "1rem", fontSize: "0.9rem" }}>
+                        {errorMessage}
+                      </div>
+                    )}
                     <Button
                       type="submit"
                       variant="green"
                       icon={<ArrowRightIcon style={{ fill: "#000" }} />}
                       iconPosition="right"
                       className={styles.submitButton}
+                      disabled={loading}
                     >
-                      Unlock Offer
+                      {loading ? "Sending..." : "Unlock Offer"}
                     </Button>
                   </form>
                 </div>
