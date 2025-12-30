@@ -324,7 +324,7 @@ export const OUR_CORE_VALUES = {
     {
       id: "2",
       number: "02",
-      icon: '/assets/images/globe4.svg',
+      icon: '/assets/images/globe3.svg',
       heading: "Vision",
       description:
         "A world where every startup can scale confidently by leveraging global talent and AI—without the traditional cost barriers that limit early-stage growth.",
@@ -332,7 +332,7 @@ export const OUR_CORE_VALUES = {
     {
       id: "3",
       number: "03",
-      icon: '/assets/images/globe3.svg',
+      icon: '/assets/images/globe4.svg',
       heading: "Objectives",
       description:
         "Provide startups with a lean, structured path to reduce hiring costs, implement AI tools, and build predictable systems that help them grow faster and more efficiently.",
@@ -340,7 +340,7 @@ export const OUR_CORE_VALUES = {
     {
       id: "4",
       number: "04",
-      icon: '/assets/images/globe3.svg',
+      icon: '/assets/images/globe5.svg',
       heading: "Values",
       description:
         "We value efficiency, accessibility, and a deep commitment to levelling the playing field—making top-tier growth strategies, talent, and tools available to every early-stage business.",
