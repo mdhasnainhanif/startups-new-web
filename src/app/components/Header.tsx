@@ -745,7 +745,7 @@ export default function Header() {
               <Link href="/designer">
               <button
                 className={`text-base font-medium hover:text-[#0fdac2] transition-colors py-2 w-full text-left flex items-center justify-between ${
-                  isServicePage() ? "text-[#0fdac2]" : "text-white"
+                  isActive("/designer") ? "text-[#0fdac2]" : "text-white"
                 }`}
               >
                 Designer

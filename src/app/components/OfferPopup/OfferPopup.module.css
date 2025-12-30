@@ -567,6 +567,31 @@
   color: rgba(255, 255, 255, 0.7);
 }
 
+/* Country Dropdown Styles */
+.phoneInput :global(.PhoneInputCountryIcon--border) {
+  box-shadow: none;
+}
+
+.phoneInput :global(select.PhoneInputCountrySelect) {
+  color: #ffffff !important;
+}
+
+.phoneInput :global(select.PhoneInputCountrySelect option) {
+  background: rgba(24, 13, 51, 0.95) !important;
+  color: #ffffff !important;
+  padding: 0.5rem;
+}
+
+/* Dropdown menu styling */
+.phoneInput :global(.PhoneInputCountrySelect) {
+  color: #ffffff !important;
+}
+
+.phoneInput :global(.PhoneInputCountrySelect option) {
+  background: rgba(24, 13, 51, 0.95) !important;
+  color: #ffffff !important;
+}
+
 .phoneNumberInput {
   width: 100%;
 }

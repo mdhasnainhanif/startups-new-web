@@ -85,18 +85,20 @@ export default function FAQ({ faqs, sectionData, className = "" }: FAQProps) {
                   return (
                     <div
                       key={index}
-                      className="border-b-2 border-[#312d63a8] last:border-b-0"
+                      className="border-b-2 border-[#312d63a8] last:border-b-0 md:border-b-0"
                     >
                       {/* FAQ Question */}
                       <button
                         onClick={() => toggleLeftFAQ(index)}
                         className="w-full px-0 py-4 sm:py-5 md:py-6 flex items-center justify-between text-left focus:outline-none transition-colors hover:opacity-80 gap-3 sm:gap-4 cursor-pointer"
                       >
-                        <span className="text-white font-semibold text-base sm:text-lg md:text-xl lg:text-xl pr-2 sm:pr-4 flex-1 leading-snug sm:leading-normal">
+                        <span className={`font-semibold text-base sm:text-lg md:text-xl lg:text-xl pr-2 sm:pr-4 flex-1 leading-snug sm:leading-normal transition-colors ${
+                          leftOpenIndex === index ? "text-[#0fdac2] md:text-white" : "text-white"
+                        }`}>
                           {faq.question}
                         </span>
                         <span className={`shrink-0 w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 flex items-center justify-center transition-all duration-300 ${
-                          leftOpenIndex === index ? "text-[#643bff] rotate-180" : "text-[#0fdac2] rotate-0"
+                          leftOpenIndex === index ? "text-[#0fdac2] md:text-[#643bff] rotate-180" : "text-[#0fdac2] rotate-0"
                         }`}>
                           <svg
                             width="20"
@@ -137,18 +139,20 @@ export default function FAQ({ faqs, sectionData, className = "" }: FAQProps) {
                   return (
                     <div
                       key={index}
-                      className="border-b-2 border-[#312d63a8] last:border-b-0"
+                      className="border-b-2 border-[#312d63a8] last:border-b-0 md:border-b-0"
                     >
                       {/* FAQ Question */}
                       <button
                         onClick={() => toggleRightFAQ(index)}
                         className="w-full px-0 py-4 sm:py-5 md:py-6 flex items-center justify-between text-left focus:outline-none transition-colors hover:opacity-80 gap-3 sm:gap-4 cursor-pointer"
                       >
-                        <span className="text-white font-semibold text-base sm:text-lg md:text-xl lg:text-xl pr-2 sm:pr-4 flex-1 leading-snug sm:leading-normal">
+                        <span className={`font-semibold text-base sm:text-lg md:text-xl lg:text-xl pr-2 sm:pr-4 flex-1 leading-snug sm:leading-normal transition-colors ${
+                          rightOpenIndex === index ? "text-[#0fdac2] md:text-white" : "text-white"
+                        }`}>
                           {faq.question}
                         </span>
                         <span className={`shrink-0 w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 flex items-center justify-center transition-all duration-300 ${
-                          rightOpenIndex === index ? "text-[#643bff] rotate-180" : "text-[#0fdac2] rotate-0"
+                          rightOpenIndex === index ? "text-[#0fdac2] md:text-[#643bff] rotate-180" : "text-[#0fdac2] rotate-0"
                         }`}>
                           <svg
                             width="20"

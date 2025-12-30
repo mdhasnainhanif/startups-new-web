@@ -68,6 +68,48 @@ nav.headerNav a.active {
   text-shadow: none !important;
 }
 
+/* Phone Input Country Dropdown Styles */
+select.PhoneInputCountrySelect {
+  color: #ffffff !important;
+  background: transparent !important;
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+}
+
+select.PhoneInputCountrySelect option {
+  background: #0e1030 !important;
+  color: #ffffff !important;
+  padding: 0.5rem !important;
+}
+
+/* Ensure dropdown options are visible */
+.PhoneInputCountrySelect option {
+  background: #0e1030 !important;
+  color: #ffffff !important;
+}
+
+/* Custom dropdown menu (if library uses custom dropdown) */
+.PhoneInputCountrySelectMenu {
+  background: #0e1030 !important;
+  border: 1px solid #0fdac2 !important;
+  border-radius: 0.5rem !important;
+  color: #ffffff !important;
+  z-index: 9999 !important;
+}
+
+.PhoneInputCountrySelectMenu__option {
+  color: #ffffff !important;
+  background: #0e1030 !important;
+  padding: 0.75rem 1rem !important;
+}
+
+.PhoneInputCountrySelectMenu__option:hover,
+.PhoneInputCountrySelectMenu__option--selected {
+  background: rgba(15, 218, 194, 0.2) !important;
+  color: #0fdac2 !important;
+}
+
 .bottomZero {
   padding-bottom: 0rem;
 }

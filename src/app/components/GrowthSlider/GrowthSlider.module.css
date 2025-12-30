@@ -364,7 +364,7 @@
   }
 
   .swiperContainer :global(.swiper-wrapper) {
-    padding: 0rem 0rem 0rem 0rem;
+    padding: 0.525rem 0rem 0rem 0rem;
   }
 
   .card {
