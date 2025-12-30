@@ -32,7 +32,7 @@ export default function ProcessSection() {
               {/* Chart Header */}
               <div className="flex items-center justify-between mb-8">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 lg:w-12 lg:h-12 rounded-xl bg-[var(--color-purple)]/10 flex items-center justify-center">
+                  <div className="w-10 h-10 lg:w-12 lg:h-12 rounded-[50%] bg-[#2e2277] flex items-center justify-center">
                     <TrendingUp className="w-5 h-5 lg:w-6 lg:h-6 text-[var(--color-purple)]" />
                   </div>
                   <div>
@@ -92,7 +92,7 @@ export default function ProcessSection() {
 
                   <div className="absolute bottom-0 left-0 right-0 flex justify-between">
                     {processData.phases.map((phase, index) => (
-                      <div key={phase.number} className="flex flex-col items-center" style={{ width: "25%" }}>
+                      <div key={phase.number} className="lg:flex flex-col items-center" style={{ width: "25%" }}>
                         <div
                           className={`w-3 h-3 lg:w-4 lg:h-4 rounded-full border-2 border-white shadow-lg animate-pulse ${index % 2 === 0 ? 'bg-[var(--color-primary)]' : 'bg-[var(--color-purple)]'}`}
                           style={{
@@ -140,7 +140,7 @@ export default function ProcessSection() {
               >
                 <div className={`flex-1 ${index % 2 === 1 ? "lg:text-right" : ""}`}>
                   <div className="bg-white/5 border border-white/10 rounded-xl md:rounded-2xl p-5 md:p-8 hover:border-[var(--color-primary)]/50 transition-all duration-300 hover:shadow-lg">
-                    <div className="flex items-center gap-3 md:gap-4 mb-3 md:mb-4">
+                    <div className="lg:flex block gap-3 md:gap-4 mb-3 md:mb-4">
                       <span className={`text-2xl md:text-4xl font-bold ${index % 2 === 0 ? 'text-[var(--color-primary)]' : 'text-[var(--color-purple)]'}`}>
                         {phase.number}
                       </span>
