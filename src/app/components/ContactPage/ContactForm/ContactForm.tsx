@@ -7,6 +7,8 @@ import styles from "./ContactForm.module.css";
 import Button from "../../Button";
 import Container from "../../Container";
 import { submitEmail } from '../../../lib/api/email';
+import PhoneInput from 'react-phone-number-input';
+import 'react-phone-number-input/style.css';
 const ContactForm: React.FC<ContactFormProps> = ({
   config = contactFormData,
 }) => {
@@ -157,6 +159,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
             {/* --- REMAINING FIELDS --- */}
             {config.fields.slice(2).map((field) => {
               const isTextarea = field.type === "textarea";
+              const isPhone = field.type === "tel" || field.name === "phone";
 
               return (
                 <div
@@ -173,6 +176,20 @@ const ContactForm: React.FC<ContactFormProps> = ({
                       onChange={handleInputChange}
                       className={`${styles.formInput} ${styles.formTextarea}`}
                       disabled={loading}
+                    />
+                  ) : isPhone ? (
+                    <PhoneInput
+                      international
+                      defaultCountry="US"
+                      value={formData[field.name] as string}
+                      onChange={(value) => setFormData((prev) => ({ ...prev, [field.name]: value || "" }))}
+                      placeholder={field.placeholder}
+                      className={styles.phoneInput}
+                      numberInputProps={{
+                        className: styles.phoneNumberInput,
+                        required: field.required,
+                        disabled: loading,
+                      }}
                     />
                   ) : (
                     <input

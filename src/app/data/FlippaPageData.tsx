@@ -269,7 +269,7 @@ export const valueStackData = {
   totalValue: 125000,
   investment: {
     title: "Your Investment",
-    text: "Book a call to learn more",
+    text: "Book a Call to Learn More",
     note: "Flexible payment plans available",
   },
 };

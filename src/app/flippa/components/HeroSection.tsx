@@ -1,13 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, Play } from "./icons";
+import { ArrowRight } from "./icons";
 import { MotionDiv } from "./motion";
 import { heroData } from "../../data/FlippaPageData";
 import Button from "../../components/Button";
 import Container from "../../components/Container";
 import { useCountUp } from "./use-count-up";
-import { useRef } from "react";
 
 const StatItem = ({ stat, index }: { stat: { value: string; label: string }; index: number }) => {
   // Parse the value to extract number and suffix/prefix
@@ -51,7 +50,7 @@ const StatItem = ({ stat, index }: { stat: { value: string; label: string }; ind
       <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--color-primary)]">
         {formattedValue}
       </div>
-      <div className="text-xs md:text-sm text-[var(--text-muted)] mt-1">
+      <div className="text-xs md:text-sm text-white mt-1">
         {stat.label}
       </div>
     </div>
@@ -72,7 +71,7 @@ const StatsCounter = ({
       delay={delay}
       className="mt-8 md:mt-12 pt-6 md:pt-8 border-t border-white/10 max-w-2xl mx-auto px-4"
     >
-      <p className="text-xs md:text-sm text-[var(--text-muted)] mb-3 md:mb-4">
+      <p className="text-xs md:text-sm text-white mb-3 md:mb-4">
         {title}
       </p>
       <div className="flex flex-wrap gap-4 md:gap-8 items-center justify-center">
@@ -86,17 +85,18 @@ const StatsCounter = ({
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen md:min-h-[90vh] flex items-center heroBannerPaddingTop bg-[var(--color-dark)] overflow-hidden py-24 md:py-16 lg:py-28 pt-28 lg:pt-48">
-      <div className="absolute inset-0 opacity-30 bg-gradient-to-br from-[var(--color-primary)]/30 via-[var(--color-dark)] to-[var(--color-purple)]/30 animate-pulse" />
-      <div
+    <section className="relative min-h-screen md:min-h-[90vh] flex items-center heroBannerPaddingTop 
+     overflow-hidden py-24 md:py-16 lg:py-28 pt-28 lg:pt-48 bg-[url(/assets/images/homenewbanner.webp)] bg-cover bg-center bg-no-repeat">
+      {/* <div className="absolute inset-0 opacity-30 bg-gradient-to-br from-[var(--color-primary)]/30 via-[var(--color-dark)] to-[var(--color-purple)]/30 animate-pulse" /> */}
+      {/* <div
         className="absolute inset-0 opacity-20"
         style={{
           backgroundImage: `linear-gradient(rgba(15, 218, 194, 0.1) 1px, transparent 1px),
                           linear-gradient(90deg, rgba(15, 218, 194, 0.1) 1px, transparent 1px)`,
           backgroundSize: "50px 50px",
         }}
-      />
-      <div className="absolute inset-0 bg-radial-gradient from-[var(--color-primary)]/20 via-transparent to-transparent" />
+      /> */}
+      {/* <div className="absolute inset-0 bg-radial-gradient from-[var(--color-primary)]/20 via-transparent to-transparent" />
       <div className="hidden md:block absolute top-20 left-[10%] w-24 h-24 border border-[var(--color-primary)]/20 rounded-2xl animate-bounce opacity-40 rotate-12" />
       <div
         className="hidden md:block absolute top-40 right-[15%] w-16 h-16 border border-[var(--color-primary)]/30 rounded-full animate-bounce opacity-50"
@@ -115,7 +115,7 @@ export default function HeroSection() {
       <div
         className="absolute bottom-1/4 left-1/4 w-32 md:w-64 h-32 md:h-64 bg-[var(--color-primary)]/15 rounded-full blur-2xl animate-pulse"
         style={{ animationDelay: "2s" }}
-      />
+      /> */}
       <Container maxWidth="xl" className="relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <MotionDiv

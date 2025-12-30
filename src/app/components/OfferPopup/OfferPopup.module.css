@@ -475,6 +475,102 @@
   justify-content: center;
 }
 
+/* Phone Input Styles - Matching existing UI */
+.phoneInput {
+  width: 100%;
+  display: block;
+}
+
+.phoneInput{
+  display: flex !important;
+  align-items: stretch;
+  width: 100% !important;
+  background: rgba(24, 13, 51, 0.8) !important;
+  border: 1px solid #0fdac2 !important;
+  border-radius: 0.5rem !important;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  min-height: auto;
+}
+
+.phoneInput :global(.PhoneInput):focus-within {
+  border-color: #0fdac2 !important;
+  box-shadow: 0 0 0 3px rgba(15, 218, 194, 0.2) !important;
+  background: rgba(24, 13, 51, 0.9) !important;
+}
+
+.phoneInput :global(.PhoneInputCountry) {
+  display: flex;
+  align-items: center;
+  padding: 0.875rem 0.75rem;
+  background: transparent;
+  border: none;
+  border-right: 1px solid rgba(15, 218, 194, 0.3);
+  margin-right: 0;
+}
+
+.phoneInput :global(.PhoneInputCountryIcon) {
+  width: 20px;
+  height: 20px;
+  box-shadow: none;
+  border: none;
+  object-fit: cover;
+}
+
+.phoneInput :global(.PhoneInputCountrySelect) {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 1rem;
+  outline: none;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  min-width: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-plus-jakarta-sans), sans-serif;
+}
+
+.phoneInput :global(.PhoneInputCountrySelectArrow) {
+  opacity: 1;
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 5px solid #0fdac2;
+  margin-left: 0.5rem;
+}
+
+.phoneInput :global(.PhoneInputInput) {
+  flex: 1;
+  width: 100%;
+  padding: 0.875rem 1rem;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  font-size: 1rem;
+  color: #ffffff;
+  font-family: var(--font-plus-jakarta-sans), sans-serif;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.phoneInput :global(.PhoneInputInput):focus {
+  outline: none;
+}
+
+.phoneInput :global(.PhoneInputInput)::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.phoneNumberInput {
+  width: 100%;
+}
+
 
 @media (max-width: 1024px) {
   .modal {

@@ -146,7 +146,7 @@ export const socialMediaMarketingAnalyticsDashboardData = {
   buttonText: 'Get Started',
   leftColumnItems: {
     left: [
-      'Exceptional',
+      // 'Exceptional',
       'Consistency',
       'Timing',
       'Audience',
@@ -154,7 +154,7 @@ export const socialMediaMarketingAnalyticsDashboardData = {
       'Authenticity',
     ],
     right: [
-      'Goal',
+      // 'Goal',
       'Audience',
       'Signals',
       'Interaction',
