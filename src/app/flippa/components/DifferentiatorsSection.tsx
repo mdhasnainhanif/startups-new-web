@@ -45,7 +45,7 @@ export default function DifferentiatorsSection() {
             return (
               <StaggerItem key={item.title} delay={index * 0.1}>
                 <div className="group relative bg-white/5 border border-white/10 rounded-xl sm:rounded-2xl p-5 sm:p-6 lg:p-8 hover:border-[var(--color-purple)]/50 transition-all duration-300 hover:shadow-lg h-full">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-xl sm:rounded-2xl bg-[var(--color-purple)]/10 group-hover:bg-[var(--color-purple)]/20 flex items-center justify-center mb-4 sm:mb-6 transition-colors">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 rounded-[50%] bg-[#2e2277] flex items-center justify-center mb-4 sm:mb-6 transition-colors">
                     <IconComponent className="w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7 text-[var(--color-purple)]" />
                   </div>
 

@@ -28,7 +28,7 @@ export default function ValueStackSection() {
               {valueStackData.description}
             </p>
 
-            <div className="inline-flex items-center gap-2 px-3 md:px-4 py-2 bg-red-100 border border-red-300 rounded-full text-red-600 text-sm md:text-base font-medium mb-6 md:mb-8">
+            <div className="inline-flex items-center gap-2 px-3 md:px-4 py-2 bg-[var(--color-purple)]/10 border border-[var(--color-purple)]/20 rounded-lg text-[#0fdac2] text-sm md:text-base font-medium mb-6 md:mb-8">
               <Sparkles className="w-4 h-4" />
               {valueStackData.urgencyBadge}
             </div>

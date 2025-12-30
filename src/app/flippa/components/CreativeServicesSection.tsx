@@ -124,7 +124,7 @@ const services = [
 
 const CreativeServicesSection = () => {
   return (
-    <section className={styles.section}>
+    <section className={`${styles.creativeServicesSection} sectionPadding bg-[var(--color-dark)] relative overflow-hidden`}>
       <Container maxWidth="xl">
         {/* Top Section */}
         <div className={styles.topSection}>

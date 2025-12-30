@@ -9,7 +9,7 @@ import Container from "../../components/Container";
 export default function FlippaCTA() {
   return (
     <section className="sectionPadding bg-[var(--color-dark)] relative overflow-hidden">
-      {/* Starry background pattern */}
+      
       <div 
         className="absolute inset-0 opacity-30"
         style={{
@@ -21,27 +21,18 @@ export default function FlippaCTA() {
           backgroundPosition: "0 0, 25px 25px, 50px 50px, 75px 75px",
         }}
       />
-      
-      {/* Gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-primary)]/10 via-transparent to-transparent" />
-      
       <Container maxWidth="xl" className="relative z-10">
         <MotionDiv className="max-w-4xl mx-auto text-center">
-          {/* Headline */}
           <div className="sectionHeading mb-4 md:mb-6">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-center w-full mx-auto">
               <span className="text-white">Ready to Turn Your Business Into a</span>
-              <br />
-              <span className="text-[var(--color-primary)]">High-Value Asset?</span>
+              <span className="text-[var(--color-primary)]"> High-Value Asset?</span>
             </h2>
           </div>
-
-          {/* Description */}
           <p className="text-base sm:text-lg md:text-xl text-white/80 mb-8 md:mb-10 max-w-2xl mx-auto px-4">
             Book a free strategy call and discover how we can help you 2-5x your business value in 90 days.
           </p>
-
-          {/* CTA Button */}
           <div className="flex justify-center">
             <Button
               variant="green"

@@ -63,7 +63,7 @@ const CrossIcon = () => (
 
 const WhyUsSection = () => {
   return (
-    <section className={styles.section}>
+    <section className={`${styles.section} whyUsSection`}>
       <Container maxWidth="xl">
         <div className={styles.headerSection}>
           <div className={styles.label}>BUILT FOR YOU</div>

@@ -599,14 +599,12 @@
   }
 
   .leftSection {
-    padding: 2rem 1.5rem;
-    min-height: auto;
-    order: 2;
+    display: none;
   }
 
   .rightSection {
     padding: 2rem 1.5rem;
-    order: 1;
+    width: 100%;
   }
 
   .leftHeadline {
@@ -662,8 +660,7 @@
   }
 
   .fireworks {
-    width: 150px;
-    height: 150px;
+    display: none;
   }
 }
 
@@ -677,12 +674,12 @@
   }
 
   .leftSection {
-    padding: 1.5rem 1rem;
-    min-height: 250px;
+    display: none;
   }
 
   .rightSection {
     padding: 1.5rem 1rem;
+    width: 100%;
   }
 
   .logo {
