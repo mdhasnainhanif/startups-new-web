@@ -270,7 +270,8 @@
   }
 
   .imageWrapper {
-    height: 200px;
+    height: 100%;
+    width: 101%;
   }
 
   .pagination {
@@ -292,7 +293,7 @@
   }
 
   .imageWrapper {
-    height: 180px;
+    height: 100%;
   }
 
   .pagination {

@@ -275,6 +275,9 @@
   }
 
   @media (max-width: 768px) {
+    .swiperContainer {
+        padding: 1.2rem .8rem .8rem .8rem;
+      }
     .blogCard {
       padding: 1rem;
     }
