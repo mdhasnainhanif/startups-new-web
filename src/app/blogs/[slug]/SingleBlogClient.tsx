@@ -5,32 +5,26 @@ import { useParams, notFound } from "next/navigation";
 import Container from "../../components/Container";
 import Image from "next/image";
 import styles from "./page.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
+
+interface FAQItem {
+  question: string;
+  answer: string;
+}
 
 interface WordPressPost {
   id: number;
-  title: {
-    rendered: string;
-  };
-  content: {
-    rendered: string;
-  };
+  title: { rendered: string };
+  content: { rendered: string };
   date: string;
   slug: string;
   featured_media: number;
-  _embedded?: {
-    "wp:featuredmedia"?: Array<{
-      source_url: string;
-    }>;
-  };
-  link: string;
-  categories: number[];
-  meta?: {
-    _reading_time?: string;
-    footnotes?: string;
-  };
+  _embedded?: { "wp:featuredmedia"?: { source_url: string }[] };
+  meta?: { _reading_time?: string; _faqs_data?: FAQItem[] };
 }
 
-interface TableOfContentItem {
+interface TOCItem {
   id: string;
   text: string;
   level: number;
@@ -38,12 +32,72 @@ interface TableOfContentItem {
 
 const API_URL = "https://startupsadvisory.ai/wordpress-blog/wp-json/wp/v2/posts";
 
-// Helper function to strip HTML tags
-const stripHtml = (html: string): string => {
-  return html.replace(/<[^>]*>/g, "").replace(/&[^;]+;/g, " ");
+const stripHtml = (html: string) =>
+  html.replace(/<[^>]*>/g, "").replace(/&[^;]+;/g, " ");
+
+const formatReadingTime = (readingTime?: string) =>
+  readingTime?.trim() ? readingTime : "";
+
+const extractHeadings = (html: string): TOCItem[] => {
+  const regex = /<h([1-6])[^>]*>(.*?)<\/h[1-6]>/gi;
+  const headings: TOCItem[] = [];
+  let match;
+  while ((match = regex.exec(html))) {
+    const level = parseInt(match[1]);
+    const text = stripHtml(match[2]).trim();
+    if (text) headings.push({ id: text.toLowerCase().replace(/[^a-z0-9]+/g, "-"), text, level });
+  }
+  return headings;
 };
 
-// Helper function to format date
+const addHeadingIds = (html: string, headings: TOCItem[]) => {
+  let modified = html;
+  headings.forEach((h) => {
+    const regex = new RegExp(`<h${h.level}([^>]*)>${h.text}</h${h.level}>`, "i");
+    modified = modified.replace(
+      regex,
+      `<h${h.level}$1 id="${h.id}" class="blog-heading">${h.text}</h${h.level}>`
+    );
+  });
+  return modified;
+};
+
+export default function SingleBlogClient() {
+  const { slug } = useParams<{ slug: string }>();
+  const [post, setPost] = useState<WordPressPost | null>(null);
+  const [headings, setHeadings] = useState<TOCItem[]>([]);
+  const [content, setContent] = useState("");
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    if (!slug) return;
+    const fetchPost = async () => {
+      try {
+        const res = await fetch(`${API_URL}?slug=${slug}&_embed=wp:featuredmedia`, { cache: "no-store" });
+        const data: WordPressPost[] = await res.json();
+        if (!data?.length) return setPost(null);
+        const p = data[0];
+        let h = extractHeadings(p.content.rendered);
+        if (p.meta?._faqs_data?.length) h.push({ id: "faqs", text: "FAQs", level: 2 });
+        setHeadings(h);
+        setContent(addHeadingIds(p.content.rendered, h));
+        setPost(p);
+      } catch {
+        setPost(null);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchPost();
+  }, [slug]);
+
+  if (loading) return null;
+  if (!post) notFound();
+
+  const featuredImage = post._embedded?.["wp:featuredmedia"]?.[0]?.source_url || null;
+
+  // Helper function to format date
 const formatDate = (dateString: string): string => {
   const date = new Date(dateString);
   return date.toLocaleDateString("en-US", {
@@ -53,228 +107,32 @@ const formatDate = (dateString: string): string => {
   });
 };
 
-// Helper function to format reading time from API
-const formatReadingTime = (readingTime: string | undefined): string => {
-  if (!readingTime || readingTime.trim() === "") return "";
-  return readingTime;
-};
-
-// Extract headings from HTML content for TOC
-const extractHeadings = (html: string): TableOfContentItem[] => {
-  const headingRegex = /<h([1-6])[^>]*>(.*?)<\/h[1-6]>/gi;
-  const headings: TableOfContentItem[] = [];
-  let match;
-
-  while ((match = headingRegex.exec(html)) !== null) {
-    const level = parseInt(match[1]);
-    const text = stripHtml(match[2]).trim();
-    if (text) {
-      const id = text
-        .toLowerCase()
-        .replace(/[^a-z0-9]+/g, "-")
-        .replace(/^-|-$/g, "");
-      headings.push({ id, text, level });
-    }
-  }
-
-  return headings;
-};
-
-// Add IDs to all headings in HTML content
-const addHeadingIds = (html: string, headings: TableOfContentItem[]): string => {
-  let modifiedHtml = html;
-  const headingMap = new Map<string, string>();
-  
-  // Create a map of text to ID for quick lookup
-  headings.forEach((heading) => {
-    headingMap.set(heading.text.toLowerCase().trim(), heading.id);
-  });
-
-  // Replace all headings with IDs - improved regex
-  const headingRegex = /<h([1-6])([^>]*?)>([\s\S]*?)<\/h[1-6]>/gi;
-  
-  modifiedHtml = modifiedHtml.replace(headingRegex, (match, level, attributes, content) => {
-    const text = stripHtml(content).trim();
-    const id = headingMap.get(text.toLowerCase());
-    
-    if (id) {
-      // Remove existing id if present
-      const cleanAttributes = attributes.replace(/id="[^"]*"/gi, '').trim();
-      // Add space before attributes if needed
-      const attrString = cleanAttributes ? ` ${cleanAttributes}` : '';
-      return `<h${level}${attrString} id="${id}" class="blog-heading">${content}</h${level}>`;
-    }
-    
-    return match;
-  });
-
-  return modifiedHtml;
-};
-
-export default function SingleBlogClient() {
-  const params = useParams();
-  const slug = params?.slug as string;
-  const [post, setPost] = useState<WordPressPost | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [headings, setHeadings] = useState<TableOfContentItem[]>([]);
-  const [processedContent, setProcessedContent] = useState<string>("");
-
-  useEffect(() => {
-    const fetchPost = async () => {
-      if (!slug) return;
-
-      setLoading(true);
-      try {
-        const timestamp = new Date().getTime();
-        const response = await fetch(
-          `${API_URL}?slug=${slug}&_embed=wp:featuredmedia&_=${timestamp}`,
-          {
-            cache: "no-store",
-          }
-        );
-
-        if (!response.ok) {
-          throw new Error("Failed to fetch blog post");
-        }
-
-        const data: WordPressPost[] = await response.json();
-
-        if (!data || data.length === 0) {
-          setPost(null);
-          return;
-        }
-
-        const postData = data[0];
-        setPost(postData);
-
-        // Extract headings and process content
-        const extractedHeadings = extractHeadings(postData.content.rendered);
-        setHeadings(extractedHeadings);
-
-        const contentWithIds = addHeadingIds(
-          postData.content.rendered,
-          extractedHeadings
-        );
-        setProcessedContent(contentWithIds);
-      } catch (error) {
-        console.error("Error fetching blog post:", error);
-        setPost(null);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchPost();
-  }, [slug]);
-
-  // Handle hash navigation on mount and content load
-  useEffect(() => {
-    if (processedContent && typeof window !== 'undefined') {
-      // Check if there's a hash in URL
-      const hash = window.location.hash.replace('#', '');
-      if (hash) {
-        setTimeout(() => {
-          const element = document.getElementById(hash);
-          if (element) {
-            const offset = 150;
-            const elementTop = element.getBoundingClientRect().top + window.pageYOffset;
-            window.scrollTo({
-              top: elementTop - offset,
-              behavior: 'smooth',
-            });
-          }
-        }, 300);
-      }
-    }
-  }, [processedContent]);
-
-  // Scroll to heading when TOC item is clicked
-  const scrollToHeading = (id: string, e?: React.MouseEvent) => {
-    e?.preventDefault();
-    e?.stopPropagation();
-    
-    // Update URL hash
-    window.history.pushState(null, '', `#${id}`);
-    
-    // Wait for DOM update
-    setTimeout(() => {
-      const element = document.getElementById(id);
-      if (element) {
-        const offset = 150;
-        const elementTop = element.getBoundingClientRect().top + window.pageYOffset;
-        const offsetPosition = elementTop - offset;
-
-        element.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start',
-        });
-
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth',
-        });
-      }
-    }, 100);
-  };
-
-  if (loading) {
-    return (
-      <section className={`sectionPadding ${styles.blogSection}`}>
-        <Container maxWidth="xl">
-          <div className={styles.loadingContainer}>
-            <div className={styles.loadingSpinner}></div>
-          </div>
-        </Container>
-      </section>
-    );
-  }
-
-  if (!post) {
-    notFound();
-  }
-
-  const featuredImage =
-    post._embedded?.["wp:featuredmedia"]?.[0]?.source_url || null;
 
   return (
     <section className={`sectionPadding ${styles.blogSection}`}>
       <Container maxWidth="xl">
         <div className={styles.blogContainer}>
-          {/* Left Sidebar - Table of Contents */}
+          {/* TOC */}
           <aside className={styles.sidebar}>
             <div className={styles.tocContainer}>
               <h3 className={styles.tocTitle}>Table of Contents</h3>
-              {headings.length > 0 ? (
-                <nav className={styles.tocNav}>
-                  <ul className={styles.tocList}>
-                    {headings.map((heading, index) => (
-                      <li
-                        key={index}
-                        className={`${styles.tocItem} ${styles[`level${heading.level}`]}`}
-                      >
-                        <button
-                          onClick={() => scrollToHeading(heading.id)}
-                          className={styles.tocLink}
-                        >
-                          {heading.text}
-                        </button>
-                      </li>
-                    ))}
-                  </ul>
-                </nav>
-              ) : (
-                <p className={styles.noToc}>No headings available</p>
-              )}
+              <ul className={styles.tocList}>
+                {headings.map((h) => (
+                  <li key={h.id} className={`${styles.tocItem} ${styles[`level${h.level}`]}`}>
+                    <a href={`#${h.id}`} className={styles.tocLink}>
+                      {h.text}
+                    </a>
+                  </li>
+                ))}
+              </ul>
             </div>
           </aside>
 
-          {/* Right Content Area */}
+          {/* CONTENT */}
           <article className={styles.contentArea}>
-            {/* Title */}
-            <h1 className={styles.blogTitle}>
-              {stripHtml(post.title.rendered)}
-            </h1>
+            <h1 className={styles.blogTitle}>{stripHtml(post.title.rendered)}</h1>
 
+            {/* ===== BLOG META ===== */}
             {/* Date and Meta */}
             <div className={styles.blogMeta}>
               <span className={styles.metadataItem}>
@@ -322,25 +180,48 @@ export default function SingleBlogClient() {
               })()}
             </div>
 
-            {/* Featured Image */}
+
             {featuredImage && (
-              <div className={styles.featuredImageContainer}>
-                <Image
-                  src={featuredImage}
-                  alt={stripHtml(post.title.rendered)}
-                  width={1200}
-                  height={600}
-                  className={styles.featuredImage}
-                  priority
-                />
-              </div>
+              <Image
+                src={featuredImage}
+                width={1200}
+                height={600}
+                alt=""
+                className={styles.featuredImage}
+                priority
+              />
             )}
 
-            {/* Blog Content */}
-            <div
-              className={styles.blogContent}
-              dangerouslySetInnerHTML={{ __html: processedContent }}
-            />
+            <div className={styles.blogContent} dangerouslySetInnerHTML={{ __html: content }} />
+
+            {/* ===== FAQs ===== */}
+            {post.meta?._faqs_data?.length && (
+              <section id="faqs" className="mt-20">
+                <h2 className="text-3xl font-bold text-white mb-8">Frequently Asked Questions</h2>
+                <div className="space-y-4">
+                  {post.meta._faqs_data.map((faq, i) => (
+                    <div key={i} className="border border-white/20 rounded-lg overflow-hidden">
+                      <button
+                        onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                        className="w-full flex justify-between items-center px-6 py-4 text-left text-white font-semibold bg-white/5 hover:bg-white/10 transition"
+                      >
+                        <span>{faq.question}</span>
+                        <FontAwesomeIcon
+                          icon={faAngleDown}
+                          className={`transition-transform ${openFaq === i ? "rotate-180" : ""}`}
+                        />
+                      </button>
+                      {openFaq === i && (
+                        <div
+                          className="px-6 py-4 text-white/90 bg-white/5"
+                          dangerouslySetInnerHTML={{ __html: faq.answer }}
+                        />
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </section>
+            )}
           </article>
         </div>
       </Container>
