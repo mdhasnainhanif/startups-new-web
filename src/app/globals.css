@@ -917,32 +917,25 @@ section img.banneFullMin {
     font-size: 1.75rem !important;
   }
 
-  .sectionHeading {
-    text-align: left !important;
-    align-items: flex-start !important;
-  }
-
-  .sectionHeading.text-center {
+  /* Mobile text alignment - exclude HomenewBanner which has its own layout */
+  section:not([class*="HomenewBanner"]) .sectionHeading {
     text-align: left !important;
   }
 
-  .sectionHeading.items-center {
-    align-items: flex-start !important;
-  }
-
-  .sectionHeading > h1,
-  .sectionHeading > h2,
-  .sectionHeading > h4,
-  .sectionHeading > p {
+  section:not([class*="HomenewBanner"]) .sectionHeading.text-center {
     text-align: left !important;
   }
 
-  /* Left align buttons and button containers on inner pages mobile */
-  .sectionHeading > div {
+  section:not([class*="HomenewBanner"]) .sectionHeading > h1,
+  section:not([class*="HomenewBanner"]) .sectionHeading > h2,
+  section:not([class*="HomenewBanner"]) .sectionHeading > h4,
+  section:not([class*="HomenewBanner"]) .sectionHeading > p {
     text-align: left !important;
-    align-items: flex-start !important;
-    /* display: flex !important; */
-    /* justify-content: flex-start !important; */
+  }
+
+  /* Left align buttons and button containers on inner pages mobile (but not in HomenewBanner) */
+  section:not([class*="HomenewBanner"]) .sectionHeading > div {
+    text-align: left !important;
   }
 
   /* Keep home page HeroBanner centered on mobile */
@@ -974,6 +967,29 @@ section img.banneFullMin {
     justify-content: center !important;
   }
 
+}
+
+/* Desktop: Restore HomenewBanner layout */
+@media (min-width: 768px) {
+  /* HomenewBanner should maintain its original desktop layout */
+  section[class*="HomenewBanner"] .row {
+    display: flex !important;
+    align-items: center !important;
+  }
+  
+  section[class*="HomenewBanner"] .colLeft.sectionHeading {
+    text-align: left !important;
+  }
+  
+  section[class*="HomenewBanner"] .colLeft {
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
+  }
+  
+  section[class*="HomenewBanner"] .colRight {
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
+  }
 }
 
 .headerMain {
