@@ -338,7 +338,7 @@ h2 .bracket-text-green {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  /* opacity: 0.4; */
+  opacity: 0.8;
   pointer-events: none;
   z-index: 3;
 }
@@ -378,7 +378,7 @@ h2 .bracket-text-green {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  /* opacity: 0.4; */
+  opacity: 0.8;
   pointer-events: none;
   z-index: 0;
 }
@@ -420,7 +420,7 @@ h2 .bracket-text-green {
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  /* opacity: 0.25; */
+  opacity: 0.8;
   pointer-events: none;
   z-index: 0;
 }
@@ -439,7 +439,7 @@ h2 .bracket-text-green {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  /* opacity: 0.25; */  
+  opacity: 0.8;  
   pointer-events: none;
   z-index: 0;
 }
@@ -919,10 +919,15 @@ section img.banneFullMin {
 
   .sectionHeading {
     text-align: left !important;
+    align-items: flex-start !important;
   }
 
   .sectionHeading.text-center {
     text-align: left !important;
+  }
+
+  .sectionHeading.items-center {
+    align-items: flex-start !important;
   }
 
   .sectionHeading > h1,
@@ -932,37 +937,43 @@ section img.banneFullMin {
     text-align: left !important;
   }
 
-  /* Keep hero banners centered on mobile */
-  section.heroBannerPaddingTop .sectionHeading,
-  section[class*="hero"] .sectionHeading,
-  .heroBannerPaddingTop .sectionHeading,
-  section.text-center .sectionHeading,
-  .text-center .sectionHeading {
+  /* Left align buttons and button containers on inner pages mobile */
+  .sectionHeading > div {
+    text-align: left !important;
+    align-items: flex-start !important;
+    /* display: flex !important; */
+    /* justify-content: flex-start !important; */
+  }
+
+  /* Keep home page HeroBanner centered on mobile */
+  section.homePageHero .sectionHeading,
+  section.homePageHero.heroBannerPaddingTop .sectionHeading {
+    text-align: center !important;
+    align-items: center !important;
+  }
+
+  section.homePageHero .sectionHeading.items-center {
+    align-items: center !important;
+  }
+
+  section.homePageHero .sectionHeading > h1,
+  section.homePageHero .sectionHeading > h2,
+  section.homePageHero .sectionHeading > h4,
+  section.homePageHero .sectionHeading > p,
+  section.homePageHero.heroBannerPaddingTop .sectionHeading > h1,
+  section.homePageHero.heroBannerPaddingTop .sectionHeading > h2,
+  section.homePageHero.heroBannerPaddingTop .sectionHeading > h4,
+  section.homePageHero.heroBannerPaddingTop .sectionHeading > p {
     text-align: center !important;
   }
 
-  section.heroBannerPaddingTop .sectionHeading > h1,
-  section.heroBannerPaddingTop .sectionHeading > h2,
-  section.heroBannerPaddingTop .sectionHeading > h4,
-  section.heroBannerPaddingTop .sectionHeading > p,
-  section[class*="hero"] .sectionHeading > h1,
-  section[class*="hero"] .sectionHeading > h2,
-  section[class*="hero"] .sectionHeading > h4,
-  section[class*="hero"] .sectionHeading > p,
-  .heroBannerPaddingTop .sectionHeading > h1,
-  .heroBannerPaddingTop .sectionHeading > h2,
-  .heroBannerPaddingTop .sectionHeading > h4,
-  .heroBannerPaddingTop .sectionHeading > p,
-  section.text-center .sectionHeading > h1,
-  section.text-center .sectionHeading > h2,
-  section.text-center .sectionHeading > h4,
-  section.text-center .sectionHeading > p,
-  .text-center .sectionHeading > h1,
-  .text-center .sectionHeading > h2,
-  .text-center .sectionHeading > h4,
-  .text-center .sectionHeading > p {
+  /* Keep home page buttons centered */
+  section.homePageHero .sectionHeading > div {
     text-align: center !important;
+    align-items: center !important;
+    justify-content: center !important;
   }
+
 }
 
 .headerMain {

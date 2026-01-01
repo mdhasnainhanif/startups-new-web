@@ -56,7 +56,7 @@ export default function Questionnaire() {
 
   return (
     <div className="relative w-full">
-      <HeroBanner {...HERO_BANNER} onButtonClick={handleGetStarted} />
+      <HeroBanner {...HERO_BANNER} onButtonClick={handleGetStarted} isHomePage={true} />
       
       {/* Popup Questionnaire */}
       <PoppupStepQuestionnaire isOpen={showPopup} onClose={handleClosePopup} />

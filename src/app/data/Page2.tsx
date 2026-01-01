@@ -420,6 +420,11 @@ export interface HomeBannerData {
       {
         number: '01',
         heading: 'Talk With Us for a Quick Breakdown',
+        headingParts: {
+          part1: 'Talk With Us for a ',
+          part2: 'Quick Breakdown',
+          part3: '',
+        },
         description:
           'We walk through where your time is slipping, what\'s slowing your week, and what your Growth Manager will take off your plate. No pressure — just clarity.',
       },
@@ -437,6 +442,11 @@ export interface HomeBannerData {
       {
         number: '03',
         heading: 'Step Back and Let Them Take Over',
+        headingParts: {
+          part1: 'Step Back and Let Them ',
+          part2: 'Take Over',
+          part3: '',
+        },
         description:
           'Your Growth Manager jumps in, handles the moving parts, and keeps everything flowing — while you stay focused on running the business, not running after tasks.',
       },

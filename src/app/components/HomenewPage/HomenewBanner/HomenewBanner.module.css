@@ -13,11 +13,38 @@
   align-items: center;
 }
 
-.colLeft {
+div.colLeft {
   flex: 0 0 100%;
   max-width: 100%;
   padding-left: 0.9375rem;
   padding-right: 0.9375rem;
+  text-align: left;
+}
+
+@media (max-width: 767px) {
+  div.colLeft {
+    text-align: left !important;
+  }
+  
+  div.colLeft h1 {
+    text-align: left !important;
+  }
+  
+  div.colLeft p {
+    text-align: left !important;
+  }
+  
+  /* Target sectionHeading inside colLeft */
+  div.colLeft.sectionHeading {
+    text-align: left !important;
+  }
+  
+  div.colLeft.sectionHeading > h1,
+  div.colLeft.sectionHeading > h2,
+  div.colLeft.sectionHeading > h4,
+  div.colLeft.sectionHeading > p {
+    text-align: left !important;
+  }
 }
 
 .colRight {
@@ -201,5 +228,63 @@
   .experienceBox {
     padding: 1.25rem;
     text-align: left ;
+  }
+}
+
+/* Force left alignment on mobile for non-home pages */
+@media (max-width: 767px) {
+  /* Most specific selectors to override global CSS */
+  section.HomenewBanner.heroBannerPaddingTop .sectionHeading,
+  section.heroBannerPaddingTop.HomenewBanner .sectionHeading,
+  section.HomenewBanner .sectionHeading {
+    text-align: left !important;
+  }
+  
+  section.HomenewBanner.heroBannerPaddingTop .sectionHeading > h1,
+  section.HomenewBanner.heroBannerPaddingTop .sectionHeading > h2,
+  section.HomenewBanner.heroBannerPaddingTop .sectionHeading > h4,
+  section.HomenewBanner.heroBannerPaddingTop .sectionHeading > p,
+  section.heroBannerPaddingTop.HomenewBanner .sectionHeading > h1,
+  section.heroBannerPaddingTop.HomenewBanner .sectionHeading > h2,
+  section.heroBannerPaddingTop.HomenewBanner .sectionHeading > h4,
+  section.heroBannerPaddingTop.HomenewBanner .sectionHeading > p,
+  section.HomenewBanner .sectionHeading > h1,
+  section.HomenewBanner .sectionHeading > h2,
+  section.HomenewBanner .sectionHeading > h4,
+  section.HomenewBanner .sectionHeading > p {
+    text-align: left !important;
+  }
+  
+  /* Override any hero-related centering */
+  section.HomenewBanner[class*="hero"] .sectionHeading,
+  section.HomenewBanner[class*="hero"] .sectionHeading > h1,
+  section.HomenewBanner[class*="hero"] .sectionHeading > h2,
+  section.HomenewBanner[class*="hero"] .sectionHeading > h4,
+  section.HomenewBanner[class*="hero"] .sectionHeading > p,
+  section[class*="hero"].HomenewBanner .sectionHeading,
+  section[class*="hero"].HomenewBanner .sectionHeading > h1,
+  section[class*="hero"].HomenewBanner .sectionHeading > h2,
+  section[class*="hero"].HomenewBanner .sectionHeading > h4,
+  section[class*="hero"].HomenewBanner .sectionHeading > p {
+    text-align: left !important;
+  }
+  
+  /* Also target the colLeft div directly with maximum specificity */
+  .colLeft.sectionHeading,
+  section.HomenewBanner .colLeft.sectionHeading,
+  section.heroBannerPaddingTop.HomenewBanner .colLeft.sectionHeading,
+  section.HomenewBanner.heroBannerPaddingTop .colLeft.sectionHeading {
+    text-align: left !important;
+  }
+  
+  section.HomenewBanner .colLeft.sectionHeading > h1,
+  section.HomenewBanner .colLeft.sectionHeading > p,
+  section.heroBannerPaddingTop.HomenewBanner .colLeft.sectionHeading > h1,
+  section.heroBannerPaddingTop.HomenewBanner .colLeft.sectionHeading > p,
+  section.HomenewBanner.heroBannerPaddingTop .colLeft.sectionHeading > h1,
+  section.HomenewBanner.heroBannerPaddingTop .colLeft.sectionHeading > p,
+  .colLeft.sectionHeading > h1,
+  .colLeft.sectionHeading > p {
+    text-align: left !important;
   }
 }

@@ -227,7 +227,7 @@
   position: relative;
   width: 100%;
   flex: 0 1 auto;
-  min-height: 0;
+  /* min-height: 0; */
   overflow-y: visible;
   padding-bottom: 5rem;
 }
@@ -274,10 +274,10 @@
   /* min-width: 120px;  */
 }
 
-.fixedButtonsContainer .continueButton:hover:not(:disabled) {
+/* .fixedButtonsContainer .continueButton:hover:not(:disabled) {
   box-shadow: 0 0 30px rgba(100, 59, 255, 0.5);
   transform: translateY(-2px);
-}
+} */
 
 .fixedButtonsContainer .continueButton:disabled {
   opacity: 0.5;
@@ -391,7 +391,6 @@
     flex: 0 1 auto;
     overflow-y: visible;
     height: calc(100% - 157px);
-    border: 2px solid red;
     padding: 0.5rem 1rem 4.5rem !important;
   }
 
@@ -482,7 +481,7 @@
     padding-top: 0.5rem;
     padding-bottom: 6.5rem;
     flex: 0 1 auto;
-    min-height: 0;
+    /* min-height: 0; */
     overflow-y: visible;
   }
 
