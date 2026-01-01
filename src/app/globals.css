@@ -1036,3 +1036,7 @@ section img.banneFullMin {
 .hire-brand-designer-btn.green {
   background-color: #0fdac2 !important;
 }
+
+.provenSuccess .swiper-wrapper{
+  gap: 2rem;
+}
