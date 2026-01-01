@@ -66,7 +66,6 @@ const page = () => {
         <EmpowerBusiness {...EMPOWER_BUSINESS} />
         <Reviews/>
         <BlogCarousel showAllCategories={true} />
-        {/* <GrowthSlider items={filteredGrowthGuides.length > 0 ? filteredGrowthGuides : GROWTH_GUIDES}/> */}
         <FAQ faqs={FAQ_DATA} sectionData={FAQ_SECTION}/>
         <Contact/>
       </>

@@ -61,9 +61,32 @@
   flex: 0 1 calc(50% - 0.5rem);
 }
 
+.inputWithIcon {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.inputIcon {
+  position: absolute;
+  left: 1rem;
+  top: 1.2rem;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+}
+
+.inputIcon svg {
+  width: 20px;
+  height: 20px;
+}
+
 .formInput {
   width: 100%;
   padding: 0.875rem 1rem;
+  padding-left: 3rem;
   background: #0e1030;
   border: 2px solid transparent;
   background-image: linear-gradient(#0e1030, #0e1030),
@@ -84,7 +107,7 @@
 .formInput:focus {
   outline: none;
   background-image: linear-gradient(#0e1030, #0e1030),
-    linear-gradient(to right, #0fdac2, #732BFF);
+    linear-gradient(to right, #0fdac2, #732bff);
   box-shadow: none;
 }
 
@@ -94,6 +117,7 @@
   max-height: 200px;
   width: 100%;
   padding: 0.875rem 1rem;
+  padding-left: 3rem;
   background: #0e1030;
   border: 2px solid transparent;
   background-image: linear-gradient(#0e1030, #0e1030),
@@ -114,7 +138,7 @@
 .formTextarea:focus {
   outline: none;
   background-image: linear-gradient(#0e1030, #0e1030),
-    linear-gradient(to right, #0fdac2, #732BFF);
+    linear-gradient(to right, #0fdac2, #732bff);
   box-shadow: none;
 }
 
@@ -319,12 +343,28 @@
 .phoneInput {
   width: 100%;
   flex: 1;
-  background-image: linear-gradient(to right, #0fdac2, #643bff);
-  background-origin: border-box;
-  background-clip: border-box;
+  position: relative;
+}
+
+.phoneInputContainer {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  padding: 0;
+  background: #0e1030;
   border: 2px solid transparent;
+  background-image: linear-gradient(#0e1030, #0e1030),
+    linear-gradient(to right, #0fdac2, #643bff);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
   border-radius: 0.5rem;
-  overflow: hidden;
+  overflow: visible;
+  position: relative;
+}
+
+.phoneInputContainer:focus-within {
+  background-image: linear-gradient(#0e1030, #0e1030),
+    linear-gradient(to right, #0fdac2, #732bff);
 }
 
 .phoneInput :global(.PhoneInput) {
@@ -340,7 +380,7 @@
 }
 
 .phoneInput :global(.PhoneInput):focus-within {
-  background-image: linear-gradient(to right, #0fdac2, #732BFF);
+  background-image: linear-gradient(to right, #0fdac2, #732bff);
 }
 
 .phoneInput :global(.PhoneInputCountry) {
@@ -440,5 +480,207 @@
 }
 
 .phoneNumberInput {
+  flex: 1;
   width: 100%;
+  padding: 0.875rem 1rem;
+  background: #0e1030;
+  border: none;
+  border-radius: 0;
+  font-size: 1rem;
+  color: #ffffff;
+  font-family: inherit;
+  outline: none;
+  transition: all 0.3s ease;
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+
+.phoneNumberInput:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.phoneNumberInput::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Custom Country Select Styles */
+.customCountrySelect {
+  position: relative;
+  width: auto;
+  min-width: fit-content;
+  display: flex;
+  align-items: stretch;
+  z-index: 10;
+}
+
+.countrySelectButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 0.75rem;
+  background: #0e1030;
+  border: none;
+  border-right: 1px solid rgba(15, 218, 194, 0.3);
+  color: #ffffff;
+  font-size: 1rem;
+  cursor: pointer;
+  font-family: inherit;
+  width: auto;
+  min-width: fit-content;
+  height: 100%;
+  justify-content: flex-start;
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+}
+
+.countrySelectButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.countryFlag {
+  font-size: 1rem;
+  line-height: 1;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.countryCode {
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 0.825rem;
+}
+
+.countrySelectArrow {
+  display: flex;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.6);
+  flex-shrink: 0;
+}
+
+.countryDropdown {
+  position: absolute;
+  top: calc(100% + 0.25rem);
+  left: 0;
+  z-index: 10000;
+  background: #0e1030;
+  border: 2px solid rgba(15, 218, 194, 0.3);
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  max-height: 300px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-width: 100%;
+}
+
+.countrySearch {
+  padding: 0.75rem;
+  border-bottom: 1px solid rgba(15, 218, 194, 0.2);
+}
+
+.countrySearchInput {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(15, 218, 194, 0.3);
+  border-radius: 0.25rem;
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-family: inherit;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.countrySearchInput:focus {
+  border-color: #0fdac2;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.countrySearchInput::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.countryList {
+  overflow-y: auto;
+  max-height: 250px;
+  padding: 0.25rem;
+  list-style: none;
+  margin: 0;
+}
+
+.countryList::-webkit-scrollbar {
+  width: 6px;
+}
+
+.countryList::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.countryList::-webkit-scrollbar-thumb {
+  background: rgba(15, 218, 194, 0.3);
+  border-radius: 3px;
+}
+
+.countryList::-webkit-scrollbar-thumb:hover {
+  background: rgba(15, 218, 194, 0.5);
+}
+
+.countryOption {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.625rem 0.75rem;
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 0.9375rem;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  border-radius: 0.25rem;
+  pointer-events: auto;
+  user-select: none;
+  -webkit-user-select: none;
+  list-style: none;
+  margin: 0;
+}
+
+.countryOptionSelected {
+  background: rgba(15, 218, 194, 0.2);
+  color: #0fdac2;
+}
+
+.countryOptionFlag {
+  font-size: 1.25rem;
+  line-height: 1;
+  min-width: 28px;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.countryOptionName {
+  flex: 1;
+  font-weight: 400;
+}
+
+.countryOptionCode {
+  color: #0fdac2;
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+.countryNoResults {
+  padding: 1.5rem;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.875rem;
 }

@@ -7,8 +7,8 @@ import styles from "./ContactForm.module.css";
 import Button from "../../Button";
 import Container from "../../Container";
 import { submitEmail } from '../../../lib/api/email';
-import PhoneInput from 'react-phone-number-input';
-import 'react-phone-number-input/style.css';
+import CustomPhoneInput from './CustomPhoneInput';
+import { EmailIcon, PhoneIcon } from '@/app/icons';
 const ContactForm: React.FC<ContactFormProps> = ({
   config = contactFormData,
 }) => {
@@ -136,30 +136,51 @@ const ContactForm: React.FC<ContactFormProps> = ({
           <form onSubmit={handleSubmit} className={styles.formFields}>
             {/* --- FIRST 2 FIELDS (SIDE BY SIDE) --- */}
             <div className={styles.inputGroupRow}>
-              {config.fields.slice(0, 2).map((field) => (
-                <div
-                  key={field.id}
-                  className={`${styles.inputGroup} ${styles.half}`}
-                >
-                  <input
-                    id={field.id}
-                    type={field.type}
-                    name={field.name}
-                    placeholder={field.placeholder}
-                    required={field.required}
-                    value={formData[field.name]}
-                    onChange={handleInputChange}
-                    className={styles.formInput}
-                    disabled={loading}
-                  />
-                </div>
-              ))}
+              {config.fields.slice(0, 2).map((field) => {
+                const isName = field.name === "name";
+                const isEmail = field.name === "email";
+                
+                return (
+                  <div
+                    key={field.id}
+                    className={`${styles.inputGroup} ${styles.half}`}
+                  >
+                    <div className={styles.inputWithIcon}>
+                      {isName && (
+                        <span className={styles.inputIcon}>
+                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" fill="#0fdac2"/>
+                          </svg>
+                        </span>
+                      )}
+                      {isEmail && (
+                        <span className={styles.inputIcon}>
+                          <EmailIcon fill="#0fdac2" />
+                        </span>
+                      )}
+                      <input
+                        id={field.id}
+                        type={field.type}
+                        name={field.name}
+                        placeholder={field.placeholder}
+                        required={field.required}
+                        value={formData[field.name]}
+                        onChange={handleInputChange}
+                        className={styles.formInput}
+                        disabled={loading}
+                      />
+                    </div>
+                  </div>
+                );
+              })}
             </div>
 
             {/* --- REMAINING FIELDS --- */}
             {config.fields.slice(2).map((field) => {
               const isTextarea = field.type === "textarea";
               const isPhone = field.type === "tel" || field.name === "phone";
+              const isCompany = field.name === "company";
+              const isMessage = field.name === "message";
 
               return (
                 <div
@@ -167,42 +188,56 @@ const ContactForm: React.FC<ContactFormProps> = ({
                   className={`${styles.inputGroup} ${styles.full}`}
                 >
                   {isTextarea ? (
-                    <textarea
-                      id={field.id}
-                      name={field.name}
-                      placeholder={field.placeholder}
-                      required={field.required}
-                      value={formData[field.name]}
-                      onChange={handleInputChange}
-                      className={`${styles.formInput} ${styles.formTextarea}`}
-                      disabled={loading}
-                    />
+                    <div className={styles.inputWithIcon}>
+                      {isMessage && (
+                        <span className={styles.inputIcon}>
+                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z" fill="#0fdac2"/>
+                          </svg>
+                        </span>
+                      )}
+                      <textarea
+                        id={field.id}
+                        name={field.name}
+                        placeholder={field.placeholder}
+                        required={field.required}
+                        value={formData[field.name]}
+                        onChange={handleInputChange}
+                        className={`${styles.formInput} ${styles.formTextarea}`}
+                        disabled={loading}
+                      />
+                    </div>
                   ) : isPhone ? (
-                    <PhoneInput
-                      international
-                      defaultCountry="US"
+                    <CustomPhoneInput
                       value={formData[field.name] as string}
                       onChange={(value) => setFormData((prev) => ({ ...prev, [field.name]: value || "" }))}
-                      placeholder={field.placeholder}
-                      className={styles.phoneInput}
-                      numberInputProps={{
-                        className: styles.phoneNumberInput,
-                        required: field.required,
-                        disabled: loading,
-                      }}
-                    />
-                  ) : (
-                    <input
-                      id={field.id}
-                      type={field.type}
-                      name={field.name}
+                      defaultCountry="PK"
                       placeholder={field.placeholder}
                       required={field.required}
-                      value={formData[field.name]}
-                      onChange={handleInputChange}
-                      className={styles.formInput}
                       disabled={loading}
+                      className={styles.phoneInput}
                     />
+                  ) : (
+                    <div className={styles.inputWithIcon}>
+                      {isCompany && (
+                        <span className={styles.inputIcon}>
+                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z" fill="#0fdac2"/>
+                          </svg>
+                        </span>
+                      )}
+                      <input
+                        id={field.id}
+                        type={field.type}
+                        name={field.name}
+                        placeholder={field.placeholder}
+                        required={field.required}
+                        value={formData[field.name]}
+                        onChange={handleInputChange}
+                        className={styles.formInput}
+                        disabled={loading}
+                      />
+                    </div>
                   )}
                 </div>
               );
