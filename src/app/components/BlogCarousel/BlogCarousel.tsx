@@ -413,6 +413,10 @@ export default function BlogCarousel({ category = "Design", showAllCategories = 
             }
             breakpoints={{
               768: {
+                slidesPerView: 2,
+                spaceBetween: 24,
+              },
+              1024: {
                 slidesPerView: 3,
                 spaceBetween: 24,
               },
