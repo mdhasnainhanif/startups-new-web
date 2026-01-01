@@ -160,7 +160,7 @@ export default function QuestionnaireStep({
           </Button>
         )}
         {/* Show Continue button for both multiple and single select */}
-        {/* For single select: always disabled (auto-advance on click) */}
+        {/* For single select: disabled when no selection, enabled when selection exists (for back navigation) */}
         {/* For multiple select: disabled when no selection */}
         <Button
           onClick={() => {
@@ -181,7 +181,7 @@ export default function QuestionnaireStep({
           variant="primary"
           size="md"
           className={styles.continueButton}
-          disabled={isMultiSelect ? selectedValues.length === 0 : true}
+          disabled={isMultiSelect ? selectedValues.length === 0 : !selectedValue || (typeof selectedValue === 'string' && selectedValue.trim() === '')}
         >
           Continue
         </Button>

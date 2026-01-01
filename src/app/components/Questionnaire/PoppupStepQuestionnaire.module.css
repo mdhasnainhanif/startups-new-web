@@ -385,12 +385,14 @@
   }
 
   .formArea {
-    padding: 0 1.5rem;
+    /* padding: 0 1.5rem;
     padding-top: 0.5rem;
-    padding-bottom: 6.5rem;
+    padding-bottom: 6.5rem; */
     flex: 0 1 auto;
-    min-height: 0;
     overflow-y: visible;
+    height: calc(100% - 157px);
+    border: 2px solid red;
+    padding: 0.5rem 1rem 4.5rem !important;
   }
 
   .formAreaLastStep {

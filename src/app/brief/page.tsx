@@ -353,7 +353,11 @@ export default function BriefPage() {
                     return splitValues.length === 0;
                   }
                 })()
-              : true // For single select: always disabled (auto-advance on click)
+              : (() => {
+                  // For single select: disabled when no selection, enabled when selection exists (for back navigation)
+                  const answer = answers[currentStepData.id];
+                  return !answer || answer.trim() === "";
+                })()
           }
           onContinue={() => {
             const nextStep = currentStepData.options[0]?.nextStep;

@@ -97,6 +97,22 @@ export default function AssistantCapabilities() {
 
       {/* First Slider Row - LTR (Left to Right) */}
       <div className={styles.fullWidthSlider}>
+        {/* Mobile Marquee */}
+        <div className={styles.marqueeWrapper}>
+          <div className={styles.marqueeTrack}>
+            {[...ASSISTANT_CAPABILITIES_DATA.capabilities, ...ASSISTANT_CAPABILITIES_DATA.capabilities].map((capability, index) => (
+              <div key={`marquee-ltr-${capability.id}-${index}`} className={styles.marqueeCard}>
+                <div className={styles.card}>
+                  <IconComponent icon={capability.icon} />
+                  <h3 className={styles.cardTitle}>{capability.title}</h3>
+                  <p className={styles.cardDescription}>{capability.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Desktop Swiper */}
         <div className={styles.swiperWrapper}>
           <Swiper
             modules={[Navigation, Autoplay]}
@@ -155,6 +171,22 @@ export default function AssistantCapabilities() {
 
       {/* Second Slider Row - RTL (Right to Left) */}
       <div className={styles.fullWidthSlider}>
+        {/* Mobile Marquee - Reverse Direction */}
+        <div className={styles.marqueeWrapper}>
+          <div className={`${styles.marqueeTrack} ${styles.marqueeTrackReverse}`}>
+            {[...ASSISTANT_CAPABILITIES_DATA.capabilities, ...ASSISTANT_CAPABILITIES_DATA.capabilities].map((capability, index) => (
+              <div key={`marquee-rtl-${capability.id}-${index}`} className={styles.marqueeCard}>
+                <div className={styles.card}>
+                  <IconComponent icon={capability.icon} />
+                  <h3 className={styles.cardTitle}>{capability.title}</h3>
+                  <p className={styles.cardDescription}>{capability.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Desktop Swiper */}
         <div className={styles.swiperWrapper}>
           <Swiper
             modules={[Navigation, Autoplay]}
