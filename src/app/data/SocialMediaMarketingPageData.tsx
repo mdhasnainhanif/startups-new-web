@@ -8,8 +8,8 @@ import { CompleteBusinessSetupData } from '../components/CompleteBusinessSetup/C
 import { GuessWorkAdvertisingData } from '../components/GuessWorkAdvertising/GuessWorkAdvertising';
 import { socialMediaMarketingAnalyticsDashboardData } from './AnalyticsDashboardData';
 
-// Social Media Marketing Page Data
-// HomenewBanner data for Social Media Marketing page
+
+
 export const socialMediaMarketingBannerData: HomenewBannerData = {
   heading: {
     part1: "Market-Ready Social Content in ",
@@ -40,7 +40,7 @@ export const socialMediaMarketingBannerData: HomenewBannerData = {
   },
 };
 
-// ProfessionalDesign data for Social Media Marketing page
+
 export const socialMediaMarketingProfessionalData: ProfessionalDesignData = {
   heading: {
     part1: "Creative Production Tools ",
@@ -126,7 +126,7 @@ export const socialMediaMarketingProfessionalData: ProfessionalDesignData = {
   },
 };
 
-// CaseStudySection data for Social Media Marketing page
+
 export const socialMediaMarketingCaseStudyData: CaseStudySectionData = {
   ...DEFAULT_CASE_STUDY_DATA,
   heading: {
@@ -219,8 +219,6 @@ export const socialMediaMarketingCaseStudyData: CaseStudySectionData = {
     },
   ],
 };
-
-// AiPowerDesign data for Social Media Marketing page
 export const socialMediaMarketingAiPowerData: AiPowerDesignData = {
   headline: {
     text: 'The Service Covers All Social Media Requirements Across a 22-Day Cycle.',
@@ -269,7 +267,7 @@ export const socialMediaMarketingAiPowerData: AiPowerDesignData = {
   },
 };
 
-// RealCost data for Social Media Marketing page
+
 export const socialMediaMarketingRealCostData: RealCostData = {
   heading: {
     part1: 'Internal Social Media Production vs.',
@@ -332,7 +330,7 @@ export const socialMediaMarketingRealCostData: RealCostData = {
   },
 };
 
-// CompleteBusinessSetup data for Social Media Marketing page
+
 export const socialMediaMarketingCompleteSetupData: CompleteBusinessSetupData = {
   heading: {
     part1: "Complete Social Content Package — ",
@@ -473,13 +471,13 @@ export const socialMediaMarketingCompleteSetupData: CompleteBusinessSetupData = 
       { id: "5", text: "Content delivered platform-ready" },
     ],
     ctaButton: {
-      text: "$1,499 USD",
-      href: "#",
+      text: "Get My Package",
+      href: "/contact",
     },
   },
 };
 
-// GuessWorkAdvertising data for Social Media Marketing page
+
 export const socialMediaMarketingGuessWorkData: GuessWorkAdvertisingData = {
   heading: {
     part1: 'Content Structure Reference',
@@ -513,7 +511,7 @@ export const socialMediaMarketingGuessWorkData: GuessWorkAdvertisingData = {
   analyticsDashboardData: socialMediaMarketingAnalyticsDashboardData,
 };
 
-// Slider data for Social Media Marketing page
+
 export const socialMediaMarketingSliderData1 = [
   { sliderDataPara: "It costs [$74,536] annually to hire a [Social Media Manager] in the US" },
   { sliderDataPara: "It costs [$54,455] annually to hire a [Social Media Marketer] in the US" },
@@ -533,7 +531,7 @@ export const socialMediaMarketingSliderData3 = [
   { sliderDataPara: "Hiring a [social media team] $85,000+ a year" },
 ];
 
-// Social Media Marketing specific blog guides
+
 export const socialMediaMarketingBlogGuides = [
   {
     id: "1",
@@ -570,7 +568,7 @@ export const socialMediaMarketingBlogGuides = [
   },
 ];
 
-// ProvenSuccess data for Social Media Marketing page
+
 export const socialMediaMarketingProvenSuccessData = {
   headline: {
     text: 'Proven Success in Every Project',
