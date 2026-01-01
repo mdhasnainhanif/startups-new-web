@@ -20,6 +20,11 @@
   pointer-events: none;
   z-index: 0;
 }
+
+.creativeServicesSection > * {
+  z-index: 1;
+  position: relative;
+}
 .topSection {
   text-align: center;
   margin-bottom: 4rem;

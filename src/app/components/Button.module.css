@@ -106,6 +106,14 @@
   z-index: 100000;
 }
 
+/* Disabled state for primary buttons */
+.btnPrimary:disabled,
+.btnPrimary[disabled] {
+  opacity: 0.5 !important;
+  cursor: not-allowed !important;
+  pointer-events: none;
+}
+
 /* .purple::after {
   background-color: #311f77;
 } */
@@ -404,7 +412,7 @@
 
 @media screen and (max-width: 576px) {
   .btnPrimary.lg {
-    font-size: 0.875rem !important;
+    font-size: 1rem !important;
     padding: 0.625rem 1.725rem 0.595rem;
   }
 }

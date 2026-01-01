@@ -87,7 +87,7 @@ const HomenewBanner = ({ data = DEFAULT_DATA }: HomenewBannerProps) => {
               <h3 className="text-xl font-semibold text-[#0fdac2] mb-4">
                 {data.experienceBox.title}
               </h3>
-              <ul className="space-y-2 text-white list-none ">
+              <ul className="space-y-2 text-white list-none text-left">
                 {data.experienceBox.items.map((item, index) => (
                   <li key={index} className={styles.checkItem}>
                     {item}

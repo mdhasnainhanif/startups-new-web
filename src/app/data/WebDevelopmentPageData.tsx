@@ -438,7 +438,7 @@
       title: "Get This Package For ",
       items: [
         { id: "1", text: "A dedicated web team" },
-        { id: "2", text: "22 essential website assets" },
+        { id: "2", text: "50+ essential website assets" },
         { id: "3", text: "AI assisted workflow" },
         { id: "4", text: "Unlimited revisions within 22 days" },
         { id: "5", text: "Launch-ready files delivered" },

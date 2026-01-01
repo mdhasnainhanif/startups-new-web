@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react";
 import styles from "./Questionnaire.module.css";
 import Button from "../Button";
-import CountryDropdown from "./CountryDropdown";
 import PhoneInput from 'react-phone-number-input';
 import 'react-phone-number-input/style.css';
 
@@ -12,7 +11,6 @@ interface PersonalDetailsFormProps {
     name: string;
     contact: string;
     email: string;
-    country: string;
   }) => void;
   onBack: () => void;
   isSubmitting: boolean;
@@ -21,13 +19,11 @@ interface PersonalDetailsFormProps {
     name: string;
     contact: string;
     email: string;
-    country: string;
   } | null;
   onDataChange?: (data: {
     name: string;
     contact: string;
     email: string;
-    country: string;
   }) => void;
 }
 
@@ -46,7 +42,6 @@ export default function PersonalDetailsForm({
     name: initialData?.name || "",
     contact: initialData?.contact || "",
     email: initialData?.email || "",
-    country: initialData?.country || "",
   });
 
   // Save form data whenever it changes
@@ -63,13 +58,6 @@ export default function PersonalDetailsForm({
     }));
   };
 
-  const handleCountryChange = (country: string) => {
-    setFormData((prev) => ({
-      ...prev,
-      country,
-    }));
-  };
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     onSubmit(formData);
@@ -82,71 +70,68 @@ export default function PersonalDetailsForm({
       <form onSubmit={handleSubmit} className={styles.personalDetailsForm}>
         <div className={styles.formRow}>
           <div className={styles.formGroup}>
+            <div className={styles.inputWrapper}>
+              <input
+                type="text"
+                name="name"
+                placeholder="Enter Your Name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+                autoComplete="name"
+                className={`${styles.formInput} ${styles.formInputSmall} ${styles.greenInput}`}
+                disabled={isSubmitting}
+              />
+              {formData.name && formData.name.trim().length > 0 && (
+                <span className={styles.filledIcon}>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 6L9 17L4 12" stroke="#0fdac2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </span>
+              )}
+            </div>
+          </div>
+          <div className={styles.formGroup}>
+            <div className={styles.inputWrapper}>
+              <PhoneInput
+                international
+                defaultCountry="US"
+                value={formData.contact}
+                onChange={(value: string | undefined) => setFormData((prev) => ({ ...prev, contact: value || "" }))}
+                placeholder="Enter Your Contact Number"
+                className={`${styles.phoneInput} ${styles.formInputSmall} ${styles.greenInput}`}
+                numberInputProps={{
+                  className: styles.phoneNumberInput,
+                  required: true,
+                  autoComplete: "tel",
+                  disabled: isSubmitting,
+                }}
+              />
+            </div>
+          </div>
+        </div>
+        
+        <div className={styles.formGroup}>
+          <div className={styles.inputWrapper}>
             <input
-              type="text"
-              name="name"
-              placeholder="Enter Your Name"
-              value={formData.name}
+              type="email"
+              name="email"
+              placeholder="Enter your Email"
+              value={formData.email}
               onChange={handleChange}
               required
-              autoComplete="name"
+              autoComplete="email"
               className={`${styles.formInput} ${styles.formInputSmall} ${styles.greenInput}`}
               disabled={isSubmitting}
             />
+            {formData.email && formData.email.trim().length > 0 && (
+              <span className={styles.filledIcon}>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M20 6L9 17L4 12" stroke="#0fdac2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
+              </span>
+            )}
           </div>
-          <div className={styles.formGroup}>
-            <PhoneInput
-              international
-              defaultCountry="US"
-              value={formData.contact}
-              onChange={(value: string | undefined) => setFormData((prev) => ({ ...prev, contact: value || "" }))}
-              placeholder="Enter Your Contact Number"
-              className={`${styles.phoneInput} ${styles.formInputSmall} ${styles.greenInput}`}
-              numberInputProps={{
-                className: styles.phoneNumberInput,
-                required: true,
-                autoComplete: "tel",
-                disabled: isSubmitting,
-              }}
-            />
-          </div>
-        </div>
-        
-        <div className={styles.formGroup}>
-          <input
-            type="email"
-            name="email"
-            placeholder="Enter your Email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-            autoComplete="email"
-            className={`${styles.formInput} ${styles.formInputSmall} ${styles.greenInput}`}
-            disabled={isSubmitting}
-          />
-        </div>
-        
-        {/* <div className={styles.formGroup}>
-          <input
-            type="text"
-            name="country"
-            placeholder="Country"
-            value={formData.country}
-            onChange={handleChange}
-            required
-            autoComplete="country-name"
-            className={`${styles.formInput} ${styles.formInputSmall} ${styles.greenInput}`}
-            disabled={isSubmitting}
-          />
-        </div> */}
-
-        <div className={styles.formGroup}>
-          <CountryDropdown
-            value={formData.country}
-            onChange={handleCountryChange}
-            disabled={isSubmitting}
-            className={`${styles.formInput} ${styles.formInputSmall} ${styles.greenInput} customdropdown`}
-          />
         </div>
         
         <Button

@@ -70,6 +70,13 @@ export default function Header() {
     return services.some((service) => pathname.startsWith(`/${service.slug}`));
   };
 
+  // Close mobile menu when pathname changes
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+    setIsMobileServicesDropdownOpen(false);
+    setIsMobileDesignDropdownOpen(false);
+  }, [pathname]);
+
   useEffect(() => {
     
     const checkMobile = () => {
@@ -742,7 +749,10 @@ export default function Header() {
               Home
             </Link>
             <div className="mb-2">
-              <Link href="/designer">
+              <Link 
+                href="/designer"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
               <button
                 className={`text-base font-medium hover:text-[#0fdac2] transition-colors py-2 w-full text-left flex items-center justify-between ${
                   isActive("/designer") ? "text-[#0fdac2]" : "text-white"

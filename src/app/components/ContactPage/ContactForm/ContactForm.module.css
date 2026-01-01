@@ -27,6 +27,11 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
+.mapSection iframe {
+  border-radius: 0;
+  display: block;
+}
+
 .heading {
   font-size: 2.875rem;
   font-weight: 600;
@@ -233,6 +238,14 @@
     padding: 2rem 1.5rem;
   }
 
+  .mapSection {
+    border-radius: 1rem !important;
+  }
+
+  .mapSection iframe {
+    border-radius: 1rem;
+  }
+
   .heading {
     font-size: 1.75rem;
     margin-bottom: 1.5rem;
@@ -266,6 +279,14 @@
     padding: 1.5rem 1rem;
   }
 
+  .mapSection {
+    border-radius: 1rem !important;
+  }
+
+  .mapSection iframe {
+    border-radius: 1rem;
+  }
+
   .heading {
     font-size: 1.5rem;
     margin-bottom: 1rem;
@@ -297,6 +318,14 @@
 
   .formSection {
     padding: 1.25rem 0.75rem;
+  }
+
+  .mapSection {
+    border-radius: 1rem !important;
+  }
+
+  .mapSection iframe {
+    border-radius: 1rem;
   }
 
   .heading {

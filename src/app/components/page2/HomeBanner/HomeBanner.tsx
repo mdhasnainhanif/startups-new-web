@@ -27,7 +27,7 @@ const HomeBanner = () => {
               </p>
               <ul className="space-y-3">
                 {HOME_BANNER_DATA.features.map((feature, index) => (
-                  <li key={index} className="flex items-start gap-3 text-white">
+                  <li key={index} className="flex items-start gap-3 text-white text-left">
                     <img
                       src="/assets/images/tick.webp"
                       alt="check"

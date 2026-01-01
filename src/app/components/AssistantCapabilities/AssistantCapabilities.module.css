@@ -163,11 +163,14 @@
   justify-content: center;
   color: #0fdac2;
   flex-shrink: 0;
+  background-color: #2e2277;
+  border-radius: 4rem;
 }
 
 .iconImage {
   width: 100%;
   height: 100%;
+  max-width: 1.325rem;
   object-fit: contain;
   display: block;
 }
