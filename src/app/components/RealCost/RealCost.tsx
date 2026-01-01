@@ -137,7 +137,7 @@ const formatNumber = (value: string): string => {
 };
 
 const RealCost = ({ data = REAL_COST_DATA }: RealCostProps) => {
-  const [selectedDesignerType, setSelectedDesignerType] = useState<string>(data.calculator.fields[0].options?.[0] || '');
+  const [selectedDesignerType, setSelectedDesignerType] = useState<string>('Junior Designer');
   const [monthlyCost, setMonthlyCost] = useState<string>('');
   const [annualCost, setAnnualCost] = useState<string>('');
   const [estimatedTotal, setEstimatedTotal] = useState<number>(58000);
@@ -537,7 +537,7 @@ const RealCost = ({ data = REAL_COST_DATA }: RealCostProps) => {
                     className={styles.inputField}
                     placeholder="Monthly Cost"
                     value={monthlyCost}
-                    onChange={(e) => handleMonthlyCostChange(e.target.value)}
+                    readOnly
                     maxLength={15}
                   />
                 </div>
@@ -553,7 +553,7 @@ const RealCost = ({ data = REAL_COST_DATA }: RealCostProps) => {
                     className={styles.inputField}
                     placeholder="Annual Cost"
                     value={annualCost}
-                    onChange={(e) => handleAnnualCostChange(e.target.value)}
+                    readOnly
                     maxLength={15}
                   />
                 </div>

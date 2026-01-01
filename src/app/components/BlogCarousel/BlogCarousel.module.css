@@ -329,3 +329,9 @@
   gap: 2rem;
   max-width: 100%;
 }
+
+@media (min-width: 1600px) {
+  .blogCard {
+    margin: 1rem 0;
+  }
+}

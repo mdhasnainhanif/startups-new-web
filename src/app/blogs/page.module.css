@@ -247,6 +247,13 @@
   }
 }
 
+/* iPad only: 768px to 1023px - 2 columns */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .blogsGrid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
 @media (min-width: 768px) {
   .blogTitle {
     font-size: 1.125rem;
