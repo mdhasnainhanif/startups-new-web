@@ -3,8 +3,7 @@
 import { useState, useEffect } from "react";
 import styles from "./Questionnaire.module.css";
 import Button from "../Button";
-import PhoneInput from 'react-phone-number-input';
-import 'react-phone-number-input/style.css';
+import CustomPhoneInput from "../ContactPage/ContactForm/CustomPhoneInput";
 import { EmailIcon } from "@/app/icons";
 
 interface PersonalDetailsFormProps {
@@ -99,19 +98,14 @@ export default function PersonalDetailsForm({
           </div>
           <div className={styles.formGroup}>
             <div className={styles.inputWrapper}>
-              <PhoneInput
-                international
-                defaultCountry="US"
+              <CustomPhoneInput
                 value={formData.contact}
                 onChange={(value: string | undefined) => setFormData((prev) => ({ ...prev, contact: value || "" }))}
-                placeholder="Enter Your Contact Number"
+                defaultCountry="PK"
+                placeholder="Enter Your Number"
+                required={true}
+                disabled={isSubmitting}
                 className={`${styles.phoneInput} ${styles.formInputSmall} ${styles.greenInput}`}
-                numberInputProps={{
-                  className: styles.phoneNumberInput,
-                  required: true,
-                  autoComplete: "tel",
-                  disabled: isSubmitting,
-                }}
               />
             </div>
           </div>

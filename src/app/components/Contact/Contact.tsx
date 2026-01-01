@@ -6,8 +6,7 @@ import Button from "../Button";
 import Container from "../Container";
 import styles from "./Contact.module.css";
 import { submitEmail } from '../../lib/api/email';
-import PhoneInput from 'react-phone-number-input';
-import 'react-phone-number-input/style.css';
+import CustomPhoneInput from '../ContactPage/ContactForm/CustomPhoneInput';
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
@@ -162,25 +161,14 @@ export default function Contact() {
                 <div className={styles.formRow}>
                   <div className={styles.formFieldFull}>
                     <div className={`${styles.inputWrapper}`}>
-                      {/* <div className={styles.inputIcon}>
-                        <Image 
-                          src="/assets/images/contact-icons/phone.svg" 
-                          alt="Phone" 
-                          width={18}
-                          height={18}
-                        />
-                      </div> */}
-                      <PhoneInput
-                        international
-                        defaultCountry="US"
+                      <CustomPhoneInput
                         value={formData.phone}
                         onChange={(value: string | undefined) => setFormData((prev) => ({ ...prev, phone: value || "" }))}
+                        defaultCountry="PK"
                         placeholder="Phone Number*"
+                        required={true}
+                        disabled={loading}
                         className={styles.phoneInput}
-                        numberInputProps={{
-                          className: styles.phoneNumberInput,
-                          required: true,
-                        }}
                       />
                     </div>
                   </div>

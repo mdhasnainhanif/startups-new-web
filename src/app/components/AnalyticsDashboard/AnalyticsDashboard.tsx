@@ -71,7 +71,7 @@ export default function AnalyticsDashboard({
           <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 sm:gap-0 lg:gap-0 items-start ${styles.customGrid}`}>
             <div className="lg:col-span-1 space-y-0">
               <div className="bg-[##110E21] rounded-xl duration-300 overflow-visible">
-                <div className="flex flex-col items-left justify-left lg:py-4 sm:py-0 sm:pt-[0.5rem] overflow-visible max-w-[20rem]">
+                <div className="flex flex-col items-left justify-left lg:py-4 sm:py-0 sm:pt-[0.5rem] overflow-visible max-w-[20rem] lg:mb-0 mb-[1rem]">
                   <div className={`relative mx-auto w-[209px] h-[209px] sm:w-[209px] sm:h-[257px] lg:w-[257px] lg:h-[257px] ${styles.performanceGauge} overflow-visible`}>
                     <svg className="transform -rotate-90 w-full h-full">
                       <defs>

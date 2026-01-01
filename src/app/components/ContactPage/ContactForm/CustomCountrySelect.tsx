@@ -248,7 +248,6 @@ export default function CustomCountrySelect({
             <path d="M6 9L1 4H11L6 9Z" fill="currentColor" />
           </svg>
         </span>
-        <span className={styles.countryCode}>+{countryData.callingCode}</span>
       </button>
 
       {isOpen && (
@@ -285,8 +284,6 @@ export default function CustomCountrySelect({
                     onClick={(e) => {
                       e.preventDefault();
                       e.stopPropagation();
-                      
-                      console.log('Selecting country:', country.code); // Debug
                       
                       // Update country immediately
                       onChange(country.code as CountryCode);

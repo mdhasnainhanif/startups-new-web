@@ -142,45 +142,150 @@ export default function CustomPhoneInput({
     return countries[countryCode];
   };
 
-  // Extract phone number from value (remove country code)
+  // Helper function to find country by calling code
+  const findCountryByCallingCode = (callingCode: string): string | null => {
+    const countryMap: Record<string, string> = {
+      "1": "US",
+      "44": "GB",
+      "33": "FR",
+      "49": "DE",
+      "39": "IT",
+      "34": "ES",
+      "31": "NL",
+      "32": "BE",
+      "43": "AT",
+      "41": "CH",
+      "46": "SE",
+      "47": "NO",
+      "45": "DK",
+      "358": "FI",
+      "48": "PL",
+      "351": "PT",
+      "30": "GR",
+      "353": "IE",
+      "420": "CZ",
+      "36": "HU",
+      "40": "RO",
+      "359": "BG",
+      "385": "HR",
+      "421": "SK",
+      "386": "SI",
+      "370": "LT",
+      "371": "LV",
+      "372": "EE",
+      "357": "CY",
+      "356": "MT",
+      "352": "LU",
+      "354": "IS",
+      "81": "JP",
+      "86": "CN",
+      "91": "IN",
+      "82": "KR",
+      "65": "SG",
+      "60": "MY",
+      "66": "TH",
+      "62": "ID",
+      "63": "PH",
+      "84": "VN",
+      "886": "TW",
+      "852": "HK",
+      "64": "NZ",
+      "27": "ZA",
+      "55": "BR",
+      "52": "MX",
+      "54": "AR",
+      "56": "CL",
+      "57": "CO",
+      "51": "PE",
+      "58": "VE",
+      "20": "EG",
+      "234": "NG",
+      "254": "KE",
+      "233": "GH",
+      "251": "ET",
+      "255": "TZ",
+      "256": "UG",
+      "213": "DZ",
+      "212": "MA",
+      "216": "TN",
+      "218": "LY",
+      "249": "SD",
+      "966": "SA",
+      "971": "AE",
+      "972": "IL",
+      "90": "TR",
+      "98": "IR",
+      "964": "IQ",
+      "962": "JO",
+      "961": "LB",
+      "965": "KW",
+      "974": "QA",
+      "973": "BH",
+      "968": "OM",
+      "967": "YE",
+      "93": "AF",
+      "92": "PK",
+      "880": "BD",
+      "94": "LK",
+      "977": "NP",
+      "95": "MM",
+      "855": "KH",
+      "856": "LA",
+      "976": "MN",
+      "7": "KZ",
+      "998": "UZ",
+      "992": "TJ",
+      "996": "KG",
+      "993": "TM",
+      "995": "GE",
+      "374": "AM",
+      "994": "AZ",
+      "375": "BY",
+      "380": "UA",
+      "373": "MD",
+      "381": "RS",
+      "382": "ME",
+      "387": "BA",
+      "389": "MK",
+      "355": "AL",
+    };
+    return countryMap[callingCode] || null;
+  };
+
+  // Extract phone number from value and sync selectedCountry
   useEffect(() => {
     if (value) {
-      // Format: +[country code][number]
-      // Try to match country code and extract the number part
-      const countryData = getCountryData(selectedCountry);
-      if (countryData) {
-        const callingCode = countryData.callingCode;
-        // Try to extract number after country code
-        const regex = new RegExp(`^\\+${callingCode}(.+)$`);
-        const match = value.match(regex);
-        if (match && match[1]) {
-          setPhoneNumber(match[1]);
-        } else if (value.startsWith(`+${callingCode}`)) {
-          // If it starts with the calling code but no match, set empty
-          setPhoneNumber("");
-        } else {
-          // Try generic extraction
-          const genericMatch = value.match(/^\+\d{1,4}(.+)$/);
-          if (genericMatch && genericMatch[1]) {
-            setPhoneNumber(genericMatch[1]);
-          } else {
-            // Just remove the + if present
-            setPhoneNumber(value.replace(/^\+/, ""));
-          }
+      // Try to extract country code from value
+      const match = value.match(/^\+(1|44|33|49|39|34|31|32|43|41|46|47|45|358|48|351|30|353|420|36|40|359|385|421|386|370|371|372|357|356|352|354|81|86|91|82|65|60|66|62|63|84|886|852|64|27|55|52|54|56|57|51|58|20|234|254|233|251|255|256|213|212|216|218|249|966|971|972|90|98|964|962|961|965|974|973|968|967|93|92|880|94|977|95|855|856|976|7|998|992|996|993|995|374|994|375|380|373|381|382|387|389|355)/);
+      if (match) {
+        const callingCode = match[1];
+        const detectedCountry = findCountryByCallingCode(callingCode);
+        
+        // Update selectedCountry if different
+        if (detectedCountry && detectedCountry !== selectedCountry) {
+          setSelectedCountry(detectedCountry);
         }
+        
+        // Extract phone number after country code
+        const phonePart = value.substring(match[0].length);
+        setPhoneNumber(phonePart);
       } else {
-        // Fallback: try to extract number after any country code
-        const genericMatch = value.match(/^\+\d{1,4}(.+)$/);
-        if (genericMatch && genericMatch[1]) {
-          setPhoneNumber(genericMatch[1]);
-        } else {
-          setPhoneNumber(value.replace(/^\+/, ""));
+        // No valid country code found, use default
+        if (selectedCountry !== defaultCountry) {
+          setSelectedCountry(defaultCountry);
         }
+        // Try to extract just the number part
+        const phonePart = value.replace(/^\+/, "");
+        setPhoneNumber(phonePart);
       }
     } else {
+      // Value is empty, reset to default country
+      if (selectedCountry !== defaultCountry) {
+        setSelectedCountry(defaultCountry);
+      }
       setPhoneNumber("");
     }
-  }, [value, selectedCountry]);
+  }, [value, defaultCountry]);
 
   // Update width when component mounts or resizes
   useEffect(() => {
@@ -236,6 +341,9 @@ export default function CustomPhoneInput({
     }
   };
 
+  const countryData = getCountryData(selectedCountry);
+  const countryCode = countryData ? `+${countryData.callingCode}` : "";
+
   return (
     <div ref={phoneInputRef} className={`${styles.phoneInput} ${className}`}>
       <div className={styles.phoneInputContainer}>
@@ -246,18 +354,21 @@ export default function CustomPhoneInput({
           disabled={disabled}
           phoneInputWidth={phoneInputWidth}
         />
-        <input
-          ref={inputRef}
-          type="tel"
-          inputMode="numeric"
-          value={phoneNumber}
-          onChange={handlePhoneNumberChange}
-          onKeyDown={handleKeyPress}
-          placeholder={placeholder}
-          required={required}
-          disabled={disabled}
-          className={styles.phoneNumberInput}
-        />
+        <div className={styles.phoneInputWrapper}>
+          <span className={styles.countryCodePrefix}>{countryCode}</span>
+          <input
+            ref={inputRef}
+            type="tel"
+            inputMode="numeric"
+            value={phoneNumber}
+            onChange={handlePhoneNumberChange}
+            onKeyDown={handleKeyPress}
+            placeholder={placeholder}
+            required={required}
+            disabled={disabled}
+            className={styles.phoneNumberInput}
+          />
+        </div>
       </div>
     </div>
   );

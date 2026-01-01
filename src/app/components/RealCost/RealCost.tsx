@@ -51,7 +51,7 @@ interface RealCostProps {
 
 const REAL_COST_DATA: RealCostData = {
   heading: {
-    part1: 'See the Real Cost of',
+    part1: 'See the Real Cost of ',
     part2: 'Hiring Design Staff vs.',
     part3: 'Hiring an Entire Design Team for 22 Days',
   },
@@ -109,6 +109,33 @@ const REAL_COST_DATA: RealCostData = {
   },
 };
 
+// Designer type to cost mapping
+const DESIGNER_COSTS: Record<string, { monthly: number; annual: number }> = {
+  'Junior Designer': { monthly: 1499, annual: 1499 * 12 },
+  'Mid-Level Designer': { monthly: 2499, annual: 2499 * 12 },
+  'Senior Designer': { monthly: 4999, annual: 4999 * 12 },
+  'Design Director': { monthly: 7999, annual: 7999 * 12 },
+};
+
+// Format number with commas for display
+const formatNumber = (value: string): string => {
+  // Remove all non-digit characters
+  const digitsOnly = value.replace(/\D/g, '');
+  
+  if (!digitsOnly) return '';
+  
+  // Convert to number and check max value
+  const numValue = parseInt(digitsOnly, 10);
+  if (isNaN(numValue)) return '';
+  
+  // Limit to max value
+  const MAX_VALUE = 999999999;
+  const limitedValue = Math.min(numValue, MAX_VALUE);
+  
+  // Format with commas
+  return limitedValue.toLocaleString('en-US');
+};
+
 const RealCost = ({ data = REAL_COST_DATA }: RealCostProps) => {
   const [selectedDesignerType, setSelectedDesignerType] = useState<string>(data.calculator.fields[0].options?.[0] || '');
   const [monthlyCost, setMonthlyCost] = useState<string>('');
@@ -116,6 +143,19 @@ const RealCost = ({ data = REAL_COST_DATA }: RealCostProps) => {
   const [estimatedTotal, setEstimatedTotal] = useState<number>(58000);
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+
+  // Update costs when designer type changes
+  useEffect(() => {
+    if (selectedDesignerType && DESIGNER_COSTS[selectedDesignerType]) {
+      const costs = DESIGNER_COSTS[selectedDesignerType];
+      const monthlyFormatted = formatNumber(costs.monthly.toString());
+      const annualFormatted = formatNumber(costs.annual.toString());
+      
+      setMonthlyCost(monthlyFormatted);
+      setAnnualCost(annualFormatted);
+      setEstimatedTotal(costs.annual);
+    }
+  }, [selectedDesignerType]);
 
   // Function to parse text and highlight content inside square brackets with green color
   const parseHeadingWithBrackets = (text: string) => {
@@ -171,24 +211,6 @@ const RealCost = ({ data = REAL_COST_DATA }: RealCostProps) => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [isDropdownOpen]);
-
-  // Format number with commas for display
-  const formatNumber = (value: string): string => {
-    // Remove all non-digit characters
-    const digitsOnly = value.replace(/\D/g, '');
-    
-    if (!digitsOnly) return '';
-    
-    // Convert to number and check max value
-    const numValue = parseInt(digitsOnly, 10);
-    if (isNaN(numValue)) return '';
-    
-    // Limit to max value
-    const limitedValue = Math.min(numValue, MAX_VALUE);
-    
-    // Format with commas
-    return limitedValue.toLocaleString('en-US');
-  };
 
   // Get raw number value (without commas)
   const getRawValue = (formattedValue: string): string => {

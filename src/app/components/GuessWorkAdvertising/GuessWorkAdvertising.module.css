@@ -42,7 +42,6 @@
   border-color: #0fdac2;
 }
 
-
 .image {
   border-radius: 1rem;
 }
@@ -175,7 +174,6 @@
 
 /* Extra small devices (below 480px) */
 @media (max-width: 480px) {
-
   .section::before {
     width: 9.375rem;
     height: 9.375rem;
@@ -200,7 +198,7 @@
 /* Input wrapper responsive adjustments */
 @media (max-width: 640px) {
   .inputWrapper {
-    padding: 0 0.5rem 0.5rem;
+    padding: 0rem 1rem 1rem 1rem;
   }
 }
 

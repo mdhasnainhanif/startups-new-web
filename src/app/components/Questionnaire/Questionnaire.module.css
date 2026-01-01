@@ -99,9 +99,11 @@
 
 .progressBarFill {
   height: 100%;
-  background: linear-gradient(90deg,
-      var(--color-primary) 0%,
-      var(--color-purple) 100%);
+  background: linear-gradient(
+    90deg,
+    var(--color-primary) 0%,
+    var(--color-purple) 100%
+  );
   border-radius: 10px;
   transition: width 0.5s ease-in-out;
   box-shadow: 0 0 10px rgba(100, 59, 255, 0.5);
@@ -185,8 +187,8 @@
   color: var(--color-purple);
 }
 
-.radioInput:checked+.optionLabel.optionSelected,
-input[type="checkbox"].radioInput:checked+.optionLabel.optionSelected {
+.radioInput:checked + .optionLabel.optionSelected,
+input[type="checkbox"].radioInput:checked + .optionLabel.optionSelected {
   background: rgba(100, 59, 255, 0.2);
   border-color: var(--color-purple);
   color: var(--color-purple);
@@ -231,8 +233,8 @@ input[type="checkbox"].radioInput:checked+.optionLabel.optionSelected {
   background: transparent;
 }
 
-.radioInput:checked+.optionLabel::before,
-input[type="checkbox"].radioInput:checked+.optionLabel::before {
+.radioInput:checked + .optionLabel::before,
+input[type="checkbox"].radioInput:checked + .optionLabel::before {
   background: var(--color-primary);
   border-color: var(--color-primary);
   box-shadow: 0 0 10px var(--color-primary);
@@ -251,8 +253,8 @@ input[type="checkbox"].radioInput:checked+.optionLabel::before {
   }
 }
 
-.radioInput:checked+.optionLabel::after,
-input[type="checkbox"].radioInput:checked+.optionLabel::after {
+.radioInput:checked + .optionLabel::after,
+input[type="checkbox"].radioInput:checked + .optionLabel::after {
   content: "✓";
   position: absolute;
   left: 1.25rem;
@@ -309,16 +311,16 @@ input[type="checkbox"].radioInput:checked+.optionLabel::after {
   transform: translateY(-2px);
 }
 
-.radioInput:checked+.greenLabel,
-.radioInput:checked+.yellowLabel,
-.radioInput:checked+.blueLabel,
-.radioInput:checked+.purpleLabel,
-.radioInput:checked+.pinkLabel,
-input[type="checkbox"].radioInput:checked+.greenLabel,
-input[type="checkbox"].radioInput:checked+.yellowLabel,
-input[type="checkbox"].radioInput:checked+.blueLabel,
-input[type="checkbox"].radioInput:checked+.purpleLabel,
-input[type="checkbox"].radioInput:checked+.pinkLabel {
+.radioInput:checked + .greenLabel,
+.radioInput:checked + .yellowLabel,
+.radioInput:checked + .blueLabel,
+.radioInput:checked + .purpleLabel,
+.radioInput:checked + .pinkLabel,
+input[type="checkbox"].radioInput:checked + .greenLabel,
+input[type="checkbox"].radioInput:checked + .yellowLabel,
+input[type="checkbox"].radioInput:checked + .blueLabel,
+input[type="checkbox"].radioInput:checked + .purpleLabel,
+input[type="checkbox"].radioInput:checked + .pinkLabel {
   background: rgba(100, 59, 255, 0.1);
   border-color: var(--color-purple);
   color: var(--color-purple);
@@ -350,14 +352,14 @@ input[type="checkbox"].radioInput:checked+.pinkLabel {
 }
 
 /* Center last item in grid when it's alone in the row */
-.fiftyPercentBoxes .optionsContainer>.optionWrapper:last-child:nth-child(odd),
-.twoColumns .optionsContainer>.optionWrapper:last-child:nth-child(odd) {
+.fiftyPercentBoxes .optionsContainer > .optionWrapper:last-child:nth-child(odd),
+.twoColumns .optionsContainer > .optionWrapper:last-child:nth-child(odd) {
   grid-column: 1 / -1;
   justify-self: center;
   max-width: 50%;
 }
 
-.threeColumns .optionsContainer>.optionWrapper:last-child:nth-child(3n+1) {
+.threeColumns .optionsContainer > .optionWrapper:last-child:nth-child(3n + 1) {
   grid-column: 2;
   justify-self: center;
 }
@@ -455,7 +457,7 @@ input[type="checkbox"].radioInput:checked+.pinkLabel {
 
 .formInput {
   width: 100%;
-  padding: 1.25rem 1.5rem;
+  padding: 0.875rem 0 0.875rem 2.69rem;
   background: rgba(255, 255, 255, 0.05);
   border: 2px solid transparent;
   border-radius: 8px;
@@ -494,9 +496,9 @@ select.formInput option {
 }
 
 .formInputSmall {
-  padding: 0.875rem 1.25rem;
-  padding-right: 3rem;
-  padding-left: 3.5rem;
+  /* padding: 0.875rem 1.25rem; */
+  /* padding-right: 3rem;
+  padding-left: 3.5rem; */
   font-size: 0.95rem;
 }
 
@@ -509,7 +511,7 @@ select.formInput option {
 .inputIcon {
   position: absolute;
   left: 1.25rem;
-  top: 50%;
+  top: 1.785rem;
   transform: translateY(-50%);
   display: flex;
   align-items: center;
@@ -677,7 +679,7 @@ select.formInput option {
 
 /* Responsive Design */
 @media screen and (max-width: 1024px) {
-  .customdropdown{
+  .customdropdown {
     padding: 0;
     border: 0;
   }
@@ -696,7 +698,7 @@ select.formInput option {
 }
 
 @media screen and (max-width: 768px) {
-  .customdropdown{
+  .customdropdown {
     padding: 0;
     border: 0;
   }
@@ -737,7 +739,7 @@ select.formInput option {
     height: 18px;
   }
 
-  .radioInput:checked+.optionLabel::after {
+  .radioInput:checked + .optionLabel::after {
     left: 1.25rem;
     width: 18px;
     height: 18px;
@@ -767,13 +769,13 @@ select.formInput option {
 }
 
 @media screen and (max-width: 576px) {
-  .customdropdown{
+  .customdropdown {
     padding: 0;
     border: 0;
   }
 
-  .radioInput:checked+.optionLabel::after,
-  input[type="checkbox"].radioInput:checked+.optionLabel::after {
+  .radioInput:checked + .optionLabel::after,
+  input[type="checkbox"].radioInput:checked + .optionLabel::after {
     left: 0.925rem;
   }
 
@@ -828,7 +830,7 @@ select.formInput option {
     height: 16px;
   }
 
-  .radioInput:checked+.optionLabel::after {
+  .radioInput:checked + .optionLabel::after {
     left: 1rem;
     width: 16px;
     height: 16px;
@@ -919,7 +921,7 @@ select.formInput option {
   outline: none;
   border: none !important;
 }
-.customdropdown{
+.customdropdown {
   padding: 0;
   border: 0;
 }
@@ -971,22 +973,51 @@ select.formInput option {
   font-size: 0.9rem;
 }
 
-/* PhoneInput Styling */
-.phoneInput  {
+/* PhoneInput Styling - Match formInput styling */
+.phoneInput {
   width: 100% !important;
+  flex: 1;
+  position: relative;
+}
+
+/* Override CustomPhoneInput container to match formInput */
+/* .phoneInput :global(.phoneInputContainer) {
   background: rgba(255, 255, 255, 0.05) !important;
-  border: 2px solid var(--color-primary) !important;
+  border: 2px solid transparent !important;
   border-radius: 8px !important;
-  display: flex !important;
-  align-items: center !important;
-  transition: all 0.3s ease !important;
-  box-sizing: border-box !important;
   padding: 0 !important;
-  margin: 0 !important;
+  transition: all 0.3s ease !important;
+  background-image: none !important;
+} */
+
+/* Apply greenInput border color when greenInput class is present */
+.phoneInput.greenInput :global(.phoneInputContainer) {
+  border-color: var(--color-primary) !important;
   box-shadow: 0 0 20px rgba(15, 218, 194, 0.3) !important;
 }
 
-.phoneInput :global(.PhoneInputInput) {
+.phoneInput.greenInput :global(.phoneInputContainer:focus-within) {
+  box-shadow: 0 0 30px rgba(15, 218, 194, 0.5) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Match formInputSmall padding and font-size */
+.phoneInput.formInputSmall :global(.phoneInputContainer) {
+  /* Container padding handled by children */
+}
+
+/* .phoneInput.formInputSmall :global(.countrySelectButton) {
+  padding: 0.875rem 0.75rem !important;
+  font-size: 0.95rem !important;
+}
+
+.phoneInput.formInputSmall :global(.phoneNumberInput) {
+  padding: 0.875rem 1.25rem !important;
+  font-size: 0.95rem !important;
+  font-weight: 500 !important;
+} */
+
+/* .phoneInput :global(.PhoneInputInput) {
   flex: 1;
   background: transparent;
   border: none;
@@ -997,29 +1028,29 @@ select.formInput option {
   padding-left: 0.4rem;
   outline: none;
   font-family: var(--font-graphik-regular), Arial, Helvetica, sans-serif;
-}
+} */
 
-.phoneInput :global(.PhoneInputInput)::placeholder {
+/* .phoneInput :global(.PhoneInputInput)::placeholder {
   color: rgba(255, 255, 255, 0.5);
-}
+} */
 
-.phoneInput :global(.PhoneInputCountry) {
+/* .phoneInput :global(.PhoneInputCountry) {
   margin-left: 1.25rem;
   display: flex;
   align-items: center;
   gap: 0.5rem;
   position: relative;
   z-index: 5;
-}
+} */
 
-.phoneInput :global(.PhoneInputCountryIcon) {
+/* .phoneInput :global(.PhoneInputCountryIcon) {
   width: 1.5rem;
   height: 1.5rem;
   border-radius: 2px;
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1);
-}
+} */
 
-.phoneInput :global(.PhoneInputCountrySelect) {
+/* .phoneInput :global(.PhoneInputCountrySelect) {
   background: transparent;
   border: none;
   color: #ffffff;
@@ -1034,26 +1065,26 @@ select.formInput option {
   align-items: center;
   gap: 0.5rem;
   font-family: var(--font-graphik-regular), Arial, Helvetica, sans-serif;
-}
+} */
 
-.phoneInput :global(.PhoneInputCountrySelectArrow) {
+/* .phoneInput :global(.PhoneInputCountrySelectArrow) {
   opacity: 0.5;
   margin-left: 0.25rem;
 }
 
 .phoneInput :global(.PhoneInputCountrySelectArrow--open) {
   opacity: 1;
-}
+} */
 
-.phoneInput :global(select.PhoneInputCountrySelect option) {
+/* .phoneInput :global(select.PhoneInputCountrySelect option) {
   background: #0e1030 !important;
   color: #ffffff !important;
   padding: 0.5rem;
   width: 100% !important;
-}
+} */
 
 /* Dropdown menu styling */
-.phoneInput :global(.PhoneInputCountrySelect) {
+/* .phoneInput :global(.PhoneInputCountrySelect) {
   color: #ffffff !important;
   width: 100% !important;
 }
@@ -1067,23 +1098,23 @@ select.formInput option {
 .phoneInput :global(.PhoneInputCountrySelect option:hover) {
   background: rgba(15, 218, 194, 0.2) !important;
   color: #ffffff !important;
-}
+} */
 
 /* Style the dropdown menu container */
-.phoneInput :global(.PhoneInputCountryIcon--border) {
+/* .phoneInput :global(.PhoneInputCountryIcon--border) {
   box-shadow: none;
-}
+} */
 
 /* Apply greenInput styles - always apply since phoneInput is used with greenInput */
-.phoneInput :global(.PhoneInput):focus-within {
+/* .phoneInput :global(.PhoneInput):focus-within {
   border: 2px solid var(--color-primary) !important;
   box-shadow: 0 0 30px rgba(15, 218, 194, 0.5) !important;
   transform: translateY(-2px) !important;
   outline: none !important;
   background: rgba(255, 255, 255, 0.05) !important;
-}
+} */
 
-.phoneInput :global(.PhoneInputInput):disabled {
+/* .phoneInput :global(.PhoneInputInput):disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
@@ -1092,4 +1123,45 @@ select.formInput option {
   background: transparent !important;
   border: none !important;
   color: #ffffff !important;
+} */
+
+/* CustomPhoneInput styling to match formInput */
+.phoneInput :global(.phoneInputContainer) {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 2px solid transparent !important;
+  border-radius: 8px !important;
+  padding: 0 !important;
+  transition: all 0.3s ease !important;
+  background-image: none !important;
+}
+
+/* Apply greenInput border color when greenInput class is present */
+.phoneInput.greenInput :global(.phoneInputContainer) {
+  border-color: var(--color-primary) !important;
+  box-shadow: 0 0 20px rgba(15, 218, 194, 0.3) !important;
+}
+
+.phoneInput.greenInput :global(.phoneInputContainer:focus-within) {
+  box-shadow: 0 0 30px rgba(15, 218, 194, 0.5) !important;
+  transform: translateY(-2px) !important;
+  border-color: var(--color-primary) !important;
+}
+
+/* Match formInputSmall padding and font-size */
+.phoneInput.formInputSmall :global(.countrySelectButton) {
+  padding: 0.875rem 0.75rem !important;
+  font-size: 0.95rem !important;
+  font-weight: 500 !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+
+.phoneInput.formInputSmall :global(.phoneNumberInput) {
+  padding: 0.875rem 1.25rem !important;
+  font-size: 0.95rem !important;
+  font-weight: 500 !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+
+.phoneInput.formInputSmall :global(.phoneNumberInput)::placeholder {
+  color: rgba(255, 255, 255, 0.5) !important;
 }

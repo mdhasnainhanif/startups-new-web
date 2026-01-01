@@ -17,16 +17,13 @@
 
 .contactCard {
   position: relative;
-  background: #1d0e57;
+  background: #1c1949;
   border-radius: 1rem;
   padding: 3rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
   z-index: 1;
-  background-image: radial-gradient(circle,
-      rgba(15, 218, 194, 0.1) 2px,
-      transparent 1px);
   background-size: 24px 24px;
   border: 1px solid rgba(78, 73, 137, 0.3);
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
@@ -187,7 +184,8 @@
 .inputIcon img {
   width: 18px;
   height: 18px;
-  filter: brightness(0) saturate(100%) invert(77%) sepia(80%) saturate(2000%) hue-rotate(140deg) brightness(95%) contrast(90%);
+  filter: brightness(0) saturate(100%) invert(77%) sepia(80%) saturate(2000%)
+    hue-rotate(140deg) brightness(95%) contrast(90%);
 }
 
 .inputField {
@@ -225,7 +223,7 @@
 .inputField:focus,
 .textareaField:focus {
   background-image: linear-gradient(#0e1030, #0e1030),
-    linear-gradient(to right, #0fdac2, #732BFF);
+    linear-gradient(to right, #0fdac2, #732bff);
   outline: none;
   box-shadow: none;
 }
@@ -244,13 +242,7 @@
 .phoneInput {
   width: 100%;
   flex: 1;
-  /* margin-left: 2.5rem; */
-  background-image: linear-gradient(to right, #0fdac2, #643bff);
-  background-origin: border-box;
-  background-clip: border-box;
-  border: 2px solid transparent;
-  border-radius: 0.5rem;
-  overflow: hidden;
+  position: relative;
 }
 
 .phoneInput :global(.PhoneInput) {
@@ -266,7 +258,7 @@
 }
 
 .phoneInput :global(.PhoneInput):focus-within {
-  background-image: linear-gradient(to right, #0fdac2, #732BFF);
+  background-image: linear-gradient(to right, #0fdac2, #732bff);
 }
 
 .phoneInput :global(.PhoneInputCountry) {
@@ -438,7 +430,6 @@
 }
 
 @media (max-width: 640px) {
-
   .contactCard {
     padding: 24px 20px;
   }

@@ -76,7 +76,8 @@
 .inputIcon {
   position: absolute;
   left: 1rem;
-  top: 1.2rem;
+  top: 1.9rem;
+  transform: translateY(-50%);
   z-index: 1;
   display: flex;
   align-items: center;
@@ -321,7 +322,7 @@
   }
 
   .formInput {
-    padding: 0.625rem 0.875rem;
+    padding: 0.625rem 0rem 0.625rem 2.875rem;
     font-size: 0.8125rem;
   }
 
@@ -339,13 +340,19 @@
   .contactFormContainer {
     padding: 0.75rem 0.5rem;
   }
+  .inputIcon {
+    top: 1.5rem;
+  }
+  .inputGroupRow {
+    flex-direction: column;
+  }
 
   .formSection {
     padding: 1.25rem 0.75rem;
   }
 
   .mapSection {
-    border-radius: 1rem !important;
+    display: none;
   }
 
   .mapSection iframe {
@@ -508,10 +515,28 @@
   width: 100% !important;
 }
 
+.phoneInputWrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.countryCodePrefix {
+  padding: 0 0.5rem;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: inherit;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
 .phoneNumberInput {
   flex: 1;
   width: 100%;
   padding: 0.875rem 1rem;
+  padding-left: 0.25rem;
   background: #0e1030;
   border: none;
   border-radius: 0;
@@ -558,6 +583,7 @@
   width: auto;
   min-width: fit-content;
   height: 100%;
+  min-height: 3.24rem; /* Match formInput height */
   justify-content: flex-start;
   border-top-left-radius: 0.5rem;
   border-bottom-left-radius: 0.5rem;
@@ -636,7 +662,7 @@
 
 .countryList {
   overflow-y: auto;
-  max-height: 250px;
+  max-height: 180px;
   padding: 0.25rem;
   list-style: none;
   margin: 0;
