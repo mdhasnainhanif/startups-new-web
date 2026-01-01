@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import type { Swiper as SwiperType } from 'swiper';
+import { Navigation } from 'swiper/modules';
 import { Fancybox } from '@fancyapps/ui';
 import '@fancyapps/ui/dist/fancybox/fancybox.css';
 import 'swiper/css';
@@ -316,6 +317,8 @@ const ProvenSuccess = ({ data, variant }: ProvenSuccessProps) => {
   const [isBeginning, setIsBeginning] = useState<boolean>(true);
   const [isEnd, setIsEnd] = useState<boolean>(false);
   const [isFading, setIsFading] = useState<boolean>(false);
+  const [isTabsSwiperBeginning, setIsTabsSwiperBeginning] = useState<boolean>(true);
+  const [isTabsSwiperEnd, setIsTabsSwiperEnd] = useState<boolean>(false);
   const [displayedTabId, setDisplayedTabId] = useState<string>(
     filteredTabs.length > 0 ? filteredTabs[0].id : ''
   );
@@ -421,18 +424,73 @@ const ProvenSuccess = ({ data, variant }: ProvenSuccessProps) => {
             </div>
 
             {/* Tabs - Mobile */}
-            <div className={styles.tabsContainerMobile}>
+            <div className={`${styles.tabsContainerMobile} relative`}>
+              {/* Left Arrow */}
+              <button
+                onClick={() => tabsSwiperRef.current?.slidePrev()}
+                disabled={isTabsSwiperBeginning}
+                className={`absolute left-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full border-none text-white cursor-pointer flex items-center justify-center transition-all ${
+                  isTabsSwiperBeginning
+                    ? "opacity-30 cursor-not-allowed bg-[#1b1849]"
+                    : "opacity-100 hover:bg-[#0fdac2]/80 bg-[#0fdac2]"
+                }`}
+                aria-label="Previous tab"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M15 18l-6-6 6-6" />
+                </svg>
+              </button>
+
+              {/* Right Arrow */}
+              <button
+                onClick={() => tabsSwiperRef.current?.slideNext()}
+                disabled={isTabsSwiperEnd}
+                className={`absolute right-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full border-none text-white cursor-pointer flex items-center justify-center transition-all ${
+                  isTabsSwiperEnd
+                    ? "opacity-30 cursor-not-allowed bg-[#1b1849]"
+                    : "opacity-100 hover:bg-[#0fdac2]/80 bg-[#0fdac2]"
+                }`}
+                aria-label="Next tab"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M9 18l6-6-6-6" />
+                </svg>
+              </button>
+
               <Swiper
+                modules={[Navigation]}
                 spaceBetween={0}
                 slidesPerView={1}
                 centeredSlides={false}
                 allowTouchMove={true}
                 speed={300}
                 watchOverflow={true}
-                onBeforeInit={(swiper) => {
+                onSwiper={(swiper) => {
                   tabsSwiperRef.current = swiper;
+                  setIsTabsSwiperBeginning(swiper.isBeginning);
+                  setIsTabsSwiperEnd(swiper.isEnd);
                 }}
                 onSlideChange={(swiper) => {
+                  setIsTabsSwiperBeginning(swiper.isBeginning);
+                  setIsTabsSwiperEnd(swiper.isEnd);
                   const activeIndex = swiper.activeIndex;
                   if (provenSuccessData.tabs[activeIndex]) {
                     const selectedTab = provenSuccessData.tabs[activeIndex];

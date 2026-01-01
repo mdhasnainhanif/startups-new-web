@@ -2,14 +2,13 @@ import { Step } from "./QuestionnaireStep";
 
 export const questionnaireData: { steps: Step[] } = {
   steps: [
-    // STEP 1 - Q1: What's blocking your growth right now? (Multi-select, max 2)
+    // STEP 1 - Q1: What's blocking your growth right now? (Multi-select)
     {
       id: "step-1",
       title: "What's blocking your growth right now?",
       progress: 12.5,
       columns: 3,
       multiSelect: true,
-      maxSelections: 2,
       options: [
         {
           id: "step-1-1",
@@ -71,7 +70,6 @@ export const questionnaireData: { steps: Step[] } = {
       backTo: "step-1",
       columns: 3,
       multiSelect: true,
-      maxSelections: 2,
       options: [
         {
           id: "step-2-1",
@@ -133,7 +131,6 @@ export const questionnaireData: { steps: Step[] } = {
       backTo: "step-2",
       columns: 3,
       multiSelect: true,
-      maxSelections: 2,
       options: [
         {
           id: "step-3-1",
@@ -194,8 +191,8 @@ export const questionnaireData: { steps: Step[] } = {
       progress: 50,
       backTo: "step-3",
       columns: 3,
-      multiSelect: true,
-      maxSelections: 2,
+      multiSelect: false,
+      maxSelections: 1,
       options: [
         {
           id: "step-4-1",
@@ -256,8 +253,8 @@ export const questionnaireData: { steps: Step[] } = {
       progress: 62.5,
       backTo: "step-4",
       columns: 2,
-      multiSelect: true,
-      maxSelections: 2,
+      multiSelect: false,
+      maxSelections: 1,
       options: [
         {
           id: "step-5-1",
@@ -297,8 +294,8 @@ export const questionnaireData: { steps: Step[] } = {
       progress: 75,
       backTo: "step-5",
       columns: 2,
-      multiSelect: true,
-      maxSelections: 2,
+      multiSelect: false,
+      maxSelections: 1,
       options: [
         {
           id: "step-6-1",
@@ -338,8 +335,8 @@ export const questionnaireData: { steps: Step[] } = {
       progress: 87.5,
       backTo: "step-6",
       columns: 2,
-      multiSelect: true,
-      maxSelections: 2,
+      multiSelect: false,
+      maxSelections: 1,
       options: [
         {
           id: "step-7-1",
@@ -380,7 +377,6 @@ export const questionnaireData: { steps: Step[] } = {
       backTo: "step-7",
       columns: 3,
       multiSelect: true,
-      maxSelections: 2,
       options: [
         {
           id: "step-8-1",

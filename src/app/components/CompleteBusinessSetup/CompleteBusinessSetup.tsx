@@ -184,7 +184,7 @@
       title: "Get This Package For ",
       items: [
         { id: "1", text: "A full design team" },
-        { id: "2", text: "22 essential business design assets" },
+        { id: "2", text: "50+ essential business design assets" },
         { id: "3", text: "AI-powered efficiency" },
         { id: "4", text: "Unlimited revisions during the 22 days" },
         { id: "5", text: "All files delivered print-ready and web-ready" },

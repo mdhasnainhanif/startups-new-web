@@ -35,7 +35,7 @@ export default function ProblemSection() {
               <StaggerItem key={problem.title} delay={index * 0.1}>
                 <div className="group p-4 md:p-6 bg-white/5 border border-white/10 rounded-xl md:rounded-2xl hover:border-[var(--color-purple)]/50 transition-all duration-300 hover:shadow-lg h-full">
                   <div className="w-10 h-10 md:w-12 md:h-12 rounded-[50%] bg-[#2e2277] flex items-center justify-center mb-3 md:mb-4 transition-colors">
-                    <IconComponent className="w-5 h-5 md:w-6 md:h-6 text-[var(--color-purple)]" />
+                    <img src={problem.icon} alt={problem.title} className="w-5 h-5 md:w-6 md:h-6" />
                   </div>
                   <h3 className="text-sm md:text-lg font-semibold text-white mb-1 md:mb-2">
                     {problem.title}

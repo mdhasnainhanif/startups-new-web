@@ -81,5 +81,17 @@ export const ASSISTANT_CAPABILITIES_DATA: AssistantCapabilitiesData = {
       title: "Analytics & Performance Reporting",
       description: "Get detailed insights and reports on your business performance to make data-driven decisions.",
     },
+    {
+      id: "analytics-reporting",
+      icon: "/assets/images/key-growth/slider-icons/12.svg",
+      title: "Social Media Handling and Management",
+      description: "Get detailed insights and reports on your business performance to make data-driven decisions.",
+    },
+    {
+      id: "analytics-reporting",
+      icon: "/assets/images/key-growth/slider-icons/13.svg",
+      title: "Tele sales and Marketing",
+      description: "Get detailed insights and reports on your business performance to make data-driven decisions.",
+    },
   ],
 };

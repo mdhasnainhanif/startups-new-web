@@ -180,7 +180,7 @@ export interface HomeBannerData {
         part2: 'Works',
       },
       paragraphs: [
-        'This system works because every business moves faster when someone is thinking one step ahead for you. Not guessing. Not reacting. Actually steering.',
+        'This system works because every business moves faster when someone in your business team is one step ahead for you. Not guessing. Not reacting. Actually steering.',
         'The Key Growth Manager becomes the person who sees what you can\'t see while you\'re in the middle of the work — spotting slowdowns, closing loops, and keeping momentum alive without waiting for you to push.',
         'Not an agency. Not a freelancer. Not another tool you have to babysit. Just one person who knows your pace, understands your goals, and keeps your business moving with steady, everyday execution.',
       ],

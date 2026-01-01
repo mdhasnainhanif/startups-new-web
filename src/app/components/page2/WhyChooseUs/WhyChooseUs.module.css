@@ -46,7 +46,8 @@
 .paragraphsWrapper {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
 }
 
 .subtitle {
@@ -216,5 +217,11 @@
 
   .cardTitle {
     font-size: 1.125rem;
+  }
+  .paragraphsWrapper {
+    text-align: left;
+  }
+  .headingWrapper{
+    text-align: left;
   }
 }

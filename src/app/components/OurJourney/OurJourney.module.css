@@ -33,7 +33,6 @@
   position: relative;
   z-index: 1;
   width: 100%;
-  padding: 0 1rem;
   box-sizing: border-box;
 }
 
@@ -284,7 +283,6 @@
   .list {
     max-width: 100%;
     width: 100%;
-    padding: 0 2rem;
   }
 
   .item,
@@ -333,7 +331,6 @@
   .list {
     max-width: 100%;
     width: 100%;
-    padding: 0 2rem;
   }
 
   .item,
@@ -398,10 +395,6 @@
 
   .badge {
     display: none;
-  }
-
-  .list {
-    padding: 0 1.5rem;
   }
 
   .item,
@@ -489,11 +482,6 @@
   .wrap::before {
     display: none;
   }
-
-  .list {
-    padding: 0 1rem;
-  }
-
   .item[data-side="right"]::before,
   .item[data-side="left"]::before {
     display: none;

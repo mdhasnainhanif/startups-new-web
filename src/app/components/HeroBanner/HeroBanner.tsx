@@ -80,8 +80,8 @@ export default function HeroBanner({
         <div className="absolute inset-0 bg-black/30" style={{ zIndex: 1 }}></div>
       </div>
       
-      {/* Plasma Background Animation */}
-      <div className={`absolute inset-0 ${styles.plasmaContainer}`} style={{ zIndex: 2 }}>
+      {/* Plasma Background Animation - Desktop Only */}
+      <div className={`absolute inset-0 ${styles.plasmaContainer} hidden md:block`} style={{ zIndex: 2 }}>
         <Plasma 
           color="#8b5cf6"
           speed={0.8}

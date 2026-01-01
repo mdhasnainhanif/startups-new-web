@@ -7,7 +7,7 @@ import { questionnaireData } from "./questionnaireData";
 import QuestionnaireStep from "./QuestionnaireStep";
 import PersonalDetailsForm from "./PersonalDetailsForm";
 import Button from "../Button";
-import { ArrowLeftIcon } from "../../icons";
+import { ArrowLeftIcon, ArrowRightIcon } from "../../icons";
 import { submitBriefEmail } from '../../lib/api/email';
 export interface QuestionnaireAnswers {
   [key: string]: string;
@@ -46,60 +46,28 @@ export default function PoppupStepQuestionnaire({
     }));
 
     const currentStepData = questionnaireData.steps.find((s) => s.id === stepId);
+    const isMultiSelect = currentStepData?.multiSelect === true;
     
-    const isMultiSelect = true; 
-    const maxSelections = 2; 
-    
-    
-    const selectionCount = value ? (() => {
-      try {
-        const parsed = JSON.parse(value);
-        return Array.isArray(parsed) ? parsed.length : 0;
-      } catch {
-        // Fallback for old format (comma-separated)
-        return value.split(",").filter(v => v.trim()).length;
-      }
-    })() : 0;
-    const maxReached = isMultiSelect && selectionCount >= maxSelections;
-    
-    
+    // If nextStep is provided, advance to next step
+    // For single select: nextStep is always provided on click (auto-advance)
+    // For multiple select: nextStep is only provided when Continue button is clicked
     if (nextStep) {
-      if (!isMultiSelect || maxReached) {
-        setIsTransitioning(true);
-        setFadeIn(false);
+      setIsTransitioning(true);
+      setFadeIn(false);
+      setTimeout(() => {
+        setStepHistory((prev) => {
+          const lastStep = prev[prev.length - 1];
+          if (lastStep !== nextStep) {
+            return [...prev, nextStep];
+          }
+          return prev;
+        });
+        setCurrentStep(nextStep);
         setTimeout(() => {
-          setStepHistory((prev) => {
-            const lastStep = prev[prev.length - 1];
-            if (lastStep !== nextStep) {
-              return [...prev, nextStep];
-            }
-            return prev;
-          });
-          setCurrentStep(nextStep);
-          setTimeout(() => {
-            setFadeIn(true);
-            setIsTransitioning(false);
-          }, 50);
-        }, 600);
-      } else if (isMultiSelect && !maxReached) {
-        setIsTransitioning(true);
-        setFadeIn(false);    
-        setTimeout(() => {
-          setStepHistory((prev) => {
-            const lastStep = prev[prev.length - 1];
-            if (lastStep !== nextStep) {
-              return [...prev, nextStep];
-            }
-            return prev;
-          });
-          setCurrentStep(nextStep);
-          
-          setTimeout(() => {
-            setFadeIn(true);
-            setIsTransitioning(false);
-          }, 50);
-        }, 300);
-      }
+          setFadeIn(true);
+          setIsTransitioning(false);
+        }, 50);
+      }, 600);
     }
   };
   const handleBack = () => {
@@ -137,7 +105,6 @@ export default function PoppupStepQuestionnaire({
     name: string;
     contact: string;
     email: string;
-    country: string;
   }) => {
     setIsSubmitting(true);
     try {
@@ -151,7 +118,7 @@ export default function PoppupStepQuestionnaire({
         name: formData.name,
         email: formData.email,
         phone: formData.contact,
-        company: formData.country,
+        company: "",
         message: JSON.stringify(submissionData),
         title: "Brief request from website",
       };
@@ -187,7 +154,7 @@ export default function PoppupStepQuestionnaire({
         }
         
         onClose();
-        window.location.href = "/thank-you";
+        window.location.href = "/key-growth";
       } else {
         console.error("Failed to submit form");
       }
@@ -228,14 +195,17 @@ export default function PoppupStepQuestionnaire({
         </button>
         
         <div className={styles.questionnaireWrapper}>
-          {/* Header */}
+          {/* Header - Heading/Title and Progress Indicator */}
           <div className={styles.header}>
-            <h1 className={`${styles.mainHeading} lg:max-w-3xl`}>
-              Just Tell Us What You Need & Get
-              The <span className="text-[#0fdac2]">Best Price</span> Instantly!
-            </h1>
-            <div className={styles.separator}></div>
-            
+            {currentStep === "questionnaire-personal-detail" ? (
+              <h2 className={styles.personalDetailsHeading}>
+                Just Tell Us What You Need & Get The <span className={styles.highlightText}>Best Price</span> Instantly
+              </h2>
+            ) : (
+              currentStepData && (
+                <h2 className={styles.stepTitle}>{currentStepData.title}</h2>
+              )
+            )}
             {/* Progress Indicator */}
             <div className={styles.progressContainer}>
               <div className={styles.progressInfo}>
@@ -253,7 +223,7 @@ export default function PoppupStepQuestionnaire({
           </div>
 
           {/* Form Area */}
-          <div className={styles.formArea}>
+          <div className={`${styles.formArea} ${currentStep === "questionnaire-personal-detail" ? styles.formAreaLastStep : ""}`}>
             {currentStep === "questionnaire-personal-detail" ? (
               <PersonalDetailsForm
                 key="personal-details-form"
@@ -268,28 +238,26 @@ export default function PoppupStepQuestionnaire({
                   <div className={`${styles.stepWrapper} ${fadeIn ? styles.fadeIn : styles.fadeOut}`}>
                     <QuestionnaireStep
                       key={currentStepData.id}
-                      step={{
-                        ...currentStepData,
-                        multiSelect: true, 
-                        maxSelections: 2, 
-                      }}
+                      step={currentStepData}
                       onSelect={handleOptionSelect}
                       onBack={handleBack}
                       selectedValue={
-                        
-                        answers[currentStepData.id] 
-                          ? (() => {
-                              try {
-                                const parsed = JSON.parse(answers[currentStepData.id]);
-                                return Array.isArray(parsed) ? parsed : [];
-                              } catch {
-                                // Fallback for old format (comma-separated)
-                                return answers[currentStepData.id].split(",").filter(v => v.trim());
-                              }
-                            })()
-                          : []
+                        currentStepData.multiSelect
+                          ? (answers[currentStepData.id] 
+                              ? (() => {
+                                  try {
+                                    const parsed = JSON.parse(answers[currentStepData.id]);
+                                    return Array.isArray(parsed) ? parsed : [];
+                                  } catch {
+                                    // Fallback for old format (comma-separated)
+                                    return answers[currentStepData.id].split(",").filter(v => v.trim());
+                                  }
+                                })()
+                              : [])
+                          : answers[currentStepData.id]
                       }
-                      showBack={false}
+                      showBack={currentStep !== "step-1"}
+                      hideButtons={true}
                     />
                   </div>
                 )}
@@ -298,15 +266,72 @@ export default function PoppupStepQuestionnaire({
           </div>
         </div>
         
-        {/* Footer with Back Button - Outside scrollable area */}
-        {(stepHistory.length > 1 || currentStep !== "step-1") && (
-          <div className={styles.popupFooter}>
+        {/* Fixed Buttons at Bottom */}
+        {currentStep !== "questionnaire-personal-detail" && currentStepData && (
+          <div className={styles.fixedButtonsContainer}>
+            {currentStep !== "step-1" && (
+              <Button
+                type="button"
+                onClick={handleBack}
+                variant="primary"
+                size="md"
+                className={styles.backButton}
+                icon={<ArrowLeftIcon />}
+                iconPosition="left"
+              >
+                Back
+              </Button>
+            )}
+            {currentStepData.multiSelect && (
+              <Button
+                onClick={() => {
+                  const nextStep = currentStepData.options[0]?.nextStep;
+                  if (nextStep) {
+                    const currentAnswer = answers[currentStepData.id];
+                    let selectedValues: string[] = [];
+                    if (currentAnswer) {
+                      try {
+                        const parsed = JSON.parse(currentAnswer);
+                        selectedValues = Array.isArray(parsed) ? parsed : [];
+                      } catch {
+                        selectedValues = currentAnswer.split(",").filter(v => v.trim());
+                      }
+                    }
+                    const currentValue = JSON.stringify(selectedValues);
+                    handleOptionSelect(currentStepData.id, currentValue, nextStep);
+                  }
+                }}
+                variant="primary"
+                size="md"
+                className={styles.continueButton}
+                icon={<ArrowRightIcon />}
+                iconPosition="right"
+                disabled={(() => {
+                  const currentAnswer = answers[currentStepData.id];
+                  if (!currentAnswer) return true;
+                  try {
+                    const parsed = JSON.parse(currentAnswer);
+                    return !Array.isArray(parsed) || parsed.length === 0;
+                  } catch {
+                    return currentAnswer.split(",").filter(v => v.trim()).length === 0;
+                  }
+                })()}
+              >
+                Continue
+              </Button>
+            )}
+          </div>
+        )}
+        
+        {/* Fixed Back Button for Last Step (Personal Details) */}
+        {currentStep === "questionnaire-personal-detail" && stepHistory.length > 1 && (
+          <div className={styles.fixedButtonsContainer}>
             <Button
               type="button"
               onClick={handleBack}
               variant="primary"
               size="md"
-              className={styles.footerBackButton}
+              className={styles.backButton}
               icon={<ArrowLeftIcon />}
               iconPosition="left"
             >

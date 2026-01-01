@@ -6,14 +6,14 @@ import styles from "./page.module.css";
 
 export default function ThankYouPage() {
   return (
-    <section className={`${styles.thankYouSection} ${styles.starsBackground} sectionPadding`}>
+    <section className={`${styles.thankYouSection} ${styles.starsBackground} sectionPadding heroBannerPaddingTop`}>
       <div className={styles.starsLayer3}></div>
       <Container maxWidth="2xl" className={styles.container}>
         <div className={styles.thankYouArea}>
           <h1 className={styles.thankYouHeading}>Thank You!</h1>
           <div className={styles.thankYouMessage}>
             <h2 className={styles.thankYouSubheading}>
-              We Will Get In Touch You Shortly
+              We Will Get In Touch With You Shortly
             </h2>
           </div>
           

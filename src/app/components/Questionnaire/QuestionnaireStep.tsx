@@ -2,6 +2,7 @@
 
 import styles from "./Questionnaire.module.css";
 import Button from "../Button";
+import { ArrowLeftIcon } from "../../icons";
 
 export interface Option {
   id: string;
@@ -29,6 +30,7 @@ interface QuestionnaireStepProps {
   onBack: () => void;
   selectedValue?: string | string[];
   showBack?: boolean;
+  hideButtons?: boolean; // Hide buttons in step component (for brief page footer)
 }
 
 export default function QuestionnaireStep({
@@ -37,9 +39,10 @@ export default function QuestionnaireStep({
   onBack,
   selectedValue,
   showBack = true,
+  hideButtons = false,
 }: QuestionnaireStepProps) {
   const isMultiSelect = step.multiSelect === true;
-  const maxSelections = step.maxSelections || 2;
+  const maxSelections = step.maxSelections || Infinity; // Allow unlimited selections if not specified
   const selectedValues = isMultiSelect 
     ? (Array.isArray(selectedValue) ? selectedValue : [])
     : [];
@@ -56,14 +59,15 @@ export default function QuestionnaireStep({
         // Always use JSON string to handle values with commas
         onSelect(step.id, JSON.stringify(newValues), "");
       } else {
-        // Select (if under max)
-        if (selectedValues.length < maxSelections) {
-          const newValues = [...selectedValues, option.value];
-          const shouldAutoAdvance = newValues.length === maxSelections;
-          
-          // Always use JSON string to handle values with commas
-          onSelect(step.id, JSON.stringify(newValues), shouldAutoAdvance ? option.nextStep : "");
-        }
+        // Select (no limit for multiple select - user can select 1 or all)
+        const newValues = [...selectedValues, option.value];
+        
+        // Auto-advance if all options are selected
+        const allOptionsSelected = newValues.length === step.options.length;
+        const nextStep = allOptionsSelected ? step.options[0]?.nextStep : "";
+        
+        // Always use JSON string to handle values with commas
+        onSelect(step.id, JSON.stringify(newValues), nextStep);
       }
     } else {
       // Single select - proceed to next step
@@ -85,28 +89,16 @@ export default function QuestionnaireStep({
     return selectedValue === value;
   };
 
-  const canProceed = () => {
-    if (isMultiSelect) {
-      return selectedValues.length > 0;
-    }
-    return true;
-  };
 
   return (
     <div
       className={`${styles.stepContainer} ${getColumnClass()}`}
     >
-      <h2 className={styles.stepTitle}>{step.title}</h2>
-      {isMultiSelect && selectedValues.length > 0 && (
-        <p className={styles.multiSelectHint}>
-          ({selectedValues.length}/{maxSelections} selected)
-        </p>
-      )}
-      
       <div className={styles.optionsContainer}>
         {step.options.map((option) => {
           const optionSelected = isOptionSelected(option.value);
-          const isDisabled = isMultiSelect && !optionSelected && selectedValues.length >= maxSelections;
+          // No disabling for multiple select - user can select unlimited options
+          const isDisabled = false;
           
           return (
             <div 
@@ -150,32 +142,50 @@ export default function QuestionnaireStep({
         })}
       </div>
 
-      {/* {isMultiSelect && canProceed() && (
+      {/* Buttons Container - Continue and Back in one line */}
+      {/* Hide buttons if hideButtons prop is true (for brief page footer) */}
+      {!hideButtons && (
+      <div className={styles.buttonsContainer}>
+        {showBack && (
+          <Button
+            type="button"
+            onClick={onBack}
+            variant="primary"
+            size="md"
+            className={styles.backButton}
+            icon={<ArrowLeftIcon />}
+            iconPosition="left"
+          >
+            Back
+          </Button>
+        )}
+        {/* Show Continue button for both multiple and single select */}
+        {/* For single select: disabled when no selection, enabled when selection exists (for back navigation) */}
+        {/* For multiple select: disabled when no selection */}
         <Button
           onClick={() => {
             // Find the next step from any option (they all have the same nextStep)
             const nextStep = step.options[0]?.nextStep;
             if (nextStep) {
-              // Trigger navigation by calling onSelect with the current selections
-              onSelect(step.id, selectedValues.join(","), nextStep);
+              if (isMultiSelect) {
+                // For multiple select, use JSON string
+                const currentValue = JSON.stringify(selectedValues);
+                onSelect(step.id, currentValue, nextStep);
+              } else {
+                // For single select, use the selected value
+                const singleSelectedValue = typeof selectedValue === 'string' ? selectedValue : '';
+                onSelect(step.id, singleSelectedValue, nextStep);
+              }
             }
           }}
           variant="primary"
           size="md"
           className={styles.continueButton}
+          disabled={isMultiSelect ? selectedValues.length === 0 : !selectedValue || (typeof selectedValue === 'string' && selectedValue.trim() === '')}
         >
           Continue
         </Button>
-      )} */}
-
-      {showBack && (
-        <button
-          type="button"
-          onClick={onBack}
-          className={styles.backButton}
-        >
-          ← Back
-        </button>
+      </div>
       )}
 
     </div>

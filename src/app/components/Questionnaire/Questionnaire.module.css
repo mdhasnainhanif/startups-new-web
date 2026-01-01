@@ -136,11 +136,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 1.3rem;
+  padding-top: 1.5rem;
 }
 
 .stepTitle {
-  font-size: 1.5rem;
+  font-size: 2.5rem;
   font-weight: 600;
   color: #ffffff;
   text-align: center;
@@ -362,9 +362,18 @@ input[type="checkbox"].radioInput:checked+.pinkLabel {
   justify-self: center;
 }
 
+/* Buttons Container - Continue and Back in one line */
+.buttonsContainer {
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+}
+
 /* Continue Button for Multi-Select */
 .continueButton {
-  margin-top: 1.5rem;
   padding: 1rem 2rem;
   background: var(--color-purple);
   border: 2px solid var(--color-purple);
@@ -377,30 +386,22 @@ input[type="checkbox"].radioInput:checked+.pinkLabel {
   font-family: var(--font-graphik-regular), Arial, Helvetica, sans-serif;
   box-shadow: 0 0 20px rgba(100, 59, 255, 0.3);
   width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
 }
 
-.continueButton:hover {
+.continueButton:hover:not(:disabled) {
   box-shadow: 0 0 30px rgba(100, 59, 255, 0.5);
   transform: translateY(-2px);
 }
 
+.continueButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 /* Back Button */
 .backButton {
-  margin-top: 1.5rem;
-  background: transparent;
-  border: none;
-  color: #ffffff;
-  font-size: 1rem;
-  cursor: pointer;
-  padding: 0.5rem 0;
-  transition: opacity 0.3s ease;
-  font-family: var(--font-graphik-regular), Arial, Helvetica, sans-serif;
-  text-align: left;
   width: fit-content;
-  display: block;
-  margin-left: 4rem;
+  /* min-width: 120px; */
 }
 
 .personalDetailsForm .backButton {
@@ -419,6 +420,20 @@ input[type="checkbox"].radioInput:checked+.pinkLabel {
   width: 100%;
 }
 
+.personalDetailsHeading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-family: var(--font-wf-visual-sans), sans-serif;
+}
+
+.personalDetailsHeading .highlightText {
+  color: var(--color-primary);
+}
+
 .personalDetailsForm {
   display: flex;
   flex-direction: column;
@@ -434,6 +449,8 @@ input[type="checkbox"].radioInput:checked+.pinkLabel {
 
 .formGroup {
   width: 100%;
+  position: relative;
+  overflow: visible;
 }
 
 .formInput {
@@ -478,7 +495,63 @@ select.formInput option {
 
 .formInputSmall {
   padding: 0.875rem 1.25rem;
+  padding-right: 3rem;
+  padding-left: 3.5rem;
   font-size: 0.95rem;
+}
+
+.inputWrapper {
+  position: relative;
+  width: 100%;
+  overflow: visible;
+}
+
+.inputIcon {
+  position: absolute;
+  left: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  pointer-events: none;
+  width: 20px;
+  height: 20px;
+}
+
+.inputIcon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.filledIcon {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  pointer-events: none;
+  width: 18px;
+  height: 18px;
+  opacity: 1;
+  visibility: visible;
+}
+
+.filledIcon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}
+
+.inputWrapper:has(.phoneInput) .filledIcon {
+  z-index: 101;
 }
 
 .formInputSmall:-webkit-autofill,
@@ -642,6 +715,16 @@ select.formInput option {
     font-size: 1.25rem;
   }
 
+  .personalDetailsHeading {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .stepContainer {
+    padding-top: 0.5rem;
+    min-height: auto;
+  }
+
   .optionLabel {
     padding: 1rem 1.25rem;
     font-size: 1rem;
@@ -703,6 +786,11 @@ select.formInput option {
     padding-bottom: 80px;
   }
 
+  .personalDetailsHeading {
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+
   .mainHeading {
     font-size: 1.35rem;
     margin-bottom: 0rem;
@@ -712,6 +800,16 @@ select.formInput option {
   .stepTitle {
     font-size: 1.125rem;
     margin-bottom: 1.5rem;
+  }
+
+  .stepContainer {
+    padding-top: 0.5rem;
+    min-height: auto;
+  }
+
+  .personalDetailsHeading {
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
   }
 
   .optionsContainer {
@@ -896,6 +994,7 @@ select.formInput option {
   font-size: 0.95rem;
   font-weight: 500;
   padding: 0.875rem 1.25rem;
+  padding-left: 0.4rem;
   outline: none;
   font-family: var(--font-graphik-regular), Arial, Helvetica, sans-serif;
 }
@@ -909,6 +1008,8 @@ select.formInput option {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  position: relative;
+  z-index: 5;
 }
 
 .phoneInput :global(.PhoneInputCountryIcon) {
@@ -970,7 +1071,7 @@ select.formInput option {
 
 /* Style the dropdown menu container */
 .phoneInput :global(.PhoneInputCountryIcon--border) {
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1);
+  box-shadow: none;
 }
 
 /* Apply greenInput styles - always apply since phoneInput is used with greenInput */

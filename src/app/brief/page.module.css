@@ -78,7 +78,26 @@
   }
 
   .questionnaireWrapper {
-    padding-bottom: 3rem !important;
+    padding-top: 3rem !important;
     overflow-y: visible;
   }
+}
+
+/* Ensure filled icons are visible on brief page */
+.briefPage :global(.filledIcon) {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: absolute !important;
+  z-index: 100 !important;
+}
+
+.briefPage :global(.inputWrapper) {
+  position: relative !important;
+  overflow: visible !important;
+}
+
+.briefPage :global(.formGroup) {
+  position: relative !important;
+  overflow: visible !important;
 }

@@ -30,7 +30,7 @@ const StatCard = ({ stat, index }: { stat: typeof statsData.stats[0]; index: num
       className="relative bg-white/5 border border-white/10 rounded-2xl p-6 lg:p-8 text-center group hover:border-[var(--color-purple)]/50 transition-all duration-300 hover:shadow-lg"
     >
       <div className="w-12 h-12 lg:w-14 lg:h-14 rounded-[50%] bg-[#2e2277] flex items-center justify-center mx-auto mb-4 transition-colors">
-        <IconComponent className="w-6 h-6 lg:w-7 lg:h-7 text-[var(--color-purple)]" />
+          <img src={stat.icon} alt={stat.label} className="w-6 h-6 lg:w-7 lg:h-7" />
       </div>
 
       <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--color-primary)] mb-2">

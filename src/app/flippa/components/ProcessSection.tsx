@@ -33,7 +33,7 @@ export default function ProcessSection() {
               <div className="flex items-center justify-between mb-8">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 lg:w-12 lg:h-12 rounded-[50%] bg-[#2e2277] flex items-center justify-center">
-                    <TrendingUp className="w-5 h-5 lg:w-6 lg:h-6 text-[var(--color-purple)]" />
+                    <img src="/assets/images/flippa/process/1.svg" alt="Value Growth Timeline" className="w-5 h-5 lg:w-6 lg:h-6" />
                   </div>
                   <div>
                     <h3 className="text-lg lg:text-xl font-bold text-white">
