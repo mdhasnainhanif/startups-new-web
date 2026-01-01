@@ -20,6 +20,7 @@ export default function HeroBanner({
   ctaButton,
   className = "",
   onButtonClick,
+  isHomePage = false,
 }: HeroBannerProps) {
   // Function to parse subheadline and highlight text in brackets
   const parseSubheadline = (text: string) => {
@@ -63,7 +64,7 @@ export default function HeroBanner({
   };
 
   return (
-    <section className={`relative sectionPadding overflow-hidden heroStarsBackground heroBannerPaddingTop ${className}`}>
+    <section className={`relative sectionPadding overflow-hidden heroStarsBackground heroBannerPaddingTop ${isHomePage ? 'homePageHero' : ''} ${className}`}>
       <div className="starsLayer3"></div>
       {/* LCP Image - Optimized with Next.js Image */}
       <div className="absolute inset-0 z-0">
@@ -92,7 +93,8 @@ export default function HeroBanner({
         />
       </div>
       <Container maxWidth="2xl" className={`${styles.content} relative z-10`}>
-        <div className="flex flex-col items-center text-center gap-6 md:gap-5 lg:pt-40 md:pt-10 sectionHeading">
+        <div className={`flex flex-col ${isHomePage ? 'items-center text-center' : 
+          `${styles.nonHomeContent}`} gap-6 md:gap-5 lg:pt-40 md:pt-10 sectionHeading`}>
           {/* 300+ Companies Badge */}
           <div>
             <p className={`${styles.companiesBadge}`}>

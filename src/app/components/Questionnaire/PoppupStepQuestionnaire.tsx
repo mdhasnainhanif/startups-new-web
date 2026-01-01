@@ -282,11 +282,11 @@ export default function PoppupStepQuestionnaire({
                 Back
               </Button>
             )}
-            {currentStepData.multiSelect && (
-              <Button
-                onClick={() => {
-                  const nextStep = currentStepData.options[0]?.nextStep;
-                  if (nextStep) {
+            <Button
+              onClick={() => {
+                const nextStep = currentStepData.options[0]?.nextStep;
+                if (nextStep) {
+                  if (currentStepData.multiSelect) {
                     const currentAnswer = answers[currentStepData.id];
                     let selectedValues: string[] = [];
                     if (currentAnswer) {
@@ -299,27 +299,39 @@ export default function PoppupStepQuestionnaire({
                     }
                     const currentValue = JSON.stringify(selectedValues);
                     handleOptionSelect(currentStepData.id, currentValue, nextStep);
+                  } else {
+                    const selectedValue = answers[currentStepData.id] || '';
+                    handleOptionSelect(currentStepData.id, selectedValue, nextStep);
                   }
-                }}
-                variant="primary"
-                size="md"
-                className={styles.continueButton}
-                icon={<ArrowRightIcon />}
-                iconPosition="right"
-                disabled={(() => {
-                  const currentAnswer = answers[currentStepData.id];
-                  if (!currentAnswer) return true;
-                  try {
-                    const parsed = JSON.parse(currentAnswer);
-                    return !Array.isArray(parsed) || parsed.length === 0;
-                  } catch {
-                    return currentAnswer.split(",").filter(v => v.trim()).length === 0;
-                  }
-                })()}
-              >
-                Continue
-              </Button>
-            )}
+                }
+              }}
+              variant="primary"
+              size="md"
+              className={styles.continueButton}
+              icon={<ArrowRightIcon />}
+              iconPosition="right"
+              disabled={
+                currentStepData.multiSelect
+                  ? (() => {
+                      // For multiple select: disabled when no selections
+                      const currentAnswer = answers[currentStepData.id];
+                      if (!currentAnswer) return true;
+                      try {
+                        const parsed = JSON.parse(currentAnswer);
+                        return !Array.isArray(parsed) || parsed.length === 0;
+                      } catch {
+                        return currentAnswer.split(",").filter(v => v.trim()).length === 0;
+                      }
+                    })()
+                  : (() => {
+                      // For single select: disabled when no selection, enabled when selection exists (for back navigation)
+                      const answer = answers[currentStepData.id];
+                      return !answer || answer.trim() === "";
+                    })()
+              }
+            >
+              Continue
+            </Button>
           </div>
         )}
         

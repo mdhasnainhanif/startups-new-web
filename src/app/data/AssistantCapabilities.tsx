@@ -76,19 +76,19 @@ export const ASSISTANT_CAPABILITIES_DATA: AssistantCapabilitiesData = {
       description: "Maintain strong relationships with your clients through timely communication and personalized follow-ups.",
     },
     {
-      id: "analytics-reporting",
+      id: "analytics-performance-reporting",
       icon: "/assets/images/key-growth/slider-icons/11.svg",
       title: "Analytics & Performance Reporting",
       description: "Get detailed insights and reports on your business performance to make data-driven decisions.",
     },
     {
-      id: "analytics-reporting",
+      id: "social-media-handling-management",
       icon: "/assets/images/key-growth/slider-icons/12.svg",
       title: "Social Media Handling and Management",
       description: "Get detailed insights and reports on your business performance to make data-driven decisions.",
     },
     {
-      id: "analytics-reporting",
+      id: "telesales-marketing",
       icon: "/assets/images/key-growth/slider-icons/13.svg",
       title: "Tele sales and Marketing",
       description: "Get detailed insights and reports on your business performance to make data-driven decisions.",

@@ -139,7 +139,7 @@ export default function AssistantCapabilities() {
             className={styles.swiper}
           >
             {ASSISTANT_CAPABILITIES_DATA.capabilities.map((capability, index) => (
-              <SwiperSlide key={capability.id}>
+              <SwiperSlide key={`ltr-${capability.id}-${index}`}>
                 <div className={styles.card}>
                   <IconComponent icon={capability.icon} />
                   <h3 className={styles.cardTitle}>{capability.title}</h3>
@@ -215,7 +215,7 @@ export default function AssistantCapabilities() {
             className={styles.swiper}
           >
             {ASSISTANT_CAPABILITIES_DATA.capabilities.map((capability, index) => (
-              <SwiperSlide key={`rtl-${capability.id}`}>
+              <SwiperSlide key={`rtl-${capability.id}-${index}`}>
                 <div className={styles.card}>
                   <IconComponent icon={capability.icon} />
                   <h3 className={styles.cardTitle}>{capability.title}</h3>

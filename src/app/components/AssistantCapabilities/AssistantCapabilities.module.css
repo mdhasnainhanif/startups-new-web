@@ -58,6 +58,15 @@
   margin-top: 1.5rem;
 }
 
+div.marqueeWrapper {
+  padding-top: 0rem;
+}
+
+.fullWidthSlider:last-child {
+  margin-top: 0rem;
+  padding-top: 0rem;
+}
+
 .swiperWrapper {
   position: relative;
   width: 100%;
@@ -165,8 +174,8 @@
 }
 
 .iconWrapper {
-  width: 48px;
-  height: 48px;
+  height: 4rem;
+  width: 4rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -179,7 +188,7 @@
 .iconImage {
   width: 100%;
   height: 100%;
-  max-width: 1.325rem;
+  max-width: 1.725rem;
   object-fit: contain;
   display: block;
 }
@@ -377,9 +386,9 @@
   }
 }
 
-/* Marquee Styles - Default hidden on desktop */
+/* Marquee Styles - Show on all devices */
 .marqueeWrapper {
-  display: none;
+  display: block;
   width: 100%;
   overflow: hidden;
   position: relative;
@@ -391,12 +400,12 @@
   display: flex;
   gap: 1.5rem;
   width: fit-content;
-  animation: marquee 50s linear infinite;
+  animation: marquee 70s linear infinite;
   will-change: transform;
 }
 
 .marqueeTrackReverse {
-  animation: marqueeReverse 50s linear infinite;
+  animation: marqueeReverse 70s linear infinite;
 }
 
 .marqueeCard {
@@ -404,7 +413,25 @@
   width: 85vw;
   max-width: 22rem;
   min-width: 18rem;
-  padding: 0 0.75rem;
+  padding: 0;
+}
+
+@media (min-width: 1024px) {
+  .marqueeCard {
+    width: 22rem;
+    max-width: 22rem;
+    min-width: 22rem;
+    padding: 0;
+  }
+  
+  .marqueeWrapper {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  
+  .fullWidthSlider {
+    padding: 1rem 0;
+  }
 }
 
 .marqueeCard .card {
@@ -432,13 +459,13 @@
   }
 }
 
-/* Desktop: Hide Marquee, Show Swiper */
+/* Desktop: Show Marquee, Hide Swiper */
 @media (min-width: 1024px) {
   .marqueeWrapper {
-    display: none !important;
+    display: block !important;
   }
 
   .swiperWrapper {
-    display: block !important;
+    display: none !important;
   }
 }
