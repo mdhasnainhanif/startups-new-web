@@ -5,8 +5,6 @@ import { useParams, notFound } from "next/navigation";
 import Container from "../../components/Container";
 import Image from "next/image";
 import styles from "./page.module.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 
 interface FAQItem {
   question: string;
@@ -79,6 +77,8 @@ export default function SingleBlogClient() {
         if (!data?.length) return setPost(null);
         const p = data[0];
         let h = extractHeadings(p.content.rendered);
+        // Filter to only show h1 and h2 headings (remove inner headings)
+        h = h.filter((heading) => heading.level <= 2);
         if (p.meta?._faqs_data?.length) h.push({ id: "faqs", text: "FAQs", level: 2 });
         setHeadings(h);
         setContent(addHeadingIds(p.content.rendered, h));
@@ -92,7 +92,41 @@ export default function SingleBlogClient() {
     fetchPost();
   }, [slug]);
 
-  if (loading) return null;
+  if (loading) {
+    return (
+      <section className={`sectionPadding ${styles.blogSection}`}>
+        <Container maxWidth="xl">
+          <div className={styles.blogContainer}>
+            {/* TOC Skeleton */}
+            <aside className={styles.sidebar}>
+              <div className={styles.tocContainer}>
+                <div className={`${styles.skeleton} ${styles.skeletonTocTitle}`}></div>
+                <div className="space-y-3">
+                  {[1, 2, 3, 4, 5].map((i) => (
+                    <div key={i} className={`${styles.skeleton} ${styles.skeletonTocItem}`}></div>
+                  ))}
+                </div>
+              </div>
+            </aside>
+
+            {/* Content Skeleton */}
+            <article className={styles.contentArea}>
+              <div className={`${styles.skeleton} ${styles.skeletonTitle}`}></div>
+              <div className={`${styles.skeleton} ${styles.skeletonMeta}`}></div>
+              <div className={`${styles.skeleton} ${styles.skeletonImage}`}></div>
+              <div className="mt-6 space-y-3">
+                <div className={`${styles.skeleton} ${styles.skeletonContent}`}></div>
+                <div className={`${styles.skeleton} ${styles.skeletonContent}`}></div>
+                <div className={`${styles.skeleton} ${styles.skeletonContentShort}`}></div>
+                <div className={`${styles.skeleton} ${styles.skeletonContent}`}></div>
+                <div className={`${styles.skeleton} ${styles.skeletonContent}`}></div>
+              </div>
+            </article>
+          </div>
+        </Container>
+      </section>
+    );
+  }
   if (!post) notFound();
 
   const featuredImage = post._embedded?.["wp:featuredmedia"]?.[0]?.source_url || null;
@@ -117,13 +151,54 @@ const formatDate = (dateString: string): string => {
             <div className={styles.tocContainer}>
               <h3 className={styles.tocTitle}>Table of Contents</h3>
               <ul className={styles.tocList}>
-                {headings.map((h) => (
-                  <li key={h.id} className={`${styles.tocItem} ${styles[`level${h.level}`]}`}>
-                    <a href={`#${h.id}`} className={styles.tocLink}>
-                      {h.text}
-                    </a>
-                  </li>
-                ))}
+                {headings.map((h, index) => {
+                  let displayText = h.text;
+                  
+                  // Only add number to FAQs based on last heading's number
+                  if (h.id === "faqs") {
+                    // Find the last heading before FAQs
+                    const previousHeadings = headings.slice(0, index);
+                    if (previousHeadings.length > 0) {
+                      const lastHeading = previousHeadings[previousHeadings.length - 1];
+                      // Extract number from last heading text (format: "X. Title" or "X. Y. Title")
+                      const numberMatch = lastHeading.text.match(/^(\d+)\./);
+                      if (numberMatch) {
+                        const lastNumber = parseInt(numberMatch[1]);
+                        displayText = `${lastNumber + 1}. ${h.text}`;
+                      } else {
+                        // If no number found, start from 1
+                        displayText = `1. ${h.text}`;
+                      }
+                    } else {
+                      // If FAQs is the first heading, start from 1
+                      displayText = `1. ${h.text}`;
+                    }
+                  }
+                  
+                  return (
+                    <li key={h.id} className={`${styles.tocItem} ${styles[`level${h.level}`]}`}>
+                      <a
+                        href={`#${h.id}`}
+                        className={styles.tocLink}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          const element = document.getElementById(h.id);
+                          if (element) {
+                            const offset = 100; // Offset for sticky header (matches CSS scroll-margin-top)
+                            const elementPosition = element.getBoundingClientRect().top;
+                            const offsetPosition = elementPosition + window.pageYOffset - offset;
+                            window.scrollTo({
+                              top: offsetPosition,
+                              behavior: "smooth",
+                            });
+                          }
+                        }}
+                      >
+                        {displayText}
+                      </a>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           </aside>
@@ -203,20 +278,35 @@ const formatDate = (dateString: string): string => {
                     <div key={i} className="border border-white/20 rounded-lg overflow-hidden">
                       <button
                         onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                        className="w-full flex justify-between items-center px-6 py-4 text-left text-white font-semibold bg-white/5 hover:bg-white/10 transition"
+                        className="w-full flex justify-between items-center px-6 py-4 text-left text-white font-semibold bg-white/5 hover:bg-white/10 transition-colors duration-200"
                       >
-                        <span>{faq.question}</span>
-                        <FontAwesomeIcon
-                          icon={faAngleDown}
-                          className={`transition-transform ${openFaq === i ? "rotate-180" : ""}`}
-                        />
+                        <span className="pr-4">{faq.question}</span>
+                        <svg
+                          className={`w-5 h-5 flex-shrink-0 transition-transform duration-300 ${
+                            openFaq === i ? "rotate-180" : ""
+                          }`}
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M19 9l-7 7-7-7"
+                          />
+                        </svg>
                       </button>
-                      {openFaq === i && (
+                      <div
+                        className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                          openFaq === i ? "max-h-[2000px] opacity-100" : "max-h-0 opacity-0"
+                        }`}
+                      >
                         <div
                           className="px-6 py-4 text-white/90 bg-white/5"
                           dangerouslySetInnerHTML={{ __html: faq.answer }}
                         />
-                      )}
+                      </div>
                     </div>
                   ))}
                 </div>

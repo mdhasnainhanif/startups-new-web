@@ -78,7 +78,7 @@ export default function Contact() {
               </p>
               <p className={`${styles.descriptionText2} hidden md:block`}>Share as much detail as you like so our team can understand your goals and offer the best support possible for your business growth and needs today.</p>
               <div className="flex flex-col gap-4 mt-[2.5rem] hidden md:flex">
-                  <a href="tel:+13466269169" className="flex items-center gap-3 text-white">
+                  <a href="tel:+13466269169" className="flex items-center gap-3 text-white w-fit">
                     <div className="rounded-full bg-[#2E2277] p-2 flex items-center justify-center">
                       <Image 
                         src="/assets/images/contact-icons/phone.svg" 
@@ -89,7 +89,7 @@ export default function Contact() {
                     </div>
                     +1 346-626-9169
                   </a>
-                <a href="mailto:info@startupsadvisory.ai" className="flex items-center gap-3 text-white">
+                <a href="mailto:info@startupsadvisory.ai" className="flex items-center gap-3 text-white w-fit">
                   <div className="rounded-full bg-[#2E2277] p-2 flex items-center justify-center">
                     <Image 
                     src="/assets/images/contact-icons/email.svg" 

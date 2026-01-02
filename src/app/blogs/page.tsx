@@ -108,66 +108,66 @@ export default function BlogsPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [loading, setLoading] = useState(true);
-  const [initialLoad, setInitialLoad] = useState(true);
-
-  const fetchBlogs = async (page: number) => {
-    setLoading(true);
-    try {
-      // Add timestamp to prevent caching
-      const timestamp = new Date().getTime();
-      const response = await fetch(
-        `${API_URL}?page=${page}&per_page=${POSTS_PER_PAGE}&_embed=wp:featuredmedia,wp:term&_=${timestamp}`,
-        {
-          cache: 'no-store',
-        }
-      );
-      
-      if (!response.ok) {
-        throw new Error("Failed to fetch blogs");
-      }
-
-      const data: WordPressPost[] = await response.json();
-      const totalPosts = parseInt(response.headers.get("x-wp-total") || "0");
-      const totalPagesCount = Math.ceil(totalPosts / POSTS_PER_PAGE);
-      setTotalPages(totalPagesCount);
-
-      const formattedBlogs: BlogPost[] = data.map((post) => {
-        const featuredImage =
-          post._embedded?.["wp:featuredmedia"]?.[0]?.source_url || DUMMY_IMAGE;
-        
-        // Get category from embedded terms
-        const categoryTerms = post._embedded?.["wp:term"]?.[0] || [];
-        const category = categoryTerms.find(term => term.taxonomy === 'category')?.name || "Startup";
-        
-        return {
-          id: post.id,
-          title: trimText(post.title.rendered, 60),
-          excerpt: trimText(post.excerpt.rendered, 120),
-          date: formatDate(post.date),
-          slug: post.slug,
-          image: featuredImage,
-          link: post.link,
-          category: category,
-          _reading_time: post.meta?._reading_time,
-        };
-      });
-
-      setBlogs(formattedBlogs);
-    } catch (error) {
-      console.error("Error fetching blogs:", error);
-      setBlogs([]);
-    } finally {
-      setLoading(false);
-      if (initialLoad) {
-        setTimeout(() => {
-          setInitialLoad(false);
-        }, 1000);
-      }
-    }
-  };
 
   useEffect(() => {
-    fetchBlogs(currentPage);
+    const abortController = new AbortController();
+    
+    const loadBlogs = async () => {
+      setLoading(true);
+      try {
+        const response = await fetch(
+          `${API_URL}?page=${currentPage}&per_page=${POSTS_PER_PAGE}&_embed=wp:featuredmedia,wp:term`,
+          {
+            cache: 'no-store', // Always get latest data from API
+            signal: abortController.signal,
+          }
+        );
+        
+        if (!response.ok) {
+          throw new Error("Failed to fetch blogs");
+        }
+
+        const data: WordPressPost[] = await response.json();
+        const totalPosts = parseInt(response.headers.get("x-wp-total") || "0");
+        const totalPagesCount = Math.ceil(totalPosts / POSTS_PER_PAGE);
+        setTotalPages(totalPagesCount);
+
+        const formattedBlogs: BlogPost[] = data.map((post) => {
+          const featuredImage =
+            post._embedded?.["wp:featuredmedia"]?.[0]?.source_url || DUMMY_IMAGE;
+          
+          const categoryTerms = post._embedded?.["wp:term"]?.[0] || [];
+          const category = categoryTerms.find(term => term.taxonomy === 'category')?.name || "Startup";
+          
+          return {
+            id: post.id,
+            title: trimText(post.title.rendered, 60),
+            excerpt: trimText(post.excerpt.rendered, 120),
+            date: formatDate(post.date),
+            slug: post.slug,
+            image: featuredImage,
+            link: post.link,
+            category: category,
+            _reading_time: post.meta?._reading_time,
+          };
+        });
+
+        setBlogs(formattedBlogs);
+      } catch (error: any) {
+        if (error.name !== 'AbortError') {
+          console.error("Error fetching blogs:", error);
+          setBlogs([]);
+        }
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadBlogs();
+
+    return () => {
+      abortController.abort();
+    };
   }, [currentPage]);
 
   const handlePageChange = (page: number) => {
