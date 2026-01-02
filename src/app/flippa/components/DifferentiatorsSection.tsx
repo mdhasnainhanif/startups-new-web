@@ -11,7 +11,7 @@ export default function DifferentiatorsSection() {
         className="absolute inset-0 opacity-30 hidden sm:block"
         style={{
           backgroundImage: `linear-gradient(rgba(15, 218, 194, 0.1) 1px, transparent 1px),
-                            linear-gradient(90deg, rgba(15, 218, 194, 0.1) 1px, transparent 1px)`,
+                            linear-gradient(90deg, rgba(11, 49, 45, 0.1) 1px, transparent 1px)`,
           backgroundSize: "50px 50px",
         }}
       />
