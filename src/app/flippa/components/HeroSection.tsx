@@ -7,19 +7,14 @@ import { heroData } from "../../data/FlippaPageData";
 import Button from "../../components/Button";
 import Container from "../../components/Container";
 import { useCountUp } from "./use-count-up";
-
 const StatItem = ({ stat, index }: { stat: { value: string; label: string }; index: number }) => {
-  // Parse the value to extract number and suffix/prefix
   const parseValue = (value: string) => {
-    // Handle "2-5×" format - convert to 2.5× with animation
     if (value.includes("-")) {
       const [start, end] = value.split("-");
       const startNum = parseFloat(start);
       const suffix = end.replace(/[0-9.]/g, "");
-      // User wants 2.5×, so animate from 2 to 2.5
       return { start: startNum, end: 2.5, suffix, prefix: "", isRange: false, decimals: 1 };
     }
-    // Handle "$50M+" format
     if (value.includes("$")) {
       const numStr = value.replace(/[^0-9.]/g, "");
       const num = parseFloat(numStr);
@@ -27,16 +22,12 @@ const StatItem = ({ stat, index }: { stat: { value: string; label: string }; ind
       const suffix = value.replace(/[$0-9.]/g, "");
       return { start: 0, end: num, suffix, prefix, isRange: false, decimals: 0 };
     }
-    // Handle "90" format
     const numStr = value.replace(/[^0-9.]/g, "");
     const num = parseFloat(numStr);
     const suffix = value.replace(/[0-9.]/g, "");
     return { start: 0, end: num, suffix, prefix: "", isRange: false, decimals: 0 };
   };
-
   const parsed = parseValue(stat.value);
-
-  // For all numeric values, use counter animation
   const { ref, formattedValue } = useCountUp({
     end: parsed.end,
     duration: 2000,
@@ -44,7 +35,6 @@ const StatItem = ({ stat, index }: { stat: { value: string; label: string }; ind
     suffix: parsed.suffix,
     decimals: parsed.decimals || 0,
   });
-
   return (
     <div ref={ref} className="text-center">
       <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--color-primary)]">
@@ -56,7 +46,6 @@ const StatItem = ({ stat, index }: { stat: { value: string; label: string }; ind
     </div>
   );
 };
-
 const StatsCounter = ({ 
   delay, 
   title, 
@@ -69,7 +58,7 @@ const StatsCounter = ({
   return (
     <MotionDiv
       delay={delay}
-      className="mt-8 md:mt-12 pt-6 md:pt-8 border-t border-white/10 max-w-2xl mx-auto px-4"
+      className="mt-8 max-w-2xl mx-auto"
     >
       <p className="text-xs md:text-sm text-white mb-3 md:mb-4">
         {title}
@@ -82,7 +71,6 @@ const StatsCounter = ({
     </MotionDiv>
   );
 };
-
 export default function HeroSection() {
   return (
     <section className="relative min-h-screen md:min-h-[90vh] flex items-center heroBannerPaddingTop 
@@ -152,16 +140,6 @@ export default function HeroSection() {
                 <ArrowRight className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
             </Button>
-            {/* <Button
-              variant="secondary"
-              size="lg"
-              className="w-full sm:w-auto group flex items-center justify-center"
-            >
-              <Link href={heroData.cta.secondary.link} className="flex items-center gap-2">
-                <Play className="w-4 h-4 md:w-5 md:h-5" />
-                {heroData.cta.secondary.text}
-              </Link>
-            </Button> */}
           </MotionDiv>
           <StatsCounter
             delay={0.5}

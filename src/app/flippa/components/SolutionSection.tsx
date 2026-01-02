@@ -39,7 +39,7 @@ export default function SolutionSection() {
                   <StaggerItem key={solution.title} delay={index * 0.1}>
                     <div className="flex items-start gap-3">
                       <div className="mt-1">
-                        <Image src="/assets/images/tick2.webp" alt="Check" width={25} height={20} className="w-full h-full" />
+                        <Image src="/assets/images/tick.webp" alt="Check" width={25} height={20} className="w-full h-full" />
                       </div>
                       <div>
                         <h4 className="text-white font-medium">{solution.title}</h4>

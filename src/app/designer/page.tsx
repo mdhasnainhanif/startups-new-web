@@ -52,6 +52,8 @@ const designerProvenSuccessData = {
         '/assets/images/portfolio/branding-kit/8.webp',
         '/assets/images/portfolio/branding-kit/9.webp',
         '/assets/images/portfolio/branding-kit/10.webp',
+        '/assets/images/portfolio/branding-kit/11.webp',
+        '/assets/images/portfolio/branding-kit/12.webp',
       ],
       gridItems: [
         { id: '1', label: 'Logo Design' },
@@ -145,6 +147,13 @@ const designerProvenSuccessData = {
         '/assets/images/portfolio/stationary/7.webp',
         '/assets/images/portfolio/stationary/8.webp',
         '/assets/images/portfolio/stationary/9.webp',
+        '/assets/images/portfolio/stationary/10.webp',
+        '/assets/images/portfolio/stationary/11.webp',
+        '/assets/images/portfolio/stationary/12.webp',
+        '/assets/images/portfolio/stationary/13.webp',
+        '/assets/images/portfolio/stationary/14.webp',
+        '/assets/images/portfolio/stationary/15.webp',
+        '/assets/images/portfolio/stationary/16.webp',
       ],
       gridItems: [
         { id: '1', label: 'Business Card' },
