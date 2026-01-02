@@ -94,6 +94,26 @@ interface BlogCarouselProps {
   showAllCategories?: boolean; // If true, show 2 recent blogs from each category
 }
 
+// Skeleton Loader Component
+const BlogSkeleton = ({ className }: { className?: string }) => (
+  <article className={`${styles.blogCard} ${className || ''}`}>
+    <div className={styles.imageContainer}>
+      <div className={`${styles.imageWrapper} ${styles.skeletonImage}`} />
+    </div>
+    <div className={styles.category}>
+      <span className={`${styles.categoryTag} ${styles.skeletonTag}`} />
+    </div>
+    <div className={`${styles.skeleton} ${styles.skeletonTitle}`} />
+    <div className={styles.blogMeta}>
+      <div className={`${styles.skeleton} ${styles.skeletonMeta}`} />
+    </div>
+    <div className={`${styles.skeleton} ${styles.skeletonExcerpt}`} />
+    <div className={styles.readButtonWrapper}>
+      <div className={`${styles.skeleton} ${styles.skeletonButton}`} />
+    </div>
+  </article>
+);
+
 export default function BlogCarousel({ category = "Design", showAllCategories = false }: BlogCarouselProps) {
   const [blogs, setBlogs] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
@@ -130,14 +150,18 @@ export default function BlogCarousel({ category = "Design", showAllCategories = 
   };
 
   useEffect(() => {
+    const abortController = new AbortController();
+    
     const fetchBlogs = async () => {
       setLoading(true);
       try {
-        const timestamp = new Date().getTime();
+        // Optimize: Reduce per_page if not showing all categories, fetch only what's needed
+        const perPage = showAllCategories ? 50 : 20;
         const response = await fetch(
-          `${API_URL}?per_page=100&_embed=wp:featuredmedia,wp:term&_=${timestamp}`,
+          `${API_URL}?per_page=${perPage}&_embed=wp:featuredmedia,wp:term`,
           {
             cache: 'no-store',
+            signal: abortController.signal,
           }
         );
 
@@ -166,7 +190,7 @@ export default function BlogCarousel({ category = "Design", showAllCategories = 
               const blogPost: BlogPost = {
                 id: post.id,
                 title: trimText(post.title.rendered, 40),
-                excerpt: trimText(post.excerpt.rendered, 100),
+                excerpt: trimText(post.excerpt.rendered, 110),
                 date: formatDate(post.date),
                 slug: post.slug,
                 image: featuredImage,
@@ -201,25 +225,15 @@ export default function BlogCarousel({ category = "Design", showAllCategories = 
           filteredBlogs = filteredBlogs.map(({ originalDate, ...blog }) => blog);
         } else {
           // Filter blogs by specified category (existing logic)
-          // Debug: Log all categories found
-          if (category.toLowerCase() === 'web development') {
-            console.log('All blogs fetched:', data.length);
-            data.forEach((post) => {
-              const categoryTerms = post._embedded?.["wp:term"]?.[0] || [];
-              const categories = categoryTerms.filter(term => term.taxonomy === 'category');
-              console.log(`Post ${post.id} (${post.title.rendered}):`, categories.map(c => c.name));
-            });
-          }
-
+          // Optimized filtering - removed debug logs for better performance
+          const categoryLower = category.toLowerCase().trim();
           filteredBlogs = data
             .filter((post) => {
               const categoryTerms = post._embedded?.["wp:term"]?.[0] || [];
-              // Check all category terms, not just the first one
-              const matchingCategory = categoryTerms.find(term => 
+              return categoryTerms.some(term => 
                 term.taxonomy === 'category' && 
-                term.name?.toLowerCase().trim() === category.toLowerCase().trim()
+                term.name?.toLowerCase().trim() === categoryLower
               );
-              return !!matchingCategory;
             })
             .map((post) => {
               const featuredImage =
@@ -231,7 +245,7 @@ export default function BlogCarousel({ category = "Design", showAllCategories = 
               return {
                 id: post.id,
                 title: trimText(post.title.rendered, 40),
-                excerpt: trimText(post.excerpt.rendered, 100),
+                excerpt: trimText(post.excerpt.rendered, 110),
                 date: formatDate(post.date),
                 slug: post.slug,
                 image: featuredImage,
@@ -241,23 +255,24 @@ export default function BlogCarousel({ category = "Design", showAllCategories = 
               };
             });
 
-          // Debug: Log filtered results
-          if (category.toLowerCase() === 'web development') {
-            console.log(`Filtered blogs for "${category}":`, filteredBlogs.length);
-            console.log('Filtered blog titles:', filteredBlogs.map(b => b.title));
-          }
         }
 
         setBlogs(filteredBlogs);
-      } catch (error) {
-        console.error("Error fetching blogs:", error);
-        setBlogs([]);
+      } catch (error: any) {
+        if (error.name !== 'AbortError') {
+          console.error("Error fetching blogs:", error);
+          setBlogs([]);
+        }
       } finally {
         setLoading(false);
       }
     };
 
     fetchBlogs();
+
+    return () => {
+      abortController.abort();
+    };
   }, [category, showAllCategories]);
 
   if (loading) {
@@ -273,8 +288,12 @@ export default function BlogCarousel({ category = "Design", showAllCategories = 
               </span>
             </h2>
           </div>
-          <div className={styles.loadingContainer}>
-            <div className={styles.loadingSpinner}></div>
+          <div className={styles.carouselWrapper}>
+            <div className={styles.skeletonGrid}>
+              <BlogSkeleton />
+              <BlogSkeleton />
+              <BlogSkeleton />
+            </div>
           </div>
         </Container>
       </section>

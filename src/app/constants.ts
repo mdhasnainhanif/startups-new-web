@@ -1,8 +1,8 @@
 export const COMPANY_INFO = {
   logo: "/assets/images/logo.svg",
-  email: "habib.developer8899@gmail.com",
-  phone: "+92 317 2016810",
-  address: "Shop No MC39 Green Town Shah faisal colony No3 Karachi (Near Shahzad Medical)",
+  email: "info@startupsadvisory.ai",
+  phone: "+1 346-626-9169",
+  address: "1007n Orange St, Wilmington, DE 19801, United States",
   companyName: "Startups ADVISORY.Ai",
   website: "https://startupsadvisory.ai",
 };
