@@ -284,6 +284,9 @@ export default function PoppupStepQuestionnaire({
             )}
             <Button
               onClick={() => {
+                // Prevent multiple clicks during transition
+                if (isTransitioning) return;
+                
                 const nextStep = currentStepData.options[0]?.nextStep;
                 if (nextStep) {
                   if (currentStepData.multiSelect) {
@@ -311,7 +314,8 @@ export default function PoppupStepQuestionnaire({
               icon={<ArrowRightIcon />}
               iconPosition="right"
               disabled={
-                currentStepData.multiSelect
+                isTransitioning ||
+                (currentStepData.multiSelect
                   ? (() => {
                       // For multiple select: disabled when no selections
                       const currentAnswer = answers[currentStepData.id];
@@ -327,7 +331,7 @@ export default function PoppupStepQuestionnaire({
                       // For single select: disabled when no selection, enabled when selection exists (for back navigation)
                       const answer = answers[currentStepData.id];
                       return !answer || answer.trim() === "";
-                    })()
+                    })())
               }
             >
               Continue
