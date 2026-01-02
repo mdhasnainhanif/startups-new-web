@@ -101,3 +101,18 @@
   position: relative !important;
   overflow: visible !important;
 }
+
+/* countryCodePrefix styling from inspect - only for brief page, not popup */
+.briefPage :global([class*="phoneInput"]) :global(.phoneInputContainer) :global(.phoneInputWrapper) :global(.countryCodePrefix),
+.briefPage :global([class*="phoneInput"]) :global(.countryCodePrefix) {
+  color: #fff !important;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+  padding: 0 .5rem !important;
+  font-family: inherit !important;
+  font-size: 1rem !important;
+  font-weight: 500 !important;
+  background: #0f0d22 !important;
+  height: 100% !important;
+  place-content: center !important;
+}

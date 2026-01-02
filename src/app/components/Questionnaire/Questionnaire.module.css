@@ -1295,6 +1295,82 @@ select.formInput option {
   background-image: none !important;
 }
 
+/* Brief page specific - phone input background color #0f0d22 (NOT popup) */
+:global(.briefPage) .phoneInput :global(.phoneInputContainer),
+:global(.briefPage) .phoneInput.formInputSmall :global(.phoneInputContainer),
+:global(.briefPage) .phoneInput.greenInput :global(.phoneInputContainer),
+:global(.briefPage) .phoneInput.formInputSmall.greenInput :global(.phoneInputContainer) {
+  background: #0f0d22 !important;
+  background-color: #0f0d22 !important;
+  background-image: none !important;
+}
+
+:global(.briefPage) .phoneInput :global(.phoneInputContainer:focus-within),
+:global(.briefPage) .phoneInput.formInputSmall :global(.phoneInputContainer:focus-within),
+:global(.briefPage) .phoneInput.greenInput :global(.phoneInputContainer:focus-within),
+:global(.briefPage) .phoneInput.formInputSmall.greenInput :global(.phoneInputContainer:focus-within) {
+  background: #0f0d22 !important;
+  background-color: #0f0d22 !important;
+  background-image: none !important;
+}
+
+:global(.briefPage) .phoneInput :global(.countryCodePrefix),
+:global(.briefPage) .phoneInput.formInputSmall :global(.countryCodePrefix),
+:global(.briefPage) .phoneInput.greenInput :global(.countryCodePrefix),
+:global(.briefPage) .phoneInput.formInputSmall.greenInput :global(.countryCodePrefix),
+:global(.briefPage) .phoneInput :global(.phoneInputWrapper .countryCodePrefix) {
+  color: #fff !important;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+  padding: 0 .5rem !important;
+  font-family: inherit !important;
+  font-size: 1rem !important;
+  font-weight: 500 !important;
+  background: #0f0d22 !important;
+  background-color: #0f0d22 !important;
+  height: 100% !important;
+  place-content: center !important;
+}
+
+:global(.briefPage) .phoneInput :global(.customCountrySelect),
+:global(.briefPage) .phoneInput.formInputSmall :global(.customCountrySelect),
+:global(.briefPage) .phoneInput.greenInput :global(.customCountrySelect),
+:global(.briefPage) .phoneInput.formInputSmall.greenInput :global(.customCountrySelect) {
+  background: #0f0d22 !important;
+  background-color: #0f0d22 !important;
+  border-top-left-radius: 0.6rem !important;
+  border-bottom-left-radius: 0.6rem !important;
+}
+
+:global(.briefPage) .phoneInput :global(.countrySelectButton),
+:global(.briefPage) .phoneInput.formInputSmall :global(.countrySelectButton),
+:global(.briefPage) .phoneInput.greenInput :global(.countrySelectButton),
+:global(.briefPage) .phoneInput.formInputSmall.greenInput :global(.countrySelectButton),
+:global(.briefPage) .phoneInput :global(.phoneInputWrapper) {
+  background: #0f0d22 !important;
+  background-color: #0f0d22 !important;
+  background-image: none !important;
+}
+
+:global(.briefPage) .phoneInput :global(.phoneNumberInput),
+:global(.briefPage) .phoneInput.formInputSmall :global(.phoneNumberInput),
+:global(.briefPage) .phoneInput.greenInput :global(.phoneNumberInput),
+:global(.briefPage) .phoneInput.formInputSmall.greenInput :global(.phoneNumberInput),
+:global(.briefPage) .phoneInput :global(.phoneInputWrapper .phoneNumberInput) {
+  background: #0f0d22 !important;
+  background-color: #0f0d22 !important;
+  background-image: none !important;
+}
+
+/* Brief page - Force all child elements to have #0f0d22 background */
+:global(.briefPage) .phoneInput :global(.phoneInputContainer) :global(*):not(svg):not(img),
+:global(.briefPage) .phoneInput :global(.phoneInputWrapper) :global(*):not(svg):not(img),
+:global(.briefPage) .phoneInput :global(.customCountrySelect) :global(*):not(svg):not(img),
+:global(.briefPage) .phoneInput :global(.countrySelectButton) :global(*):not(svg):not(img) {
+  background-color: #0f0d22 !important;
+  background: #0f0d22 !important;
+}
+
 .phoneInput.formInputSmall :global(.phoneNumberInput)::placeholder {
   color: rgba(255, 255, 255, 0.5) !important;
 }
