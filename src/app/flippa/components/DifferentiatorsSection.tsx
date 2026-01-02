@@ -6,7 +6,7 @@ import Container from "../../components/Container";
 
 export default function DifferentiatorsSection() {
   return (
-    <section className="sectionPadding bg-[var(--color-dark)] relative overflow-hidden">
+    <section className="sectionPadding bg-[var(--color-dark)] relative overflow-hidden blogStarsBackground">
       <div
         className="absolute inset-0 opacity-30 hidden sm:block"
         style={{
@@ -21,11 +21,11 @@ export default function DifferentiatorsSection() {
           <div className="sectionHeading">
             <h2>
               {differentiatorsData.title.main}{" "}
-              <span className="text-[var(--color-primary)]">{differentiatorsData.title.highlight}</span>
+              <span className="text-[var(--color-primary)]">
+                {differentiatorsData.title.highlight}
+              </span>
             </h2>
-          <p className="mt-3">
-            {differentiatorsData.description}
-          </p>
+            <p className="mt-3">{differentiatorsData.description}</p>
           </div>
         </MotionDiv>
 
@@ -41,7 +41,9 @@ export default function DifferentiatorsSection() {
                   <h3 className="text-base sm:text-lg lg:text-xl font-bold text-white mb-2 sm:mb-3">
                     {item.title}
                   </h3>
-                  <p className="text-sm sm:text-base text-[var(--text-muted)]">{item.description}</p>
+                  <p className="text-sm sm:text-base">
+                    {item.description}
+                  </p>
 
                   <div className="absolute inset-0 rounded-xl sm:rounded-2xl bg-[var(--color-purple)]/5 opacity-0 group-hover:opacity-100 transition-opacity -z-10" />
                 </div>
@@ -53,4 +55,3 @@ export default function DifferentiatorsSection() {
     </section>
   );
 }
-

@@ -1125,14 +1125,72 @@ select.formInput option {
   color: #ffffff !important;
 } */
 
-/* CustomPhoneInput styling to match formInput */
-.phoneInput :global(.phoneInputContainer) {
+/* CustomPhoneInput styling to match formInput - ensure same background as formInput */
+.phoneInput :global(.phoneInputContainer),
+.phoneInput.formInputSmall :global(.phoneInputContainer),
+.phoneInput.greenInput :global(.phoneInputContainer),
+.phoneInput.formInputSmall.greenInput :global(.phoneInputContainer) {
   background: rgba(255, 255, 255, 0.05) !important;
   border: 2px solid transparent !important;
   border-radius: 8px !important;
   padding: 0 !important;
   transition: all 0.3s ease !important;
   background-image: none !important;
+}
+
+/* Popup specific - simple green border instead of gradient */
+:global(.popup-questionnaire) .phoneInput :global(.phoneInputContainer),
+:global(.popup-questionnaire) .phoneInput.formInputSmall :global(.phoneInputContainer),
+:global(.popup-questionnaire) .phoneInput.greenInput :global(.phoneInputContainer),
+:global(.popup-questionnaire) .phoneInput.formInputSmall.greenInput :global(.phoneInputContainer) {
+  border: 2px solid var(--color-primary) !important;
+  background-image: none !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+
+:global(.popup-questionnaire) .phoneInput.greenInput :global(.phoneInputContainer:focus-within),
+:global(.popup-questionnaire) .phoneInput.formInputSmall.greenInput :global(.phoneInputContainer:focus-within) {
+  border: 2px solid var(--color-primary) !important;
+  background-image: none !important;
+}
+
+/* Match countryCodePrefix background to formInput */
+.phoneInput.formInputSmall :global(.countryCodePrefix),
+.phoneInput.greenInput :global(.countryCodePrefix),
+.phoneInput.formInputSmall.greenInput :global(.countryCodePrefix),
+.phoneInput :global(.phoneInputWrapper .countryCodePrefix) {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Popup specific - countryCodePrefix styling from inspect */
+:global(.popup-questionnaire) .phoneInput :global(.countryCodePrefix),
+:global(.popup-questionnaire) .phoneInput.formInputSmall :global(.countryCodePrefix),
+:global(.popup-questionnaire) .phoneInput.greenInput :global(.countryCodePrefix),
+:global(.popup-questionnaire) .phoneInput.formInputSmall.greenInput :global(.countryCodePrefix),
+:global(.popup-questionnaire) .phoneInput :global(.phoneInputWrapper .countryCodePrefix) {
+  background: #282552 !important;
+  background-color: #282552 !important;
+  height: 100% !important;
+  place-content: center !important;
+}
+
+/* Popup specific - customCountrySelect styling from inspect */
+:global(.popup-questionnaire) .phoneInput :global(.customCountrySelect),
+:global(.popup-questionnaire) .phoneInput.formInputSmall :global(.customCountrySelect),
+:global(.popup-questionnaire) .phoneInput.greenInput :global(.customCountrySelect),
+:global(.popup-questionnaire) .phoneInput.formInputSmall.greenInput :global(.customCountrySelect) {
+  background: #282552 !important;
+  background-color: #282552 !important;
+  border-top-left-radius: 0.6rem !important;
+  border-bottom-left-radius: 0.6rem !important;
+}
+
+/* Force background color on all child elements to match formInput */
+.phoneInput.formInputSmall :global(.phoneInputContainer) :global(*),
+.phoneInput.greenInput :global(.phoneInputContainer) :global(*),
+.phoneInput.formInputSmall.greenInput :global(.phoneInputContainer) :global(*) {
+  background-color: rgba(255, 255, 255, 0.05) !important;
 }
 
 /* Apply greenInput border color when greenInput class is present */
@@ -1148,11 +1206,14 @@ select.formInput option {
 }
 
 /* Match formInputSmall padding and font-size */
-.phoneInput.formInputSmall :global(.countrySelectButton) {
+.phoneInput.formInputSmall :global(.countrySelectButton),
+.phoneInput.greenInput :global(.countrySelectButton),
+.phoneInput.formInputSmall.greenInput :global(.countrySelectButton) {
   padding: 0.875rem 0.75rem !important;
   font-size: 0.95rem !important;
   font-weight: 500 !important;
   background: rgba(255, 255, 255, 0.05) !important;
+  background-color: rgba(255, 255, 255, 0.05) !important;
 }
 
 .phoneInput.formInputSmall :global(.phoneNumberInput) {
@@ -1160,6 +1221,75 @@ select.formInput option {
   font-size: 0.95rem !important;
   font-weight: 500 !important;
   background: rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Ensure country select button and phone number input have same background as formInput - override ALL base styles with maximum specificity */
+.phoneInput :global(.countrySelectButton),
+.phoneInput.formInputSmall :global(.countrySelectButton),
+.phoneInput.greenInput :global(.countrySelectButton),
+.phoneInput.formInputSmall.greenInput :global(.countrySelectButton),
+.phoneInput :global(.phoneInputWrapper),
+.phoneInput.formInputSmall :global(.phoneInputWrapper),
+.phoneInput.greenInput :global(.phoneInputWrapper),
+.phoneInput.formInputSmall.greenInput :global(.phoneInputWrapper) {
+  background: rgba(255, 255, 255, 0.05) !important;
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  background-image: none !important;
+}
+
+.phoneInput :global(.phoneNumberInput),
+.phoneInput.formInputSmall :global(.phoneNumberInput),
+.phoneInput.greenInput :global(.phoneNumberInput),
+.phoneInput.formInputSmall.greenInput :global(.phoneNumberInput),
+.phoneInput :global(.phoneInputWrapper .phoneNumberInput),
+.phoneInput.formInputSmall :global(.phoneInputWrapper .phoneNumberInput) {
+  background: rgba(255, 255, 255, 0.05) !important;
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  background-image: none !important;
+}
+
+/* Popup specific - phone number input background color #282552 */
+:global(.popup-questionnaire) .phoneInput :global(.phoneNumberInput),
+:global(.popup-questionnaire) .phoneInput.formInputSmall :global(.phoneNumberInput),
+:global(.popup-questionnaire) .phoneInput.greenInput :global(.phoneNumberInput),
+:global(.popup-questionnaire) .phoneInput.formInputSmall.greenInput :global(.phoneNumberInput),
+:global(.popup-questionnaire) .phoneInput :global(.phoneInputWrapper .phoneNumberInput),
+:global(.popup-questionnaire) .phoneInput.formInputSmall :global(.phoneInputWrapper .phoneNumberInput),
+:global(.popup-questionnaire) .phoneInput.greenInput :global(.phoneInputWrapper .phoneNumberInput),
+:global(.popup-questionnaire) .phoneInput.formInputSmall.greenInput :global(.phoneInputWrapper .phoneNumberInput),
+:global(.popup-questionnaire) :global([class*="phoneInput"]) :global(.phoneNumberInput),
+:global(.popup-questionnaire) :global([class*="phoneInput"][class*="formInputSmall"]) :global(.phoneNumberInput),
+:global(.popup-questionnaire) :global([class*="phoneInput"][class*="greenInput"]) :global(.phoneNumberInput) {
+  background: #282552 !important;
+  background-color: #282552 !important;
+  background-image: none !important;
+}
+
+/* Override base ContactForm styles - target the actual class names directly */
+:global(.phoneInput) :global(.countrySelectButton),
+:global(.phoneInput.formInputSmall) :global(.countrySelectButton),
+:global(.phoneInput.greenInput) :global(.countrySelectButton),
+:global(.phoneInput.formInputSmall.greenInput) :global(.countrySelectButton) {
+  background: rgba(255, 255, 255, 0.05) !important;
+  background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+:global(.phoneInput) :global(.phoneNumberInput),
+:global(.phoneInput.formInputSmall) :global(.phoneNumberInput),
+:global(.phoneInput.greenInput) :global(.phoneNumberInput),
+:global(.phoneInput.formInputSmall.greenInput) :global(.phoneNumberInput) {
+  background: rgba(255, 255, 255, 0.05) !important;
+  background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Popup override - must come after general rules to override them */
+:global(.popup-questionnaire) :global(.phoneInput) :global(.phoneNumberInput),
+:global(.popup-questionnaire) :global(.phoneInput.formInputSmall) :global(.phoneNumberInput),
+:global(.popup-questionnaire) :global(.phoneInput.greenInput) :global(.phoneNumberInput),
+:global(.popup-questionnaire) :global(.phoneInput.formInputSmall.greenInput) :global(.phoneNumberInput) {
+  background: #282552 !important;
+  background-color: #282552 !important;
+  background-image: none !important;
 }
 
 .phoneInput.formInputSmall :global(.phoneNumberInput)::placeholder {

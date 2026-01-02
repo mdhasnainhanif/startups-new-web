@@ -7,7 +7,8 @@ import { ctaData } from "../../data/FlippaPageData";
 import Button from "../../components/Button";
 import Container from "../../components/Container";
 import styles from "./CTASection.module.css";
-const benefits = [
+import Image from "next/image";
+ const benefits = [
   "Free 30-minute strategy call",
   "Business value assessment worth $2,500",
   "Custom 90-day growth roadmap",
@@ -43,7 +44,7 @@ export default function CTASection() {
               {benefits.map((benefit, index) => {
                 return (
                   <StaggerItem key={benefit} delay={index * 0.1} className="flex items-center gap-2 text-xs sm:text-sm text-white justify-start text-left">
-                    <CheckCircle className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0 text-[var(--color-purple)]" />
+                    <Image src="/assets/images/tick.webp" alt="Check" width={25} height={20} className="w-[20px] h-[20px]" />
                     {benefit}
                   </StaggerItem>
                 );
