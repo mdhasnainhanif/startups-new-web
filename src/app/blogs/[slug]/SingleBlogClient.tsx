@@ -19,13 +19,27 @@ interface WordPressPost {
   slug: string;
   featured_media: number;
   _embedded?: { "wp:featuredmedia"?: { source_url: string }[] };
-  meta?: { _reading_time?: string; _faqs_data?: FAQItem[] };
+  meta?: { 
+    _reading_time?: string; 
+    _faqs_data?: FAQItem[];
+    sa_ads?: Array<{
+      imageId: number;
+      imageUrl: string;
+      link: string;
+    }>;
+  };
 }
 
 interface TOCItem {
   id: string;
   text: string;
   level: number;
+}
+
+interface Ad {
+  id: number;
+  image: string;
+  link: string;
 }
 
 const API_URL = "https://startupsadvisory.ai/wordpress-blog/wp-json/wp/v2/posts";
@@ -67,6 +81,7 @@ export default function SingleBlogClient() {
   const [content, setContent] = useState("");
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [loading, setLoading] = useState(true);
+  const [ads, setAds] = useState<Ad[]>([]);
 
   useEffect(() => {
     if (!slug) return;
@@ -83,6 +98,37 @@ export default function SingleBlogClient() {
         setHeadings(h);
         setContent(addHeadingIds(p.content.rendered, h));
         setPost(p);
+
+        // Extract ads from post - check multiple possible locations
+        let saAdsData = null;
+        
+        // Check in meta field
+        if ((p as any).meta?.sa_ads && Array.isArray((p as any).meta.sa_ads)) {
+          saAdsData = (p as any).meta.sa_ads;
+        }
+        // Check in acf (Advanced Custom Fields)
+        else if ((p as any).acf?.sa_ads && Array.isArray((p as any).acf.sa_ads)) {
+          saAdsData = (p as any).acf.sa_ads;
+        }
+        // Check directly in post object
+        else if ((p as any).sa_ads && Array.isArray((p as any).sa_ads)) {
+          saAdsData = (p as any).sa_ads;
+        }
+
+        if (saAdsData) {
+          const formattedAds = saAdsData
+            .filter((ad: any) => ad && ad.imageUrl && ad.imageUrl.trim() !== "")
+            .map((ad: any) => ({
+              id: ad.imageId || 0,
+              image: ad.imageUrl || "",
+              link: ad.link || "#",
+            }));
+          setAds(formattedAds);
+          console.log("Ads loaded:", formattedAds);
+        } else {
+          console.log("No ads found in post data. Available keys:", Object.keys(p));
+          console.log("Post meta:", (p as any).meta);
+        }
       } catch {
         setPost(null);
       } finally {
@@ -142,11 +188,13 @@ const formatDate = (dateString: string): string => {
 };
 
 
+  const hasThirdAd = ads[2] && ads[2].image;
+
   return (
     <section className={`sectionPadding ${styles.blogSection}`}>
       <Container maxWidth="xl">
-        <div className={styles.blogContainer}>
-          {/* TOC */}
+        <div className={`${styles.blogContainer} ${hasThirdAd ? styles.threeColumns : styles.twoColumns}`}>
+          {/* LEFT COLUMN - TOC */}
           <aside className={styles.sidebar}>
             <div className={styles.tocContainer}>
               <h3 className={styles.tocTitle}>Table of Contents</h3>
@@ -201,10 +249,40 @@ const formatDate = (dateString: string): string => {
                 })}
               </ul>
             </div>
+            
+            {/* First Ad - Below TOC */}
+            {ads[0] && (
+              <div className={styles.adContainer}>
+                <a href={ads[0].link} target="_blank" rel="noopener noreferrer" className={styles.adLink}>
+                  <Image
+                    src={ads[0].image}
+                    alt="Advertisement"
+                    width={300}
+                    height={600}
+                    className={styles.adImage}
+                  />
+                </a>
+              </div>
+            )}
           </aside>
 
-          {/* CONTENT */}
+          {/* CENTER COLUMN - CONTENT */}
           <article className={styles.contentArea}>
+            {/* Second Ad - Above Title */}
+            {ads[1] && (
+              <div className={styles.adBanner}>
+                <a href={ads[1].link} target="_blank" rel="noopener noreferrer" className={styles.adLink}>
+                  <Image
+                    src={ads[1].image}
+                    alt="Advertisement"
+                    width={728}
+                    height={90}
+                    className={styles.adBannerImage}
+                  />
+                </a>
+              </div>
+            )}
+
             <h1 className={styles.blogTitle}>{stripHtml(post.title.rendered)}</h1>
 
             {/* ===== BLOG META ===== */}
@@ -313,6 +391,21 @@ const formatDate = (dateString: string): string => {
               </section>
             )}
           </article>
+
+          {/* RIGHT COLUMN - THIRD AD */}
+          {hasThirdAd && (
+            <aside className={styles.rightSidebar}>
+              <div className={styles.adContainer}>
+                <a href={ads[2].link} target="_blank" rel="noopener noreferrer" className={styles.adLink}>
+                  <img
+                    src={ads[2].image}
+                    alt="Advertisement"
+                    className={styles.adImage}
+                  />
+                </a>
+              </div>
+            </aside>
+          )}
         </div>
       </Container>
     </section>
