@@ -306,7 +306,7 @@ div.marqueeWrapper {
     padding-top: 0rem;
   }
   div.marqueeTrack {
-    gap: 0rem;
+    gap: 1.5rem;
   }
   div.marqueeWrapper {
     padding-top: 0.45rem;
@@ -400,12 +400,18 @@ div.marqueeWrapper {
   display: flex;
   gap: 1.5rem;
   width: fit-content;
-  animation: marquee 70s linear infinite;
+  animation: marquee 80s linear infinite;
   will-change: transform;
 }
 
 .marqueeTrackReverse {
-  animation: marqueeReverse 70s linear infinite;
+  animation: marqueeReverse 80s linear infinite;
+}
+
+/* Pause animation on hover */
+.marqueeWrapper:hover .marqueeTrack,
+.marqueeWrapper:hover .marqueeTrackReverse {
+  animation-play-state: paused;
 }
 
 .marqueeCard {

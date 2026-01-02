@@ -403,6 +403,17 @@
     linear-gradient(to right, #0fdac2, #732bff);
 }
 
+/* Popup specific - simple green border instead of gradient */
+:global(.popup-questionnaire) :global([class*="phoneInput"]) .phoneInputContainer {
+  border: 2px solid var(--color-primary) !important;
+  background-image: none !important;
+}
+
+:global(.popup-questionnaire) :global([class*="phoneInput"]) .phoneInputContainer:focus-within {
+  border: 2px solid var(--color-primary) !important;
+  background-image: none !important;
+}
+
 .phoneInput :global(.PhoneInput) {
   display: flex;
   align-items: stretch;
@@ -413,6 +424,10 @@
   background-clip: border-box;
   border: 2px solid transparent;
   overflow: hidden;
+}
+
+.phoneInput{
+  border-radius: 0.5rem;
 }
 
 .phoneInput :global(.PhoneInput):focus-within {
@@ -532,6 +547,14 @@
   flex-shrink: 0;
 }
 
+/* Popup specific - countryCodePrefix styling from inspect */
+:global(.popup-questionnaire) :global([class*="phoneInput"]) .phoneInputContainer .phoneInputWrapper .countryCodePrefix {
+  background: #282552 !important;
+  background-color: #282552 !important;
+  height: 100% !important;
+  place-content: center !important;
+}
+
 .phoneNumberInput {
   flex: 1;
   width: 100%;
@@ -547,6 +570,31 @@
   transition: all 0.3s ease;
   border-top-right-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
+}
+
+/* Override for questionnaire form - match formInput background */
+/* Target when outer phoneInput div has formInputSmall or greenInput classes */
+:global([class*="phoneInput"][class*="formInputSmall"])
+  .phoneInputContainer
+  .phoneNumberInput,
+:global([class*="phoneInput"][class*="greenInput"])
+  .phoneInputContainer
+  .phoneNumberInput,
+:global([class*="phoneInput"][class*="formInputSmall"][class*="greenInput"])
+  .phoneInputContainer
+  .phoneNumberInput {
+  background: rgba(255, 255, 255, 0.05) !important;
+  background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Popup specific - phone number input background color #282552 */
+:global(.popup-questionnaire) :global([class*="phoneInput"]) .phoneInputContainer .phoneNumberInput,
+:global(.popup-questionnaire) :global([class*="phoneInput"][class*="formInputSmall"]) .phoneInputContainer .phoneNumberInput,
+:global(.popup-questionnaire) :global([class*="phoneInput"][class*="greenInput"]) .phoneInputContainer .phoneNumberInput,
+:global(.popup-questionnaire) :global([class*="phoneInput"][class*="formInputSmall"][class*="greenInput"]) .phoneInputContainer .phoneNumberInput {
+  background: #282552 !important;
+  background-color: #282552 !important;
+  background-image: none !important;
 }
 
 .phoneNumberInput:focus {
@@ -568,6 +616,14 @@
   z-index: 10;
 }
 
+/* Popup specific - customCountrySelect styling from inspect */
+:global(.popup-questionnaire) :global([class*="phoneInput"]) .phoneInputContainer .customCountrySelect {
+  background: #282552 !important;
+  background-color: #282552 !important;
+  border-top-left-radius: 0.6rem !important;
+  border-bottom-left-radius: 0.6rem !important;
+}
+
 .countrySelectButton {
   display: flex;
   align-items: center;
@@ -587,6 +643,24 @@
   justify-content: flex-start;
   border-top-left-radius: 0.5rem;
   border-bottom-left-radius: 0.5rem;
+}
+
+/* Override for questionnaire form - match formInput background */
+/* Target when outer phoneInput div has formInputSmall or greenInput classes */
+:global([class*="phoneInput"][class*="formInputSmall"])
+  .phoneInputContainer
+  .countrySelectButton,
+:global([class*="phoneInput"][class*="greenInput"])
+  .phoneInputContainer
+  .countrySelectButton,
+:global([class*="phoneInput"][class*="formInputSmall"][class*="greenInput"])
+  .phoneInputContainer
+  .countrySelectButton,
+/* Also target directly when parent has these classes */
+:global([class*="formInputSmall"]) .countrySelectButton,
+:global([class*="greenInput"]) .countrySelectButton {
+  background: rgba(255, 255, 255, 0.05) !important;
+  background-color: rgba(255, 255, 255, 0.05) !important;
 }
 
 .countrySelectButton:disabled {
@@ -626,7 +700,7 @@
   border: 2px solid rgba(15, 218, 194, 0.3);
   border-radius: 0.5rem;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  max-height: 300px;
+  max-height: 13.4375rem;
   overflow: hidden;
   display: flex;
   flex-direction: column;

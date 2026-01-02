@@ -78,7 +78,7 @@ export default function Contact() {
               </p>
               <p className={`${styles.descriptionText2} hidden md:block`}>Share as much detail as you like so our team can understand your goals and offer the best support possible for your business growth and needs today.</p>
               <div className="flex flex-col gap-4 mt-[2.5rem] hidden md:flex">
-                  <a href="tel:+13466269169" className="flex items-center gap-3 text-white">
+                  <a href="tel:+923172016810" className="flex items-center gap-3 text-white">
                     <div className="rounded-full bg-[#2E2277] p-2 flex items-center justify-center">
                       <Image 
                         src="/assets/images/contact-icons/phone.svg" 
@@ -87,9 +87,9 @@ export default function Contact() {
                         height={18}
                       />
                     </div>
-                    +1 346-626-9169
+                    +92 317 2016810
                   </a>
-                <a href="mailto:info@startupsadvisory.ai" className="flex items-center gap-3 text-white">
+                <a href="mailto:habib.developer8899@gmail.com" className="flex items-center gap-3 text-white">
                   <div className="rounded-full bg-[#2E2277] p-2 flex items-center justify-center">
                     <Image 
                     src="/assets/images/contact-icons/email.svg" 
@@ -98,7 +98,7 @@ export default function Contact() {
                     height={18}
                   />
                   </div>
-                  info@startupsadvisory.ai
+                  habib.developer8899@gmail.com
                 </a>
                 <span className="flex items-center gap-3 text-white">
                   <div className="rounded-full bg-[#2E2277] p-2 flex items-center justify-center">
@@ -109,7 +109,7 @@ export default function Contact() {
                     height={18}
                   />
                   </div>
-                  1007 Orange St, Wilmington, DE 19801, United States
+                  Shop No MC39 Green Town Shah faisal colony No3 Karachi (Near Shahzad Medical)
                 </span>
                 </div>
               </div>

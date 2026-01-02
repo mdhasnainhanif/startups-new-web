@@ -11,7 +11,7 @@ const ToolsTrained = () => {
       <Container maxWidth="xl">
         <div className="flex flex-col gap-8">
           {/* Heading */}
-          <div className="text-center max-w-2xl mx-auto sectionHeading forH2">
+          <div className="text-center max-w-3xl mx-auto sectionHeading forH2">
             <h2>
               <span className="text-white">{TOOLS_TRAINED_DATA.headline.part1}</span>
               <span className="text-[#0fdac2]">{TOOLS_TRAINED_DATA.headline.part2}</span>
