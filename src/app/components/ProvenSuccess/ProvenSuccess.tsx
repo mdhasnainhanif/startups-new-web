@@ -93,6 +93,8 @@ const PROVEN_SUCCESS_DATA: ProvenSuccessData = {
         '/assets/images/portfolio/branding-kit/8.webp',
         '/assets/images/portfolio/branding-kit/9.webp',
         '/assets/images/portfolio/branding-kit/10.webp',
+        '/assets/images/portfolio/branding-kit/11.webp',
+        '/assets/images/portfolio/branding-kit/12.webp',
       ],
       gridItems: [
         { id: '1', label: 'Logo Design' },

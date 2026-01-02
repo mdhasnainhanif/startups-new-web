@@ -8,7 +8,7 @@ import Button from "../../components/Button";
 import Container from "../../components/Container";
 import styles from "./CTASection.module.css";
 import Image from "next/image";
- const benefits = [
+const benefits = [
   "Free 30-minute strategy call",
   "Business value assessment worth $2,500",
   "Custom 90-day growth roadmap",

@@ -104,6 +104,7 @@
   width: 100%;
   max-width: 100%;
   display: block;
+  min-height: 60px;
 }
 
 @media (min-width: 768px) {
@@ -141,9 +142,16 @@
   box-sizing: border-box;
 }
 
-.tabsSwiper .swiper-slide:not(.swiper-slide-active) {
+/* Only hide non-active slides for desktop tabs swiper, not mobile */
+.tabsContainer .tabsSwiper .swiper-slide:not(.swiper-slide-active) {
   opacity: 0;
   pointer-events: none;
+}
+
+/* Mobile tabs should show active slide */
+.tabsContainerMobile .tabsSwiper .swiper-slide {
+  opacity: 1 !important;
+  pointer-events: auto !important;
 }
 
 .tabsContainerMobile .tab {
@@ -244,7 +252,7 @@
 } */
 
 .tab {
-  padding: 12px 20px 14px;
+  padding: 12px 30px 14px;
   background: transparent;
   color: #403867;
   border: none;

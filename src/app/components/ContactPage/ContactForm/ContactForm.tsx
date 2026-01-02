@@ -46,12 +46,8 @@ const ContactForm: React.FC<ContactFormProps> = ({
 
     return true;
   };
-
-  // Load map immediately when component mounts for faster loading
   useEffect(() => {
     if (!config.showMap || !config.mapLocation) return;
-
-    // Load map immediately with a small delay to ensure DOM is ready
     const loadTimer = setTimeout(() => {
       setMapLoaded(true);
     }, 100);
@@ -100,7 +96,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
           }, {} as FormData)
         );
       } else {
-        // Display detailed error message
+        
         console.error("API Error:");
       }
     } catch (error) {

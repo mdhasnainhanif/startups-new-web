@@ -46,7 +46,7 @@ export default function ValueStackSection() {
                       <div className="flex items-center justify-between py-2 md:py-3 border-b border-white/10 last:border-0">
                         <div className="flex items-center gap-2 md:gap-3">
                           <div className="mt-1">
-                            <Image src="/assets/images/tick2.webp" alt="Check" width={25} height={20} className="w-[20px] h-[20px]" />
+                            <Image src="/assets/images/tick.webp" alt="Check" width={25} height={20} className="w-[20px] h-[20px]" />
                           </div>
                           <span className="text-sm md:text-base text-white">
                             {item.item}
