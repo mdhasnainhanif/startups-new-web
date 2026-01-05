@@ -448,6 +448,9 @@
 }
 
 @media (max-width: 768px) {
+  html, body{
+    overflow-x: hidden !important;
+  }
   .blogSection {
     padding-top: 2rem;
     padding-bottom: 4rem;
