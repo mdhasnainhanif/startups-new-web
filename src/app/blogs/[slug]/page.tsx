@@ -1,3 +1,4 @@
+
 import SingleBlogClient from "./SingleBlogClient";
 
 const API_URL = "https://startupsadvisory.ai/wordpress-blog/wp-json/wp/v2/posts";
