@@ -484,7 +484,7 @@ const RealCost = ({ data = REAL_COST_DATA }: RealCostProps) => {
                 {/* Writer Type Dropdown */}
                 <div className={styles.fieldWrapper}>
                   <div className={styles.fieldIcon}>
-                    <Image width={28} height={28} src="/assets/images/icons/icon_designer-type.svg" alt="" />
+                    <Image width={28} height={28} src="/assets/images/icons/icon_designer-type.svg" alt="designer type icon" />
                   </div>
                   <div className={styles.selectWrapper} ref={dropdownRef}>
                     <div
@@ -529,7 +529,7 @@ const RealCost = ({ data = REAL_COST_DATA }: RealCostProps) => {
                 {/* Monthly Cost */}
                 <div className={styles.fieldWrapper}>
                   <div className={styles.fieldIcon}>
-                  <Image width={28} height={28} src="/assets/images/icons/icon_monthly-cost.svg" alt="" />
+                  <Image width={28} height={28} src="/assets/images/icons/icon_monthly-cost.svg" alt="monthly cost icon" />
                   </div>
                   <input
                     type="text"
@@ -545,7 +545,7 @@ const RealCost = ({ data = REAL_COST_DATA }: RealCostProps) => {
                 {/* Annual Cost */}
                 <div className={styles.fieldWrapper}>
                   <div className={styles.fieldIcon}>
-                  <Image width={28} height={28} src="/assets/images/icons/icon_annual-cost.svg" alt="" />
+                  <Image width={28} height={28} src="/assets/images/icons/icon_annual-cost.svg" alt="annual cost icon" />
                   </div>
                   <input
                     type="text"

@@ -67,7 +67,7 @@ export default function HeroBanner({
     <section className={`relative sectionPadding overflow-hidden heroStarsBackground heroBannerPaddingTop ${isHomePage ? 'homePageHero' : ''} ${className}`}>
       <div className="starsLayer3"></div>
       {/* LCP Image - Optimized with Next.js Image */}
-      <div className="absolute inset-0 z-0">
+      {/* <div className="absolute inset-0 z-0">
         <Image
           src="/assets/images/hero.webp"
           alt="Hero Background"
@@ -79,7 +79,7 @@ export default function HeroBanner({
           priority
         />
         <div className="absolute inset-0 bg-black/30" style={{ zIndex: 1 }}></div>
-      </div>
+      </div> */}
       
       {/* Plasma Background Animation - Desktop Only */}
       <div className={`absolute inset-0 ${styles.plasmaContainer} hidden md:block`} style={{ zIndex: 2 }}>

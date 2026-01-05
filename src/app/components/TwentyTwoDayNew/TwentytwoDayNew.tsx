@@ -396,7 +396,7 @@ export default function TwentytwoDayNew() {
                 >
                   <Image
                     src={p.image}
-                    alt=""
+                    alt="phase image"
                     fill
                     className="object-cover"
                     priority={idx === 0}

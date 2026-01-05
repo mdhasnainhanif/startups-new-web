@@ -63,7 +63,7 @@ const ContactCta: React.FC<ContactCtaProps> = ({
               {btn.iconRight && (
                 <img
                   src={btn.iconRight}
-                  alt=""
+                  alt="right icon"
                   className="w-5 h-5 object-contain ml-2"
                 />
               )}
