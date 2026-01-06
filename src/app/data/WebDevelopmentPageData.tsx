@@ -8,14 +8,14 @@
   export const webDevelopmentBannerData: HomenewBannerData = {
     heading: {
       part1: "Your Complete Website Team for ",
-      highlight1: "1 Month",
+      highlight1: "  1 Month",
       highlight2: "",
       part2: "",
     },
     description:
       "Fully Focused on Your Build. A dedicated web unit assembled to create a fast, structured, market ready website prepared to support real traffic and real business activity.",
     experienceBox: {
-      title: "Experience Box – What Your Web Team Brings",
+      title: "Experience Box  What Your Web Team Brings",
       items: [
         "2,500 plus completed website projects across multiple business categories",
         "40 plus years combined execution in modern web production",
