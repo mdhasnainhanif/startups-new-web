@@ -53,7 +53,7 @@
   const DEFAULT_DATA: CompleteBusinessSetupData = {
     heading: {
       part1: "Your Complete Business Design Setup — ",
-      price: "$1,499",
+      price: "$3,299",
       part2: " One-Time",
     },
     brandingKits: {
@@ -186,11 +186,11 @@
         { id: "1", text: "A full design team" },
         { id: "2", text: "50+ essential business design assets" },
         { id: "3", text: "AI-powered efficiency" },
-        { id: "4", text: "Unlimited revisions during the 22 days" },
+        { id: "4", text: "Unlimited revisions during the 1 month" },
         { id: "5", text: "All files delivered print-ready and web-ready" },
       ],
       ctaButton: {
-        text: "$1,499 USD",
+        text: "$3,299 USD",
         href: "#",
       },
     },

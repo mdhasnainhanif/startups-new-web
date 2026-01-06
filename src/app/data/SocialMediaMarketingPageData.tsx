@@ -13,7 +13,7 @@ import { socialMediaMarketingAnalyticsDashboardData } from './AnalyticsDashboard
 export const socialMediaMarketingBannerData: HomenewBannerData = {
   heading: {
     part1: "Market-Ready Social Content in ",
-    highlight1: "22 Days.",
+    highlight1: "1 Month.",
     highlight2: "",
     part2: "",
   },
@@ -130,7 +130,7 @@ export const socialMediaMarketingProfessionalData: ProfessionalDesignData = {
 export const socialMediaMarketingCaseStudyData: CaseStudySectionData = {
   ...DEFAULT_CASE_STUDY_DATA,
   heading: {
-    text: "The 22-Day Social Media Management & Marketing Service",
+    text: "The 1 Month Social Media Management & Marketing Service",
     highlighted: "Social Media Marketing",
   },
   description:
@@ -221,12 +221,12 @@ export const socialMediaMarketingCaseStudyData: CaseStudySectionData = {
 };
 export const socialMediaMarketingAiPowerData: AiPowerDesignData = {
   headline: {
-    text: 'The Service Covers All Social Media Requirements Across a 22-Day Cycle.',
-    highlighted: ['Social Media Requirements', '22-Day Cycle'],
+    text: 'The Service Covers All Social Media Requirements Across a 1 Month Cycle.',
+    highlighted: ['Social Media Requirements', '1 Month Cycle'],
   },
   description:
     'Visual content, caption sets, reels, campaigns, hooks, platform text, and creative variations are produced inside one streamlined cycle with consistent tone, style, and quality.',
-  deliverablesTitle: '22-Day Social Content Package Includes:',
+  deliverablesTitle: '1 Month Social Content Package Includes:',
   tabs: [
     {
       id: 'social-content',
@@ -271,7 +271,7 @@ export const socialMediaMarketingAiPowerData: AiPowerDesignData = {
 export const socialMediaMarketingRealCostData: RealCostData = {
   heading: {
     part1: 'Internal Social Media Production vs.',
-    part2: '22-Day Social Content Service',
+    part2: '1 Month Social Content Service',
     part3: '',
   },
   callToAction: 'Consider:',    
@@ -334,7 +334,7 @@ export const socialMediaMarketingRealCostData: RealCostData = {
 export const socialMediaMarketingCompleteSetupData: CompleteBusinessSetupData = {
   heading: {
     part1: "Complete Social Content Package — ",
-    price: "$1,499",
+    price: "$3,299",  
     part2: " One-Time",
   },
   brandingKits: {
@@ -464,7 +464,7 @@ export const socialMediaMarketingCompleteSetupData: CompleteBusinessSetupData = 
   benefits: {
     title: "Get This Package For ",
     items: [
-      { id: "1", text: "22 days of active creative production" },
+      { id: "1", text: "1 month of active creative production" },
       { id: "2", text: "All essential visual and written assets" },
       { id: "3", text: "AI-supported content workflow" },
       { id: "4", text: "Unlimited refinements during the cycle" },

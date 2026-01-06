@@ -11,7 +11,7 @@ import { contentWritingAnalyticsDashboardData } from './AnalyticsDashboardData';
 export const contentWritingBannerData: HomenewBannerData = {
   heading: {
     part1: "Market-Ready Content in ",
-    highlight1: "22 Days.",
+    highlight1: "1 Month.",
     highlight2: "",
     part2: "",
   },
@@ -61,7 +61,7 @@ export const contentWritingProfessionalData: ProfessionalDesignData = {
   },
   
   factsHeading: {
-    text: "The Service Covers All Content Requirements Across a 22-Day Production Window.",
+    text: "The Service Covers All Content Requirements Across a 1 Month Production Window.",
     className: "factsHeading",
   },
   factsList: [
@@ -128,7 +128,7 @@ export const contentWritingProfessionalData: ProfessionalDesignData = {
 export const contentWritingCaseStudyData: CaseStudySectionData = {
   ...DEFAULT_CASE_STUDY_DATA,
   heading: {
-    text: "The 22-Day Content Writing Service",
+    text: "The 1 Month Content Writing Service",
     highlighted: "Content Writing",
   },
   description:
@@ -221,12 +221,12 @@ export const contentWritingCaseStudyData: CaseStudySectionData = {
 // AiPowerDesign data for Content Writing page
 export const contentWritingAiPowerData: AiPowerDesignData = {
   headline: {
-    text: 'The Service Covers All Content Requirements Across a 22-Day Production Window.',
-    highlighted: ['Content Requirements', '22-Day Production'],
+    text: 'The Service Covers All Content Requirements Across a 1 Month Production Window.',
+    highlighted: ['Content Requirements', '1 Month Production'],
   },
   description:
     'Website content, sales copy, UX text, marketing lines, ads, captions, and brand communication are produced inside one controlled writing cycle with consistent tone and polished delivery.',
-  deliverablesTitle: '22-Day Content Package Includes:',
+  deliverablesTitle: '1 Month Content Package Includes:',
   tabs: [
     {
       id: 'website-content',
@@ -324,7 +324,8 @@ export const contentWritingAiPowerData: AiPowerDesignData = {
 // RealCost data for Content Writing page
 export const contentWritingRealCostData: RealCostData = {
   heading: {
-    part1: 'Internal [Writing Efforts] vs. 22-Day Content Writing Service',
+    
+    part1: 'Internal [Writing Efforts] vs. 1 Month Content Writing Service',
     part2: '',
     part3: '',
   },
@@ -386,8 +387,8 @@ export const contentWritingRealCostData: RealCostData = {
 // CompleteBusinessSetup data for Content Writing page
 export const contentWritingCompleteSetupData: CompleteBusinessSetupData = {
   heading: {
-    part1: "Complete Content Writing Package — ",
-    price: "$1,499",
+    part1: "Complete Content Writing Package ",
+    price: "$3,299",
     part2: " One-Time",
   },
   brandingKits: {
@@ -517,14 +518,14 @@ export const contentWritingCompleteSetupData: CompleteBusinessSetupData = {
   benefits: {
     title: "Get This Package For ",
     items: [
-      { id: "1", text: "22 days of structured content creation" },
+      { id: "1", text: "1 month of structured content creation" },
       { id: "2", text: "All essential content assets" },
       { id: "3", text: "AI-supported writing workflow" },
       { id: "4", text: "Unlimited refinements during the cycle" },
       { id: "5", text: "Content delivered in publish-ready format" },
     ],
       ctaButton: {
-      text: "$1,499 USD",
+      text: "$3,299 USD",
       href: "#",
     },
   },

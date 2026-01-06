@@ -52,10 +52,11 @@
   pointer-events: none; /* Ensure scroll works through plasma container */
   /* Removed will-change to prevent scroll performance issues */
 }
-
+  
 .heading {
   max-width: 54rem;
   line-height: 1.2;
+  font-display: swap;
 }
 
 .content {
@@ -64,6 +65,7 @@
   opacity: 0;
   animation: fadeInUp 1s ease-out 0.3s forwards;
   /* Removed will-change to prevent scroll performance issues */
+  font-display: swap;
 }
 
 .heroBackground::before {

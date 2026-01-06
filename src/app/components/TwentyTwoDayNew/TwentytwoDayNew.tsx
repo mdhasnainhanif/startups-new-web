@@ -330,7 +330,7 @@ export default function TwentytwoDayNew() {
           <h2 className="text-white text-4xl md:text-6xl font-semibold tracking-tight leading-[1.05]">
             <span className={styles.accent}>Everything</span> Your Business Needs —{" "}
             <br className="hidden md:block" />
-            Delivered <span className={styles.accent}>in 22 Days</span>
+            Delivered <span className={styles.accent}>in 1 Month</span>
           </h2>
           <div className="h-10 md:h-14" />
         </div> */}

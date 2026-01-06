@@ -40,16 +40,19 @@
 
 .font-graphik-bold {
   font-family: var(--font-graphik-bold) !important;
+  font-display: swap;
 }
 
 .font-graphik-semibold {
   font-family: var(--font-graphik-semibold) !important;
+  font-display: swap;
 }
 
 body {
   background: var(--color-dark);
   color: var(--foreground);
   font-family: var(--font-graphik-regular), Arial, Helvetica, sans-serif;
+  font-display: swap;
 }
 
 .sectionPadding {
@@ -228,8 +231,9 @@ h2.headingSize {
 }
 
 p.topPara {
-  font-size: 15px;
+  font-size: .9375rem;
   font-weight: 400;
+  color: #ffffff;
 }
 
 .pt100 {
@@ -1037,4 +1041,8 @@ section img.banneFullMin {
 
 .provenSuccess .swiper-wrapper {
   gap: 2rem;
+}
+
+.webDevelopmentAnalyticsSection{
+  
 }

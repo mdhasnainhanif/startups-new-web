@@ -53,7 +53,7 @@ const REAL_COST_DATA: RealCostData = {
   heading: {
     part1: 'See the Real Cost of ',
     part2: 'Hiring Design Staff vs.',
-    part3: 'Hiring an Entire Design Team for 22 Days',
+    part3: 'Hiring an Entire Design Team for 1 Month',
   },
   callToAction: 'Use the calculator to instantly compare:',
   bulletPoints: [
@@ -64,7 +64,7 @@ const REAL_COST_DATA: RealCostData = {
     'The long-term ROI of getting your full brand built correctly',
   ],
   conclusion:
-    'Most business owners discover they save thousands of dollars and months of work in just the first 22 days alone',
+    'Most business owners discover they save thousands of dollars and months of work in just the first 1 month alone',
   calculator: {
     title: 'Cost Calculator',
     fields: [

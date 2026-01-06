@@ -30,9 +30,9 @@ import {
 } from '../data/WebDevelopmentPageData';
 
 export const metadata: Metadata = {
-  title: "22-Day Website Package | Market-Ready Website | Startups Advisory",
+  title: "1 Month Website Package | Market-Ready Website | Startups Advisory",
   description:
-    "Your Complete Website Team for 22 Days. Fully Focused on Your Build. A dedicated web unit assembled to create a fast, structured, market-ready website prepared to support real traffic and real business activity.",
+    "Your Complete Website Team for 1 Month. Fully Focused on Your Build. A dedicated web unit assembled to create a fast, structured, market-ready website prepared to support real traffic and real business activity.",
   robots: "nofollow",
 };
 

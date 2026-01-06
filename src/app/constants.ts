@@ -64,7 +64,7 @@ export const SOCIAL_MEDIA_LINKS = [
 ];
 export const TECHNOLOGIES_SECTION = {
   heading: {
-    part1: "$48000+ Worth of [Advanced AI] Tools Growing Your Business 10x",
+    part1: "$24000+ Worth of [Creative AI] Tools Growing Your Business 10x",
   },
   description:
     "When this AI power fuels your business your visibility explodes and the right clients start coming in on their own.",

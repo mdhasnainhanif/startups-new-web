@@ -1,9 +1,10 @@
 'use client'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import styles from './AnalyticsDashboard.module.css'
 import { ArrowRightIcon } from '../icons'
 import Button from '../Button'
 import Image from 'next/image'
+import OfferPopup from '../OfferPopup/OfferPopup'
 interface RadarChartLabel {
   text: string
   x: number
@@ -25,6 +26,8 @@ interface AnalyticsDashboardProps {
     right: string[]
   }
   radarChartLabels?: RadarChartLabel[]
+  imageSrc?: string
+  className?: string
 }
 export default function AnalyticsDashboard({
   performanceScore = 92,
@@ -37,13 +40,13 @@ export default function AnalyticsDashboard({
   buttonText = 'Get Started',
   recommendations = ['Improve headline clarity for faster comprehension'],
   middleRecommendations = [
-    'Optimize pathways',
-    'Minimize friction points',
-    'Improve load handling'
+    'Streamline Routes',
+    'Reduce Bottlenecks',
+    'Enhance Throughput'
   ],
   leftColumnItems = {
-    left: [ 'Focus Areas', 'Architecture', 'Performance', 'Behavior patterns', 'Interaction'],
-    right: ['Response', 'Assurance', 'Core Thinking', 'Stability  ', 'Efficiency']
+    left: [ 'Critical Modules', 'System Blueprint', 'Execution Speed', 'Code Patterns', 'User Engagement'],
+    right: ['Server Feedback', 'Quality Control', 'Logical Flow', 'Robustness  ', 'Resource\n Optimization']
   },
   radarChartLabels = [
     { text: 'Dependability', x: 35, y: 30 },
@@ -53,8 +56,12 @@ export default function AnalyticsDashboard({
     { text: 'Service Use', x: 140, y: 310 },
     { text: 'Goal', x: 54, y: 272 },
     { text: 'Audience', x: 0, y: 160 }
-  ]
+  ],
+  imageSrc = '/assets/images/svgviewer-output.svg',
+  className = ''
 }: AnalyticsDashboardProps) {
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
   useEffect(() => {
     const scoreElement = document.querySelector('.text-6xl');
     if (scoreElement) {
@@ -65,9 +72,9 @@ export default function AnalyticsDashboard({
   const circumference = 1056
   const strokeDashoffset = circumference - (performanceScore / maxScore) * (circumference - 500)
   return (
-    <div className="">
+    <div className={className}>
       <div className="container mx-auto md:px-4 sm:px-0 lg:px-8 pt-6 sm:pt8 lg:pb-0 lg:pt-12 max-w-7xl">
-        <div className="bg-[#110E21] rounded-2xl shadow-2xl border border-[#221f33] pl-4 sm:pl-6 lg:pl-8 pr-4 sm:pr-6 lg:pr-8 py-10 innerPadding">
+        <div className="bg-[#110E21] rounded-2xl shadow-2xl border border-[#221f33] pl-4 sm:pl-6 lg:pl-7 pr-4 sm:pr-6 lg:pr-8 py-10 innerPadding">
           <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 sm:gap-0 lg:gap-0 items-start ${styles.customGrid}`}>
             <div className="lg:col-span-1 space-y-0">
               <div className="bg-[##110E21] rounded-xl duration-300 overflow-visible">
@@ -108,17 +115,17 @@ export default function AnalyticsDashboard({
                 <div className="grid grid-cols-2 gap-x-4 gap-y-2.5 sm:gap-y-3">
                   <div className="space-y-2.5 sm:space-y-3">
                     {leftColumnItems.left.map((item, index) => (
-                      <div key={index} className="flex items-center space-x-3">
-                        <div className={`w-3 h-3 rounded-full bg-[#643BFF] shrink-0 ${styles.cyanBulletGlow}`}></div>
-                        <span className={`text-sm sm:text-base text-white ${styles.fs2}`}>{item}</span>
+                      <div key={index} className="flex items-start space-x-3">
+                        <div className={`w-3 h-3 rounded-full bg-[#643BFF] shrink-0 mt-1.5 ${styles.cyanBulletGlow}`}></div>
+                        <span className={`text-sm sm:text-base text-white text-left ${styles.fs2} whitespace-pre-line`}>{item}</span>
                       </div>
                     ))}
                   </div>
                   <div className="space-y-2.5 sm:space-y-3">
                     {leftColumnItems.right.map((item, index) => (
-                      <div key={index} className="flex items-center space-x-3">
-                        <div className={`w-3 h-3 rounded-full bg-[#643BFF] shrink-0 ${styles.cyanBulletGlow}`}></div>
-                        <span className={`text-sm sm:text-base text-white ${styles.fs2}`}>{item}</span>
+                      <div key={index} className="flex items-start space-x-3">
+                        <div className={`w-3 h-3 rounded-full bg-[#643BFF] shrink-0 mt-1.5 ${styles.cyanBulletGlow}`}></div>
+                        <span className={`text-sm sm:text-base text-white text-left ${styles.fs2} whitespace-pre-line`}>{item}</span>
                       </div>
                     ))}
                   </div>
@@ -251,10 +258,10 @@ export default function AnalyticsDashboard({
                     ))}
                   </g>
                 </svg> */}
-                  <Image src="/assets/images/svgviewer-output.svg" alt="analytics dashboard" loading="lazy" width={370} height={312} className="w-full h-auto max-w-full" />
+                  <Image src={imageSrc} alt="analytics dashboard" loading="lazy" width={370} height={312} className="w-full h-auto max-w-full" />
                 </div>
               </div>
-              <div className="space-y-3 sm:space-y-4 md:ps-10 text-left flex gap-[3rem] hidden md:flex">
+              {/* <div className="space-y-3 sm:space-y-4 md:ps-10 text-left flex gap-[3rem] hidden md:flex">
                 <div>
                   <span className={`text-[#0FDAC2] text-xs sm:text-sm block mb-1 ${styles.fs1}`}>Asset Type:</span>
                   <p className={`text-white font-medium text-sm sm:text-base ${styles.fs2}`}>{assetType}</p>
@@ -263,16 +270,12 @@ export default function AnalyticsDashboard({
                   <span className={`text-[#0FDAC2] text-xs sm:text-sm block mb-1 ${styles.fs1}`}>Purpose:</span>
                   <p className={`text-white font-medium text-sm sm:text-base ${styles.fs2}`}>{purpose}</p>
                 </div>
-                {/* <div>
-                  <span className={`text-[#0FDAC2] text-xs sm:text-sm block mb-1 ${styles.fs1}`}>Audience:</span>
-                  <p className={`text-white font-medium text-sm sm:text-base ${styles.fs2}`}>{audience}</p>
-                </div> */}
-              </div>
+              </div> */}
             </div>
             <div className={`lg:col-span-1 space-y-4 sm:space-y-6 md:pl-4 sm:pl-6 lg:pl-8 ${styles.rightSectionContainer}`}>
               <div className="bg-[##110E21] pl0mobile rounded-xl p-4 md:pt-0 sm:p-6 duration-300 mb-0">
                 <div className={`bg-[##110E21] pl0mobile rounded-none p-4 sm:p-6 duration-300  ${styles.middleRecommendations}`}>
-                  <h3 className={`text-lg sm:text-xl font-semibold mb-4 sm:mb-5 text-white text-left ${styles.fs3}`}>Recommendations</h3>
+                  <h3 className={`text-lg sm:text-xl font-semibold mb-4 sm:mb-5 text-white text-left ${styles.fs3}`}>Design Principles                  </h3>
                   <ul className="space-y-3 sm:space-y-4">
                     {middleRecommendations.map((rec, index) => (
                       <li key={index} className="flex items-start space-x-3">
@@ -296,6 +299,7 @@ export default function AnalyticsDashboard({
                       variant="green"
                       icon={<ArrowRightIcon style={{ width: "16px", height: "16px", fill: "#000" }} />}
                       iconPosition="right"
+                      onClick={() => setIsPopupOpen(true)}
                     >
                       {buttonText}
                     </Button>}
@@ -307,6 +311,10 @@ export default function AnalyticsDashboard({
           </div>
         </div>
       </div>
+      <OfferPopup 
+        isOpen={isPopupOpen} 
+        onClose={() => setIsPopupOpen(false)} 
+      />
     </div>
   )
 }

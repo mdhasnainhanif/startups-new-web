@@ -31,6 +31,8 @@ export interface AnalyticsDashboardData {
     right: string[];
   };
   radarChartLabels?: RadarChartLabel[];
+  imageSrc?: string;
+  className?: string;
 }
 
 export interface GuessWorkAdvertisingData {
