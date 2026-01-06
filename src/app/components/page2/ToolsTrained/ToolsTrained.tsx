@@ -4,8 +4,13 @@ import Image from 'next/image';
 import Container from '../../Container';
 import { TOOLS_TRAINED_DATA } from '../../../data/Page2';
 import styles from './ToolsTrained.module.css';
+import Button from '../../Button';
+import { ArrowRightIcon } from '../../icons';
+import { useState } from 'react';
+import CalendlyPopup from '../../CalendlyPopup/CalendlyPopup';
 
 const ToolsTrained = () => {
+  const [isCalendlyPopupOpen, setIsCalendlyPopupOpen] = useState(false);
   return (
     <section className={`sectionPadding bg-[#020016] ${styles.section}`}>
       <Container maxWidth="xl">
@@ -38,8 +43,27 @@ const ToolsTrained = () => {
               />
             </div>
           </div>
+          <div className="flex justify-center mt-8 mx-auto">
+            <Button
+              variant="green"
+              className='w-fit'
+              size="lg"
+              href="#"
+              icon={<ArrowRightIcon style={{ fill: '#000' }} />}
+              iconPosition="right"
+              onClick={() => setIsCalendlyPopupOpen(true)}
+            >
+              Book a Free Call To See How it works
+            </Button>
+          </div>
         </div>
       </Container>
+      <CalendlyPopup
+        isOpen={isCalendlyPopupOpen}
+        onClose={() => setIsCalendlyPopupOpen(false)}
+        calLink="inhouse-team-loexw9/30min"
+        layout="month_view"
+      />
     </section>
   );
 };

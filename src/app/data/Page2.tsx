@@ -261,6 +261,10 @@ export interface HomeBannerData {
       part6: string;
     };
     paragraphs: string[];
+    cta: {
+      text: string;
+      href: string;
+    };
   }
 
   export const CREATED_BY_ENTREPRENEURS_DATA: CreatedByEntrepreneursData = {
@@ -281,6 +285,10 @@ export interface HomeBannerData {
       'We created the Key Growth Manager because we lived the same chaos. We needed someone who could step in, steady the pace, and keep the wheels turning while we focused on the real work.',
       'Now you get the kind of support we wished we had when we were trying to grow our own companies.',
     ],
+    cta: {
+      text: 'Book a Free Call To See How it works',
+      href: '#',
+    },
   };
 
   export interface WhyChooseUsData {

@@ -1,11 +1,17 @@
 'use client';
 
+import { useState } from 'react';
 import Image from 'next/image';
 import Container from '../../Container';
 import { CREATED_BY_ENTREPRENEURS_DATA } from '../../../data/Page2';
 import styles from './CreatedByEntrepreneurs.module.css';
+import Button from '../../Button';
+import CalendlyPopup from '../../CalendlyPopup/CalendlyPopup';
+import { ArrowRightIcon } from '../../icons';
 
 const CreatedByEntrepreneurs = () => {
+  const [isCalendlyPopupOpen, setIsCalendlyPopupOpen] = useState(false);
+
   return (
     <section className={`sectionPadding ${styles.createdBySection}`}>
       <Container maxWidth="xl">
@@ -55,9 +61,33 @@ const CreatedByEntrepreneurs = () => {
                 </p>
               ))}
             </div>
+            
+            {/* CTA Button */}
+            {CREATED_BY_ENTREPRENEURS_DATA?.cta && (
+              <div className={styles.buttonWrapper}>
+                <Button 
+                  variant="green" 
+                  size="lg"
+                  href={CREATED_BY_ENTREPRENEURS_DATA.cta.href || '#'}
+                  onClick={() => setIsCalendlyPopupOpen(true)}
+                  icon={<ArrowRightIcon style={{ fill: '#000' }} />}
+                  iconPosition="right"
+                >
+                  {CREATED_BY_ENTREPRENEURS_DATA.cta.text}
+                </Button>
+              </div>
+            )}
           </div>
         </div>
       </Container>
+
+      {/* Calendly Popup */}
+      <CalendlyPopup
+        isOpen={isCalendlyPopupOpen}
+        onClose={() => setIsCalendlyPopupOpen(false)}
+        calLink="inhouse-team-loexw9/30min"
+        layout="month_view"
+      />
     </section>
   );
 };

@@ -475,3 +475,19 @@ div.marqueeWrapper {
     display: none !important;
   }
 }
+
+/* CTA Button Wrapper */
+.buttonWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+  .buttonWrapper {
+    margin-top: 4rem;
+    margin-bottom: 3rem;
+  }
+}

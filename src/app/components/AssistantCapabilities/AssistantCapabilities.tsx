@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
 import type { Swiper as SwiperType } from "swiper";
@@ -9,6 +9,8 @@ import styles from "./AssistantCapabilities.module.css";
 import "swiper/css";
 import "swiper/css/navigation";
 import { ASSISTANT_CAPABILITIES_DATA } from "@/app/data/AssistantCapabilities";
+import Button from "../Button";
+import CalendlyPopup from "../CalendlyPopup/CalendlyPopup";
 
 // Icon component that handles image paths
 const IconComponent = ({ icon }: { icon: string }) => {
@@ -66,6 +68,7 @@ const highlightBrackets = (text: string) => {
 export default function AssistantCapabilities() {
   const swiperRef1 = useRef<SwiperType | null>(null);
   const swiperRef2 = useRef<SwiperType | null>(null);
+  const [isCalendlyPopupOpen, setIsCalendlyPopupOpen] = useState(false);
 
   const handlePrev1 = () => {
     swiperRef1.current?.slidePrev();
@@ -244,6 +247,27 @@ export default function AssistantCapabilities() {
           </div>
         </div>
       </div>
+
+      {/* CTA Button */}
+      <Container maxWidth="xl">
+        <div className={styles.buttonWrapper}>
+          <Button 
+            variant="green" 
+            size="lg"
+            onClick={() => setIsCalendlyPopupOpen(true)}
+          >
+            Book a Free Call To See How it works
+          </Button>
+        </div>
+      </Container>
+
+      {/* Calendly Popup */}
+      <CalendlyPopup
+        isOpen={isCalendlyPopupOpen}
+        onClose={() => setIsCalendlyPopupOpen(false)}
+        calLink="inhouse-team-loexw9/30min"
+        layout="month_view"
+      />
     </section>
   );
 }
