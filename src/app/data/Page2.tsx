@@ -26,11 +26,11 @@ export interface HomeBannerData {
   export const HOME_BANNER_DATA: HomeBannerData = {
     headline: {
       part1: 'Your Business Runs Better When Someone Owns the ',
-      part2: 'Day-to-Day Push',
+      part2: 'Day to Day Push',
       part3: '',
     },
     description:
-      'Every founder hits a point where the workload piles up, the pace slows down, and the business starts waiting on you. A Key Growth Manager steps in to carry that weight — driving progress, clearing blockages, and keeping the machine in motion while you stay focused on the real work.',
+      'Every founder hits a point where the workload piles up, the pace slows down, and the business starts waiting on you. A Key Growth Manager steps in to carry that weight   driving progress, clearing blockages, and keeping the machine in motion while you stay focused on the real work.',
     features: [
       'Built to take pressure off you',
       'Supported by a full team that keeps things moving',
@@ -83,7 +83,7 @@ export interface HomeBannerData {
       part3: ' Handles',
     },
     description:
-      'A Key Growth Manager steps in where your time disappears — picking up the work you keep postponing, the tasks that slow your pace, and the decisions that keep stacking on your plate.',
+      'A Key Growth Manager steps in where your time disappears   picking up the work you keep postponing, the tasks that slow your pace, and the decisions that keep stacking on your plate.',
     subHeading: "Here's what they drive each week:",
     features: [
       'Clearing your backlog before it turns into clutter',
@@ -93,7 +93,7 @@ export interface HomeBannerData {
       'Streamlining the small repetitive work that clogs your day',
     ],
     conclusion:
-      'They operate like the steady hand behind your business — keeping the flow clean, the pace consistent, and your head free from the noise that holds you back.',
+      'They operate like the steady hand behind your business   keeping the flow clean, the pace consistent, and your head free from the noise that holds you back.',
     cta: {
       text: 'See What Your Growth Manager Can Do',
       href: '#',
@@ -135,13 +135,13 @@ export interface HomeBannerData {
         text: 'Most owners don\'t get stuck because they\'re bad at business, they get stuck because they\'re buried in things that steal their time, energy, and focus.',
       },
       {
-        text: 'Your day fills up with tiny decisions, half-finished tasks, open loops, and "I\'ll handle it later" moments that slowly choke your momentum.',
+        text: 'Your day fills up with tiny decisions, half finished tasks, open loops, and "I\'ll handle it later" moments that slowly choke your momentum.',
       },
       {
         text: 'You end up reacting instead of moving. Fixing instead of growing. Catching up instead of leading.',
       },
       {
-        text: 'You\'ve probably felt it: the constant pile-up, the silent pressure, the feeling that everything depends on you.',
+        text: 'You\'ve probably felt it: the constant pile up, the silent pressure, the feeling that everything depends on you.',
       },
       {
         text: 'A Key Growth Manager steps in right there, taking weight off your shoulders and turning scattered chaos into steady movement again.',
@@ -243,7 +243,7 @@ export interface HomeBannerData {
       },
     ],
     cta: {
-      text: 'Start Risk-Free',
+      text: 'Start Risk Free',
       href: '#',
     },
   };
@@ -312,7 +312,7 @@ export interface HomeBannerData {
     cards: [
       {
         label: 'Vetting',
-        title: 'Work With Top-Tier Growth Managers',
+        title: 'Work With Top Tier Growth Managers',
         description:
           'Your Growth Manager isn\'t here to "help out." They come in to organize, steady, and speed up the parts of your business that fall behind when things get busy. They think fast, move clean, and keep your daily operations running in a straight line, so you get reliable output every week without having to push, remind, or manage constantly.',
         backgroundImage: '/assets/images/businessdot.webp',
@@ -320,7 +320,7 @@ export interface HomeBannerData {
       },
       {
         label: 'AI',
-        title: 'AI-Enabled Growth Managers',
+        title: 'AI Enabled Growth Managers',
         description:
           'Your Growth Manager works faster because they use smart systems that take the slow work off their hands. Nothing for you to learn, nothing for you to set up, just cleaner tasks done quicker and a business that stays ahead instead of catching up. The result? Consistent output. Less waiting. More movement every single week.',
         image: '/assets/images/key-growth/why-business-owners-choose/2.webp',
@@ -384,7 +384,7 @@ export interface HomeBannerData {
     },
     description: [
       'Work with Growth Managers who already know how to move inside the everyday tools most businesses live on.',
-      'They step in ready — understanding how you track work, store files, manage tasks, communicate with customers, and keep things organized — so nothing starts slow and nothing needs explaining.',
+      'They step in ready   understanding how you track work, store files, manage tasks, communicate with customers, and keep things organized   so nothing starts slow and nothing needs explaining.',
       'Your Growth Manager plugs into your setup fast, keeps it clean, and makes it work smoother than before.',
     ],
     image: '/assets/images/key-growth/tools-your-growth-manager-is-trained-on/growthmanager.webp',
@@ -426,7 +426,7 @@ export interface HomeBannerData {
           part3: '',
         },
         description:
-          'We walk through where your time is slipping, what\'s slowing your week, and what your Growth Manager will take off your plate. No pressure — just clarity.',
+          'We walk through where your time is slipping, what\'s slowing your week, and what your Growth Manager will take off your plate. No pressure   just clarity.',
       },
       {
         number: '02',
@@ -448,7 +448,7 @@ export interface HomeBannerData {
           part3: '',
         },
         description:
-          'Your Growth Manager jumps in, handles the moving parts, and keeps everything flowing — while you stay focused on running the business, not running after tasks.',
+          'Your Growth Manager jumps in, handles the moving parts, and keeps everything flowing   while you stay focused on running the business, not running after tasks.',
       },
     ],
     cta: {
@@ -468,7 +468,7 @@ export interface HomeBannerData {
     heading: 'Tools Your [Growth Manager] Is Trained On',
     description: [
       'Work with Growth Managers who already know how to move inside the everyday tools most businesses live on.',
-      'They step in ready — understanding how you track work, store files, manage tasks, communicate with customers, and keep things organized — so nothing starts slow and nothing needs explaining.',
+      'They step in ready   understanding how you track work, store files, manage tasks, communicate with customers, and keep things organized   so nothing starts slow and nothing needs explaining.',
       'Your Growth Manager plugs into your setup fast, keeps it clean, and makes it work smoother than before.',
     ],
     subDescription: '',

@@ -12,9 +12,9 @@ import FlippaCTA from "./components/FlippaCTA";
 import Portfolio from "./components/portfolio";
 import CreativeServicesSection from "./components/CreativeServicesSection";
 export const metadata: Metadata = {
-  title: "Flippa | Turn Your Business Into a High-Value Asset in 90 Days",
+  title: "Flippa | Turn Your Business Into a High Value Asset in 90 Days",
   description:
-    "We rebuild, scale and systematize your business so you get a high-value, sell-ready asset in 90 days. Business growth, operations, branding & exit-prep services.",
+    "We rebuild, scale and systematize your business so you get a High value, sell-ready asset in 90 days. Business growth, operations, branding & exit-prep services.",
   keywords: [
     "business growth",
     "exit preparation",
@@ -24,9 +24,9 @@ export const metadata: Metadata = {
     "value accelerator",
   ],
   openGraph: {
-    title: "Flippa | Turn Your Business Into a High-Value Asset in 90 Days",
+    title: "Flippa | Turn Your Business Into a High Value Asset in 90 Days",
     description:
-      "We rebuild, scale and systematize your business so you get a high-value, sell-ready asset in 90 days.",
+      "We rebuild, scale and systematize your business so you get a High value, sell-ready asset in 90 days.",
     url: "https://startupsadvisory.ai/flippa",
   },
 };

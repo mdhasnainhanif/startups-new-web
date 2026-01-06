@@ -30,9 +30,9 @@ import {
 } from '../data/WebDevelopmentPageData';
 
 export const metadata: Metadata = {
-  title: "1 Month Website Package | Market-Ready Website | Startups Advisory",
+  title: "1 Month Website Package | Market Ready Website | Startups Advisory",
   description:
-    "Your Complete Website Team for 1 Month. Fully Focused on Your Build. A dedicated web unit assembled to create a fast, structured, market-ready website prepared to support real traffic and real business activity.",
+    "Your Complete Website Team for 1 Month. Fully Focused on Your Build. A dedicated web unit assembled to create a fast, structured, market ready website prepared to support real traffic and real business activity.",
   robots: "nofollow",
 };
 
@@ -47,7 +47,7 @@ export default function WebDevelopmentPage() {
         hideTabs={true} 
         defaultTab="creative"
         heading="$48000+ Worth of [Web Production] Capability Working on Your Build"
-        description="Your project benefits from coordinated specialists and AI assisted systems delivering clarity, consistency, and technical precision without drawn-out timelines or extended costs."
+        description="Your project benefits from coordinated specialists and AI assisted systems delivering clarity, consistency, and technical precision without drawn out timelines or extended costs."
         subDescription="Development and Production Systems ($12,000+ Annual Value)"
       />
       <TextSlider1 data={webDevelopmentSliderData2}/>

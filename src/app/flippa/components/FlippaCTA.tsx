@@ -27,7 +27,7 @@ export default function FlippaCTA() {
           <div className="sectionHeading mb-4 md:mb-6">
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-center w-full mx-auto">
               <span className="text-white">Ready to Turn Your Business Into a</span>
-              <span className="text-[var(--color-primary)]"> High-Value Asset?</span>
+              <span className="text-[var(--color-primary)]"> High Value Asset?</span>
             </h2>
           </div>
           <p className="text-base sm:text-lg md:text-xl text-white/80 mb-8 md:mb-10 max-w-2xl mx-auto px-4">

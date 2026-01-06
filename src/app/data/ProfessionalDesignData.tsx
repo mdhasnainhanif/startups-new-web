@@ -101,7 +101,7 @@ export const PROFESSIONAL_DESIGN_DATA: ProfessionalDesignData = {
       className: "factsListItem",
     },
     {
-      text: "Home-service businesses using professional design saw a 2-3x improvement in lead conversion after updating visuals.",
+      text: "Home service businesses using professional design saw a 2-3x improvement in lead conversion after updating visuals.",
       className: "factsListItem",
     },
     {

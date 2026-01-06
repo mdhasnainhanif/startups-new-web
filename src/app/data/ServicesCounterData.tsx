@@ -24,7 +24,7 @@ export const SERVICES_COUNTER_DATA: ServicesCounterDataMap = {
       {
         id: "bi-1",
         value: "25+",
-        label: "Brand-focused creatives driving visual direction and consistency across active customer accounts.",
+        label: "Brand focused creatives driving visual direction and consistency across active customer accounts.",
       },
       {
         id: "bi-2",
@@ -34,7 +34,7 @@ export const SERVICES_COUNTER_DATA: ServicesCounterDataMap = {
       {
         id: "bi-3",
         value: "4.8/5",
-        label: "Client satisfaction with brand and identity work — measured by consistency, visual quality, and turnaround.",
+        label: "Client satisfaction with brand and identity work   measured by consistency, visual quality, and turnaround.",
       },
       {
         id: "bi-4",
@@ -60,7 +60,7 @@ export const SERVICES_COUNTER_DATA: ServicesCounterDataMap = {
       {
         id: "ma-3",
         value: "4.8/5",
-        label: "Client satisfaction with marketing outcomes — measured by ROI, lead quality, and speed.",
+        label: "Client satisfaction with marketing outcomes   measured by ROI, lead quality, and speed.",
       },
       {
         id: "ma-4",
@@ -76,7 +76,7 @@ export const SERVICES_COUNTER_DATA: ServicesCounterDataMap = {
       {
         id: "dw-1",
         value: "18+",
-        label: "Years of hands-on experience delivering high-performing digital products across platforms.",
+        label: "Years of hands-on experience delivering High performing digital products across platforms.",
       },
       {
         id: "dw-2",
@@ -91,7 +91,7 @@ export const SERVICES_COUNTER_DATA: ServicesCounterDataMap = {
       {
         id: "dw-4",
         value: "95%",
-        label: "Projects delivered on time, optimized for speed, scalability, and long-term growth.",
+        label: "Projects delivered on time, optimized for speed, scalability, and long term growth.",
       },
     ],
   },
@@ -128,7 +128,7 @@ export const SERVICES_COUNTER_DATA: ServicesCounterDataMap = {
       {
         id: "pr-1",
         value: "2M+",
-        label: "Print designs created for brands across industries — from everyday materials to high-impact campaigns.",
+        label: "Print designs created for brands across industries   from everyday materials to high impact campaigns.",
       },
       {
         id: "pr-2",
@@ -175,7 +175,7 @@ export const SERVICES_COUNTER_DATA: ServicesCounterDataMap = {
       {
         id: "edr-1",
         value: "18+",
-        label: "Years of experience designing long-form business documents.",
+        label: "Years of experience designing Long Form business documents.",
       },
       {
         id: "edr-2",

@@ -50,7 +50,7 @@ export function CWFramework({ data }: CWFrameworkProps) {
           <div className="bg-[#1c1949] rounded-xl p-8 border-2 border-primary/30" id="content-growth-plan">
             <div className="text-center mb-6">
               <div className="text-4xl font-bold text-primary mb-2">$3,299</div>
-              <div className="text-sm text-white/70">One-Time Payment</div>
+              <div className="text-sm text-white/70">One Time Payment</div>
             </div>
             
             <h3 className="text-xl font-semibold text-white mb-2">Content KITs Included</h3>

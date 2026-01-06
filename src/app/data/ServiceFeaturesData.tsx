@@ -74,7 +74,7 @@ export const SERVICE_FEATURES_DATA: Record<string, ServiceFeaturesData> = {
       {
         icon: <ClockIcon />,
         title: "Consistent delivery you can rely on",
-        description: "No guessing timelines or chasing updates. Most first brand drafts arrive within 24 hours, crafted with intent — not shortcuts."
+        description: "No guessing timelines or chasing updates. Most first brand drafts arrive within 24 hours, crafted with intent   not shortcuts."
       },
       {
         icon: <DollarIcon />,
@@ -108,7 +108,7 @@ export const SERVICE_FEATURES_DATA: Record<string, ServiceFeaturesData> = {
       {
         icon: <ClockIcon />,
         title: "Consistent delivery you can rely on",
-        description: "No waiting weeks to test ideas. Most first ad drafts go live within 24 hours, built for iteration — not assumptions."
+        description: "No waiting weeks to test ideas. Most first ad drafts go live within 24 hours, built for iteration   not assumptions."
       },
       {
         icon: <DollarIcon />,
@@ -142,7 +142,7 @@ export const SERVICE_FEATURES_DATA: Record<string, ServiceFeaturesData> = {
       {
         icon: <ClockIcon />,
         title: "Performance you can measure",
-        description: "No guessing what works. Pages are built for speed, SEO, and conversion tracking from day one — so every improvement compounds."
+        description: "No guessing what works. Pages are built for speed, SEO, and conversion tracking from day one   so every improvement compounds."
       },
       {
         icon: <DollarIcon />,
@@ -171,7 +171,7 @@ export const SERVICE_FEATURES_DATA: Record<string, ServiceFeaturesData> = {
       {
         icon: <PencilIcon />,
         title: "Product-first design strategy",
-        description: "Every package starts with clarity. We design around your product's purpose, audience, and positioning — not trends."
+        description: "Every package starts with clarity. We design around your product's purpose, audience, and positioning   not trends."
       },
       {
         icon: <ClockIcon />,
@@ -199,13 +199,13 @@ export const SERVICE_FEATURES_DATA: Record<string, ServiceFeaturesData> = {
       trademark: "®",
       tools: ["Fi", "AI", "Ship", "△"],
       title: "Clear Planning, Cohesive Design, Proven Impact",
-      description: "Great events don’t feel improvised. They’re structured, consistent, and visually aligned — engineered to represent your brand professionally."
+      description: "Great events don’t feel improvised. They’re structured, consistent, and visually aligned   engineered to represent your brand professionally."
     },
     cards: [
       {
         icon: <PencilIcon />,
         title: "Brand-first event strategy",
-        description: "Every event starts with your brand identity. Designs align with your messaging, audience, and objectives — not generic themes."
+        description: "Every event starts with your brand identity. Designs align with your messaging, audience, and objectives   not generic themes."
       },
       {
         icon: <ClockIcon />,
@@ -233,7 +233,7 @@ export const SERVICE_FEATURES_DATA: Record<string, ServiceFeaturesData> = {
       trademark: "®",
       tools: ["Fi", "AI", "Ship", "△"],
       title: "Message-first slide structure",
-      description: "Every deck starts with intent. Slide flow, hierarchy, and pacing are designed to support the story — not distract from it."
+      description: "Every deck starts with intent. Slide flow, hierarchy, and pacing are designed to support the story   not distract from it."
     },
     cards: [
       {
@@ -274,7 +274,7 @@ export const SERVICE_FEATURES_DATA: Record<string, ServiceFeaturesData> = {
       {
         icon: <PencilIcon />,
         title: "Designed for credibility",
-        description: "No clutter. No amateur layouts. Every page is built to look polished, professional, and trustworthy — from cover to final page."
+        description: "No clutter. No amateur layouts. Every page is built to look polished, professional, and trustworthy   from cover to final page."
       },
       {
         icon: <ClockIcon />,
@@ -342,7 +342,7 @@ export const SERVICE_FEATURES_DATA: Record<string, ServiceFeaturesData> = {
       {
         icon: <PencilIcon />,
         title: "Production without delays",
-        description: "Skip long agency timelines and revision chaos. We deliver clean, on-brand motion assets quickly — ready for ads, landing pages, and campaigns."
+        description: "Skip long agency timelines and revision chaos. We deliver clean, on brand motion assets quickly   ready for ads, landing pages, and campaigns."
       },
       {
         icon: <ClockIcon />,
@@ -362,7 +362,7 @@ export const SERVICE_FEATURES_DATA: Record<string, ServiceFeaturesData> = {
     ]
   },
   "print": {
-    heading: "DESIGNED FOR PRINT — NOT JUST SCREENS",
+    heading: "DESIGNED FOR PRINT   NOT JUST SCREENS",
     featuredCard: {
       image: "/assets/images/services/brand-identity/men.webp",
       name: "James",
