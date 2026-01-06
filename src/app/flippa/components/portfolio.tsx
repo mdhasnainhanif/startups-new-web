@@ -1,5 +1,11 @@
 'use client';
 import { useState, useRef, useEffect } from 'react';
+import { Fancybox } from '@fancyapps/ui';
+import '@fancyapps/ui/dist/fancybox/fancybox.css';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
 import styles from '../../components/ProvenSuccess/ProvenSuccess.module.css';
 import Container from '../../components/Container';
 interface TabData {
@@ -80,6 +86,8 @@ const PROVEN_SUCCESS_DATA: ProvenSuccessData = {
         '/assets/images/portfolio/branding-kit/8.webp',
         '/assets/images/portfolio/branding-kit/9.webp',
         '/assets/images/portfolio/branding-kit/10.webp',
+        '/assets/images/portfolio/branding-kit/11.webp',
+        '/assets/images/portfolio/branding-kit/12.webp',
       ],
       gridItems: [
         { id: '1', label: 'Logo Design' },
@@ -216,80 +224,6 @@ interface ProvenSuccessProps {
   data?: ProvenSuccessData;
   variant?: string;
 }
-const ImageLightbox = ({ 
-  isOpen, 
-  onClose, 
-  imageUrl,
-  isWebDevelopment = false
-}: { 
-  isOpen: boolean; 
-  onClose: () => void; 
-  imageUrl: string | null;
-  isWebDevelopment?: boolean;
-}) => {
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
-  }, [isOpen]);
-  useEffect(() => {
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        onClose();
-      }
-    };
-    if (isOpen) {
-      window.addEventListener('keydown', handleEscape);
-    }
-    return () => {
-      window.removeEventListener('keydown', handleEscape);
-    };
-  }, [isOpen, onClose]);
-  if (!isOpen || !imageUrl) return null;
-  return (
-    <div
-      className={styles.lightboxOverlay}
-      onClick={onClose}
-    >
-      <button
-        onClick={onClose}
-        className={styles.lightboxCloseButton}
-        aria-label="Close image"
-      >
-        <svg
-          className="w-6 h-6"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M6 18L18 6M6 6l12 12"
-          />
-        </svg>
-      </button>
-      <div
-        className={`${styles.lightboxContent} ${isWebDevelopment ? styles.lightboxContentScrollable : ''}`}
-        onClick={(e) => e.stopPropagation()}
-      >
-        <div className={isWebDevelopment ? styles.lightboxImageContainer : ''}>
-          <img
-            src={imageUrl}
-            alt="Portfolio zoom"
-            className={`${styles.lightboxImage} ${isWebDevelopment ? styles.lightboxImageScrollable : ''}`}
-          />
-        </div>
-      </div>
-    </div>
-  );
-};
 const portfolio = ({ data, variant }: ProvenSuccessProps) => {
   const portfolioData = data || PROVEN_SUCCESS_DATA;
   const isWebDevelopment = variant === 'web-development';
@@ -301,8 +235,19 @@ const portfolio = ({ data, variant }: ProvenSuccessProps) => {
   const [displayedTabId, setDisplayedTabId] = useState<string>(
     filteredTabs.length > 0 ? filteredTabs[0].id : ''
   );
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [isTabsSwiperBeginning, setIsTabsSwiperBeginning] = useState<boolean>(true);
+  const [isTabsSwiperEnd, setIsTabsSwiperEnd] = useState<boolean>(false);
+  const tabsSwiperRef = useRef<any>(null);
   const displayedTab = filteredTabs.find((tab) => tab.id === displayedTabId) || filteredTabs[0];
+  useEffect(() => {
+    Fancybox.bind('[data-fancybox]', {
+    });
+    return () => {
+      Fancybox.unbind('[data-fancybox]');
+      Fancybox.destroy();
+    };
+  }, [displayedTabId, isWebDevelopment]);
+
   useEffect(() => {
     if (!isWebDevelopment && activeTab) {
       setIsFading(true);
@@ -329,31 +274,139 @@ const portfolio = ({ data, variant }: ProvenSuccessProps) => {
           <p className={styles.description}>{portfolioData.description}</p>
         </div>
         {!isWebDevelopment && (
-          <div className={styles.tabsContainer}>
-            {portfolioData.tabs.map((tab) => (
+          <>
+            {/* Tabs - Desktop/Tablet */}
+            <div className={styles.tabsContainer}>
+              {portfolioData.tabs.map((tab) => (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveTab(tab.id)}
+                  className={`${styles.tab} ${activeTab === tab.id ? styles.activeTab : ''}`}
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </div>
+
+            {/* Tabs - Mobile */}
+            <div className={`${styles.tabsContainerMobile} relative`}>
+              {/* Left Arrow */}
               <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
-                className={`${styles.tab} ${activeTab === tab.id ? styles.activeTab : ''}`}
+                onClick={() => tabsSwiperRef.current?.slidePrev()}
+                disabled={isTabsSwiperBeginning}
+                className={`absolute left-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full border-none text-white cursor-pointer flex items-center justify-center transition-all ${
+                  isTabsSwiperBeginning
+                    ? "opacity-30 cursor-not-allowed bg-[#1b1849]"
+                    : "opacity-100 hover:bg-[#0fdac2]/80 bg-[#0fdac2]"
+                }`}
+                aria-label="Previous tab"
               >
-                {tab.label}
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M15 18l-6-6 6-6" />
+                </svg>
               </button>
-            ))}
-          </div>
+
+              {/* Right Arrow */}
+              <button
+                onClick={() => tabsSwiperRef.current?.slideNext()}
+                disabled={isTabsSwiperEnd}
+                className={`absolute right-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full border-none text-white cursor-pointer flex items-center justify-center transition-all ${
+                  isTabsSwiperEnd
+                    ? "opacity-30 cursor-not-allowed bg-[#1b1849]"
+                    : "opacity-100 hover:bg-[#0fdac2]/80 bg-[#0fdac2]"
+                }`}
+                aria-label="Next tab"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M9 18l6-6-6-6" />
+                </svg>
+              </button>
+
+              <Swiper
+                modules={[Navigation]}
+                spaceBetween={0}
+                slidesPerView={1}
+                centeredSlides={false}
+                allowTouchMove={true}
+                speed={300}
+                watchOverflow={true}
+                initialSlide={0}
+                onSwiper={(swiper) => {
+                  tabsSwiperRef.current = swiper;
+                  setIsTabsSwiperBeginning(swiper.isBeginning);
+                  setIsTabsSwiperEnd(swiper.isEnd);
+                }}
+                onSlideChange={(swiper) => {
+                  setIsTabsSwiperBeginning(swiper.isBeginning);
+                  setIsTabsSwiperEnd(swiper.isEnd);
+                  const activeIndex = swiper.activeIndex;
+                  if (portfolioData.tabs[activeIndex]) {
+                    const selectedTab = portfolioData.tabs[activeIndex];
+                    setActiveTab(selectedTab.id);
+                  }
+                }}
+                className={styles.tabsSwiper}
+                style={{ paddingLeft: "3rem", paddingRight: "3rem", overflow: "hidden", minHeight: "60px" }}
+              >
+                {portfolioData.tabs.map((tab) => (
+                  <SwiperSlide key={tab.id} style={{ width: "100%" }}>
+                    <div className="flex justify-center w-full">
+                      <button
+                        onClick={() => {
+                          setActiveTab(tab.id);
+                          // Sync swiper to active tab
+                          const tabIndex = portfolioData.tabs.findIndex((t) => t.id === tab.id);
+                          if (tabsSwiperRef.current && tabIndex !== -1) {
+                            tabsSwiperRef.current.slideTo(tabIndex);
+                          }
+                        }}
+                        className={`${styles.tab} ${activeTab === tab.id ? styles.activeTab : ''}`}
+                        style={{ margin: 0 }}
+                      >
+                        {tab.label}
+                      </button>
+                    </div>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+            </div>
+          </>
         )}
         {isWebDevelopment ? (          
           <div className={styles.portfolioGrid}>
             {WEB_DEV_PORTFOLIO.map((item, index) => (
               <div
                 key={index}
-                className={styles.portfolioItem}
-                onClick={() => setSelectedImage(item.zoom)}
+                className={`${styles.portfolioItem} aspect-square rounded-lg overflow-hidden cursor-pointer`}
               >
-                <div className={styles.imageWrapper}>
+                <a
+                  href={item.zoom}
+                  data-fancybox="web-development"
+                  data-caption={`Web Development Portfolio ${index + 1}`}
+                  className={styles.imageWrapper}
+                >
                   <img
                     src={item.normal}
                     alt={`Web Development Portfolio ${index + 1}`}
-                    className={styles.portfolioImage}
+                    className={`${styles.portfolioImage} w-full h-full object-cover`}
                   />
                   <div className={styles.overlay}>
                     <svg
@@ -370,7 +423,7 @@ const portfolio = ({ data, variant }: ProvenSuccessProps) => {
                       />
                     </svg>
                   </div>
-                </div>
+                </a>
               </div>
             ))}
           </div>
@@ -383,23 +436,39 @@ const portfolio = ({ data, variant }: ProvenSuccessProps) => {
             {displayedTab.images.map((image, index) => (
               <div
                 key={`${displayedTabId}-${index}`}
-                className="aspect-square rounded-lg overflow-hidden"
+                className={`${styles.portfolioItem} aspect-square rounded-lg overflow-hidden cursor-pointer`}
               >
-                <img
-                  src={image}
-                  alt={`${displayedTab.label} ${index + 1}`}
-                  className="w-full h-full object-cover"
-                />
+                <a
+                  href={image}
+                  data-fancybox={displayedTabId}
+                  data-caption={`${displayedTab.label} - Image ${index + 1}`}
+                  className={styles.imageWrapper}
+                >
+                  <img
+                    src={image}
+                    alt={`${displayedTab.label} ${index + 1}`}
+                    className={`${styles.portfolioImage} w-full h-full object-cover`}
+                  />
+                  <div className={styles.overlay}>
+                    <svg
+                      className={styles.zoomIcon}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"
+                      />
+                    </svg>
+                  </div>
+                </a>
               </div>
             ))}
           </div>
         )}
-        <ImageLightbox
-          isOpen={selectedImage !== null}
-          onClose={() => setSelectedImage(null)}
-          imageUrl={selectedImage}
-          isWebDevelopment={isWebDevelopment}
-        />
       </Container>
     </section>
   );

@@ -27,6 +27,11 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
+.mapSection iframe {
+  border-radius: 0;
+  display: block;
+}
+
 .heading {
   font-size: 2.875rem;
   font-weight: 600;
@@ -61,9 +66,33 @@
   flex: 0 1 calc(50% - 0.5rem);
 }
 
+.inputWithIcon {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.inputIcon {
+  position: absolute;
+  left: 1rem;
+  top: 1.9rem;
+  transform: translateY(-50%);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+}
+
+.inputIcon svg {
+  width: 20px;
+  height: 20px;
+}
+
 .formInput {
   width: 100%;
   padding: 0.875rem 1rem;
+  padding-left: 3rem;
   background: #0e1030;
   border: 2px solid transparent;
   background-image: linear-gradient(#0e1030, #0e1030),
@@ -84,7 +113,7 @@
 .formInput:focus {
   outline: none;
   background-image: linear-gradient(#0e1030, #0e1030),
-    linear-gradient(to right, #0fdac2, #732BFF);
+    linear-gradient(to right, #0fdac2, #732bff);
   box-shadow: none;
 }
 
@@ -94,6 +123,7 @@
   max-height: 200px;
   width: 100%;
   padding: 0.875rem 1rem;
+  padding-left: 3rem;
   background: #0e1030;
   border: 2px solid transparent;
   background-image: linear-gradient(#0e1030, #0e1030),
@@ -114,7 +144,7 @@
 .formTextarea:focus {
   outline: none;
   background-image: linear-gradient(#0e1030, #0e1030),
-    linear-gradient(to right, #0fdac2, #732BFF);
+    linear-gradient(to right, #0fdac2, #732bff);
   box-shadow: none;
 }
 
@@ -233,6 +263,14 @@
     padding: 2rem 1.5rem;
   }
 
+  .mapSection {
+    border-radius: 1rem !important;
+  }
+
+  .mapSection iframe {
+    border-radius: 1rem;
+  }
+
   .heading {
     font-size: 1.75rem;
     margin-bottom: 1.5rem;
@@ -266,6 +304,14 @@
     padding: 1.5rem 1rem;
   }
 
+  .mapSection {
+    border-radius: 1rem !important;
+  }
+
+  .mapSection iframe {
+    border-radius: 1rem;
+  }
+
   .heading {
     font-size: 1.5rem;
     margin-bottom: 1rem;
@@ -276,7 +322,7 @@
   }
 
   .formInput {
-    padding: 0.625rem 0.875rem;
+    padding: 0.625rem 0rem 0.625rem 2.875rem;
     font-size: 0.8125rem;
   }
 
@@ -294,9 +340,23 @@
   .contactFormContainer {
     padding: 0.75rem 0.5rem;
   }
+  .inputIcon {
+    top: 1.5rem;
+  }
+  .inputGroupRow {
+    flex-direction: column;
+  }
 
   .formSection {
     padding: 1.25rem 0.75rem;
+  }
+
+  .mapSection {
+    display: none;
+  }
+
+  .mapSection iframe {
+    border-radius: 1rem;
   }
 
   .heading {
@@ -313,4 +373,607 @@
 
 .inputGroup.half {
   flex: 0 1 calc(50% - 0.5rem);
+}
+
+/* Phone Input Styles - Matching existing UI */
+.phoneInput {
+  width: 100%;
+  flex: 1;
+  position: relative;
+}
+
+.phoneInputContainer {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  padding: 0;
+  background: #0e1030;
+  border: 2px solid transparent;
+  background-image: linear-gradient(#0e1030, #0e1030),
+    linear-gradient(to right, #0fdac2, #643bff);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  border-radius: 0.5rem;
+  overflow: visible;
+  position: relative;
+}
+
+.phoneInputContainer:focus-within {
+  background-image: linear-gradient(#0e1030, #0e1030),
+    linear-gradient(to right, #0fdac2, #732bff);
+}
+
+/* Popup specific - simple green border instead of gradient */
+:global(.popup-questionnaire) :global([class*="phoneInput"]) .phoneInputContainer {
+  border: 2px solid var(--color-primary) !important;
+  background-image: none !important;
+  background: #282552 !important;
+  background-color: #282552 !important;
+}
+
+:global(.popup-questionnaire) :global([class*="phoneInput"]) .phoneInputContainer:focus-within {
+  border: 2px solid var(--color-primary) !important;
+  background-image: none !important;
+  background: #282552 !important;
+  background-color: #282552 !important;
+}
+
+.phoneInput :global(.PhoneInput) {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  border-radius: 0.5rem;
+  background-image: linear-gradient(to right, #0fdac2, #643bff);
+  background-origin: border-box;
+  background-clip: border-box;
+  border: 2px solid transparent;
+  overflow: hidden;
+}
+
+.phoneInput{
+  border-radius: 0.5rem;
+}
+
+.phoneInput :global(.PhoneInput):focus-within {
+  background-image: linear-gradient(to right, #0fdac2, #732bff);
+}
+
+.phoneInput :global(.PhoneInputCountry) {
+  display: flex;
+  align-items: center;
+  padding: 0.875rem 0.75rem;
+  background: #0e1030;
+  border: none;
+  border-right: 1px solid rgba(15, 218, 194, 0.3);
+  margin-right: 0;
+}
+
+.phoneInput :global(.PhoneInputCountryIcon) {
+  width: 20px;
+  height: 20px;
+  box-shadow: none;
+  border: none;
+  object-fit: cover;
+}
+
+.phoneInput :global(.PhoneInputCountrySelect) {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 1rem;
+  outline: none;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  min-width: auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.phoneInput :global(.PhoneInputCountrySelectArrow) {
+  opacity: 1;
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 5px solid #0fdac2;
+  margin-left: 0.5rem;
+  transform: rotate(0deg);
+}
+
+.phoneInput :global(.PhoneInputInput) {
+  flex: 1;
+  width: 100%;
+  padding: 0.875rem 1rem;
+  background: #0e1030;
+  border: none;
+  border-radius: 0;
+  font-size: 1rem;
+  color: #ffffff;
+  font-family: inherit;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.phoneInput :global(.PhoneInputInput):focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.phoneInput :global(.PhoneInputInput)::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Country Dropdown Styles */
+.phoneInput :global(.PhoneInputCountryIcon--border) {
+  box-shadow: none;
+}
+
+.phoneInput :global(select.PhoneInputCountrySelect) {
+  color: #ffffff !important;
+}
+
+.phoneInput :global(select.PhoneInputCountrySelect option) {
+  background: #0e1030 !important;
+  color: #ffffff !important;
+  padding: 0.5rem;
+  width: 100% !important;
+}
+
+/* Dropdown menu styling */
+.phoneInput :global(.PhoneInputCountrySelect) {
+  color: #ffffff !important;
+  width: 100% !important;
+}
+
+.phoneInput :global(.PhoneInputCountrySelect option) {
+  background: #0e1030 !important;
+  color: #ffffff !important;
+  width: 100% !important;
+}
+
+.phoneInputWrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.countryCodePrefix {
+  padding: 0 0.5rem;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: inherit;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* Popup specific - countryCodePrefix styling from inspect */
+:global(.popup-questionnaire) :global([class*="phoneInput"]) .phoneInputContainer .phoneInputWrapper .countryCodePrefix {
+  background: #282552 !important;
+  background-color: #282552 !important;
+  height: 100% !important;
+  place-content: center !important;
+}
+
+/* Brief page specific - countryCodePrefix styling from inspect (only for brief page, not popup) */
+:global(.briefPage) :global([class*="phoneInput"][class*="formInputSmall"]) .phoneInputContainer .phoneInputWrapper .countryCodePrefix,
+:global(.briefPage) :global([class*="phoneInput"][class*="greenInput"]) .phoneInputContainer .phoneInputWrapper .countryCodePrefix,
+:global(.briefPage) :global([class*="phoneInput"][class*="formInputSmall"][class*="greenInput"]) .phoneInputContainer .phoneInputWrapper .countryCodePrefix {
+  background: #0f0d22 !important;
+  background-color: #0f0d22 !important;
+  height: 100% !important;
+  place-content: center !important;
+}
+
+/* Brief page specific - countryCodePrefix background color #0f0d22 */
+:global(.briefPage) :global([class*="phoneInput"]) .phoneInputContainer .phoneInputWrapper .countryCodePrefix {
+  background: #0f0d22 !important;
+  background-color: #0f0d22 !important;
+  height: 100% !important;
+  place-content: center !important;
+}
+
+.phoneNumberInput {
+  flex: 1;
+  width: 100%;
+  padding: 0.875rem 1rem;
+  padding-left: 0.25rem;
+  background: #0e1030;
+  border: none;
+  border-radius: 0;
+  font-size: 1rem;
+  color: #ffffff;
+  font-family: inherit;
+  outline: none;
+  transition: all 0.3s ease;
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+
+/* Override for questionnaire form - match formInput background */
+/* Target when outer phoneInput div has formInputSmall or greenInput classes */
+:global([class*="phoneInput"][class*="formInputSmall"])
+  .phoneInputContainer
+  .phoneNumberInput,
+:global([class*="phoneInput"][class*="greenInput"])
+  .phoneInputContainer
+  .phoneNumberInput,
+:global([class*="phoneInput"][class*="formInputSmall"][class*="greenInput"])
+  .phoneInputContainer
+  .phoneNumberInput {
+  background: #0f0d22 !important;
+  background-color: #0f0d22 !important;
+}
+
+/* Brief page specific - override questionnaire form background with #0f0d22 */
+:global(.briefPage) :global([class*="phoneInput"][class*="formInputSmall"])
+  .phoneInputContainer
+  .phoneNumberInput,
+:global(.briefPage) :global([class*="phoneInput"][class*="greenInput"])
+  .phoneInputContainer
+  .phoneNumberInput,
+:global(.briefPage) :global([class*="phoneInput"][class*="formInputSmall"][class*="greenInput"])
+  .phoneInputContainer
+  .phoneNumberInput {
+  background: #0f0d22 !important;
+  background-color: #0f0d22 !important;
+}
+
+/* Popup specific - phone number input background color #282552 */
+:global(.popup-questionnaire) :global([class*="phoneInput"]) .phoneInputContainer .phoneNumberInput,
+:global(.popup-questionnaire) :global([class*="phoneInput"][class*="formInputSmall"]) .phoneInputContainer .phoneNumberInput,
+:global(.popup-questionnaire) :global([class*="phoneInput"][class*="greenInput"]) .phoneInputContainer .phoneNumberInput,
+:global(.popup-questionnaire) :global([class*="phoneInput"][class*="formInputSmall"][class*="greenInput"]) .phoneInputContainer .phoneNumberInput {
+  background: #282552 !important;
+  background-color: #282552 !important;
+  background-image: none !important;
+}
+
+.phoneNumberInput:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.phoneNumberInput::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Custom Country Select Styles */
+.customCountrySelect {
+  position: relative;
+  width: auto;
+  min-width: fit-content;
+  display: flex;
+  align-items: stretch;
+  z-index: 10;
+}
+
+/* Popup specific - customCountrySelect styling from inspect */
+:global(.popup-questionnaire) :global([class*="phoneInput"]) .phoneInputContainer .customCountrySelect {
+  background: #282552 !important;
+  background-color: #282552 !important;
+  border-top-left-radius: 0.6rem !important;
+  border-bottom-left-radius: 0.6rem !important;
+}
+
+/* Brief page specific - customCountrySelect background color #0f0d22 */
+:global(.briefPage) :global([class*="phoneInput"]) .phoneInputContainer .customCountrySelect {
+  background: #0f0d22 !important;
+  background-color: #0f0d22 !important;
+  border-top-left-radius: 0.6rem !important;
+  border-bottom-left-radius: 0.6rem !important;
+}
+
+.countrySelectButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 0.75rem;
+  background: #0e1030;
+  border: none;
+  border-right: 1px solid rgba(15, 218, 194, 0.3);
+  color: #ffffff;
+  font-size: 1rem;
+  cursor: pointer;
+  font-family: inherit;
+  width: auto;
+  min-width: fit-content;
+  height: 100%;
+  min-height: 3.24rem; /* Match formInput height */
+  justify-content: flex-start;
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+}
+
+/* Override for questionnaire form - match formInput background */
+/* Target when outer phoneInput div has formInputSmall or greenInput classes */
+:global([class*="phoneInput"][class*="formInputSmall"])
+  .phoneInputContainer
+  .countrySelectButton,
+:global([class*="phoneInput"][class*="greenInput"])
+  .phoneInputContainer
+  .countrySelectButton,
+:global([class*="phoneInput"][class*="formInputSmall"][class*="greenInput"])
+  .phoneInputContainer
+  .countrySelectButton,
+/* Also target directly when parent has these classes */
+:global([class*="formInputSmall"]) .countrySelectButton,
+:global([class*="greenInput"]) .countrySelectButton {
+  background: #0f0d22 !important;
+  background-color: #0f0d22 !important;
+}
+
+/* Brief page specific - countrySelectButton background color #0f0d22 */
+:global(.briefPage) :global([class*="phoneInput"][class*="formInputSmall"])
+  .phoneInputContainer
+  .countrySelectButton,
+:global(.briefPage) :global([class*="phoneInput"][class*="greenInput"])
+  .phoneInputContainer
+  .countrySelectButton,
+:global(.briefPage) :global([class*="phoneInput"][class*="formInputSmall"][class*="greenInput"])
+  .phoneInputContainer
+  .countrySelectButton,
+:global(.briefPage) :global([class*="formInputSmall"]) .countrySelectButton,
+:global(.briefPage) :global([class*="greenInput"]) .countrySelectButton {
+  background: #0f0d22 !important;
+  background-color: #0f0d22 !important;
+}
+
+/* Popup specific - countrySelectButton background color #282552 */
+:global(.popup-questionnaire) :global([class*="phoneInput"]) .phoneInputContainer .countrySelectButton,
+:global(.popup-questionnaire) :global([class*="phoneInput"][class*="formInputSmall"]) .phoneInputContainer .countrySelectButton,
+:global(.popup-questionnaire) :global([class*="phoneInput"][class*="greenInput"]) .phoneInputContainer .countrySelectButton,
+:global(.popup-questionnaire) :global([class*="phoneInput"][class*="formInputSmall"][class*="greenInput"]) .phoneInputContainer .countrySelectButton {
+  background: #282552 !important;
+  background-color: #282552 !important;
+}
+
+/* Popup specific - phoneInputWrapper background color #282552 */
+:global(.popup-questionnaire) :global([class*="phoneInput"]) .phoneInputContainer .phoneInputWrapper {
+  background: #282552 !important;
+  background-color: #282552 !important;
+}
+
+/* Popup specific - Force all child elements to have #282552 background */
+:global(.popup-questionnaire) :global([class*="phoneInput"]) .phoneInputContainer *,
+:global(.popup-questionnaire) :global([class*="phoneInput"]) .phoneInputContainer .phoneInputWrapper *,
+:global(.popup-questionnaire) :global([class*="phoneInput"]) .phoneInputContainer .customCountrySelect *,
+:global(.popup-questionnaire) :global([class*="phoneInput"]) .phoneInputContainer .countrySelectButton * {
+  background-color: #282552 !important;
+  background: #282552 !important;
+}
+
+/* Brief page specific - phone input background color #0f0d22 (NOT popup) */
+/* Popup is separate overlay, so .briefPage won't affect it */
+/* Use higher specificity to ensure these rules apply */
+:global(.briefPage) :global([class*="phoneInput"]) .phoneInputContainer,
+:global(.briefPage) :global([class*="phoneInput"][class*="formInputSmall"]) .phoneInputContainer,
+:global(.briefPage) :global([class*="phoneInput"][class*="greenInput"]) .phoneInputContainer,
+:global(.briefPage) :global([class*="phoneInput"][class*="formInputSmall"][class*="greenInput"]) .phoneInputContainer {
+  background: #0f0d22 !important;
+  background-color: #0f0d22 !important;
+  background-image: none !important;
+}
+
+:global(.briefPage) :global([class*="phoneInput"]) .phoneInputContainer:focus-within,
+:global(.briefPage) :global([class*="phoneInput"][class*="formInputSmall"]) .phoneInputContainer:focus-within,
+:global(.briefPage) :global([class*="phoneInput"][class*="greenInput"]) .phoneInputContainer:focus-within,
+:global(.briefPage) :global([class*="phoneInput"][class*="formInputSmall"][class*="greenInput"]) .phoneInputContainer:focus-within {
+  background: #0f0d22 !important;
+  background-color: #0f0d22 !important;
+  background-image: none !important;
+}
+
+:global(.briefPage) :global([class*="phoneInput"]) .phoneInputContainer .phoneInputWrapper,
+:global(.briefPage) :global([class*="phoneInput"][class*="formInputSmall"]) .phoneInputContainer .phoneInputWrapper,
+:global(.briefPage) :global([class*="phoneInput"][class*="greenInput"]) .phoneInputContainer .phoneInputWrapper,
+:global(.briefPage) :global([class*="phoneInput"][class*="formInputSmall"][class*="greenInput"]) .phoneInputContainer .phoneInputWrapper {
+  background: #0f0d22 !important;
+  background-color: #0f0d22 !important;
+}
+
+:global(.briefPage) :global([class*="phoneInput"]) .phoneInputContainer .countrySelectButton,
+:global(.briefPage) :global([class*="phoneInput"][class*="formInputSmall"]) .phoneInputContainer .countrySelectButton,
+:global(.briefPage) :global([class*="phoneInput"][class*="greenInput"]) .phoneInputContainer .countrySelectButton,
+:global(.briefPage) :global([class*="phoneInput"][class*="formInputSmall"][class*="greenInput"]) .phoneInputContainer .countrySelectButton {
+  background: #0f0d22 !important;
+  background-color: #0f0d22 !important;
+}
+
+:global(.briefPage) :global([class*="phoneInput"]) .phoneInputContainer .customCountrySelect,
+:global(.briefPage) :global([class*="phoneInput"][class*="formInputSmall"]) .phoneInputContainer .customCountrySelect,
+:global(.briefPage) :global([class*="phoneInput"][class*="greenInput"]) .phoneInputContainer .customCountrySelect,
+:global(.briefPage) :global([class*="phoneInput"][class*="formInputSmall"][class*="greenInput"]) .phoneInputContainer .customCountrySelect {
+  background: #0f0d22 !important;
+  background-color: #0f0d22 !important;
+}
+
+:global(.briefPage) :global([class*="phoneInput"]) .phoneInputContainer .phoneInputWrapper .countryCodePrefix,
+:global(.briefPage) :global([class*="phoneInput"][class*="formInputSmall"]) .phoneInputContainer .phoneInputWrapper .countryCodePrefix,
+:global(.briefPage) :global([class*="phoneInput"][class*="greenInput"]) .phoneInputContainer .phoneInputWrapper .countryCodePrefix,
+:global(.briefPage) :global([class*="phoneInput"][class*="formInputSmall"][class*="greenInput"]) .phoneInputContainer .phoneInputWrapper .countryCodePrefix {
+  background: #0f0d22 !important;
+  background-color: #0f0d22 !important;
+  height: 100% !important;
+  place-content: center !important;
+}
+
+:global(.briefPage) :global([class*="phoneInput"]) .phoneInputContainer .phoneNumberInput,
+:global(.briefPage) :global([class*="phoneInput"][class*="formInputSmall"]) .phoneInputContainer .phoneNumberInput,
+:global(.briefPage) :global([class*="phoneInput"][class*="greenInput"]) .phoneInputContainer .phoneNumberInput,
+:global(.briefPage) :global([class*="phoneInput"][class*="formInputSmall"][class*="greenInput"]) .phoneInputContainer .phoneNumberInput {
+  background: #0f0d22 !important;
+  background-color: #0f0d22 !important;
+  background-image: none !important;
+}
+
+/* Brief page - Force all child elements to have #0f0d22 background (exclude icons) */
+:global(.briefPage) :global([class*="phoneInput"]) .phoneInputContainer .phoneInputWrapper *:not(svg):not(img),
+:global(.briefPage) :global([class*="phoneInput"]) .phoneInputContainer .customCountrySelect *:not(svg):not(img),
+:global(.briefPage) :global([class*="phoneInput"]) .phoneInputContainer .countrySelectButton *:not(svg):not(img) {
+  background-color: #0f0d22 !important;
+  background: #0f0d22 !important;
+}
+
+/* Popup specific - Ensure country flag and all nested elements */
+:global(.popup-questionnaire) :global([class*="phoneInput"]) .phoneInputContainer .countrySelectButton svg,
+:global(.popup-questionnaire) :global([class*="phoneInput"]) .phoneInputContainer .countrySelectButton img,
+:global(.popup-questionnaire) :global([class*="phoneInput"]) .phoneInputContainer .countrySelectButton span {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+.countrySelectButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.countryFlag {
+  font-size: 1rem;
+  line-height: 1;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.countryCode {
+  font-weight: 500;
+  color: #ffffff;
+  font-size: 0.825rem;
+}
+
+.countrySelectArrow {
+  display: flex;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.6);
+  flex-shrink: 0;
+}
+
+.countryDropdown {
+  position: absolute;
+  top: calc(100% + 0.25rem);
+  left: 0;
+  z-index: 10000;
+  background: #0e1030;
+  border: 2px solid rgba(15, 218, 194, 0.3);
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  max-height: 13.4375rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-width: 100%;
+}
+
+.countrySearch {
+  padding: 0.75rem;
+  border-bottom: 1px solid rgba(15, 218, 194, 0.2);
+}
+
+.countrySearchInput {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(15, 218, 194, 0.3);
+  border-radius: 0.25rem;
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-family: inherit;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.countrySearchInput:focus {
+  border-color: #0fdac2;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.countrySearchInput::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.countryList {
+  overflow-y: auto;
+  max-height: 180px;
+  padding: 0.25rem;
+  list-style: none;
+  margin: 0;
+}
+
+.countryList::-webkit-scrollbar {
+  width: 6px;
+}
+
+.countryList::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.countryList::-webkit-scrollbar-thumb {
+  background: rgba(15, 218, 194, 0.3);
+  border-radius: 3px;
+}
+
+.countryList::-webkit-scrollbar-thumb:hover {
+  background: rgba(15, 218, 194, 0.5);
+}
+
+.countryOption {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.625rem 0.75rem;
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 0.9375rem;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  border-radius: 0.25rem;
+  pointer-events: auto;
+  user-select: none;
+  -webkit-user-select: none;
+  list-style: none;
+  margin: 0;
+}
+
+.countryOptionSelected {
+  background: rgba(15, 218, 194, 0.2);
+  color: #0fdac2;
+}
+
+.countryOptionFlag {
+  font-size: 1.25rem;
+  line-height: 1;
+  min-width: 28px;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.countryOptionName {
+  flex: 1;
+  font-weight: 400;
+}
+
+.countryOptionCode {
+  color: #0fdac2;
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+.countryNoResults {
+  padding: 1.5rem;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.875rem;
 }

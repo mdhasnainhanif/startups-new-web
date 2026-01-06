@@ -109,7 +109,7 @@ export const FAQ_CONTACT = [
   {
     question: "Can StartupAdvisory help with ongoing scaling?",
     answer:
-      "Absolutely. Our digital teams grow with you—supporting branding, marketing, automation, and long term growth.",
+      "Absolutely. Our digital teams grow with you, supporting branding, marketing, automation, and long term growth.",
   },
 ];
 
@@ -125,26 +125,26 @@ export const PROFESSIONAL_ONLINE = {
   startupStats: [
     {
       percentage: "90%",
-      headline: "Startups",
-      description: "Fail within two years which shows how unforgiving early execution really is.",
+      headline: "Startups Fail",
+      description: " within two years which shows how unforgiving early execution really is.",
       image: "/assets/images/clock.svg",
     },
     {
       percentage: "38%",
-      headline: "Startups",
-      description: "Collapse because they run out of cash a signal that financial discipline is a survival skill not an accessory.",
+      headline: "Startups Collapse",
+      description: " because they run out of cash a signal that financial discipline is a survival skill not an accessory.",
       image: "/assets/images/money.svg",
     },
     {
       percentage: "14%",
-      headline: "Startups",
-      description: "Fail due to poor marketing proving that even great products die when visibility is weak.",
+      headline: "Startups Fail",
+      description: " due to poor marketing proving that even great products die when visibility is weak.",
       image: "/assets/images/marketing.svg",
     },
     {
       percentage: "20%",
-      headline: "Startups",
-      description: "Get outcompeted because speed learning and adaptation decide who stays in the market.",
+      headline: "Startups Get",
+      description: " outcompeted because speed learning and adaptation decide who stays in the market.",
       image: "/assets/images/exit.svg",
     },
   ],
@@ -211,6 +211,17 @@ export const REVIEWS_SECTION = {
       text: "Great Customer service, teams cares about their customers Overall, my experience with Orbit has been beyond amazing!!!Robert and the team behind the webpage design are beyond amazing. I originally connected with startups advoisry because I needed a logo for my new business and ended up with a new Webpage as well  . Yes they are that good I highly recommend them.",
       isVideo: false,
       hasBorder: true,
+    },
+    {
+      id: 11,
+      name: "Oak Park Line Dance",
+      initials: "OP",
+      source: "Trustpilot",
+      date: "Sep 9, 2025",
+      rating: 5,
+      text: "Our experience with Startups Advisory was remarkably outstanding from the beginning of our project to the very end.",
+      isVideo: false,
+      hasBorder: false,
     },
     {
       id: 3,
@@ -348,7 +359,7 @@ export const GROWTH_GUIDES = [
     date: "Nov 10, 2025",
     readTime: "7 min read",
     excerpt:
-      "Imagine launching a digital workforce of intelligent agents that operate on unstructured data — validated, enriched, and ready to act.",
+      "Imagine launching a digital workforce of intelligent agents that operate on unstructured data, validated, enriched, and ready to act.",
     href: "/blog/ai-agents-data-quality-2",
   },
   {
@@ -359,7 +370,7 @@ export const GROWTH_GUIDES = [
     date: "Nov 10, 2025",
     readTime: "5 min read",
     excerpt:
-      "Imagine launching a digital workforce of intelligent agents that operate on unstructured data — validated, enriched, and ready to act.",
+      "Imagine launching a digital workforce of intelligent agents that operate on unstructured data, validated, enriched, and ready to act.",
     href: "/blog/ai-agents-data-quality-3",
   },
   {
@@ -370,7 +381,7 @@ export const GROWTH_GUIDES = [
     date: "Nov 10, 2025",
     readTime: "5 min read",
     excerpt:
-      "Imagine launching a digital workforce of intelligent agents that operate on unstructured data — validated, enriched, and ready to act.",
+      "Imagine launching a digital workforce of intelligent agents that operate on unstructured data, validated, enriched, and ready to act.",
     href: "/blog/ai-agents-data-quality-3",
   },
   {
@@ -381,7 +392,7 @@ export const GROWTH_GUIDES = [
     date: "Nov 10, 2025",
     readTime: "5 min read",
     excerpt:
-      "Imagine launching a digital workforce of intelligent agents that operate on unstructured data — validated, enriched, and ready to act.",
+      "Imagine launching a digital workforce of intelligent agents that operate on unstructured data, validated, enriched, and ready to act.",
     href: "/blog/ai-agents-data-quality-3",
   },
   {
@@ -392,7 +403,7 @@ export const GROWTH_GUIDES = [
     date: "Nov 10, 2025",
     readTime: "5 min read",
     excerpt:
-      "Imagine launching a digital workforce of intelligent agents that operate on unstructured data — validated, enriched, and ready to act.",
+      "Imagine launching a digital workforce of intelligent agents that operate on unstructured data, validated, enriched, and ready to act.",
     href: "/blog/ai-agents-data-quality-3",
   },
 ];

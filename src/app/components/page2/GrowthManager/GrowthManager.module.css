@@ -69,7 +69,7 @@
   overflow: hidden;
   position: relative;
   background-color: #21174c;
-  height: 100%;
+  /* height: 100%; */
   display: flex;
   flex-direction: column;
 }

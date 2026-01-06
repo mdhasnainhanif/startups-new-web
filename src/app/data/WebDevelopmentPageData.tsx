@@ -8,7 +8,7 @@
   export const webDevelopmentBannerData: HomenewBannerData = {
     heading: {
       part1: "Your Complete Website Team for ",
-      highlight1: "22 Days",
+      highlight1: "1 Month",
       highlight2: "",
       part2: "",
     },
@@ -95,7 +95,7 @@
       },
     ],
     videoOverlayText:
-      "Your 22-day web team executes a complete website operation from initial structure to final deployment. Each specialist focuses on a dedicated part of the build, keeping quality consistent and timelines controlled.",
+      "Your 1 month web team executes a complete website operation from initial structure to final deployment. Each specialist focuses on a dedicated part of the build, keeping quality consistent and timelines controlled.",
     video: {
       videoUrl: "YOUR_VIDEO_URL_HERE",
       videoTitle: "Web Development Team Demo",
@@ -127,7 +127,7 @@
       highlighted: "Your Website",
     },
     description:
-      "Your 22-day web team executes a complete website operation from initial structure to final deployment. Each specialist focuses on a dedicated part of the build, keeping quality consistent and timelines controlled.",
+      "Your 1 month web team executes a complete website operation from initial structure to final deployment. Each specialist focuses on a dedicated part of the build, keeping quality consistent and timelines controlled.",
     tabs: DEFAULT_CASE_STUDY_DATA.tabs.filter((tab) => tab.id === "creative"),
     cards: [
       {
@@ -196,12 +196,12 @@
   // AiPowerDesign data for Web Development page
   export const webDevelopmentAiPowerData: AiPowerDesignData = {
     headline: {
-      text: 'Your Web Team Handles Every Critical Website Component Within 22 Days.',
-      highlighted: ['Critical Website Component', '22 Days'],
+      text: 'Your Web Team Handles Every Critical Website Component Within 1 Month.',
+      highlighted: ['Critical Website Component', '1 Month'],
     },
     description:
       'Instead of managing multiple freelancers or coordinating disconnected tasks, you get a unified team producing a complete website prepared for real users and real business operations.',
-    deliverablesTitle: 'Your 22-Day Website Package Includes:',
+    deliverablesTitle: 'Your 1 Month Website Package Includes:',
     tabs: [
       {
         id: 'homepage',
@@ -247,7 +247,7 @@
     heading: {
       part1: 'Review the Real Cost of',
       part2: 'Hiring Web Staff vs.',
-      part3: 'Using a Full Web Team for 22 Days',
+      part3: 'Using a Full Web Team for 1 Month',
     },
     callToAction: 'Calculate:',
     bulletPoints: [
@@ -307,7 +307,7 @@
   export const webDevelopmentCompleteSetupData: CompleteBusinessSetupData = {
     heading: {
       part1: "Your Complete Website Package — ",
-      price: "$1,499",
+      price: "$3,299",
       part2: " One-Time",
     },
     brandingKits: {
@@ -438,14 +438,14 @@
       title: "Get This Package For ",
       items: [
         { id: "1", text: "A dedicated web team" },
-        { id: "2", text: "22 essential website assets" },
+        { id: "2", text: "50+ essential website assets" },
         { id: "3", text: "AI assisted workflow" },
-        { id: "4", text: "Unlimited revisions within 22 days" },
+        { id: "4", text: "Unlimited revisions within 1 month" },
         { id: "5", text: "Launch-ready files delivered" },
       ],
       ctaButton: {
-        text: "Get My Package",
-        href: "/contact",
+        text: "$3,299 USD",
+        href: "#",
       },
     },
   };
@@ -481,7 +481,9 @@
       src: '/assets/images/guesswork.webp',
       alt: 'Growth Roadmap',
     },
-    analyticsDashboardData: undefined, // Web Development page uses AnalyticsDashboard separately, not in GuessWorkAdvertising
+    analyticsDashboardData: {
+      imageSrc: '/assets/images/analytics-web.svg',
+    },
   };
 
   // Slider data for Web Development page

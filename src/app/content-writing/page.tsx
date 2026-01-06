@@ -15,6 +15,7 @@ import RealCost from '../components/RealCost/RealCost';
 import CompleteBusinessSetup from '../components/CompleteBusinessSetup/CompleteBusinessSetup';
 import Contact from '../components/Contact/Contact';
 import GuessWorkAdvertising from '../components/GuessWorkAdvertising/GuessWorkAdvertising';
+import BlogCarousel from '../components/BlogCarousel/BlogCarousel';
 import { 
   contentWritingBannerData, 
   contentWritingAiPowerData, 
@@ -26,9 +27,9 @@ import {
   contentWritingSliderData3 
 } from '../data/ContentWritingPageData';
 export const metadata: Metadata = {
-  title: "22-Day Content Writing Service | Market-Ready Content | Startups Advisory",
+  title: "1 Month Content Writing Service | Market-Ready Content | Startups Advisory",
   description:
-    "Market-Ready Content in 22 Days. Writing shaped for presence, persuasion, and modern brand standards. A complete content layer built with clarity, rhythm, and commercial intent.",
+    "Market Ready Content in 1 Month. Writing shaped for presence, persuasion, and modern brand standards. A complete content layer built with clarity, rhythm, and commercial intent.",
   robots: "nofollow",
 };
 export default function ContentWritingPage() {
@@ -41,7 +42,7 @@ export default function ContentWritingPage() {
       <Technologies 
         hideTabs={true} 
         defaultTab="contentWriting"
-        heading="$48,000 plus in Professional Writing Output Delivered in 22 Days"
+        heading="$48,000 plus in Professional Writing Output Delivered in 1 Month"
         description="A condensed writing period supported by structured tools and seasoned writers replaces fragmented content, inconsistent tone, and time-consuming revisions."
         subDescription="Content Production Tools ($12,000 plus Annual Value)"
       />
@@ -52,7 +53,8 @@ export default function ContentWritingPage() {
       <RealCost data={contentWritingRealCostData}/>
       <CompleteBusinessSetup data={contentWritingCompleteSetupData}/>
       <Reviews/>
-      <GrowthSlider items={contentWritingBlogGuides} />
+      {/* <GrowthSlider items={contentWritingBlogGuides} /> */}
+      <BlogCarousel category="Content Writing" />
       <FAQ faqs={FAQ_CONTACT} sectionData={FAQ_SECTION} />
       <Contact/>
     </>

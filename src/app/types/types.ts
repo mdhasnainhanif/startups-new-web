@@ -55,6 +55,7 @@ export interface HeroBannerProps {
   };
   className?: string;
   onButtonClick?: () => void;
+  isHomePage?: boolean;
 }
 
 

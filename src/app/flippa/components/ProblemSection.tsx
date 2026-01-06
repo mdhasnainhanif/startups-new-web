@@ -16,7 +16,6 @@ export default function ProblemSection() {
   return (
     <section className="sectionPadding bg-[var(--color-dark)]">
       <Container maxWidth="xl">
-        {/* Header */}
         <MotionDiv className="max-w-3xl mx-auto text-center mb-16">
           <div className="sectionHeading">
             <h2>
@@ -29,16 +28,14 @@ export default function ProblemSection() {
             {problemData.description}
           </p>
         </MotionDiv>
-
-        {/* Problem Cards */}
-        <StaggerContainer className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6">
           {problemData.problems.map((problem, index) => {
             const IconComponent = iconMap[problem.icon] || TrendingDown;
             return (
               <StaggerItem key={problem.title} delay={index * 0.1}>
                 <div className="group p-4 md:p-6 bg-white/5 border border-white/10 rounded-xl md:rounded-2xl hover:border-[var(--color-purple)]/50 transition-all duration-300 hover:shadow-lg h-full">
-                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-lg md:rounded-xl bg-[var(--color-purple)]/10 group-hover:bg-[var(--color-purple)]/20 flex items-center justify-center mb-3 md:mb-4 transition-colors">
-                    <IconComponent className="w-5 h-5 md:w-6 md:h-6 text-[var(--color-purple)]" />
+                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-[50%] bg-[#2e2277] flex items-center justify-center mb-3 md:mb-4 transition-colors">
+                    <img src={problem.icon} alt={problem.title} className="w-5 h-5 md:w-6 md:h-6" />
                   </div>
                   <h3 className="text-sm md:text-lg font-semibold text-white mb-1 md:mb-2">
                     {problem.title}
@@ -52,7 +49,7 @@ export default function ProblemSection() {
           })}
         </StaggerContainer>
 
-        {/* Bottom Text */}
+        
         <MotionDiv delay={0.3} className="max-w-2xl mx-auto text-center mt-10 md:mt-16">
           <p className="text-base md:text-lg text-white/80">
             {problemData.bottomText.split("undervalued and unsellable")[0]}

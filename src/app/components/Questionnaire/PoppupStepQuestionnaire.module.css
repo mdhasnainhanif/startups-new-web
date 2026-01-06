@@ -1,4 +1,3 @@
-/* Popup Overlay */
 .popupOverlay {
   position: fixed;
   top: 0;
@@ -19,12 +18,13 @@
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
 }
 
-/* Popup Content */
+
 .popupContent {
   position: relative;
   background: #1C1949;
@@ -32,6 +32,8 @@
   max-width: 65rem;
   width: 100%;
   max-height: 90vh;
+  min-height: auto;
+  height: auto;
   overflow: hidden;
   padding: 0;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
@@ -41,7 +43,14 @@
   flex-direction: column;
 }
 
-/* Hide scrollbar when not needed - Webkit browsers */
+.popupBackButton {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  z-index: 30;
+}
+
+
 .popupContent::-webkit-scrollbar {
   width: 8px;
 }
@@ -64,13 +73,14 @@
     transform: translateY(50px);
     opacity: 0;
   }
+
   to {
     transform: translateY(0);
     opacity: 1;
   }
 }
 
-/* Close Button */
+
 .closeButton {
   position: absolute;
   top: 1rem;
@@ -98,35 +108,31 @@
   transform: rotate(90deg);
 }
 
-/* Questionnaire Wrapper */
+
 .questionnaireWrapper {
   position: relative;
   width: 100%;
-  padding: 2rem 3rem;
-  /* padding-bottom: 1rem; */
+  padding: 1rem 3rem;
   display: flex;
   flex-direction: column;
-  /* min-height: 35rem; */
-  flex: 1 1 auto;
-  overflow-y: auto;
+  flex: 0 1 auto;
+  overflow-y: visible;
   overflow-x: hidden;
-  justify-content: center;
+  min-height: 0;
 }
 
-/* Header - Sticky on all screen sizes */
 .header {
-  margin-bottom: 1rem;
   flex-shrink: 0;
   position: sticky;
   top: 0;
   background: #1C1949;
   z-index: 20;
   padding: 2rem 2rem 1rem 0rem;
-  margin-bottom: 1rem;
   border-bottom: 1px solid rgba(47, 42, 99, 0.5);
+  margin-bottom: 1rem;
 }
 
-/* Mobile: Additional styling */
+
 @media screen and (max-width: 768px) {
   .header {
     padding: 1.5rem;
@@ -148,19 +154,19 @@
   margin: 0 auto;
 }
 
-/* Progress Container */
 .progressContainer {
-  margin-top: 1.5rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
   width: 100%;
-  /* max-width: 300px; */
+  max-width: 40rem;
   margin-left: auto;
   margin-right: auto;
 }
 
 .progressInfo {
   display: flex;
-  /* justify-content: center; */
-  align-items: center;
+
+
   margin-bottom: 0.5rem;
 }
 
@@ -170,7 +176,7 @@
   color: rgba(255, 255, 255, 0.8);
   font-family: var(--font-graphik-regular), Arial, Helvetica, sans-serif;
   text-align: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .progressBar {
@@ -184,26 +190,100 @@
 
 .progressBarFill {
   height: 100%;
-  background: linear-gradient(
-    90deg,
-    var(--color-primary) 0%,
-    var(--color-purple) 100%
-  );
+  background: linear-gradient(90deg,
+      var(--color-primary) 0%,
+      var(--color-purple) 100%);
   border-radius: 10px;
   transition: width 0.5s ease-in-out;
   box-shadow: 0 0 10px rgba(100, 59, 255, 0.5);
 }
 
-/* Form Area */
-/* .formArea {
+.personalDetailsHeading {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-family: var(--font-wf-visual-sans), sans-serif;
+}
+
+.personalDetailsHeading .highlightText {
+  color: var(--color-primary);
+}
+
+.stepTitle {
+  font-size: 2rem;  
+  font-weight: 600;
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+  line-height: 1.5;
+  font-family: var(--font-wf-visual-sans), sans-serif;
+}
+
+.formArea {
   position: relative;
   width: 100%;
-  flex: 1 1 auto;
-  min-height: 0;
-  padding-bottom: 0.5rem;
+  flex: 0 1 auto;
+  /* min-height: 0; */
+  overflow-y: visible;
+  padding-bottom: 5rem;
+}
+
+.formAreaLastStep {
+  padding-bottom: 5rem !important;
+}
+
+.fixedButtonsContainer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #1C1949;
+  padding: 1rem 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  border-top: 1px solid rgba(47, 42, 99, 0.5);
+  z-index: 30;
+  /* box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3); */
+}
+
+.fixedButtonsContainer .backButton {
+  width: fit-content;
+  /* min-width: 120px; */
+}
+
+.fixedButtonsContainer .continueButton {
+  padding: 0.35rem 1rem;
+  background: var(--color-purple);
+  border: 2px solid var(--color-purple);
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: var(--font-graphik-regular), Arial, Helvetica, sans-serif;
+  box-shadow: 0 0 20px rgba(100, 59, 255, 0.3);
+  width: fit-content;
+  align-items: center;
+  /* min-width: 120px;  */
+}
+
+/* .fixedButtonsContainer .continueButton:hover:not(:disabled) {
+  box-shadow: 0 0 30px rgba(100, 59, 255, 0.5);
+  transform: translateY(-2px);
 } */
 
-/* Popup Footer */
+.fixedButtonsContainer .continueButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 .popupFooter {
   position: relative;
   bottom: 0;
@@ -226,7 +306,6 @@
   width: auto;
 }
 
-/* Step Wrapper for Fade Animation */
 .stepWrapper {
   width: 100%;
   transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
@@ -242,7 +321,7 @@
   transform: translateY(10px);
 }
 
-/* Thank You Section */
+
 .thankYouArea {
   text-align: center;
   padding: 4rem 2rem;
@@ -272,7 +351,7 @@
   font-family: var(--font-wf-visual-sans), sans-serif;
 }
 
-/* Responsive Design */
+
 @media screen and (max-width: 1024px) {
   .mainHeading {
     font-size: 2rem;
@@ -282,6 +361,10 @@
 @media screen and (max-width: 768px) {
   .popupContent {
     max-height: 95vh;
+    height: auto;
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
   }
 
   .questionnaireWrapper {
@@ -289,16 +372,40 @@
     padding-bottom: 1rem;
     display: flex;
     flex-direction: column;
+    flex: 0 1 auto;
+    min-height: 0;
+    overflow-y: visible;
   }
 
   .header {
     padding: 1.5rem;
     padding-bottom: 1rem;
+    margin-bottom: 0.5rem;
+    position: relative;
   }
 
   .formArea {
-    padding: 0 1.5rem;
-    padding-bottom: 0.5rem;
+    /* padding: 0 1.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 6.5rem; */
+    flex: 0 1 auto;
+    overflow-y: visible;
+    height: calc(100% - 157px);
+    padding: 0.5rem 1rem 4.5rem !important;
+  }
+
+  .formAreaLastStep {
+    padding-bottom: 6.5rem !important;
+  }
+
+  .stepContainer {
+    padding-top: 0;
+    min-height: auto;
+  }
+
+  .fixedButtonsContainer {
+    padding: 1rem 1.5rem;
+    min-height: 4.5rem;
   }
 
   .popupFooter {
@@ -325,25 +432,72 @@
   .thankYouSubheading {
     font-size: 1.25rem;
   }
+
+  .personalDetailsHeading {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
 }
 
 @media screen and (max-width: 576px) {
+  .stepTitle{
+    font-size: 1.25rem;
+    text-align: left;
+    width: 93%;
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+  }
+  .personalDetailsHeading{
+    font-size: 1.5rem;
+    text-align: left;
+    width: 93%;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
   .popupContent {
     border-radius: 12px;
+    max-height: 95vh;
+    height: auto;
+    min-height: auto;
   }
 
   .questionnaireWrapper {
     padding: 0;
     padding-bottom: 1rem;
+    flex: 0 1 auto;
+    min-height: 0;
+    overflow-y: visible;
   }
 
   .header {
     padding: 1rem;
     padding-bottom: 0.75rem;
+    margin-bottom: 0.5rem;
+    position: relative;
   }
 
   .formArea {
     padding: 0 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 6.5rem;
+    flex: 0 1 auto;
+    /* min-height: 0; */
+    overflow-y: visible;
+  }
+
+  .formAreaLastStep {
+    padding-bottom: 6.5rem !important;
+  }
+
+  .fixedButtonsContainer {
+    padding: 1rem;
+    min-height: 4.5rem;
+  }
+
+  .stepContainer {
+    padding-top: 0;
+    min-height: auto;
+    padding-bottom: 5rem;
   }
 
   .popupFooter {
@@ -358,7 +512,7 @@
     font-size: 24px;
   }
 
-  div.questionnaireWrapper{
+  div.questionnaireWrapper {
     min-height: unset;
   }
 
@@ -389,5 +543,15 @@
 
   .stepWrapper {
     padding-bottom: 1rem;
+  }
+
+  .personalDetailsHeading {
+    font-size: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .popupBackButton {
+    bottom: 1rem;
+    left: 1rem;
   }
 }

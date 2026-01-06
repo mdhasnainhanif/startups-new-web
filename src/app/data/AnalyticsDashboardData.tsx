@@ -10,18 +10,20 @@ export const webDevelopmentAnalyticsDashboardData = {
   headline: 'Launch Your Startup',
   description: 'Get your business off the ground with all help.',
   buttonText: 'Get Started',
+  imageSrc: '/assets/images/analytics-web.svg',
+  className: 'webDevelopmentAnalyticsSection',
   leftColumnItems: {
     left: [
       'EXCEPTIONAL',
       'Focus Areas',
       'Architecture',
       'Performance',
-      'Behavior patterns',
+      'Behavior\npatterns',
       'Interaction',
       'Path logic',
       'Response',
       'Assurance',
-      'Core Thinking',
+      'Core\nThinking',
       'Stability',
       'Efficiency',
       'Dependability',
@@ -29,18 +31,18 @@ export const webDevelopmentAnalyticsDashboardData = {
       'Innovation',
       'Progress',
       'Service Use',
-      'Web platforms',
-      'Landing systems',
-      'Digital products'
+      'Web\nplatforms',
+      'Landing\nsystems',
+      'Digital\nproducts'
     ],
     right: [
       'Goal',
-      'Enable action',
-      'Support expansion',
-      'Ensure consistency',
+      'Enable\naction',
+      'Support\nexpansion',
+      'Ensure\nconsistency',
       'Audience',
-      'Online businesses',
-      'Scale ready teams'
+      'Online\nbusinesses',
+      'Scale ready\nteams'
     ]
   },
   middleRecommendations: [
@@ -69,14 +71,16 @@ export const designerAnalyticsDashboardData = {
   headline: 'Launch Your Startup',
   description: 'Get your business off the ground with all help.',
   buttonText: 'Get Started',
+  imageSrc: '/assets/images/analytics-graphics-01.svg',
+  className: 'designerAnalyticsSection',
   leftColumnItems: {
-    left: ['Exceptional', 'Focus Areas', 'Structure', 'Meaning', 'Goal', 'Audience'],
-    right: ['Human cues', 'Composition', 'Flow logic', 'Attention', 'Energy', 'Interfaces']
+    left: ['Visual Hierarchy', 'Color Palette', 'Typography Scale', 'Whitespace Balance', 'Interactive States'],
+    right: ['Motion Dynamics', 'Content Zones', 'User Pathways', 'Emphasis Points', 'Visual Flow']
   },
   middleRecommendations: [
-    'Sharpen layout intent',
-    'Enhance visual order',
-    'Increase message impact'
+    'Alignment Strategy',
+    'Hierarchy Optimization',
+    'Impact Enhancement'
   ],
   radarChartLabels: [
     { text: 'Feeling', x: 55, y: 30 },
@@ -99,29 +103,31 @@ export const contentWritingAnalyticsDashboardData = {
   headline: 'Launch Your Startup',
   description: 'Get your business off the ground with all help.',
   buttonText: 'Get Started',
+  imageSrc: '/assets/images/analytics-content.svg',
+  className: 'contentWritingAnalyticsSection',
   leftColumnItems: {
     left: [
-      'Exceptional',
-      'Intent',
-      'Language',
-      'Tone',
-      'Retention',
-      'Impact',
+      'Brand Voice',
+      'Strategic Purpose',
+      'Messaging Style',
+      'Emotional Resonance',
+      'Engagement Metrics',
+      'Conversion Potential',
     ],
     right: [
-      'Goal',
-      'Audience',
-      'Clarity',
-      'Precision',
-      'Authority',
-      'Context',
+      'Campaign\nObjective',
+      'Target Persona',
+      'Message Clarity',
+      'Content Accuracy',
+      'Situational Insight',
+      'Thought \nLeadership',
 
     ]
   },
   middleRecommendations: [
-    'Refine message structure',
-    'Strengthen emotional pull',
-    'Improve readability'
+    'Optimize Narrative Flow',
+    'Amplify Emotional Connection',
+    'Enhance Readability'
   ],
   radarChartLabels: [
     { text: 'Intent', x: 55, y: 30 },
@@ -146,7 +152,7 @@ export const socialMediaMarketingAnalyticsDashboardData = {
   buttonText: 'Get Started',
   leftColumnItems: {
     left: [
-      'Exceptional',
+      // 'Exceptional',
       'Consistency',
       'Timing',
       'Audience',
@@ -154,7 +160,7 @@ export const socialMediaMarketingAnalyticsDashboardData = {
       'Authenticity',
     ],
     right: [
-      'Goal',
+      // 'Goal',
       'Audience',
       'Signals',
       'Interaction',

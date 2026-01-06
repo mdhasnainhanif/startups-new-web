@@ -21,7 +21,7 @@ export const TOP_BANNER = {
   emoji: "🚀",
   text: "Big News: We Launched Key Growth Manager Services",
   buttonText: "Know More",
-  buttonLink: "/big-news",
+  buttonLink: "/key-growth",
 };
 
 
@@ -41,14 +41,14 @@ export const FOOTER_LINKS = {
     { label: "Designer", href: "/designer" },
     { label: "About", href: "/about-us" },
     { label: "Key Growth", href: "/key-growth" },
-    { label: "Contact", href: "/contact-us" },
+    // { label: "Contact", href: "/contact-us" },
   ],
   column5: [
     { label: "Web Development", href: "/web-development" },
     { label: "Content Marketing", href: "/content-writing" },
     { label: "Social Media Marketing", href: "/social-media-marketing" },
     { label: "Privacy Policy", href: "/privacy-policy" },
-    { label: "Terms & Conditions", href: "/terms-and-condition" },
+    // { label: "Terms & Conditions", href: "/terms-and-condition" },
   ],
   column2: [
   ],
@@ -64,7 +64,7 @@ export const SOCIAL_MEDIA_LINKS = [
 ];
 export const TECHNOLOGIES_SECTION = {
   heading: {
-    part1: "$48000+ Worth of [Advanced AI] Tools Growing Your Business 10x",
+    part1: "$24000+ Worth of [Creative AI] Tools Growing Your Business 10x",
   },
   description:
     "When this AI power fuels your business your visibility explodes and the right clients start coming in on their own.",
@@ -324,15 +324,15 @@ export const OUR_CORE_VALUES = {
     {
       id: "2",
       number: "02",
-      icon: '/assets/images/globe4.svg',
+      icon: '/assets/images/globe3.svg',
       heading: "Vision",
       description:
-        "A world where every startup can scale confidently by leveraging global talent and AI—without the traditional cost barriers that limit early-stage growth.",
+        "A world where every startup can scale confidently by leveraging global talent and AI without the traditional cost barriers that limit early-stage growth.",
     },
     {
       id: "3",
       number: "03",
-      icon: '/assets/images/globe3.svg',
+      icon: '/assets/images/globe4.svg',
       heading: "Objectives",
       description:
         "Provide startups with a lean, structured path to reduce hiring costs, implement AI tools, and build predictable systems that help them grow faster and more efficiently.",
@@ -340,10 +340,10 @@ export const OUR_CORE_VALUES = {
     {
       id: "4",
       number: "04",
-      icon: '/assets/images/globe3.svg',
+      icon: '/assets/images/globe5.svg',
       heading: "Values",
       description:
-        "We value efficiency, accessibility, and a deep commitment to levelling the playing field—making top-tier growth strategies, talent, and tools available to every early-stage business.",
+        "We value efficiency, accessibility, and a deep commitment to levelling the playing field, making top-tier growth strategies, talent, and tools available to every early-stage business.",
     },
   ],
 };

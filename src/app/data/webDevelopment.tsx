@@ -244,6 +244,10 @@ export interface PackageDetailsData {
     number: string;
     label: string;
   }>;
+  ctaButton?: {
+    text: string;
+    href: string;
+  };
 }
 
 export interface PricingData {
@@ -310,10 +314,10 @@ export interface WebDevelopmentData {
 // Data
 export const WEB_DEVELOPMENT_DATA: WebDevelopmentData = {
   hero: {
-    badge: "22-Day Website Package",
+    badge: "1 Month Website Package",
     heading: {
       text: "Your Complete Website Team for",
-      highlight: "22 Days",
+      highlight: "1 Month",
     },
     description:
       "Fully Focused on Your Build. A dedicated web unit assembled to create a fast, structured, market-ready website prepared to support real traffic and real business activity.",
@@ -353,7 +357,7 @@ export const WEB_DEVELOPMENT_DATA: WebDevelopmentData = {
   completeBusinessSetup: {
     heading: {
       part1: "Your Complete Website Package — ",
-      price: "$1,499",
+      price: "$3,299",
       part2: " One-Time",
     },
     brandingKits: {
@@ -376,9 +380,9 @@ export const WEB_DEVELOPMENT_DATA: WebDevelopmentData = {
       title: "Get This Package For ",
       items: [
         { id: "1", text: "A dedicated web team" },
-        { id: "2", text: "22 essential website assets" },
+        { id: "2", text: "50+ essential website assets" },
         { id: "3", text: "AI assisted workflow" },
-        { id: "4", text: "Unlimited revisions within 22 days" },
+        { id: "4", text: "Unlimited revisions within 1 month" },
         { id: "5", text: "Launch-ready files delivered" },
       ],
       ctaButton: {
@@ -418,7 +422,7 @@ export const WEB_DEVELOPMENT_DATA: WebDevelopmentData = {
     heading: {
       part1: "Review the Real Cost of",
       part2: "Hiring Web Staff vs.",
-      part3: "Using a Full Web Team for 22 Days",
+      part3: "Using a Full Web Team for 1 Month",
     },
     description: "Calculate:",
     points: [
@@ -434,7 +438,7 @@ export const WEB_DEVELOPMENT_DATA: WebDevelopmentData = {
   team: {
     heading: "Meet the Team Assigned to Build Your Website",
     description:
-      "Your 22-day web team executes a complete website operation from initial structure to final deployment. Each specialist focuses on a dedicated part of the build, keeping quality consistent and timelines controlled.",
+      "Your 1 month web team executes a complete website operation from initial structure to final deployment. Each specialist focuses on a dedicated part of the build, keeping quality consistent and timelines controlled.",
     team: [
       {
         name: "Web Designer",

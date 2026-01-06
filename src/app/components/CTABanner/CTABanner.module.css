@@ -12,6 +12,6 @@
 @media (max-width: 768px) {
   .ctaBanner {
     min-height: 10rem;
+    padding: 2rem 0 2.5rem 0rem;
   }
 }
-

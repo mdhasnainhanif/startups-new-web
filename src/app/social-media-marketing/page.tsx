@@ -16,6 +16,7 @@ import RealCost from '../components/RealCost/RealCost';
 import CompleteBusinessSetup from '../components/CompleteBusinessSetup/CompleteBusinessSetup';
 import GuessWorkAdvertising from '../components/GuessWorkAdvertising/GuessWorkAdvertising';
 import Contact from '../components/Contact/Contact';
+import BlogCarousel from '../components/BlogCarousel/BlogCarousel';
 import { 
   socialMediaMarketingBannerData, 
   socialMediaMarketingAiPowerData, 
@@ -29,9 +30,9 @@ import {
 } from '../data/SocialMediaMarketingPageData';
 import ProvenSuccess from "../components/ProvenSuccess/ProvenSuccess";
 export const metadata: Metadata = {
-  title: "22-Day Social Media Marketing Service | Market-Ready Social Content | Startups Advisory",
+  title: "1 Month Social Media Marketing Service | Market-Ready Social Content | Startups Advisory",
   description:
-    "Market-Ready Social Content in 22 Days. Creative built for attention, precision, and brand presence. A complete social layer shaped with clarity, style, and strategic intent.",
+    "Market-Ready Social Content in 1 Month. Creative built for attention, precision, and brand presence. A complete social layer shaped with clarity, style, and strategic intent.",
   robots: "nofollow",
 };
 
@@ -45,7 +46,7 @@ export default function SocialMediaMarketingPage() {
       <Technologies 
         hideTabs={true} 
         defaultTab="socialMediaMarketing"
-        heading="$48,000 plus in Creative Output Delivered in 22 Days"
+        heading="$48,000 plus in Creative Output Delivered in 1 Month"
         description="A concentrated production period powered by structured tools and experienced creators replaces inconsistent visuals, slow content delivery, and unclear messaging."
         subDescription="Creative Production Tools ($12,000 plus Annual Value)"
       />
@@ -57,7 +58,8 @@ export default function SocialMediaMarketingPage() {
       <CompleteBusinessSetup data={socialMediaMarketingCompleteSetupData}/>
       <ProvenSuccess data={socialMediaMarketingProvenSuccessData}/>
       <Reviews/>
-      <GrowthSlider items={socialMediaMarketingBlogGuides} />
+      {/* <GrowthSlider items={socialMediaMarketingBlogGuides} /> */}
+      <BlogCarousel category="Social Media Marketing" />
       <FAQ faqs={FAQ_CONTACT} sectionData={FAQ_SECTION} />
       <Contact/>
     </>

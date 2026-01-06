@@ -18,6 +18,21 @@
   max-width: 100%;
   padding-left: 0.9375rem;
   padding-right: 0.9375rem;
+  text-align: left;
+}
+
+@media (max-width: 767px) {
+  .colLeft {
+    text-align: left;
+  }
+  
+  .colLeft h1 {
+    text-align: left;
+  }
+  
+  .colLeft p {
+    text-align: left;
+  }
 }
 
 .colRight {
@@ -195,4 +210,25 @@
   background-image: url("/assets/images/tick.webp");
   background-size: contain;
   background-repeat: no-repeat;
+}
+
+@media (max-width: 576px) {
+  .experienceBox {
+    padding: 1.25rem;
+    text-align: left ;
+  }
+}
+
+/* Force left alignment on mobile for non-home pages */
+@media (max-width: 767px) {
+  .HomenewBanner .sectionHeading {
+    text-align: left !important;
+  }
+  
+  .HomenewBanner .sectionHeading > h1,
+  .HomenewBanner .sectionHeading > h2,
+  .HomenewBanner .sectionHeading > h4,
+  .HomenewBanner .sectionHeading > p {
+    text-align: left !important;
+  }
 }

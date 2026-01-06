@@ -1,23 +1,17 @@
 "use client";
-
 import { useState } from "react";
 import Container from "../Container";
 import VideoPopup from "../VideoPopup/VideoPopup";
 import styles from "./ProfessionalDesign.module.css";
 import { PROFESSIONAL_DESIGN_DATA, ProfessionalDesignData } from "../../data/ProfessionalDesignData";
-
 interface ProfessionalDesignProps {
   data?: ProfessionalDesignData;
   className?: string;
 }
-
 const ProfessionalDesign = ({ data = PROFESSIONAL_DESIGN_DATA, className }: ProfessionalDesignProps) => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
-
-  // Helper function to get className with fallback
   const getClassName = (classNameKey: string | undefined, defaultClass: string) => {
     if (!classNameKey) return defaultClass;
-    // Check if classNameKey exists in styles object
     const styleClass = styles[classNameKey as keyof typeof styles];
     return styleClass || defaultClass;
   };

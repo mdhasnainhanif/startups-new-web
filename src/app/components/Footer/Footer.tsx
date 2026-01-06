@@ -1,15 +1,11 @@
 "use client";
 
 import Container from "../Container";
-import { FOOTER_LINKS, SOCIAL_MEDIA_LINKS, COMPANY_INFO, NAVIGATION_LINKS } from "../../constants";
+import { SOCIAL_MEDIA_LINKS, COMPANY_INFO } from "../../constants";
 import styles from "./Footer.module.css";
 import { EmailIcon, LocationIcon, PhoneIcon } from "../../icons";
-import { getAllServices } from "../../data/ServicesPageData";
 
 export default function Footer() {
-  // Get first 5 services for Solutions & Services column
-  const allServices = getAllServices();
-  const firstFiveServices = allServices.slice(0, 5);
   return (
     <footer className={styles.footer}>
       <Container maxWidth="xl" className="px-0">
@@ -126,40 +122,50 @@ export default function Footer() {
 
           {/* Column 2 - Quick Links */}
           <div className={styles.linkColumn}>
-            <h3 className={styles.columnTitle}>Quick links</h3>
-            {NAVIGATION_LINKS.map((link, index) => (
-              <a key={index} href={link.href} className={styles.footerLink}>
-                {link.label}
-              </a>
-            ))}
+            <h3 className={styles.columnTitle}>Quick link</h3>
+            <a href="/" className={styles.footerLink}>
+              Home
+            </a>
+            <a href="/about-us" className={styles.footerLink}>
+              About us
+            </a>
+            <a href="/contact-us" className={styles.footerLink}>
+              Contact us
+            </a>
+            <a href="/blogs" className={styles.footerLink}>
+              Blogs
+            </a>
           </div>
 
-          {/* Column 4 - Pages */}
+          {/* Column 3 - Services */}
           <div className={styles.linkColumn}>
-            <h3 className={styles.columnTitle}>Pages</h3>
-            {FOOTER_LINKS.column5.map((link, index) => (
-              <a
-                key={index}
-                href={link.href}
-                className={styles.footerLink}
-              >
-                {link.label}
-              </a>
-            ))}
+            <h3 className={styles.columnTitle}>Services</h3>
+            <a href="/designer" className={styles.footerLink}>
+              Designer
+            </a>
+            <a href="/key-growth" className={styles.footerLink}>
+              Key Growth
+            </a>
+            <a href="/web-development" className={styles.footerLink}>
+              Web Development
+            </a>
+            <a href="/content-writing" className={styles.footerLink}>
+              Content Marketing
+            </a>
+            <a href="/social-media-marketing" className={styles.footerLink}>
+              Social Media Marketing
+            </a>
           </div>
 
-          {/* Column 3 - Solutions & Services */}
+          {/* Column 4 - Legal */}
           <div className={styles.linkColumn}>
-            <h3 className={styles.columnTitle}>Solutions & Services</h3>
-            {firstFiveServices.map((service, index) => (
-              <a
-                key={index}
-                href={`/${service.slug}`}
-                className={styles.footerLink}
-              >
-                {service.title}
-              </a>
-            ))}
+            <h3 className={styles.columnTitle}>Legal</h3>
+            <a href="/terms-and-condition" className={styles.footerLink}>
+              Terms and Conditions
+            </a>
+            <a href="/privacy-policy" className={styles.footerLink}>
+              Privacy Policy
+            </a>
           </div>
 
           {/* Column 5 - Contact */}

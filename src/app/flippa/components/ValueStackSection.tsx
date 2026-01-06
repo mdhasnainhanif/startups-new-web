@@ -4,6 +4,8 @@ import { Check, Sparkles } from "./icons";
 import { MotionDiv, StaggerContainer, StaggerItem } from "./motion";
 import { valueStackData } from "../../data/FlippaPageData";
 import Container from "../../components/Container";
+import Image from "next/image";
+import Button from "../../components/Button";
 
 export default function ValueStackSection() {
   return (
@@ -12,7 +14,6 @@ export default function ValueStackSection() {
 
       <Container maxWidth="xl" className="relative z-10">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-          {/* Left Content */}
           <MotionDiv variant="fadeLeft">
             <span className="text-[var(--color-primary)] text-sm font-semibold uppercase tracking-wider mb-4 block">
               {valueStackData.label}
@@ -27,13 +28,13 @@ export default function ValueStackSection() {
               {valueStackData.description}
             </p>
 
-            <div className="inline-flex items-center gap-2 px-3 md:px-4 py-2 bg-red-100 border border-red-300 rounded-full text-red-600 text-sm md:text-base font-medium mb-6 md:mb-8">
+            <div className="inline-flex items-center gap-2 px-3 md:px-4 py-2 bg-[var(--color-purple)]/10 border border-[var(--color-purple)]/20 rounded-lg text-[#0fdac2] text-sm md:text-base font-medium mb-6 md:mb-8">
               <Sparkles className="w-4 h-4" />
               {valueStackData.urgencyBadge}
             </div>
           </MotionDiv>
 
-          {/* Right - Value Stack */}
+          
           <MotionDiv variant="fadeRight" delay={0.2}>
             <div className="bg-white/5 border border-white/10 rounded-2xl md:rounded-3xl p-5 md:p-8 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-[var(--color-primary)]/10 rounded-bl-full blur-2xl" />
@@ -44,8 +45,8 @@ export default function ValueStackSection() {
                     <StaggerItem key={item.item} delay={index * 0.1}>
                       <div className="flex items-center justify-between py-2 md:py-3 border-b border-white/10 last:border-0">
                         <div className="flex items-center gap-2 md:gap-3">
-                          <div className="w-5 h-5 md:w-6 md:h-6 rounded-full bg-[var(--color-purple)]/20 flex items-center justify-center flex-shrink-0">
-                            <Check className="w-3 h-3 md:w-3.5 md:h-3.5 text-[var(--color-purple)]" />
+                          <div className="mt-1">
+                            <Image src="/assets/images/tick.webp" alt="Check" width={25} height={20} className="w-[20px] h-[20px]" />
                           </div>
                           <span className="text-sm md:text-base text-white">
                             {item.item}
@@ -60,7 +61,7 @@ export default function ValueStackSection() {
                 })}
               </StaggerContainer>
 
-              {/* Total */}
+              
               <div className="mt-4 md:mt-6 pt-4 md:pt-6 border-t-2 border-[var(--color-purple)]/30">
                 <div className="flex items-center justify-between mb-3 md:mb-4">
                   <span className="text-base md:text-lg font-semibold text-white">
@@ -71,11 +72,17 @@ export default function ValueStackSection() {
                   </span>
                 </div>
                 <div className="bg-[var(--color-purple)]/10 border border-[var(--color-purple)]/20 rounded-lg md:rounded-xl p-3 md:p-4 text-center">
-                  <div className="text-xs md:text-sm text-[var(--color-purple)] mb-1">
+                  <div className="text-xs md:text-sm mb-1 text-[#0fdac2]">
                     {valueStackData.investment.title}
                   </div>
-                  <div className="text-xl md:text-3xl font-bold text-white">
-                    {valueStackData.investment.text}
+                  <div className="mt-2 mb-2">
+                    <Button
+                      variant="green"
+                      href="/contact-us"
+                      className="w-full text-base md:text-lg font-bold flex items-center justify-center"
+                    >
+                      {valueStackData.investment.text}
+                    </Button>
                   </div>
                   <div className="text-xs md:text-sm text-white/70 mt-2">
                     {valueStackData.investment.note}

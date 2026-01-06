@@ -88,6 +88,7 @@
   border-radius: 0.5rem;
   overflow: visible;
   margin-bottom: 2.5rem;
+  gap: 2.5rem;
 }
 
 /* Mobile Tabs Container with Swiper */
@@ -103,11 +104,22 @@
   width: 100%;
   max-width: 100%;
   display: block;
+  min-height: 60px;
 }
 
 @media (min-width: 768px) {
   .tabsContainerMobile {
     display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .tabsContainer {
+    display: none !important;
+  }
+  
+  .tabsContainerMobile {
+    display: block !important;
   }
 }
 
@@ -130,9 +142,16 @@
   box-sizing: border-box;
 }
 
-.tabsSwiper .swiper-slide:not(.swiper-slide-active) {
+/* Only hide non-active slides for desktop tabs swiper, not mobile */
+.tabsContainer .tabsSwiper .swiper-slide:not(.swiper-slide-active) {
   opacity: 0;
   pointer-events: none;
+}
+
+/* Mobile tabs should show active slide */
+.tabsContainerMobile .tabsSwiper .swiper-slide {
+  opacity: 1 !important;
+  pointer-events: auto !important;
 }
 
 .tabsContainerMobile .tab {
@@ -233,7 +252,7 @@
 } */
 
 .tab {
-  padding: 12px 20px 14px;
+  padding: 12px 30px 14px;
   background: transparent;
   color: #403867;
   border: none;
@@ -243,7 +262,7 @@
   transition: all 0.3s ease;
   position: relative;
   border-radius: 0.5rem;
-  margin: 0 1rem;
+  /* margin: 0 1rem; */
   min-width: 4rem;
   letter-spacing: 0.03rem;
   flex-shrink: 0;
@@ -255,7 +274,7 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  left: -16.5px;
+  left: -1rem;
   width: 1px;
   height: 60%;
   background: rgba(255, 255, 255, 0.2);
@@ -389,12 +408,16 @@
   overflow: hidden;
   border-radius: 0.75rem;
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease;
+  /* Ensure card doesn't scale or transform */
+  transform: none !important;
+  will-change: auto;
 }
 
 .portfolioItem:hover {
-  transform: translateY(-8px);
   box-shadow: 0 20px 40px rgba(15, 218, 194, 0.2);
+  /* Explicitly prevent card from scaling or moving */
+  transform: none !important;
 }
 
 .imageWrapper {
@@ -405,6 +428,8 @@
   overflow: hidden;
   border-radius: 0.75rem;
   background: #0d0934;
+  /* Ensure wrapper doesn't scale */
+  transform: none;
 }
 
 .portfolioImage {
@@ -415,10 +440,13 @@
   height: 100%;
   object-fit: cover;
   transition: transform 0.5s ease, filter 0.3s ease;
+  transform-origin: center center;
+  /* Only image will scale */
+  will-change: transform;
 }
 
 .portfolioItem:hover .portfolioImage {
-  transform: scale(1.1);
+  transform: scale(1.15);
   filter: brightness(0.7);
 }
 
@@ -465,6 +493,14 @@
   .portfolioGrid {
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
+  }
+  
+  .tabsContainer {
+    display: none !important;
+  }
+  
+  .tabsContainerMobile {
+    display: block !important;
   }
 }
 
@@ -645,8 +681,11 @@
   }
 
   .tabsContainer {
-    max-width: 100%;
-    padding: 10px 40px;
+    display: none !important;
+  }
+  
+  .tabsContainerMobile {
+    display: block !important;
   }
 
   .tabsContainer .navArrow {
@@ -694,6 +733,9 @@
 
 /* Small Mobile (below 576px) */
 @media (max-width: 575px) {
+  .tabsContainerMobile{
+    background: transparent;
+  }
   .header {
     margin-bottom: 20px;
   }
@@ -711,11 +753,42 @@
   }
 
   .tabsContainer {
+    display: flex;
+    max-width: 100%;
+    padding: 10px;
+    gap: 0.5rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .tabsContainer::-webkit-scrollbar {
     display: none;
   }
 
+  .tabsContainer .tab {
+    font-size: 0.85rem;
+    padding: 10px 16px;
+    min-width: auto;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .tabsContainer .tab::before {
+    display: none;
+  }
+
+  .tabsContainer .navArrow {
+    display: none;
+  }
+
+  .tabsContainer {
+    display: none !important;
+  }
+  
   .tabsContainerMobile {
-    display: block;
+    display: block !important;
   }
 
   .tabsContainerMobile .tab {
@@ -951,4 +1024,82 @@
   max-height: none;
   object-fit: contain;
   display: block;
+}
+
+/* Add these styles for the tabs-based grid images */
+.portfolioItem {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+  /* Ensure card doesn't scale or transform */
+  transform: none !important;
+  will-change: auto;
+}
+
+.portfolioItem:hover {
+  box-shadow: 0 20px 40px rgba(15, 218, 194, 0.2);
+  /* Explicitly prevent card from scaling */
+  transform: none !important;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  background: #0d0934;
+  display: block;
+  /* Ensure wrapper doesn't scale */
+  transform: none;
+}
+
+.portfolioImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease, filter 0.3s ease;
+  transform-origin: center center;
+  /* Only image will scale */
+  will-change: transform;
+}
+
+.portfolioItem:hover .portfolioImage {
+  transform: scale(1.15);
+  filter: brightness(0.7);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #0fdac28a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 0.75rem;
+}
+
+.portfolioItem:hover .overlay {
+  opacity: 1;
+}
+
+.zoomIcon {
+  color: #ffffff;
+  width: 64px;
+  height: 64px;
+  transform: scale(0.8);
+  transition: transform 0.3s ease;
+  stroke-width: 2;
+}
+
+.portfolioItem:hover .zoomIcon {
+  transform: scale(1);
 }

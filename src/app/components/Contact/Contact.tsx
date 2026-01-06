@@ -6,6 +6,7 @@ import Button from "../Button";
 import Container from "../Container";
 import styles from "./Contact.module.css";
 import { submitEmail } from '../../lib/api/email';
+import CustomPhoneInput from '../ContactPage/ContactForm/CustomPhoneInput';
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
@@ -49,7 +50,9 @@ export default function Contact() {
           message: "",
         });
       } else {
-        console.error("API Error:", response);
+        const errorData = await response.json().catch(() => ({}));
+        console.error("API Error:", response, errorData);
+        setErrorMessage(errorData.message || "Failed to send message. Please try again.");
       }
     } catch (error) {
       console.error("Form submission error:", error);
@@ -74,8 +77,8 @@ export default function Contact() {
                 Tell us what you are working on and what challenges you want solved so we can guide you with clarity and next steps.
               </p>
               <p className={`${styles.descriptionText2} hidden md:block`}>Share as much detail as you like so our team can understand your goals and offer the best support possible for your business growth and needs today.</p>
-              <div className="flex flex-col gap-4 mt-[2.5rem]">
-                  <a href="tel:+13466269169" className="flex items-center gap-3 text-white">
+              <div className="flex flex-col gap-4 mt-[2.5rem] hidden md:flex">
+                  <a href="tel:+13466269169" className="flex items-center gap-3 text-white w-fit">
                     <div className="rounded-full bg-[#2E2277] p-2 flex items-center justify-center">
                       <Image 
                         src="/assets/images/contact-icons/phone.svg" 
@@ -86,7 +89,7 @@ export default function Contact() {
                     </div>
                     +1 346-626-9169
                   </a>
-                <a href="mailto:info@startupsadvisory.ai" className="flex items-center gap-3 text-white">
+                <a href="mailto:info@startupsadvisory.ai" className="flex items-center gap-3 text-white w-fit">
                   <div className="rounded-full bg-[#2E2277] p-2 flex items-center justify-center">
                     <Image 
                     src="/assets/images/contact-icons/email.svg" 
@@ -119,65 +122,95 @@ export default function Contact() {
               <form className={styles.contactForm} onSubmit={handleSubmit}>
                 <div className={styles.formRow}>
                   <div className={styles.formField}>
-                    <input
-                      type="text"
-                      name="name"
-                      placeholder="Name*"
-                      className={styles.inputField}
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      required
-                    />
+                    <div className={styles.inputWrapper}>
+                      <div className={styles.inputIcon}>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                        </svg>
+                      </div>
+                      <input
+                        type="text"
+                        name="name"
+                        placeholder="Name*"
+                        className={styles.inputField}
+                        value={formData.name}
+                        onChange={handleInputChange}
+                        required
+                      />
+                    </div>
                   </div>
                   <div className={styles.formField}>
-                    <input
-                      type="email"
-                      name="email"
-                      placeholder="Email*"
-                      className={styles.inputField}
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      required
-                    />
+                    <div className={styles.inputWrapper}>
+                      <div className={styles.inputIcon}>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                        </svg>
+                      </div>
+                      <input
+                        type="email"
+                        name="email"
+                        placeholder="Email*"
+                        className={styles.inputField}
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        required
+                      />
+                    </div>
                   </div>
                 </div>
                 <div className={styles.formRow}>
                   <div className={styles.formFieldFull}>
-                    <input
-                      type="tel"
-                      name="phone"
-                      placeholder="Phone Number*"
-                      className={styles.inputField}
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                      required
-                    />
+                    <div className={`${styles.inputWrapper}`}>
+                      <CustomPhoneInput
+                        value={formData.phone}
+                        onChange={(value: string | undefined) => setFormData((prev) => ({ ...prev, phone: value || "" }))}
+                        defaultCountry="PK"
+                        placeholder="Phone Number*"
+                        required={true}
+                        disabled={loading}
+                        className={styles.phoneInput}
+                      />
+                    </div>
                   </div>
                 </div>
                 <div className={styles.formRow}>
                   <div className={styles.formFieldFull}>
-                    <input
-                      type="text"
-                      name="company"
-                      placeholder="Company Name*"
-                      className={styles.inputField}
-                      value={formData.company}
-                      onChange={handleInputChange}
-                      required
-                    />
+                    <div className={styles.inputWrapper}>
+                      <div className={styles.inputIcon}>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z" />
+                        </svg>
+                      </div>
+                      <input
+                        type="text"
+                        name="company"
+                        placeholder="Company Name*"
+                        className={styles.inputField}
+                        value={formData.company}
+                        onChange={handleInputChange}
+                        required
+                      />
+                    </div>
                   </div>
                 </div>
                 <div className={styles.formRow}>
                   <div className={styles.formFieldFull}>
-                    <textarea
-                      name="message"
-                      placeholder="Message*"
-                      rows={5}
-                      className={styles.textareaField}
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      required
-                    ></textarea>
+                    <div className={styles.inputWrapper}>
+                      <div className={styles.inputIcon}>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z" />
+                        </svg>
+                      </div>
+                      <textarea
+                        name="message"
+                        placeholder="Message*"
+                        rows={5}
+                        className={styles.textareaField}
+                        value={formData.message}
+                        onChange={handleInputChange}
+                        required
+                      ></textarea>
+                    </div>
                   </div>
                 </div>
                 {successMessage && (

@@ -18,6 +18,7 @@ export default function OurJourney({ items, className = "" }: OurJourneyProps) {
 
   return (
     <section className={`${styles.wrap} sectionPadding ${className}`}>
+      <Container className="xl">
       <div className="sectionHeading lg:mb-30 mb-6">
         <h2
           className="mx-auto max-w-7xl text-3xl text-center font-semibold leading-tight tracking-tight text-white 
@@ -72,6 +73,7 @@ export default function OurJourney({ items, className = "" }: OurJourneyProps) {
         ))}
       </div>
       </div>
+      </Container>
     </section>
   );
 }

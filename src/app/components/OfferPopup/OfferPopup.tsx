@@ -1,11 +1,14 @@
 'use client';
-
 import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import styles from './OfferPopup.module.css';
 import Image from 'next/image';
 import Button from '../Button';
 import { ArrowRightIcon } from '../icons';
+import { COMPANY_INFO } from '../../constants';
+import PhoneInput from 'react-phone-number-input';
+import 'react-phone-number-input/style.css';
+import { submitEmail } from '../../lib/api/email';
 
 const avatars = [
   '/assets/images/avatar-without-icons/graphic-designer.webp',
@@ -15,16 +18,33 @@ const avatars = [
   '/assets/images/avatar-without-icons/content-writer.webp',
 ];
 
-const OfferPopup = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
-  const [email, setEmail] = useState('');
-  const [activeAvatar, setActiveAvatar] = useState(2); // Third avatar highlighted
+interface OfferPopupProps {
+  isOpen?: boolean;
+  onClose?: () => void;
+  showTrigger?: boolean;
+}
 
+const OfferPopup = ({ isOpen: externalIsOpen, onClose: externalOnClose, showTrigger = false }: OfferPopupProps = {}) => {
+  const [internalIsOpen, setInternalIsOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    company: '',
+    phone: '',
+  });
+  const [loading, setLoading] = useState(false);
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+  const [activeAvatar, setActiveAvatar] = useState(2);
+  
+  // Use external control if provided, otherwise use internal state
+  const isOpen = externalIsOpen !== undefined ? externalIsOpen : internalIsOpen;
+  
   useEffect(() => {
     setMounted(true);
   }, []);
-
+  
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -35,11 +55,15 @@ const OfferPopup = () => {
       document.body.style.overflow = 'unset';
     };
   }, [isOpen]);
-
+  
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
-        setIsOpen(false);
+        if (externalOnClose) {
+          externalOnClose();
+        } else {
+          setInternalIsOpen(false);
+        }
       }
     };
     if (isOpen) {
@@ -48,39 +72,76 @@ const OfferPopup = () => {
     return () => {
       window.removeEventListener('keydown', handleEscape);
     };
-  }, [isOpen]);
-
-  const handleSubmit = (e: React.FormEvent) => {
+  }, [isOpen, externalOnClose]);
+  
+  const handleClose = () => {
+    if (externalOnClose) {
+      externalOnClose();
+    } else {
+      setInternalIsOpen(false);
+    }
+  };
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Email submitted:', email);
-    setIsOpen(false);
+    setLoading(true);
+    setSuccessMessage("");
+    setErrorMessage("");
+
+    try {
+
+      const response = await submitEmail({
+        ...formData,
+        message: "Interested in Startup Advisory's New Year Sale offer"
+      });
+
+      if (response.ok) {
+        setSuccessMessage("Thank you! Your message has been sent successfully.");
+        setFormData({
+          name: "",
+          email: "",
+          company: "",
+          phone: "",
+        });
+      } else {
+        console.error("API Error:", response);
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
+      setErrorMessage("An error occurred. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+  
   if (!mounted) return null;
-
   return (
     <>
-      {/* Trigger Button - This will be added to header */}
-      <button
-        onClick={() => setIsOpen(true)}
-        className={styles.triggerButton}
-        aria-label="Open offer popup"
-      >
-        300+ Companies
-      </button>
-
-      {/* Popup Modal */}
+      {showTrigger && (
+        <button
+          onClick={() => setInternalIsOpen(true)}
+          className={styles.triggerButton}
+          aria-label="Open offer popup"
+        >
+          300+ Companies
+        </button>
+      )}
       {isOpen &&
         createPortal(
-          <div className={styles.overlay} onClick={() => setIsOpen(false)}>
+          <div className={styles.overlay} onClick={handleClose}>
             <div
               className={styles.modal}
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Close Button */}
               <button
-                onClick={() => setIsOpen(false)}
+                onClick={handleClose}
                 className={styles.closeButton}
                 aria-label="Close popup"
               >
@@ -97,102 +158,133 @@ const OfferPopup = () => {
                   <line x1="18" y1="6" x2="6" y2="18" />
                   <line x1="6" y1="6" x2="18" y2="18" />
                 </svg>
-              </button>
-
-              {/* Decorative Fireworks */}
-              <div className={styles.fireworks}>
-                <div className={styles.firework1}></div>
-                <div className={styles.firework2}></div>
-                <div className={styles.firework3}></div>
-              </div>
-
+              </button>              
               <div className={styles.modalContent}>
-                {/* Left Section */}
                 <div className={styles.leftSection}>
-                  <div className={styles.leftBackground}>
-                    <div className={styles.leftText}>
-                      <p className={styles.leftSubtext}>Simplifying Access to Capital</p>
-                      <p className={styles.leftAmount}>$25,321</p>
-                    </div>
+                  <div className={styles.characterImage}>
+                    <Image
+                      src="/assets/images/offerpopup/1.webp"
+                      alt="Character"
+                      width={400}
+                      height={500}
+                      className={styles.characterImg}
+                    />
                   </div>
-                  <div className={styles.avatarsSection}>
-                    <div className={styles.avatarsContainer}>
-                      {avatars.map((avatar, index) => (
-                        <div
-                          key={index}
-                          className={`${styles.avatarWrapper} ${
-                            index === activeAvatar ? styles.avatarActive : ''
-                          }`}
-                          onMouseEnter={() => setActiveAvatar(index)}
-                        >
-                          <div className={styles.avatarGlow}></div>
-                          <Image
-                            src={avatar}
-                            alt={`Creative Director ${index + 1}`}
-                            width={60}
-                            height={60}
-                            className={styles.avatar}
-                          />
-                          {index === activeAvatar && (
-                            <div className={styles.cursor}>
-                              <svg
-                                width="20"
-                                height="20"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="#0fdac2"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                              >
-                                <path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z" />
-                              </svg>
-                            </div>
-                          )}
-                        </div>
-                      ))}
+                  <div className={styles.leftContent}>
+                    <h2 className={styles.leftHeadline}>
+                      <span className={styles.leftHeadlinePart1}>Supercharge Your</span>
+                      <span className={styles.leftHeadlinePart2}>Entire Creative</span>
+                      <span className={styles.leftHeadlinePart2}>Operations In 2026</span>
+                    </h2>
+                    <p className={styles.leftSubtitle}>
+                      Unlock Startup Advisory's Biggest New Year Sale
+                    </p>
+                    <div className={styles.cursor}>
+                      <Image
+                        src="/assets/images/offerpopup/cursor.webp"
+                        alt="Cursor"
+                        width={80}
+                        height={80}
+                        className={styles.cursorImg}
+                      />
                     </div>
-                    <p className={styles.avatarsLabel}>Creative Directors</p>
                   </div>
                 </div>
-
-                {/* Right Section */}
                 <div className={styles.rightSection}>
+                  <div className={styles.fireworks}></div>
                   <div className={styles.logo}>
-                    <span className={styles.logoPart1}>Startups</span>
-                    <span className={styles.logoPart2}> ADVISORY</span>
-                    <span className={styles.logoPart3}>.Ai</span>
+                    <Image
+                      src={COMPANY_INFO.logo}
+                      alt="Startups ADVISORY.Ai Logo"
+                      width={140}
+                      height={40}
+                      loading="lazy"
+                      style={{ objectFit: "contain" }}
+                      className={styles.logoImage}
+                    />
                   </div>
-                  <h2 className={styles.headline}>
-                    <span className={styles.headlinePart1}>Supercharge your entire creative operations</span>
-                    <span className={styles.headlinePart2}> in 2026</span>
-                  </h2>
-                  <p className={styles.subtitle}>
-                    Unlock Startup Advisory's Biggest New Year Sale
-                  </p>
                   <form onSubmit={handleSubmit} className={styles.form}>
                     <div className={styles.inputGroup}>
+                      <label htmlFor="name" className={styles.label}>
+                        Your Name *
+                      </label>
+                      <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleInputChange}
+                        className={styles.input}
+                        placeholder="Your Name *"
+                        required
+                      />
+                    </div>
+                    <div className={styles.inputGroup}>
                       <label htmlFor="email" className={styles.label}>
-                        Your email *
+                        Email *
                       </label>
                       <input
                         type="email"
                         id="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
+                        name="email"
+                        value={formData.email}
+                        onChange={handleInputChange}
                         className={styles.input}
-                        placeholder="Enter your email"
+                        placeholder="Email *"
                         required
                       />
                     </div>
+                    <div className={styles.inputGroup}>
+                      <label htmlFor="company" className={styles.label}>
+                        Your Company *
+                      </label>
+                      <input
+                        type="text"
+                        id="company"
+                        name="company"
+                        value={formData.company}
+                        onChange={handleInputChange}
+                        className={styles.input}
+                        placeholder="Your Company *"
+                        required
+                      />
+                    </div>
+                    <div className={styles.inputGroup}>
+                      <label htmlFor="phone" className={styles.label}>
+                        Phone Number *
+                      </label>
+                      <PhoneInput
+                        international
+                        defaultCountry="US"
+                        value={formData.phone}
+                        onChange={(value) => setFormData((prev) => ({ ...prev, phone: value || "" }))}
+                        placeholder="Phone Number *"
+                        className={styles.phoneInput}
+                        numberInputProps={{
+                          className: styles.phoneNumberInput,
+                          required: true,
+                        }}
+                      />
+                    </div>
+                    {successMessage && (
+                      <div style={{ color: "green", marginBottom: "1rem", fontSize: "0.9rem" }}>
+                        {successMessage}
+                      </div>
+                    )}
+                    {errorMessage && (
+                      <div style={{ color: "red", marginBottom: "1rem", fontSize: "0.9rem" }}>
+                        {errorMessage}
+                      </div>
+                    )}
                     <Button
                       type="submit"
                       variant="green"
                       icon={<ArrowRightIcon style={{ fill: "#000" }} />}
                       iconPosition="right"
                       className={styles.submitButton}
+                      disabled={loading}
                     >
-                      Unlock Offer
+                      {loading ? "Sending..." : "Unlock Offer"}
                     </Button>
                   </form>
                 </div>
@@ -204,6 +296,4 @@ const OfferPopup = () => {
     </>
   );
 };
-
 export default OfferPopup;
-

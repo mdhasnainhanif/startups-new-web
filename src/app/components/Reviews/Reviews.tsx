@@ -20,7 +20,7 @@ export default function Reviews({ limit, columns = 3, equalHeight = false }: Rev
       <section className={`${styles.section} sectionPadding`}>
         <Container maxWidth="xl">
           {/* Header Section */}
-          <div className={`${styles.header} sectionHeading forH2 text-[#ffffff] flex flex-col items-center justify-center gap-3 mb-8 md:mb-10 text-center max-w-[60rem] mx-auto relative z-10`}>
+          <div className={`${styles.header} sectionHeading forH2 text-[#ffffff] flex flex-col items-center justify-center mb-8 md:mb-10 text-center max-w-[60rem] mx-auto relative z-10`}>
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight mb-4 md:mb-5">
               <span className="text-white">
                 {REVIEWS_SECTION.heading.part1}

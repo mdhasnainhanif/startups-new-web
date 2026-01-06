@@ -118,7 +118,7 @@ export default function Technologies({ heading, description, subDescription, hid
     <section className={`${styles.section} ${className} sectionPadding`}>
       <div>
         <Container maxWidth="2xl" className="px-0">
-          <div className={`sectionHeading forH2 gap-3 flex flex-col items-center justify-center text-center max-w-5xl md:mx-auto`}>
+          <div className={`sectionHeading forH2 flex flex-col items-center justify-center text-center max-w-5xl md:mx-auto`}>
             <h2 className="max-w-7xl mx-auto">
               {parseBrackets(heading || TECHNOLOGIES_SECTION.heading.part1)}
             </h2>
@@ -251,14 +251,14 @@ export default function Technologies({ heading, description, subDescription, hid
             </button>
           </div>
           )}
-          {!heading && (
+          {/* {!heading && (
             <div className={styles.categoryHeader}>
               <h3 className={styles.categoryTitle}>
                 {currentTab?.label} Tools (
                 <span className="text-[#0fdac2]">{currentTab?.value}</span> )
               </h3>
             </div>
-          )}
+          )} */}
         </Container>
         <div className={styles.slidersContainer}>
           <div className={`${styles.slider} ${styles.sliderRightToLeft}`}>

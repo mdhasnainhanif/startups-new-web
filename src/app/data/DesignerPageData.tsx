@@ -118,7 +118,7 @@ export const caseStudyDesignerPageData: CaseStudySectionData = {
         "Brand guideline document",
         "Full brand identity system",
       ],
-      buttonText: "Hire Brand Designer",
+      buttonText: "Hire Your Design Team",
       image: "/assets/images/avatar/brand-designer.webp",
     },
     {

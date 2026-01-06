@@ -7,16 +7,15 @@ import Button from '../../Button';
 import { ArrowRightIcon } from '../../icons';
 import { HOME_BANNER_DATA } from '../../../data/Page2';
 import styles from './HomeBanner.module.css';
-
+import CalendlyPopup from '../../CalendlyPopup/CalendlyPopup';
 const HomeBanner = () => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
-
+  const [isCalendlyPopupOpen, setIsCalendlyPopupOpen] = useState(false);
   return (
     <>
-      <section className={`sectionPadding ${styles.section} ${styles.herobanner}`}>
+      <section className={`sectionPadding heroBannerPaddingTop ${styles.section} ${styles.herobanner}`}>
       <Container maxWidth="xl" className="px-0">
           <div className={`lg:pt-48 ${styles.contentWrapper}`}>
-            {/* Left Section */}
             <div className={`sectionHeading ${styles.leftSection}`}>
               <h1>
                 <span className="text-white">{HOME_BANNER_DATA.headline.part1}</span>
@@ -26,11 +25,9 @@ const HomeBanner = () => {
               <p className="text-white text-lg leading-relaxed opacity-90">
                 {HOME_BANNER_DATA.description}
               </p>
-
-              {/* Features List */} 
               <ul className="space-y-3">
                 {HOME_BANNER_DATA.features.map((feature, index) => (
-                  <li key={index} className="flex items-start gap-3 text-white">
+                  <li key={index} className="flex items-start gap-3 text-white text-left">
                     <img
                       src="/assets/images/tick.webp"
                       alt="check"
@@ -40,23 +37,19 @@ const HomeBanner = () => {
                   </li>
                 ))}
               </ul>
-
-              {/* CTA Button */}
               <div className="mt-2">
                 <Button
                   href={HOME_BANNER_DATA.cta.href}
                   variant="green"
                   icon={<ArrowRightIcon style={{ fill: '#000' }} />}
                   iconPosition="right"
+                  onClick={() => setIsCalendlyPopupOpen(true)}
                 >
                   {HOME_BANNER_DATA.cta.text}
                 </Button>
               </div>
             </div>
-
-            {/* Right Section - Video Player */}
             <div className={styles.rightSection}>
-              {/* Video Player */}
               <div className={styles.videoMain}>
                 <div
                   className={styles.videoImageWrapper}
@@ -67,13 +60,11 @@ const HomeBanner = () => {
                     src={HOME_BANNER_DATA.video.thumbnail}
                     alt={HOME_BANNER_DATA.video.videoTitle}
                   />
-                  {/* Google Image - Positioned Absolutely */}
-                  {/* <img
+                  <img
                     src={HOME_BANNER_DATA.review.logo}
                     alt="Google"
                     className={styles.googleImage}
-                  /> */}
-                  {/* Play Button Icon */}
+                  /> 
                   <div className={styles.playButtonContainer}>
                     <div className={styles.playButton}>
                       <svg
@@ -96,8 +87,6 @@ const HomeBanner = () => {
           </div>
         </Container>
       </section>
-
-      {/* Video Popup */}
       <VideoPopup
         isOpen={isPopupOpen}
         onClose={() => setIsPopupOpen(false)}
@@ -105,9 +94,11 @@ const HomeBanner = () => {
         videoTitle={HOME_BANNER_DATA.video.videoTitle}
         size="lg"
       />
+      <CalendlyPopup
+        isOpen={isCalendlyPopupOpen}
+        onClose={() => setIsCalendlyPopupOpen(false)}
+      />
     </>
   );
 };
-
 export default HomeBanner;
-

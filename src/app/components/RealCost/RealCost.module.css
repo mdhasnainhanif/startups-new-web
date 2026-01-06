@@ -3,13 +3,14 @@
   overflow: hidden;
   background: #02001c;
 }
+
 .aeroicon {
   position: absolute;
   top: 0%;
   right: 13%;
   width: 42.5rem;
   height: 42.5rem;
-  opacity:0.6;
+  opacity: 0.6;
   z-index: 1
 }
 
@@ -172,8 +173,10 @@ p.conclusion {
   padding: 12px 16px;
   border: 2px solid transparent;
   background-image:
-    linear-gradient(#0e1030, #0e1030),              /* inner solid background */
-    linear-gradient(to right, #0fdac2, #643bff);    /* outer gradient border */
+    linear-gradient(#0e1030, #0e1030),
+    /* inner solid background */
+    linear-gradient(to right, #0fdac2, #643bff);
+  /* outer gradient border */
   background-origin: border-box;
   background-clip: padding-box, border-box;
   overflow: visible;
@@ -261,6 +264,7 @@ p.conclusion {
     opacity: 0;
     transform: translateY(-10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -308,6 +312,7 @@ p.conclusion {
   flex: 1;
   background: transparent;
   border: none;
+  cursor: default;
   color: #ffffff;
   font-size: 16px;
   outline: none;
@@ -363,7 +368,8 @@ p.conclusion {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
+  width: 100%;
 }
 
 .chartLabel {
@@ -375,45 +381,39 @@ p.conclusion {
 
 .barChart {
   width: 100%;
-  height: 120px;
+  height: 180px;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
+  padding: 10px 0;
 }
 
 .barChartContainer {
-  display: flex;
-  align-items: flex-end;
-  gap: 12px;
-  height: 100%;
-  width: 100%;
-  justify-content: center;
-  /* border-left: 1px solid #181847; */
-  border-bottom: 1px solid #181847;
-  position: relative;
+  display: none; /* Hide old bar container */
 }
 
-.barChartContainer::before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 1px;
-  height: 80%;
-  background-color: #181847;
+.barLabelsRow {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-size: 12px;
+  opacity: .85;
+}
+
+.barLabelItem {
+  color: #fff;
 }
 
 .bar {
-  width: 40px;
-  border-radius: 4px 4px 0 0;
-  transition: height 0.3s ease;
-  min-height: 10px;
+  display: none; /* Hide old bars */
 }
 
 .donutChart {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
+  height: 130px;
 }
 
 /* Responsive Styles */
@@ -507,5 +507,29 @@ p.conclusion {
   .aeroicon {
     display: none;
   }
+
+  .calculatorCard {
+    padding: 1.25rem;
+  }
 }
 
+.customTooltip {
+  background: #0B0A24;
+  border: 1px solid rgba(15, 218, 194, 0.3);
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.tooltipLabel {
+  color: #bdd1f9;
+  font-size: 12px;
+  margin: 0 0 4px 0;
+}
+
+.tooltipValue {
+  color: #0fdac2;
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+}

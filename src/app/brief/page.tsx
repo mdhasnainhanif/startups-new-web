@@ -8,6 +8,7 @@ import QuestionnaireStep from "../components/Questionnaire/QuestionnaireStep";
 import PersonalDetailsForm from "../components/Questionnaire/PersonalDetailsForm";
 import BriefFooter from "../components/BriefFooter/BriefFooter";
 import { useRouter } from "next/navigation";
+import { submitBriefEmail } from '../lib/api/email';
 export interface QuestionnaireAnswers {
   [key: string]: string;
 }
@@ -20,7 +21,6 @@ interface SavedProgress {
     name: string;
     contact: string;
     email: string;
-    country: string;
   };
 }
 function getInitialState() {
@@ -33,7 +33,6 @@ function getInitialState() {
         name: string;
         contact: string;
         email: string;
-        country: string;
       } | null,
     };
   }
@@ -79,7 +78,6 @@ export default function BriefPage() {
     name: string;
     contact: string;
     email: string;
-    country: string;
   } | null>(initialState.personalDetails);
   useEffect(() => {
     if (typeof window !== "undefined" && !isInitialized) {
@@ -105,47 +103,26 @@ export default function BriefPage() {
       ...prev,
       [stepId]: value,
     }));
-    const currentStepData = questionnaireData.steps.find((s) => s.id === stepId);
-    const isMultiSelect = currentStepData?.multiSelect === true;
-    const maxSelections = currentStepData?.maxSelections || 3;
-    const selectionCount = value ? value.split(",").filter(v => v.trim()).length : 0;
-    const maxReached = isMultiSelect && selectionCount >= maxSelections;
+    // If nextStep is provided, advance to next step
+    // For single select: nextStep is always provided on click (auto-advance)
+    // For multiple select: nextStep is only provided when Continue button is clicked
     if (nextStep) {
-      if (!isMultiSelect || maxReached) {
-        setIsTransitioning(true);
-        setFadeIn(false);
+      setIsTransitioning(true);
+      setFadeIn(false);
+      setTimeout(() => {
+        setStepHistory((prev) => {
+          const lastStep = prev[prev.length - 1];
+          if (lastStep !== nextStep) {
+            return [...prev, nextStep];
+          }
+          return prev;
+        });
+        setCurrentStep(nextStep);
         setTimeout(() => {
-          setStepHistory((prev) => {
-            const lastStep = prev[prev.length - 1];
-            if (lastStep !== nextStep) {
-              return [...prev, nextStep];
-            }
-            return prev;
-          });
-          setCurrentStep(nextStep);
-          setTimeout(() => {
-            setFadeIn(true);
-            setIsTransitioning(false);
-          }, 50);
-        }, 600);
-      } else if (isMultiSelect && !maxReached) {
-        setIsTransitioning(true);
-        setFadeIn(false);
-        setTimeout(() => {
-          setStepHistory((prev) => {
-            const lastStep = prev[prev.length - 1];
-            if (lastStep !== nextStep) {
-              return [...prev, nextStep];
-            }
-            return prev;
-          });
-          setCurrentStep(nextStep);
-          setTimeout(() => {
-            setFadeIn(true);
-            setIsTransitioning(false);
-          }, 50);
-        }, 300);
-      }
+          setFadeIn(true);
+          setIsTransitioning(false);
+        }, 50);
+      }, 600);
     }
   };
   const handleBack = () => {
@@ -185,7 +162,6 @@ export default function BriefPage() {
     name: string;
     contact: string;
     email: string;
-    country: string;
   }) => {
     setIsSubmitting(true);
     try {
@@ -193,19 +169,18 @@ export default function BriefPage() {
         ...answers,
         ...formData,
       };
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          phone: formData.contact,
-          company: formData.country,
-          message: JSON.stringify(submissionData, null, 2),
-        }),
-      });
+      
+   // Combine all answers with personal details
+      const submissionPayload = {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.contact,
+        company: "",
+        message: JSON.stringify(submissionData, null, 2),
+        title: "Brief request from website",
+      };
+      // Submit to API
+      const response = await submitBriefEmail(submissionPayload);
       if (response.ok) {
         if (typeof window !== "undefined") {
           try {
@@ -229,7 +204,7 @@ export default function BriefPage() {
             console.error("Error clearing progress and cookies:", error);
           }
         }
-        router.push("/thank-you");
+        router.push("/key-growth");
       } else {
         console.error("Failed to submit form");
       }
@@ -243,7 +218,6 @@ export default function BriefPage() {
     name: string;
     contact: string;
     email: string;
-    country: string;
   }) => {
     setSavedPersonalDetails(formData);
   };
@@ -266,13 +240,17 @@ export default function BriefPage() {
         <section className={`${styles.questionnaireSection} ${briefStyles.questionnaireSection}`}>
           <Container maxWidth="2xl" className={styles.container}>
             <div className={`${styles.questionnaireWrapper} ${briefStyles.questionnaireWrapper}`}>
-              <div className={styles.header}>
-                <h1 className={styles.mainHeading}>
-                  Just Tell Us What You Need & Get
-                  The <span className="text-[#0fdac2]">Best Price</span> Instantly
-                </h1>
-                <div className={styles.separator}></div>
-                {isInitialized && (
+              {isInitialized && (
+                <div className={styles.header}>
+                  {currentStep === "questionnaire-personal-detail" ? (
+                    <h2 className={styles.personalDetailsHeading}>
+                      Just Tell Us What You Need & Get The <span className={styles.highlightText}>Best Price</span> Instantly
+                    </h2>
+                  ) : (
+                    currentStepData && (
+                      <h2 className={styles.stepTitle}>{currentStepData.title}</h2>
+                    )
+                  )}
                   <div className={styles.progressContainer}>
                     <div className={styles.progressInfo}>
                       <span className={styles.progressText}>
@@ -286,8 +264,8 @@ export default function BriefPage() {
                       ></div>
                     </div>
                   </div>
-                )}
-              </div>
+                </div>
+              )}
               <div className={styles.formArea}>
                 {!isInitialized ? (
                   <div style={{ minHeight: '400px' }}></div>
@@ -315,10 +293,33 @@ export default function BriefPage() {
                               onSelect={handleOptionSelect}
                               onBack={handleBack}
                               selectedValue={currentStepData.multiSelect 
-                                ? (answers[currentStepData.id] ? answers[currentStepData.id].split(",") : [])
+                                ? (() => {
+                                    const answer = answers[currentStepData.id];
+                                    if (!answer || answer.trim() === "") {
+                                      return [];
+                                    }
+                                    // Always try JSON first
+                                    try {
+                                      const parsed = JSON.parse(answer);
+                                      if (Array.isArray(parsed)) {
+                                        return parsed;
+                                      }
+                                      return [];
+                                    } catch {
+                                      // If not JSON, check if it's step 7 (has values with commas)
+                                      // For step 7, never use comma-separated - return empty to force re-selection
+                                      if (currentStepData.id === "step-7") {
+                                        return [];
+                                      }
+                                      // For other steps, try comma-separated as fallback
+                                      const splitValues = answer.split(",").map(v => v.trim()).filter(v => v !== "");
+                                      return splitValues;
+                                    }
+                                  })()
                                 : answers[currentStepData.id]
                               }
                               showBack={false}
+                              hideButtons={true}
                             />
                           </div>
                         )}
@@ -331,7 +332,57 @@ export default function BriefPage() {
           </Container>
         </section>
       </div>
-      <BriefFooter onBack={handleBack} showBack={isInitialized ? showBackButton : false} />
+      {/* Footer with Back and Continue buttons */}
+      {isInitialized && currentStepData && (
+        <BriefFooter 
+          onBack={handleBack} 
+          showBack={showBackButton && currentStep !== "step-1"}
+          showContinue={true}
+          continueDisabled={
+            currentStepData.multiSelect
+              ? (() => {
+                  // For multiple select: disabled when no selections
+                  const answer = answers[currentStepData.id];
+                  if (!answer || answer.trim() === "") return true;
+                  try {
+                    const parsed = JSON.parse(answer);
+                    return !Array.isArray(parsed) || parsed.length === 0;
+                  } catch {
+                    // Fallback for old format
+                    const splitValues = answer.split(",").filter(v => v.trim());
+                    return splitValues.length === 0;
+                  }
+                })()
+              : (() => {
+                  // For single select: disabled when no selection, enabled when selection exists (for back navigation)
+                  const answer = answers[currentStepData.id];
+                  return !answer || answer.trim() === "";
+                })()
+          }
+          onContinue={() => {
+            const nextStep = currentStepData.options[0]?.nextStep;
+            if (nextStep) {
+              if (currentStepData.multiSelect) {
+                const answer = answers[currentStepData.id];
+                const currentValue = answer || JSON.stringify([]);
+                handleOptionSelect(currentStepData.id, currentValue, nextStep);
+              } else {
+                const selectedValue = answers[currentStepData.id] || '';
+                handleOptionSelect(currentStepData.id, selectedValue, nextStep);
+              }
+            }
+          }}
+        />
+      )}
+      
+      {/* Back Button for Last Step (Personal Details) on Brief Page */}
+      {isInitialized && currentStep === "questionnaire-personal-detail" && stepHistory.length > 1 && (
+        <BriefFooter 
+          onBack={handleBack} 
+          showBack={true}
+          showContinue={false}
+        />
+      )}
     </>
   );
 }

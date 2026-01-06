@@ -1,9 +1,11 @@
+'use client';
+import { useState } from 'react';
 import styles from "./HomenewBanner.module.css";
 import Button from "../../Button";
 import { ArrowRightIcon } from "../../icons";
 import Container from "../../Container";
 import Image from "next/image";
-
+import CalendlyPopup from '../../CalendlyPopup/CalendlyPopup';
 export interface HomenewBannerData {
   className?: string;
   heading: {
@@ -27,11 +29,9 @@ export interface HomenewBannerData {
     className?: string;
   };
 }
-
 interface HomenewBannerProps {
   data?: HomenewBannerData;
 }
-
 const DEFAULT_DATA: HomenewBannerData = {
   heading: {
     part1: "Your ",
@@ -40,7 +40,7 @@ const DEFAULT_DATA: HomenewBannerData = {
     part2: " Team Ready From Day One",
   },
   description:
-    "Everything your business needs to look professional, trusted, and ready to serve — handled by your own design team powered by AI and real experts",
+    "Everything your business needs to look professional, trusted, and ready to serve, handled by your own design team powered by AI and real experts",
   experienceBox: {
     title: "Experience Box – Your Design Team's Expertise",
     items: [
@@ -61,11 +61,12 @@ const DEFAULT_DATA: HomenewBannerData = {
     className: "designerBanner",
   },
 };
-
 const HomenewBanner = ({ data = DEFAULT_DATA }: HomenewBannerProps) => {
+  const [isCalendlyPopupOpen, setIsCalendlyPopupOpen] = useState(false);
   return (
+    <>
     <section
-      className={`sectionPadding relative ${styles.extraPaddingTop} ${styles.HomenewBanner} ${data.className}`}
+      className={`sectionPadding relative heroBannerPaddingTop ${styles.extraPaddingTop} ${styles.HomenewBanner} ${data.className}`}
     >
       <Container maxWidth="xl">
         <div className={`${styles.row} md:pt-20`}>
@@ -77,18 +78,16 @@ const HomenewBanner = ({ data = DEFAULT_DATA }: HomenewBannerProps) => {
               {data.heading.part2}
               <br className="hidden md:block" />
             </h1>
-
             <p className="text-white text-lg mb-6">
               {data.description}
             </p>
-
             <div
-              className={`${styles.experienceBox} p-6 rounded-lg shadow-sm mb-6`}
+              className={`${styles.experienceBox} rounded-lg shadow-sm mb-6 p-6`}
             >
               <h3 className="text-xl font-semibold text-[#0fdac2] mb-4">
                 {data.experienceBox.title}
               </h3>
-              <ul className="space-y-2 text-white list-none ">
+              <ul className="space-y-2 text-white list-none text-left">
                 {data.experienceBox.items.map((item, index) => (
                   <li key={index} className={styles.checkItem}>
                     {item}
@@ -96,17 +95,16 @@ const HomenewBanner = ({ data = DEFAULT_DATA }: HomenewBannerProps) => {
                 ))}
               </ul>
             </div>
-
             <Button
               href={data.cta.href}
               variant="green"
               icon={<ArrowRightIcon style={{ fill: "#000" }} />}
               iconPosition="right"
+              onClick={() => setIsCalendlyPopupOpen(true)}
             >
               {data.cta.text}
             </Button>
           </div>
-
           <div className={styles.colRight}>
             <Image
               src={data.image.src}
@@ -114,14 +112,17 @@ const HomenewBanner = ({ data = DEFAULT_DATA }: HomenewBannerProps) => {
               width={800}
               height={800}
               fetchPriority="high"
-              quality={85}
               className={`w-full ${styles.homenewbanner1} ${data.image.className}`}
             />
           </div>
         </div>
       </Container>
     </section>
+    <CalendlyPopup
+    isOpen={isCalendlyPopupOpen}
+    onClose={() => setIsCalendlyPopupOpen(false)}
+    />
+    </>
   );
 };
-
 export default HomenewBanner;

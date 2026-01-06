@@ -5,6 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import styles from "./AiTeamSection.module.css";
 import Container from "../Container";
+import CalendlyPopup from "../CalendlyPopup/CalendlyPopup";
 gsap.registerPlugin(ScrollTrigger);
 type TabId = "creative" | "marketing" | "development" | "growth";
 const TABS: { id: TabId; label: string }[] = [
@@ -91,6 +92,7 @@ const TAB_CONTENT: Record<
 };
 export default function AiTeamSection() {
   const [activeTab, setActiveTab] = useState<TabId>("creative");
+  const [isCalendlyPopupOpen, setIsCalendlyPopupOpen] = useState(false);
   const cardsContainerRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
   const triggersRef = useRef<ScrollTrigger[]>([]);
@@ -252,7 +254,7 @@ export default function AiTeamSection() {
           </h2>
           <p className="mt-5 text-sm md:text-base text-slate-300 leading-relaxed">
             When you bring on your Smart AI Business Team, you&apos;re not
-            hiring freelancers — you&apos;re unlocking a complete digital
+            hiring freelancers, you&apos;re unlocking a complete digital
             department. Each role blends human expertise with AI precision to
             move your marketing faster, smarter, and farther than ever. Every
             deliverable builds lasting value for your business.
@@ -302,6 +304,11 @@ export default function AiTeamSection() {
                 <button
                   type="button"
                   className={`${styles.ctaButton} mt-7 inline-flex items-center gap-2 text-sm md:text-base font-semibold`}
+                  onClick={() => {
+                    if (content.cta === "Hire Brand Designer") {
+                      setIsCalendlyPopupOpen(true);
+                    }
+                  }}
                 >
                   {content.cta}
                   <span className="text-lg">↗</span>
@@ -321,6 +328,12 @@ export default function AiTeamSection() {
           ))}
         </div>
       </Container>
+      
+      {/* Calendly Popup */}
+      <CalendlyPopup
+        isOpen={isCalendlyPopupOpen}
+        onClose={() => setIsCalendlyPopupOpen(false)}
+      />
     </section>
   );
 }

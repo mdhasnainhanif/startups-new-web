@@ -4,7 +4,8 @@
   overflow: hidden;
   padding-left: 0;
   padding-right: 0;
-  box-shadow: -10px 0 20px rgba(15, 218, 194, 0.2), 10px 0 20px rgba(15, 218, 194, 0.2);
+  box-shadow: -10px 0 20px rgba(15, 218, 194, 0.2),
+    10px 0 20px rgba(15, 218, 194, 0.2);
 }
 
 .contentWrapper {
@@ -47,8 +48,23 @@
   overflow: hidden;
 }
 
+@media (max-width: 1023px) {
+  .fullWidthSlider {
+    padding: 1rem 0;
+  }
+}
+
 .fullWidthSlider:not(:first-of-type) {
   margin-top: 1.5rem;
+}
+
+div.marqueeWrapper {
+  padding-top: 0rem;
+}
+
+.fullWidthSlider:last-child {
+  margin-top: 0rem;
+  padding-top: 0rem;
 }
 
 .swiperWrapper {
@@ -58,7 +74,8 @@
   max-width: 100%;
   margin: 0;
   overflow: visible;
-  box-shadow: -10px 0 20px rgba(15, 218, 194, 0.2), 10px 0 20px rgba(15, 218, 194, 0.2);
+  box-shadow: -10px 0 20px rgba(15, 218, 194, 0.2),
+    10px 0 20px rgba(15, 218, 194, 0.2);
 }
 
 .swiperWrapperOffset {
@@ -67,7 +84,6 @@
 }
 
 @media (max-width: 1023px) {
-  
   .swiperWrapperOffset {
     transform: translateX(calc(50% - 0px));
     margin-left: 0;
@@ -112,7 +128,7 @@
     flex-shrink: 0;
     flex-grow: 0;
   }
-  
+
   .swiper :global(.swiper-wrapper) {
     display: flex;
     align-items: stretch;
@@ -125,7 +141,7 @@
 }
 
 .card {
-  background: #643BFF;
+  background: #643bff;
   border: 1px solid #382972;
   border-radius: 0.75rem;
   padding: 2rem;
@@ -134,7 +150,8 @@
   gap: 1rem;
   height: 100%;
   width: 100%;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-align: left;
   /* direction: ltr; */
@@ -143,7 +160,8 @@
 
 .card:hover {
   /* transform: translateY(-4px); */
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3),
+    0 4px 6px -2px rgba(0, 0, 0, 0.1);
 }
 
 .cardNumber {
@@ -156,13 +174,23 @@
 }
 
 .iconWrapper {
-  width: 48px;
-  height: 48px;
+  height: 4rem;
+  width: 4rem;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #0fdac2;
   flex-shrink: 0;
+  background-color: #2e2277;
+  border-radius: 4rem;
+}
+
+.iconImage {
+  width: 100%;
+  height: 100%;
+  max-width: 1.725rem;
+  object-fit: contain;
+  display: block;
 }
 
 .cardTitle {
@@ -273,6 +301,17 @@
 }
 
 @media (max-width: 768px) {
+  .fullWidthSlider:last-child {
+    margin-top: 0rem;
+    padding-top: 0rem;
+  }
+  div.marqueeTrack {
+    gap: 1.5rem;
+  }
+  div.marqueeWrapper {
+    padding-top: 0.45rem;
+    padding-bottom: 0rem;
+  }
   .heading {
     font-size: 1.75rem;
   }
@@ -322,8 +361,6 @@
   }
 }
 
-
-
 @media (max-width: 1023px) {
   .swiper :global(.swiper-slide) {
     width: 100% !important;
@@ -338,4 +375,103 @@
     align-items: stretch;
   }
 
+  /* Hide Swiper on mobile */
+  .swiperWrapper {
+    display: none !important;
+  }
+
+  /* Show Marquee on mobile */
+  .marqueeWrapper {
+    display: block !important;
+  }
+}
+
+/* Marquee Styles - Show on all devices */
+.marqueeWrapper {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 1rem 0;
+  margin: 0;
+}
+
+.marqueeTrack {
+  display: flex;
+  gap: 1.5rem;
+  width: fit-content;
+  animation: marquee 80s linear infinite;
+  will-change: transform;
+}
+
+.marqueeTrackReverse {
+  animation: marqueeReverse 80s linear infinite;
+}
+
+/* Pause animation on hover */
+.marqueeWrapper:hover .marqueeTrack,
+.marqueeWrapper:hover .marqueeTrackReverse {
+  animation-play-state: paused;
+}
+
+.marqueeCard {
+  flex-shrink: 0;
+  width: 85vw;
+  max-width: 22rem;
+  min-width: 18rem;
+  padding: 0;
+}
+
+@media (min-width: 1024px) {
+  .marqueeCard {
+    width: 22rem;
+    max-width: 22rem;
+    min-width: 22rem;
+    padding: 0;
+  }
+  
+  .marqueeWrapper {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  
+  .fullWidthSlider {
+    padding: 1rem 0;
+  }
+}
+
+.marqueeCard .card {
+  width: 100%;
+  min-height: auto;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marqueeReverse {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Desktop: Show Marquee, Hide Swiper */
+@media (min-width: 1024px) {
+  .marqueeWrapper {
+    display: block !important;
+  }
+
+  .swiperWrapper {
+    display: none !important;
+  }
 }

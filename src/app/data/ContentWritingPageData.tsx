@@ -10,8 +10,8 @@ import { contentWritingAnalyticsDashboardData } from './AnalyticsDashboardData';
 // HomenewBanner data for Content Writing page
 export const contentWritingBannerData: HomenewBannerData = {
   heading: {
-    part1: "Market-Ready Content in ",
-    highlight1: "22 Days.",
+    part1: "Market Ready Content in ",
+    highlight1: "1 Month.",
     highlight2: "",
     part2: "",
   },
@@ -61,7 +61,7 @@ export const contentWritingProfessionalData: ProfessionalDesignData = {
   },
   
   factsHeading: {
-    text: "The Service Covers All Content Requirements Across a 22-Day Production Window.",
+    text: "The Service Covers All Content Requirements Across a 1 Month Production Window.",
     className: "factsHeading",
   },
   factsList: [
@@ -128,7 +128,7 @@ export const contentWritingProfessionalData: ProfessionalDesignData = {
 export const contentWritingCaseStudyData: CaseStudySectionData = {
   ...DEFAULT_CASE_STUDY_DATA,
   heading: {
-    text: "The 22-Day Content Writing Service",
+    text: "The 1 Month Content Writing Service",
     highlighted: "Content Writing",
   },
   description:
@@ -221,42 +221,42 @@ export const contentWritingCaseStudyData: CaseStudySectionData = {
 // AiPowerDesign data for Content Writing page
 export const contentWritingAiPowerData: AiPowerDesignData = {
   headline: {
-    text: 'The Service Covers All Content Requirements Across a 22-Day Production Window.',
-    highlighted: ['Content Requirements', '22-Day Production'],
+    text: 'The Service Covers All Content Requirements Across a 1 Month Production Window.',
+    highlighted: ['Content Requirements', '1 Month Production'],
   },
   description:
     'Website content, sales copy, UX text, marketing lines, ads, captions, and brand communication are produced inside one controlled writing cycle with consistent tone and polished delivery.',
-  deliverablesTitle: '22-Day Content Package Includes:',
+  deliverablesTitle: '1 Month Content Package Includes:',
   tabs: [
     {
       id: 'website-content',
       label: 'Website Content',
-      image: '/assets/images/aipower1.webp',
+      image: '/assets/images/content-writer/social-media-content-writing.webp',
       deliverables: [
-        { id: '1', label: 'SEO Content Writing', image: '/assets/images/aipower1.webp' },
-        { id: '2', label: 'Copywriting', image: '/assets/images/aipower2.webp' },
-        { id: '3', label: 'Social Media Content Writing', image: '/assets/images/aipower3.webp' },
-        { id: '4', label: 'Email Marketing Content', image: '/assets/images/aipower4.webp' },
-        { id: '5', label: 'Content Strategy', image: '/assets/images/aipower5.webp' },
-        { id: '6', label: 'Brand Messaging Development', image: '/assets/images/aipower1.webp' },
-        { id: '7', label: 'Script Writing', image: '/assets/images/aipower2.webp' },
-        { id: '8', label: 'Technical Writing', image: '/assets/images/aipower3.webp' },
-        { id: '9', label: 'Creative Writing', image: '/assets/images/aipower4.webp' },
-        { id: '10', label: 'Product Description Writing', image: '/assets/images/aipower5.webp' },
-        { id: '11', label: 'Ad Copywriting', image: '/assets/images/aipower1.webp' },
-        { id: '12', label: 'B2B Content Writing', image: '/assets/images/aipower2.webp' },
-        { id: '13', label: 'B2C Content Writing', image: '/assets/images/aipower3.webp' },
-        { id: '14', label: 'Website Content Writing', image: '/assets/images/aipower4.webp' },
-        { id: '15', label: 'Thought Leadership Writing', image: '/assets/images/aipower5.webp' },
-        { id: '16', label: 'Content Editing & Proofreading', image: '/assets/images/aipower1.webp' },
-        { id: '17', label: 'Content Repurposing', image: '/assets/images/aipower2.webp' },
-        { id: '18', label: 'Press Releases & PR Writing', image: '/assets/images/aipower3.webp' },
-        { id: '19', label: 'Lead Magnet Content', image: '/assets/images/aipower4.webp' },
-        { id: '20', label: 'Content for Funnels', image: '/assets/images/aipower5.webp' },
-        { id: '21', label: 'SMS & Micro-Copywriting', image: '/assets/images/aipower1.webp' },
-        { id: '22', label: 'Marketing Collateral Writing', image: '/assets/images/aipower2.webp' },
-        { id: '23', label: 'Community & Engagement Writing', image: '/assets/images/aipower3.webp' },
-        { id: '24', label: 'Content Distribution & Marketing', image: '/assets/images/aipower4.webp' },
+        { id: '1', label: 'SEO Content Writing', image: '/assets/images/content-writer/seo-content-writing.webp' },
+        { id: '2', label: 'Copywriting', image: '/assets/images/content-writer/copywriting.webp' },
+        { id: '3', label: 'Social Media Content Writing', image: '/assets/images/content-writer/social-media-content-writing.webp' },
+        { id: '4', label: 'Email Marketing Content', image: '/assets/images/content-writer/email-marketing-content.webp' },
+        { id: '5', label: 'Content Strategy', image: '/assets/images/content-writer/content-strategy.webp' },
+        { id: '6', label: 'Brand Messaging Development', image: '/assets/images/content-writer/brand-messaging-development.webp' },
+        { id: '7', label: 'Script Writing', image: '/assets/images/content-writer/script-writing.webp' },
+        { id: '8', label: 'Technical Writing', image: '/assets/images/content-writer/technical-writing.webp' },
+        { id: '9', label: 'Creative Writing', image: '/assets/images/content-writer/creative-writing.webp' },
+        { id: '10', label: 'Product Description Writing', image: '/assets/images/content-writer/product-description-writing.webp' },
+        { id: '11', label: 'Ad Copywriting', image: '/assets/images/content-writer/ad-copywriting.webp' },
+        { id: '12', label: 'B2B Content Writing', image: '/assets/images/content-writer/b2b-content-writing.webp' },
+        { id: '13', label: 'B2C Content Writing', image: '/assets/images/content-writer/b2c-content-writing.webp' },
+        { id: '14', label: 'Website Content Writing', image: '/assets/images/content-writer/website-content-writing.webp' },
+        { id: '15', label: 'Thought Leadership Writing', image: '/assets/images/content-writer/thought-leadership-writing.webp' },
+        { id: '16', label: 'Content Editing & Proofreading', image: '/assets/images/content-writer/content-editing-proofreading.webp' },
+        { id: '17', label: 'Content Repurposing', image: '/assets/images/content-writer/content-repurposing.webp' },
+        { id: '18', label: 'Press Releases & PR Writing', image: '/assets/images/content-writer/press-releases-pr-writing.webp' },
+        { id: '19', label: 'Lead Magnet Content', image: '/assets/images/content-writer/lead-magnet-content.webp' },
+        { id: '20', label: 'Content for Funnels', image: '/assets/images/content-writer/content-for-funnels.webp' },
+        { id: '21', label: 'SMS & Micro-Copywriting', image: '/assets/images/content-writer/sms-micro-copywriting.webp' },
+        { id: '22', label: 'Marketing Collateral Writing', image: '/assets/images/content-writer/marketing-collateral-writing.webp' },
+        { id: '23', label: 'Community & Engagement Writing', image: '/assets/images/content-writer/community-engagement-writing.webp' },
+        { id: '24', label: 'Content Distribution & Marketing', image: '/assets/images/content-writer/content-distribution-marketing.webp' },
       ],
       gridItems: 24,
     },
@@ -324,7 +324,8 @@ export const contentWritingAiPowerData: AiPowerDesignData = {
 // RealCost data for Content Writing page
 export const contentWritingRealCostData: RealCostData = {
   heading: {
-    part1: 'Internal [Writing Efforts] vs. 22-Day Content Writing Service',
+    
+    part1: 'Internal [Writing Efforts] vs. 1 Month Content Writing Service',
     part2: '',
     part3: '',
   },
@@ -386,8 +387,8 @@ export const contentWritingRealCostData: RealCostData = {
 // CompleteBusinessSetup data for Content Writing page
 export const contentWritingCompleteSetupData: CompleteBusinessSetupData = {
   heading: {
-    part1: "Complete Content Writing Package — ",
-    price: "$1,499",
+    part1: "Complete Content Writing Package ",
+    price: "$3,299",
     part2: " One-Time",
   },
   brandingKits: {
@@ -517,15 +518,15 @@ export const contentWritingCompleteSetupData: CompleteBusinessSetupData = {
   benefits: {
     title: "Get This Package For ",
     items: [
-      { id: "1", text: "22 days of structured content creation" },
+      { id: "1", text: "1 month of structured content creation" },
       { id: "2", text: "All essential content assets" },
       { id: "3", text: "AI-supported writing workflow" },
       { id: "4", text: "Unlimited refinements during the cycle" },
       { id: "5", text: "Content delivered in publish-ready format" },
     ],
       ctaButton: {
-      text: "Get My Package",
-      href: "/contact",
+      text: "$3,299 USD",
+      href: "#",
     },
   },
 };

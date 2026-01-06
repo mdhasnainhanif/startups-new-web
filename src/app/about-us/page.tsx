@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import AboutUsBanner from '../components/AboutUsBanner/AboutUsBanner'
+import dynamic from "next/dynamic";
 import { ABOUT_US_BANNER, FAQ_DATA, FAQ_SECTION, GROWTH_GUIDES, OUR_CORE_VALUES, WHY_CHOOSE_US, DEDICATED_TEAM, EMPOWER_BUSINESS, OUR_JOURNEY, COUNTER_DATA } from '../constants'
 import LogosSlider from '../components/LogosSlider/LogosSlider'
 import Reviews from '../components/Reviews/Reviews'
@@ -11,7 +12,11 @@ import WhyChoose from '../components/WhyChoose/WhyChoose'
 import DedicatedTeam from '../components/DedicatedTeam/DedicatedTeam'
 import EmpowerBusiness from '../components/EmpowerBusiness/EmpowerBusiness'
 import Counter from '../components/Counter/Counter'
-import OurJourney from '../components/OurJourney/OurJourney'
+import OurJourney from '../components/OurJourney/OurJourney';
+
+const BlogCarousel = dynamic(() => import("../components/BlogCarousel/BlogCarousel"), {
+  loading: () => <div className="h-96" />,
+});
 export const metadata: Metadata = {
   title: "About Us | Startups Advisory",
   description: "Building stronger businesses that grow every day. StartupAdvisory is the partner founders choose when they want real growth, real structure, and real results.",
@@ -44,6 +49,9 @@ function getFilteredGrowthGuides() {
   });
   return filtered;
 }
+
+
+
 const page = () => {
   const filteredGrowthGuides = getFilteredGrowthGuides();
   return (
@@ -57,7 +65,7 @@ const page = () => {
         <DedicatedTeam {...DEDICATED_TEAM} />
         <EmpowerBusiness {...EMPOWER_BUSINESS} />
         <Reviews/>
-        <GrowthSlider items={filteredGrowthGuides.length > 0 ? filteredGrowthGuides : GROWTH_GUIDES}/>
+        <BlogCarousel showAllCategories={true} />
         <FAQ faqs={FAQ_DATA} sectionData={FAQ_SECTION}/>
         <Contact/>
       </>

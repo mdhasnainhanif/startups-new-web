@@ -39,7 +39,7 @@ export function CWTrustBadges({ data }: CWTrustBadgesProps) {
             <p className="text-lg text-white italic mb-4">
               "{data.testimonial.quote}"
             </p>
-            <p className="text-sm text-white/60">— {data.testimonial.author}, {data.testimonial.role}</p>
+            <p className="text-sm text-white/60">{data.testimonial.author}, {data.testimonial.role}</p>
           </div>
         </div>
       </Container>

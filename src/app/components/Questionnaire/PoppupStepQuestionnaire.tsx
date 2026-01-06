@@ -7,8 +7,8 @@ import { questionnaireData } from "./questionnaireData";
 import QuestionnaireStep from "./QuestionnaireStep";
 import PersonalDetailsForm from "./PersonalDetailsForm";
 import Button from "../Button";
-import { ArrowLeftIcon } from "../../icons";
-
+import { ArrowLeftIcon, ArrowRightIcon } from "../../icons";
+import { submitBriefEmail } from '../../lib/api/email';
 export interface QuestionnaireAnswers {
   [key: string]: string;
 }
@@ -29,7 +29,7 @@ export default function PoppupStepQuestionnaire({
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [fadeIn, setFadeIn] = useState(true);
 
-  // Reset state when popup opens
+  
   useEffect(() => {
     if (isOpen) {
       setCurrentStep("step-1");
@@ -47,81 +47,46 @@ export default function PoppupStepQuestionnaire({
 
     const currentStepData = questionnaireData.steps.find((s) => s.id === stepId);
     const isMultiSelect = currentStepData?.multiSelect === true;
-    const maxSelections = currentStepData?.maxSelections || 3;
     
-    // Check if max selections reached (count comma-separated values)
-    const selectionCount = value ? value.split(",").filter(v => v.trim()).length : 0;
-    const maxReached = isMultiSelect && selectionCount >= maxSelections;
-    
-    // Navigate to next step
+    // If nextStep is provided, advance to next step
+    // For single select: nextStep is always provided on click (auto-advance)
+    // For multiple select: nextStep is only provided when Continue button is clicked
     if (nextStep) {
-      // Auto-advance for single select OR when max selections reached in multi-select
-      if (!isMultiSelect || maxReached) {
-        setIsTransitioning(true);
-        setFadeIn(false);
-        
-        // Wait for tick animation (600ms) then transition to next step
+      setIsTransitioning(true);
+      setFadeIn(false);
+      setTimeout(() => {
+        setStepHistory((prev) => {
+          const lastStep = prev[prev.length - 1];
+          if (lastStep !== nextStep) {
+            return [...prev, nextStep];
+          }
+          return prev;
+        });
+        setCurrentStep(nextStep);
         setTimeout(() => {
-          setStepHistory((prev) => {
-            const lastStep = prev[prev.length - 1];
-            if (lastStep !== nextStep) {
-              return [...prev, nextStep];
-            }
-            return prev;
-          });
-          setCurrentStep(nextStep);
-          
-          setTimeout(() => {
-            setFadeIn(true);
-            setIsTransitioning(false);
-          }, 50);
-        }, 600);
-      } else if (isMultiSelect && !maxReached) {
-        // For multi-select with continue button (not max reached)
-        setIsTransitioning(true);
-        setFadeIn(false);
-        
-        setTimeout(() => {
-          setStepHistory((prev) => {
-            const lastStep = prev[prev.length - 1];
-            if (lastStep !== nextStep) {
-              return [...prev, nextStep];
-            }
-            return prev;
-          });
-          setCurrentStep(nextStep);
-          
-          setTimeout(() => {
-            setFadeIn(true);
-            setIsTransitioning(false);
-          }, 50);
-        }, 300);
-      }
+          setFadeIn(true);
+          setIsTransitioning(false);
+        }, 50);
+      }, 600);
     }
   };
-
   const handleBack = () => {
     setFadeIn(false);
     setTimeout(() => {
-      // First try to use stepHistory
       if (stepHistory.length > 1) {
         const newHistory = [...stepHistory];
-        newHistory.pop(); // Remove current step
-        const previousStep = newHistory[newHistory.length - 1];
-        
-        // Ensure we're not going to the same step
+        newHistory.pop(); 
+        const previousStep = newHistory[newHistory.length - 1];    
         if (previousStep !== currentStep) {
           setStepHistory(newHistory);
           setCurrentStep(previousStep);
         } else if (newHistory.length > 1) {
-          // If previous step is same, go one more step back
           newHistory.pop();
           const earlierStep = newHistory[newHistory.length - 1];
           setStepHistory(newHistory);
           setCurrentStep(earlierStep);
         }
       } else {
-        // Fallback to backTo if available
         const currentStepData = questionnaireData.steps.find((s) => s.id === currentStep);
         if (currentStepData?.backTo) {
           const backToStep = currentStepData.backTo;
@@ -136,52 +101,46 @@ export default function PoppupStepQuestionnaire({
       }, 50);
     }, 200);
   };
-
   const handlePersonalDetailsSubmit = async (formData: {
     name: string;
     contact: string;
     email: string;
-    country: string;
   }) => {
     setIsSubmitting(true);
     try {
-      // Combine all answers with personal details
       const submissionData = {
         ...answers,
         ...formData,
       };
 
+   // Combine all answers with personal details
+      const submissionPayload = {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.contact,
+        company: "",
+        message: JSON.stringify(submissionData),
+        title: "Brief request from website",
+      };
       // Submit to API
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          phone: formData.contact,
-          company: formData.country,
-          message: JSON.stringify(submissionData, null, 2),
-        }),
-      });
+      const response = await submitBriefEmail(submissionPayload);
 
       if (response.ok) {
-        // Clear cookies on successful submission
+        
         if (typeof window !== "undefined") {
           try {
-            // Clear all cookies
+            
             const cookies = document.cookie.split(";");
             for (let i = 0; i < cookies.length; i++) {
               const cookie = cookies[i];
               const eqPos = cookie.indexOf("=");
               const name = eqPos > -1 ? cookie.substr(0, eqPos).trim() : cookie.trim();
               if (name) {
-                // Clear cookie for current path
+                
                 document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/`;
-                // Clear cookie for current domain
+                
                 document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/;domain=${window.location.hostname}`;
-                // Clear cookie for parent domain (if applicable)
+                
                 const hostnameParts = window.location.hostname.split(".");
                 if (hostnameParts.length > 1) {
                   const parentDomain = "." + hostnameParts.slice(-2).join(".");
@@ -193,9 +152,9 @@ export default function PoppupStepQuestionnaire({
             console.error("Error clearing cookies:", error);
           }
         }
-        // Close popup and redirect to thank-you page
+        
         onClose();
-        window.location.href = "/thank-you";
+        window.location.href = "/key-growth";
       } else {
         console.error("Failed to submit form");
       }
@@ -214,8 +173,8 @@ export default function PoppupStepQuestionnaire({
 
   const currentStepData = questionnaireData.steps.find((s) => s.id === currentStep);
   
-  // Calculate progress
-  const totalSteps = questionnaireData.steps.length + 1; // +1 for personal details form
+  
+  const totalSteps = questionnaireData.steps.length + 1; 
   let currentStepNumber: number;
   let progressPercentage: number;
   
@@ -230,20 +189,23 @@ export default function PoppupStepQuestionnaire({
 
   return (
     <div className={styles.popupOverlay} onClick={handleClose}>
-      <div className={styles.popupContent} onClick={(e) => e.stopPropagation()}>
+      <div className={`${styles.popupContent} popup-questionnaire`} onClick={(e) => e.stopPropagation()}>
         <button className={styles.closeButton} onClick={handleClose} aria-label="Close">
           ×
         </button>
         
         <div className={styles.questionnaireWrapper}>
-          {/* Header */}
+          {/* Header - Heading/Title and Progress Indicator */}
           <div className={styles.header}>
-            <h1 className={`${styles.mainHeading} lg:max-w-3xl`}>
-              Just Tell Us What You Need & Get
-              The <span className="text-[#0fdac2]">Best Price</span> Instantly!
-            </h1>
-            <div className={styles.separator}></div>
-            
+            {currentStep === "questionnaire-personal-detail" ? (
+              <h2 className={styles.personalDetailsHeading}>
+                Just Tell Us What You Need & Get The <span className={styles.highlightText}>Best Price</span> Instantly
+              </h2>
+            ) : (
+              currentStepData && (
+                <h2 className={styles.stepTitle}>{currentStepData.title}</h2>
+              )
+            )}
             {/* Progress Indicator */}
             <div className={styles.progressContainer}>
               <div className={styles.progressInfo}>
@@ -261,7 +223,7 @@ export default function PoppupStepQuestionnaire({
           </div>
 
           {/* Form Area */}
-          <div className={styles.formArea}>
+          <div className={`${styles.formArea} ${currentStep === "questionnaire-personal-detail" ? styles.formAreaLastStep : ""}`}>
             {currentStep === "questionnaire-personal-detail" ? (
               <PersonalDetailsForm
                 key="personal-details-form"
@@ -279,11 +241,23 @@ export default function PoppupStepQuestionnaire({
                       step={currentStepData}
                       onSelect={handleOptionSelect}
                       onBack={handleBack}
-                      selectedValue={currentStepData.multiSelect 
-                        ? (answers[currentStepData.id] ? answers[currentStepData.id].split(",") : [])
-                        : answers[currentStepData.id]
+                      selectedValue={
+                        currentStepData.multiSelect
+                          ? (answers[currentStepData.id] 
+                              ? (() => {
+                                  try {
+                                    const parsed = JSON.parse(answers[currentStepData.id]);
+                                    return Array.isArray(parsed) ? parsed : [];
+                                  } catch {
+                                    // Fallback for old format (comma-separated)
+                                    return answers[currentStepData.id].split(",").filter(v => v.trim());
+                                  }
+                                })()
+                              : [])
+                          : answers[currentStepData.id]
                       }
-                      showBack={false}
+                      showBack={currentStep !== "step-1"}
+                      hideButtons={true}
                     />
                   </div>
                 )}
@@ -292,15 +266,88 @@ export default function PoppupStepQuestionnaire({
           </div>
         </div>
         
-        {/* Footer with Back Button - Outside scrollable area */}
-        {(stepHistory.length > 1 || currentStep !== "step-1") && (
-          <div className={styles.popupFooter}>
+        {/* Fixed Buttons at Bottom */}
+        {currentStep !== "questionnaire-personal-detail" && currentStepData && (
+          <div className={styles.fixedButtonsContainer}>
+            {currentStep !== "step-1" && (
+              <Button
+                type="button"
+                onClick={handleBack}
+                variant="primary"
+                size="md"
+                className={styles.backButton}
+                icon={<ArrowLeftIcon />}
+                iconPosition="left"
+              >
+                Back
+              </Button>
+            )}
+            <Button
+              onClick={() => {
+                // Prevent multiple clicks during transition
+                if (isTransitioning) return;
+                
+                const nextStep = currentStepData.options[0]?.nextStep;
+                if (nextStep) {
+                  if (currentStepData.multiSelect) {
+                    const currentAnswer = answers[currentStepData.id];
+                    let selectedValues: string[] = [];
+                    if (currentAnswer) {
+                      try {
+                        const parsed = JSON.parse(currentAnswer);
+                        selectedValues = Array.isArray(parsed) ? parsed : [];
+                      } catch {
+                        selectedValues = currentAnswer.split(",").filter(v => v.trim());
+                      }
+                    }
+                    const currentValue = JSON.stringify(selectedValues);
+                    handleOptionSelect(currentStepData.id, currentValue, nextStep);
+                  } else {
+                    const selectedValue = answers[currentStepData.id] || '';
+                    handleOptionSelect(currentStepData.id, selectedValue, nextStep);
+                  }
+                }
+              }}
+              variant="primary"
+              size="md"
+              className={styles.continueButton}
+              icon={<ArrowRightIcon />}
+              iconPosition="right"
+              disabled={
+                isTransitioning ||
+                (currentStepData.multiSelect
+                  ? (() => {
+                      // For multiple select: disabled when no selections
+                      const currentAnswer = answers[currentStepData.id];
+                      if (!currentAnswer) return true;
+                      try {
+                        const parsed = JSON.parse(currentAnswer);
+                        return !Array.isArray(parsed) || parsed.length === 0;
+                      } catch {
+                        return currentAnswer.split(",").filter(v => v.trim()).length === 0;
+                      }
+                    })()
+                  : (() => {
+                      // For single select: disabled when no selection, enabled when selection exists (for back navigation)
+                      const answer = answers[currentStepData.id];
+                      return !answer || answer.trim() === "";
+                    })())
+              }
+            >
+              Continue
+            </Button>
+          </div>
+        )}
+        
+        {/* Fixed Back Button for Last Step (Personal Details) */}
+        {currentStep === "questionnaire-personal-detail" && stepHistory.length > 1 && (
+          <div className={styles.fixedButtonsContainer}>
             <Button
               type="button"
               onClick={handleBack}
               variant="primary"
               size="md"
-              className={styles.footerBackButton}
+              className={styles.backButton}
               icon={<ArrowLeftIcon />}
               iconPosition="left"
             >

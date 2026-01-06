@@ -41,6 +41,10 @@ const GrowthSlider = dynamic(() => import("./components/GrowthSlider/GrowthSlide
   loading: () => <div className="h-96" />,
 });
 
+const BlogCarousel = dynamic(() => import("./components/BlogCarousel/BlogCarousel"), {
+  loading: () => <div className="h-96" />,
+});
+
 const FAQ = dynamic(() => import("./components/FAQ/FAQ"), {
   loading: () => <div className="h-96" />,
 });
@@ -51,12 +55,12 @@ const Contact = dynamic(() => import("./components/Contact/Contact"), {
 
 export const metadata: Metadata = {
   title: "AI-Powered Business Growth Solutions | Startups Advisory",
-  description: "Get a complete AI-powered business team in 22 days. Professional web development, content marketing, social media management, and design services to accelerate your startup growth.",
+  description: "Get a complete AI-powered business team in 1 Month. Professional web development, content marketing, social media management, and design services to accelerate your startup growth.",
   robots: "nofollow",
   keywords: ["startup growth", "AI business team", "web development services", "content marketing", "social media marketing", "business automation"],
   openGraph: {
     title: "AI-Powered Business Growth Solutions | Startups Advisory",
-    description: "Get a complete AI-powered business team in 22 days. Professional web development, content marketing, and social media services.",
+    description: "Get a complete AI-powered business team in 1 Month. Professional web development, content marketing, and social media services.",
     url: "https://startupsadvisory.ai",
   },
 };
@@ -131,7 +135,7 @@ export default function Home() {
       <CalendlySection {...CALENDLY_SECTION} />
       <TextSlider1 data={sliderData.slider1} />
       <Reviews />
-      <GrowthSlider items={filteredGrowthGuides.length > 0 ? filteredGrowthGuides : GROWTH_GUIDES} />
+      <BlogCarousel showAllCategories={true} />
       <FAQ faqs={FAQ_CONTACT} sectionData={FAQ_SECTION} />
       <Contact />
     </main>

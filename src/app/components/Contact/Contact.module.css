@@ -17,16 +17,13 @@
 
 .contactCard {
   position: relative;
-  background: #1d0e57;
+  background: #1c1949;
   border-radius: 1rem;
   padding: 3rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
   z-index: 1;
-  background-image: radial-gradient(circle,
-      rgba(15, 218, 194, 0.1) 2px,
-      transparent 1px);
   background-size: 24px 24px;
   border: 1px solid rgba(78, 73, 137, 0.3);
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
@@ -151,12 +148,54 @@
   grid-column: 1 / -1;
 }
 
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.inputWrapper:has(.textareaField) {
+  align-items: flex-start;
+}
+
+.inputIcon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0fdac2;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.inputWrapper:has(.textareaField) .inputIcon {
+  top: 0.875rem;
+  transform: none;
+}
+
+.inputIcon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.inputIcon img {
+  width: 18px;
+  height: 18px;
+  filter: brightness(0) saturate(100%) invert(77%) sepia(80%) saturate(2000%)
+    hue-rotate(140deg) brightness(95%) contrast(90%);
+}
+
 .inputField {
   border-radius: 0.5rem;
+  padding-left: 2.5rem !important;
 }
 
 .textareaField {
   border-radius: 0.5rem;
+  padding-top: 0.5rem !important;
 }
 
 .inputField,
@@ -177,10 +216,14 @@
   transition: all 0.3s ease;
 }
 
+.textareaField {
+  padding-left: 3rem;
+}
+
 .inputField:focus,
 .textareaField:focus {
   background-image: linear-gradient(#0e1030, #0e1030),
-    linear-gradient(to right, #0fdac2, #732BFF);
+    linear-gradient(to right, #0fdac2, #732bff);
   outline: none;
   box-shadow: none;
 }
@@ -193,6 +236,125 @@
 .textareaField {
   resize: vertical;
   min-height: 120px;
+}
+
+/* Phone Input Styles - Matching existing UI */
+.phoneInput {
+  width: 100%;
+  flex: 1;
+  position: relative;
+}
+
+.phoneInput :global(.PhoneInput) {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  border-radius: 0.5rem;
+  background-image: linear-gradient(to right, #0fdac2, #643bff);
+  background-origin: border-box;
+  background-clip: border-box;
+  border: 2px solid transparent;
+  overflow: hidden;
+}
+
+.phoneInput :global(.PhoneInput):focus-within {
+  background-image: linear-gradient(to right, #0fdac2, #732bff);
+}
+
+.phoneInput :global(.PhoneInputCountry) {
+  display: flex;
+  align-items: center;
+  padding: 0.875rem 0.75rem;
+  background: #0e1030;
+  border: none;
+  border-right: 1px solid rgba(15, 218, 194, 0.3);
+  margin-right: 0;
+}
+
+.phoneInput :global(.PhoneInputCountryIcon) {
+  width: 20px;
+  height: 20px;
+  box-shadow: none;
+  border: none;
+  object-fit: cover;
+}
+
+.phoneInput :global(.PhoneInputCountrySelect) {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 1rem;
+  outline: none;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  min-width: auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.phoneInput :global(.PhoneInputCountrySelectArrow) {
+  opacity: 1;
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 5px solid #0fdac2;
+  margin-left: 0.5rem;
+  transform: rotate(0deg);
+}
+
+.phoneInput :global(.PhoneInputInput) {
+  flex: 1;
+  width: 100%;
+  padding: 0.875rem 1rem;
+  background: #0e1030;
+  border: none;
+  border-radius: 0;
+  font-size: 1rem;
+  color: #ffffff;
+  font-family: inherit;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.phoneInput :global(.PhoneInputInput):focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.phoneInput :global(.PhoneInputInput)::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Country Dropdown Styles */
+.phoneInput :global(.PhoneInputCountryIcon--border) {
+  box-shadow: none;
+}
+
+.phoneInput :global(select.PhoneInputCountrySelect) {
+  color: #ffffff !important;
+}
+
+.phoneInput :global(select.PhoneInputCountrySelect option) {
+  background: #0e1030 !important;
+  color: #ffffff !important;
+  padding: 0.5rem;
+  width: 100% !important;
+}
+
+/* Dropdown menu styling */
+.phoneInput :global(.PhoneInputCountrySelect) {
+  color: #ffffff !important;
+  width: 100% !important;
+}
+
+.phoneInput :global(.PhoneInputCountrySelect option) {
+  background: #0e1030 !important;
+  color: #ffffff !important;
+  width: 100% !important;
 }
 
 .submitButton {
@@ -268,7 +430,6 @@
 }
 
 @media (max-width: 640px) {
-
   .contactCard {
     padding: 24px 20px;
   }
@@ -282,7 +443,7 @@
   }
 
   .formHeading {
-    font-size: 20px;
+    font-size: 28px;
   }
 
   .formContent {

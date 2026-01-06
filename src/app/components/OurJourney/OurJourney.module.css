@@ -33,7 +33,6 @@
   position: relative;
   z-index: 1;
   width: 100%;
-  padding: 0 1rem;
   box-sizing: border-box;
 }
 
@@ -106,7 +105,7 @@
   height: 100%;
   position: absolute;
   top: 0;
-  right: -6px;
+  right: -2px;
 }
 
 .line03 {
@@ -284,7 +283,6 @@
   .list {
     max-width: 100%;
     width: 100%;
-    padding: 0 2rem;
   }
 
   .item,
@@ -333,7 +331,6 @@
   .list {
     max-width: 100%;
     width: 100%;
-    padding: 0 2rem;
   }
 
   .item,
@@ -383,12 +380,13 @@
     justify-self: start;
     margin-bottom: 1rem;
     border: none;
-    width: 50px;
-    height: 50px;
+    width: 3.525rem;
+    height: 3.525rem;
+    background-color: #2e2277;
   }
   .right img,
   .left img {
-    max-width: 3rem;
+    max-width: 2rem;
   }
 
   .wrap {
@@ -398,10 +396,6 @@
 
   .badge {
     display: none;
-  }
-
-  .list {
-    padding: 0 1.5rem;
   }
 
   .item,
@@ -489,11 +483,6 @@
   .wrap::before {
     display: none;
   }
-
-  .list {
-    padding: 0 1rem;
-  }
-
   .item[data-side="right"]::before,
   .item[data-side="left"]::before {
     display: none;

@@ -252,10 +252,10 @@ export interface ContentWritingData {
 // Data
 export const CONTENT_WRITING_DATA: ContentWritingData = {
   hero: {
-    badge: "22-Day Content Writing Service",
+    badge: "1 Month Content Writing Service",
     heading: {
-      text: "Market-Ready Content in",
-      highlight: "22 Days.",
+      text: "Market Ready Content in",
+      highlight: "1 Month.",
     },
     description:
       "Writing shaped for presence, persuasion, and modern brand standards. A complete content layer built with clarity, rhythm, and commercial intent.",
@@ -272,7 +272,7 @@ export const CONTENT_WRITING_DATA: ContentWritingData = {
     },
   },
   clientLogos: {
-    title: "Experience Box – What This Service Produces",
+    title: "Experience Box What This Service Produces",
     logos: [
       { name: "2,500+ Projects", initials: "2.5K" },
       { name: "40+ Years", initials: "40+" },
@@ -284,7 +284,7 @@ export const CONTENT_WRITING_DATA: ContentWritingData = {
   },
   whyContent: {
     heading: {
-      text: "The 22-Day Content Writing Service",
+      text: "The 1 Month Content Writing Service",
       highlight: "",
     },
     description:
@@ -294,7 +294,7 @@ export const CONTENT_WRITING_DATA: ContentWritingData = {
       { icon: "Target", text: "Ads, captions, and brand communication" },
       { icon: "Zap", text: "Produced inside one controlled writing cycle" },
       { icon: "CheckCircle", text: "Consistent tone and polished delivery" },
-      { icon: "Calendar", text: "Complete written foundation in 22 days" },
+      { icon: "Calendar", text: "Complete written foundation in 1 Month" },
     ],
   },
   dataInsights: {
@@ -308,7 +308,7 @@ export const CONTENT_WRITING_DATA: ContentWritingData = {
     beforeAfter: [
       {
         before: "Fragmented content creation",
-        after: "Complete content layer in 22 days",
+        after: "Complete content layer in 1 Month",
       },
       {
         before: "Inconsistent tone and messaging",
@@ -350,7 +350,7 @@ export const CONTENT_WRITING_DATA: ContentWritingData = {
     },
     testimonial: {
       rating: 5,
-      quote: "Our organic leads increased 42% in 90 days — this was the first time content actually worked for us.",
+      quote: "Our organic leads increased 42% in 90 days, this was the first time content actually worked for us.",
       author: "Michael R.",
       role: "VP Marketing",
       company: "SaaS Company",
@@ -363,7 +363,7 @@ export const CONTENT_WRITING_DATA: ContentWritingData = {
       highlight: "complete content coverage.",
     },
     description:
-      "The service covers all content requirements across a 22-day production window. Website content, sales copy, UX text, marketing lines, ads, captions, and brand communication are produced inside one controlled writing cycle with consistent tone and polished delivery.",
+      "The service covers all content requirements across a 1 month production window. Website content, sales copy, UX text, marketing lines, ads, captions, and brand communication are produced inside one controlled writing cycle with consistent tone and polished delivery.",
     contentTypes: [
       { icon: "FileText", text: "Web Content Writer - Creates structured, fluent text designed to present services, explain value, and shape a confident digital presence. Includes: Homepage messaging, service page detailing, benefit-oriented content blocks, about statements, contact page wording, support descriptions, SEO-supported headings, process breakdowns, mobile-ready text structure, full website content creation" },
       { icon: "Target", text: "Copywriter - Delivers persuasive, action-oriented writing built to highlight offers, drive response, and support promotions. Includes: Sales page copy, landing page messaging, call-to-action sets, offer explanation lines, short-form conversion copy, lead-focused content, value-driven messaging, script lines, segment-specific variations, commercial writing essentials" },
@@ -381,7 +381,7 @@ export const CONTENT_WRITING_DATA: ContentWritingData = {
     badge: "Content Production",
     heading: {
       text: "$48,000 plus in Professional Writing Output",
-      highlight: "Delivered in 22 Days",
+      highlight: "Delivered in 1 Month",
     },
     description:
       "A condensed writing period supported by structured tools and seasoned writers replaces fragmented content, inconsistent tone, and time-consuming revisions.",
@@ -441,13 +441,13 @@ export const CONTENT_WRITING_DATA: ContentWritingData = {
   messaging: {
     badge: "Content KITs",
     heading: {
-      text: "22-Day Content Package",
+      text: "1 Month Content Package",
       highlight: "Includes",
     },
     description:
       "No retainers. No added fees. A complete writing foundation for brand presence and commercial use. Consistent output across all builds. The service delivers polished, modern content shaped for clarity, relevance, and ongoing business performance.",
     contentServices: [
-      { icon: "CheckCircle", text: "22 days of structured content creation" },
+      { icon: "CheckCircle", text: "1 month of structured content creation" },
       { icon: "CheckCircle", text: "All essential content assets" },
       { icon: "CheckCircle", text: "AI-supported writing workflow" },
       { icon: "CheckCircle", text: "Unlimited refinements during the cycle" },
@@ -472,7 +472,7 @@ export const CONTENT_WRITING_DATA: ContentWritingData = {
       highlight: "complete coverage.",
     },
     description:
-      "Each writer type brings specialized expertise to ensure every aspect of your content needs is professionally handled within the 22-day production window.",
+      "Each writer type brings specialized expertise to ensure every aspect of your content needs is professionally handled within the 1 month production window.",
     features: [
       { icon: "FileText", title: "Web Content Writer", desc: "Creates structured, fluent text designed to present services, explain value, and shape a confident digital presence. Handles homepage messaging, service page detailing, benefit-oriented content blocks, about statements, contact page wording, support descriptions, SEO-supported headings, process breakdowns, mobile-ready text structure, and full website content creation." },
       { icon: "Target", title: "Copywriter", desc: "Delivers persuasive, action-oriented writing built to highlight offers, drive response, and support promotions. Creates sales page copy, landing page messaging, call-to-action sets, offer explanation lines, short-form conversion copy, lead-focused content, value-driven messaging, script lines, segment-specific variations, and commercial writing essentials." },
@@ -481,10 +481,10 @@ export const CONTENT_WRITING_DATA: ContentWritingData = {
     ],
   },
   framework: {
-    badge: "22-Day Content Package",
+    badge: "1 Month Content Package",
     heading: {
-      text: "Complete Content Writing Package —",
-      highlight: "$1,499 One-Time",
+      text: "Complete Content Writing Package",
+      highlight: "$3,299 One-Time",
     },
     frameworkSlices: [
       { icon: "FileText", label: "Website Content" },
@@ -501,7 +501,7 @@ export const CONTENT_WRITING_DATA: ContentWritingData = {
       { icon: "Zap", label: "Marketing Copy" },
     ],
     valueStackItems: [
-      "22 days of structured content creation",
+      "1 month of structured content creation",
       "All essential content assets",
       "AI-supported writing workflow",
       "Unlimited refinements during the cycle",
@@ -518,7 +518,7 @@ export const CONTENT_WRITING_DATA: ContentWritingData = {
       highlight: "what content you need?",
     },
     description:
-      "That's exactly what the Content Growth Plan is for. We'll analyze your current situation, identify opportunities, and give you a clear roadmap — even if you decide not to work with us.",
+      "That's exactly what the Content Growth Plan is for. We'll analyze your current situation, identify opportunities, and give you a clear roadmap, even if you decide not to work with us.",
     forList: [
       "B2B, SaaS, and service brands",
       "Teams that want consistent content growth",
@@ -532,7 +532,7 @@ export const CONTENT_WRITING_DATA: ContentWritingData = {
       icon: "Shield",
       title: "Zero-Risk Guarantee",
       description:
-        "If you don't feel 100% clear on your content plan after the audit, you owe nothing. Walk away with the insights we've shared — no strings attached.",
+        "If you don't feel 100% clear on your content plan after the audit, you owe nothing. Walk away with the insights we've shared, no strings attached.",
     },
   },
   team: {
@@ -590,7 +590,7 @@ export const CONTENT_WRITING_DATA: ContentWritingData = {
     badge: "Cost Review",
     heading: {
       text: "Internal Writing Efforts vs.",
-      highlight: "22-Day Content Writing Service",
+      highlight: "1 Month Content Writing Service",
     },
     description:
       "Consider: Full-time writer costs, specialist copy fees, time spent correcting unclear content, tools and software expenses, savings created by consolidated production, return generated by consistent, professional writing. Most brands gain weeks of progress and significant savings through this structured cycle.",
@@ -599,7 +599,7 @@ export const CONTENT_WRITING_DATA: ContentWritingData = {
         { name: "website", type: "url", placeholder: "Your website URL" },
         { name: "email", type: "email", placeholder: "Your work email" },
       ],
-      submitText: "Get Started - $1,499",
+      submitText: "Get Started - $3,299",
     },
     note: "Content Production Tools ($12,000 plus Annual Value) included. No retainers. No added fees.",
   },

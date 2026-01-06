@@ -8,12 +8,12 @@ import { CompleteBusinessSetupData } from '../components/CompleteBusinessSetup/C
 import { GuessWorkAdvertisingData } from '../components/GuessWorkAdvertising/GuessWorkAdvertising';
 import { socialMediaMarketingAnalyticsDashboardData } from './AnalyticsDashboardData';
 
-// Social Media Marketing Page Data
-// HomenewBanner data for Social Media Marketing page
+
+
 export const socialMediaMarketingBannerData: HomenewBannerData = {
   heading: {
     part1: "Market-Ready Social Content in ",
-    highlight1: "22 Days.",
+    highlight1: "1 Month.",
     highlight2: "",
     part2: "",
   },
@@ -40,7 +40,7 @@ export const socialMediaMarketingBannerData: HomenewBannerData = {
   },
 };
 
-// ProfessionalDesign data for Social Media Marketing page
+
 export const socialMediaMarketingProfessionalData: ProfessionalDesignData = {
   heading: {
     part1: "Creative Production Tools ",
@@ -126,11 +126,11 @@ export const socialMediaMarketingProfessionalData: ProfessionalDesignData = {
   },
 };
 
-// CaseStudySection data for Social Media Marketing page
+
 export const socialMediaMarketingCaseStudyData: CaseStudySectionData = {
   ...DEFAULT_CASE_STUDY_DATA,
   heading: {
-    text: "The 22-Day Social Media Management & Marketing Service",
+    text: "The 1 Month Social Media Management & Marketing Service",
     highlighted: "Social Media Marketing",
   },
   description:
@@ -219,46 +219,44 @@ export const socialMediaMarketingCaseStudyData: CaseStudySectionData = {
     },
   ],
 };
-
-// AiPowerDesign data for Social Media Marketing page
 export const socialMediaMarketingAiPowerData: AiPowerDesignData = {
   headline: {
-    text: 'The Service Covers All Social Media Requirements Across a 22-Day Cycle.',
-    highlighted: ['Social Media Requirements', '22-Day Cycle'],
+    text: 'The Service Covers All Social Media Requirements Across a 1 Month Cycle.',
+    highlighted: ['Social Media Requirements', '1 Month Cycle'],
   },
   description:
     'Visual content, caption sets, reels, campaigns, hooks, platform text, and creative variations are produced inside one streamlined cycle with consistent tone, style, and quality.',
-  deliverablesTitle: '22-Day Social Content Package Includes:',
+  deliverablesTitle: '1 Month Social Content Package Includes:',
   tabs: [
     {
       id: 'social-content',
       label: 'Social Content',
       image: '/assets/images/aipower1.webp',
       deliverables: [
-        { id: '1', label: 'Social Media Strategy Development', image: '/assets/images/aipower1.webp' },
-        { id: '2', label: 'Social Media Content Creation', image: '/assets/images/aipower2.webp' },
-        { id: '3', label: 'Social Media Calendar Planning', image: '/assets/images/aipower3.webp' },
-        { id: '4', label: 'Social Media Account Management', image: '/assets/images/aipower4.webp' },
-        { id: '5', label: 'Community Engagement & Management', image: '/assets/images/aipower5.webp' },
-        { id: '6', label: 'Social Listening & Monitoring', image: '/assets/images/aipower1.webp' },
-        { id: '7', label: 'Social Media Branding', image: '/assets/images/aipower2.webp' },
-        { id: '8', label: 'Paid Social Media Advertising', image: '/assets/images/aipower3.webp' },
-        { id: '9', label: 'Campaign Strategy & Management', image: '/assets/images/aipower4.webp' },
-        { id: '10', label: 'Influencer Marketing Management', image: '/assets/images/aipower5.webp' },
-        { id: '11', label: 'Social Media Analytics & Reporting', image: '/assets/images/aipower1.webp' },
-        { id: '12', label: 'Reel & Short-Form Video Production', image: '/assets/images/aipower2.webp' },
-        { id: '13', label: 'Hashtag Strategy Development', image: '/assets/images/aipower3.webp' },
-        { id: '14', label: 'Social Media SEO', image: '/assets/images/aipower4.webp' },
-        { id: '15', label: 'Crisis Management', image: '/assets/images/aipower5.webp' },
-        { id: '16', label: 'Customer Support via Social Media', image: '/assets/images/aipower1.webp' },
-        { id: '17', label: 'Platform-Specific Management', image: '/assets/images/aipower2.webp' },
-        { id: '18', label: 'Brand Collaboration & Partnerships', image: '/assets/images/aipower3.webp' },
-        { id: '19', label: 'Social Media Automation Setup', image: '/assets/images/aipower4.webp' },
-        { id: '20', label: 'Lead Generation via Social Media', image: '/assets/images/aipower5.webp' },
-        { id: '21', label: 'Live Session Management', image: '/assets/images/aipower1.webp' },
-        { id: '22', label: 'UGC (User-Generated Content) Management', image: '/assets/images/aipower2.webp' },
-        { id: '23', label: 'Social Media Funnel Development', image: '/assets/images/aipower3.webp' },
-        { id: '24', label: 'Competitor Benchmarking', image: '/assets/images/aipower4.webp' },
+        { id: '1', label: 'Social Media Strategy Development', image: '/assets/images/social-media-marketing/days-section/social-media-strategy-development.jpg' },
+        { id: '2', label: 'Social Media Content Creation', image: '/assets/images/social-media-marketing/days-section/social-media-content-creation.jpg' },
+        { id: '3', label: 'Social Media Calendar Planning', image: '/assets/images/social-media-marketing/days-section/social-media-calendar-planning.jpg' },
+        { id: '4', label: 'Social Media Account Management', image: '/assets/images/social-media-marketing/days-section/social-media-account-management.jpg' },
+        { id: '5', label: 'Community Engagement & Management', image: '/assets/images/social-media-marketing/days-section/community-engagement-management.jpg' },
+        { id: '6', label: 'Social Listening & Monitoring', image: '/assets/images/social-media-marketing/days-section/social-listening-monitoring.jpg' },
+        { id: '7', label: 'Social Media Branding', image: '/assets/images/social-media-marketing/days-section/social-media-branding.jpg' },
+        { id: '8', label: 'Paid Social Media Advertising', image: '/assets/images/social-media-marketing/days-section/paid-social-media-advertising.jpg' },
+        { id: '9', label: 'Campaign Strategy & Management', image: '/assets/images/social-media-marketing/days-section/campaign-strategy-management.jpg' },
+        { id: '10', label: 'Influencer Marketing Management', image: '/assets/images/social-media-marketing/days-section/influencer-marketing-management.jpg' },
+        { id: '11', label: 'Social Media Analytics & Reporting', image: '/assets/images/social-media-marketing/days-section/social-media-analytics-reporting.jpg' },
+        { id: '12', label: 'Reel & Short-Form Video Production', image: '/assets/images/social-media-marketing/days-section/reel-short-form-video-production.jpg' },
+        { id: '13', label: 'Hashtag Strategy Development', image: '/assets/images/social-media-marketing/days-section/hashtag-strategy-development.jpg' },
+        { id: '14', label: 'Social Media SEO', image: '/assets/images/social-media-marketing/days-section/social-media-seo.jpg' },
+        { id: '15', label: 'Crisis Management', image: '/assets/images/social-media-marketing/days-section/crisis-management.jpg' },
+        { id: '16', label: 'Customer Support via Social Media', image: '/assets/images/social-media-marketing/days-section/customer-support-via-social-media.jpg' },
+        { id: '17', label: 'Platform-Specific Management', image: '/assets/images/social-media-marketing/days-section/platform-specific-management.jpg' },
+        { id: '18', label: 'Brand Collaboration & Partnerships', image: '/assets/images/social-media-marketing/days-section/brand-collaboration-partnerships.jpg' },
+        { id: '19', label: 'Social Media Automation Setup', image: '/assets/images/social-media-marketing/days-section/social-media-automation-setup.jpg' },
+        { id: '20', label: 'Lead Generation via Social Media', image: '/assets/images/social-media-marketing/days-section/lead-generation-via-social-media.jpg' },
+        { id: '21', label: 'Live Session Management', image: '/assets/images/social-media-marketing/days-section/live-session-management.jpg' },
+        { id: '22', label: 'UGC (User-Generated Content) Management', image: '/assets/images/social-media-marketing/days-section/user-generated-content-management.jpg' },
+        { id: '23', label: 'Social Media Funnel Development', image: '/assets/images/social-media-marketing/days-section/social-media-funnel-development.jpg' },
+        { id: '24', label: 'Competitor Benchmarking', image: '/assets/images/social-media-marketing/days-section/competitor-benchmarking.jpg' },
       ],
       gridItems: 24,
     },
@@ -269,11 +267,11 @@ export const socialMediaMarketingAiPowerData: AiPowerDesignData = {
   },
 };
 
-// RealCost data for Social Media Marketing page
+
 export const socialMediaMarketingRealCostData: RealCostData = {
   heading: {
     part1: 'Internal Social Media Production vs.',
-    part2: '22-Day Social Content Service',
+    part2: '1 Month Social Content Service',
     part3: '',
   },
   callToAction: 'Consider:',    
@@ -332,11 +330,11 @@ export const socialMediaMarketingRealCostData: RealCostData = {
   },
 };
 
-// CompleteBusinessSetup data for Social Media Marketing page
+
 export const socialMediaMarketingCompleteSetupData: CompleteBusinessSetupData = {
   heading: {
     part1: "Complete Social Content Package — ",
-    price: "$1,499",
+    price: "$3,299",  
     part2: " One-Time",
   },
   brandingKits: {
@@ -466,7 +464,7 @@ export const socialMediaMarketingCompleteSetupData: CompleteBusinessSetupData = 
   benefits: {
     title: "Get This Package For ",
     items: [
-      { id: "1", text: "22 days of active creative production" },
+      { id: "1", text: "1 month of active creative production" },
       { id: "2", text: "All essential visual and written assets" },
       { id: "3", text: "AI-supported content workflow" },
       { id: "4", text: "Unlimited refinements during the cycle" },
@@ -479,7 +477,7 @@ export const socialMediaMarketingCompleteSetupData: CompleteBusinessSetupData = 
   },
 };
 
-// GuessWorkAdvertising data for Social Media Marketing page
+
 export const socialMediaMarketingGuessWorkData: GuessWorkAdvertisingData = {
   heading: {
     part1: 'Content Structure Reference',
@@ -513,7 +511,7 @@ export const socialMediaMarketingGuessWorkData: GuessWorkAdvertisingData = {
   analyticsDashboardData: socialMediaMarketingAnalyticsDashboardData,
 };
 
-// Slider data for Social Media Marketing page
+
 export const socialMediaMarketingSliderData1 = [
   { sliderDataPara: "It costs [$74,536] annually to hire a [Social Media Manager] in the US" },
   { sliderDataPara: "It costs [$54,455] annually to hire a [Social Media Marketer] in the US" },
@@ -533,7 +531,7 @@ export const socialMediaMarketingSliderData3 = [
   { sliderDataPara: "Hiring a [social media team] $85,000+ a year" },
 ];
 
-// Social Media Marketing specific blog guides
+
 export const socialMediaMarketingBlogGuides = [
   {
     id: "1",
@@ -570,7 +568,7 @@ export const socialMediaMarketingBlogGuides = [
   },
 ];
 
-// ProvenSuccess data for Social Media Marketing page
+
 export const socialMediaMarketingProvenSuccessData = {
   headline: {
     text: 'Proven Success in Every Project',

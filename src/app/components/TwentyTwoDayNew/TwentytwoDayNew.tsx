@@ -104,7 +104,7 @@ export default function TwentytwoDayNew() {
     () => [
       {
         id: 1,
-        title: "Phase 01 — Foundation",
+        title: "Phase 01 Foundation",
         days: "Days 1-5",
         iconColor: "#0fdac2",
         iconType: "cube",
@@ -121,7 +121,7 @@ export default function TwentytwoDayNew() {
       },
       {
         id: 2,
-        title: "Phase 02 — Brand Expansion",
+        title: "Phase 02 Brand Expansion",
         days: "Days 6-11",
         iconColor: "#0fdac2",
         iconType: "person",
@@ -138,7 +138,7 @@ export default function TwentytwoDayNew() {
       },
       {
         id: 3,
-        title: "Phase 03 — Digital Presence",
+        title: "Phase 03 Digital Presence",
         days: "Days 12-17",
         iconColor: "#0fdac2",
         iconType: "globe",
@@ -155,7 +155,7 @@ export default function TwentytwoDayNew() {
       },
       {
         id: 4,
-        title: "Phase 04 — Production & Collateral",
+        title: "Phase 04 Production & Collateral",
         days: "Days 18-22",
         iconColor: "#0fdac2",
         iconType: "gear",
@@ -328,9 +328,9 @@ export default function TwentytwoDayNew() {
         {/* Heading */}
         {/* <div className="text-center">
           <h2 className="text-white text-4xl md:text-6xl font-semibold tracking-tight leading-[1.05]">
-            <span className={styles.accent}>Everything</span> Your Business Needs —{" "}
+            <span className={styles.accent}>Everything</span> Your Business Needs{" "}
             <br className="hidden md:block" />
-            Delivered <span className={styles.accent}>in 22 Days</span>
+            Delivered <span className={styles.accent}>in 1 Month</span>
           </h2>
           <div className="h-10 md:h-14" />
         </div> */}
@@ -396,7 +396,7 @@ export default function TwentytwoDayNew() {
                 >
                   <Image
                     src={p.image}
-                    alt=""
+                    alt="phase image"
                     fill
                     className="object-cover"
                     priority={idx === 0}

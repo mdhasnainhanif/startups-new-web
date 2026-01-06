@@ -52,10 +52,11 @@
   pointer-events: none; /* Ensure scroll works through plasma container */
   /* Removed will-change to prevent scroll performance issues */
 }
-
+  
 .heading {
   max-width: 54rem;
   line-height: 1.2;
+  font-display: swap;
 }
 
 .content {
@@ -64,6 +65,7 @@
   opacity: 0;
   animation: fadeInUp 1s ease-out 0.3s forwards;
   /* Removed will-change to prevent scroll performance issues */
+  font-display: swap;
 }
 
 .heroBackground::before {
@@ -122,5 +124,55 @@ section.bottomZero {
   .companiesBadge {
     font-size: 0.875rem;
     padding: 0.5rem 1rem;
+  }
+}
+
+/* Non-home page mobile alignment */
+.nonHomeContent {
+  align-items: flex-start;
+  text-align: left;
+}
+
+@media (min-width: 768px) {
+  .nonHomeContent {
+    align-items: center;
+    text-align: center;
+  }
+}
+
+/* Ensure HeroBanner content is centered on mobile */
+@media (max-width: 767px) {
+  .content > div.items-center {
+    align-items: center !important;
+    text-align: center !important;
+  }
+  
+  .content > div.items-center .sectionHeading,
+  .content > div.items-center .sectionHeading > h1,
+  .content > div.items-center .sectionHeading > h2,
+  .content > div.items-center .sectionHeading > h4,
+  .content > div.items-center .sectionHeading > p {
+    text-align: center !important;
+  }
+  
+  .content > div.items-center h1,
+  .content > div.items-center p {
+    text-align: center !important;
+  }
+  
+  /* Target homePageHero specifically */
+  section.homePageHero .content > div.items-center {
+    align-items: center !important;
+    text-align: center !important;
+  }
+  
+  section.homePageHero .content > div.items-center .sectionHeading,
+  section.homePageHero .content > div.items-center .sectionHeading > h1,
+  section.homePageHero .content > div.items-center .sectionHeading > h2,
+  section.homePageHero .content > div.items-center .sectionHeading > h4,
+  section.homePageHero .content > div.items-center .sectionHeading > p,
+  section.homePageHero .content > div.items-center h1,
+  section.homePageHero .content > div.items-center p {
+    text-align: center !important;
   }
 } 

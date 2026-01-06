@@ -40,16 +40,19 @@
 
 .font-graphik-bold {
   font-family: var(--font-graphik-bold) !important;
+  font-display: swap;
 }
 
 .font-graphik-semibold {
   font-family: var(--font-graphik-semibold) !important;
+  font-display: swap;
 }
 
 body {
   background: var(--color-dark);
   color: var(--foreground);
   font-family: var(--font-graphik-regular), Arial, Helvetica, sans-serif;
+  font-display: swap;
 }
 
 .sectionPadding {
@@ -60,6 +63,60 @@ body {
 nav.headerNav {
   box-shadow: 0 -10px 20px -10px rgba(0, 0, 0, 0.3),
     0 10px 20px -10px rgba(0, 0, 0, 0.3);
+}
+
+/* Active navigation link styles - color #0fdac2, no text-shadow */
+nav.headerNav a.active {
+  color: #0fdac2 !important;
+  text-shadow: none !important;
+}
+
+/* Phone Input Country Dropdown Styles */
+select.PhoneInputCountrySelect {
+  color: #ffffff !important;
+  background: transparent !important;
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  width: 100% !important;
+}
+
+select.PhoneInputCountrySelect option {
+  background: #0e1030 !important;
+  color: #ffffff !important;
+  padding: 0.5rem !important;
+  width: 100% !important;
+}
+
+/* Ensure dropdown options are visible */
+.PhoneInputCountrySelect option {
+  background: #0e1030 !important;
+  color: #ffffff !important;
+  width: 100% !important;
+}
+
+/* Custom dropdown menu (if library uses custom dropdown) */
+.PhoneInputCountrySelectMenu {
+  background: #0e1030 !important;
+  border: 1px solid #0fdac2 !important;
+  border-radius: 0.5rem !important;
+  color: #ffffff !important;
+  z-index: 9999 !important;
+  width: 100% !important;
+  min-width: 100% !important;
+}
+
+.PhoneInputCountrySelectMenu__option {
+  color: #ffffff !important;
+  background: #0e1030 !important;
+  padding: 0.75rem 1rem !important;
+  width: 100% !important;
+}
+
+.PhoneInputCountrySelectMenu__option:hover,
+.PhoneInputCountrySelectMenu__option--selected {
+  background: rgba(15, 218, 194, 0.2) !important;
+  color: #0fdac2 !important;
 }
 
 .bottomZero {
@@ -174,8 +231,9 @@ h2.headingSize {
 }
 
 p.topPara {
-  font-size: 15px;
+  font-size: .9375rem;
   font-weight: 400;
+  color: #ffffff;
 }
 
 .pt100 {
@@ -280,11 +338,11 @@ h2 .bracket-text-green {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url("/assets/images/star-bg.webp");
+  background-image: url("/assets/images/star-bg-01.webp");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  opacity: 0.4;
+  opacity: 0.8;
   pointer-events: none;
   z-index: 3;
 }
@@ -324,7 +382,7 @@ h2 .bracket-text-green {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  opacity: 0.4;
+  opacity: 0.8;
   pointer-events: none;
   z-index: 0;
 }
@@ -348,7 +406,7 @@ h2 .bracket-text-green {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  opacity: 0.3;
+  /* opacity: 0.3; */
   pointer-events: none;
   z-index: 0;
 }
@@ -366,7 +424,7 @@ h2 .bracket-text-green {
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  opacity: 0.25;
+  opacity: 0.8;
   pointer-events: none;
   z-index: 0;
 }
@@ -385,7 +443,7 @@ h2 .bracket-text-green {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  opacity: 0.25;
+  opacity: 0.8;
   pointer-events: none;
   z-index: 0;
 }
@@ -395,22 +453,27 @@ h2 .bracket-text-green {
     opacity: 0.15;
     filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.3));
   }
+
   20% {
     opacity: 0.5;
     filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.7));
   }
+
   40% {
     opacity: 0.8;
     filter: drop-shadow(0 0 3.5px rgba(255, 255, 255, 1));
   }
+
   60% {
     opacity: 0.4;
     filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.6));
   }
+
   80% {
     opacity: 0.9;
     filter: drop-shadow(0 0 4px rgba(255, 255, 255, 1));
   }
+
   100% {
     opacity: 0.15;
     filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.3));
@@ -422,26 +485,32 @@ h2 .bracket-text-green {
     opacity: 0.4;
     filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.4));
   }
+
   15% {
     opacity: 0.4;
     filter: drop-shadow(0 0 1.5px rgba(255, 255, 255, 0.6));
   }
+
   30% {
     opacity: 0.7;
     filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.9));
   }
+
   50% {
     opacity: 0.95;
     filter: drop-shadow(0 0 4px rgba(255, 255, 255, 1));
   }
+
   70% {
     opacity: 0.5;
     filter: drop-shadow(0 0 2.5px rgba(255, 255, 255, 0.8));
   }
+
   85% {
     opacity: 0.3;
     filter: drop-shadow(0 0 1.5px rgba(255, 255, 255, 0.5));
   }
+
   100% {
     opacity: 0.4;
     filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.4));
@@ -453,34 +522,42 @@ h2 .bracket-text-green {
     opacity: 0.15;
     filter: drop-shadow(0 0 0.5px rgba(255, 255, 255, 0.2));
   }
+
   12% {
     opacity: 0.35;
     filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.4));
   }
+
   25% {
     opacity: 0.65;
     filter: drop-shadow(0 0 2.5px rgba(255, 255, 255, 0.85));
   }
+
   37% {
     opacity: 0.3;
     filter: drop-shadow(0 0 1.5px rgba(255, 255, 255, 0.5));
   }
+
   50% {
     opacity: 0.85;
     filter: drop-shadow(0 0 3.5px rgba(255, 255, 255, 1));
   }
+
   62% {
     opacity: 0.5;
     filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.7));
   }
+
   75% {
     opacity: 0.7;
     filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.9));
   }
+
   87% {
     opacity: 0.4;
     filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.6));
   }
+
   100% {
     opacity: 0.15;
     filter: drop-shadow(0 0 0.5px rgba(255, 255, 255, 0.2));
@@ -585,6 +662,11 @@ button.inputFieldBtn {
   opacity: 0.6;
 }
 
+.faqSection > * {
+  position: relative;
+  z-index: 1;
+}
+
 .faqInputWrapper {
   position: relative;
   background: #1c1949;
@@ -596,7 +678,7 @@ button.inputFieldBtn {
 }
 
 .faqInputWrapper button.px-10::after {
-  border-bottom-width: 5px !important;
+  border-bottom-width: 0px !important;
 }
 
 .webDevelopmentPageCaseStudy h2 {
@@ -685,9 +767,17 @@ section img.banneFullMin {
   outline-color: transparent;
 }
 
+.customdropdown {
+  padding: 0 !important;
+  border: 0 !important;
+}
+
 @media screen and (max-width: 768px) {
   .topPara {
     font-size: 0.875rem;
+  }
+  .heroStarsBackground::before {
+    display: none;
   }
 }
 
@@ -696,19 +786,34 @@ section img.banneFullMin {
     max-width: 35rem !important;
   }
 }
+
 @media (max-width: 576px) {
+  .inner-div h3 {
+    font-size: 1.75rem !important;
+  }
+  .inner-div p {
+    font-size: 1rem !important;
+  }
+  section.heroBannerPaddingTop,
+  div.heroBannerPaddingTop {
+    padding-top: 12rem;
+  }
+
   ul.stack-cards {
     margin-bottom: 5vh !important;
   }
+
   .pl0mobile {
     padding-left: 0rem !important;
   }
+
   img.designerBanner {
     position: static !important;
     top: unset;
     bottom: unset;
     margin-bottom: -4.3rem !important;
   }
+
   button.inputFieldBtn {
     --tw-translate-y: 0 !important;
     translate: none !important;
@@ -814,6 +919,87 @@ section img.banneFullMin {
   .sectionHeading > h2 {
     font-size: 1.75rem !important;
   }
+
+  /* Mobile text alignment - exclude HomenewBanner which has its own layout */
+  section:not([class*="HomenewBanner"]) .sectionHeading {
+    text-align: left !important;
+  }
+
+  section:not([class*="HomenewBanner"]) .sectionHeading.text-center {
+    text-align: left !important;
+  }
+
+  section:not([class*="HomenewBanner"]) .sectionHeading > h1,
+  section:not([class*="HomenewBanner"]) .sectionHeading > h2,
+  section:not([class*="HomenewBanner"]) .sectionHeading > h4,
+  section:not([class*="HomenewBanner"]) .sectionHeading > p {
+    text-align: left !important;
+  }
+
+  /* Left align buttons and button containers on inner pages mobile (but not in HomenewBanner) */
+  section:not([class*="HomenewBanner"]) .sectionHeading > div {
+    text-align: left !important;
+  }
+
+  /* Keep home page HeroBanner centered on mobile */
+  section.homePageHero .sectionHeading,
+  section.homePageHero.heroBannerPaddingTop .sectionHeading {
+    text-align: center !important;
+    align-items: center !important;
+  }
+
+  section.homePageHero .sectionHeading.items-center {
+    align-items: center !important;
+  }
+
+  section.homePageHero .sectionHeading > h1,
+  section.homePageHero .sectionHeading > h2,
+  section.homePageHero .sectionHeading > h4,
+  section.homePageHero .sectionHeading > p,
+  section.homePageHero.heroBannerPaddingTop .sectionHeading > h1,
+  section.homePageHero.heroBannerPaddingTop .sectionHeading > h2,
+  section.homePageHero.heroBannerPaddingTop .sectionHeading > h4,
+  section.homePageHero.heroBannerPaddingTop .sectionHeading > p {
+    text-align: center !important;
+  }
+
+  /* Keep home page buttons centered */
+  section.homePageHero .sectionHeading > div {
+    text-align: center !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+}
+
+/* Desktop: Restore HomenewBanner layout */
+@media (min-width: 768px) {
+  /* HomenewBanner should maintain its original desktop layout */
+  section[class*="HomenewBanner"] .row {
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  section[class*="HomenewBanner"] .colLeft.sectionHeading {
+    text-align: left !important;
+  }
+
+  section[class*="HomenewBanner"] .colLeft {
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
+  }
+
+  section[class*="HomenewBanner"] .colRight {
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
+  }
+}
+
+.headerMain {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
 }
 
 /* Flippa Page Animations */
@@ -821,6 +1007,7 @@ section img.banneFullMin {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -830,13 +1017,32 @@ section img.banneFullMin {
   animation: spin-slow 20s linear infinite;
 }
 
+.aiPowerDesignSection .swiper {
+  max-width: 10rem;
+}
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
     transform: translateY(12px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* Hire Brand Designer button - background color #0fdac2 */
+.hire-brand-designer-btn,
+.hire-brand-designer-btn.green {
+  background-color: #0fdac2 !important;
+}
+
+.provenSuccess .swiper-wrapper {
+  gap: 2rem;
+}
+
+.webDevelopmentAnalyticsSection{
+  
 }

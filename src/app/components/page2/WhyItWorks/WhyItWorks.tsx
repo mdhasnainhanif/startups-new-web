@@ -33,7 +33,7 @@ const WhyItWorks = () => {
                   <div className={styles.iconWrapper}>
                     <Image
                       src={item.icon}
-                      alt=""
+                      alt="icon"
                       width={48}
                       height={48}
                       className={styles.icon}

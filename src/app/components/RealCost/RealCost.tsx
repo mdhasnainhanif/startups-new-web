@@ -1,9 +1,10 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import Container from '../Container';
 import styles from './RealCost.module.css';
 import Image from 'next/image';
+import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, PieChart, Pie, Cell, Tooltip } from 'recharts';
 
 export interface RealCostData {
   heading: {
@@ -50,9 +51,9 @@ interface RealCostProps {
 
 const REAL_COST_DATA: RealCostData = {
   heading: {
-    part1: 'See the Real Cost of',
+    part1: 'See the Real Cost of ',
     part2: 'Hiring Design Staff vs.',
-    part3: 'Hiring an Entire Design Team for 22 Days',
+    part3: 'Hiring an Entire Design Team for 1 Month',
   },
   callToAction: 'Use the calculator to instantly compare:',
   bulletPoints: [
@@ -63,7 +64,7 @@ const REAL_COST_DATA: RealCostData = {
     'The long-term ROI of getting your full brand built correctly',
   ],
   conclusion:
-    'Most business owners discover they save thousands of dollars and months of work in just the first 22 days alone',
+    'Most business owners discover they save thousands of dollars and months of work in just the first 1 month alone',
   calculator: {
     title: 'Cost Calculator',
     fields: [
@@ -108,13 +109,53 @@ const REAL_COST_DATA: RealCostData = {
   },
 };
 
+// Designer type to cost mapping
+const DESIGNER_COSTS: Record<string, { monthly: number; annual: number }> = {
+  'Junior Designer': { monthly: 1499, annual: 1499 * 12 },
+  'Mid-Level Designer': { monthly: 2499, annual: 2499 * 12 },
+  'Senior Designer': { monthly: 4999, annual: 4999 * 12 },
+  'Design Director': { monthly: 7999, annual: 7999 * 12 },
+};
+
+// Format number with commas for display
+const formatNumber = (value: string): string => {
+  // Remove all non-digit characters
+  const digitsOnly = value.replace(/\D/g, '');
+  
+  if (!digitsOnly) return '';
+  
+  // Convert to number and check max value
+  const numValue = parseInt(digitsOnly, 10);
+  if (isNaN(numValue)) return '';
+  
+  // Limit to max value
+  const MAX_VALUE = 999999999;
+  const limitedValue = Math.min(numValue, MAX_VALUE);
+  
+  // Format with commas
+  return limitedValue.toLocaleString('en-US');
+};
+
 const RealCost = ({ data = REAL_COST_DATA }: RealCostProps) => {
-  const [selectedDesignerType, setSelectedDesignerType] = useState<string>(data.calculator.fields[0].options?.[0] || '');
+  const [selectedDesignerType, setSelectedDesignerType] = useState<string>('Junior Designer');
   const [monthlyCost, setMonthlyCost] = useState<string>('');
   const [annualCost, setAnnualCost] = useState<string>('');
   const [estimatedTotal, setEstimatedTotal] = useState<number>(58000);
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+
+  // Update costs when designer type changes
+  useEffect(() => {
+    if (selectedDesignerType && DESIGNER_COSTS[selectedDesignerType]) {
+      const costs = DESIGNER_COSTS[selectedDesignerType];
+      const monthlyFormatted = formatNumber(costs.monthly.toString());
+      const annualFormatted = formatNumber(costs.annual.toString());
+      
+      setMonthlyCost(monthlyFormatted);
+      setAnnualCost(annualFormatted);
+      setEstimatedTotal(costs.annual);
+    }
+  }, [selectedDesignerType]);
 
   // Function to parse text and highlight content inside square brackets with green color
   const parseHeadingWithBrackets = (text: string) => {
@@ -171,24 +212,6 @@ const RealCost = ({ data = REAL_COST_DATA }: RealCostProps) => {
     };
   }, [isDropdownOpen]);
 
-  // Format number with commas for display
-  const formatNumber = (value: string): string => {
-    // Remove all non-digit characters
-    const digitsOnly = value.replace(/\D/g, '');
-    
-    if (!digitsOnly) return '';
-    
-    // Convert to number and check max value
-    const numValue = parseInt(digitsOnly, 10);
-    if (isNaN(numValue)) return '';
-    
-    // Limit to max value
-    const limitedValue = Math.min(numValue, MAX_VALUE);
-    
-    // Format with commas
-    return limitedValue.toLocaleString('en-US');
-  };
-
   // Get raw number value (without commas)
   const getRawValue = (formattedValue: string): string => {
     return formattedValue.replace(/,/g, '');
@@ -196,20 +219,21 @@ const RealCost = ({ data = REAL_COST_DATA }: RealCostProps) => {
 
 
   const handleMonthlyCostChange = (value: string) => {
-    // Format the input value
+    // Format the input value immediately
     const formatted = formatNumber(value);
+    
+    // Update monthly cost state - this triggers re-render immediately
     setMonthlyCost(formatted);
     
-    if (formatted) {
+    // Update annual cost only if monthly is valid
+    if (formatted && formatted.length > 0) {
       const monthlyRaw = getRawValue(formatted);
       const monthly = parseInt(monthlyRaw, 10);
       if (!isNaN(monthly) && monthly > 0) {
         const annual = monthly * 12;
         const annualFormatted = formatNumber(annual.toString());
         setAnnualCost(annualFormatted);
-        // Calculate total with new values
-        const total = monthly * 12 + parseInt(getRawValue(annualFormatted), 10);
-        setEstimatedTotal(total || 58000);
+        setEstimatedTotal(annual);
       } else {
         setAnnualCost('');
         setEstimatedTotal(58000);
@@ -221,20 +245,21 @@ const RealCost = ({ data = REAL_COST_DATA }: RealCostProps) => {
   };
 
   const handleAnnualCostChange = (value: string) => {
-    // Format the input value
+    // Format the input value immediately
     const formatted = formatNumber(value);
+    
+    // Update annual cost state - this triggers re-render immediately
     setAnnualCost(formatted);
     
-    if (formatted) {
+    // Update monthly cost only if annual is valid
+    if (formatted && formatted.length > 0) {
       const annualRaw = getRawValue(formatted);
       const annual = parseInt(annualRaw, 10);
       if (!isNaN(annual) && annual > 0) {
         const monthly = Math.round(annual / 12);
         const monthlyFormatted = formatNumber(monthly.toString());
         setMonthlyCost(monthlyFormatted);
-        // Calculate total with new values
-        const total = parseInt(getRawValue(monthlyFormatted), 10) * 12 + annual;
-        setEstimatedTotal(total || 58000);
+        setEstimatedTotal(annual);
       } else {
         setMonthlyCost('');
         setEstimatedTotal(58000);
@@ -252,6 +277,176 @@ const RealCost = ({ data = REAL_COST_DATA }: RealCostProps) => {
       minimumFractionDigits: 0,
       maximumFractionDigits: 0,
     }).format(amount);
+  };
+
+  // Calculate bar heights based on monthly and annual costs - using real-time input values
+  // Calculate directly without useMemo to ensure real-time updates
+  const calculateBarHeights = () => {
+    // Get real-time values from input fields
+    const monthlyRaw = monthlyCost ? getRawValue(monthlyCost) : '';
+    const annualRaw = annualCost ? getRawValue(annualCost) : '';
+    
+    // Parse to numbers - handle partial input gracefully
+    const monthlyNum = monthlyRaw && monthlyRaw.length > 0 ? parseInt(monthlyRaw, 10) : 0;
+    const annualNum = annualRaw && annualRaw.length > 0 ? parseInt(annualRaw, 10) : 0;
+    
+    // Check if values are valid numbers (not NaN and greater than 0)
+    const hasMonthly = !isNaN(monthlyNum) && monthlyNum > 0;
+    const hasAnnual = !isNaN(annualNum) && annualNum > 0;
+    
+    // If no valid values, return 0 heights
+    if (!hasMonthly && !hasAnnual) {
+      return { monthlyHeight: 0, annualHeight: 0 };
+    }
+    
+    // Dynamic maximum value for scaling - use the larger of the two values
+    // This ensures bars scale relative to each other
+    const maxValue = Math.max(
+      hasMonthly ? monthlyNum : 0,
+      hasAnnual ? annualNum : 0
+    );
+    
+    // Ensure we have a valid max value
+    if (maxValue <= 0 || isNaN(maxValue)) {
+      return { monthlyHeight: 0, annualHeight: 0 };
+    }
+    
+    // Add 20% padding at top for better visualization
+    const MAX_CHART_VALUE = maxValue * 1.2;
+    
+    // Calculate bar heights directly from input values
+    // Convert actual values to percentage (0-100%)
+    const monthlyHeight = hasMonthly
+      ? Math.max(2, Math.min(100, (monthlyNum / MAX_CHART_VALUE) * 100))
+      : 0;
+    const annualHeight = hasAnnual
+      ? Math.max(2, Math.min(100, (annualNum / MAX_CHART_VALUE) * 100))
+      : 0;
+    
+    return { monthlyHeight, annualHeight };
+  };
+
+  // Calculate heights on every render for real-time updates
+  const { monthlyHeight, annualHeight } = calculateBarHeights();
+
+  // Calculate chart data dynamically based on input values
+  const barChartData = useMemo(() => {
+    const monthlyRaw = monthlyCost ? getRawValue(monthlyCost) : '';
+    const annualRaw = annualCost ? getRawValue(annualCost) : '';
+    
+    const monthlyNum = monthlyRaw && monthlyRaw.length > 0 ? parseInt(monthlyRaw, 10) : 0;
+    const annualNum = annualRaw && annualRaw.length > 0 ? parseInt(annualRaw, 10) : 0;
+    
+    // If both inputs are empty, use default values based on Estimated Total Cost
+    const hasMonthly = monthlyNum > 0;
+    const hasAnnual = annualNum > 0;
+    
+    let monthlyValue: number;
+    let annualValue: number;
+    
+    if (!hasMonthly && !hasAnnual) {
+      // Idle state - use default values from Estimated Total Cost
+      annualValue = estimatedTotal;
+      monthlyValue = Math.round(estimatedTotal / 12);
+    } else {
+      // Use input values
+      monthlyValue = Math.max(0, Math.min(monthlyNum, MAX_VALUE));
+      annualValue = Math.max(0, Math.min(annualNum, MAX_VALUE));
+    }
+    
+    return [
+      {
+        name: 'Monthly',
+        value: !isNaN(monthlyValue) ? monthlyValue : 0,
+        color: '#0fdac2',
+      },
+      {
+        name: 'Annual',
+        value: !isNaN(annualValue) ? annualValue : 0,
+        color: '#643bff',
+      },
+    ];
+  }, [monthlyCost, annualCost, estimatedTotal]);
+
+  // Fixed Y-axis tick values (these won't change based on input)
+  const yAxisTicks = [0, 125, 250, 375, 500];
+
+  // Calculate pie chart data dynamically
+  const pieChartData = useMemo(() => {
+    const monthlyRaw = monthlyCost ? getRawValue(monthlyCost) : '';
+    const annualRaw = annualCost ? getRawValue(annualCost) : '';
+    
+    const monthlyNum = monthlyRaw && monthlyRaw.length > 0 ? parseInt(monthlyRaw, 10) : 0;
+    const annualNum = annualRaw && annualRaw.length > 0 ? parseInt(annualRaw, 10) : 0;
+    
+    // If both inputs are empty, use default values based on Estimated Total Cost
+    const hasMonthly = monthlyNum > 0;
+    const hasAnnual = annualNum > 0;
+    
+    let monthlyValue: number;
+    let annualValue: number;
+    
+    if (!hasMonthly && !hasAnnual) {
+      // Idle state - use default values from Estimated Total Cost
+      annualValue = estimatedTotal;
+      monthlyValue = Math.round(estimatedTotal / 12);
+    } else {
+      monthlyValue = monthlyNum;
+      annualValue = annualNum;
+    }
+    
+    const total = monthlyValue + annualValue;
+    
+    if (total === 0) {
+      return [
+        { name: 'Monthly', value: 50, color: '#0fdac2', gradient: ['#0fdac2', '#0fdac2'] },
+        { name: 'Annual', value: 50, color: '#732BFF', gradient: ['#732BFF', '#732BFF'] },
+      ];
+    }
+    
+    const monthlyPercent = (monthlyValue / total) * 100;
+    const annualPercent = (annualValue / total) * 100;
+    
+    return [
+      {
+        name: 'Monthly',
+        value: monthlyPercent,
+        color: '#0fdac2',
+        gradient: ['#0fdac2', '#0fdac2'],
+      },
+      {
+        name: 'Annual',
+        value: annualPercent,
+        color: '#732BFF',
+        gradient: ['#732BFF', '#732BFF'],
+      },
+    ];
+  }, [monthlyCost, annualCost, estimatedTotal]);
+
+  // Custom tooltip for bar chart
+  const CustomBarTooltip = ({ active, payload }: any) => {
+    if (active && payload && payload.length) {
+      return (
+        <div className={styles.customTooltip}>
+          <p className={styles.tooltipLabel}>{payload[0].name}</p>
+          <p className={styles.tooltipValue}>{formatCurrency(payload[0].value)}</p>
+        </div>
+      );
+    }
+    return null;
+  };
+
+  // Custom tooltip for pie chart
+  const CustomPieTooltip = ({ active, payload }: any) => {
+    if (active && payload && payload.length) {
+      return (
+        <div className={styles.customTooltip}>
+          <p className={styles.tooltipLabel}>{payload[0].name}</p>
+          <p className={styles.tooltipValue}>{payload[0].value.toFixed(1)}%</p>
+        </div>
+      );
+    }
+    return null;
   };
 
   return (
@@ -289,7 +484,7 @@ const RealCost = ({ data = REAL_COST_DATA }: RealCostProps) => {
                 {/* Writer Type Dropdown */}
                 <div className={styles.fieldWrapper}>
                   <div className={styles.fieldIcon}>
-                    <Image width={28} height={28} src="/assets/images/icons/icon_designer-type.svg" alt="" />
+                    <Image width={28} height={28} src="/assets/images/icons/icon_designer-type.svg" alt="designer type icon" />
                   </div>
                   <div className={styles.selectWrapper} ref={dropdownRef}>
                     <div
@@ -334,7 +529,7 @@ const RealCost = ({ data = REAL_COST_DATA }: RealCostProps) => {
                 {/* Monthly Cost */}
                 <div className={styles.fieldWrapper}>
                   <div className={styles.fieldIcon}>
-                  <Image width={28} height={28} src="/assets/images/icons/icon_monthly-cost.svg" alt="" />
+                  <Image width={28} height={28} src="/assets/images/icons/icon_monthly-cost.svg" alt="monthly cost icon" />
                   </div>
                   <input
                     type="text"
@@ -342,7 +537,7 @@ const RealCost = ({ data = REAL_COST_DATA }: RealCostProps) => {
                     className={styles.inputField}
                     placeholder="Monthly Cost"
                     value={monthlyCost}
-                    onChange={(e) => handleMonthlyCostChange(e.target.value)}
+                    readOnly
                     maxLength={15}
                   />
                 </div>
@@ -350,7 +545,7 @@ const RealCost = ({ data = REAL_COST_DATA }: RealCostProps) => {
                 {/* Annual Cost */}
                 <div className={styles.fieldWrapper}>
                   <div className={styles.fieldIcon}>
-                  <Image width={28} height={28} src="/assets/images/icons/icon_annual-cost.svg" alt="" />
+                  <Image width={28} height={28} src="/assets/images/icons/icon_annual-cost.svg" alt="annual cost icon" />
                   </div>
                   <input
                     type="text"
@@ -358,7 +553,7 @@ const RealCost = ({ data = REAL_COST_DATA }: RealCostProps) => {
                     className={styles.inputField}
                     placeholder="Annual Cost"
                     value={annualCost}
-                    onChange={(e) => handleAnnualCostChange(e.target.value)}
+                    readOnly
                     maxLength={15}
                   />
                 </div>
@@ -378,22 +573,41 @@ const RealCost = ({ data = REAL_COST_DATA }: RealCostProps) => {
                     {data.calculator.charts.monthlyVsAnnual.label}
                   </p>
                   <div className={styles.barChart}>
-                    <div className={styles.barChartContainer}>
-                      <div
-                        className={styles.bar}
-                        style={{
-                          height: `${data.calculator.charts.monthlyVsAnnual.monthlyValue}%`,
-                          backgroundColor: '#0fdac2',
-                        }}
-                      />
-                      <div
-                        className={styles.bar}
-                        style={{
-                          height: `${data.calculator.charts.monthlyVsAnnual.annualValue}%`,
-                          backgroundColor: '#643bff',
-                        }}
-                      />
-                    </div>
+                    <ResponsiveContainer width="100%" height={180}>
+                      <BarChart
+                        data={barChartData}
+                        margin={{ top: 10, right: 20, left: 0, bottom: 20 }}
+                        barCategoryGap="20%"
+                        barSize={30}
+                      >
+                        <XAxis 
+                          dataKey="name" 
+                          tick={{ fill: '#bdd1f9', fontSize: 12 }}
+                          axisLine={{ stroke: '#181847' }}
+                          tickLine={{ stroke: '#181847' }}
+                          interval={0}
+                        />
+                        <YAxis 
+                          domain={[0, 100000]}
+                          tick={false}
+                          axisLine={false}
+                          tickLine={false}
+                          width={0}
+                        />
+                        <Tooltip content={<CustomBarTooltip />} />
+                        <Bar 
+                          dataKey="value" 
+                          radius={[6, 6, 0, 0]}
+                          isAnimationActive={true}
+                          animationDuration={500}
+                          animationEasing="ease-in-out"
+                        >
+                          {barChartData.map((entry, index) => (
+                            <Cell key={`cell-${index}`} fill={entry.color} />
+                          ))}
+                        </Bar>
+                      </BarChart>
+                    </ResponsiveContainer>
                   </div>
                 </div>
 
@@ -403,43 +617,35 @@ const RealCost = ({ data = REAL_COST_DATA }: RealCostProps) => {
                     {data.calculator.charts.costBreakdown.label}
                   </p>
                   <div className={styles.donutChart}>
-                    <svg width="120" height="130" viewBox="0 0 120 120">
-                      <defs>
-                        {data.calculator.charts.costBreakdown.segments.map((segment, index) => (
-                          <linearGradient key={index} id={`gradient${index}`} x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stopColor={segment.gradient[0]} />
-                            <stop offset="100%" stopColor={segment.gradient[1]} />
-                          </linearGradient>
-                        ))}
-                      </defs>
-                      {data.calculator.charts.costBreakdown.segments.map(
-                        (segment, index, array) => {
-                          const previousValue = array
-                            .slice(0, index)
-                            .reduce((sum, s) => sum + s.value, 0);
-                          const offset = (previousValue / 100) * 360;
-                          const circumference = 2 * Math.PI * 45;
-                          const dashArray = (segment.value / 100) * circumference;
-                          const dashOffset = circumference - (previousValue / 100) * circumference;
-
-                          return (
-                            <circle
-                              key={index}
-                              cx="60"
-                              cy="60"
-                              r="45"
-                              fill="none"
-                              stroke={`url(#gradient${index})`}
-                              strokeWidth="20"
-                              strokeDasharray={`${dashArray} ${circumference}`}
-                              strokeDashoffset={dashOffset}
-                              strokeLinecap="butt"
-                              transform="rotate(-90 60 60)"
-                            />
-                          );
-                        }
-                      )}
-                    </svg>
+                    <ResponsiveContainer width="100%" height={130}>
+                      <PieChart>
+                        <defs>
+                          {pieChartData.map((segment, index) => (
+                            <linearGradient key={index} id={`gradient${index}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                              <stop offset="0%" stopColor={segment.gradient[0]} />
+                              <stop offset="100%" stopColor={segment.gradient[1]} />
+                            </linearGradient>
+                          ))}
+                        </defs>
+                        <Pie
+                          data={pieChartData}
+                          cx="50%"
+                          cy="50%"
+                          innerRadius={35}
+                          outerRadius={55}
+                          paddingAngle={2}
+                          dataKey="value"
+                          startAngle={90}
+                          endAngle={-270}
+                          stroke="none"
+                        >
+                          {pieChartData.map((entry, index) => (
+                            <Cell key={`cell-${index}`} fill={`url(#gradient${index})`} stroke="none" />
+                          ))}
+                        </Pie>
+                        <Tooltip content={<CustomPieTooltip />} />
+                      </PieChart>
+                    </ResponsiveContainer>
                   </div>
                 </div>
               </div>

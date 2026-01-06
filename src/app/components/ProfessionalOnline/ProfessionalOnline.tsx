@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Container from "../Container";
 import VideoPopup from "../VideoPopup/VideoPopup";
@@ -9,6 +9,10 @@ import styles from "./ProfessionalOnline.module.css";
 
 const ProfessionalOnline = () => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [hasAnimated, setHasAnimated] = useState(false);
+  const [counts, setCounts] = useState<number[]>(new Array(PROFESSIONAL_ONLINE.startupStats?.length || 0).fill(0));
+  const sectionRef = useRef<HTMLElement>(null);
+
   const parseBrackets = (text: string) => {
     if (!text) return null;
     const parts: React.ReactNode[] = [];
@@ -48,9 +52,78 @@ const ProfessionalOnline = () => {
     return parts.length > 0 ? parts : <span className={styles.bottomHeadingPart1}>{text}</span>;
   };
 
+  // Counter animation effect
+  useEffect(() => {
+    if (hasAnimated || !PROFESSIONAL_ONLINE.startupStats) return;
+
+    const parsePercentage = (percentage: string): number => {
+      const match = percentage.match(/^([\d.]+)/);
+      return match ? parseFloat(match[1]) : 0;
+    };
+
+    const startAnimation = () => {
+      if (hasAnimated) return;
+      setHasAnimated(true);
+
+      PROFESSIONAL_ONLINE.startupStats.forEach((stat, index) => {
+        const targetNumber = parsePercentage(stat.percentage);
+        const duration = 2000;
+        const startTime = Date.now();
+
+        const animate = () => {
+          const elapsed = Date.now() - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+          const currentValue = targetNumber * easeOutQuart;
+
+          setCounts((prev) => {
+            const newCounts = [...prev];
+            // Use Math.round for smoother animation, only floor at the very end
+            newCounts[index] = progress >= 0.99 ? targetNumber : Math.round(currentValue);
+            return newCounts;
+          });
+
+          if (progress < 1) {
+            requestAnimationFrame(animate);
+          } else {
+            // Ensure final value is exactly the target
+            setCounts((prev) => {
+              const newCounts = [...prev];
+              newCounts[index] = targetNumber;
+              return newCounts;
+            });
+          }
+        };
+
+        requestAnimationFrame(animate);
+      });
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasAnimated) {
+            startAnimation();
+          }
+        });
+      },
+      { threshold: 0.3, rootMargin: '0px' }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, [hasAnimated]);
+
   return (
     <>
-      <section className={styles.section + " sectionPadding"}>
+      <section ref={sectionRef} className={styles.section + " sectionPadding"}>
         <Container maxWidth="xl">
           <div className={styles.contentWrapper}>
             {/* Left Section */}
@@ -58,23 +131,29 @@ const ProfessionalOnline = () => {
              {/* STARTUPS FAIL STATISTICS SECTION */}
               {PROFESSIONAL_ONLINE.startupStats && PROFESSIONAL_ONLINE.startupStats.length > 0 && (
                 <div className={styles.statsGrid}>
-                  {PROFESSIONAL_ONLINE.startupStats.map((stat, index) => (
-                    <div key={index} className={styles.statBox}>
-                      {/* Desktop: Icon on top, Mobile: Icon on right */}
-                      <div className={styles.statIcon}>
-                        <Image src={stat.image} alt={stat.headline} width={32} height={32} />
-                      </div>
-                      <div className={styles.statContent}>
-                        <div className={styles.statHeader}>
-                          <span className={styles.statPercentage}>{stat.percentage}</span>
+                  {PROFESSIONAL_ONLINE.startupStats.map((stat, index) => {
+                    const displayPercentage = hasAnimated 
+                      ? `${counts[index]}%` 
+                      : "0%";
+                    
+                    return (
+                      <div key={index} className={styles.statBox}>
+                        {/* Desktop: Icon on top, Mobile: Icon on right */}
+                        <div className={styles.statIcon}>
+                          <Image src={stat.image} alt={stat.headline} width={32} height={32} />
                         </div>
-                          <div className="">
-                          <span className={styles.statHeadline}>{stat.headline} </span>
-                          <span className={styles.statDescription}>{stat.description}</span>
+                        <div className={styles.statContent}>
+                          <div className={styles.statHeader}>
+                            <span className={styles.statPercentage}>{displayPercentage}</span>
                           </div>
+                            <div className="">
+                            <span className={styles.statHeadline}>{stat.headline} </span>
+                            <span className={styles.statDescription}>{stat.description}</span>
+                            </div>
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               )}
             </div>

@@ -66,7 +66,7 @@ export default function FAQ({ faqs, sectionData, className = "" }: FAQProps) {
       <Container maxWidth="xl" className="px-0">
         <div className="flex flex-col items-center">
           {/* Section Title */}
-          <div className="sectionHeading forH2 text-[#ffffff] flex flex-col items-center justify-center gap-3">
+          <div className="sectionHeading forH2 text-[#ffffff] flex flex-col items-center justify-center">
             <h2 className="text-center">
               <span className="text-white">{sectionData.title.part1}</span>{" "}
               <span className="text-[#0fdac2]">{sectionData.title.part2}</span>
@@ -85,7 +85,7 @@ export default function FAQ({ faqs, sectionData, className = "" }: FAQProps) {
                   return (
                     <div
                       key={index}
-                      className="border-b-2 border-[#312d63a8] last:border-b-0"
+                      className="border-b-2 border-[#312d63a8] md:last:border-b-0"
                     >
                       {/* FAQ Question */}
                       <button
@@ -95,10 +95,22 @@ export default function FAQ({ faqs, sectionData, className = "" }: FAQProps) {
                         <span className="text-white font-semibold text-base sm:text-lg md:text-xl lg:text-xl pr-2 sm:pr-4 flex-1 leading-snug sm:leading-normal">
                           {faq.question}
                         </span>
-                        <span className={`text-xl sm:text-2xl md:text-3xl font-light shrink-0 w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 flex items-center justify-center transition-colors ${
-                          leftOpenIndex === index ? "text-[#643bff]" : "text-[#0fdac2]"
+                        <span className={`shrink-0 w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 flex items-center justify-center transition-all duration-300 ${
+                          leftOpenIndex === index ? "text-[#643bff] rotate-180" : "text-[#0fdac2] rotate-0"
                         }`}>
-                          {leftOpenIndex === index ? "−" : "+"}
+                          <svg
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            className="w-full h-full"
+                          >
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                          </svg>
                         </span>
                       </button>
                       
@@ -135,10 +147,22 @@ export default function FAQ({ faqs, sectionData, className = "" }: FAQProps) {
                         <span className="text-white font-semibold text-base sm:text-lg md:text-xl lg:text-xl pr-2 sm:pr-4 flex-1 leading-snug sm:leading-normal">
                           {faq.question}
                         </span>
-                        <span className={`text-xl sm:text-2xl md:text-3xl font-light shrink-0 w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 flex items-center justify-center transition-colors ${
-                          rightOpenIndex === index ? "text-[#643bff]" : "text-[#0fdac2]"
+                        <span className={`shrink-0 w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 flex items-center justify-center transition-all duration-300 ${
+                          rightOpenIndex === index ? "text-[#643bff] rotate-180" : "text-[#0fdac2] rotate-0"
                         }`}>
-                          {rightOpenIndex === index ? "−" : "+"}
+                          <svg
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            className="w-full h-full"
+                          >
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                          </svg>
                         </span>
                       </button>
                       
@@ -188,7 +212,7 @@ export default function FAQ({ faqs, sectionData, className = "" }: FAQProps) {
                         placeholder="Ask your own question here..."
                         value={question}
                         onChange={(e) => setQuestion(e.target.value)}
-                        className="faqaskquestion h-full w-full px-3 sm:px-4 py-2 sm:py-3 bg-white/5 border border-white/20 rounded-lg text-white placeholder-white/50 text-sm sm:text-base resize-none transition-all duration-200"
+                        className="faqaskquestion h-full w-full px-3 sm:px-4 py-2 sm:py-[0.4rem] bg-white/5 border border-white/20 rounded-lg text-white placeholder-white/50 text-sm sm:text-base resize-none transition-all duration-200"
                         rows={2}
                       ></textarea>
                     </div>

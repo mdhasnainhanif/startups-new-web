@@ -17,6 +17,7 @@ import RealCost from '../components/RealCost/RealCost';
 import CompleteBusinessSetup from '../components/CompleteBusinessSetup/CompleteBusinessSetup';
 import Contact from '../components/Contact/Contact';
 import GuessWorkAdvertising from '../components/GuessWorkAdvertising/GuessWorkAdvertising';
+import BlogCarousel from '../components/BlogCarousel/BlogCarousel';
 
 import dynamic from 'next/dynamic';
 
@@ -35,7 +36,7 @@ const designerProvenSuccessData = {
     highlighted: 'Success',
   },
   description:
-    'Your Smart AI Business Team brings a fully loaded AI ecosystem for creative design and analytics automation — premium tools, no extra cost, no hassle.',
+    'Your Smart AI Business Team brings a fully loaded AI ecosystem for creative design and analytics automation, premium tools, no extra cost, no hassle.',
   tabs: [
     {
       id: 'branding-kit',
@@ -51,6 +52,8 @@ const designerProvenSuccessData = {
         '/assets/images/portfolio/branding-kit/8.webp',
         '/assets/images/portfolio/branding-kit/9.webp',
         '/assets/images/portfolio/branding-kit/10.webp',
+        '/assets/images/portfolio/branding-kit/11.webp',
+        '/assets/images/portfolio/branding-kit/12.webp',
       ],
       gridItems: [
         { id: '1', label: 'Logo Design' },
@@ -144,6 +147,13 @@ const designerProvenSuccessData = {
         '/assets/images/portfolio/stationary/7.webp',
         '/assets/images/portfolio/stationary/8.webp',
         '/assets/images/portfolio/stationary/9.webp',
+        '/assets/images/portfolio/stationary/13.webp',
+        '/assets/images/portfolio/stationary/14.webp',
+        '/assets/images/portfolio/stationary/11.webp',
+        '/assets/images/portfolio/stationary/16.webp',
+        '/assets/images/portfolio/stationary/10.webp',
+        '/assets/images/portfolio/stationary/12.webp',
+        '/assets/images/portfolio/stationary/15.webp',
       ],
       gridItems: [
         { id: '1', label: 'Business Card' },
@@ -161,7 +171,7 @@ const designerProvenSuccessData = {
 };
 export const metadata: Metadata = {
   title: "Designer Services | Professional Design Team | Startups Advisory",
-  description: "Get a complete design team in 22 days. Professional branding, graphics, and creative design services to build your brand identity and visual presence.",
+  description: "Get a complete design team in 1 month. Professional branding, graphics, and creative design services to build your brand identity and visual presence.",
   robots: "nofollow",
 };
 export default function DesignerPage() {
@@ -175,14 +185,15 @@ export default function DesignerPage() {
       <TextSlider1 data={sliderData.slider2} />
       <ProfessionalDesign className="designerPageProfessional" data={designProfessionalPageData} />
       <TextSlider1 data={sliderData.slider3}/>
-      <TwentyTwoHeading/>
-      <TwentyTwoDayDeliverable/>
+      {/* <TwentyTwoHeading/> */}
+      {/* <TwentyTwoDayDeliverable/> */}
       <GuessWorkAdvertising data={designerGuessWorkData}/>
       <RealCost/>
       <CompleteBusinessSetup/>
       <ProvenSuccess data={designerProvenSuccessData} />
       <Reviews/>
-      <GrowthSlider items={DESIGNER_GROWTH_GUIDES} />
+      {/* <GrowthSlider items={DESIGNER_GROWTH_GUIDES} /> */}
+      <BlogCarousel category="Design" />
       <FAQ faqs={FAQ_CONTACT} sectionData={FAQ_SECTION} />
       <Contact />
     </>

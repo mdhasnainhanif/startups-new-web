@@ -1,16 +1,17 @@
   "use client";
 
-  import { useRef, useState } from "react";
+  import { useEffect, useRef, useState } from "react";
   import { Swiper, SwiperSlide } from "swiper/react";
   import { Navigation } from "swiper/modules";
   import type { Swiper as SwiperType } from "swiper";
+  import Link from "next/link";
   import Container from "../Container";
   import styles from "./CompleteBusinessSetup.module.css";
   import "swiper/css";
   import "swiper/css/navigation";
   import Button from "../Button";
   import { ArrowRightIcon } from "../icons";
-
+  
   export interface BrandingKitItem {
     id: string;
     number: string;
@@ -51,8 +52,8 @@
 
   const DEFAULT_DATA: CompleteBusinessSetupData = {
     heading: {
-      part1: "Your Complete Business Design Setup — ",
-      price: "$1,499",
+      part1: "Your Complete Business Design Setup ",
+      price: "$3,299",
       part2: " One-Time",
     },
     brandingKits: {
@@ -183,18 +184,29 @@
       title: "Get This Package For ",
       items: [
         { id: "1", text: "A full design team" },
-        { id: "2", text: "22 essential business design assets" },
+        { id: "2", text: "50+ essential business design assets" },
         { id: "3", text: "AI-powered efficiency" },
-        { id: "4", text: "Unlimited revisions during the 22 days" },
+        { id: "4", text: "Unlimited revisions during the 1 month" },
         { id: "5", text: "All files delivered print-ready and web-ready" },
       ],
       ctaButton: {
-        text: "Get My Package",
-        href: "/contact",
+        text: "$3,299 USD",
+        href: "#",
       },
     },
   };
+  
+  const baseCrmUrl = "https://startupsadvisory.ai/crm/payment/paynow";
   const CompleteBusinessSetup = ({ data = DEFAULT_DATA }: CompleteBusinessSetupProps) => {
+    const plan = {
+      name: data.heading.part1.replace(" — ", "").replace(/^(Complete |Your Complete )/i, "").trim() || "Business Package",
+      amount: data.heading.price.replace(/[$,]/g, ""),
+      category: data.heading.part1.toLowerCase().includes("content writing") ? "content-writing" :
+                data.heading.part1.toLowerCase().includes("social content") ? "social-media" :
+                data.heading.part1.toLowerCase().includes("website") ? "web-development" : "business-setup",
+      currency_code: "USD"
+    };
+    const [itemsPerPage, setItemsPerPage] = useState(10);
     const swiperRef = useRef<SwiperType | null>(null);
     const [isBeginning, setIsBeginning] = useState(true);
     const [isEnd, setIsEnd] = useState(false);
@@ -249,6 +261,16 @@
 
       return parts;
     };
+    useEffect(() => {
+      const handleResize = () => {
+        setItemsPerPage(window.innerWidth < 768 ? 5 : 10);
+      };
+    
+      handleResize(); // run on first render
+      window.addEventListener("resize", handleResize);
+    
+      return () => window.removeEventListener("resize", handleResize);
+    }, []);
 
     return (
       <section className="sectionPadding bg-gradient-to-br from-[#1a0b3f] via-[#05001a] to-[#020014] relative overflow-hidden">
@@ -265,7 +287,7 @@
           >
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12">
               <div className={`flex flex-col md:col-span-7 ${styles.sliderwrapper}`}>
-                <div className="relative px-6 md:px-10 py-4 flex items-center min-h-full w-full">
+                <div className="relative lg:px-6 px-0 py-0 md:px-10 md:py-4 flex items-center min-h-full w-full">
                   <button
                     onClick={handlePrev}
                     disabled={isBeginning}
@@ -332,12 +354,15 @@
                     className={styles.brandingKitsSwiper}
                   >
                     {Array.from({
-                      length: Math.ceil(brandingKits.items.length / 10),
+                      length: Math.ceil(brandingKits.items.length / itemsPerPage),
                     }).map((_, groupIndex) => (
                       <SwiperSlide key={groupIndex}>
-                        <div className="grid grid-cols-2 md:gap-x-4 gap-y-4 gap-x-2 mx-auto">
-                          {brandingKits.items
-                            .slice(groupIndex * 10, (groupIndex + 1) * 10)
+                        <div className="grid lg:grid-cols-2 grid-cols-1 md:grid-cols-2 md:gap-x-4 gap-y-4 gap-x-2 mx-auto" style={{placeItems: 'center'}}>
+                        {brandingKits.items
+                              .slice(
+                                groupIndex * itemsPerPage,
+                                (groupIndex + 1) * itemsPerPage
+                              )
                             .map((item) => (
                               <div
                                 key={item.id}
@@ -389,9 +414,11 @@
                   ))}
                 </ul>
 
-                <Button href="#" variant="green" icon={<ArrowRightIcon style={{ fill: "#000" }} />} iconPosition="right">
-              {benefits.ctaButton.text}
-              </Button>
+                <Link href={`${baseCrmUrl}?item=${plan.name}&amount=${plan.amount}&category=${plan.category}&currency_code=${plan.currency_code}`}>
+                  <Button variant="green" icon={<ArrowRightIcon style={{ fill: "#000" }} />} iconPosition="right">
+                    {benefits.ctaButton.text}
+                  </Button>
+                </Link>
                 {data.additionalText && (
                   <div className="mt-6 pt-6 border-t border-[#2f2a63]">
                     {data.additionalText.heading && (

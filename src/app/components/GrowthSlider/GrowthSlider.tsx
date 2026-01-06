@@ -52,7 +52,7 @@ export default function GrowthSlider({ items }: { items: Guide[] }) {
     <section className={`${styles.section} sectionPadding blogStarsBackground`}>
       <div className="starsLayer3"></div>
       <Container maxWidth="xl" >
-        <div className="sectionHeading forH2 text-center text-[#ffffff]">
+        <div className="sectionHeading forH2 text-center text-[#ffffff] mb-6">
           <h2>
             Growth{" "}
             <span className={`${styles.titleGradient} ${styles.textLight}`}>

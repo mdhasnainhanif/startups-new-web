@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useState, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import { COMPANY_INFO, NAVIGATION_LINKS } from "../constants";
@@ -9,8 +8,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { getAllServices } from "../data/ServicesPageData";
-
+import OfferPopup from "./OfferPopup/OfferPopup";
 export default function Header() {
+  const [isOfferPopupOpen, setIsOfferPopupOpen] = useState(false);
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -70,6 +70,13 @@ export default function Header() {
     return services.some((service) => pathname.startsWith(`/${service.slug}`));
   };
 
+  // Close mobile menu when pathname changes
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+    setIsMobileServicesDropdownOpen(false);
+    setIsMobileDesignDropdownOpen(false);
+  }, [pathname]);
+
   useEffect(() => {
     
     const checkMobile = () => {
@@ -125,11 +132,11 @@ export default function Header() {
       if (dropdownButtonRef2.current && isServicesDropdownOpen2) {
         const rect = dropdownButtonRef2.current.getBoundingClientRect();
         const topPosition = isScrolled
-          ? rect.bottom + 4 
-          : rect.bottom + window.scrollY + 4; 
+          ? rect.bottom + 16 
+          : rect.bottom + window.scrollY + 16; 
 
         setDropdownPosition2({
-          top: topPosition,
+          top: topPosition ,
           left: rect.left + rect.width / 2,
         });
       }
@@ -470,43 +477,29 @@ export default function Header() {
             </div>
             <div className="hidden md:flex items-center gap-6 flex-1 justify-center relative z-50">
               {NAVIGATION_LINKS.map((link, index) => {
+                
                 if (link.label === "Home") {
                   return (
                     <a
                       key={link.href}
                       href={link.href}
                       className={`text-white font-medium hover:text-[#0fdac2] transition-colors cursor-pointer ${
-                        isActive(link.href) ? "text-[#0fdac2]" : ""
+                        isActive(link.href) ? "active text-[#0fdac2]" : ""
                       }`}
-                      style={
-                        isActive(link.href)
-                          ? {
-                              textShadow:
-                                "-9px 0 17px #00dbc1e6, 0px 6px 8px #0fdac287, 0 0 56px #0fdac2cc",
-                            }
-                          : {}
-                      }
                     >
                       {link.label}
                     </a>
                   );
                 }
+                
                 if (link.label === "Designer") {
                   return (
                     <React.Fragment key={`designer-with-services-${link.href}`}>
                       <a
                         href={link.href}
                         className={`text-white font-medium hover:text-[#0fdac2] transition-colors cursor-pointer ${
-                          isActive(link.href) ? "text-[#0fdac2]" : ""
+                          isActive(link.href) ? "active text-[#0fdac2]" : ""
                         }`}
-                        style={
-                          isActive(link.href)
-                            ? {
-                                textShadow:
-                                  "-9px 0 17px #00dbc1e6, 0px 6px 8px #0fdac287, 0 0 56px #0fdac2cc",
-                              }
-                            : {}
-                        }
                       >
                         {link.label}
                       </a>
@@ -523,8 +516,8 @@ export default function Header() {
                             const rect =
                               dropdownButtonRef2.current.getBoundingClientRect();
                             const topPosition = isScrolled
-                              ? rect.bottom + 4
-                              : rect.bottom + window.scrollY + 4;
+                              ? rect.bottom + 16
+                              : rect.bottom + window.scrollY + 16;
                             setDropdownPosition2({
                               top: topPosition,
                               left: rect.left + rect.width / 2,
@@ -544,19 +537,9 @@ export default function Header() {
                             servicesMenuItems.some((item) =>
                               pathname?.startsWith(item.href)
                             )
-                              ? "text-[#0FDAC2]"
+                              ? "active text-[#0FDAC2]"
                               : ""
                           }`}
-                          style={
-                            servicesMenuItems.some((item) =>
-                              pathname?.startsWith(item.href)
-                            )
-                              ? {
-                                  textShadow:
-                                    "-9px 0 17px #00dbc1e6, 0px 6px 8px #0fdac287, 0 0 56px #0fdac2cc",
-                                }
-                              : {}
-                          }
                         >
                           Services
                           <svg
@@ -575,7 +558,6 @@ export default function Header() {
                             />
                           </svg>
                         </button>
-
                         {typeof window !== "undefined" &&
                           isServicesDropdownOpen2 &&
                           createPortal(
@@ -652,22 +634,13 @@ export default function Header() {
                     </React.Fragment>
                   );
                 }
-                
                 return (
                   <a
                     key={link.href}
                     href={link.href}
                     className={`text-white font-medium hover:text-[#0fdac2] transition-colors cursor-pointer ${
-                      isActive(link.href) ? "text-[#0fdac2]" : ""
+                      isActive(link.href) ? "active text-[#0fdac2]" : ""
                     }`}
-                    style={
-                      isActive(link.href)
-                        ? {
-                            textShadow:
-                              "-9px 0 17px #00dbc1e6, 0px 6px 8px #0fdac287, 0 0 56px #0fdac2cc",
-                          }
-                        : {}
-                    }
                   >
                     {link.label}
                   </a>
@@ -681,11 +654,17 @@ export default function Header() {
               >
                 ROI Calculator
               </Link>
-              <Button href="/contact-us" variant="green" iconPosition="right">
+              <Button 
+                variant="green" 
+                iconPosition="right"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setIsOfferPopupOpen(true);
+                }}
+              >
                 Hire Your Team
               </Button>
             </div>
-
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="md:hidden flex flex-col gap-1.5 p-2 z-101 relative"
@@ -716,7 +695,6 @@ export default function Header() {
           onClick={() => setIsMobileMenuOpen(false)}
         />
       )}
-
       <div
         className={`fixed top-0 left-0 h-full w-80 max-w-[85vw] bg-[#0a0a1a] border-r border-[#1a1a2e]/50 md:hidden z-1000 transform transition-transform duration-300 ease-in-out ${
           isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
@@ -759,130 +737,43 @@ export default function Header() {
               </svg>
             </button>
           </div>
-
           <div className="flex flex-col flex-1 px-4 py-6 gap-4 overflow-y-auto">
+            
             <Link
               href="/"
               onClick={() => setIsMobileMenuOpen(false)}
-              className={`text-white text-base font-medium hover:text-[#0fdac2] transition-colors py-2 ${
-                isActive("/") ? "text-[#0fdac2]" : ""
+              className={`text-base font-medium hover:text-[#0fdac2] transition-colors py-2 ${
+                isActive("/") ? "text-[#0fdac2]" : "text-white"
               }`}
-              style={
-                isActive("/")
-                  ? {
-                      textShadow:
-                        "-9px 0 17px #00dbc1e6, 0px 6px 8px #0fdac287, 0 0 56px #0fdac2cc",
-                    }
-                  : {}
-              }
             >
               Home
             </Link>
-
             <div className="mb-2">
-              <Link href="/designer">
+              <Link 
+                href="/designer"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
               <button
-                className={`text-white text-base font-medium hover:text-[#0fdac2] transition-colors py-2 w-full text-left flex items-center justify-between ${
-                  isServicePage() ? "text-[#0fdac2]" : ""
+                className={`text-base font-medium hover:text-[#0fdac2] transition-colors py-2 w-full text-left flex items-center justify-between ${
+                  isActive("/designer") ? "text-[#0fdac2]" : "text-white"
                 }`}
-                style={
-                  isServicePage()
-                    ? {
-                        textShadow:
-                          "-9px 0 17px #00dbc1e6, 0px 6px 8px #0fdac287, 0 0 56px #0fdac2cc",
-                      }
-                    : {}
-                }
               >
                 Designer
-                {/* <svg
-                onClick={() =>
-                  setIsMobileDesignDropdownOpen(!isMobileDesignDropdownOpen)
-                }
-                  className={`w-4 h-4 transition-transform ${
-                    isMobileDesignDropdownOpen ? "rotate-180" : ""
-                  }`}
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg> */}
               </button>
               </Link>
-              {/* {isMobileDesignDropdownOpen && (
-                <div className="mt-2 pl-4 space-y-2">
-                  {services.map((service) => {
-                    const isActiveService = pathname?.startsWith(
-                      `/${service.slug}`
-                    );
-                    return (
-                      <Link
-                        key={service.slug}
-                        href={`/${service.slug}`}
-                        onClick={() => {
-                          setIsMobileMenuOpen(false);
-                          setIsMobileDesignDropdownOpen(false);
-                        }}
-                        className={`flex items-center gap-3 py-2 hover:text-[#0fdac2] transition-colors ${
-                          isActiveService ? "text-[#0fdac2]" : "text-gray-400"
-                        }`}
-                      >
-                        <div
-                          className={`flex-shrink-0 ${
-                            isActiveService
-                              ? "text-[#0fdac2]"
-                              : "text-[#643bff] opacity-70"
-                          }`}
-                        >
-                          {getServiceIcon(service.slug)}
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <div
-                            className={`font-medium text-sm ${
-                              isActiveService ? "text-[#0fdac2]" : "text-white"
-                            }`}
-                          >
-                            {service.title || "Service Name"}
-                          </div>
-                          <div className="text-xs text-gray-400 mt-0.5">
-                            {service.tagline || "Service description"}
-                          </div>
-                        </div>
-                      </Link>
-                    );
-                  })}
-                </div>
-              )} */}
             </div>
-
             <div className="mb-2">
               <button
                 onClick={() =>
                   setIsMobileServicesDropdownOpen(!isMobileServicesDropdownOpen)
                 }
-                className={`text-white text-base font-medium hover:text-[#0fdac2] transition-colors py-2 w-full text-left flex items-center justify-between ${
+                className={`text-base font-medium hover:text-[#0fdac2] transition-colors py-2 w-full text-left flex items-center justify-between ${
                   servicesMenuItems.some((item) =>
                     pathname?.startsWith(item.href)
                   )
                     ? "text-[#0fdac2]"
-                    : ""
+                    : "text-white"
                 }`}
-                style={
-                  servicesMenuItems.some((item) =>
-                    pathname?.startsWith(item.href)
-                  )
-                    ? {
-                        textShadow:
-                          "-9px 0 17px #00dbc1e6, 0px 6px 8px #0fdac287, 0 0 56px #0fdac2cc",
-                      }
-                    : {}
-                }
               >
                 Services
                 <svg
@@ -939,46 +830,37 @@ export default function Header() {
                 </div>
               )}
             </div>
-
             {NAVIGATION_LINKS.filter((link) => link.label !== "Home" && link.label !== "Designer").map(
               (link) => (
                 <a
                   key={link.href}
                   href={link.href}
-                  className={`text-white text-base font-medium hover:text-[#0fdac2] transition-colors py-2 ${
-                    isActive(link.href) ? "text-[#0fdac2]" : ""
+                  className={`text-base font-medium hover:text-[#0fdac2] transition-colors py-2 ${
+                    isActive(link.href) ? "text-[#0fdac2]" : "text-white"
                   }`}
-                  style={
-                    isActive(link.href)
-                      ? {
-                          textShadow:
-                            "-9px 0 17px #00dbc1e6, 0px 6px 8px #0fdac287, 0 0 56px #0fdac2cc",
-                        }
-                      : {}
-                  }
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.label}
                 </a>
               )
             )}
-
             <Link
               href="/roi-calculator"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="text-white text-sm border border-[#2f2a63] bg-[#05032173] rounded-lg px-3 py-2 text-[#969696] font-medium hover:text-[#0fdac2] transition-colors"
+              className="text-sm font-bold border-none bg-transparent py-2 text-[#0fdac2]"
             >
               ROI Calculator
             </Link>
-
             <div className="pt-4">
               <Button
-                href="/contact-us"
                 variant="green"
                 size="md"
                 iconPosition="right"
                 className="w-full text-center justify-center"
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  setIsOfferPopupOpen(true);
+                }}
               >
                 Hire Your Team
               </Button>
@@ -986,6 +868,10 @@ export default function Header() {
           </div>
         </div>
       </div>
+      <OfferPopup 
+        isOpen={isOfferPopupOpen} 
+        onClose={() => setIsOfferPopupOpen(false)} 
+      />
     </>
   );
 }

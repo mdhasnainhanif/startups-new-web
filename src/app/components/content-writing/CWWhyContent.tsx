@@ -69,7 +69,7 @@ export function CWWhyContent({ data }: CWWhyContentProps) {
             </ul>
 
             <p className="text-sm text-white/60 italic border-l-2 border-primary/50 pl-4">
-              Everything done by one expert team — so you never chase writers, editors, or strategists again.
+              Everything done by one expert team, so you never chase writers, editors, or strategists again.
             </p>
           </div>
         </div>

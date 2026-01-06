@@ -11,13 +11,13 @@ const ToolsTrained = () => {
       <Container maxWidth="xl">
         <div className="flex flex-col gap-8">
           {/* Heading */}
-          <div className="text-center max-w-2xl mx-auto sectionHeading forH2">
+          <div className="text-center max-w-3xl mx-auto sectionHeading forH2">
             <h2>
               <span className="text-white">{TOOLS_TRAINED_DATA.headline.part1}</span>
               <span className="text-[#0fdac2]">{TOOLS_TRAINED_DATA.headline.part2}</span>
               <span className="text-white">{TOOLS_TRAINED_DATA.headline.part3}</span>
             </h2>
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-2 mt-7">
               {TOOLS_TRAINED_DATA.description.map((paragraph, index) => (
                 <p key={index} className="text-lg md:text-xl text-white leading-relaxed">
                   {paragraph}

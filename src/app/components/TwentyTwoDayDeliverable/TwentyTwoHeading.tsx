@@ -9,7 +9,8 @@ const TwentyTwoHeading = () => {
       <Container maxWidth="xl" className={styles.container}>
         <div className={`${styles.titleSectionheading} sectionHeading forH2 max-w-5xl md:mx-auto`}>
           <h2>
-            <span className="text-[#0fdac2]">Everything</span> Your Business Needs — Delivered <span className="text-[#0fdac2]">in 22 Days</span>
+            <span className="text-[#0fdac2]">Everything</span> Your Business Needs Delivered 
+            <span className="text-[#0fdac2]">in 1 Month</span>
           </h2>
         </div>
       </Container>

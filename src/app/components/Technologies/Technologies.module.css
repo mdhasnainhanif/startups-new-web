@@ -26,6 +26,7 @@
   margin: 0 auto;
   width: 100%;
   text-align: center;
+  margin-top: 1.5rem;
 }
 
 .descriptionWrapper .description {
@@ -33,7 +34,7 @@
   font-size: 18px;
   line-height: 1.6;
   max-width: 100%;
-  margin: 0 auto 1.5rem auto;
+  margin: 0 auto 0.5rem auto;
   display: block;
 }
 
@@ -57,6 +58,7 @@
   margin: 0 auto;
   font-weight: 700;
 }
+
 /* Tabs Container */
 .tabsContainer {
   z-index: 1;
@@ -67,11 +69,12 @@
   margin-bottom: 40px;
   margin-left: auto;
   margin-right: auto;
-  padding: 1rem 0;
+  padding: 1rem 1rem;
   display: none;
   position: relative;
   border-radius: 0.5rem;
   width: fit-content;
+  gap: 2rem;
 }
 
 @media (min-width: 768px) {
@@ -80,9 +83,9 @@
   }
 }
 
-.tabsContainer .tab:nth-child(2) {
+/* .tabsContainer .tab:nth-child(2) {
   margin-left: 2rem;
-}
+} */
 
 .tab {
   padding: 12px 20px 16px;
@@ -95,11 +98,12 @@
   transition: all 0.3s ease;
   position: relative;
   border-radius: 0.5rem;
-  margin: 0 20px 0 13px;
+  /* margin: 0 20px 0 13px; */
   min-width: 4rem;
   letter-spacing: 0.03rem;
   /* font-family: var(--font-graphik-bold) !important; */
 }
+
 .tab::before {
   content: "";
   position: absolute;
@@ -109,6 +113,7 @@
   height: 100%;
   background: #372c6b;
 }
+
 /* .tab:nth-child(2)::before {
     left: -20%;
 } */
@@ -207,13 +212,11 @@
   position: relative;
   z-index: 1;
   overflow: hidden;
-  mask-image: linear-gradient(
-    to right,
-    #fff0 0%,
-    #000000 25%,
-    #000000 75%,
-    #fff0 100%
-  );
+  mask-image: linear-gradient(to right,
+      #fff0 0%,
+      #000000 25%,
+      #000000 75%,
+      #fff0 100%);
 }
 
 .slider {
@@ -246,6 +249,7 @@
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(-33.333%);
   }
@@ -255,6 +259,7 @@
   0% {
     transform: translateX(-33.333%);
   }
+
   100% {
     transform: translateX(0);
   }
@@ -298,16 +303,18 @@
 
 /* Responsive Styles */
 @media (max-width: 768px) {
- 
-  .tabsContainer
-  {
+  .descriptionWrapper {
+    text-align: left;
+  }
+  .tabsContainer {
     border-radius: 0px !important;
     display: none !important;
   }
-  tab:before
-  {
+
+  tab:before {
     display: none !important;
   }
+
   .heading {
     font-size: 36px;
   }
@@ -358,14 +365,15 @@
   .tabsContainer {
     background-color: transparent;
   }
-  .tabsContainer
-  {
+
+  .tabsContainer {
     border-radius: 0px !important;
   }
-  tab:before
-  {
+
+  tab:before {
     display: none !important;
   }
+
   .heading {
     font-size: 28px;
   }
@@ -377,7 +385,12 @@
   .categoryTitle {
     font-size: 18px;
   }
+
   .tab::before {
     content: none;
+  }
+
+  .toolName {
+    font-size: 18px;
   }
 }

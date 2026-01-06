@@ -2,10 +2,14 @@ import type { Metadata } from "next";
 import ContactForm from "../components/ContactPage/ContactForm/ContactForm";
 import { contactFormData } from "../components/ContactPage/ContactForm/data";
 import { contactFormAddressData } from "../components/ContactPage/ContactFormAddress/data";
-import { FAQ_DATA, FAQ_SECTION, GROWTH_GUIDES } from "../constants";
+import { FAQ_DATA, FAQ_SECTION } from "../constants";
 import FAQ from "../components/FAQ/FAQ";
-import GrowthSlider from "../components/GrowthSlider/GrowthSlider";
 import ContactFormAddress from "../components/ContactPage/ContactFormAddress/ContactFormAddress";
+import Container from "../components/Container";
+import dynamic from "next/dynamic";
+const BlogCarousel = dynamic(() => import("../components/BlogCarousel/BlogCarousel"), {
+  loading: () => <div className="h-96" />,
+});
 export const metadata: Metadata = {
   title: "Contact Us | Get in Touch | Startups Advisory",
   description: "Let's connect and build your next growth chapter. Get in touch with our team to discuss how we can help accelerate your business growth.",
@@ -68,16 +72,19 @@ export default function ContactPage() {
   };
   return (
     <>
-      <div className="max-w-4xl mx-auto mb-8 sm:mb-12 lg:mb-16 text-center pt100 contactMain sectionHeading">
-        <h1 className="mb-2 max-w-4xl mx-auto md:pt-20">
+    <Container maxWidth="2xl">
+      <div className="max-w-4xl mx-auto mb-8 sm:mb-12 lg:mb-16 text-center contactMain sectionHeading heroBannerPaddingTop">
+        <h1 className="mb-2 max-w-4xl mx-auto md:pt-[14rem]">
         Let’s Connect and Build <span className="text-[#0fdac2]">Your Next Growth</span> Chapter
         </h1>
       </div>
+      </Container>
       <div className="max-w-6xl mx-auto">
         <ContactForm config={contactFormData} />
         <ContactFormAddress config={contactFormAddressData} />
       </div>
-      <GrowthSlider items={GROWTH_GUIDES} />
+      <BlogCarousel showAllCategories={true} />
+      {/* <GrowthSlider items={GROWTH_GUIDES} /> */}
       <FAQ faqs={FAQ_DATA} sectionData={FAQ_SECTION} />
       </>
   );

@@ -49,28 +49,28 @@ export const problemData = {
     "Most businesses stay stuck because of these fundamental problems. Without solving them, growth stalls and exit plans fail.",
   problems: [
     {
-      icon: "TrendingDown",
+      icon: "/assets/images/flippa/why-most-businesses/1.svg",
       title: "Stuck Growth",
       description: "Revenue plateaus despite working harder. No clear path to scale.",
     },
     {
-      icon: "AlertCircle",
+      icon: "/assets/images/flippa/why-most-businesses/2.svg",
       title: "Operational Chaos",
       description: "Messy processes, manual work, and constant firefighting drain your energy.",
     },
     {
-      icon: "Clock",
+      icon: "/assets/images/flippa/why-most-businesses/3.svg",
       title: "Owner Dependency",
       description: "The business can't run without you. Impossible to step back or exit.",
     },
     {
-      icon: "Users",
+      icon: "/assets/images/flippa/why-most-businesses/4.svg",
       title: "Weak Positioning",
       description: "Poor brand, outdated website, unclear value proposition. Invisible to buyers.",
     },
   ],
   bottomText:
-    "Without a strong foundation — systems, marketing, process, profitability — your business remains undervalued and unsellable.",
+    "Without a strong foundation, systems, marketing, process, profitability, your business remains undervalued and unsellable.",
 };
 
 // Solution Section Data
@@ -82,7 +82,7 @@ export const solutionData = {
     suffix: "System",
   },
   description:
-    "We offer a full-stack growth + exit-prep service — we don't just give advice, we build, implement, and transform your business into a sell-ready asset in 90 days.",
+    "We offer a full-stack growth + exit-prep service, we don't just give advice, we build, implement, and transform your business into a sell-ready asset in 90 days.",
   solutions: [
     {
       title: "Operational Overhaul",
@@ -214,21 +214,21 @@ export const statsData = {
   description: "Real results from real businesses we've transformed.",
   stats: [
     {
-      icon: "TrendingUp",
+      icon: "/assets/images/flippa/stats/1.svg",
       value: 5,
       suffix: "x",
       label: "Average Value Increase",
       description: "Business valuation growth",
     },
     {
-      icon: "Clock",
+      icon: "/assets/images/flippa/stats/2.svg",
       value: 90,
       suffix: "",
       label: "Days to Transform",
       description: "From messy to sell-ready",
     },
     {
-      icon: "DollarSign",
+      icon: "/assets/images/flippa/stats/3.svg",
       value: 2.5,
       prefix: "$",
       suffix: "M+",
@@ -237,7 +237,7 @@ export const statsData = {
       description: "For our clients",
     },
     {
-      icon: "Users",
+      icon: "/assets/images/flippa/stats/4.svg",
       value: 94,
       suffix: "%",
       label: "Client Retention",
@@ -269,7 +269,7 @@ export const valueStackData = {
   totalValue: 125000,
   investment: {
     title: "Your Investment",
-    text: "Book a call to learn more",
+    text: "Book a Call to Learn More",
     note: "Flexible payment plans available",
   },
 };
@@ -285,37 +285,37 @@ export const differentiatorsData = {
     "We're not consultants who give advice and leave. We're operators who get in the trenches and build alongside you.",
   items: [
     {
-      icon: "Wrench",
+      icon: "/assets/images/flippa/different/1.svg",
       title: "We Build, Not Just Advise",
       description:
         "Hands-on transformation, not slide decks. We implement every system ourselves.",
     },
     {
-      icon: "Layers",
+      icon: "/assets/images/flippa/different/2.svg",
       title: "Full-Stack Services",
       description:
         "Operations, branding, web design, marketing, profitability — all under one roof.",
     },
     {
-      icon: "Target",
+      icon: "/assets/images/flippa/different/3.svg",
       title: "Outcome-Driven",
       description:
         "We focus on tangible value — better systems, higher profits, stronger market appeal.",
     },
     {
-      icon: "Rocket",
+      icon: "/assets/images/flippa/different/4.svg",
       title: "Exit-Ready Mindset",
       description:
         "We design with exit in mind from day 1. Your business becomes attractive to buyers.",
     },
     {
-      icon: "Settings",
+      icon: "/assets/images/flippa/different/5.svg",
       title: "Systems Over Chaos",
       description:
         "Once optimized, the business runs without you. Growth becomes scalable and repeatable.",
     },
     {
-      icon: "Shield",
+      icon: "/assets/images/flippa/different/6.svg",
       title: "Transparent Process",
       description:
         "Clear milestones, measurable results. You always know exactly where you stand.",

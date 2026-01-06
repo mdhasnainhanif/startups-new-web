@@ -29,11 +29,11 @@ const StatCard = ({ stat, index }: { stat: typeof statsData.stats[0]; index: num
       ref={ref}
       className="relative bg-white/5 border border-white/10 rounded-2xl p-6 lg:p-8 text-center group hover:border-[var(--color-purple)]/50 transition-all duration-300 hover:shadow-lg"
     >
-      <div className="w-12 h-12 lg:w-14 lg:h-14 rounded-xl bg-[var(--color-purple)]/10 group-hover:bg-[var(--color-purple)]/20 flex items-center justify-center mx-auto mb-4 transition-colors">
-        <IconComponent className="w-6 h-6 lg:w-7 lg:h-7 text-[var(--color-purple)]" />
+      <div className="w-12 h-12 lg:w-14 lg:h-14 rounded-[50%] bg-[#2e2277] flex items-center justify-center mx-auto mb-4 transition-colors">
+          <img src={stat.icon} alt={stat.label} className="w-6 h-6 lg:w-7 lg:h-7" />
       </div>
 
-      <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--color-purple)] mb-2">
+      <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--color-primary)] mb-2">
         {formattedValue}
       </div>
 
@@ -64,7 +64,7 @@ export default function StatsSection() {
           <p className="text-lg text-white/80">{statsData.description}</p>
         </MotionDiv>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 max-w-5xl mx-auto">
           {statsData.stats.map((stat, index) => (
             <StatCard key={stat.label} stat={stat} index={index} />
           ))}

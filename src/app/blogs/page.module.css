@@ -49,6 +49,8 @@
   height: 100%;
   display: block;
   border-radius: 1rem;
+  object-fit: cover;
+  object-position: center;
 }
 
 .category {
@@ -114,10 +116,145 @@
   margin-top: auto;
 }
 
+/* Skeleton Loader Styles */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    #1a1640 25%,
+    #252050 50%,
+    #1a1640 75%
+  );
+  background-size: 200% 100%;
+  animation: loading 1.5s ease-in-out infinite;
+  border-radius: 0.3rem;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.skeletonImage {
+  background: linear-gradient(
+    90deg,
+    #1a1640 25%,
+    #252050 50%,
+    #1a1640 75%
+  );
+  background-size: 200% 100%;
+  animation: loading 1.5s ease-in-out infinite;
+  border: none;
+  width: 100%;
+  height: 250px;
+  border-radius: 1rem;
+  display: block;
+}
+
+.skeletonTag {
+  background: linear-gradient(
+    90deg,
+    #1a1640 25%,
+    #252050 50%,
+    #1a1640 75%
+  );
+  background-size: 200% 100%;
+  animation: loading 1.5s ease-in-out infinite;
+  padding: 0;
+  height: 1.5rem;
+  width: 80px;
+}
+
+.skeletonTitle {
+  height: 1.5rem;
+  width: 80%;
+  margin-bottom: 0.5rem;
+  margin-top: 0.525rem;
+}
+
+.skeletonMeta {
+  height: 0.875rem;
+  width: 40%;
+}
+
+.skeletonExcerpt {
+  height: 3.9375rem;
+  width: 100%;
+  margin-bottom: 1.25rem;
+}
+
+.skeletonButton {
+  height: 2.5rem;
+  width: 120px;
+  margin-top: auto;
+}
+
+/* Pagination Styles */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 3rem;
+  flex-wrap: wrap;
+}
+
+.paginationButton {
+  background: #120f36;
+  border: 1px solid #312d63a8;
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.paginationButton:hover:not(.disabled) {
+  border-color: #643bff;
+  background: #1a1640;
+  transform: translateY(-1px);
+}
+
+.paginationButton.active {
+  background: #643bff;
+  border-color: #643bff;
+  color: #e9d7ff;
+  font-weight: 600;
+}
+
+.paginationButton.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.paginationEllipsis {
+  color: #0fdac2;
+  padding: 0 0.5rem;
+  font-size: 0.875rem;
+}
+
 @media (max-width: 1024px) {
   .blogsGrid {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 1.5rem;
+  }
+}
+
+/* iPad only: 768px to 1023px - 2 columns */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .blogsGrid {
+    grid-template-columns: repeat(2, 1fr) !important;
   }
 }
 
@@ -144,7 +281,20 @@
   }
 
   .imageWrapper {
-    height: 200px;
+    height: 100%;
+    width: 101%;
+  }
+
+  .pagination {
+    gap: 0.375rem;
+    margin-top: 2rem;
+  }
+
+  .paginationButton {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.8rem;
+    min-width: 40px;
+    height: 40px;
   }
 }
 
@@ -154,6 +304,22 @@
   }
 
   .imageWrapper {
-    height: 180px;
+    height: 100%;
+  }
+
+  .pagination {
+    gap: 0.25rem;
+  }
+
+  .paginationButton {
+    padding: 0.35rem 0.6rem;
+    font-size: 0.75rem;
+    min-width: 36px;
+    height: 36px;
+  }
+
+  .paginationEllipsis {
+    padding: 0 0.25rem;
+    font-size: 0.75rem;
   }
 }
