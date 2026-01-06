@@ -27,7 +27,7 @@ import {
   contentWritingSliderData3 
 } from '../data/ContentWritingPageData';
 export const metadata: Metadata = {
-  title: "1 Month Content Writing Service | Market-Ready Content | Startups Advisory",
+  title: "1 Month Content Writing Service | Market Ready Content | Startups Advisory",
   description:
     "Market Ready Content in 1 Month. Writing shaped for presence, persuasion, and modern brand standards. A complete content layer built with clarity, rhythm, and commercial intent.",
   robots: "nofollow",
@@ -43,7 +43,7 @@ export default function ContentWritingPage() {
         hideTabs={true} 
         defaultTab="contentWriting"
         heading="$48,000 plus in Professional Writing Output Delivered in 1 Month"
-        description="A condensed writing period supported by structured tools and seasoned writers replaces fragmented content, inconsistent tone, and time-consuming revisions."
+        description="A condensed writing period supported by structured tools and seasoned writers replaces fragmented content, inconsistent tone, and time consuming revisions."
         subDescription="Content Production Tools ($12,000 plus Annual Value)"
       />
       <TextSlider1 data={contentWritingSliderData2}/>

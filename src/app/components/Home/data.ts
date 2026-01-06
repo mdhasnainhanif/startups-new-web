@@ -1,7 +1,7 @@
 export const HERO_BANNER = {
   headline: "",
   headlineHighlight: "",
-  subheadline: "[Your AI-Powered] Growth Team Ready to Run Your Business",
+  subheadline: "[Your AI Powered] Growth Team Ready to Run Your Business",
   className: "",
   description:
     `Finally growth that accelerates every part of your business forward. \n Your AI powered growth team brings more clients improves operations boosts revenue and keeps your business moving.`,

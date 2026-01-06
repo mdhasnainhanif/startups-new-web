@@ -30,9 +30,9 @@ import {
 } from '../data/SocialMediaMarketingPageData';
 import ProvenSuccess from "../components/ProvenSuccess/ProvenSuccess";
 export const metadata: Metadata = {
-  title: "1 Month Social Media Marketing Service | Market-Ready Social Content | Startups Advisory",
+  title: "1 Month Social Media Marketing Service | Market Ready Social Content | Startups Advisory",
   description:
-    "Market-Ready Social Content in 1 Month. Creative built for attention, precision, and brand presence. A complete social layer shaped with clarity, style, and strategic intent.",
+    "Market Ready Social Content in 1 Month. Creative built for attention, precision, and brand presence. A complete social layer shaped with clarity, style, and strategic intent.",
   robots: "nofollow",
 };
 

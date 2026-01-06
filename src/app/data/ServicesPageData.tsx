@@ -25,11 +25,11 @@ export const SERVICES_DATA: Record<string, ServicePageData> = {
     description: "Create a strategic brand identity that positions your business clearly and removes buyer hesitation. We build complete brand systems that signal authority, clarify value, and drive confident decisions.",
     metadata: {
       title: "Brand & Identity Services | Startups Advisory",
-      description: "High-Impact Brand & Identity That Drive Trust. Build brand foundations that convert.",
+      description: "High Impact Brand & Identity That Drive Trust. Build brand foundations that convert.",
     },
     bannerData: {
       heading: {
-        part1: "High-Impact ",
+        part1: "High Impact ",
         highlight1: "Brand & Identity",
         highlight2: "",
         part2: " That Drive Trust",
@@ -64,11 +64,11 @@ export const SERVICES_DATA: Record<string, ServicePageData> = {
     description: "Create performance-driven marketing that attracts qualified buyers and removes friction from the buying journey. We build complete marketing systems that generate attention, capture intent, and turn traffic into predictable revenue.",
     metadata: {
       title: "Marketing & Advertising Services | Startups Advisory",
-      description: "High-Impact Marketing & Advertising Systems That Drive Revenue. Build demand that converts.",
+      description: "High Impact Marketing & Advertising Systems That Drive Revenue. Build demand that converts.",
     },
     bannerData: {
       heading: {
-        part1: "High-Impact ",
+        part1: "High Impact ",
         highlight1: "Marketing And Advertising",
         highlight2: "",
         part2: " Systems That Drive Revenue",
@@ -103,11 +103,11 @@ export const SERVICES_DATA: Record<string, ServicePageData> = {
     description: "Create fast, scalable, conversion-focused websites and digital systems that position your business clearly and turn traffic into revenue. We build complete digital frameworks that remove friction, increase trust, and guide users to decisive outcomes.",
     metadata: {
       title: "Digital & Web Design Services | Startups Advisory",
-      description: "High-Performance Digital & Web Systems That Convert. Build digital experiences that drive action.",
+      description: "High Performance Digital & Web Systems That Convert. Build digital experiences that drive action.",
     },
     bannerData: {
       heading: {
-        part1: "High-Performance ",
+        part1: "High Performance ",
         highlight1: "Digital & Web",
         highlight2: "",
         part2: " Systems That Convert",
@@ -142,11 +142,11 @@ export const SERVICES_DATA: Record<string, ServicePageData> = {
     description: "Create motion and video content that explains fast, holds attention, and drives decisions across ads, websites, and campaigns. We build motion systems that clarify your message, amplify trust, and convert viewers into customers.",
     metadata: {
       title: "Motion & Video Services | Startups Advisory",
-      description: "High-Impact Motion & Video That Puts Your Brand Story in Motion. Turn attention into action.",
+      description: "High Impact Motion & Video That Puts Your Brand Story in Motion. Turn attention into action.",
     },
     bannerData: {
       heading: {
-        part1: "High-Impact ",
+        part1: "High Impact ",
         highlight1: "Motion & Video",
         highlight2: "",
         part2: " That Puts Your Brand Story in Motion",
@@ -178,19 +178,19 @@ export const SERVICES_DATA: Record<string, ServicePageData> = {
     slug: "print",
     title: "Print",
     tagline: "Turn Your Brand Into Something People Can Hold",
-    description: "Digital gets noticed. Print gets remembered. We design print materials that add weight to your brand — pieces that feel intentional, credible, and worth keeping. From first impressions to final handshakes, we create print that supports trust and reinforces your brand in the real world.",
+    description: "Digital gets noticed. Print gets remembered. We design print materials that add weight to your brand   pieces that feel intentional, credible, and worth keeping. From first impressions to final handshakes, we create print that supports trust and reinforces your brand in the real world.",
     metadata: {
       title: "Print Design Services | Startups Advisory",
-      description: "High-Impact Print That Makes Your Brand Feel Real. Turn Your Brand Into Something People Can Hold.",
+      description: "High Impact Print That Makes Your Brand Feel Real. Turn Your Brand Into Something People Can Hold.",
     },
     bannerData: {
       heading: {
-        part1: "High-Impact ",
+        part1: "High Impact ",
         highlight1: "Print That Makes ",
         highlight2: "",
         part2: " Your Brand Feel Real",
       },
-      description: "Turn Your Brand Into Something People Can Hold. Digital gets noticed. Print gets remembered. We design print materials that add weight to your brand — pieces that feel intentional, credible, and worth keeping. From first impressions to final handshakes, we create print that supports trust and reinforces your brand in the real world.",
+      description: "Turn Your Brand Into Something People Can Hold. Digital gets noticed. Print gets remembered. We design print materials that add weight to your brand   pieces that feel intentional, credible, and worth keeping. From first impressions to final handshakes, we create print that supports trust and reinforces your brand in the real world.",
       experienceBox: {
         title: "Authority Box – Your Print Design Team's Advantage",
         items: [
@@ -259,11 +259,11 @@ export const SERVICES_DATA: Record<string, ServicePageData> = {
     description: "Create professional eBooks and reports that explain clearly, look credible, and position your brand as the authority in your space. We design structured document systems that earn trust, hold attention, and drive confident decisions.",
     metadata: {
       title: "eBooks & Digital Report Design | Startups Advisory",
-      description: "High-Impact eBook & Report Templates That Build Authority. Turn information into influence.",
+      description: "High Impact eBook & Report Templates That Build Authority. Turn information into influence.",
     },
     bannerData: {
       heading: {
-        part1: "High-Impact ",
+        part1: "High Impact ",
         highlight1: "eBook & Report Templates",
         highlight2: "",
         part2: " That Build Authority",
@@ -274,7 +274,7 @@ export const SERVICES_DATA: Record<string, ServicePageData> = {
         items: [
           "1,200+ eBooks, reports, and lead assets designed",
           "25+ years combined experience in editorial and layout design",
-          "Specialists in long-form documents, data-heavy reports, and lead magnets",
+          "Specialists in Long Form documents, data-heavy reports, and lead magnets",
           "Templates trusted by businesses across 20+ industries",
           "Built with clarity-first structure and conversion-focused design systems",
         ],
@@ -295,19 +295,19 @@ export const SERVICES_DATA: Record<string, ServicePageData> = {
     slug: "presentations",
     title: "Presentations",
     tagline: "Turn slides into decisions",
-    description: "Create presentations that explain clearly, look credible, and move audiences toward action — whether you're pitching, selling, or reporting. We design presentation systems that sharpen your message, reinforce authority, and drive confident outcomes.",
+    description: "Create presentations that explain clearly, look credible, and move audiences toward action   whether you're pitching, selling, or reporting. We design presentation systems that sharpen your message, reinforce authority, and drive confident outcomes.",
     metadata: {
       title: "Presentation Design Services | Startups Advisory",
-      description: "High-Impact Presentation Design That Wins Attention. Turn slides into decisions.",
+      description: "High Impact Presentation Design That Wins Attention. Turn slides into decisions.",
     },
     bannerData: {
       heading: {
-        part1: "High-Impact ",
+        part1: "High Impact ",
         highlight1: "Presentation Design",
         highlight2: "",
         part2: " That Wins Attention",
       },
-      description: "Turn slides into decisions. Create presentations that explain clearly, look credible, and move audiences toward action — whether you're pitching, selling, or reporting. We design presentation systems that sharpen your message, reinforce authority, and drive confident outcomes.",
+      description: "Turn slides into decisions. Create presentations that explain clearly, look credible, and move audiences toward action   whether you're pitching, selling, or reporting. We design presentation systems that sharpen your message, reinforce authority, and drive confident outcomes.",
       experienceBox: {
         title: "Authority Box – Your Presentation Design Team's Advantage",
         items: [
@@ -337,11 +337,11 @@ export const SERVICES_DATA: Record<string, ServicePageData> = {
     description: "Create product and packaging designs that stand out instantly, communicate value clearly, and influence buying decisions at the point of sale. We design packaging systems that elevate perception, build trust, and move products faster.",
     metadata: {
       title: "Product & Packaging Design | Startups Advisory",
-      description: "High-Impact Product & Packaging Design That Sells on Sight. Turn shelves into sales.",
+      description: "High Impact Product & Packaging Design That Sells on Sight. Turn shelves into sales.",
     },
     bannerData: {
       heading: {
-        part1: "High-Impact Product",
+        part1: "High Impact Product",
         highlight1: " & Packaging Design",
         highlight2: "",
         part2: " That Sells on Sight",
@@ -412,19 +412,19 @@ export const SERVICES_DATA: Record<string, ServicePageData> = {
     slug: "environmental-event",
     title: "Environmental & Event",
     tagline: "Turn events into brand experiences",
-    description: "Create corporate event designs that look professional, feel intentional, and reinforce your brand at every touchpoint — before, during, and after the event. We design event systems that build credibility, engagement, and lasting impressions.",
+    description: "Create corporate event designs that look professional, feel intentional, and reinforce your brand at every touchpoint   before, during, and after the event. We design event systems that build credibility, engagement, and lasting impressions.",
     metadata: {
       title: "Environmental & Event Graphics | Startups Advisory",
-      description: "High-Impact Corporate Event Design That Elevates Brand Presence. Turn events into brand experiences.",
+      description: "High Impact Corporate Event Design That Elevates Brand Presence. Turn events into brand experiences.",
     },
     bannerData: {
       heading: {
-        part1: "High-Impact ",
+        part1: "High Impact ",
         highlight1: "Corporate Event Design",
         highlight2: "",
         part2: " That Elevates Brand Presence",
       },
-      description: "Turn events into brand experiences. Create corporate event designs that look professional, feel intentional, and reinforce your brand at every touchpoint — before, during, and after the event. We design event systems that build credibility, engagement, and lasting impressions.",
+      description: "Turn events into brand experiences. Create corporate event designs that look professional, feel intentional, and reinforce your brand at every touchpoint   before, during, and after the event. We design event systems that build credibility, engagement, and lasting impressions.",
       experienceBox: {
         title: "Authority Box – Your Corporate Events Design Team's Advantage",
         items: [

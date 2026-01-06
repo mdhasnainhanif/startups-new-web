@@ -57,7 +57,7 @@ const AiAgentServices = () => {
                 Our AI services plug directly into your business, no-code,
                 real-time, and trained on your systems. From handling customer
                 support to qualifying leads or syncing bookings, our AI agents
-                act like full-time staff across multiple platforms.
+                act like Full time staff across multiple platforms.
               </p>
             </div>
           </div>

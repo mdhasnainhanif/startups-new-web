@@ -2,17 +2,17 @@
 export const heroData = {
   painHook: "Tired of working 60+ hours a week on a business you can't sell?",
   badge: {
-    text: "Only 5 Spots Per Quarter —",
+    text: "Only 5 Spots Per Quarter  ",
     subtext: "Value Accelerator & Growth Partner",
   },
   headline: {
     main: "Turn Your Business Into a",
-    highlight: "High-Value Asset",
+    highlight: "High Value Asset",
     suffix: "in 90 Days",
     mobileSuffix: "Fast",
   },
   subheadline:
-    "We don't just consult — we rebuild, scale and systematize your business, so you get a high-value, sell-ready asset in 90 days or less.",
+    "We don't just consult   we rebuild, scale and systematize your business, so you get a High value, sell-ready asset in 90 days or less.",
   guarantee: {
     text: "✓ 90-Day Guarantee:",
     description: "See value increase or we work free until you do",
@@ -82,7 +82,7 @@ export const solutionData = {
     suffix: "System",
   },
   description:
-    "We offer a full-stack growth + exit-prep service, we don't just give advice, we build, implement, and transform your business into a sell-ready asset in 90 days.",
+    "We offer a Full Stack growth + exit-prep service, we don't just give advice, we build, implement, and transform your business into a sell-ready asset in 90 days.",
   solutions: [
     {
       title: "Operational Overhaul",
@@ -254,7 +254,7 @@ export const valueStackData = {
     highlight: "90-Day Transformation",
   },
   description:
-    "Most agencies charge separately for each service. We bundle everything you need into one comprehensive package — because real transformation requires all the pieces working together.",
+    "Most agencies charge separately for each service. We bundle everything you need into one comprehensive package   because real transformation requires all the pieces working together.",
   urgencyBadge: "Only accepting 5 new clients per quarter",
   valueItems: [
     { item: "Complete Operational Audit & Overhaul", value: "$15,000" },
@@ -292,15 +292,15 @@ export const differentiatorsData = {
     },
     {
       icon: "/assets/images/flippa/different/2.svg",
-      title: "Full-Stack Services",
+      title: "Full Stack Services",
       description:
-        "Operations, branding, web design, marketing, profitability — all under one roof.",
+        "Operations, branding, web design, marketing, profitability   all under one roof.",
     },
     {
       icon: "/assets/images/flippa/different/3.svg",
       title: "Outcome-Driven",
       description:
-        "We focus on tangible value — better systems, higher profits, stronger market appeal.",
+        "We focus on tangible value   better systems, higher profits, stronger market appeal.",
     },
     {
       icon: "/assets/images/flippa/different/4.svg",
@@ -335,7 +335,7 @@ export const testimonialsData = {
   testimonials: [
     {
       quote:
-        "They didn't just advise us — they rebuilt our entire operation. In 90 days, we went from chaos to a systemized business that runs without me.",
+        "They didn't just advise us   they rebuilt our entire operation. In 90 days, we went from chaos to a systemized business that runs without me.",
       author: "Sarah Mitchell",
       role: "Former Owner, TechStart Solutions",
       metric: "Sold for $2.8M at 3.2x valuation",
@@ -368,13 +368,13 @@ export const testimonialsData = {
 
 // Guarantee Section Data
 export const guaranteeData = {
-  label: "Risk-Free Investment",
+  label: "Risk Free Investment",
   title: {
     main: "Our",
     highlight: "Triple Guarantee",
   },
   description:
-    "We don't just promise results — we guarantee them. If we don't deliver, you don't pay.",
+    "We don't just promise results   we guarantee them. If we don't deliver, you don't pay.",
   guarantees: [
     {
       icon: "Shield",
@@ -386,7 +386,7 @@ export const guaranteeData = {
       icon: "Clock",
       title: "On-Time Delivery",
       description:
-        "Your transformation completed in 90 days — no extensions, no excuses.",
+        "Your transformation completed in 90 days   no extensions, no excuses.",
     },
     {
       icon: "Award",
@@ -402,7 +402,7 @@ export const guaranteeData = {
 export const ctaData = {
   title: "Ready to Transform Your Business?",
   description:
-    "Join the business owners who've turned their companies into high-value, sell-ready assets.",
+    "Join the business owners who've turned their companies into High value, sell-ready assets.",
   cta: {
     primary: {
       text: "Start Your 90-Day Transformation",
@@ -421,7 +421,7 @@ export const objectionsData = {
     {
       question: "90 days seems too fast. Can you really transform a business that quickly?",
       answer:
-        "Yes. We've done it 47 times. The key is our systematic approach and hands-on implementation. We don't just plan — we build, implement, and optimize simultaneously across all areas.",
+        "Yes. We've done it 47 times. The key is our systematic approach and hands-on implementation. We don't just plan   we build, implement, and optimize simultaneously across all areas.",
     },
     {
       question: "What if my business is too small or too large?",
@@ -431,7 +431,7 @@ export const objectionsData = {
     {
       question: "How is this different from hiring consultants?",
       answer:
-        "We don't just advise — we implement. You get a full team (operations, marketing, design, finance) working hands-on in your business. We build the systems, not just recommend them.",
+        "We don't just advise   we implement. You get a full team (operations, marketing, design, finance) working hands-on in your business. We build the systems, not just recommend them.",
     },
     {
       question: "What if I'm not ready to exit yet?",

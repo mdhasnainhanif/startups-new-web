@@ -319,7 +319,7 @@ export const OUR_CORE_VALUES = {
       icon: '/assets/images/globe2.svg',
       heading: "Mission",
       description:
-        "Empower U.S. startups to improve their success odds by making global talent and AI-driven efficiency affordable, accessible, and built for real-world execution.",
+        "Empower U.S. startups to improve their success odds by making global talent and AI driven efficiency affordable, accessible, and built for real world execution.",
     },
     {
       id: "2",
@@ -327,7 +327,7 @@ export const OUR_CORE_VALUES = {
       icon: '/assets/images/globe3.svg',
       heading: "Vision",
       description:
-        "A world where every startup can scale confidently by leveraging global talent and AI without the traditional cost barriers that limit early-stage growth.",
+        "A world where every startup can scale confidently by leveraging global talent and AI without the traditional cost barriers that limit early stage growth.",
     },
     {
       id: "3",

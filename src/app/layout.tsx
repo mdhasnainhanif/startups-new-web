@@ -51,7 +51,7 @@ const graphikSemiBold = localFont({
 
 export const metadata: Metadata = {
   title: "Startups Advisory",
-  description: "AI-powered advisory for startups",
+  description: "AI Powered advisory for startups",
   robots: "nofollow",
   icons: {
     icon: "/assets/images/favicon.svg",

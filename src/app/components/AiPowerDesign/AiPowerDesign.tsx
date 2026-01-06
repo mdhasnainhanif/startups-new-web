@@ -43,8 +43,8 @@ interface AiPowerDesignProps {
 
 const AI_POWER_DESIGN_DATA: AiPowerDesignData = {
   headline: {
-    text: 'Your AI-Powered Design Team Handles Every Design Your Business Needs in the First 1 Month.',
-    highlighted: ['AI-Powered Design Team', 'First 1 Month'],
+    text: 'Your AI Powered Design Team Handles Every Design Your Business Needs in the First 1 Month.',
+    highlighted: ['AI Powered Design Team', 'First 1 Month'],
   },
   description:
     'Instead of managing freelancers or paying agency premiums, you get a full design team that builds your entire visual identity from scratch, fast, clean, and ready for real business use.',
