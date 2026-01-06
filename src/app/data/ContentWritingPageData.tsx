@@ -19,7 +19,7 @@ export const contentWritingBannerData: HomenewBannerData = {
   description:
     "Writing shaped for presence, persuasion, and modern brand standards. A complete content layer built with clarity, rhythm, and commercial intent.",
   experienceBox: {
-    title: "Experience Box – What This Service Produces",
+    title: "Experience Box  What This Service Produces",
     items: [
       "2,500 plus writing projects delivered across real industries",
       "40 plus years combined experience in website, marketing, and brand content",

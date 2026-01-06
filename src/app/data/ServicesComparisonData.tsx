@@ -1,5 +1,3 @@
-// Services Comparison Data - All 12 services ke liye alag comparison data
-
 export interface ComparisonCTA {
   text: string;
   href: string;
@@ -556,7 +554,7 @@ export const SERVICES_COMPARISON_DATA: ServicesComparisonDataMap = {
   },
 };
 
-// Helper function to get comparison data by service slug
+
 export const getServiceComparisonData = (slug: string): ServicesComparisonData | undefined => {
   return SERVICES_COMPARISON_DATA[slug];
 };

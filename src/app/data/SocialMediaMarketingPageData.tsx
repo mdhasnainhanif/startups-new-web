@@ -20,7 +20,7 @@ export const socialMediaMarketingBannerData: HomenewBannerData = {
   description:
     "Creative built for attention, precision, and brand presence. A complete social layer shaped with clarity, style, and strategic intent.",
   experienceBox: {
-    title: "Experience Box – What This Service Produces",
+    title: "Experience Box  What This Service Produces",
     items: [
       "2,500 plus social content assets created across multiple industries",
       "40 plus years combined expertise in design, content, and campaign execution",
