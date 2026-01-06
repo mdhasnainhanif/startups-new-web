@@ -293,7 +293,7 @@ const CreativeScore = () => {
       value: 20,
       color: "#FFA500",
       description:
-        "We create high-impact visual branding that increases recognition and strengthens identity.",
+        "We create high impact visual branding that increases recognition and strengthens identity.",
     },
   ];
 

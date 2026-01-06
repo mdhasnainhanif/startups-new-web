@@ -35,7 +35,7 @@ interface HomenewBannerProps {
 const DEFAULT_DATA: HomenewBannerData = {
   heading: {
     part1: "Your ",
-    highlight1: "AI-Powered",
+    highlight1: "AI Powered",
     highlight2: "Design",
     part2: " Team Ready From Day One",
   },
@@ -48,7 +48,7 @@ const DEFAULT_DATA: HomenewBannerData = {
       "40+ years combined experience in business design",
       "Specialists for branding, social, print, website, and ads",
       "Design systems used by real customers in 15+ industries",
-      "Trained in AI, modern design tools, and high-conversion branding",
+      "Trained in AI, modern design tools, and High conversion branding",
     ],
   },
   cta: {

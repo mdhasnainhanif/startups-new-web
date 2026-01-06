@@ -42,7 +42,7 @@ export const designProfessionalPageData: ProfessionalDesignData = {
       className: "factsListItem",
     },
     {
-      text: "Home-service businesses using professional design saw a 2-3x improvement in lead conversion after updating visuals.",
+      text: "Home service businesses using professional design saw a 2-3x improvement in lead conversion after updating visuals.",
       className: "factsListItem",
     },
     {
@@ -96,7 +96,7 @@ export const caseStudyDesignerPageData: CaseStudySectionData = {
     highlighted: "AI Powered Design Team",
   },
   description:
-    "Your Smart AI Design Team specializes in creating stunning visual identities and designs that make your business stand out. With professional design expertise and AI-powered efficiency, we deliver complete brand systems that drive real business results.",
+    "Your Smart AI Design Team specializes in creating stunning visual identities and designs that make your business stand out. With professional design expertise and AI Powered efficiency, we deliver complete brand systems that drive real business results.",
   // Only show "Creative & Design" tab
   tabs: DEFAULT_CASE_STUDY_DATA.tabs.filter((tab) => tab.id === "creative"),
   // Custom cards for Designer page with different images and content
@@ -155,7 +155,7 @@ export const caseStudyDesignerPageData: CaseStudySectionData = {
         "Infographic design",
         "Presentation design",
         "Email banner graphics",
-        "Print-ready marketing assets",
+        "Print ready marketing assets",
         "Full visual campaign design",
       ],
       buttonText: "Hire Graphic Designer",
@@ -225,19 +225,19 @@ export const DESIGNER_GROWTH_GUIDES = [
     date: "Jan 20, 2026",
     readTime: "17 min read",
     excerpt:
-      "By 2026, design is no longer judged by how attractive an interface looks. It is judged by how effectively it guides users, builds confidence, and drives meaningful action. Strategic design connects visual decisions directly to business outcomes such as engagement, conversion, and long-term brand trust.",
+      "By 2026, design is no longer judged by how attractive an interface looks. It is judged by how effectively it guides users, builds confidence, and drives meaningful action. Strategic design connects visual decisions directly to business outcomes such as engagement, conversion, and long term brand trust.",
     href: "/blog-detail/from-visuals-to-value-how-strategic-design-impacts-ux-conversions-and-brand-trust-in-2026/",
   },
   {
     id: "future-of-design-teams",
     image: "/assets/images/designer_blog/3.webp", // Dummy image
     category: "Design",
-    title: "The Future Of Design Teams In 2026: Tools, Workflows, And AI-Assisted Creative Systems",
+    title: "The Future Of Design Teams In 2026: Tools, Workflows, And AI assisted Creative Systems",
     date: "Jan 25, 2026",
     readTime: "19 min read",
     excerpt:
       "By 2026, design teams have evolved from isolated creative units into core operators within product, marketing, and growth organizations. Faster release cycles, multi-platform demands, and rising expectations for consistency require design teams to operate with systems, not just talent.",
-    href: "/blog-detail/the-future-of-design-teams-in-2026-tools-workflows-and-ai-assisted-creative-systems/",
+    href: "/blog-detail/the-future-of-design-teams-in-2026-tools-workflows-and-AI assisted-creative-systems/",
   },
 ];
 

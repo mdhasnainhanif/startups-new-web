@@ -60,8 +60,8 @@ const REAL_COST_DATA: RealCostData = {
     'Annual salary of one U.S. designer',
     'Cost of hiring multiple specialists',
     'Cost of design tools, software, and revisions',
-    'What you save by using one AI-powered design team',
-    'The long-term ROI of getting your full brand built correctly',
+    'What you save by using one AI Powered design team',
+    'The long term ROI of getting your full brand built correctly',
   ],
   conclusion:
     'Most business owners discover they save thousands of dollars and months of work in just the first 22 days alone',

@@ -21,7 +21,7 @@ import Contact from "../components/Contact/Contact";
 export const metadata: Metadata = {
   title: "Key Growth Manager | Business Growth Services | Startups Advisory",
   description:
-    "A Key Growth Manager steps in to carry the weight — driving progress, clearing blockages, and keeping the machine in motion while you stay focused on the real work.",
+    "A Key Growth Manager steps in to carry the weight   driving progress, clearing blockages, and keeping the machine in motion while you stay focused on the real work.",
   robots: "nofollow",
 };
 export default function PageTwo() {

@@ -264,7 +264,7 @@ export const CONTENT_WRITING_DATA: ContentWritingData = {
       "40 plus years combined experience in website, marketing, and brand content",
       "Writers specialized in digital messaging, UX wording, and performance copy",
       "Content frameworks applied in 15 plus business categories",
-      "Production supported by AI-enhanced research and structured writing systems",
+      "Production supported by AI enhanced research and structured writing systems",
     ],
     cta: {
       primary: "Get Started",
@@ -277,7 +277,7 @@ export const CONTENT_WRITING_DATA: ContentWritingData = {
       { name: "2,500+ Projects", initials: "2.5K" },
       { name: "40+ Years", initials: "40+" },
       { name: "15+ Categories", initials: "15+" },
-      { name: "AI-Enhanced", initials: "AI" },
+      { name: "AI Enhanced", initials: "AI" },
       { name: "Structured Systems", initials: "SS" },
       { name: "Market Ready", initials: "MR" },
     ],
@@ -315,7 +315,7 @@ export const CONTENT_WRITING_DATA: ContentWritingData = {
         after: "Consistent, polished delivery across all assets",
       },
       {
-        before: "Time-consuming revisions",
+        before: "Time consuming revisions",
         after: "Structured tools and seasoned writers",
       },
     ],
@@ -324,7 +324,7 @@ export const CONTENT_WRITING_DATA: ContentWritingData = {
       { icon: "Users", text: "40 plus years combined experience" },
       { icon: "Target", text: "Writers specialized in digital messaging" },
       { icon: "Layers", text: "Content frameworks in 15 plus categories" },
-      { icon: "Zap", text: "AI-enhanced research and structured systems" },
+      { icon: "Zap", text: "AI enhanced research and structured systems" },
       { icon: "DollarSign", text: "Content Production Tools ($12,000 plus Annual Value)" },
     ],
     cta: "View Complete Package",
@@ -365,10 +365,10 @@ export const CONTENT_WRITING_DATA: ContentWritingData = {
     description:
       "The service covers all content requirements across a 1 month production window. Website content, sales copy, UX text, marketing lines, ads, captions, and brand communication are produced inside one controlled writing cycle with consistent tone and polished delivery.",
     contentTypes: [
-      { icon: "FileText", text: "Web Content Writer - Creates structured, fluent text designed to present services, explain value, and shape a confident digital presence. Includes: Homepage messaging, service page detailing, benefit-oriented content blocks, about statements, contact page wording, support descriptions, SEO-supported headings, process breakdowns, mobile-ready text structure, full website content creation" },
-      { icon: "Target", text: "Copywriter - Delivers persuasive, action-oriented writing built to highlight offers, drive response, and support promotions. Includes: Sales page copy, landing page messaging, call-to-action sets, offer explanation lines, short-form conversion copy, lead-focused content, value-driven messaging, script lines, segment-specific variations, commercial writing essentials" },
+      { icon: "FileText", text: "Web Content Writer - Creates structured, fluent text designed to present services, explain value, and shape a confident digital presence. Includes: Homepage messaging, service page detailing, Benefit oriented content blocks, about statements, contact page wording, support descriptions, SEO supported headings, process breakdowns, Mobile ready text structure, full website content creation" },
+      { icon: "Target", text: "Copywriter - Delivers persuasive, action oriented writing built to highlight offers, drive response, and support promotions. Includes: Sales page copy, landing page messaging, Call to action sets, offer explanation lines, Short form conversion copy, Lead focused content, Value driven messaging, script lines, Segment specific variations, commercial writing essentials" },
       { icon: "Layout", text: "UI/UX Writer - Produces concise, intuitive wording that guides user actions and improves product and interface communication. Includes: Button labels, form microcopy, navigation text, onboarding lines, instructional messaging, state messages, section titles, feature descriptions, user guidance wording, complete UX content refinement" },
-      { icon: "Zap", text: "Ads Writer - Crafts fast, scroll-resistant content for paid advertising and brand visibility across digital channels. Includes: Ad headlines, primary message sets, short-form hooks, audience-focused variations, offer highlights, retargeting lines, caption-based ads, video copy prompts, angle testing ideas, performance-aligned ad content" },
+      { icon: "Zap", text: "Ads Writer - Crafts fast, scroll resistant content for paid advertising and brand visibility across digital channels. Includes: Ad headlines, primary message sets, Short form hooks, Audience focused variations, offer highlights, retargeting lines, Caption based ads, video copy prompts, angle testing ideas, Performance aligned ad content" },
     ],
     guarantee: {
       icon: "Shield",
@@ -384,18 +384,18 @@ export const CONTENT_WRITING_DATA: ContentWritingData = {
       highlight: "Delivered in 1 Month",
     },
     description:
-      "A condensed writing period supported by structured tools and seasoned writers replaces fragmented content, inconsistent tone, and time-consuming revisions.",
+      "A condensed writing period supported by structured tools and seasoned writers replaces fragmented content, inconsistent tone, and time consuming revisions.",
     steps: [
       {
         icon: "FileText",
         title: "Website Content",
-        description: "Homepage messaging, service page detailing, benefit-oriented content blocks, about statements, contact page wording, support descriptions, SEO-supported headings, process breakdowns, mobile-ready text structure, full website content creation.",
+        description: "Homepage messaging, service page detailing, Benefit oriented content blocks, about statements, contact page wording, support descriptions, SEO supported headings, process breakdowns, Mobile ready text structure, full website content creation.",
         step: "01",
       },
       {
         icon: "Target",
         title: "Service Descriptions",
-        description: "Sales page copy, landing page messaging, call-to-action sets, offer explanation lines, short-form conversion copy, lead-focused content, value-driven messaging.",
+        description: "Sales page copy, landing page messaging, Call to action sets, offer explanation lines, Short form conversion copy, Lead focused content, Value driven messaging.",
         step: "02",
       },
       {
@@ -407,13 +407,13 @@ export const CONTENT_WRITING_DATA: ContentWritingData = {
       {
         icon: "Mail",
         title: "Contact Page Text",
-        description: "Ad headlines, primary message sets, short-form hooks, audience-focused variations, offer highlights, retargeting lines, caption-based ads, video copy prompts.",
+        description: "Ad headlines, primary message sets, Short form hooks, Audience focused variations, offer highlights, retargeting lines, Caption based ads, video copy prompts.",
         step: "04",
       },
       {
         icon: "PenTool",
         title: "Blog Articles",
-        description: "SEO-optimized blog content, long-form articles, industry insights, thought leadership pieces, educational content.",
+        description: "SEO optimized blog content, Long Form articles, industry insights, thought leadership pieces, educational content.",
         step: "05",
       },
       {
@@ -449,9 +449,9 @@ export const CONTENT_WRITING_DATA: ContentWritingData = {
     contentServices: [
       { icon: "CheckCircle", text: "1 month of structured content creation" },
       { icon: "CheckCircle", text: "All essential content assets" },
-      { icon: "CheckCircle", text: "AI-supported writing workflow" },
+      { icon: "CheckCircle", text: "AI supported writing workflow" },
       { icon: "CheckCircle", text: "Unlimited refinements during the cycle" },
-      { icon: "CheckCircle", text: "Content delivered in publish-ready format" },
+      { icon: "CheckCircle", text: "Content delivered in publish ready format" },
     ],
     freeOffer: {
       title: "Content Outline Reference",
@@ -474,17 +474,17 @@ export const CONTENT_WRITING_DATA: ContentWritingData = {
     description:
       "Each writer type brings specialized expertise to ensure every aspect of your content needs is professionally handled within the 1 month production window.",
     features: [
-      { icon: "FileText", title: "Web Content Writer", desc: "Creates structured, fluent text designed to present services, explain value, and shape a confident digital presence. Handles homepage messaging, service page detailing, benefit-oriented content blocks, about statements, contact page wording, support descriptions, SEO-supported headings, process breakdowns, mobile-ready text structure, and full website content creation." },
-      { icon: "Target", title: "Copywriter", desc: "Delivers persuasive, action-oriented writing built to highlight offers, drive response, and support promotions. Creates sales page copy, landing page messaging, call-to-action sets, offer explanation lines, short-form conversion copy, lead-focused content, value-driven messaging, script lines, segment-specific variations, and commercial writing essentials." },
+      { icon: "FileText", title: "Web Content Writer", desc: "Creates structured, fluent text designed to present services, explain value, and shape a confident digital presence. Handles homepage messaging, service page detailing, Benefit oriented content blocks, about statements, contact page wording, support descriptions, SEO supported headings, process breakdowns, Mobile ready text structure, and full website content creation." },
+      { icon: "Target", title: "Copywriter", desc: "Delivers persuasive, action oriented writing built to highlight offers, drive response, and support promotions. Creates sales page copy, landing page messaging, Call to action sets, offer explanation lines, Short form conversion copy, Lead focused content, Value driven messaging, script lines, Segment specific variations, and commercial writing essentials." },
       { icon: "Layout", title: "UI/UX Writer", desc: "Produces concise, intuitive wording that guides user actions and improves product and interface communication. Develops button labels, form microcopy, navigation text, onboarding lines, instructional messaging, state messages, section titles, feature descriptions, user guidance wording, and complete UX content refinement." },
-      { icon: "Zap", title: "Ads Writer", desc: "Crafts fast, scroll-resistant content for paid advertising and brand visibility across digital channels. Creates ad headlines, primary message sets, short-form hooks, audience-focused variations, offer highlights, retargeting lines, caption-based ads, video copy prompts, angle testing ideas, and performance-aligned ad content." },
+      { icon: "Zap", title: "Ads Writer", desc: "Crafts fast, scroll resistant content for paid advertising and brand visibility across digital channels. Creates ad headlines, primary message sets, Short form hooks, Audience focused variations, offer highlights, retargeting lines, Caption based ads, video copy prompts, angle testing ideas, and Performance aligned ad content." },
     ],
   },
   framework: {
     badge: "1 Month Content Package",
     heading: {
       text: "Complete Content Writing Package",
-      highlight: "$3,299 One-Time",
+      highlight: "$3,299 One Time",
     },
     frameworkSlices: [
       { icon: "FileText", label: "Website Content" },
@@ -503,9 +503,9 @@ export const CONTENT_WRITING_DATA: ContentWritingData = {
     valueStackItems: [
       "1 month of structured content creation",
       "All essential content assets",
-      "AI-supported writing workflow",
+      "AI supported writing workflow",
       "Unlimited refinements during the cycle",
-      "Content delivered in publish-ready format",
+      "Content delivered in publish ready format",
       "No retainers. No added fees. A complete writing foundation for brand presence and commercial use.",
     ],
     note: "A complete writing foundation for brand presence and commercial use.",
@@ -560,19 +560,19 @@ export const CONTENT_WRITING_DATA: ContentWritingData = {
       {
         name: "David Park",
         role: "Conversion Copywriter",
-        bio: "Hormone-trained copywriter. Specializes in landing pages and sales copy that drive action.",
+        bio: "Hormone trained copywriter. Specializes in landing pages and sales copy that drive action.",
         initials: "DP",
       },
       {
         name: "Maria Lopez",
         role: "Content Editor",
-        bio: "Former HubSpot editor. Ensures every piece of content is polished, on-brand, and optimized.",
+        bio: "Former HubSpot editor. Ensures every piece of content is polished, on brand, and optimized.",
         initials: "ML",
       },
     ],
     stats: [
       { value: "30%+", label: "Average improvement in organic conversions" },
-      { value: "200+", label: "High-ranking articles produced" },
+      { value: "200+", label: "High ranking articles produced" },
       { value: "15+", label: "Industries served" },
     ],
   },
@@ -593,7 +593,7 @@ export const CONTENT_WRITING_DATA: ContentWritingData = {
       highlight: "1 Month Content Writing Service",
     },
     description:
-      "Consider: Full-time writer costs, specialist copy fees, time spent correcting unclear content, tools and software expenses, savings created by consolidated production, return generated by consistent, professional writing. Most brands gain weeks of progress and significant savings through this structured cycle.",
+      "Consider: Full time writer costs, specialist copy fees, time spent correcting unclear content, tools and software expenses, savings created by consolidated production, return generated by consistent, professional writing. Most brands gain weeks of progress and significant savings through this structured cycle.",
     form: {
       fields: [
         { name: "website", type: "url", placeholder: "Your website URL" },

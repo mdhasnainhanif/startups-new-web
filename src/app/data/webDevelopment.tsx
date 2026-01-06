@@ -320,7 +320,7 @@ export const WEB_DEVELOPMENT_DATA: WebDevelopmentData = {
       highlight: "1 Month",
     },
     description:
-      "Fully Focused on Your Build. A dedicated web unit assembled to create a fast, structured, market-ready website prepared to support real traffic and real business activity.",
+      "Fully Focused on Your Build. A dedicated web unit assembled to create a fast, structured, market ready website prepared to support real traffic and real business activity.",
     features: [
       {
         icon: "TrendingUp",
@@ -356,9 +356,9 @@ export const WEB_DEVELOPMENT_DATA: WebDevelopmentData = {
   },
   completeBusinessSetup: {
     heading: {
-      part1: "Your Complete Website Package — ",
+      part1: "Your Complete Website Package   ",
       price: "$3,299",
-      part2: " One-Time",
+      part2: " One Time",
     },
     brandingKits: {
       items: [
@@ -383,7 +383,7 @@ export const WEB_DEVELOPMENT_DATA: WebDevelopmentData = {
         { id: "2", text: "50+ essential website assets" },
         { id: "3", text: "AI assisted workflow" },
         { id: "4", text: "Unlimited revisions within 1 month" },
-        { id: "5", text: "Launch-ready files delivered" },
+        { id: "5", text: "Launch ready files delivered" },
       ],
       ctaButton: {
         text: "Get My Package",
@@ -454,8 +454,8 @@ export const WEB_DEVELOPMENT_DATA: WebDevelopmentData = {
       },
       {
         name: "Web Developer",
-        role: "Full-Stack Implementation",
-        bio: "Builds the full website with stable code, fast performance, and complete stack integration. Handles frontend engineering, backend functionality setup, full-stack implementation, technical SEO installation, page speed refinement, schema and metadata configuration, security essentials, hosting and deployment support, responsive coding standards, and complete website buildout.",
+        role: "Full stack implementation",
+        bio: "Builds the full website with stable code, fast performance, and complete stack integration. Handles frontend engineering, backend functionality setup, Full stack implementation, technical SEO installation, page speed refinement, schema and metadata configuration, security essentials, hosting and deployment support, responsive coding standards, and complete website buildout.",
         initials: "DEV",
       },
     ],

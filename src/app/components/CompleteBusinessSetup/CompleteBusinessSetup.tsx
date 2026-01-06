@@ -54,7 +54,7 @@
     heading: {
       part1: "Your Complete Business Design Setup ",
       price: "$3,299",
-      part2: " One-Time",
+      part2: " One Time",
     },
     brandingKits: {
       items: [
@@ -143,8 +143,8 @@
         { id: "83", number: "83", label: "Title Animations" },
         { id: "84", number: "84", label: "Logo Animations" },
         { id: "85", number: "85", label: "Motion Interactions" },
-        { id: "86", number: "86", label: "Short-Form Edits" },
-        { id: "87", number: "87", label: "Long-Form Edits" },
+        { id: "86", number: "86", label: "Short Form Edits" },
+        { id: "87", number: "87", label: "Long Form Edits" },
         { id: "88", number: "88", label: "Text Overlays" },
         { id: "89", number: "89", label: "Lower Thirds" },
         { id: "90", number: "90", label: "Video Intros" },
@@ -158,8 +158,8 @@
         { id: "98", number: "98", label: "Key Visuals" },
         { id: "99", number: "99", label: "Brand Activations" },
         { id: "100", number: "100", label: "Creative Directions" },
-        { id: "101", number: "101", label: "Tri-Fold Brochures" },
-        { id: "102", number: "102", label: "Bi-Fold Brochures" },
+        { id: "101", number: "101", label: "Tri Fold Brochures" },
+        { id: "102", number: "102", label: "Bi Fold Brochures" },
         { id: "103", number: "103", label: "Product Catalogs" },
         { id: "104", number: "104", label: "Pricing Booklets" },
         { id: "105", number: "105", label: "Service Books" },
@@ -185,9 +185,9 @@
       items: [
         { id: "1", text: "A full design team" },
         { id: "2", text: "50+ essential business design assets" },
-        { id: "3", text: "AI-powered efficiency" },
+        { id: "3", text: "AI Powered efficiency" },
         { id: "4", text: "Unlimited revisions during the 1 month" },
-        { id: "5", text: "All files delivered print-ready and web-ready" },
+        { id: "5", text: "All files delivered print ready and web ready" },
       ],
       ctaButton: {
         text: "$3,299 USD",
@@ -199,7 +199,7 @@
   const baseCrmUrl = "https://startupsadvisory.ai/crm/payment/paynow";
   const CompleteBusinessSetup = ({ data = DEFAULT_DATA }: CompleteBusinessSetupProps) => {
     const plan = {
-      name: data.heading.part1.replace(" — ", "").replace(/^(Complete |Your Complete )/i, "").trim() || "Business Package",
+      name: data.heading.part1.replace("   ", "").replace(/^(Complete |Your Complete )/i, "").trim() || "Business Package",
       amount: data.heading.price.replace(/[$,]/g, ""),
       category: data.heading.part1.toLowerCase().includes("content writing") ? "content-writing" :
                 data.heading.part1.toLowerCase().includes("social content") ? "social-media" :
