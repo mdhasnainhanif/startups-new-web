@@ -253,7 +253,7 @@ export const contentWritingAiPowerData: AiPowerDesignData = {
         { id: '18', label: 'Press Releases & PR Writing', image: '/assets/images/content-writer/press-releases-pr-writing.webp' },
         { id: '19', label: 'Lead Magnet Content', image: '/assets/images/content-writer/lead-magnet-content.webp' },
         { id: '20', label: 'Content for Funnels', image: '/assets/images/content-writer/content-for-funnels.webp' },
-        { id: '21', label: 'SMS & Micro Copywriting', image: '/assets/images/content-writer/sms-Micro copywriting.webp' },
+        { id: '21', label: 'SMS & Micro Copywriting', image: '/assets/images/content-writer/sms-micro-copywriting.webp' },
         { id: '22', label: 'Marketing Collateral Writing', image: '/assets/images/content-writer/marketing-collateral-writing.webp' },
         { id: '23', label: 'Community & Engagement Writing', image: '/assets/images/content-writer/community-engagement-writing.webp' },
         { id: '24', label: 'Content Distribution & Marketing', image: '/assets/images/content-writer/content-distribution-marketing.webp' },

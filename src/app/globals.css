@@ -233,7 +233,7 @@ h2.headingSize {
 p.topPara {
   font-size: 0.9375rem;
   font-weight: 400;
-  color: #ffffff;
+  font-family: var(--font-graphik-regular), Arial, Helvetica, sans-serif;
 }
 
 .pt100 {
@@ -1043,6 +1043,7 @@ section img.banneFullMin {
   gap: 2rem;
 }
 
+<<<<<<< HEAD
 .problemBeforeBackground {
   position: relative;
 }
@@ -1067,3 +1068,21 @@ section img.banneFullMin {
   top: 0;
   left: 2rem;
 }
+=======
+.contentWritingAnalyticsSection .space-y-0::before, 
+.contentWritingAnalyticsSection .space-y-0::after {
+  content: '';
+  display: block;
+  position: absolute;
+  min-height: 42.2rem;
+}
+
+.contentWritingAnalyticsSection .space-y-0 {
+  position: relative;
+} 
+
+.webDevelopmentAnalyticsSection .space-y-0::before, 
+.webDevelopmentAnalyticsSection .space-y-0::after {
+  min-height: 36rem;
+}
+>>>>>>> 7ed06a3db559a1f4c818b38ee21995f45b58f395

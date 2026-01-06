@@ -483,6 +483,7 @@
     },
     analyticsDashboardData: {
       imageSrc: '/assets/images/analytics-web.svg',
+      className: 'webDevelopmentAnalyticsSection',
     },
   };
 
