@@ -316,8 +316,8 @@ export const WEB_DEVELOPMENT_DATA: WebDevelopmentData = {
   hero: {
     badge: "1 Month Website Package",
     heading: {
-      text: "Your Complete Website Team for",
-      highlight: "1 Month",
+      text: "Your Complete Website Team for ",
+      highlight: "  1 Month",
     },
     description:
       "Fully Focused on Your Build. A dedicated web unit assembled to create a fast, structured, market ready website prepared to support real traffic and real business activity.",
@@ -345,7 +345,7 @@ export const WEB_DEVELOPMENT_DATA: WebDevelopmentData = {
     },
   },
   experienceBox: {
-    heading: "Experience Box – What Your Web Team Brings",
+    heading: "Experience Box  What Your Web Team Brings",
     items: [
       { text: "2,500 plus completed website projects across multiple business categories" },
       { text: "40 plus years combined execution in modern web production" },

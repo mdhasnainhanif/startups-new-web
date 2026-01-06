@@ -231,7 +231,7 @@ export const SERVICES_DATA: Record<string, ServicePageData> = {
       },
       description: "Custom designs to enhance your brand's presence. Elevate your brand with custom illustrations and artwork that reflect your unique identity. Our illustration services create distinctive visual elements that enhance your brand's presence across all touchpoints.",
       experienceBox: {
-        title: "Experience Box – Your Illustration Team's Expertise",
+        title: "Experience Box  Your Illustration Team's Expertise",
         items: [
           "2,500+ custom illustrations created for businesses",
           "40+ years combined experience in illustration and artwork",
@@ -387,7 +387,7 @@ export const SERVICES_DATA: Record<string, ServicePageData> = {
       },
       description: "Designs that work IRL. Create branded apparel and merchandise that your team and customers will love to wear. We design practical, stylish items that extend your brand presence into the real world.",
       experienceBox: {
-        title: "Experience Box – Your Apparel Team's Expertise",
+        title: "Experience Box  Your Apparel Team's Expertise",
         items: [
           "2,500+ apparel and merchandise designs created for businesses",
           "40+ years combined experience in apparel design",
@@ -465,7 +465,7 @@ export const SERVICES_DATA: Record<string, ServicePageData> = {
       },
       description: "Professional visuals for internal success. Create professional internal communications and corporate materials that align your team and strengthen your company culture. We design visuals that support internal success and employee engagement.",
       experienceBox: {
-        title: "Experience Box – Your Corporate Design Team's Expertise",
+        title: "Experience Box  Your Corporate Design Team's Expertise",
         items: [
           "2,500+ corporate materials designed for businesses",
           "40+ years combined experience in corporate and internal design",

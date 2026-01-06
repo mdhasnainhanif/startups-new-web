@@ -343,7 +343,7 @@ export const OUR_CORE_VALUES = {
       icon: '/assets/images/globe5.svg',
       heading: "Values",
       description:
-        "We value efficiency, accessibility, and a deep commitment to levelling the playing field, making top-tier growth strategies, talent, and tools available to every early-stage business.",
+        "We value efficiency, accessibility, and a deep commitment to levelling the playing field, making top tier growth strategies, talent, and tools available to every early-stage business.",
     },
   ],
 };
