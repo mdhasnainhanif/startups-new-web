@@ -11,10 +11,19 @@ import CTASection from "./components/CTASection";
 import FlippaCTA from "./components/FlippaCTA";
 import Portfolio from "./components/portfolio";
 import CreativeServicesSection from "./components/CreativeServicesSection";
+import { sliderData } from "../data/HomeNewData";
+import TextSlider1 from "../components/HomenewPage/TextSlider/TextSlider";
+import OurJourney from "./components/OurJourney";
+import { OUR_JOURNEY } from "../constants";
+import BlogCarousel from "../components/BlogCarousel/BlogCarousel";
+import FAQ from "../components/FAQ/FAQ";
+import { FAQ_DATA } from "../constants";
+import { FAQ_SECTION } from "../constants";
+import Contact from "../components/Contact/Contact";
 export const metadata: Metadata = {
   title: "Flippa | Turn Your Business Into a High Value Asset in 90 Days",
   description:
-    "We rebuild, scale and systematize your business so you get a High value, sell-ready asset in 90 days. Business growth, operations, branding & exit-prep services.",
+    "We rebuild, scale and systematize your business so you get a High value, sell ready asset in 90 days. Business growth, operations, branding & Exit Prep services.",
   keywords: [
     "business growth",
     "exit preparation",
@@ -26,7 +35,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Flippa | Turn Your Business Into a High Value Asset in 90 Days",
     description:
-      "We rebuild, scale and systematize your business so you get a High value, sell-ready asset in 90 days.",
+      "We rebuild, scale and systematize your business so you get a High value, sell ready asset in 90 days.",
     url: "https://startupsadvisory.ai/flippa",
   },
 };
@@ -34,9 +43,11 @@ export default function FlippaPage() {
   return (
     <main className="relative bg-[var(--color-dark)]">
       <HeroSection />
+      <TextSlider1 data={sliderData.slider1} />
       <ProblemSection />
       <SolutionSection />
       <ProcessSection />
+      <OurJourney items={OUR_JOURNEY.items} />
       <StatsSection />
       <ValueStackSection />
       <DifferentiatorsSection />
@@ -44,11 +55,14 @@ export default function FlippaPage() {
       <TestimonialsSection />
       {/* <GuaranteeSection /> */}
       {/* <ObjectionsSection /> */}
-      <CreativeServicesSection />
+      {/* <CreativeServicesSection /> */}
       {/* <WhyUsSection /> */}
       {/* <FlippaCalculator /> */}
-      <CTASection />
-      <FlippaCTA />
+      {/* <CTASection /> */}
+      {/* <FlippaCTA /> */}
+      <BlogCarousel showAllCategories={true} />
+      <FAQ faqs={FAQ_DATA} sectionData={FAQ_SECTION} />
+      <Contact />
     </main>
   );
 }

@@ -12,9 +12,9 @@ export const heroData = {
     mobileSuffix: "Fast",
   },
   subheadline:
-    "We don't just consult   we rebuild, scale and systematize your business, so you get a High value, sell-ready asset in 90 days or less.",
+    "We don't just consult   we rebuild, scale and systematize your business, so you get a High value, sell ready asset in 90 days or less.",
   guarantee: {
-    text: "✓ 90-Day Guarantee:",
+    text: "✓ 90 Day Guarantee:",
     description: "See value increase or we work free until you do",
     mobileDescription: "Value increase or free",
   },
@@ -77,12 +77,12 @@ export const problemData = {
 export const solutionData = {
   label: "The Solution",
   title: {
-    main: "Our 90-Day",
-    highlight: "Growth & Exit-Prep",
+    main: "Our 90 Day",
+    highlight: "Growth & Exit Prep",
     suffix: "System",
   },
   description:
-    "We offer a Full Stack growth + exit-prep service, we don't just give advice, we build, implement, and transform your business into a sell-ready asset in 90 days.",
+    "We offer a Full Stack growth + Exit Prep service, we don't just give advice, we build, implement, and transform your business into a sell ready asset in 90 days.",
   solutions: [
     {
       title: "Operational Overhaul",
@@ -105,8 +105,8 @@ export const solutionData = {
       description: "Business runs independently, not on your expertise",
     },
     {
-      title: "Exit-Ready Packaging",
-      description: "Valuation prep & buyer-ready business documentation",
+      title: "Exit Ready Packaging",
+      description: "Valuation prep & buyer ready business documentation",
     },
   ],
   cta: {
@@ -147,7 +147,7 @@ export const processData = {
     highlight: "in 90 Days",
   },
   description:
-    "A proven, systematic approach that transforms messy businesses into valuable, sell-ready assets.",
+    "A proven, systematic approach that transforms messy businesses into valuable, sell ready assets.",
   phases: [
     {
       number: "01",
@@ -225,7 +225,7 @@ export const statsData = {
       value: 90,
       suffix: "",
       label: "Days to Transform",
-      description: "From messy to sell-ready",
+      description: "From messy to sell ready",
     },
     {
       icon: "/assets/images/flippa/stats/3.svg",
@@ -251,7 +251,7 @@ export const valueStackData = {
   label: "What You Get",
   title: {
     main: "Everything Included in Your",
-    highlight: "90-Day Transformation",
+    highlight: "90 Day Transformation",
   },
   description:
     "Most agencies charge separately for each service. We bundle everything you need into one comprehensive package   because real transformation requires all the pieces working together.",
@@ -262,8 +262,8 @@ export const valueStackData = {
     { item: "Premium Brand & Web Redesign", value: "$25,000" },
     { item: "Marketing Systems & Lead Gen Setup", value: "$12,000" },
     { item: "Full SOP & Documentation Package", value: "$10,000" },
-    { item: "Exit-Ready Valuation Prep", value: "$20,000" },
-    { item: "90-Day Hands-On Implementation", value: "$30,000" },
+    { item: "Exit Ready Valuation Prep", value: "$20,000" },
+    { item: "90 Day Hands On Implementation", value: "$30,000" },
     { item: "Weekly Strategy Calls & Support", value: "$5,000" },
   ],
   totalValue: 125000,
@@ -288,7 +288,7 @@ export const differentiatorsData = {
       icon: "/assets/images/flippa/different/1.svg",
       title: "We Build, Not Just Advise",
       description:
-        "Hands-on transformation, not slide decks. We implement every system ourselves.",
+        "Hands On transformation, not slide decks. We implement every system ourselves.",
     },
     {
       icon: "/assets/images/flippa/different/2.svg",
@@ -298,13 +298,13 @@ export const differentiatorsData = {
     },
     {
       icon: "/assets/images/flippa/different/3.svg",
-      title: "Outcome-Driven",
+      title: "Outcome Driven",
       description:
         "We focus on tangible value   better systems, higher profits, stronger market appeal.",
     },
     {
       icon: "/assets/images/flippa/different/4.svg",
-      title: "Exit-Ready Mindset",
+      title: "Exit Ready Mindset",
       description:
         "We design with exit in mind from day 1. Your business becomes attractive to buyers.",
     },
@@ -378,7 +378,7 @@ export const guaranteeData = {
   guarantees: [
     {
       icon: "Shield",
-      title: "90-Day Value Guarantee",
+      title: "90 Day Value Guarantee",
       description:
         "See measurable business value increase or we work for free until you do.",
     },
@@ -390,7 +390,7 @@ export const guaranteeData = {
     },
     {
       icon: "Award",
-      title: "Exit-Ready Certification",
+      title: "Exit Ready Certification",
       description:
         "Full documentation package that buyers and investors actually want.",
     },
@@ -402,10 +402,10 @@ export const guaranteeData = {
 export const ctaData = {
   title: "Ready to Transform Your Business?",
   description:
-    "Join the business owners who've turned their companies into High value, sell-ready assets.",
+    "Join the business owners who've turned their companies into High value, sell ready assets.",
   cta: {
     primary: {
-      text: "Start Your 90-Day Transformation",
+      text: "Start Your 90 Day Transformation",
       link: "/contact-us",
     },
     secondary: {
@@ -421,7 +421,7 @@ export const objectionsData = {
     {
       question: "90 days seems too fast. Can you really transform a business that quickly?",
       answer:
-        "Yes. We've done it 47 times. The key is our systematic approach and hands-on implementation. We don't just plan   we build, implement, and optimize simultaneously across all areas.",
+        "Yes. We've done it 47 times. The key is our systematic approach and Hands On implementation. We don't just plan   we build, implement, and optimize simultaneously across all areas.",
     },
     {
       question: "What if my business is too small or too large?",
@@ -431,12 +431,12 @@ export const objectionsData = {
     {
       question: "How is this different from hiring consultants?",
       answer:
-        "We don't just advise   we implement. You get a full team (operations, marketing, design, finance) working hands-on in your business. We build the systems, not just recommend them.",
+        "We don't just advise   we implement. You get a full team (operations, marketing, design, finance) working Hands On in your business. We build the systems, not just recommend them.",
     },
     {
       question: "What if I'm not ready to exit yet?",
       answer:
-        "Perfect. Building an exit-ready business makes it more valuable and easier to run. You can exit when you're ready, but you'll have a business that runs without you in the meantime.",
+        "Perfect. Building an Exit ready business makes it more valuable and easier to run. You can exit when you're ready, but you'll have a business that runs without you in the meantime.",
     },
   ],
 };

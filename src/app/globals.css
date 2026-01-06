@@ -231,7 +231,7 @@ h2.headingSize {
 }
 
 p.topPara {
-  font-size: .9375rem;
+  font-size: 0.9375rem;
   font-weight: 400;
   color: #ffffff;
 }
@@ -1043,6 +1043,27 @@ section img.banneFullMin {
   gap: 2rem;
 }
 
-.webDevelopmentAnalyticsSection{
-  
+.problemBeforeBackground {
+  position: relative;
+}
+
+.problemBeforeBackground::before {
+  content: "";
+  background: url("/assets/images/1.webp") center center / contain no-repeat;
+  width: 100%;
+  max-width: 10rem;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 2rem;
+}
+.valueStackBeforeBackground::before {
+  content: "";
+  background: url("/assets/images/1.webp") center center / contain no-repeat;
+  width: 100%;
+  max-width: 25rem;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 2rem;
 }

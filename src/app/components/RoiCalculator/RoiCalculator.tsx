@@ -450,7 +450,7 @@ const RoiCalculator = ({ className = "" }: RoiCalculatorProps) => {
         <div className={styles.comparativeSection}>
           <h2 className={styles.sectionTitle}>Your Custom Comparative Analysis</h2>
           <p className={styles.sectionDescription}>
-            Discover massive cost savings when hiring world-class tech talent in Pakistan.
+            Discover massive cost savings when hiring world class tech talent in Pakistan.
           </p>
           <div className={styles.comparativeGrid}>
             <div className={styles.comparativeCard}>

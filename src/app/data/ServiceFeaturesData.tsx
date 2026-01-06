@@ -415,7 +415,7 @@ export const SERVICE_FEATURES_DATA: Record<string, ServiceFeaturesData> = {
       {
         icon: <ClockIcon />,
         title: "Reliable turnarounds",
-        description: "Average 24-hour first drafts, handled with consistency and care."
+        description: "Average 24 hour first drafts, handled with consistency and care."
       },
       {
         icon: <DollarIcon />,

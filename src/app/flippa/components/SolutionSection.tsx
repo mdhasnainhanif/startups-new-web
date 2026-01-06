@@ -1,124 +1,137 @@
 "use client";
 
-import { Check, ArrowRight } from "./icons";
-import Link from "next/link";
+import { useState } from "react";
 import { MotionDiv, StaggerContainer, StaggerItem } from "./motion";
 import { solutionData } from "../../data/FlippaPageData";
-import Button from "../../components/Button";
 import Container from "../../components/Container";
 import Image from "next/image";
+import styles from "./SolutionSection.module.css";
 
 export default function SolutionSection() {
-  return (
-    <section className="sectionPadding bg-[var(--color-dark)] relative overflow-hidden">
-      {/* Background Glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-1/2 bg-gradient-to-b from-[var(--color-primary)]/10 to-transparent opacity-50" />
+  const [expandedIndex, setExpandedIndex] = useState<number>(0);
 
+  const toggleSolution = (index: number) => {
+    setExpandedIndex(expandedIndex === index ? -1 : index);
+  };
+
+  return (
+    <section className={`sectionPadding ${styles.section} blogStarsBackground`}>
       <Container maxWidth="xl" className="relative z-10">
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-          {/* Left Content */}
+        <div className={styles.contentGrid}>
           <MotionDiv variant="fadeLeft">
-            <span className="text-[var(--color-primary)] text-sm font-semibold uppercase tracking-wider mb-4 block">
-              {solutionData.label}
-            </span>
             <div className="sectionHeading">
               <h2>
                 {solutionData.title.main}{" "}
-                <span className="text-[var(--color-primary)]">{solutionData.title.highlight}</span>{" "}
+                <span className={styles.headingHighlight}>{solutionData.title.highlight}</span>{" "}
                 {solutionData.title.suffix}
               </h2>
             </div>
-            <p className="text-base md:text-lg text-white/80 mb-6 md:mb-8">
+            <p className={styles.description}>
               {solutionData.description}
             </p>
 
-            {/* Solution List */}
-            <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 mb-6 md:mb-8">
+            {/* Solution List - Expandable Boxes */}
+            <div className={styles.solutionsList}>
               {solutionData.solutions.map((solution, index) => {
+                const isExpanded = expandedIndex === index;
                 return (
-                  <StaggerItem key={solution.title} delay={index * 0.1}>
-                    <div className="flex items-start gap-3">
-                      <div className="mt-1">
-                        <Image src="/assets/images/tick.webp" alt="Check" width={25} height={20} className="w-full h-full" />
+                  <div
+                    key={solution.title}
+                    className={`${styles.solutionBox} ${isExpanded ? styles.solutionBoxExpanded : ''}`}
+                    onClick={() => toggleSolution(index)}
+                  >
+                    <div className={styles.solutionBoxHeader}>
+                      <div className={styles.solutionBoxLeft}>
+                        <div className={styles.checkIcon}>
+                          <Image src="/assets/images/tick.webp" alt="Check" width={20} height={20} />
+                        </div>
+                        <h4 className={styles.solutionTitle}>{solution.title}</h4>
                       </div>
-                      <div>
-                        <h4 className="text-white font-medium">{solution.title}</h4>
-                        <p className="text-sm text-white/70">{solution.description}</p>
+                      <div className={styles.toggleIcon}>
+                        {isExpanded ? (
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                            <line x1="5" y1="12" x2="19" y2="12" />
+                          </svg>
+                        ) : (
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                            <line x1="12" y1="5" x2="12" y2="19" />
+                            <line x1="5" y1="12" x2="19" y2="12" />
+                          </svg>
+                        )}
                       </div>
                     </div>
-                  </StaggerItem>
+                    {isExpanded && (
+                      <div className={styles.solutionBoxContent}>
+                        <p className={styles.solutionDescription}>{solution.description}</p>
+                      </div>
+                    )}
+                  </div>
                 );
               })}
-            </StaggerContainer>
-
-            <Button variant="green" size="lg">
-              <Link href={solutionData.cta.link} className="group flex items-center gap-2">
-                {solutionData.cta.text}
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </Button>
+            </div>
           </MotionDiv>
 
           {/* Right Visual */}
           <MotionDiv variant="fadeRight" delay={0.2}>
-            <div className="aspect-auto md:aspect-square bg-white/5 border border-white/10 rounded-2xl md:rounded-3xl p-5 md:p-8 relative overflow-hidden">
+            <div className={styles.visualContainer}>
               {/* Decorative Elements */}
-              <div className="absolute top-4 right-4 w-24 h-24 bg-[var(--color-purple)]/10 rounded-full blur-2xl" />
-              <div className="absolute bottom-4 left-4 w-32 h-32 bg-[var(--color-primary)]/5 rounded-full blur-xl" />
+              <div className={styles.decorativeElement1} />
+              <div className={styles.decorativeElement2} />
 
               {/* Content */}
-              <div className="relative z-10 h-full flex flex-col justify-center">
-                <div className="space-y-6">
+              <div className={styles.visualContent}>
+                <div className={styles.comparisonContainer}>
                   {/* Before/After Comparison */}
-                  <div className="bg-white/5 border border-red-300/50 rounded-xl md:rounded-2xl p-4 md:p-6">
-                    <div className="flex items-center justify-between mb-3">
-                      <div className="text-sm text-white/70 font-medium">BEFORE</div>
-                      <div className="text-xs text-red-400 font-medium">The Problem</div>
+                  <div className={styles.beforeCard}>
+                    <div className={styles.beforeHeader}>
+                      <div className={styles.beforeLabel}>BEFORE</div>
+                      <div className={styles.beforeSubtitle}>The Problem</div>
                     </div>
-                    <div className="text-xl md:text-2xl font-bold text-white mb-2">
+                    <div className={styles.beforeValue}>
                       {solutionData.beforeAfter.before.value}
                     </div>
-                    <ul className="text-xs md:text-sm text-white/70 space-y-1 mb-3 md:mb-4">
+                    <ul className={styles.beforePoints}>
                       {solutionData.beforeAfter.before.points.map((point, index) => (
                         <li key={index}>• {point}</li>
                       ))}
                     </ul>
-                    <div className="h-1.5 md:h-2 bg-gray-200 rounded-full overflow-hidden">
+                    <div className={styles.beforeProgressBar}>
                       <div
-                        className="h-full bg-red-500 rounded-full"
+                        className={styles.beforeProgressFill}
                         style={{ width: `${solutionData.beforeAfter.before.progress}%` }}
                       />
                     </div>
                   </div>
 
-                  <div className="flex justify-center py-2">
-                    <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-[var(--color-primary)] flex items-center justify-center">
-                      <ArrowRight className="w-5 h-5 md:w-6 md:h-6 text-white rotate-90" />
+                  <div className={styles.afterCard}>
+                    {/* Decorative Abstract Shape */}
+                    <div className={styles.decorativeShape}>
+                      <svg width="100" height="100" viewBox="0 0 100 100" fill="none" opacity="0.2">
+                        <path d="M50 20 C70 20, 80 40, 80 50 C80 60, 70 80, 50 80 C30 80, 20 60, 20 50 C20 40, 30 20, 50 20 Z" fill="rgba(15, 218, 194, 0.3)" />
+                        <path d="M50 30 C65 30, 70 45, 70 50 C70 55, 65 70, 50 70 C35 70, 30 55, 30 50 C30 45, 35 30, 50 30 Z" fill="rgba(15, 218, 194, 0.2)" />
+                      </svg>
                     </div>
-                  </div>
-
-                  <div className="bg-[var(--color-primary)]/10 border-2 border-[var(--color-primary)]/30 rounded-xl md:rounded-2xl p-4 md:p-6">
-                    <div className="flex items-center justify-between mb-2 md:mb-3">
-                      <div className="text-xs md:text-sm text-[var(--color-primary)] font-medium">
+                    <div className={styles.afterHeader}>
+                      <div className={styles.afterLabel}>
                         {solutionData.beforeAfter.after.title}
                       </div>
-                      <div className="text-[10px] md:text-xs text-[var(--color-primary)] font-medium">
+                      <div className={styles.afterSubtitle}>
                         {solutionData.beforeAfter.after.subtitle}
                       </div>
                     </div>
-                    <div className="text-xl md:text-2xl font-bold text-white mb-2">
+                    <div className={styles.afterValue}>
                       {solutionData.beforeAfter.after.value}
                     </div>
-                    <ul className="text-xs md:text-sm text-white/70 space-y-1 mb-3 md:mb-4">
+                    <ul className={styles.afterPoints}>
                       {solutionData.beforeAfter.after.points.map((point, index) => (
-                        <li key={index} className="text-white">
-                          {point}
+                        <li key={index}>
+                          {point.replace('✓', '').trim()}
                         </li>
                       ))}
                     </ul>
-                    <div className="h-1.5 md:h-2 bg-gray-200 rounded-full overflow-hidden">
+                    <div className={styles.afterProgressBar}>
                       <div
-                        className="h-full bg-[var(--color-primary)] rounded-full"
+                        className={styles.afterProgressFill}
                         style={{ width: `${solutionData.beforeAfter.after.progress}%` }}
                       />
                     </div>

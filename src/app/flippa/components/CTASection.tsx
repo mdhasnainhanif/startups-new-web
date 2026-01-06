@@ -9,9 +9,9 @@ import Container from "../../components/Container";
 import styles from "./CTASection.module.css";
 import Image from "next/image";
 const benefits = [
-  "Free 30-minute strategy call",
+  "Free 30 minute strategy call",
   "Business value assessment worth $2,500",
-  "Custom 90-day growth roadmap",
+  "Custom 90 Day growth roadmap",
   "Zero risk   100% free, no obligations",
 ];
 export default function CTASection() {

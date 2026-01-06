@@ -349,7 +349,7 @@ export const contentWritingRealCostData: RealCostData = {
         icon: 'designer',
         placeholder: 'Content Writer Type',
         type: 'select',
-        options: ['Junior Writer', 'Mid-Level Writer', 'Senior Writer', 'Content Director'],
+        options: ['Junior Writer', 'Mid Level Writer', 'Senior Writer', 'Content Director'],
       },
       {
         id: 'monthlyCost',

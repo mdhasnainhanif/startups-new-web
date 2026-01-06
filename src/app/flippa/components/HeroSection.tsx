@@ -73,8 +73,8 @@ const StatsCounter = ({
 };
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen md:min-h-[90vh] flex items-center heroBannerPaddingTop 
-     overflow-hidden py-24 md:py-16 lg:py-28 pt-28 lg:pt-48 bg-[url(/assets/images/homenewbanner.webp)] bg-cover bg-center bg-no-repeat">
+    <section className="relative min-h-screen md:min-h-[90vh] flex items-center heroBannerPaddingTop heroStarsBackground
+     overflow-hidden py-24 md:py-16 lg:py-28 pt-28 lg:pt-48">
       <Container maxWidth="xl" className="relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <MotionDiv

@@ -60,7 +60,7 @@ export interface ExperienceLevel {
 
 export const EXPERIENCE_LEVELS: ExperienceLevel[] = [
   { id: "junior", name: "Junior (0-2 Years)", multiplier: 0.7 },
-  { id: "mid", name: "Mid-Level (3-5 Years)", multiplier: 1.0 },
+  { id: "mid", name: "Mid Level (3-5 Years)", multiplier: 1.0 },
   { id: "senior", name: "Senior (6-8 Years)", multiplier: 1.5 },
   { id: "lead", name: "Lead (9+ Years)", multiplier: 2.0 },
 ];

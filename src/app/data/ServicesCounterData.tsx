@@ -76,7 +76,7 @@ export const SERVICES_COUNTER_DATA: ServicesCounterDataMap = {
       {
         id: "dw-1",
         value: "18+",
-        label: "Years of hands-on experience delivering High performing digital products across platforms.",
+        label: "Years of Hands On experience delivering High performing digital products across platforms.",
       },
       {
         id: "dw-2",

@@ -268,7 +268,7 @@
           icon: 'designer',
           placeholder: 'Developer Type',
           type: 'select',
-          options: ['Junior Developer', 'Mid-Level Developer', 'Senior Developer', 'Tech Lead'],
+          options: ['Junior Developer', 'Mid Level Developer', 'Senior Developer', 'Tech Lead'],
         },
         {
           id: 'monthlyCost',

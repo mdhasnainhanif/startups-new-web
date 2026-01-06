@@ -6,12 +6,6 @@ import Image from "next/image";
 import styles from "./HeroBanner.module.css";
 import Plasma from "../Plasma/Plasma";
 
-// Lazy load Plasma component to reduce initial bundle size
-// const Plasma = dynamic(() => import("../Plasma/Plasma"), {
-//   ssr: false,
-//   loading: () => null,
-// });
-
 export default function HeroBanner({
   headline,
   headlineHighlight,
@@ -22,7 +16,7 @@ export default function HeroBanner({
   onButtonClick,
   isHomePage = false,
 }: HeroBannerProps) {
-  // Function to parse subheadline and highlight text in brackets
+  
   const parseSubheadline = (text: string) => {
     if (!text) return null;
     
@@ -32,7 +26,7 @@ export default function HeroBanner({
     let match;
 
     while ((match = bracketRegex.exec(text)) !== null) {
-      // Add text before the bracket
+      
       if (match.index > lastIndex) {
         parts.push(
           <span key={`text-${lastIndex}`} className="text-white">
@@ -41,7 +35,7 @@ export default function HeroBanner({
         );
       }
       
-      // Add highlighted text inside brackets
+      
       parts.push(
         <span key={`highlight-${match.index}`} className="text-[#0fdac2]">
           {match[1]}
@@ -51,7 +45,7 @@ export default function HeroBanner({
       lastIndex = match.index + match[0].length;
     }
     
-    // Add remaining text after last bracket
+    
     if (lastIndex < text.length) {
       parts.push(
         <span key={`text-${lastIndex}`} className="text-white">

@@ -14,7 +14,7 @@ const iconMap: Record<string, typeof TrendingDown> = {
 
 export default function ProblemSection() {
   return (
-    <section className="sectionPadding bg-[var(--color-dark)]">
+    <section className="sectionPadding bg-[var(--color-dark)] problemBeforeBackground">
       <Container maxWidth="xl">
         <MotionDiv className="max-w-3xl mx-auto text-center mb-16">
           <div className="sectionHeading">

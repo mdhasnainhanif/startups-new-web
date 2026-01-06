@@ -74,7 +74,7 @@ const REAL_COST_DATA: RealCostData = {
         icon: 'designer',
         placeholder: 'Designer Type',
         type: 'select',
-        options: ['Junior Designer', 'Mid-Level Designer', 'Senior Designer', 'Design Director'],
+        options: ['Junior Designer', 'Mid Level Designer', 'Senior Designer', 'Design Director'],
       },
       {
         id: 'monthlyCost',
@@ -113,18 +113,18 @@ const REAL_COST_DATA: RealCostData = {
 const ROLE_COSTS: Record<string, { monthly: number; annual: number }> = {
   // Designer types
   'Junior Designer': { monthly: 1499, annual: 1499 * 12 },
-  'Mid-Level Designer': { monthly: 2499, annual: 2499 * 12 },
+  'Mid Level Designer': { monthly: 2499, annual: 2499 * 12 },
   'Senior Designer': { monthly: 4999, annual: 4999 * 12 },
   'Design Director': { monthly: 7999, annual: 7999 * 12 },
   'Creative Director': { monthly: 7999, annual: 7999 * 12 },
   // Writer types
   'Junior Writer': { monthly: 1499, annual: 1499 * 12 },
-  'Mid-Level Writer': { monthly: 2499, annual: 2499 * 12 },
+  'Mid Level Writer': { monthly: 2499, annual: 2499 * 12 },
   'Senior Writer': { monthly: 4999, annual: 4999 * 12 },
   'Content Director': { monthly: 7999, annual: 7999 * 12 },
   // Developer types
   'Junior Developer': { monthly: 2499, annual: 2499 * 12 },
-  'Mid-Level Developer': { monthly: 3999, annual: 3999 * 12 },
+  'Mid Level Developer': { monthly: 3999, annual: 3999 * 12 },
   'Senior Developer': { monthly: 6999, annual: 6999 * 12 },
   'Tech Lead': { monthly: 9999, annual: 9999 * 12 },
 };

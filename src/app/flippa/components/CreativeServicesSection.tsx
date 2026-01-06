@@ -13,7 +13,7 @@ const features = [
   {
     icon: "/assets/images/flippa/subscription/2.svg",
     title: 'Reliable turnarounds',
-    description: 'Average 24-hour first drafts, handled with consistency and care.',
+    description: 'Average 24 hour first drafts, handled with consistency and care.',
   },
   {
     icon: "/assets/images/flippa/subscription/3.svg",
@@ -77,7 +77,7 @@ const CreativeServicesSection = () => {
             <span className={styles.headlinePart2}>One Subscription</span>
           </h2>
           <p className={styles.description}>
-            ValueAccel is a subscription-based creative service platform with expert talent, smart systems, and dedicated support.
+            ValueAccel is a subscription based creative service platform with expert talent, smart systems, and dedicated support.
           </p>
         </div>
 

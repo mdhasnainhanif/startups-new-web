@@ -9,7 +9,7 @@ import Button from "../../components/Button";
 
 export default function ValueStackSection() {
   return (
-    <section className="sectionPadding bg-[var(--color-dark)] relative overflow-hidden">
+    <section className="sectionPadding bg-[var(--color-dark)] relative overflow-hidden valueStackBeforeBackground">
       <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-primary)]/10 via-transparent to-transparent opacity-40" />
 
       <Container maxWidth="xl" className="relative z-10">
@@ -43,7 +43,7 @@ export default function ValueStackSection() {
                 {valueStackData.valueItems.map((item, index) => {
                   return (
                     <StaggerItem key={item.item} delay={index * 0.1}>
-                      <div className="flex items-center justify-between py-2 md:py-3 border-b border-white/10 last:border-0">
+                      <div className="flex items-center justify-between border-b border-white/10 last:border-0">
                         <div className="flex items-center gap-2 md:gap-3">
                           <div className="mt-1">
                             <Image src="/assets/images/tick.webp" alt="Check" width={25} height={20} className="w-[20px] h-[20px]" />

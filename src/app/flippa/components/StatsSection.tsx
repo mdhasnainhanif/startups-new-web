@@ -1,19 +1,12 @@
 "use client";
 
-import { TrendingUp, Clock, DollarSign, Users } from "./icons";
 import { MotionDiv } from "./motion";
 import { useCountUp } from "./use-count-up";
 import { statsData } from "../../data/FlippaPageData";
 import Container from "../../components/Container";
+import styles from "./StatsSection.module.css";
 
-const iconMap: Record<string, typeof TrendingUp> = {
-  TrendingUp,
-  Clock,
-  DollarSign,
-  Users,
-};
-
-const StatCard = ({ stat, index }: { stat: typeof statsData.stats[0]; index: number }) => {
+const StatSection = ({ stat, index }: { stat: typeof statsData.stats[0]; index: number }) => {
   const { ref, formattedValue } = useCountUp({
     end: stat.value,
     duration: 2000,
@@ -21,40 +14,30 @@ const StatCard = ({ stat, index }: { stat: typeof statsData.stats[0]; index: num
     suffix: stat.suffix || "",
     decimals: stat.decimals || 0,
   });
-
-  const IconComponent = iconMap[stat.icon] || TrendingUp;
   
   return (
-    <div
-      ref={ref}
-      className="relative bg-white/5 border border-white/10 rounded-2xl p-6 lg:p-8 text-center group hover:border-[var(--color-purple)]/50 transition-all duration-300 hover:shadow-lg"
-    >
-      <div className="w-12 h-12 lg:w-14 lg:h-14 rounded-[50%] bg-[#2e2277] flex items-center justify-center mx-auto mb-4 transition-colors">
-          <img src={stat.icon} alt={stat.label} className="w-6 h-6 lg:w-7 lg:h-7" />
+    <div ref={ref} className={styles.statSection}>
+      <div className={styles.iconContainer}>
+        <img src={stat.icon} alt={stat.label} />
       </div>
 
-      <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--color-primary)] mb-2">
+      <div className={styles.statValue}>
         {formattedValue}
       </div>
 
-      <h3 className="text-base lg:text-lg font-semibold text-white mb-1">
+      <h3 className={styles.statLabel}>
         {stat.label}
       </h3>
-      <p className="text-sm text-white/70">{stat.description}</p>
-
-      <div className="absolute inset-0 rounded-2xl bg-[var(--color-purple)]/5 opacity-0 group-hover:opacity-100 transition-opacity -z-10" />
+      <p className={styles.statDescription}>{stat.description}</p>
     </div>
   );
 };
 
 export default function StatsSection() {
   return (
-    <section className="sectionPadding bg-[var(--color-dark)]">
+    <section className={`sectionPadding ${styles.section} blogStarsBackground`}>
       <Container maxWidth="xl">
         <MotionDiv className="max-w-3xl mx-auto text-center mb-12 lg:mb-16">
-          <span className="text-[var(--color-primary)] text-sm font-semibold uppercase tracking-wider mb-4 block">
-            {statsData.label}
-          </span>
           <div className="sectionHeading">
             <h2>
               {statsData.title.main}{" "}
@@ -64,10 +47,12 @@ export default function StatsSection() {
           <p className="text-lg text-white/80">{statsData.description}</p>
         </MotionDiv>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 max-w-5xl mx-auto">
-          {statsData.stats.map((stat, index) => (
-            <StatCard key={stat.label} stat={stat} index={index} />
-          ))}
+        <div className={styles.statsBanner}>
+          <div className={styles.statsGrid}>
+            {statsData.stats.map((stat, index) => (
+              <StatSection key={stat.label} stat={stat} index={index} />
+            ))}
+          </div>
         </div>
       </Container>
     </section>

@@ -295,7 +295,7 @@ export const socialMediaMarketingRealCostData: RealCostData = {
         icon: 'designer',
         placeholder: 'Designer Type',
         type: 'select',
-        options: ['Junior Designer', 'Mid-Level Designer', 'Senior Designer', 'Creative Director'],
+        options: ['Junior Designer', 'Mid Level Designer', 'Senior Designer', 'Creative Director'],
       },
       {
         id: 'monthlyCost',

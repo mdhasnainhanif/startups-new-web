@@ -1,0 +1,539 @@
+.section {
+  padding: 5rem 0;
+  background: var(--color-dark);
+  position: relative;
+  overflow: hidden;
+}
+
+.backgroundGlow {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 50%;
+  background: linear-gradient(to bottom, rgba(15, 218, 194, 0.1), transparent);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.contentGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .contentGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
+}
+
+/* Left Content Styles */
+.label {
+  color: var(--color-primary);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.heading {
+  margin-bottom: 1.5rem;
+}
+
+.headingHighlight {
+  color: var(--color-primary);
+}
+
+.description {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+@media (min-width: 768px) {
+  .description {
+    font-size: 1.125rem;
+    margin-bottom: 2rem;
+  }
+}
+
+/* Solution List Styles - Expandable Boxes */
+.solutionsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .solutionsList {
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+}
+
+.solutionBox {
+  background: rgba(24, 13, 51, 0.7);
+  border: 1px solid rgba(100, 59, 255, 0.3);
+  border-radius: 0.75rem;
+  padding: 1rem 1.25rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.solutionBox:hover {
+  border-color: rgba(15, 218, 194, 0.5);
+  background: rgba(24, 13, 51, 0.9);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(15, 218, 194, 0.2);
+}
+
+.solutionBoxExpanded {
+  background: rgba(24, 13, 51, 0.9);
+  border-color: rgba(15, 218, 194, 0.5);
+  box-shadow: 0 4px 12px rgba(15, 218, 194, 0.2);
+}
+
+.solutionBoxHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.solutionBoxLeft {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex: 1;
+}
+
+.checkIcon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkIcon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.solutionTitle {
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 0.9375rem;
+  margin: 0;
+}
+
+.solutionBoxContent {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.toggleIcon {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  color: rgba(255, 255, 255, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.solutionBoxExpanded .toggleIcon {
+  color: var(--color-primary);
+}
+
+.solutionDescription {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.decorativeElement1 {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 6rem;
+  height: 6rem;
+  background: rgba(115, 43, 255, 0.1);
+  border-radius: 50%;
+  filter: blur(2rem);
+}
+
+.decorativeElement2 {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  width: 8rem;
+  height: 8rem;
+  background: rgba(15, 218, 194, 0.05);
+  border-radius: 50%;
+  filter: blur(1.5rem);
+}
+
+.visualContent {
+  position: relative;
+  z-index: 10;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.comparisonContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Before Card Styles */
+.beforeCard {
+  background: rgba(139, 69, 139, 0.2);
+  border: 1px solid rgba(186, 85, 211, 0.5);
+  border-radius: 0.75rem;
+  padding: 1rem;
+}
+
+@media (min-width: 768px) {
+  .beforeCard {
+    border-radius: 1rem;
+    padding: 1.5rem;
+  }
+}
+
+.beforeHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.beforeLabel {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+}
+
+.beforeSubtitle {
+  font-size: 0.75rem;
+  color: #f87171;
+  font-weight: 500;
+}
+
+.beforeValue {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .beforeValue {
+    font-size: 1.5rem;
+  }
+}
+
+.beforePoints {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.7);
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0.75rem 0;
+}
+
+@media (min-width: 768px) {
+  .beforePoints {
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.beforePoints li {
+  margin-bottom: 0.25rem;
+}
+
+.beforeProgressBar {
+  height: 0.5rem;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 9999px;
+  overflow: hidden;
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .beforeProgressBar {
+    height: 0.625rem;
+  }
+}
+
+.beforeProgressFill {
+  height: 100%;
+  background: #ef4444;
+  border-radius: 9999px;
+  transition: width 0.3s ease;
+}
+
+/* Arrow Connector - Curved Arrow */
+.arrowContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 0;
+  position: relative;
+  height: 4rem;
+  margin: 0.5rem 0;
+}
+
+@media (min-width: 768px) {
+  .arrowContainer {
+    height: 5rem;
+    margin: 1rem 0;
+  }
+}
+
+.arrowCircle {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 0 20px rgba(15, 218, 194, 0.5);
+}
+
+@media (min-width: 768px) {
+  .arrowCircle {
+    width: 3rem;
+    height: 3rem;
+  }
+}
+
+.arrowIcon {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: #ffffff;
+  transform: rotate(90deg);
+}
+
+@media (min-width: 768px) {
+  .arrowIcon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+
+/* Curved Arrow SVG Path */
+.arrowContainer::before {
+  content: "";
+  position: absolute;
+  top: -1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: calc(100% + 2rem);
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    var(--color-primary) 20%,
+    var(--color-primary) 80%,
+    transparent 100%
+  );
+  z-index: 1;
+  border-radius: 2px;
+  box-shadow: 0 0 10px rgba(15, 218, 194, 0.3);
+}
+
+.arrowContainer::after {
+  content: "";
+  position: absolute;
+  bottom: -0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 15px solid var(--color-primary);
+  z-index: 1;
+  filter: drop-shadow(0 0 5px rgba(15, 218, 194, 0.5));
+}
+
+/* After Card Styles */
+.afterCard {
+  background: rgba(15, 218, 194, 0.1);
+  border: 2px solid rgba(15, 218, 194, 0.3);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .afterCard {
+    border-radius: 1rem;
+    padding: 1.5rem;
+  }
+}
+
+.decorativeShape {
+  position: absolute;
+  bottom: -30px;
+  right: -30px;
+  opacity: 0.25;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.decorativeShape svg {
+  width: 120px;
+  height: 120px;
+  transform: rotate(-15deg);
+}
+
+@media (min-width: 768px) {
+  .decorativeShape svg {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+.afterHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 768px) {
+  .afterHeader {
+    margin-bottom: 0.75rem;
+  }
+}
+
+.afterLabel {
+  font-size: 0.75rem;
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
+@media (min-width: 768px) {
+  .afterLabel {
+    font-size: 0.875rem;
+  }
+}
+
+.afterSubtitle {
+  font-size: 0.625rem;
+  color: var(--color-primary);
+  font-weight: 500;
+}
+
+@media (min-width: 768px) {
+  .afterSubtitle {
+    font-size: 0.75rem;
+  }
+}
+
+.afterValue {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 768px) {
+  .afterValue {
+    font-size: 1.5rem;
+  }
+}
+
+.afterPoints {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.7);
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0.75rem 0;
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 768px) {
+  .afterPoints {
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.afterPoints li {
+  color: #ffffff;
+  margin-bottom: 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.checkmark {
+  color: var(--color-primary);
+  font-weight: bold;
+  font-size: 1.1em;
+  margin-right: 0.25rem;
+}
+
+.afterProgressBar {
+  height: 0.5rem;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 9999px;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 768px) {
+  .afterProgressBar {
+    height: 0.625rem;
+  }
+}
+
+.afterProgressFill {
+  height: 100%;
+  background: var(--color-primary);
+  border-radius: 9999px;
+  transition: width 0.3s ease;
+  box-shadow: 0 0 10px rgba(15, 218, 194, 0.5);
+}
