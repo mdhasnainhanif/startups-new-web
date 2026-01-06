@@ -233,7 +233,7 @@ h2.headingSize {
 p.topPara {
   font-size: .9375rem;
   font-weight: 400;
-  color: #ffffff;
+  font-family: var(--font-graphik-regular), Arial, Helvetica, sans-serif;
 }
 
 .pt100 {
@@ -1043,6 +1043,19 @@ section img.banneFullMin {
   gap: 2rem;
 }
 
-.webDevelopmentAnalyticsSection{
-  
+.contentWritingAnalyticsSection .space-y-0::before, 
+.contentWritingAnalyticsSection .space-y-0::after {
+  content: '';
+  display: block;
+  position: absolute;
+  min-height: 42.2rem;
+}
+
+.contentWritingAnalyticsSection .space-y-0 {
+  position: relative;
+} 
+
+.webDevelopmentAnalyticsSection .space-y-0::before, 
+.webDevelopmentAnalyticsSection .space-y-0::after {
+  min-height: 36rem;
 }

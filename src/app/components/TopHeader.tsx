@@ -20,7 +20,7 @@ export default function TopHeader() {
         <Container maxWidth="2xl" className="px-0">
           <div className="flex items-center justify-between w-full rounded-full lg:px-4 pb-0">
             <div className="flex items-center md:gap-3 gap-1 flex-1 md:justify-center justify-between">
-              <p className="topPara">
+              <p className="topPara text-white font-normal">
                 <span className="text-xl">{TOP_BANNER.emoji}</span>&nbsp;
                 <span className="hidden md:inline">Big News: </span>
                 We Launched Key Growth Manager Services

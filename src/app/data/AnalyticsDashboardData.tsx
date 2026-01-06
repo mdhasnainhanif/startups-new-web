@@ -118,8 +118,8 @@ export const contentWritingAnalyticsDashboardData = {
       'Campaign\nObjective',
       'Target Persona',
       'Message Clarity',
-      'Content Accuracy',
-      'Situational Insight',
+      'Content \nAccuracy',
+      'Situational \nInsight',
       'Thought \nLeadership',
 
     ]

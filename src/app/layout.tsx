@@ -6,7 +6,6 @@ import Script from "next/script";
 import "./globals.css";
 import ConditionalLayout from "./components/ConditionalLayout/ConditionalLayout";
 
-
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -66,15 +65,27 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-      <noscript>
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-          crossOrigin="anonymous"
-          referrerPolicy="no-referrer"
-        />
+        <style>{`
+    .topHeader {
+      position: relative;
+      padding-top: 8px;
+    }
+    .topPara {
+      font-family: system-ui, Arial, sans-serif;
+      font-size: 15px;
+      font-weight: 400;
+      color: #ffffff;
+    }
+  `}</style>
+        <noscript>
+          <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+            crossOrigin="anonymous"
+            referrerPolicy="no-referrer"
+          />
         </noscript>
-        <link rel="preload" as="image" href="/assets/images/hero.webp"/>
+        <link rel="preload" as="image" href="/assets/images/hero.webp" />
       </head>
       <body
         className={`${geistSans.variable} ${plusJakartaSans.variable} ${graphikRegular.variable} ${graphikBold.variable} ${graphikSemiBold.variable} antialiased relative`}
