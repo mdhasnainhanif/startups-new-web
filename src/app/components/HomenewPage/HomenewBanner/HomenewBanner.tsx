@@ -40,7 +40,7 @@ const DEFAULT_DATA: HomenewBannerData = {
     part2: " Team Ready From Day One",
   },
   description:
-    "Everything your business needs to look professional, trusted, and ready to serve — handled by your own design team powered by AI and real experts",
+    "Everything your business needs to look professional, trusted, and ready to serve, handled by your own design team powered by AI and real experts",
   experienceBox: {
     title: "Experience Box – Your Design Team's Expertise",
     items: [

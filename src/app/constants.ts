@@ -327,7 +327,7 @@ export const OUR_CORE_VALUES = {
       icon: '/assets/images/globe3.svg',
       heading: "Vision",
       description:
-        "A world where every startup can scale confidently by leveraging global talent and AI—without the traditional cost barriers that limit early-stage growth.",
+        "A world where every startup can scale confidently by leveraging global talent and AI without the traditional cost barriers that limit early-stage growth.",
     },
     {
       id: "3",
@@ -343,7 +343,7 @@ export const OUR_CORE_VALUES = {
       icon: '/assets/images/globe5.svg',
       heading: "Values",
       description:
-        "We value efficiency, accessibility, and a deep commitment to levelling the playing field—making top-tier growth strategies, talent, and tools available to every early-stage business.",
+        "We value efficiency, accessibility, and a deep commitment to levelling the playing field, making top-tier growth strategies, talent, and tools available to every early-stage business.",
     },
   ],
 };

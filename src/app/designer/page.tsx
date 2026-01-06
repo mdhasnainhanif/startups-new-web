@@ -36,7 +36,7 @@ const designerProvenSuccessData = {
     highlighted: 'Success',
   },
   description:
-    'Your Smart AI Business Team brings a fully loaded AI ecosystem for creative design and analytics automation — premium tools, no extra cost, no hassle.',
+    'Your Smart AI Business Team brings a fully loaded AI ecosystem for creative design and analytics automation, premium tools, no extra cost, no hassle.',
   tabs: [
     {
       id: 'branding-kit',

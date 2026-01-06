@@ -52,7 +52,7 @@
 
   const DEFAULT_DATA: CompleteBusinessSetupData = {
     heading: {
-      part1: "Your Complete Business Design Setup — ",
+      part1: "Your Complete Business Design Setup ",
       price: "$3,299",
       part2: " One-Time",
     },

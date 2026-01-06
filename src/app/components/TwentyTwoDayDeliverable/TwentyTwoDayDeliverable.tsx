@@ -11,7 +11,7 @@ gsap.registerPlugin(ScrollTrigger);
 const phases = [
   {
     id: 1,
-    title: "Phase 01 — Foundation",
+    title: "Phase 01 Foundation",
     days: "Days 1-5",
     iconColor: "#0fdac2",
     iconType: "cube",
@@ -28,7 +28,7 @@ const phases = [
   },
   {
     id: 2,
-    title: "Phase 02 — Brand Expansion",
+    title: "Phase 02 Brand Expansion",
     days: "Days 6-11",
     iconColor: "#0fdac2",
     iconType: "person",
@@ -45,7 +45,7 @@ const phases = [
   },
   {
     id: 3,
-    title: "Phase 03 — Digital Presence",
+    title: "Phase 03 Digital Presence",
     days: "Days 12-17",
     iconColor: "#0fdac2",
     iconType: "globe",
@@ -62,7 +62,7 @@ const phases = [
   },
   {
     id: 4,
-    title: "Phase 04 — Production & Collateral",
+    title: "Phase 04 Production & Collateral",
     days: "Days 18-22",
     iconColor: "#0fdac2",
     iconType: "gear",
@@ -353,8 +353,8 @@ const TwentyTwoDayDeliverable = () => {
                     {/* Phase Content */}
                     <div className={`${styles.phaseContent} ${isExpanded ? styles.phaseContentExpanded : styles.phaseContentCollapsed}`}>
                       <h3 className={styles.phaseTitle}>
-                        <span className={styles.phaseNumber}>{phase.title.split('—')[0].trim()}</span>
-                        <span className={styles.phaseName}> — {phase.title.split('—')[1]?.trim()}</span>
+                        <span className={styles.phaseNumber}>{phase.title.split(' ')[0]} {phase.title.split(' ')[1]}</span>
+                        <span className={styles.phaseName}> {phase.title.split(' ').slice(2).join(' ')}</span>
                       </h3>
                       <p className={styles.phaseDays}>{phase.days}</p>
                       {isExpanded && (

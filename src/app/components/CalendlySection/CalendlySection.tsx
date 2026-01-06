@@ -28,7 +28,7 @@ const CalendlySection = ({
   buttonText = "Free Up Your Time",
   buttonHref = "#",
   calendlyUrl,
-  calendlyText = "In minutes, you'll see examples of what your team can handle — ads, social, website, graphics — and how it all works together seamlessly",
+  calendlyText = "In minutes, you'll see examples of what your team can handle, ads, social, website, graphics, and how it all works together seamlessly",
   className = "",
   calNamespace = "30min",
   calLink = "inhouse-team-loexw9/30min",

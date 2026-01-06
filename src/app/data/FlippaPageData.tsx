@@ -70,7 +70,7 @@ export const problemData = {
     },
   ],
   bottomText:
-    "Without a strong foundation — systems, marketing, process, profitability — your business remains undervalued and unsellable.",
+    "Without a strong foundation, systems, marketing, process, profitability, your business remains undervalued and unsellable.",
 };
 
 // Solution Section Data
@@ -82,7 +82,7 @@ export const solutionData = {
     suffix: "System",
   },
   description:
-    "We offer a full-stack growth + exit-prep service — we don't just give advice, we build, implement, and transform your business into a sell-ready asset in 90 days.",
+    "We offer a full-stack growth + exit-prep service, we don't just give advice, we build, implement, and transform your business into a sell-ready asset in 90 days.",
   solutions: [
     {
       title: "Operational Overhaul",

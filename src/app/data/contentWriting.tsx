@@ -254,7 +254,7 @@ export const CONTENT_WRITING_DATA: ContentWritingData = {
   hero: {
     badge: "1 Month Content Writing Service",
     heading: {
-      text: "Market-Ready Content in",
+      text: "Market Ready Content in",
       highlight: "1 Month.",
     },
     description:
@@ -272,7 +272,7 @@ export const CONTENT_WRITING_DATA: ContentWritingData = {
     },
   },
   clientLogos: {
-    title: "Experience Box – What This Service Produces",
+    title: "Experience Box What This Service Produces",
     logos: [
       { name: "2,500+ Projects", initials: "2.5K" },
       { name: "40+ Years", initials: "40+" },
@@ -350,7 +350,7 @@ export const CONTENT_WRITING_DATA: ContentWritingData = {
     },
     testimonial: {
       rating: 5,
-      quote: "Our organic leads increased 42% in 90 days — this was the first time content actually worked for us.",
+      quote: "Our organic leads increased 42% in 90 days, this was the first time content actually worked for us.",
       author: "Michael R.",
       role: "VP Marketing",
       company: "SaaS Company",
@@ -483,7 +483,7 @@ export const CONTENT_WRITING_DATA: ContentWritingData = {
   framework: {
     badge: "1 Month Content Package",
     heading: {
-      text: "Complete Content Writing Package —",
+      text: "Complete Content Writing Package",
       highlight: "$3,299 One-Time",
     },
     frameworkSlices: [
@@ -518,7 +518,7 @@ export const CONTENT_WRITING_DATA: ContentWritingData = {
       highlight: "what content you need?",
     },
     description:
-      "That's exactly what the Content Growth Plan is for. We'll analyze your current situation, identify opportunities, and give you a clear roadmap — even if you decide not to work with us.",
+      "That's exactly what the Content Growth Plan is for. We'll analyze your current situation, identify opportunities, and give you a clear roadmap, even if you decide not to work with us.",
     forList: [
       "B2B, SaaS, and service brands",
       "Teams that want consistent content growth",
@@ -532,7 +532,7 @@ export const CONTENT_WRITING_DATA: ContentWritingData = {
       icon: "Shield",
       title: "Zero-Risk Guarantee",
       description:
-        "If you don't feel 100% clear on your content plan after the audit, you owe nothing. Walk away with the insights we've shared — no strings attached.",
+        "If you don't feel 100% clear on your content plan after the audit, you owe nothing. Walk away with the insights we've shared, no strings attached.",
     },
   },
   team: {

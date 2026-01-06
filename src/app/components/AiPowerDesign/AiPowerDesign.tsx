@@ -47,7 +47,7 @@ const AI_POWER_DESIGN_DATA: AiPowerDesignData = {
     highlighted: ['AI-Powered Design Team', 'First 1 Month'],
   },
   description:
-    'Instead of managing freelancers or paying agency premiums, you get a full design team that builds your entire visual identity from scratch — fast, clean, and ready for real business use.',
+    'Instead of managing freelancers or paying agency premiums, you get a full design team that builds your entire visual identity from scratch, fast, clean, and ready for real business use.',
   tabs: [
     {
       id: 'website-design',
@@ -148,7 +148,7 @@ const AI_POWER_DESIGN_DATA: AiPowerDesignData = {
   ],
   lifetimeValue: {
     heading: 'Lifetime Value:',
-    text: "You're not just receiving \"designs.\" You're receiving the full brand system your business will use for years — online and offline",
+    text: "You're not just receiving \"designs.\" You're receiving the full brand system your business will use for years, online and offline",
   },
 };
 

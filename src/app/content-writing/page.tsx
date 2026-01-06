@@ -29,7 +29,7 @@ import {
 export const metadata: Metadata = {
   title: "1 Month Content Writing Service | Market-Ready Content | Startups Advisory",
   description:
-    "Market-Ready Content in 1 Month. Writing shaped for presence, persuasion, and modern brand standards. A complete content layer built with clarity, rhythm, and commercial intent.",
+    "Market Ready Content in 1 Month. Writing shaped for presence, persuasion, and modern brand standards. A complete content layer built with clarity, rhythm, and commercial intent.",
   robots: "nofollow",
 };
 export default function ContentWritingPage() {

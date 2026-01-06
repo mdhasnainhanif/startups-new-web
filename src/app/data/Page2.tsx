@@ -132,7 +132,7 @@ export interface HomeBannerData {
     },
     paragraphs: [
       {
-        text: 'Most owners don\'t get stuck because they\'re bad at business — they get stuck because they\'re buried in things that steal their time, energy, and focus.',
+        text: 'Most owners don\'t get stuck because they\'re bad at business, they get stuck because they\'re buried in things that steal their time, energy, and focus.',
       },
       {
         text: 'Your day fills up with tiny decisions, half-finished tasks, open loops, and "I\'ll handle it later" moments that slowly choke your momentum.',
@@ -144,7 +144,7 @@ export interface HomeBannerData {
         text: 'You\'ve probably felt it: the constant pile-up, the silent pressure, the feeling that everything depends on you.',
       },
       {
-        text: 'A Key Growth Manager steps in right there — taking weight off your shoulders and turning scattered chaos into steady movement again.',
+        text: 'A Key Growth Manager steps in right there, taking weight off your shoulders and turning scattered chaos into steady movement again.',
         highlights: [
           { text: 'Key Growth Manager', position: 0 },
         ],
@@ -181,7 +181,7 @@ export interface HomeBannerData {
       },
       paragraphs: [
         'This system works because every business moves faster when someone in your business team is one step ahead for you. Not guessing. Not reacting. Actually steering.',
-        'The Key Growth Manager becomes the person who sees what you can\'t see while you\'re in the middle of the work — spotting slowdowns, closing loops, and keeping momentum alive without waiting for you to push.',
+        'The Key Growth Manager becomes the person who sees what you can\'t see while you\'re in the middle of the work, spotting slowdowns, closing loops, and keeping momentum alive without waiting for you to push.',
         'Not an agency. Not a freelancer. Not another tool you have to babysit. Just one person who knows your pace, understands your goals, and keeps your business moving with steady, everyday execution.',
       ],
     },
@@ -234,7 +234,7 @@ export interface HomeBannerData {
       {
         number: '02',
         heading: 'You\'re Never Left Hanging',
-        description: 'If your Growth Manager needs to be swapped, we replace them instantly — no gaps, no slowdowns, no extra cost. Your rhythm stays protected.',
+        description: 'If your Growth Manager needs to be swapped, we replace them instantly, no gaps, no slowdowns, no extra cost. Your rhythm stays protected.',
       },
       {
         number: '03',
@@ -277,7 +277,7 @@ export interface HomeBannerData {
     },
     paragraphs: [
       'Startup Advisory was built by founders who know exactly how it feels when the work stacks up faster than you can clear it.',
-      'When you\'re running the business, putting out fires, and juggling a hundred moving parts — and the important things start slipping because there\'s just no one to hold the other side.',
+      'When you\'re running the business, putting out fires, and juggling a hundred moving parts, and the important things start slipping because there\'s just no one to hold the other side.',
       'We created the Key Growth Manager because we lived the same chaos. We needed someone who could step in, steady the pace, and keep the wheels turning while we focused on the real work.',
       'Now you get the kind of support we wished we had when we were trying to grow our own companies.',
     ],
@@ -307,14 +307,14 @@ export interface HomeBannerData {
       'Startup Advisory is built for owners who want steady progress without drowning in the small stuff.',
       'They don\'t want to manage tasks, chase updates, or figure out what to fix next.',
       'They want someone who steps in, keeps things moving, and handles the work that always steals their time.',
-      'A Key Growth Manager does exactly that — giving your business daily movement, clean execution, and the consistency you never get when you\'re doing everything alone.',
+      'A Key Growth Manager does exactly that, giving your business daily movement, clean execution, and the consistency you never get when you\'re doing everything alone.',
     ],
     cards: [
       {
         label: 'Vetting',
         title: 'Work With Top-Tier Growth Managers',
         description:
-          'Your Growth Manager isn\'t here to "help out." They come in to organize, steady, and speed up the parts of your business that fall behind when things get busy. They think fast, move clean, and keep your daily operations running in a straight line — so you get reliable output every week without having to push, remind, or manage constantly.',
+          'Your Growth Manager isn\'t here to "help out." They come in to organize, steady, and speed up the parts of your business that fall behind when things get busy. They think fast, move clean, and keep your daily operations running in a straight line, so you get reliable output every week without having to push, remind, or manage constantly.',
         backgroundImage: '/assets/images/businessdot.webp',
         image: '/assets/images/key-growth/why-business-owners-choose/1.webp',
       },
@@ -322,7 +322,7 @@ export interface HomeBannerData {
         label: 'AI',
         title: 'AI-Enabled Growth Managers',
         description:
-          'Your Growth Manager works faster because they use smart systems that take the slow work off their hands. Nothing for you to learn, nothing for you to set up — just cleaner tasks done quicker and a business that stays ahead instead of catching up. The result? Consistent output. Less waiting. More movement every single week.',
+          'Your Growth Manager works faster because they use smart systems that take the slow work off their hands. Nothing for you to learn, nothing for you to set up, just cleaner tasks done quicker and a business that stays ahead instead of catching up. The result? Consistent output. Less waiting. More movement every single week.',
         image: '/assets/images/key-growth/why-business-owners-choose/2.webp',
       },
     ],
@@ -349,7 +349,7 @@ export interface HomeBannerData {
       part3: 'Guarantee',
     },
     description:
-      'If at any point you feel your Growth Manager isn\'t the right fit, we replace them instantly — no delays, no downtime, no extra cost. You don\'t deal with hiring, retraining, or gaps in support. Your rhythm stays steady, your tasks stay handled, and your business keeps moving without interruption.',
+      'If at any point you feel your Growth Manager isn\'t the right fit, we replace them instantly, no delays, no downtime, no extra cost. You don\'t deal with hiring, retraining, or gaps in support. Your rhythm stays steady, your tasks stay handled, and your business keeps moving without interruption.',
     cta: {
       text: 'Book Free Strategy Call',
       href: '#',
