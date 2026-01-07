@@ -1051,7 +1051,7 @@ section img.banneFullMin {
   content: "";
   background: url("/assets/images/1.webp") center center / contain no-repeat;
   width: 100%;
-  max-width: 10rem;
+  max-width: 25rem;
   height: 100%;
   position: absolute;
   top: 0;

@@ -74,7 +74,7 @@ const StatsCounter = ({
 export default function HeroSection() {
   return (
     <section className="relative min-h-screen md:min-h-[90vh] flex items-center heroBannerPaddingTop heroStarsBackground
-     overflow-hidden py-24 md:py-16 lg:py-28 pt-28 lg:pt-48">
+     overflow-hidden py-24 md:py-16 lg:py-20 pt-28 lg:pt-48">
       <Container maxWidth="xl" className="relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <MotionDiv
@@ -141,11 +141,11 @@ export default function HeroSection() {
               </Link>
             </Button>
           </MotionDiv>
-          <StatsCounter
+          {/* <StatsCounter
             delay={0.5}
             title={heroData.socialProof.title}
             stats={heroData.socialProof.stats}
-          />
+          /> */}
         </div>
       </Container>
     </section>

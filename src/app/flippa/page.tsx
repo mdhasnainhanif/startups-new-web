@@ -14,7 +14,7 @@ import CreativeServicesSection from "./components/CreativeServicesSection";
 import { sliderData } from "../data/HomeNewData";
 import TextSlider1 from "../components/HomenewPage/TextSlider/TextSlider";
 import OurJourney from "./components/OurJourney";
-import { OUR_JOURNEY } from "../constants";
+import { flippaJourneyData } from "../data/FlippaPageData";
 import BlogCarousel from "../components/BlogCarousel/BlogCarousel";
 import FAQ from "../components/FAQ/FAQ";
 import { FAQ_DATA } from "../constants";
@@ -47,7 +47,7 @@ export default function FlippaPage() {
       <ProblemSection />
       <SolutionSection />
       <ProcessSection />
-      <OurJourney items={OUR_JOURNEY.items} />
+      <OurJourney items={flippaJourneyData.items} />
       <StatsSection />
       <ValueStackSection />
       <DifferentiatorsSection />

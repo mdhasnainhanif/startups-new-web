@@ -14,10 +14,11 @@ export default function OurJourney({ items, className = "" }: OurJourneyProps) {
     desc: item.description,
     side: item.imagePosition || "right",
     icon: item.icon as string,
+    points: item.points || [],
   }));
 
   return (
-    <section className={`${styles.wrap} ${className} sectionPadding pt-0image.png`}>
+    <section className={`${styles.wrap} ${className} sectionPadding pt-0`}>
       <Container className="xl">
       {/* <div className="sectionHeading lg:mb-30 mb-6">
         <h2
@@ -58,6 +59,16 @@ export default function OurJourney({ items, className = "" }: OurJourneyProps) {
               </div>
               <h4 className={styles.subtitle}>{s.subtitle}</h4>
               <p className={styles.desc}>{s.desc}</p>
+              {s.points && s.points.length > 0 && (
+                <ul className="mt-4 space-y-2">
+                  {s.points.map((point, idx) => (
+                    <li key={idx} className="flex items-start gap-2 text-white/80 text-sm md:text-base">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#0fdac2] mt-2 flex-shrink-0"></span>
+                      <span>{point}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
             {i < steps.length - 1 && (
               <div

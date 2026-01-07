@@ -441,3 +441,65 @@ export const objectionsData = {
   ],
 };
 
+// Our Journey Data for Flippa Page (with 4 items)
+export const flippaJourneyData = {
+  items: [
+    {
+      id: "1",
+      number: "01.",
+      title: "The Vision Starts",
+      subtitle: "Understanding What Will Grow Your Business",
+      description:
+        "We begin by listening to your challenges your goals and your roadblocks then identify what will move the needle fastest for your revenue and performance.",
+      imagePosition: "left" as const,
+      icon: "/assets/images/journey1.svg",
+      points: [
+        "Deep dive into your business operations",
+        "Identify revenue growth opportunities",
+      ],
+    },
+    {
+      id: "2",
+      number: "02.",
+      title: "Building The Foundation Of Growth",
+      subtitle: "Creating Your Structure For Scaling",
+      description:
+        "We map your operations define your growth opportunities and design the systems that help your business operate stronger and sell smarter.",
+      imagePosition: "right" as const,
+      icon: "/assets/images/journey2.svg",
+      points: [
+        "Design scalable operational systems",
+        "Create structured workflows and processes",
+      ],
+    },
+    {
+      id: "3",
+      number: "03.",
+      title: "Turning Strategy Into Real Results",
+      subtitle: "Implementing Processes That Increase Revenue",
+      description:
+        "We launch improved workflows refined systems and stronger structures that reduce wasted time boost output and drive measurable business growth.",
+      imagePosition: "left" as const,
+      icon: "/assets/images/journey3.svg",
+      points: [
+        "Implement new systems and workflows",
+        "Optimize existing processes for efficiency",
+      ],
+    },
+    {
+      id: "4",
+      number: "04.",
+      title: "Scaling For Long-Term Success",
+      subtitle: "Optimizing Performance For Maximum Value",
+      description:
+        "We continuously monitor refine and optimize your systems ensuring sustainable growth and positioning your business as a high-value asset ready for exit or expansion.",
+      imagePosition: "right" as const,
+      icon: "/assets/images/journey3.svg",
+      points: [
+        "Continuous monitoring and optimization",
+        "Sustainable growth strategies",
+      ],
+    },
+  ],
+};
+
