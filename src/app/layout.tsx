@@ -1,33 +1,31 @@
 import React from "react";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Plus_Jakarta_Sans } from "next/font/google";
+import { Geist, Plus_Jakarta_Sans } from "next/font/google";
 import localFont from "next/font/local";
-import Image from "next/image";
 import Script from "next/script";
 import "./globals.css";
 import ConditionalLayout from "./components/ConditionalLayout/ConditionalLayout";
-
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+// const geistMono = Geist_Mono({
+//   variable: "--font-geist-mono",
+//   subsets: ["latin"],
+// });
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
   variable: "--font-plus-jakarta-sans",
 });
 
-const wfVisualSans = localFont({
-  src: "../../public/assets/fonts/WFVisualSansVF.ttf",
-  variable: "--font-wf-visual-sans",
-  display: "swap",
-});
+// const wfVisualSans = localFont({
+//   src: "../../public/assets/fonts/WFVisualSansVF.ttf",
+//   variable: "--font-wf-visual-sans",
+//   display: "swap",
+// });
 
 const graphikRegular = localFont({
   src: "../../public/assets/fonts/Graphik-Regular-Trial.otf",
@@ -52,7 +50,7 @@ const graphikSemiBold = localFont({
 
 export const metadata: Metadata = {
   title: "Startups Advisory",
-  description: "AI-powered advisory for startups",
+  description: "AI Powered advisory for startups",
   robots: "nofollow",
   icons: {
     icon: "/assets/images/favicon.svg",
@@ -67,16 +65,30 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-          crossOrigin="anonymous"
-          referrerPolicy="no-referrer"
-        />
-        <link rel="preload" as="image" href="/assets/images/hero.webp"/>
+        <style>{`
+    .topHeader {
+      position: relative;
+      padding-top: 8px;
+    }
+    .topPara {
+      font-family: system-ui, Arial, sans-serif;
+      font-size: 15px;
+      font-weight: 400;
+      color: #ffffff;
+    }
+  `}</style>
+        <noscript>
+          <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+            crossOrigin="anonymous"
+            referrerPolicy="no-referrer"
+          />
+        </noscript>
+        <link rel="preload" as="image" href="/assets/images/hero.webp" />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${plusJakartaSans.variable} ${graphikRegular.variable} ${graphikBold.variable} ${graphikSemiBold.variable} antialiased relative`}
+        className={`${geistSans.variable} ${plusJakartaSans.variable} ${graphikRegular.variable} ${graphikBold.variable} ${graphikSemiBold.variable} antialiased relative`}
       >
         {/* Shared Background Image - Behind Header and Hero */}
         {/* <div className="fixed inset-0 z-0">

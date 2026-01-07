@@ -314,13 +314,13 @@ export interface WebDevelopmentData {
 // Data
 export const WEB_DEVELOPMENT_DATA: WebDevelopmentData = {
   hero: {
-    badge: "22-Day Website Package",
+    badge: "1 Month Website Package",
     heading: {
-      text: "Your Complete Website Team for",
-      highlight: "22 Days",
+      text: "Your Complete Website Team for ",
+      highlight: "  1 Month",
     },
     description:
-      "Fully Focused on Your Build. A dedicated web unit assembled to create a fast, structured, market-ready website prepared to support real traffic and real business activity.",
+      "Fully Focused on Your Build. A dedicated web unit assembled to create a fast, structured, market ready website prepared to support real traffic and real business activity.",
     features: [
       {
         icon: "TrendingUp",
@@ -345,7 +345,7 @@ export const WEB_DEVELOPMENT_DATA: WebDevelopmentData = {
     },
   },
   experienceBox: {
-    heading: "Experience Box – What Your Web Team Brings",
+    heading: "Experience Box  What Your Web Team Brings",
     items: [
       { text: "2,500 plus completed website projects across multiple business categories" },
       { text: "40 plus years combined execution in modern web production" },
@@ -356,9 +356,9 @@ export const WEB_DEVELOPMENT_DATA: WebDevelopmentData = {
   },
   completeBusinessSetup: {
     heading: {
-      part1: "Your Complete Website Package — ",
-      price: "$1,499",
-      part2: " One-Time",
+      part1: "Your Complete Website Package   ",
+      price: "$3,299",
+      part2: " One Time",
     },
     brandingKits: {
       items: [
@@ -382,8 +382,8 @@ export const WEB_DEVELOPMENT_DATA: WebDevelopmentData = {
         { id: "1", text: "A dedicated web team" },
         { id: "2", text: "50+ essential website assets" },
         { id: "3", text: "AI assisted workflow" },
-        { id: "4", text: "Unlimited revisions within 22 days" },
-        { id: "5", text: "Launch-ready files delivered" },
+        { id: "4", text: "Unlimited revisions within 1 month" },
+        { id: "5", text: "Launch ready files delivered" },
       ],
       ctaButton: {
         text: "Get My Package",
@@ -422,7 +422,7 @@ export const WEB_DEVELOPMENT_DATA: WebDevelopmentData = {
     heading: {
       part1: "Review the Real Cost of",
       part2: "Hiring Web Staff vs.",
-      part3: "Using a Full Web Team for 22 Days",
+      part3: "Using a Full Web Team for 1 Month",
     },
     description: "Calculate:",
     points: [
@@ -438,7 +438,7 @@ export const WEB_DEVELOPMENT_DATA: WebDevelopmentData = {
   team: {
     heading: "Meet the Team Assigned to Build Your Website",
     description:
-      "Your 22-day web team executes a complete website operation from initial structure to final deployment. Each specialist focuses on a dedicated part of the build, keeping quality consistent and timelines controlled.",
+      "Your 1 month web team executes a complete website operation from initial structure to final deployment. Each specialist focuses on a dedicated part of the build, keeping quality consistent and timelines controlled.",
     team: [
       {
         name: "Web Designer",
@@ -454,8 +454,8 @@ export const WEB_DEVELOPMENT_DATA: WebDevelopmentData = {
       },
       {
         name: "Web Developer",
-        role: "Full-Stack Implementation",
-        bio: "Builds the full website with stable code, fast performance, and complete stack integration. Handles frontend engineering, backend functionality setup, full-stack implementation, technical SEO installation, page speed refinement, schema and metadata configuration, security essentials, hosting and deployment support, responsive coding standards, and complete website buildout.",
+        role: "Full stack implementation",
+        bio: "Builds the full website with stable code, fast performance, and complete stack integration. Handles frontend engineering, backend functionality setup, Full stack implementation, technical SEO installation, page speed refinement, schema and metadata configuration, security essentials, hosting and deployment support, responsive coding standards, and complete website buildout.",
         initials: "DEV",
       },
     ],

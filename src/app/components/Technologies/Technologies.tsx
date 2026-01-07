@@ -251,14 +251,14 @@ export default function Technologies({ heading, description, subDescription, hid
             </button>
           </div>
           )}
-          {!heading && (
+          {/* {!heading && (
             <div className={styles.categoryHeader}>
               <h3 className={styles.categoryTitle}>
                 {currentTab?.label} Tools (
                 <span className="text-[#0fdac2]">{currentTab?.value}</span> )
               </h3>
             </div>
-          )}
+          )} */}
         </Container>
         <div className={styles.slidersContainer}>
           <div className={`${styles.slider} ${styles.sliderRightToLeft}`}>

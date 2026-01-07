@@ -465,7 +465,7 @@ export const SERVICES_GROWTH_CARDS_CONTENT: ServicesGrowthCardsContentData = {
   "brand-identity": [
     {
       heading: "Quality talent, worldwide",
-      bodyText: "We filter aggressively from thousands of portfolios. Only top-tier brand designers who understand systems and long-term growth make it in.",
+      bodyText: "We filter aggressively from thousands of portfolios. Only top tier brand designers who understand systems and long term growth make it in.",
       image: "/assets/images/services/brand-identity/1.webp",
     },
     {
@@ -499,7 +499,7 @@ export const SERVICES_GROWTH_CARDS_CONTENT: ServicesGrowthCardsContentData = {
   "digital-web": [
     {
       heading: "Conversion-first design",
-      bodyText: "Every screen serves a purpose. Layouts, CTAs, and flows are built to guide users toward action — not distract them.",
+      bodyText: "Every screen serves a purpose. Layouts, CTAs, and flows are built to guide users toward action   not distract them.",
       image: "/assets/images/blog/1.webp",
     },
     {
@@ -525,7 +525,7 @@ export const SERVICES_GROWTH_CARDS_CONTENT: ServicesGrowthCardsContentData = {
       image: "/assets/images/services/brand-identity/2.webp",
     },
     {
-      heading: "Commercial-safe, platform-ready",
+      heading: "Commercial-safe, platform ready",
       bodyText: "All assets are created using licensed tools and formats. Your videos stay compliant, safe, and ready for paid distribution.",
       image: "/assets/images/services/brand-identity/3.webp",
     },
@@ -533,7 +533,7 @@ export const SERVICES_GROWTH_CARDS_CONTENT: ServicesGrowthCardsContentData = {
   "print": [
     {
       heading: "Quality talent, worldwide",
-      bodyText: "We review thousands of portfolios and only a small percent make it. You get access to top-tier creatives committed to your brand's long-term success.",
+      bodyText: "We review thousands of portfolios and only a small percent make it. You get access to top tier creatives committed to your brand's long term success.",
       image: "/assets/images/blog/1.webp",
     },
     {
@@ -571,12 +571,12 @@ export const SERVICES_GROWTH_CARDS_CONTENT: ServicesGrowthCardsContentData = {
       image: "/assets/images/services/brand-identity/1.webp",
     },
     {
-      heading: "On-brand consistency",
+      heading: "on brand consistency",
       bodyText: "Every document follows your brand system. Colors, fonts, and layouts stay aligned across all assets.",
       image: "/assets/images/services/brand-identity/2.webp",
     },
     {
-      heading: "Commercial-safe, print-ready",
+      heading: "Commercial-safe, print ready",
       bodyText: "All templates are created using licensed assets. Documents are ready for digital distribution and professional printing.",
       image: "/assets/images/services/brand-identity/3.webp",
     },
@@ -588,7 +588,7 @@ export const SERVICES_GROWTH_CARDS_CONTENT: ServicesGrowthCardsContentData = {
       image: "/assets/images/services/brand-identity/1.webp",
     },
     {
-      heading: "On-brand slide systems",
+      heading: "on brand slide systems",
       bodyText: "Every deck follows your brand system. Colors, fonts, and layouts stay consistent across all presentations.",
       image: "/assets/images/services/brand-identity/2.webp",
     },
@@ -618,7 +618,7 @@ export const SERVICES_GROWTH_CARDS_CONTENT: ServicesGrowthCardsContentData = {
   "apparel-merchandise": [
     {
       heading: "Quality talent, worldwide",
-      bodyText: "We review thousands of portfolios and only a small percent make it. You get access to top-tier creatives committed to your brand's long-term success.",
+      bodyText: "We review thousands of portfolios and only a small percent make it. You get access to top tier creatives committed to your brand's long term success.",
       image: "/assets/images/blog/1.webp",
     },
     {
@@ -652,7 +652,7 @@ export const SERVICES_GROWTH_CARDS_CONTENT: ServicesGrowthCardsContentData = {
   "corporate-internal": [
     {
       heading: "Quality talent, worldwide",
-      bodyText: "We review thousands of portfolios and only a small percent make it. You get access to top-tier creatives committed to your brand's long-term success.",
+      bodyText: "We review thousands of portfolios and only a small percent make it. You get access to top tier creatives committed to your brand's long term success.",
       image: "/assets/images/blog/1.webp",
     },
     {

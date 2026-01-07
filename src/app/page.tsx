@@ -54,13 +54,13 @@ const Contact = dynamic(() => import("./components/Contact/Contact"), {
 });
 
 export const metadata: Metadata = {
-  title: "AI-Powered Business Growth Solutions | Startups Advisory",
-  description: "Get a complete AI-powered business team in 22 days. Professional web development, content marketing, social media management, and design services to accelerate your startup growth.",
+  title: "AI Powered Business Growth Solutions | Startups Advisory",
+  description: "Get a complete AI Powered business team in 1 Month. Professional web development, content marketing, social media management, and design services to accelerate your startup growth.",
   robots: "nofollow",
   keywords: ["startup growth", "AI business team", "web development services", "content marketing", "social media marketing", "business automation"],
   openGraph: {
-    title: "AI-Powered Business Growth Solutions | Startups Advisory",
-    description: "Get a complete AI-powered business team in 22 days. Professional web development, content marketing, and social media services.",
+    title: "AI Powered Business Growth Solutions | Startups Advisory",
+    description: "Get a complete AI Powered business team in 1 Month. Professional web development, content marketing, and social media services.",
     url: "https://startupsadvisory.ai",
   },
 };

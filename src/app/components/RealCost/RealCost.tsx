@@ -60,8 +60,8 @@ const REAL_COST_DATA: RealCostData = {
     'Annual salary of one U.S. designer',
     'Cost of hiring multiple specialists',
     'Cost of design tools, software, and revisions',
-    'What you save by using one AI-powered design team',
-    'The long-term ROI of getting your full brand built correctly',
+    'What you save by using one AI Powered design team',
+    'The long term ROI of getting your full brand built correctly',
   ],
   conclusion:
     'Most business owners discover they save thousands of dollars and months of work in just the first 22 days alone',
@@ -109,12 +109,24 @@ const REAL_COST_DATA: RealCostData = {
   },
 };
 
-// Designer type to cost mapping
-const DESIGNER_COSTS: Record<string, { monthly: number; annual: number }> = {
+// Universal role type to cost mapping - works for all role types
+const ROLE_COSTS: Record<string, { monthly: number; annual: number }> = {
+  // Designer types
   'Junior Designer': { monthly: 1499, annual: 1499 * 12 },
   'Mid-Level Designer': { monthly: 2499, annual: 2499 * 12 },
   'Senior Designer': { monthly: 4999, annual: 4999 * 12 },
   'Design Director': { monthly: 7999, annual: 7999 * 12 },
+  'Creative Director': { monthly: 7999, annual: 7999 * 12 },
+  // Writer types
+  'Junior Writer': { monthly: 1499, annual: 1499 * 12 },
+  'Mid-Level Writer': { monthly: 2499, annual: 2499 * 12 },
+  'Senior Writer': { monthly: 4999, annual: 4999 * 12 },
+  'Content Director': { monthly: 7999, annual: 7999 * 12 },
+  // Developer types
+  'Junior Developer': { monthly: 2499, annual: 2499 * 12 },
+  'Mid-Level Developer': { monthly: 3999, annual: 3999 * 12 },
+  'Senior Developer': { monthly: 6999, annual: 6999 * 12 },
+  'Tech Lead': { monthly: 9999, annual: 9999 * 12 },
 };
 
 // Format number with commas for display
@@ -137,17 +149,25 @@ const formatNumber = (value: string): string => {
 };
 
 const RealCost = ({ data = REAL_COST_DATA }: RealCostProps) => {
-  const [selectedDesignerType, setSelectedDesignerType] = useState<string>('Junior Designer');
+  // Get the first option from data or default to 'Junior Designer'
+  const firstOption = data.calculator.fields[0]?.options?.[0] || 'Junior Designer';
+  const [selectedRoleType, setSelectedRoleType] = useState<string>(firstOption);
   const [monthlyCost, setMonthlyCost] = useState<string>('');
   const [annualCost, setAnnualCost] = useState<string>('');
   const [estimatedTotal, setEstimatedTotal] = useState<number>(58000);
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  // Update costs when designer type changes
+  // Initialize with first option when component mounts or data changes
   useEffect(() => {
-    if (selectedDesignerType && DESIGNER_COSTS[selectedDesignerType]) {
-      const costs = DESIGNER_COSTS[selectedDesignerType];
+    const firstOpt = data.calculator.fields[0]?.options?.[0] || 'Junior Designer';
+    setSelectedRoleType(firstOpt);
+  }, [data]);
+
+  // Update costs when role type changes
+  useEffect(() => {
+    if (selectedRoleType && ROLE_COSTS[selectedRoleType]) {
+      const costs = ROLE_COSTS[selectedRoleType];
       const monthlyFormatted = formatNumber(costs.monthly.toString());
       const annualFormatted = formatNumber(costs.annual.toString());
       
@@ -155,7 +175,7 @@ const RealCost = ({ data = REAL_COST_DATA }: RealCostProps) => {
       setAnnualCost(annualFormatted);
       setEstimatedTotal(costs.annual);
     }
-  }, [selectedDesignerType]);
+  }, [selectedRoleType]);
 
   // Function to parse text and highlight content inside square brackets with green color
   const parseHeadingWithBrackets = (text: string) => {
@@ -492,7 +512,7 @@ const RealCost = ({ data = REAL_COST_DATA }: RealCostProps) => {
                       onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                     >
                       <span className={styles.selectValue}>
-                        {selectedDesignerType || data.calculator.fields[0].label}
+                        {selectedRoleType || data.calculator.fields[0].label}
                       </span>
                       <div className={`${styles.chevronIcon} ${isDropdownOpen ? styles.chevronOpen : ''}`}>
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
@@ -512,9 +532,9 @@ const RealCost = ({ data = REAL_COST_DATA }: RealCostProps) => {
                         {data.calculator.fields[0].options?.map((option) => (
                           <div
                             key={option}
-                            className={`${styles.dropdownOption} ${selectedDesignerType === option ? styles.dropdownOptionActive : ''}`}
+                            className={`${styles.dropdownOption} ${selectedRoleType === option ? styles.dropdownOptionActive : ''}`}
                             onClick={() => {
-                              setSelectedDesignerType(option);
+                              setSelectedRoleType(option);
                               setIsDropdownOpen(false);
                             }}
                           >
@@ -535,9 +555,9 @@ const RealCost = ({ data = REAL_COST_DATA }: RealCostProps) => {
                     type="text"
                     inputMode="numeric"
                     className={styles.inputField}
-                    placeholder="Monthly Cost"
+                    placeholder={data.calculator.fields[1]?.placeholder || "Monthly Cost"}
                     value={monthlyCost}
-                    readOnly
+                    onChange={(e) => handleMonthlyCostChange(e.target.value)}
                     maxLength={15}
                   />
                 </div>
@@ -551,9 +571,9 @@ const RealCost = ({ data = REAL_COST_DATA }: RealCostProps) => {
                     type="text"
                     inputMode="numeric"
                     className={styles.inputField}
-                    placeholder="Annual Cost"
+                    placeholder={data.calculator.fields[2]?.placeholder || "Annual Cost"}
                     value={annualCost}
-                    readOnly
+                    onChange={(e) => handleAnnualCostChange(e.target.value)}
                     maxLength={15}
                   />
                 </div>

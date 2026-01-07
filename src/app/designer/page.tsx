@@ -36,7 +36,7 @@ const designerProvenSuccessData = {
     highlighted: 'Success',
   },
   description:
-    'Your Smart AI Business Team brings a fully loaded AI ecosystem for creative design and analytics automation — premium tools, no extra cost, no hassle.',
+    'Your Smart AI Business Team brings a fully loaded AI ecosystem for creative design and analytics automation, premium tools, no extra cost, no hassle.',
   tabs: [
     {
       id: 'branding-kit',
@@ -171,7 +171,7 @@ const designerProvenSuccessData = {
 };
 export const metadata: Metadata = {
   title: "Designer Services | Professional Design Team | Startups Advisory",
-  description: "Get a complete design team in 22 days. Professional branding, graphics, and creative design services to build your brand identity and visual presence.",
+  description: "Get a complete design team in 1 month. Professional branding, graphics, and creative design services to build your brand identity and visual presence.",
   robots: "nofollow",
 };
 export default function DesignerPage() {

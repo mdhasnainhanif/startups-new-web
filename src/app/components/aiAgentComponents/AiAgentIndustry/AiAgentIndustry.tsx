@@ -42,7 +42,7 @@ const AiAgentIndustry = () => {
           type: "ai",
           avatar: "A",
           name: "Amelia",
-          text: "Hi! Just checking in — would you like a summary of your last support call?",
+          text: "Hi! Just checking in   would you like a summary of your last support call?",
           time: "05:15 PM",
         },
         {

@@ -35,7 +35,7 @@ export const SERVICES_FAQ_DATA: ServicesFAQDataMap = {
     },
     {
       question: "Will my brand stay consistent over time?",
-      answer: "Yes. All work follows defined brand systems to ensure long-term consistency.",
+      answer: "Yes. All work follows defined brand systems to ensure long term consistency.",
     },
     {
       question: "Is this suitable for rebranding an existing business?",
@@ -53,7 +53,7 @@ export const SERVICES_FAQ_DATA: ServicesFAQDataMap = {
   "marketing-advertising": [
     {
       question: "What exactly does your marketing & advertising service include?",
-      answer: "Our marketing & advertising service covers end-to-end campaign execution — from strategy and messaging to ad creation, funnel setup, testing, optimization, and scaling. We focus on building systems that consistently attract qualified traffic, convert attention into leads, and turn spend into measurable revenue.",
+      answer: "Our marketing & advertising service covers end-to-end campaign execution   from strategy and messaging to ad creation, funnel setup, testing, optimization, and scaling. We focus on building systems that consistently attract qualified traffic, convert attention into leads, and turn spend into measurable revenue.",
     },
     {
       question: "How is this different from hiring an agency or freelancers?",
@@ -61,7 +61,7 @@ export const SERVICES_FAQ_DATA: ServicesFAQDataMap = {
     },
     {
       question: "Who is this service best suited for?",
-      answer: "This service is built for founders, startups, and growing businesses that want predictable lead flow and customer acquisition — without guessing, burning ad spend, or managing multiple vendors.",
+      answer: "This service is built for founders, startups, and growing businesses that want predictable lead flow and customer acquisition   without guessing, burning ad spend, or managing multiple vendors.",
     },
     {
       question: "How long does it take to see results?",
@@ -77,7 +77,7 @@ export const SERVICES_FAQ_DATA: ServicesFAQDataMap = {
     },
     {
       question: "Will campaign performance improve over time or stay flat?",
-      answer: "Performance improves by design. Every campaign runs inside a structured testing and optimization loop, allowing us to refine messaging, targeting, and funnels based on real data — not assumptions.",
+      answer: "Performance improves by design. Every campaign runs inside a structured testing and optimization loop, allowing us to refine messaging, targeting, and funnels based on real data   not assumptions.",
     },
     {
       question: "Can you safely scale ad spend without wasting budget?",
@@ -103,7 +103,7 @@ export const SERVICES_FAQ_DATA: ServicesFAQDataMap = {
     },
     {
       question: "Who is this service best suited for?",
-      answer: "It's built for founders, startups, and growing businesses that need high-performing websites to support acquisition, credibility, and scale — not just online presence.",
+      answer: "It's built for founders, startups, and growing businesses that need High performing websites to support acquisition, credibility, and scale   not just online presence.",
     },
     {
       question: "How long does it take to launch a website?",
@@ -123,7 +123,7 @@ export const SERVICES_FAQ_DATA: ServicesFAQDataMap = {
     },
     {
       question: "Is performance and SEO built in from the start?",
-      answer: "Absolutely. Speed, structure, and SEO foundations are integrated during build — not patched in later.",
+      answer: "Absolutely. Speed, structure, and SEO foundations are integrated during build   not patched in later.",
     },
     {
       question: "Are security and compliance handled?",
@@ -137,7 +137,7 @@ export const SERVICES_FAQ_DATA: ServicesFAQDataMap = {
   "product-packaging": [
     {
       question: "What does your product & packaging design service include?",
-      answer: "It includes packaging concepts, label design, layouts, print-ready files, and scalable packaging systems.",
+      answer: "It includes packaging concepts, label design, layouts, print ready files, and scalable packaging systems.",
     },
     {
       question: "How is this different from hiring a packaging agency?",
@@ -157,7 +157,7 @@ export const SERVICES_FAQ_DATA: ServicesFAQDataMap = {
     },
     {
       question: "Will packaging stay consistent over time?",
-      answer: "Yes. All designs follow defined brand systems for long-term consistency.",
+      answer: "Yes. All designs follow defined brand systems for long term consistency.",
     },
     {
       question: "Are designs ready for printing and manufacturing?",
@@ -198,8 +198,8 @@ export const SERVICES_FAQ_DATA: ServicesFAQDataMap = {
       answer: "Yes. Event systems are designed for reuse and easy updates.",
     },
     {
-      question: "Will event designs stay on-brand?",
-      answer: "Yes. All assets follow defined brand systems for long-term consistency.",
+      question: "Will event designs stay on brand?",
+      answer: "Yes. All assets follow defined brand systems for long term consistency.",
     },
     {
       question: "Are designs ready for vendors and printers?",
@@ -225,7 +225,7 @@ export const SERVICES_FAQ_DATA: ServicesFAQDataMap = {
     },
     {
       question: "How is this different from using slide templates?",
-      answer: "Our decks are custom-built around your message, audience, and brand — not generic layouts.",
+      answer: "Our decks are custom-built around your message, audience, and brand   not generic layouts.",
     },
     {
       question: "Who is this service best for?",
@@ -241,10 +241,10 @@ export const SERVICES_FAQ_DATA: ServicesFAQDataMap = {
     },
     {
       question: "Can decks be updated later?",
-      answer: "Yes. Slides and templates are built for long-term reuse and updates.",
+      answer: "Yes. Slides and templates are built for long term reuse and updates.",
     },
     {
-      question: "Will presentations stay on-brand?",
+      question: "Will presentations stay on brand?",
       answer: "Yes. All decks follow defined brand systems for consistency over time.",
     },
     {
@@ -267,7 +267,7 @@ export const SERVICES_FAQ_DATA: ServicesFAQDataMap = {
     },
     {
       question: "How is this different from using templates online?",
-      answer: "Our templates are custom-built around your brand, content type, and audience — not generic layouts reused across industries.",
+      answer: "Our templates are custom-built around your brand, content type, and audience   not generic layouts reused across industries.",
     },
     {
       question: "Who is this service best for?",
@@ -283,10 +283,10 @@ export const SERVICES_FAQ_DATA: ServicesFAQDataMap = {
     },
     {
       question: "Can these templates be reused later?",
-      answer: "Yes. Templates are built for long-term use and easy updates.",
+      answer: "Yes. Templates are built for long term use and easy updates.",
     },
     {
-      question: "Will documents stay on-brand over time?",
+      question: "Will documents stay on brand over time?",
       answer: "Yes. All layouts follow defined brand systems to ensure consistency across future documents.",
     },
     {
@@ -313,7 +313,7 @@ export const SERVICES_FAQ_DATA: ServicesFAQDataMap = {
     },
     {
       question: "Are the illustrations completely original?",
-      answer: "Yes. Every illustration is custom-created for your business — no stock or reused assets.",
+      answer: "Yes. Every illustration is custom-created for your business   no stock or reused assets.",
     },
     {
       question: "Can illustrations be used across multiple platforms?",
@@ -332,7 +332,7 @@ export const SERVICES_FAQ_DATA: ServicesFAQDataMap = {
       answer: "Yes. All artwork is created with full commercial usage rights.",
     },
     {
-      question: "Can you create illustration systems for long-term use?",
+      question: "Can you create illustration systems for long term use?",
       answer: "Yes. We design scalable illustration systems that grow with your brand.",
     },
     {
@@ -355,11 +355,11 @@ export const SERVICES_FAQ_DATA: ServicesFAQDataMap = {
     },
     {
       question: "Who is this service best suited for?",
-      answer: "It's built for startups, founders, and growth teams that need video to explain, sell, and scale — not just look impressive.",
+      answer: "It's built for startups, founders, and growth teams that need video to explain, sell, and scale   not just look impressive.",
     },
     {
       question: "How fast can videos be delivered?",
-      answer: "Many videos are delivered within days depending on scope. Short-form and ad creatives often move even faster.",
+      answer: "Many videos are delivered within days depending on scope. Short Form and ad creatives often move even faster.",
     },
     {
       question: "Do I need scripts or ideas beforehand?",
@@ -370,7 +370,7 @@ export const SERVICES_FAQ_DATA: ServicesFAQDataMap = {
       answer: "Yes. Many clients use this service to produce continuous ad, social, and campaign video content.",
     },
     {
-      question: "Will videos stay on-brand over time?",
+      question: "Will videos stay on brand over time?",
       answer: "Yes. All motion assets follow defined brand systems to maintain consistency as output scales.",
     },
     {
@@ -401,7 +401,7 @@ export const SERVICES_FAQ_DATA: ServicesFAQDataMap = {
     },
     {
       question: "Is print suitable for startups and small businesses?",
-      answer: "Absolutely. Print often builds trust fastest — especially in sales meetings, events, and physical brand interactions.",
+      answer: "Absolutely. Print often builds trust fastest   especially in sales meetings, events, and physical brand interactions.",
     },
     {
       question: "How fast can print designs be delivered?",

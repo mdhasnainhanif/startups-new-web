@@ -13,7 +13,7 @@ export interface AssistantCapabilitiesData {
 
 export const ASSISTANT_CAPABILITIES_DATA: AssistantCapabilitiesData = {
   heading: "Your [Growth Manager] Handles Far More Than You [Expect]",
-  description: "We guide your Growth Manager with clear workflows and strong direction — so you always get higher output, tighter execution, and more time back in your week.",
+  description: "We guide your Growth Manager with clear workflows and strong direction   so you always get higher output, tighter execution, and more time back in your week.",
   capabilities: [
     {
       id: "daily-flow-control",
@@ -25,13 +25,13 @@ export const ASSISTANT_CAPABILITIES_DATA: AssistantCapabilitiesData = {
       id: "content-communication",
       icon: "/assets/images/key-growth/slider-icons/2.svg",
       title: "Content & Communication Rhythm",
-      description: "Your weekly updates, posts, messages, and follow-ups stay on track without you having to remind anyone.",
+      description: "Your weekly updates, posts, messages, and follow ups stay on track without you having to remind anyone.",
     },
     {
       id: "schedule-planning",
       icon: "/assets/images/key-growth/slider-icons/3.svg",
       title: "Schedule & Planning Support",
-      description: "Your meetings, priorities, and commitments stay organized — and your following steps are already mapped out.",
+      description: "Your meetings, priorities, and commitments stay organized   and your following steps are already mapped out.",
     },
     {
       id: "process-cleanup",
@@ -49,7 +49,7 @@ export const ASSISTANT_CAPABILITIES_DATA: AssistantCapabilitiesData = {
       id: "market-competitor-checks",
       icon: "/assets/images/key-growth/slider-icons/6.svg",
       title: "Market & Competitor Checks",
-      description: "You get simple, useful insights — not random data — so you always know what's happening around your business.",
+      description: "You get simple, useful insights   not random data   so you always know what's happening around your business.",
     },
     {
       id: "offer-customer-support",
@@ -61,7 +61,7 @@ export const ASSISTANT_CAPABILITIES_DATA: AssistantCapabilitiesData = {
       id: "financial-organization",
       icon: "/assets/images/key-growth/slider-icons/8.svg",
       title: "Financial Organization Support",
-      description: "Your recurring numbers, summaries, and weekly snapshots stay neat—so you know where things stand without digging.",
+      description: "Your recurring numbers, summaries, and weekly snapshots stay neat so you know where things stand without digging.",
     },
     {
       id: "task-automation",
@@ -73,25 +73,25 @@ export const ASSISTANT_CAPABILITIES_DATA: AssistantCapabilitiesData = {
       id: "client-relationship",
       icon: "/assets/images/key-growth/slider-icons/10.svg",
       title: "Client Relationship Management",
-      description: "Maintain strong relationships with your clients through timely communication and personalized follow-ups.",
+      description: "Maintain strong relationships with your clients through timely communication and personalized follow ups.",
     },
     {
       id: "analytics-performance-reporting",
       icon: "/assets/images/key-growth/slider-icons/11.svg",
       title: "Analytics & Performance Reporting",
-      description: "Get detailed insights and reports on your business performance to make data-driven decisions.",
+      description: "Get detailed insights and reports on your business performance to make data driven decisions.",
     },
     {
       id: "social-media-handling-management",
       icon: "/assets/images/key-growth/slider-icons/12.svg",
       title: "Social Media Handling and Management",
-      description: "Get detailed insights and reports on your business performance to make data-driven decisions.",
+      description: "Get detailed insights and reports on your business performance to make data driven decisions.",
     },
     {
       id: "telesales-marketing",
       icon: "/assets/images/key-growth/slider-icons/13.svg",
       title: "Tele sales and Marketing",
-      description: "Get detailed insights and reports on your business performance to make data-driven decisions.",
+      description: "Get detailed insights and reports on your business performance to make data driven decisions.",
     },
   ],
 };

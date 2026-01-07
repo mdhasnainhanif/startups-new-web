@@ -3,7 +3,7 @@
 }
 
 .fs2 {
-    font-size: 1.1rem !important;
+    font-size: 0.925rem !important; 
     color: #d6d5da !important;
 }
 
@@ -37,7 +37,7 @@
     position: absolute;
     top: -2.5rem;
     left: 0rem;
-    min-height: 35.8rem;
+    min-height: 34.5rem;
 }
 
 .middleColumn::after {
@@ -48,7 +48,7 @@
     position: absolute;
     top: -2.5rem;
     left: 0rem;
-    min-height: 35.8rem;
+    min-height: 34.5rem;
 }
 
 .middleColumn {
@@ -64,6 +64,13 @@
     position: relative;
     z-index: 1;
     box-shadow: none;
+    height: 100%;
+}
+
+.middleColumn> div{
+    top: 50%;
+    position: relative;
+    transform: translateY(-50%);
 }
 
 @media (min-width: 768px) {

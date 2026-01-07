@@ -64,7 +64,7 @@ export const SOCIAL_MEDIA_LINKS = [
 ];
 export const TECHNOLOGIES_SECTION = {
   heading: {
-    part1: "$48000+ Worth of [Advanced AI] Tools Growing Your Business 10x",
+    part1: "$24000+ Worth of [Creative AI] Tools Growing Your Business 10x",
   },
   description:
     "When this AI power fuels your business your visibility explodes and the right clients start coming in on their own.",
@@ -319,7 +319,7 @@ export const OUR_CORE_VALUES = {
       icon: '/assets/images/globe2.svg',
       heading: "Mission",
       description:
-        "Empower U.S. startups to improve their success odds by making global talent and AI-driven efficiency affordable, accessible, and built for real-world execution.",
+        "Empower U.S. startups to improve their success odds by making global talent and AI driven efficiency affordable, accessible, and built for real world execution.",
     },
     {
       id: "2",
@@ -327,7 +327,7 @@ export const OUR_CORE_VALUES = {
       icon: '/assets/images/globe3.svg',
       heading: "Vision",
       description:
-        "A world where every startup can scale confidently by leveraging global talent and AI—without the traditional cost barriers that limit early-stage growth.",
+        "A world where every startup can scale confidently by leveraging global talent and AI without the traditional cost barriers that limit early stage growth.",
     },
     {
       id: "3",
@@ -343,7 +343,7 @@ export const OUR_CORE_VALUES = {
       icon: '/assets/images/globe5.svg',
       heading: "Values",
       description:
-        "We value efficiency, accessibility, and a deep commitment to levelling the playing field—making top-tier growth strategies, talent, and tools available to every early-stage business.",
+        "We value efficiency, accessibility, and a deep commitment to levelling the playing field, making top tier growth strategies, talent, and tools available to every early-stage business.",
     },
   ],
 };

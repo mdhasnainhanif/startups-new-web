@@ -35,20 +35,20 @@ interface HomenewBannerProps {
 const DEFAULT_DATA: HomenewBannerData = {
   heading: {
     part1: "Your ",
-    highlight1: "AI-Powered",
+    highlight1: "AI Powered",
     highlight2: "Design",
     part2: " Team Ready From Day One",
   },
   description:
-    "Everything your business needs to look professional, trusted, and ready to serve — handled by your own design team powered by AI and real experts",
+    "Everything your business needs to look professional, trusted, and ready to serve, handled by your own design team powered by AI and real experts",
   experienceBox: {
-    title: "Experience Box – Your Design Team's Expertise",
+    title: "Experience Box  Your Design Team's Expertise",
     items: [
       "2,500+ full brand kits created for local businesses",
       "40+ years combined experience in business design",
       "Specialists for branding, social, print, website, and ads",
       "Design systems used by real customers in 15+ industries",
-      "Trained in AI, modern design tools, and high-conversion branding",
+      "Trained in AI, modern design tools, and High conversion branding",
     ],
   },
   cta: {
@@ -76,7 +76,7 @@ const HomenewBanner = ({ data = DEFAULT_DATA }: HomenewBannerProps) => {
               <span className="text-[#0fdac2]">{data.heading.highlight1}</span>{" "}
               <span className="text-[#0fdac2]">{data.heading.highlight2}</span>{" "}
               {data.heading.part2}
-              <br className="hidden md:block" />
+              {/* <br className="hidden md:block" /> */}
             </h1>
             <p className="text-white text-lg mb-6">
               {data.description}

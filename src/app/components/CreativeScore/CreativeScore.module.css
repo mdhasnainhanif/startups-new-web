@@ -1184,8 +1184,8 @@
     margin-top: 0rem !important;
   }
 
-  .chartContent {
-    gap: 0rem !important;
+  .chartContent { 
+    gap: 0rem !important; 
   }
   .agencyChartContent .optionsList{
     /* border: 2px solid red; */

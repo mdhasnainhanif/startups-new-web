@@ -40,16 +40,19 @@
 
 .font-graphik-bold {
   font-family: var(--font-graphik-bold) !important;
+  font-display: swap;
 }
 
 .font-graphik-semibold {
   font-family: var(--font-graphik-semibold) !important;
+  font-display: swap;
 }
 
 body {
   background: var(--color-dark);
   color: var(--foreground);
   font-family: var(--font-graphik-regular), Arial, Helvetica, sans-serif;
+  font-display: swap;
 }
 
 .sectionPadding {
@@ -228,8 +231,9 @@ h2.headingSize {
 }
 
 p.topPara {
-  font-size: 15px;
+  font-size: .9375rem;
   font-weight: 400;
+  font-family: var(--font-graphik-regular), Arial, Helvetica, sans-serif;
 }
 
 .pt100 {
@@ -1037,4 +1041,21 @@ section img.banneFullMin {
 
 .provenSuccess .swiper-wrapper {
   gap: 2rem;
+}
+
+.contentWritingAnalyticsSection .space-y-0::before, 
+.contentWritingAnalyticsSection .space-y-0::after {
+  content: '';
+  display: block;
+  position: absolute;
+  min-height: 42.2rem;
+}
+
+.contentWritingAnalyticsSection .space-y-0 {
+  position: relative;
+} 
+
+.webDevelopmentAnalyticsSection .space-y-0::before, 
+.webDevelopmentAnalyticsSection .space-y-0::after {
+  min-height: 36rem;
 }

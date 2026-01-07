@@ -12,7 +12,7 @@ const benefits = [
   "Free 30-minute strategy call",
   "Business value assessment worth $2,500",
   "Custom 90-day growth roadmap",
-  "Zero risk — 100% free, no obligations",
+  "Zero risk   100% free, no obligations",
 ];
 export default function CTASection() {
   return (
@@ -34,7 +34,7 @@ export default function CTASection() {
             <div className="sectionHeading">
               <h2>
                 {ctaData.title}{" "}
-                <span className="text-[var(--color-purple)]">High-Value Asset?</span>
+                <span className="text-[var(--color-purple)]">High Value Asset?</span>
               </h2>
             </div>
             <p className="text-sm sm:text-base lg:text-lg text-white/80 mb-6 sm:mb-8 max-w-2xl mx-auto">

@@ -12,21 +12,21 @@ import { socialMediaMarketingAnalyticsDashboardData } from './AnalyticsDashboard
 
 export const socialMediaMarketingBannerData: HomenewBannerData = {
   heading: {
-    part1: "Market-Ready Social Content in ",
-    highlight1: "22 Days.",
+    part1: "Market Ready Social Content in ",
+    highlight1: "1 Month.",
     highlight2: "",
     part2: "",
   },
   description:
     "Creative built for attention, precision, and brand presence. A complete social layer shaped with clarity, style, and strategic intent.",
   experienceBox: {
-    title: "Experience Box – What This Service Produces",
+    title: "Experience Box  What This Service Produces",
     items: [
       "2,500 plus social content assets created across multiple industries",
       "40 plus years combined expertise in design, content, and campaign execution",
       "Specialists focused on graphics, reels, captions, and brand communication",
       "Frameworks used across 15 plus business categories",
-      "Production supported by AI-assisted tools and high-volume creative systems",
+      "Production supported by AI assisted tools and high volume creative systems",
     ],
   },
   cta: {
@@ -53,7 +53,7 @@ export const socialMediaMarketingProfessionalData: ProfessionalDesignData = {
   },
   description: {
     text1: "Strong Social Content Drives Brand Momentum.",
-    text2: " High-quality visuals increase perceived value. Creative reels boost visibility and reach. Sharp captions clarify messaging. Consistent posting strengthens brand familiarity. This service creates content aligned with modern social behavior and platform expectations.",
+    text2: " High quality visuals increase perceived value. Creative reels boost visibility and reach. Sharp captions clarify messaging. Consistent posting strengthens brand familiarity. This service creates content aligned with modern social behavior and platform expectations.",
     highlight: "",
     className: {
       text: "description",
@@ -72,7 +72,7 @@ export const socialMediaMarketingProfessionalData: ProfessionalDesignData = {
       className: "factsListItem",
     },
     {
-      text: "Reel-focused strategies increase reach by up to 40 percent",
+      text: "Reel focused strategies increase reach by up to 40 percent",
       className: "factsListItem",
     },
     {
@@ -97,7 +97,7 @@ export const socialMediaMarketingProfessionalData: ProfessionalDesignData = {
   },
   rightSectionFact: [
     {
-      text: "Long-Term Advantage: The service installs a complete visual and written foundation designed to strengthen brand presence, expand reach, and support marketing efforts across major social platforms. The content set continues performing beyond the initial cycle.",
+      text: "long term Advantage: The service installs a complete visual and written foundation designed to strengthen brand presence, expand reach, and support marketing efforts across major social platforms. The content set continues performing beyond the initial cycle.",
       className: "rightFactsListItem",
     },
   ],
@@ -130,7 +130,7 @@ export const socialMediaMarketingProfessionalData: ProfessionalDesignData = {
 export const socialMediaMarketingCaseStudyData: CaseStudySectionData = {
   ...DEFAULT_CASE_STUDY_DATA,
   heading: {
-    text: "The 22-Day Social Media Management & Marketing Service",
+    text: "The 1 Month Social Media Management & Marketing Service",
     highlighted: "Social Media Marketing",
   },
   description:
@@ -141,11 +141,11 @@ export const socialMediaMarketingCaseStudyData: CaseStudySectionData = {
       id: "tabScroll1",
       category: "creative",
       title: "Social Media Designer",
-      subtitle: "Produces clean, creative, platform-ready visuals built to lift brand perception and attract attention quickly.",
+      subtitle: "Produces clean, creative, platform ready visuals built to lift brand perception and attract attention quickly.",
       tags: [
         "Post graphics",
         "Carousel layouts",
-        "Brand-focused visual sets",
+        "Brand focused visual sets",
         "Announcement designs",
         "Promotional visuals",
         "Educational content styles",
@@ -161,18 +161,18 @@ export const socialMediaMarketingCaseStudyData: CaseStudySectionData = {
       id: "tabScroll2",
       category: "creative",
       title: "Content Curator",
-      subtitle: "Delivers clear, structured, on-brand messaging crafted to support visuals, campaigns, and platform strategy.",
+      subtitle: "Delivers clear, structured, on brand messaging crafted to support visuals, campaigns, and platform strategy.",
       tags: [
         "Caption sets",
-        "Short-form explanations",
+        "Short Form explanations",
         "Carousel text",
         "Idea prompts",
         "Topic banks",
         "Supporting highlights",
-        "Audience-aligned content",
+        "Audience aligned content",
         "Brand voice refinement",
         "Hook lines",
-        "Message-ready content compilation",
+        "Message ready content compilation",
       ],
       buttonText: "Hire Content Curator",
       image: "/assets/images/avatar/content-curator.webp",
@@ -181,18 +181,18 @@ export const socialMediaMarketingCaseStudyData: CaseStudySectionData = {
       id: "tabScroll3",
       category: "creative",
       title: "Reels Creator",
-      subtitle: "Builds short-form, high-performance videos designed for visibility, engagement, and modern algorithm behavior.",
+      subtitle: "Builds Short Form, high performance videos designed for visibility, engagement, and modern algorithm behavior.",
       tags: [
         "Reel concepts",
         "Script prompts",
         "Scene directions",
-        "Movement-based ideas",
+        "Movement based ideas",
         "Text overlays",
-        "Vertical-first sequences",
+        "Vertical first sequences",
         "Hook variations",
-        "Trend-aligned formats",
-        "Bite-sized storytelling",
-        "Fast-cut creative planning",
+        "Trend aligned formats",
+        "Bite sized storytelling",
+        "Fast cut creative planning",
       ],
       buttonText: "Hire Reels Creator",
       image: "/assets/images/avatar/reels-creator.webp",
@@ -201,14 +201,14 @@ export const socialMediaMarketingCaseStudyData: CaseStudySectionData = {
       id: "tabScroll4",
       category: "creative",
       title: "Campaign Writer",
-      subtitle: "Produces targeted campaign wording built for growth, engagement, and platform-specific actions.",
+      subtitle: "Produces targeted campaign wording built for growth, engagement, and platform specific actions.",
       tags: [
         "Campaign themes",
         "Offer messaging",
-        "Audience-targeted lines",
+        "Audience targeted lines",
         "Seasonal content wording",
-        "Platform-based variations",
-        "Scroll-stopping hooks",
+        "Platform based variations",
+        "Scroll stopping hooks",
         "Clear directives",
         "Angle testing lines",
         "Creative captioning",
@@ -221,12 +221,12 @@ export const socialMediaMarketingCaseStudyData: CaseStudySectionData = {
 };
 export const socialMediaMarketingAiPowerData: AiPowerDesignData = {
   headline: {
-    text: 'The Service Covers All Social Media Requirements Across a 22-Day Cycle.',
-    highlighted: ['Social Media Requirements', '22-Day Cycle'],
+    text: 'The Service Covers All Social Media Requirements Across a 1 Month Cycle.',
+    highlighted: ['Social Media Requirements', '1 Month Cycle'],
   },
   description:
     'Visual content, caption sets, reels, campaigns, hooks, platform text, and creative variations are produced inside one streamlined cycle with consistent tone, style, and quality.',
-  deliverablesTitle: '22-Day Social Content Package Includes:',
+  deliverablesTitle: '1 Month Social Content Package Includes:',
   tabs: [
     {
       id: 'social-content',
@@ -244,17 +244,17 @@ export const socialMediaMarketingAiPowerData: AiPowerDesignData = {
         { id: '9', label: 'Campaign Strategy & Management', image: '/assets/images/social-media-marketing/days-section/campaign-strategy-management.jpg' },
         { id: '10', label: 'Influencer Marketing Management', image: '/assets/images/social-media-marketing/days-section/influencer-marketing-management.jpg' },
         { id: '11', label: 'Social Media Analytics & Reporting', image: '/assets/images/social-media-marketing/days-section/social-media-analytics-reporting.jpg' },
-        { id: '12', label: 'Reel & Short-Form Video Production', image: '/assets/images/social-media-marketing/days-section/reel-short-form-video-production.jpg' },
+        { id: '12', label: 'Reel & Short Form Video Production', image: '/assets/images/social-media-marketing/days-section/reel-Short Form-video-production.jpg' },
         { id: '13', label: 'Hashtag Strategy Development', image: '/assets/images/social-media-marketing/days-section/hashtag-strategy-development.jpg' },
         { id: '14', label: 'Social Media SEO', image: '/assets/images/social-media-marketing/days-section/social-media-seo.jpg' },
         { id: '15', label: 'Crisis Management', image: '/assets/images/social-media-marketing/days-section/crisis-management.jpg' },
         { id: '16', label: 'Customer Support via Social Media', image: '/assets/images/social-media-marketing/days-section/customer-support-via-social-media.jpg' },
-        { id: '17', label: 'Platform-Specific Management', image: '/assets/images/social-media-marketing/days-section/platform-specific-management.jpg' },
+        { id: '17', label: 'Platform Specific Management', image: '/assets/images/social-media-marketing/days-section/platform-specific-management.jpg' },
         { id: '18', label: 'Brand Collaboration & Partnerships', image: '/assets/images/social-media-marketing/days-section/brand-collaboration-partnerships.jpg' },
         { id: '19', label: 'Social Media Automation Setup', image: '/assets/images/social-media-marketing/days-section/social-media-automation-setup.jpg' },
         { id: '20', label: 'Lead Generation via Social Media', image: '/assets/images/social-media-marketing/days-section/lead-generation-via-social-media.jpg' },
         { id: '21', label: 'Live Session Management', image: '/assets/images/social-media-marketing/days-section/live-session-management.jpg' },
-        { id: '22', label: 'UGC (User-Generated Content) Management', image: '/assets/images/social-media-marketing/days-section/user-generated-content-management.jpg' },
+        { id: '22', label: 'UGC (User Generated Content) Management', image: '/assets/images/social-media-marketing/days-section/user-generated-content-management.jpg' },
         { id: '23', label: 'Social Media Funnel Development', image: '/assets/images/social-media-marketing/days-section/social-media-funnel-development.jpg' },
         { id: '24', label: 'Competitor Benchmarking', image: '/assets/images/social-media-marketing/days-section/competitor-benchmarking.jpg' },
       ],
@@ -262,7 +262,7 @@ export const socialMediaMarketingAiPowerData: AiPowerDesignData = {
     },
   ],
   lifetimeValue: {
-    heading: 'Long-Term Advantage:',
+    heading: 'long term Advantage:',
     text: "The service installs a complete visual and written foundation designed to strengthen brand presence, expand reach, and support marketing efforts across major social platforms. The content set continues performing beyond the initial cycle.",
   },
 };
@@ -271,7 +271,7 @@ export const socialMediaMarketingAiPowerData: AiPowerDesignData = {
 export const socialMediaMarketingRealCostData: RealCostData = {
   heading: {
     part1: 'Internal Social Media Production vs.',
-    part2: '22-Day Social Content Service',
+    part2: '1 Month Social Content Service',
     part3: '',
   },
   callToAction: 'Consider:',    
@@ -333,9 +333,9 @@ export const socialMediaMarketingRealCostData: RealCostData = {
 
 export const socialMediaMarketingCompleteSetupData: CompleteBusinessSetupData = {
   heading: {
-    part1: "Complete Social Content Package — ",
-    price: "$1,499",
-    part2: " One-Time",
+    part1: "Complete Social Content Package   ",
+    price: "$3,299",  
+    part2: " One Time",
   },
   brandingKits: {
     items: [
@@ -400,12 +400,12 @@ export const socialMediaMarketingCompleteSetupData: CompleteBusinessSetupData = 
       { id: "59", number: "59", label: "Caption + Hook Writing" },
       { id: "60", number: "60", label: "Viral Trend Adaptation" },
       { id: "61", number: "61", label: "Hashtag Research" },
-      { id: "62", number: "62", label: "Niche-Based Hashtags" },
+      { id: "62", number: "62", label: "Niche Based Hashtags" },
       { id: "63", number: "63", label: "Ranking Optimization" },
       { id: "64", number: "64", label: "Competitive Hashtags" },
       { id: "65", number: "65", label: "Branded Hashtag Creation" },
-      { id: "66", number: "66", label: "Keyword-Based Captions" },
-      { id: "67", number: "67", label: "Search-Optimized Posts" },
+      { id: "66", number: "66", label: "Keyword Based Captions" },
+      { id: "67", number: "67", label: "Search Optimized Posts" },
       { id: "68", number: "68", label: "Profile SEO" },
       { id: "69", number: "69", label: "Hashtag SEO" },
       { id: "70", number: "70", label: "Engagement SEO" },
@@ -416,7 +416,7 @@ export const socialMediaMarketingCompleteSetupData: CompleteBusinessSetupData = 
       { id: "75", number: "75", label: "Crisis Content" },
       { id: "76", number: "76", label: "Query Handling" },
       { id: "77", number: "77", label: "Complaint Resolution" },
-      { id: "78", number: "78", label: "Real-Time Support" },
+      { id: "78", number: "78", label: "Real Time Support" },
       { id: "79", number: "79", label: "Feedback Collection" },
       { id: "80", number: "80", label: "Satisfaction Tracking" },
       { id: "81", number: "81", label: "Instagram Strategy" },
@@ -425,7 +425,7 @@ export const socialMediaMarketingCompleteSetupData: CompleteBusinessSetupData = 
       { id: "84", number: "84", label: "LinkedIn B2B Systems" },
       { id: "85", number: "85", label: "Pinterest Optimization" },
       { id: "86", number: "86", label: "Partner Outreach" },
-      { id: "87", number: "87", label: "Co-Branded Content" },
+      { id: "87", number: "87", label: "Co Branded Content" },
       { id: "88", number: "88", label: "Giveaways & Contests" },
       { id: "89", number: "89", label: "Joint Campaigns" },
       { id: "90", number: "90", label: "Collaboration Strategy" },
@@ -436,14 +436,14 @@ export const socialMediaMarketingCompleteSetupData: CompleteBusinessSetupData = 
       { id: "95", number: "95", label: "Lead Routing" },
       { id: "96", number: "96", label: "Lead Capture Funnels" },
       { id: "97", number: "97", label: "CTA Optimization" },
-      { id: "98", number: "98", label: "Form-Based Leads" },
+      { id: "98", number: "98", label: "Form Based Leads" },
       { id: "99", number: "99", label: "Landing Page Integration" },
       { id: "100", number: "100", label: "Lead Nurturing" },
       { id: "101", number: "101", label: "Live Stream Planning" },
       { id: "102", number: "102", label: "Host Coordination" },
       { id: "103", number: "103", label: "Live Script Writing" },
       { id: "104", number: "104", label: "Engagement Moderation" },
-      { id: "105", number: "105", label: "Post-Live Distribution" },
+      { id: "105", number: "105", label: "Post Live Distribution" },
       { id: "106", number: "106", label: "UGC Sourcing" },
       { id: "107", number: "107", label: "UGC Guidelines" },
       { id: "108", number: "108", label: "Approval Workflow" },
@@ -464,11 +464,11 @@ export const socialMediaMarketingCompleteSetupData: CompleteBusinessSetupData = 
   benefits: {
     title: "Get This Package For ",
     items: [
-      { id: "1", text: "22 days of active creative production" },
+      { id: "1", text: "1 month of active creative production" },
       { id: "2", text: "All essential visual and written assets" },
-      { id: "3", text: "AI-supported content workflow" },
+      { id: "3", text: "AI supported content workflow" },
       { id: "4", text: "Unlimited refinements during the cycle" },
-      { id: "5", text: "Content delivered platform-ready" },
+      { id: "5", text: "Content delivered platform ready" },
     ],
     ctaButton: {
       text: "Get My Package",
@@ -485,7 +485,7 @@ export const socialMediaMarketingGuessWorkData: GuessWorkAdvertisingData = {
     part2: '',
   },
   description:
-    'A platform-ready plan is developed to guide posting rhythm, design consistency, message hierarchy, and creative direction for future growth.',
+    'A platform ready plan is developed to guide posting rhythm, design consistency, message hierarchy, and creative direction for future growth.',
   form: {
     placeholder: 'Enter Your Website Link',
     buttonText: 'Get Started',
@@ -541,7 +541,7 @@ export const socialMediaMarketingBlogGuides = [
     date: "Dec 10, 2025",
     readTime: "23 min read",
     excerpt:
-      "Social media has shifted from simple posting to strategic ecosystem building. Platforms reward consistency, originality, watch time, and meaningful engagement — not random uploads.",
+      "Social media has shifted from simple posting to strategic ecosystem building. Platforms reward consistency, originality, watch time, and meaningful engagement   not random uploads.",
     href: "/blog-detail/social-media-strategy-for-2026/",
   },
   {
@@ -563,7 +563,7 @@ export const socialMediaMarketingBlogGuides = [
     date: "Dec 20, 2025",
     readTime: "22 min read",
     excerpt:
-      "Social media in 2026 is no longer managed with guesswork or inconsistent posting. Platforms evolve weekly, algorithms demand meaningful engagement, and audiences expect high-value content delivered with personality and consistency.",
+      "Social media in 2026 is no longer managed with guesswork or inconsistent posting. Platforms evolve weekly, algorithms demand meaningful engagement, and audiences expect High value content delivered with personality and consistency.",
     href: "/blog-detail/the-2026-social-media-managers-guide/",
   },
 ];
@@ -575,7 +575,7 @@ export const socialMediaMarketingProvenSuccessData = {
     highlighted: 'Success',
   },
   description:
-    'Your Smart AI Business Team brings a fully loaded AI ecosystem for creative design and analytics automation — premium tools, no extra cost, no hassle.',
+    'Your Smart AI Business Team brings a fully loaded AI ecosystem for creative design and analytics automation premium tools, no extra cost, no hassle.',
   tabs: [
     {
       id: 'social-posts',

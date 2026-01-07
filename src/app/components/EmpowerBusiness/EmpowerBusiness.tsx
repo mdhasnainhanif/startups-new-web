@@ -1,10 +1,12 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import { EmpowerBusinessProps } from "../../types/types";
 import Container from "../Container";
 import Button from "../Button";
 import { ArrowRightIcon } from "../icons";
+import OfferPopup from "../OfferPopup/OfferPopup";
 import styles from "./EmpowerBusiness.module.css";
 
 export default function EmpowerBusiness({
@@ -13,6 +15,8 @@ export default function EmpowerBusiness({
   ctaButton,
   className = "",
 }: EmpowerBusinessProps) {
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
   return (
     <section className={`${styles.section} sectionPadding ${className}`}>
       <Container maxWidth="mxl" className="px-0">
@@ -35,7 +39,7 @@ export default function EmpowerBusiness({
             <div className={styles.buttonWrapper}>
              
 
-              <Button href="#" variant="green" icon={<ArrowRightIcon style={{ fill: "#000" }} />} iconPosition="right">
+              <Button href="#" variant="green" icon={<ArrowRightIcon style={{ fill: "#000" }} />} iconPosition="right" onClick={() => setIsPopupOpen(true)}>
               {ctaButton.text}
               </Button>
               
@@ -43,6 +47,10 @@ export default function EmpowerBusiness({
           </div>
         </div>
       </Container>
+      <OfferPopup
+        isOpen={isPopupOpen}
+        onClose={() => setIsPopupOpen(false)}
+      />
     </section>
   );
 }

@@ -43,11 +43,11 @@ interface AiPowerDesignProps {
 
 const AI_POWER_DESIGN_DATA: AiPowerDesignData = {
   headline: {
-    text: 'Your AI-Powered Design Team Handles Every Design Your Business Needs in the First 22 Days.',
-    highlighted: ['AI-Powered Design Team', 'First 22 Days'],
+    text: 'Your AI Powered Design Team Handles Every Design Your Business Needs in the First 1 Month.',
+    highlighted: ['AI Powered Design Team', 'First 1 Month'],
   },
   description:
-    'Instead of managing freelancers or paying agency premiums, you get a full design team that builds your entire visual identity from scratch — fast, clean, and ready for real business use.',
+    'Instead of managing freelancers or paying agency premiums, you get a full design team that builds your entire visual identity from scratch, fast, clean, and ready for real business use.',
   tabs: [
     {
       id: 'website-design',
@@ -148,7 +148,7 @@ const AI_POWER_DESIGN_DATA: AiPowerDesignData = {
   ],
   lifetimeValue: {
     heading: 'Lifetime Value:',
-    text: "You're not just receiving \"designs.\" You're receiving the full brand system your business will use for years — online and offline",
+    text: "You're not just receiving \"designs.\" You're receiving the full brand system your business will use for years, online and offline",
   },
 };
 
@@ -210,15 +210,15 @@ const AiPowerDesign = ({ data = AI_POWER_DESIGN_DATA }: AiPowerDesignProps) => {
               <h3 className={styles.deliverablesTitle}>
                 {data.deliverablesTitle ? (
                   <>
-                    {data.deliverablesTitle.split('22-Day').map((part, index, array) => (
+                    {data.deliverablesTitle.split('1 Month').map((part, index, array) => (
                       <span key={index}>
                         {part}
-                        {index < array.length - 1 && <span className={styles.highlighted}>22-Day</span>}
+                        {index < array.length - 1 && <span className={styles.highlighted}>1 Month</span>}
                       </span>
                     ))}
                   </>
                 ) : (
-                  <>Your <span className={styles.highlighted}>22-Day</span> Deliverable Package Includes:</>
+                  <>Your <span className={styles.highlighted}>Monthly</span> Deliverable Package Includes:</>
                 )}
               </h3>
 

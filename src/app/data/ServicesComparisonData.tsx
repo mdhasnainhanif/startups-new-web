@@ -1,5 +1,3 @@
-// Services Comparison Data - All 12 services ke liye alag comparison data
-
 export interface ComparisonCTA {
   text: string;
   href: string;
@@ -35,7 +33,7 @@ export const SERVICES_COMPARISON_DATA: ServicesComparisonDataMap = {
   "brand-identity": {
     badge: "BUILT FOR RESULTS",
     heading: "Why Smart Businesses Choose Us",
-    description: "When you compare options side-by-side, the difference becomes obvious. This isn't about design preference — it's about clarity, consistency, and trust at scale.",
+    description: "When you compare options side-by-side, the difference becomes obvious. This isn't about design preference   it's about clarity, consistency, and trust at scale.",
     logo: "/assets/images/logo.svg",
     serviceName: "Startups Advisory (Our Platform)",
     criteria: ["Platform", "Speed", "Quality", "Support", "Cost"],
@@ -54,7 +52,7 @@ export const SERVICES_COMPARISON_DATA: ServicesComparisonDataMap = {
       },
       {
         name: "DIY Tools",
-        description: "Quick to use — but output is off-brand, inconsistent, and damages credibility over time.",
+        description: "Quick to use   but output is off-brand, inconsistent, and damages credibility over time.",
       },
     ],
     comparisonPoints: [
@@ -83,7 +81,7 @@ export const SERVICES_COMPARISON_DATA: ServicesComparisonDataMap = {
   "marketing-advertising": {
     badge: "BUILT FOR RESULTS",
     heading: "Why Smart Businesses Choose [Us]",
-    description: "When you compare options side-by-side, the difference becomes obvious. This isn't about running ads — it's about scaling demand without burning cash.",
+    description: "When you compare options side-by-side, the difference becomes obvious. This isn't about running ads   it's about scaling demand without burning cash.",
     logo: "/assets/images/logo.svg",
     serviceName: "Startups Advisory (Our Platform)",
     criteria: ["Platform", "Speed", "Quality", "Support", "Cost"],
@@ -131,18 +129,18 @@ export const SERVICES_COMPARISON_DATA: ServicesComparisonDataMap = {
   "digital-web": {
     badge: "BUILT FOR DIGITAL RESULTS",
     heading: "Why Businesses Choose Our [Digital & Web Services]",
-    description: "When you compare options side-by-side, the difference is clear. This isn't about aesthetics — it's about speed, scalability, performance, and long-term ROI.",
+    description: "When you compare options side-by-side, the difference is clear. This isn't about aesthetics   it's about speed, scalability, performance, and long term ROI.",
     logo: "/assets/images/logo.svg",
     serviceName: "Startups Advisory (Our Platform)",
     criteria: ["Platform", "Speed", "Quality", "Support", "Cost"],
     competitors: [
       {
         name: "In-House Team",
-        description: "Hiring developers takes time. Managing design, performance, and maintenance internally adds cost and slows execution — especially when priorities shift.",
+        description: "Hiring developers takes time. Managing design, performance, and maintenance internally adds cost and slows execution   especially when priorities shift.",
       },
       {
         name: "Freelancers",
-        description: "Quality varies. Communication breaks. Documentation gets lost. Results depend on individuals instead of systems, making long-term consistency difficult.",
+        description: "Quality varies. Communication breaks. Documentation gets lost. Results depend on individuals instead of systems, making long term consistency difficult.",
       },
       {
         name: "Agencies",
@@ -179,7 +177,7 @@ export const SERVICES_COMPARISON_DATA: ServicesComparisonDataMap = {
   "motion-video": {
     badge: "BUILT FOR VIDEO RESULTS",
     heading: "Why Businesses Choose Our [Motion & Video Services]",
-    description: "Side-by-side, the difference is clear. This isn't about cinematic flair — it's about clarity, speed, scalability, and ROI.",
+    description: "Side-by-side, the difference is clear. This isn't about cinematic flair   it's about clarity, speed, scalability, and ROI.",
     logo: "/assets/images/logo.svg",
     serviceName: "Startups Advisory (Our Platform)",
     criteria: ["Platform", "Speed", "Quality", "Support", "Cost"],
@@ -282,11 +280,11 @@ export const SERVICES_COMPARISON_DATA: ServicesComparisonDataMap = {
     competitors: [
       {
         name: "In-House Team",
-        description: "Illustration talent is rare and expensive. Hiring full-time illustrators is costly when illustration needs are project-based.",
+        description: "Illustration talent is rare and expensive. Hiring Full time illustrators is costly when illustration needs are project-based.",
       },
       {
         name: "Freelancers",
-        description: "Finding the right artistic style is time-consuming. Matching freelancer illustration styles to your brand requires extensive vetting.",
+        description: "Finding the right artistic style is time consuming. Matching freelancer illustration styles to your brand requires extensive vetting.",
       },
       {
         name: "Agencies",
@@ -323,7 +321,7 @@ export const SERVICES_COMPARISON_DATA: ServicesComparisonDataMap = {
   "ebooks-digital-report": {
     badge: "BUILT FOR CONTENT RESULTS",
     heading: "Why Businesses Choose Our [eBook & Report Templates]",
-    description: "Side-by-side, the difference is obvious. This isn't about decoration — it's about clarity, authority, and scalability.",
+    description: "Side-by-side, the difference is obvious. This isn't about decoration   it's about clarity, authority, and scalability.",
     logo: "/assets/images/logo.svg",
     serviceName: "Startups Advisory (Our Platform)",
     criteria: ["Platform", "Speed", "Quality", "Support", "Cost"],
@@ -342,7 +340,7 @@ export const SERVICES_COMPARISON_DATA: ServicesComparisonDataMap = {
       },
       {
         name: "DIY Tools",
-        description: "Easy to start, but layouts lack hierarchy and credibility — reducing trust and perceived value.",
+        description: "Easy to start, but layouts lack hierarchy and credibility   reducing trust and perceived value.",
       },
     ],
     comparisonPoints: [
@@ -371,7 +369,7 @@ export const SERVICES_COMPARISON_DATA: ServicesComparisonDataMap = {
   "presentations": {
     badge: "BUILT FOR PRESENTATION RESULTS",
     heading: "Why Businesses Choose Our Presentation Design",
-    description: "Side-by-side, the difference is clear. This isn't about decoration — it's about clarity, persuasion, and repeatability.",
+    description: "Side-by-side, the difference is clear. This isn't about decoration   it's about clarity, persuasion, and repeatability.",
     logo: "/assets/images/logo.svg",
     serviceName: "Startups Advisory (Our Platform)",
     criteria: ["Platform", "Speed", "Quality", "Support", "Cost"],
@@ -419,7 +417,7 @@ export const SERVICES_COMPARISON_DATA: ServicesComparisonDataMap = {
   "product-packaging": {
     badge: "BUILT FOR PRODUCT RESULTS",
     heading: "Why Businesses Choose Our Product & Packaging Design",
-    description: "Side-by-side, the difference is clear. This isn't about decoration — it's about clarity, differentiation, and sell-through.",
+    description: "Side-by-side, the difference is clear. This isn't about decoration   it's about clarity, differentiation, and sell-through.",
     logo: "/assets/images/logo.svg",
     serviceName: "Startups Advisory (Our Platform)",
     criteria: ["Platform", "Speed", "Quality", "Support", "Cost"],
@@ -434,7 +432,7 @@ export const SERVICES_COMPARISON_DATA: ServicesComparisonDataMap = {
       },
       {
         name: "Agencies",
-        description: "High-quality work, but slow timelines and high retainers reduce flexibility.",
+        description: "High quality work, but slow timelines and high retainers reduce flexibility.",
       },
       {
         name: "DIY Tools",
@@ -456,11 +454,11 @@ export const SERVICES_COMPARISON_DATA: ServicesComparisonDataMap = {
     competitors: [
       {
         name: "In-house team",
-        description: "Apparel design is seasonal and project-based. Maintaining full-time designers for occasional merchandise needs is inefficient.",
+        description: "Apparel design is seasonal and project-based. Maintaining Full time designers for occasional merchandise needs is inefficient.",
       },
       {
         name: "Freelancers",
-        description: "Inconsistent apparel design quality and production knowledge. Finding freelancers skilled in merchandise design is time-consuming.",
+        description: "Inconsistent apparel design quality and production knowledge. Finding freelancers skilled in merchandise design is time consuming.",
       },
       {
         name: "Agencies",
@@ -479,7 +477,7 @@ export const SERVICES_COMPARISON_DATA: ServicesComparisonDataMap = {
   "environmental-event": {
     badge: "BUILT FOR EVENT RESULTS",
     heading: "Why Businesses Choose Our Corporate Event Design",
-    description: "Side-by-side, the difference is clear. This isn't about decoration — it's about professionalism, coordination, and brand impact.",
+    description: "Side-by-side, the difference is clear. This isn't about decoration   it's about professionalism, coordination, and brand impact.",
     logo: "/assets/images/logo.svg",
     serviceName: "Startups Advisory (Our Platform)",
     criteria: ["Platform", "Speed", "Quality", "Support", "Cost"],
@@ -494,7 +492,7 @@ export const SERVICES_COMPARISON_DATA: ServicesComparisonDataMap = {
       },
       {
         name: "Agencies",
-        description: "High-quality work, but slow timelines and high costs reduce flexibility.",
+        description: "High quality work, but slow timelines and high costs reduce flexibility.",
       },
       {
         name: "DIY Tools",
@@ -534,7 +532,7 @@ export const SERVICES_COMPARISON_DATA: ServicesComparisonDataMap = {
     competitors: [
       {
         name: "In-house team",
-        description: "Internal design needs fluctuate with company initiatives. Maintaining full-time designers for variable internal projects is costly.",
+        description: "Internal design needs fluctuate with company initiatives. Maintaining Full time designers for variable internal projects is costly.",
       },
       {
         name: "Freelancers",
@@ -556,7 +554,7 @@ export const SERVICES_COMPARISON_DATA: ServicesComparisonDataMap = {
   },
 };
 
-// Helper function to get comparison data by service slug
+
 export const getServiceComparisonData = (slug: string): ServicesComparisonData | undefined => {
   return SERVICES_COMPARISON_DATA[slug];
 };

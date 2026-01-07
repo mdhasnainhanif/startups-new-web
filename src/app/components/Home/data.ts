@@ -1,7 +1,7 @@
 export const HERO_BANNER = {
   headline: "",
   headlineHighlight: "",
-  subheadline: "[Your AI-Powered] Growth Team Ready to Run Your Business",
+  subheadline: "[Your AI Powered] Growth Team Ready to Run Your Business",
   className: "",
   description:
     `Finally growth that accelerates every part of your business forward. \n Your AI powered growth team brings more clients improves operations boosts revenue and keeps your business moving.`,
@@ -109,7 +109,7 @@ export const FAQ_CONTACT = [
   {
     question: "Can StartupAdvisory help with ongoing scaling?",
     answer:
-      "Absolutely. Our digital teams grow with you—supporting branding, marketing, automation, and long term growth.",
+      "Absolutely. Our digital teams grow with you, supporting branding, marketing, automation, and long term growth.",
   },
 ];
 
@@ -359,7 +359,7 @@ export const GROWTH_GUIDES = [
     date: "Nov 10, 2025",
     readTime: "7 min read",
     excerpt:
-      "Imagine launching a digital workforce of intelligent agents that operate on unstructured data — validated, enriched, and ready to act.",
+      "Imagine launching a digital workforce of intelligent agents that operate on unstructured data, validated, enriched, and ready to act.",
     href: "/blog/ai-agents-data-quality-2",
   },
   {
@@ -370,7 +370,7 @@ export const GROWTH_GUIDES = [
     date: "Nov 10, 2025",
     readTime: "5 min read",
     excerpt:
-      "Imagine launching a digital workforce of intelligent agents that operate on unstructured data — validated, enriched, and ready to act.",
+      "Imagine launching a digital workforce of intelligent agents that operate on unstructured data, validated, enriched, and ready to act.",
     href: "/blog/ai-agents-data-quality-3",
   },
   {
@@ -381,7 +381,7 @@ export const GROWTH_GUIDES = [
     date: "Nov 10, 2025",
     readTime: "5 min read",
     excerpt:
-      "Imagine launching a digital workforce of intelligent agents that operate on unstructured data — validated, enriched, and ready to act.",
+      "Imagine launching a digital workforce of intelligent agents that operate on unstructured data, validated, enriched, and ready to act.",
     href: "/blog/ai-agents-data-quality-3",
   },
   {
@@ -392,7 +392,7 @@ export const GROWTH_GUIDES = [
     date: "Nov 10, 2025",
     readTime: "5 min read",
     excerpt:
-      "Imagine launching a digital workforce of intelligent agents that operate on unstructured data — validated, enriched, and ready to act.",
+      "Imagine launching a digital workforce of intelligent agents that operate on unstructured data, validated, enriched, and ready to act.",
     href: "/blog/ai-agents-data-quality-3",
   },
   {
@@ -403,7 +403,7 @@ export const GROWTH_GUIDES = [
     date: "Nov 10, 2025",
     readTime: "5 min read",
     excerpt:
-      "Imagine launching a digital workforce of intelligent agents that operate on unstructured data — validated, enriched, and ready to act.",
+      "Imagine launching a digital workforce of intelligent agents that operate on unstructured data, validated, enriched, and ready to act.",
     href: "/blog/ai-agents-data-quality-3",
   },
 ];
