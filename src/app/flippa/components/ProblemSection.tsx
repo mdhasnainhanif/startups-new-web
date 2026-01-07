@@ -1,17 +1,14 @@
 "use client";
-
 import { AlertCircle, TrendingDown, Clock, Users } from "./icons";
 import { MotionDiv, StaggerContainer, StaggerItem } from "./motion";
 import { problemData } from "../../data/FlippaPageData";
 import Container from "../../components/Container";
-
 const iconMap: Record<string, typeof TrendingDown> = {
   TrendingDown,
   AlertCircle,
   Clock,
   Users,
 };
-
 export default function ProblemSection() {
   return (
     <section className="sectionPadding bg-[var(--color-dark)] problemBeforeBackground">
@@ -48,8 +45,6 @@ export default function ProblemSection() {
             );
           })}
         </StaggerContainer>
-
-        
         <MotionDiv delay={0.3} className="max-w-2xl mx-auto text-center mt-10 md:mt-16">
           <p className="text-base md:text-lg text-white/80">
             {problemData.bottomText.split("undervalued and unsellable")[0]}
@@ -61,4 +56,3 @@ export default function ProblemSection() {
     </section>
   );
 }
-

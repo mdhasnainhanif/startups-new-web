@@ -40,7 +40,7 @@
   grid-template-columns: 220px 1fr;
   column-gap: 28px;
   margin-top: -3.06rem;
-  padding: 2.5rem;
+  padding: 2rem;
 }
 .contentHeader {
   display: flex;
@@ -186,7 +186,7 @@
 }
 
 .subtitle {
-  margin: 12px 0 12px;
+  margin: 4px 0 4px;
   color: #0fdac2;
   font-family: var(--wfFont);
   font-size: 1.25rem;
@@ -199,7 +199,7 @@
   color: #fff;
   font: 500 15px/1.6 ui-sans-serif;
   font-family: var(--wfFont);
-  font-size: 1.2rem;
+  font-size: 1rem;
   margin-top: 0.445rem;
   position: relative;
   z-index: 2;

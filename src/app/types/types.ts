@@ -146,6 +146,7 @@ export interface JourneyItem {
   description: string;
   imagePosition: "left" | "right";
   icon: string;
+  points?: string[];
 }
 
 export interface OurJourneyProps {

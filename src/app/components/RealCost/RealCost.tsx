@@ -53,7 +53,7 @@ const REAL_COST_DATA: RealCostData = {
   heading: {
     part1: 'See the Real Cost of ',
     part2: 'Hiring Design Staff vs.',
-    part3: 'Hiring an Entire Design Team for 22 Days',
+    part3: 'Hiring an Entire Design Team for 1 Month',
   },
   callToAction: 'Use the calculator to instantly compare:',
   bulletPoints: [
@@ -64,7 +64,7 @@ const REAL_COST_DATA: RealCostData = {
     'The long term ROI of getting your full brand built correctly',
   ],
   conclusion:
-    'Most business owners discover they save thousands of dollars and months of work in just the first 22 days alone',
+    'Most business owners discover they save thousands of dollars and months of work in just the first 1 month alone',
   calculator: {
     title: 'Cost Calculator',
     fields: [
@@ -131,7 +131,7 @@ const ROLE_COSTS: Record<string, { monthly: number; annual: number }> = {
 
 // Format number with commas for display
 const formatNumber = (value: string): string => {
-  // Remove all non-digit characters
+  // Remove all non-digit characters (including dollar sign)
   const digitsOnly = value.replace(/\D/g, '');
   
   if (!digitsOnly) return '';
@@ -144,8 +144,8 @@ const formatNumber = (value: string): string => {
   const MAX_VALUE = 999999999;
   const limitedValue = Math.min(numValue, MAX_VALUE);
   
-  // Format with commas
-  return limitedValue.toLocaleString('en-US');
+  // Format with commas and add dollar sign prefix
+  return '$' + limitedValue.toLocaleString('en-US');
 };
 
 const RealCost = ({ data = REAL_COST_DATA }: RealCostProps) => {
@@ -168,6 +168,7 @@ const RealCost = ({ data = REAL_COST_DATA }: RealCostProps) => {
   useEffect(() => {
     if (selectedRoleType && ROLE_COSTS[selectedRoleType]) {
       const costs = ROLE_COSTS[selectedRoleType];
+      // formatNumber already adds dollar sign, so just pass the number as string
       const monthlyFormatted = formatNumber(costs.monthly.toString());
       const annualFormatted = formatNumber(costs.annual.toString());
       
@@ -232,9 +233,9 @@ const RealCost = ({ data = REAL_COST_DATA }: RealCostProps) => {
     };
   }, [isDropdownOpen]);
 
-  // Get raw number value (without commas)
+  // Get raw number value (without commas and dollar sign)
   const getRawValue = (formattedValue: string): string => {
-    return formattedValue.replace(/,/g, '');
+    return formattedValue.replace(/[,$]/g, '');
   };
 
 
@@ -553,12 +554,10 @@ const RealCost = ({ data = REAL_COST_DATA }: RealCostProps) => {
                   </div>
                   <input
                     type="text"
-                    inputMode="numeric"
                     className={styles.inputField}
                     placeholder={data.calculator.fields[1]?.placeholder || "Monthly Cost"}
                     value={monthlyCost}
-                    onChange={(e) => handleMonthlyCostChange(e.target.value)}
-                    maxLength={15}
+                    readOnly
                   />
                 </div>
 
@@ -569,12 +568,10 @@ const RealCost = ({ data = REAL_COST_DATA }: RealCostProps) => {
                   </div>
                   <input
                     type="text"
-                    inputMode="numeric"
                     className={styles.inputField}
                     placeholder={data.calculator.fields[2]?.placeholder || "Annual Cost"}
                     value={annualCost}
-                    onChange={(e) => handleAnnualCostChange(e.target.value)}
-                    maxLength={15}
+                    readOnly
                   />
                 </div>
               </div>
