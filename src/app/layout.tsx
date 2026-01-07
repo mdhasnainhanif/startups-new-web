@@ -5,10 +5,13 @@ import localFont from "next/font/local";
 import Script from "next/script";
 import "./globals.css";
 import ConditionalLayout from "./components/ConditionalLayout/ConditionalLayout";
+import AsyncCSS from "./components/AsyncCSS";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  display: "swap",
+  preload: true,
 });
 
 // const geistMono = Geist_Mono({
@@ -19,6 +22,7 @@ const geistSans = Geist({
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
   variable: "--font-plus-jakarta-sans",
+  preload: true,
 });
 
 // const wfVisualSans = localFont({
@@ -32,6 +36,7 @@ const graphikRegular = localFont({
   variable: "--font-graphik-regular",
   display: "swap",
   fallback: ["Arial", "Helvetica", "sans-serif"],
+  preload: true,
 });
 
 const graphikBold = localFont({
@@ -39,6 +44,7 @@ const graphikBold = localFont({
   variable: "--font-graphik-bold",
   display: "swap",
   fallback: ["Arial", "Helvetica", "sans-serif"],
+  preload: true,
 });
 
 const graphikSemiBold = localFont({
@@ -46,6 +52,7 @@ const graphikSemiBold = localFont({
   variable: "--font-graphik-semibold",
   display: "swap",
   fallback: ["Arial", "Helvetica", "sans-serif"],
+  preload: true,
 });
 
 export const metadata: Metadata = {
@@ -77,6 +84,49 @@ export default function RootLayout({
       color: #ffffff;
     }
   `}</style>
+        {/* Optimize CSS loading - runs early to defer non-critical CSS */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                // Function to defer non-critical CSS
+                function deferCSS() {
+                  const links = document.querySelectorAll('link[rel="stylesheet"]:not([data-deferred])');
+                  links.forEach(function(link, index) {
+                    // Keep first 2-3 CSS files as critical (usually main app CSS)
+                    if (index < 2) {
+                      link.setAttribute('data-critical', 'true');
+                      return;
+                    }
+                    
+                    // Defer the rest using media trick
+                    link.setAttribute('data-deferred', 'true');
+                    const originalMedia = link.media || 'all';
+                    link.media = 'print';
+                    
+                    link.onload = function() {
+                      this.media = originalMedia;
+                    };
+                    
+                    // Fallback
+                    setTimeout(function() {
+                      if (link.media === 'print') {
+                        link.media = originalMedia;
+                      }
+                    }, 100);
+                  });
+                }
+                
+                // Run immediately if DOM is ready, otherwise on DOMContentLoaded
+                if (document.readyState === 'loading') {
+                  document.addEventListener('DOMContentLoaded', deferCSS);
+                } else {
+                  deferCSS();
+                }
+              })();
+            `,
+          }}
+        />
         <noscript>
           <link
             rel="stylesheet"
@@ -86,6 +136,7 @@ export default function RootLayout({
           />
         </noscript>
         <link rel="preload" as="image" href="/assets/images/hero.webp" />
+        <AsyncCSS href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
       </head>
       <body
         className={`${geistSans.variable} ${plusJakartaSans.variable} ${graphikRegular.variable} ${graphikBold.variable} ${graphikSemiBold.variable} antialiased relative`}

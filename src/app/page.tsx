@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import dynamic from "next/dynamic";
 import Questionnaire from "./components/Questionnaire/Questionnaire";
-import CaseStudySection from "./components/CaseStudySection";
 import { FAQ_SECTION, CALENDLY_SECTION, GROWTH_GUIDES } from "./constants";
 import { FAQ_CONTACT } from "./components/Home/data";
 import { sliderData } from "./data/HomeNewData";
@@ -20,8 +19,9 @@ const CTABanner = dynamic(() => import("./components/CTABanner/CTABanner"), {
   loading: () => <div className="h-64" />,
 });
 
-
-
+const CaseStudySection = dynamic(() => import("./components/CaseStudySection"), {
+  loading: () => <div className="h-96" />,
+});
 
 const Technologies = dynamic(() => import("./components/Technologies/Technologies"), {
   loading: () => <div className="h-96" />,

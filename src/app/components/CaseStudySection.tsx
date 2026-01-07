@@ -139,79 +139,77 @@ const CaseStudySection = ({ data = DEFAULT_CASE_STUDY_DATA, isShowTabs = true, c
   };
 
   
-  const setStackCards = (): void => {
-    const element = stackCardsRef.current;
-    if (!element) return;
+ // In CaseStudySection.tsx - Update setStackCards function
+const setStackCards = (): void => {
+  const element = stackCardsRef.current;
+  if (!element) return;
 
-    const items = itemsRef.current;
-    if (!items || items.length === 0) return;
+  const items = itemsRef.current;
+  if (!items || items.length === 0) return;
 
-    
-    if (!isDesktop) {
-      element.style.paddingBottom = "0px";
-      for (let i = 0; i < items.length; i++) {
-        if (items[i]) {
-          items[i].style.transform = "translate3d(0, 0, 0)";
-          
-          items[i].classList.remove(
-            "service-scrollerItemContainer",
-            "stack-cards__item",
-            "js-stack-cards__item"
-          );
-          
-          items[i].style.display = "block";
-        }
-      }
-      return;
-    }
-
-    
-    for (let i = 0; i < items.length; i++) {
-      if (items[i]) {
-        items[i].style.display = "block";
-        items[i].style.transition = "transform 0.2s cubic-bezier(0.4, 0, 0.2, 1)"; 
-        
-        if (!items[i].classList.contains("service-scrollerItemContainer")) {
-          items[i].classList.add(
-            "service-scrollerItemContainer",
-            "stack-cards__item",
-            "js-stack-cards__item"
-          );
-        }
-      }
-    }
-
-    
-    if (!items[0]) return;
-
-    const marginYValue =
-      getComputedStyle(element).getPropertyValue("--stack-cards-gap");
+  // Batch all DOM reads first
+  requestAnimationFrame(() => {
+    // Read all layout properties in one batch
+    const marginYValue = getComputedStyle(element).getPropertyValue("--stack-cards-gap");
     const marginY = getIntegerFromProperty(marginYValue, element);
     const elementHeight = element.offsetHeight;
-
     const cardStyle = getComputedStyle(items[0]);
     const cardTop = Math.floor(parseFloat(cardStyle.getPropertyValue("top")));
-    const cardHeight = Math.floor(
-      parseFloat(cardStyle.getPropertyValue("height"))
-    );
+    const cardHeight = Math.floor(parseFloat(cardStyle.getPropertyValue("height")));
 
-    if (isNaN(marginY)) {
-      element.style.paddingBottom = "0px";
-    } else {
-      element.style.paddingBottom = marginY * (items.length - 1) + "px";
-    }
+    // Then batch all DOM writes
+    requestAnimationFrame(() => {
+      if (!isDesktop) {
+        element.style.paddingBottom = "0px";
+        for (let i = 0; i < items.length; i++) {
+          if (items[i]) {
+            items[i].style.transform = "translate3d(0, 0, 0)";
+            items[i].classList.remove(
+              "service-scrollerItemContainer",
+              "stack-cards__item",
+              "js-stack-cards__item"
+            );
+            items[i].style.display = "block";
+          }
+        }
+        return;
+      }
 
-    for (let i = 0; i < items.length; i++) {
-      if (items[i]) {
-        if (isNaN(marginY)) {
-          items[i].style.transform = "translate3d(0, 0, 0)";
-        } else {
-          const translateY = Math.round(marginY * i);
-          items[i].style.transform = `translate3d(0, ${translateY}px, 0)`;
+      // Desktop version
+      for (let i = 0; i < items.length; i++) {
+        if (items[i]) {
+          items[i].style.display = "block";
+          items[i].style.transition = "transform 0.2s cubic-bezier(0.4, 0, 0.2, 1)";
+          
+          if (!items[i].classList.contains("service-scrollerItemContainer")) {
+            items[i].classList.add(
+              "service-scrollerItemContainer",
+              "stack-cards__item",
+              "js-stack-cards__item"
+            );
+          }
         }
       }
-    }
-  };
+
+      if (isNaN(marginY)) {
+        element.style.paddingBottom = "0px";
+      } else {
+        element.style.paddingBottom = marginY * (items.length - 1) + "px";
+      }
+
+      for (let i = 0; i < items.length; i++) {
+        if (items[i]) {
+          if (isNaN(marginY)) {
+            items[i].style.transform = "translate3d(0, 0, 0)";
+          } else {
+            const translateY = Math.round(marginY * i);
+            items[i].style.transform = `translate3d(0, ${translateY}px, 0)`;
+          }
+        }
+      }
+    });
+  });
+};
 
   const getIntegerFromProperty = (
     value: string,
@@ -230,35 +228,46 @@ const CaseStudySection = ({ data = DEFAULT_CASE_STUDY_DATA, isShowTabs = true, c
     return intValue;
   };
 
-  const syncActiveByVisibility = () => {
-    const list = stackCardsRef.current;
-    if (!list) return;
-    const cards = Array.from(
-      list.querySelectorAll<HTMLElement>("li[id^='tabScroll']")
-    );
-    if (!cards.length) return;
+  // In CaseStudySection.tsx - Update syncActiveByVisibility
+const syncActiveByVisibility = () => {
+  const list = stackCardsRef.current;
+  if (!list) return;
+  
+  const cards = Array.from(
+    list.querySelectorAll<HTMLElement>("li[id^='tabScroll']")
+  );
+  if (!cards.length) return;
 
-    const rootEl = scrollContainerRef.current;
-    const rootRect =
-      rootEl && rootEl.scrollHeight > rootEl.clientHeight
-        ? rootEl.getBoundingClientRect()
-        : new DOMRect(0, 0, window.innerWidth, window.innerHeight);
+  // Batch all getBoundingClientRect() calls
+  const rootEl = scrollContainerRef.current;
+  const rootRect = rootEl && rootEl.scrollHeight > rootEl.clientHeight
+    ? rootEl.getBoundingClientRect()
+    : new DOMRect(0, 0, window.innerWidth, window.innerHeight);
 
-    let bestId = activeTab,
-      best = 0;
-    for (const el of cards) {
-      const r = el.getBoundingClientRect();
-      const top = Math.max(r.top, rootRect.top);
-      const bottom = Math.min(r.bottom, rootRect.bottom);
-      const visible = Math.max(0, bottom - top);
-      const ratio = r.height ? visible / r.height : 0;
-      if (ratio > best) {
-        best = ratio;
-        bestId = el.id;
-      }
+  // Read all card positions in one batch
+  const cardRects = cards.map(el => ({
+    id: el.id,
+    rect: el.getBoundingClientRect(),
+    height: el.offsetHeight
+  }));
+
+  // Process after all reads are done
+  let bestId = activeTab;
+  let best = 0;
+  
+  for (const { id, rect, height } of cardRects) {
+    const top = Math.max(rect.top, rootRect.top);
+    const bottom = Math.min(rect.bottom, rootRect.bottom);
+    const visible = Math.max(0, bottom - top);
+    const ratio = height ? visible / height : 0;
+    if (ratio > best) {
+      best = ratio;
+      bestId = id;
     }
-    if (bestId !== activeTab) setActiveTab(bestId);
-  };
+  }
+  
+  if (bestId !== activeTab) setActiveTab(bestId);
+};
 
   useEffect(() => {
     if (isDesktop) return; 

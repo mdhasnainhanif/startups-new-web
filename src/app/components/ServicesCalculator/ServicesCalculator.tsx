@@ -73,9 +73,13 @@ const ServicesCalculator: React.FC = () => {
       return [...prev, service];
     });
   };
-  const checkScrollPosition = () => {
-    const container = scrollContainerRef.current;
-    if (!container) return;
+// In ServicesCalculator.tsx - Update checkScrollPosition
+const checkScrollPosition = () => {
+  const container = scrollContainerRef.current;
+  if (!container) return;
+  
+  // Batch the read operations
+  requestAnimationFrame(() => {
     const { scrollLeft, scrollWidth, clientWidth } = container;
     const isAtStart = scrollLeft <= 5;
     const isAtEnd = scrollLeft + clientWidth >= scrollWidth - 5;
@@ -83,18 +87,34 @@ const ServicesCalculator: React.FC = () => {
     
     setShowLeftFade(!isAtStart && hasScroll);
     setShowRightFade(!isAtEnd && hasScroll);
+  });
+};
+
+// Update the useEffect to throttle scroll events
+useEffect(() => {
+  const container = scrollContainerRef.current;
+  if (!container) return;
+  
+  let rafId: number | null = null;
+  
+  const throttledCheck = () => {
+    if (rafId !== null) return;
+    rafId = requestAnimationFrame(() => {
+      checkScrollPosition();
+      rafId = null;
+    });
   };
-  useEffect(() => {
-    const container = scrollContainerRef.current;
-    if (!container) return;
-    checkScrollPosition();
-    container.addEventListener('scroll', checkScrollPosition);
-    window.addEventListener('resize', checkScrollPosition);
-    return () => {
-      container.removeEventListener('scroll', checkScrollPosition);
-      window.removeEventListener('resize', checkScrollPosition);
-    };
-  }, [activeTab]);
+  
+  checkScrollPosition();
+  container.addEventListener('scroll', throttledCheck, { passive: true });
+  window.addEventListener('resize', throttledCheck, { passive: true });
+  
+  return () => {
+    container.removeEventListener('scroll', throttledCheck);
+    window.removeEventListener('resize', throttledCheck);
+    if (rafId !== null) cancelAnimationFrame(rafId);
+  };
+}, [activeTab]);
 
   useEffect(() => {
     setTimeout(() => {

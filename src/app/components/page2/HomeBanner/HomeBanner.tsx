@@ -60,11 +60,11 @@ const HomeBanner = () => {
                     src={HOME_BANNER_DATA.video.thumbnail}
                     alt={HOME_BANNER_DATA.video.videoTitle}
                   />
-                  <img
+                  {/* <img
                     src={HOME_BANNER_DATA.review.logo}
                     alt="Google"
                     className={styles.googleImage}
-                  /> 
+                  />  */}
                   <div className={styles.playButtonContainer}>
                     <div className={styles.playButton}>
                       <svg
