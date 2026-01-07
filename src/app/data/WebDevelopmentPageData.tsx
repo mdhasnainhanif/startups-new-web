@@ -7,8 +7,8 @@
   import { GuessWorkAdvertisingData } from '../components/GuessWorkAdvertising/GuessWorkAdvertising';
   export const webDevelopmentBannerData: HomenewBannerData = {
     heading: {
-      part1: "Your Complete Website Team for ",
-      highlight1: "  1 Month",
+      part1: "Your Complete AI Powered Web Development Team",
+      highlight1: "    for Months",
       highlight2: "",
       part2: "",
     },

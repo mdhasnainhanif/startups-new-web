@@ -12,8 +12,8 @@ import { socialMediaMarketingAnalyticsDashboardData } from './AnalyticsDashboard
 
 export const socialMediaMarketingBannerData: HomenewBannerData = {
   heading: {
-    part1: "Market Ready Social Content in ",
-    highlight1: "1 Month.",
+    part1: "Your Complete AI Powered Social Media Marketing Team",
+    highlight1: " for Months",
     highlight2: "",
     part2: "",
   },

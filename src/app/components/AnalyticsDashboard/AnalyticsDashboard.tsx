@@ -42,7 +42,7 @@ export default function AnalyticsDashboard({
   middleRecommendations = [
     'Streamline Routes',
     'Reduce Bottlenecks',
-    'Enhance Throughput'
+    'Enhance Throughout'
   ],
   leftColumnItems = {
     left: [ 'Critical Modules', 'System Blueprint', 'Execution Speed', 'Code Patterns', 'User Engagement'],

@@ -10,8 +10,8 @@ import { contentWritingAnalyticsDashboardData } from './AnalyticsDashboardData';
 // HomenewBanner data for Content Writing page
 export const contentWritingBannerData: HomenewBannerData = {
   heading: {
-    part1: "Market Ready Content in ",
-    highlight1: "1 Month.",
+    part1: "Your Complete AI Powered Digital Content Production Team ",
+    highlight1: "for Months",
     highlight2: "",
     part2: "",
   },

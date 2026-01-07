@@ -316,7 +316,7 @@ export const WEB_DEVELOPMENT_DATA: WebDevelopmentData = {
   hero: {
     badge: "1 Month Website Package",
     heading: {
-      text: "Your Complete Website Team for ",
+      text: "Your Complete Website Team for ..............",
       highlight: "  1 Month",
     },
     description:
