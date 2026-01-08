@@ -176,6 +176,12 @@ header {
   z-index: 1000;
 }
 
+/* Content Visibility API for virtual scrolling and performance - Only for below-fold */
+section:not(:first-of-type):not(.sectionPaddingCase) {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 600px;
+}
+
 /* Optimize image loading */
 img {
   image-rendering: -webkit-optimize-contrast;
@@ -321,7 +327,7 @@ h2 .bracket-text-green {
   margin-bottom: 0rem;
 }
 
-.casestudysec {
+div.casestudysec {
   padding-bottom: 11rem;
   position: relative;
 }

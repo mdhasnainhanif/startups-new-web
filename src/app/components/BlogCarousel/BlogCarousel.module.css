@@ -42,6 +42,7 @@
     flex-direction: column;
     height: 100%;
     transition: all 0.3s ease;
+    margin-bottom: 0rem;
   }
   
   .blogCard:hover {
@@ -442,5 +443,6 @@
 @media (min-width: 1600px) {
   .blogCard {
     margin: 1rem 0;
+    margin-bottom: 0rem;
   }
 }
