@@ -244,7 +244,7 @@ export const socialMediaMarketingAiPowerData: AiPowerDesignData = {
         { id: '9', label: 'Campaign Strategy & Management', image: '/assets/images/social-media-marketing/days-section/campaign-strategy-management.jpg' },
         { id: '10', label: 'Influencer Marketing Management', image: '/assets/images/social-media-marketing/days-section/influencer-marketing-management.jpg' },
         { id: '11', label: 'Social Media Analytics & Reporting', image: '/assets/images/social-media-marketing/days-section/social-media-analytics-reporting.jpg' },
-        { id: '12', label: 'Reel & Short Form Video Production', image: '/assets/images/social-media-marketing/days-section/reel-Short Form-video-production.jpg' },
+        { id: '12', label: 'Reel & Short Form Video Production', image: '/assets/images/social-media-marketing/days-section/reel-short-form-video-production.jpg' },
         { id: '13', label: 'Hashtag Strategy Development', image: '/assets/images/social-media-marketing/days-section/hashtag-strategy-development.jpg' },
         { id: '14', label: 'Social Media SEO', image: '/assets/images/social-media-marketing/days-section/social-media-seo.jpg' },
         { id: '15', label: 'Crisis Management', image: '/assets/images/social-media-marketing/days-section/crisis-management.jpg' },

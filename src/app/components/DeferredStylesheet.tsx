@@ -2,7 +2,12 @@
 
 import { useEffect } from 'react';
 
-export default function AsyncCSS({ href }: { href: string }) {
+interface DeferredStylesheetProps {
+  href: string;
+  media?: string;
+}
+
+export default function DeferredStylesheet({ href, media = 'all' }: DeferredStylesheetProps) {
   useEffect(() => {
     // Check if link already exists
     const existingLink = document.querySelector(`link[href="${href}"]`);
@@ -13,29 +18,22 @@ export default function AsyncCSS({ href }: { href: string }) {
     const link = document.createElement('link');
     link.rel = 'stylesheet';
     link.href = href;
-    link.crossOrigin = 'anonymous';
-    link.referrerPolicy = 'no-referrer';
-    
-    // Use media trick for non-blocking load
     link.media = 'print';
+    
     link.onload = function() {
-      (this as HTMLLinkElement).media = 'all';
+      (this as HTMLLinkElement).media = media;
     };
     
-    // Fallback in case onload doesn't fire
-    link.onerror = function() {
-      (this as HTMLLinkElement).media = 'all';
-    };
-    
-    // Timeout fallback
+    // Fallback
     setTimeout(() => {
       if (link.media === 'print') {
-        link.media = 'all';
+        link.media = media;
       }
     }, 100);
     
     document.head.appendChild(link);
-  }, [href]);
+  }, [href, media]);
 
   return null;
 }
+

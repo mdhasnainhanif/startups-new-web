@@ -46,13 +46,13 @@ export default function Reviews({ limit, columns = 3, equalHeight = false }: Rev
               >
                 <div className={styles.badgeLogo}>
                   {badge.platform === "Trustpilot" && (
-                    <Image width={100} height={40} src="/assets/images/trust-pilot.webp" alt="Google Logo" className={styles.trustpilotLogo}/>
+                    <Image width={100} height={40} src="/assets/images/trust-pilot.webp" alt="Trustpilot Logo" style={{ width: "auto", height: "auto" }} className={styles.trustpilotLogo}/>
                   )}
                   {badge.platform === "Google" && (
-                   <Image width={100} height={40} src="/assets/images/google.webp" alt="Google Logo" className={styles.googleLogo}/>
+                   <Image width={100} height={40} src="/assets/images/google.webp" alt="Google Logo" style={{ width: "auto", height: "auto" }} className={styles.googleLogo}/>
                   )}
                   {badge.platform === "Facebook" && (
-                    <Image width={100} height={40} src="/assets/images/facebook.webp" alt="Facebook Logo" className={styles.facebookLogo}/>
+                    <Image width={100} height={40} src="/assets/images/facebook.webp" alt="Facebook Logo" style={{ width: "auto", height: "auto" }} className={styles.facebookLogo}/>
                   )}
                 </div>
                 <span className={`${styles.badgeRating} text-xs sm:text-sm md:text-sm font-semibold whitespace-nowrap`}>

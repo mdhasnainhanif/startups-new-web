@@ -7,6 +7,8 @@ import { sliderData } from "./data/HomeNewData";
 import TextSlider1 from "./components/HomenewPage/TextSlider/TextSlider";
 import { DESIGNER_GROWTH_GUIDES } from "./data/DesignerPageData";
 import { KEY_GROWTH_GUIDES } from "./data/Page2";
+import CaseStudySection from "./components/CaseStudySection";
+import DeferredOnVisible from "./components/DeferredOnVisible";
 const LogosSlider = dynamic(() => import("./components/LogosSlider/LogosSlider"), {
   loading: () => <div className="h-32" />, 
 });
@@ -19,9 +21,9 @@ const CTABanner = dynamic(() => import("./components/CTABanner/CTABanner"), {
   loading: () => <div className="h-64" />,
 });
 
-const CaseStudySection = dynamic(() => import("./components/CaseStudySection"), {
-  loading: () => <div className="h-96" />,
-});
+// const CaseStudySection = dynamic(() => import("./components/CaseStudySection"), {
+//   loading: () => <div className="h-96" />,
+// });
 
 const Technologies = dynamic(() => import("./components/Technologies/Technologies"), {
   loading: () => <div className="h-96" />,
@@ -128,13 +130,27 @@ export default function Home() {
       <ProfessionalOnline />
       <CTABanner />
       <CaseStudySection isShowTabs={true} />
-      <Technologies />
-      <CalendlySection {...CALENDLY_SECTION} />
-      <TextSlider1 data={sliderData.slider1} />
-      <Reviews />
-      <BlogCarousel showAllCategories={true} />
-      <FAQ faqs={FAQ_CONTACT} sectionData={FAQ_SECTION} />
-      <Contact />
+      <DeferredOnVisible fallback={<div className="h-96" />}>
+        <Technologies />
+      </DeferredOnVisible>
+      <DeferredOnVisible fallback={<div className="h-96" />}>
+        <CalendlySection {...CALENDLY_SECTION} />
+      </DeferredOnVisible>
+      <DeferredOnVisible fallback={<div className="h-64" />}>
+        <TextSlider1 data={sliderData.slider1} />
+      </DeferredOnVisible>
+      <DeferredOnVisible fallback={<div className="h-96" />}>
+        <Reviews />
+      </DeferredOnVisible>
+      <DeferredOnVisible fallback={<div className="h-96" />}>
+        <BlogCarousel showAllCategories={true} />
+      </DeferredOnVisible>
+      <DeferredOnVisible fallback={<div className="h-96" />}>
+        <FAQ faqs={FAQ_CONTACT} sectionData={FAQ_SECTION} />
+      </DeferredOnVisible>
+      <DeferredOnVisible fallback={<div className="h-96" />}>
+        <Contact />
+      </DeferredOnVisible>
     </main>
   );
 }
