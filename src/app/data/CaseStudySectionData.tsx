@@ -1,4 +1,4 @@
-// Card data structure
+
 export interface CardData {
   id: string;
   category: string;
@@ -26,7 +26,7 @@ export interface CaseStudySectionData {
   className?: string;
 }
 
-// Default data (can be used as fallback)
+
 export const DEFAULT_CASE_STUDY_DATA: CaseStudySectionData = {
   heading: {
     text: "Meet Your AI Powered Team Built for Your Business Growth",
@@ -41,7 +41,7 @@ export const DEFAULT_CASE_STUDY_DATA: CaseStudySectionData = {
     { id: "keygrowth", label: "Key Growth" },
   ],
   cards: [
-    // Creative & Design
+    
     {
       id: "tabScroll1",
       className: "brandDesigner",
@@ -105,7 +105,7 @@ export const DEFAULT_CASE_STUDY_DATA: CaseStudySectionData = {
       buttonText: "Hire Graphic Designer",
       image: "/assets/images/avatar/graphic-designer.webp",
     },
-    // Marketing & Growth
+    
     {
       id: "tabScroll4",
       className: "contentStrategist",
@@ -169,7 +169,7 @@ export const DEFAULT_CASE_STUDY_DATA: CaseStudySectionData = {
       buttonText: "Hire SEO Specialist",
       image: "/assets/images/avatar/marketing.webp",
     },
-    // Development
+    
     {
       id: "tabScroll7",
       className: "frontendDeveloper",
@@ -233,7 +233,7 @@ export const DEFAULT_CASE_STUDY_DATA: CaseStudySectionData = {
       buttonText: "Hire Full Stack Developer",
       image: "/assets/images/avatar/dev.webp",
     },
-    // Key Growth
+
     {
       id: "tabScroll10",
       className: "growthHacker",
@@ -266,7 +266,6 @@ export const DEFAULT_CASE_STUDY_DATA: CaseStudySectionData = {
         "Lead tagging",
         "CRM cleanup",
         "Workflow creation",
-        // "Drip campaigns",
         "Multi Step Automation",
         "Lead scoring setup",
         "Tool integrations",

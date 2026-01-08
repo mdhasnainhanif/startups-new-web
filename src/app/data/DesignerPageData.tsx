@@ -3,7 +3,6 @@ import { CaseStudySectionData, DEFAULT_CASE_STUDY_DATA } from './CaseStudySectio
 import { GuessWorkAdvertisingData } from '../components/GuessWorkAdvertising/GuessWorkAdvertising';
 import { designerAnalyticsDashboardData } from './AnalyticsDashboardData';
 
-// ProfessionalDesign component data for Designer page
 export const designProfessionalPageData: ProfessionalDesignData = {
   heading: {
     part1: "Good Design",
@@ -87,19 +86,19 @@ export const designProfessionalPageData: ProfessionalDesignData = {
   },
 };
 
-// CaseStudySection component data for Designer page
+
 export const caseStudyDesignerPageData: CaseStudySectionData = {
   ...DEFAULT_CASE_STUDY_DATA,
-  // You can override specific fields here if needed for designer page
+  
   heading: {
     text: "Meet Your AI Powered Design Team Built for Your Business Growth",
     highlighted: "AI Powered Design Team",
   },
   description:
     "Your Smart AI Design Team specializes in creating stunning visual identities and designs that make your business stand out. With professional design expertise and AI Powered efficiency, we deliver complete brand systems that drive real business results.",
-  // Only show "Creative & Design" tab
+  
   tabs: DEFAULT_CASE_STUDY_DATA.tabs.filter((tab) => tab.id === "creative"),
-  // Custom cards for Designer page with different images and content
+  
   cards: [
     {
       id: "tabScroll1",
@@ -164,7 +163,7 @@ export const caseStudyDesignerPageData: CaseStudySectionData = {
   ],
 };
 
-// GuessWorkAdvertising data for Designer page
+
 export const designerGuessWorkData: GuessWorkAdvertisingData = {
   heading: {
     part1: 'Unlock Your Growth ',
@@ -198,17 +197,17 @@ export const designerGuessWorkData: GuessWorkAdvertisingData = {
   analyticsDashboardData: designerAnalyticsDashboardData,
 };
 
-// Slider data for Designer page
+
 export const designerSliderData1 = [
   { sliderDataPara: "It costs [$57,000] annually to hire a [Graphics Designer] in the US" },
   { sliderDataPara: "It costs [$67,000] annually to hire an [Animator] in the US" },
 ];
 
-// Growth Guides for Designer page (includes design guide)
+
 export const DESIGNER_GROWTH_GUIDES = [
   {
     id: "design-2026",
-    image: "/assets/images/designer_blog/1.webp", // Dummy image - replace with actual design guide image
+    image: "/assets/images/designer_blog/1.webp", 
     category: "Design",
     title: "Design in 2026: How Modern Design Systems Drive Speed, Consistency, and Business Growth",
     date: "Jan 15, 2026",
@@ -219,7 +218,7 @@ export const DESIGNER_GROWTH_GUIDES = [
   },
   {
     id: "from-visuals-to-value",
-    image: "/assets/images/designer_blog/2.webp", // Dummy image
+    image: "/assets/images/designer_blog/2.webp", 
     category: "Design",
     title: "From Visuals To Value: How Strategic Design Impacts UX, Conversions, And Brand Trust In 2026",
     date: "Jan 20, 2026",
@@ -230,7 +229,7 @@ export const DESIGNER_GROWTH_GUIDES = [
   },
   {
     id: "future-of-design-teams",
-    image: "/assets/images/designer_blog/3.webp", // Dummy image
+    image: "/assets/images/designer_blog/3.webp", 
     category: "Design",
     title: "The Future Of Design Teams In 2026: Tools, Workflows, And AI assisted Creative Systems",
     date: "Jan 25, 2026",

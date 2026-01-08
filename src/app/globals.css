@@ -178,7 +178,7 @@ header {
 
 /* Content Visibility API for virtual scrolling and performance - Only for below-fold */
 section:not(:first-of-type):not(.sectionPaddingCase) {
-  content-visibility: auto;
+  /* content-visibility: auto; */
   contain-intrinsic-size: auto 600px;
 }
 

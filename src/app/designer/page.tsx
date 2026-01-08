@@ -106,6 +106,10 @@ const designerProvenSuccessData = {
         '/assets/images/portfolio/logo-design/18.webp',
         '/assets/images/portfolio/logo-design/19.webp',
         '/assets/images/portfolio/logo-design/20.webp',
+        '/assets/images/portfolio/logo-design/21.webp',
+        '/assets/images/portfolio/logo-design/22.webp',
+        '/assets/images/portfolio/logo-design/23.webp',
+        '/assets/images/portfolio/logo-design/24.webp',
       ],
       gridItems: [
         { id: '1', label: 'Primary Logo' },
