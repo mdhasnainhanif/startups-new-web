@@ -258,7 +258,7 @@
 }
 
 .fixedButtonsContainer .continueButton {
-  padding: 0.35rem 1rem;
+  padding: 0.35rem 1rem 0.45rem;
   background: var(--color-purple);
   border: 2px solid var(--color-purple);
   border-radius: 8px;

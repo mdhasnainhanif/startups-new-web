@@ -9,8 +9,6 @@ import type { Swiper as SwiperType } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 import "../../../public/assets/css/casestudy.css";
-import "../../../public/assets/css/casestudythree.css";
-import "../../../public/assets/css/casestudytwo.css";
 import Container from "./Container";
 import Button from "./Button";
 import { ArrowRightIcon } from "./icons";

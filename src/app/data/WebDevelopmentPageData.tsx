@@ -210,7 +210,7 @@
         deliverables: [
           { id: '1', label: 'Frontend Development', image: '/assets/images/web-development/frontend-development.webp' }, 
           { id: '2', label: 'Backend Development', image: '/assets/images/web-development/backend-development.webp' },
-          { id: '3', label: 'Full Stack Development', image: '/assets/images/web-development/Full Stack-development.webp' },
+          { id: '3', label: 'Full Stack Development', image: '/assets/images/web-development/full-stack-development.webp' },
           { id: '4', label: 'Web App Development', image: '/assets/images/web-development/web-app-development.webp' },
           { id: '5', label: 'Ecommerce Development', image: '/assets/images/web-development/ecommerce-development.webp' },
           { id: '6', label: 'CMS Development', image: '/assets/images/web-development/cms-development.webp' },

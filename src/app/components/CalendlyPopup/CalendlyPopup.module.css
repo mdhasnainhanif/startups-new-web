@@ -34,6 +34,7 @@
     line-height: 1;
     display: grid;
     place-items: center;
+    filter: invert(1);
   }
   
   .iframeWrap {

@@ -230,7 +230,6 @@ const AiPowerDesign = ({ data = AI_POWER_DESIGN_DATA }: AiPowerDesignProps) => {
                       key={item.id}
                       onMouseEnter={() => setHoveredItemIndex(index)}
                       onMouseLeave={() => setHoveredItemIndex(null)}
-                      onClick={() => handleTabChange(currentTab.id)}
                       className={`${styles.gridItem} ${index === 0 ? styles.gridItemActive : ''}`}
                     >
                       <p className="p-0 h-full flex items-center justify-center">
