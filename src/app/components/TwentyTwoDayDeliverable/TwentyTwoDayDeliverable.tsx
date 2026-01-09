@@ -3,10 +3,10 @@
 import React, { useState, useEffect, useRef, useLayoutEffect } from "react";
 import Container from "../Container";
 import styles from "./TwentyTwoDayDeliverable.module.css";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+// import gsap from "gsap";
+// import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger);
+// gsap.registerPlugin(ScrollTrigger);
 
 const phases = [
   {
@@ -85,7 +85,7 @@ const TwentyTwoDayDeliverable = () => {
   const sectionRef = useRef<HTMLElement | null>(null);
   const imageContainerRef = useRef<HTMLDivElement | null>(null);
   const imageRefs = useRef<(HTMLImageElement | null)[]>([]);
-  const scrollTriggerRef = useRef<ScrollTrigger | null>(null);
+  // const scrollTriggerRef = useRef<ScrollTrigger | null>(null);
   const phasesContainerRef = useRef<HTMLDivElement | null>(null);
   const activePhaseRef = useRef<number>(1);
 
@@ -95,170 +95,174 @@ const TwentyTwoDayDeliverable = () => {
     images.forEach((img, index) => {
       const phaseId = index + 1;
       if (phaseId === 1) {
-        gsap.set(img, { opacity: 1, scale: 1 });
+        // gsap.set(img, { opacity: 1, scale: 1 });
+        img.style.opacity = "1";
+        img.style.transform = "scale(1)";
       } else {
-        gsap.set(img, { opacity: 0, scale: 0.95 });
+        // gsap.set(img, { opacity: 0, scale: 0.95 });
+        img.style.opacity = "0";
+        img.style.transform = "scale(0.95)";
       }
     });
   }, []);
 
   // Setup GSAP ScrollTrigger pinning for smooth left column scrolling
   useLayoutEffect(() => {
-    if (!sectionRef.current || !phasesContainerRef.current) return;
+    // if (!sectionRef.current || !phasesContainerRef.current) return;
 
-    const section = sectionRef.current;
-    const phasesContainer = phasesContainerRef.current;
-    const phaseElements = phaseRefs.current.filter(Boolean) as HTMLDivElement[];
+    // const section = sectionRef.current;
+    // const phasesContainer = phasesContainerRef.current;
+    // const phaseElements = phaseRefs.current.filter(Boolean) as HTMLDivElement[];
     
-    if (phaseElements.length === 0) return;
+    // if (phaseElements.length === 0) return;
 
-    // Calculate scroll height after phases are rendered
-    const calculateScrollHeight = () => {
-      const viewportHeight = window.innerHeight;
-      const titleSectionHeight = 250;
-      const availableHeight = viewportHeight - titleSectionHeight;
-      const phasesContainerHeight = phasesContainer.scrollHeight;
-      const scrollableHeight = Math.max(0, phasesContainerHeight - availableHeight);
-      // Add extra space to ensure last box is fully visible + slow down scroll
-      return scrollableHeight + (viewportHeight * 0.8);
-    };
+    // // Calculate scroll height after phases are rendered
+    // const calculateScrollHeight = () => {
+    //   const viewportHeight = window.innerHeight;
+    //   const titleSectionHeight = 250;
+    //   const availableHeight = viewportHeight - titleSectionHeight;
+    //   const phasesContainerHeight = phasesContainer.scrollHeight;
+    //   const scrollableHeight = Math.max(0, phasesContainerHeight - availableHeight);
+    //   // Add extra space to ensure last box is fully visible + slow down scroll
+    //   return scrollableHeight + (viewportHeight * 0.8);
+    // };
     
-    // Initial calculation
-    let totalScrollHeight = calculateScrollHeight();
+    // // Initial calculation
+    // let totalScrollHeight = calculateScrollHeight();
     
-    // Recalculate after a short delay to ensure phases are fully rendered
-    setTimeout(() => {
-      totalScrollHeight = calculateScrollHeight();
-      if (scrollTriggerRef.current) {
-        scrollTriggerRef.current.vars.end = `+=${totalScrollHeight}`;
-        scrollTriggerRef.current.refresh();
-      }
-    }, 200);
+    // // Recalculate after a short delay to ensure phases are fully rendered
+    // setTimeout(() => {
+    //   totalScrollHeight = calculateScrollHeight();
+    //   if (scrollTriggerRef.current) {
+    //     scrollTriggerRef.current.vars.end = `+=${totalScrollHeight}`;
+    //     scrollTriggerRef.current.refresh();
+    //   }
+    // }, 200);
 
-    // Create ScrollTrigger that pins the section
-    scrollTriggerRef.current = ScrollTrigger.create({
-      trigger: section,
-      start: "top top",
-      end: `+=${totalScrollHeight}`,
-      pin: true,
-      pinSpacing: true,
-      anticipatePin: 1,
-      scrub: 1.5, // Slower, smoother scrubbing
-      onUpdate: (self) => {
-        const progress = self.progress; // 0 to 1
+    // // Create ScrollTrigger that pins the section
+    // scrollTriggerRef.current = ScrollTrigger.create({
+    //   trigger: section,
+    //   start: "top top",
+    //   end: `+=${totalScrollHeight}`,
+    //   pin: true,
+    //   pinSpacing: true,
+    //   anticipatePin: 1,
+    //   scrub: 1.5, // Slower, smoother scrubbing
+    //   onUpdate: (self) => {
+    //     const progress = self.progress; // 0 to 1
         
-        // Calculate current scrollable height
-        const viewportHeight = window.innerHeight;
-        const titleSectionHeight = 250;
-        const availableHeight = viewportHeight - titleSectionHeight;
-        const phasesContainerHeight = phasesContainer.scrollHeight;
-        const currentScrollableHeight = Math.max(0, phasesContainerHeight - availableHeight);
+    //     // Calculate current scrollable height
+    //     const viewportHeight = window.innerHeight;
+    //     const titleSectionHeight = 250;
+    //     const availableHeight = viewportHeight - titleSectionHeight;
+    //     const phasesContainerHeight = phasesContainer.scrollHeight;
+    //     const currentScrollableHeight = Math.max(0, phasesContainerHeight - availableHeight);
         
-        // Scroll the phases container based on progress
-        const scrollAmount = currentScrollableHeight * progress;
-        gsap.set(phasesContainer, {
-          y: -scrollAmount,
-        });
+    //     // Scroll the phases container based on progress
+    //     const scrollAmount = currentScrollableHeight * progress;
+    //     gsap.set(phasesContainer, {
+    //       y: -scrollAmount,
+    //     });
         
-        // Determine which phase should be active based on scroll progress
-        // Calculate which phase is currently in view
-        const segmentSize = 1 / phases.length;
-        let targetPhase = 1;
+    //     // Determine which phase should be active based on scroll progress
+    //     // Calculate which phase is currently in view
+    //     const segmentSize = 1 / phases.length;
+    //     let targetPhase = 1;
         
-        for (let i = 0; i < phases.length; i++) {
-          const segmentStart = i * segmentSize;
-          const segmentEnd = (i + 1) * segmentSize;
+    //     for (let i = 0; i < phases.length; i++) {
+    //       const segmentStart = i * segmentSize;
+    //       const segmentEnd = (i + 1) * segmentSize;
           
-          if (progress >= segmentStart && progress < segmentEnd) {
-            targetPhase = i + 1;
-            break;
-          }
-        }
+    //       if (progress >= segmentStart && progress < segmentEnd) {
+    //         targetPhase = i + 1;
+    //         break;
+    //       }
+    //     }
         
-        // Handle the last phase (when progress = 1)
-        if (progress >= 1) {
-          targetPhase = phases.length;
-        }
+    //     // Handle the last phase (when progress = 1)
+    //     if (progress >= 1) {
+    //       targetPhase = phases.length;
+    //     }
         
-        // Update active phase
-        if (targetPhase !== activePhaseRef.current) {
-          activePhaseRef.current = targetPhase;
-          setActivePhase(targetPhase);
-        }
+    //     // Update active phase
+    //     if (targetPhase !== activePhaseRef.current) {
+    //       activePhaseRef.current = targetPhase;
+    //       setActivePhase(targetPhase);
+    //     }
 
-        // Animate phases based on scroll progress
-        phaseElements.forEach((phaseEl, index) => {
-          const phaseNum = index + 1;
-          const phaseStart = index * segmentSize;
-          const phaseEnd = (index + 1) * segmentSize;
+    //     // Animate phases based on scroll progress
+    //     phaseElements.forEach((phaseEl, index) => {
+    //       const phaseNum = index + 1;
+    //       const phaseStart = index * segmentSize;
+    //       const phaseEnd = (index + 1) * segmentSize;
           
-          if (progress >= phaseStart) {
-            if (progress < phaseEnd) {
-              // Current phase - smooth opacity transition
-              const localProgress = (progress - phaseStart) / segmentSize;
-              const opacity = 0.4 + (localProgress * 0.6);
-              gsap.to(phaseEl, {
-                opacity: opacity,
-                duration: 0.1,
-                ease: "none",
-              });
-            } else {
-              // Past phase - fully visible
-              gsap.set(phaseEl, { opacity: 1 });
-            }
-          } else {
-            // Future phase - dimmed
-            gsap.set(phaseEl, { opacity: 0.4 });
-          }
-        });
+    //       if (progress >= phaseStart) {
+    //         if (progress < phaseEnd) {
+    //           // Current phase - smooth opacity transition
+    //           const localProgress = (progress - phaseStart) / segmentSize;
+    //           const opacity = 0.4 + (localProgress * 0.6);
+    //           gsap.to(phaseEl, {
+    //             opacity: opacity,
+    //             duration: 0.1,
+    //             ease: "none",
+    //           });
+    //         } else {
+    //           // Past phase - fully visible
+    //           gsap.set(phaseEl, { opacity: 1 });
+    //         }
+    //       } else {
+    //         // Future phase - dimmed
+    //         gsap.set(phaseEl, { opacity: 0.4 });
+    //       }
+    //     });
 
-        // Animate images based on active phase
-        const images = imageRefs.current.filter(Boolean) as HTMLImageElement[];
-        images.forEach((img, index) => {
-          const phaseId = index + 1;
+    //     // Animate images based on active phase
+    //     const images = imageRefs.current.filter(Boolean) as HTMLImageElement[];
+    //     images.forEach((img, index) => {
+    //       const phaseId = index + 1;
           
-          if (phaseId === targetPhase) {
-            gsap.to(img, {
-              opacity: 1,
-              scale: 1,
-              duration: 0.8,
-              ease: "power2.out",
-            });
-          } else {
-            gsap.to(img, {
-              opacity: 0,
-              scale: 0.95,
-              duration: 0.6,
-              ease: "power2.in",
-            });
-          }
-        });
-      },
-      onEnter: () => {
-        activePhaseRef.current = 1;
-        setActivePhase(1);
-      },
-      onLeave: () => {
-        activePhaseRef.current = phases.length;
-        setActivePhase(phases.length);
-      },
-      onLeaveBack: () => {
-        activePhaseRef.current = 1;
-        setActivePhase(1);
-      },
-    });
+    //       if (phaseId === targetPhase) {
+    //         gsap.to(img, {
+    //           opacity: 1,
+    //           scale: 1,
+    //           duration: 0.8,
+    //           ease: "power2.out",
+    //         });
+    //       } else {
+    //         gsap.to(img, {
+    //           opacity: 0,
+    //           scale: 0.95,
+    //           duration: 0.6,
+    //           ease: "power2.in",
+    //         });
+    //       }
+    //     });
+    //   },
+    //   onEnter: () => {
+    //     activePhaseRef.current = 1;
+    //     setActivePhase(1);
+    //   },
+    //   onLeave: () => {
+    //     activePhaseRef.current = phases.length;
+    //     setActivePhase(phases.length);
+    //   },
+    //   onLeaveBack: () => {
+    //     activePhaseRef.current = 1;
+    //     setActivePhase(1);
+    //   },
+    // });
 
-    // Refresh ScrollTrigger after a short delay
-    setTimeout(() => {
-      ScrollTrigger.refresh();
-    }, 100);
+    // // Refresh ScrollTrigger after a short delay
+    // setTimeout(() => {
+    //   ScrollTrigger.refresh();
+    // }, 100);
 
-    return () => {
-      if (scrollTriggerRef.current) {
-        scrollTriggerRef.current.kill();
-        scrollTriggerRef.current = null;
-      }
-    };
+    // return () => {
+    //   if (scrollTriggerRef.current) {
+    //     scrollTriggerRef.current.kill();
+    //     scrollTriggerRef.current = null;
+    //   }
+    // };
   }, []);
 
   // Animate images when active phase changes
@@ -267,27 +271,33 @@ const TwentyTwoDayDeliverable = () => {
 
     const images = imageRefs.current.filter(Boolean) as HTMLImageElement[];
     
-    images.forEach((img) => {
-      gsap.killTweensOf(img);
-    });
+    // images.forEach((img) => {
+    //   gsap.killTweensOf(img);
+    // });
     
     images.forEach((img, index) => {
       const phaseId = index + 1;
       if (phaseId === activePhase) {
-        gsap.to(img, {
-          opacity: 1,
-          scale: 1,
-          duration: 0.8,
-          ease: "power2.out",
-          delay: 0.2,
-        });
+        // gsap.to(img, {
+        //   opacity: 1,
+        //   scale: 1,
+        //   duration: 0.8,
+        //   ease: "power2.out",
+        //   delay: 0.2,
+        // });
+        img.style.transition = "opacity 0.8s ease-out, transform 0.8s ease-out";
+        img.style.opacity = "1";
+        img.style.transform = "scale(1)";
       } else {
-        gsap.to(img, {
-          opacity: 0,
-          scale: 0.95,
-          duration: 0.6,
-          ease: "power2.in",
-        });
+        // gsap.to(img, {
+        //   opacity: 0,
+        //   scale: 0.95,
+        //   duration: 0.6,
+        //   ease: "power2.in",
+        // });
+        img.style.transition = "opacity 0.6s ease-in, transform 0.6s ease-in";
+        img.style.opacity = "0";
+        img.style.transform = "scale(0.95)";
       }
     });
   }, [activePhase]);

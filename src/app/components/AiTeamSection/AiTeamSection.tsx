@@ -1,12 +1,12 @@
 "use client";
 import { useState, useEffect, useLayoutEffect, useRef } from "react";
 import Image from "next/image";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+// import gsap from "gsap";
+// import { ScrollTrigger } from "gsap/ScrollTrigger";
 import styles from "./AiTeamSection.module.css";
 import Container from "../Container";
 import CalendlyPopup from "../CalendlyPopup/CalendlyPopup";
-gsap.registerPlugin(ScrollTrigger);
+// gsap.registerPlugin(ScrollTrigger);
 type TabId = "creative" | "marketing" | "development" | "growth";
 const TABS: { id: TabId; label: string }[] = [
   { id: "creative", label: "Creative & Design" },
@@ -95,55 +95,55 @@ export default function AiTeamSection() {
   const [isCalendlyPopupOpen, setIsCalendlyPopupOpen] = useState(false);
   const cardsContainerRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
-  const triggersRef = useRef<ScrollTrigger[]>([]);
+  // const triggersRef = useRef<ScrollTrigger[]>([]);
   const previousTabRef = useRef<TabId>(activeTab);
   const isMountedRef = useRef(true);
   const content = TAB_CONTENT[activeTab];
   useLayoutEffect(() => {
     const previousTab = previousTabRef.current;
     if (previousTab !== activeTab) {
-      const triggersToKill: ScrollTrigger[] = [];
-      triggersRef.current.forEach((trigger) => {
-        if (trigger) {
-          triggersToKill.push(trigger);
-        }
-      });
-      ScrollTrigger.getAll().forEach((trigger) => {
-        try {
-          const triggerId = trigger.vars?.id?.toString() || "";
-          if (triggerId.startsWith(`pin-${previousTab}`) || triggerId.startsWith(`scale-${previousTab}`)) {
-            triggersToKill.push(trigger);
-          }
-        } catch (e) { 
-        }
-      });
-      triggersToKill.forEach((trigger) => {
-        try {
-          if (trigger && trigger.vars?.pin) {
-            const element = trigger.trigger;
-            if (element instanceof HTMLElement && document.contains(element)) {
-              gsap.set(element, { clearProps: "all" });
-              element.style.transform = "";
-              element.style.position = "";
-              element.style.top = "";
-              element.style.left = "";
-              element.style.width = "";
-              element.style.height = "";
-            }
-          }
-        } catch (e) { 
-        }
-      });
-      triggersToKill.forEach((trigger) => {
-        try {
-          if (trigger) {
-            trigger.disable();
-            trigger.kill(false); 
-          }
-        } catch (e) { 
-        }
-      });
-      triggersRef.current = [];
+      // const triggersToKill: ScrollTrigger[] = [];
+      // triggersRef.current.forEach((trigger) => {
+      //   if (trigger) {
+      //     triggersToKill.push(trigger);
+      //   }
+      // });
+      // ScrollTrigger.getAll().forEach((trigger) => {
+      //   try {
+      //     const triggerId = trigger.vars?.id?.toString() || "";
+      //     if (triggerId.startsWith(`pin-${previousTab}`) || triggerId.startsWith(`scale-${previousTab}`)) {
+      //       triggersToKill.push(trigger);
+      //     }
+      //   } catch (e) { 
+      //   }
+      // });
+      // triggersToKill.forEach((trigger) => {
+      //   try {
+      //     if (trigger && trigger.vars?.pin) {
+      //       const element = trigger.trigger;
+      //       if (element instanceof HTMLElement && document.contains(element)) {
+      //         gsap.set(element, { clearProps: "all" });
+      //         element.style.transform = "";
+      //         element.style.position = "";
+      //         element.style.top = "";
+      //         element.style.left = "";
+      //         element.style.width = "";
+      //         element.style.height = "";
+      //       }
+      //     }
+      //   } catch (e) { 
+      //   }
+      // });
+      // triggersToKill.forEach((trigger) => {
+      //   try {
+      //     if (trigger) {
+      //       trigger.disable();
+      //       trigger.kill(false); 
+      //     }
+      //   } catch (e) { 
+      //   }
+      // });
+      // triggersRef.current = [];
       previousTabRef.current = activeTab;
     }
   }, [activeTab]);
@@ -151,98 +151,98 @@ export default function AiTeamSection() {
     isMountedRef.current = true;
     return () => {
       isMountedRef.current = false;
-      triggersRef.current.forEach((trigger) => {
-        try {
-          if (trigger) {
-            trigger.kill(false);
-          }
-        } catch (e) { 
-        }
-      });
-      triggersRef.current = [];
+      // triggersRef.current.forEach((trigger) => {
+      //   try {
+      //     if (trigger) {
+      //       trigger.kill(false);
+      //     }
+      //   } catch (e) { 
+      //   }
+      // });
+      // triggersRef.current = [];
     };
   }, []);
   useEffect(() => {
     const cardsContainer = cardsContainerRef.current;
     if (!cardsContainer || !isMountedRef.current) return;
-    const triggers: ScrollTrigger[] = [];
-    const timeoutId = setTimeout(() => {
-      if (!isMountedRef.current || !cardsContainerRef.current) return;
-      const cards = gsap.utils.toArray<HTMLElement>(
-        cardsContainer.querySelectorAll(`[data-card="true"]`)
-      );
-      if (cards.length === 0) return;
-      const validCards = cards.filter(card => document.contains(card));
-      if (validCards.length === 0) return;
-      const spacer = 20;
-      const maxScale = 1.0;
-      const minScale = 0.8;
-      const distributor = gsap.utils.distribute({
-        base: maxScale,
-        amount: minScale - maxScale, 
-      });
-      const tabsOffset = 120;
-      validCards.forEach((card, index) => {
-        if (!document.contains(card)) return;
-        const scaleVal = distributor(index, card, validCards);
-        gsap.set(card, { scale: scaleVal });
-        const pinTrigger = ScrollTrigger.create({
-          trigger: card,
-          start: `top-=${tabsOffset + 20 + index * spacer} top`,
-          endTrigger: cardsContainer,
-          end: `bottom top+=${200 + validCards.length * spacer}`,
-          pin: true,
-          pinSpacing: false,
-          invalidateOnRefresh: true,
-          id: `pin-${activeTab}-${index}`,
-          markers: false,
-        });
-        triggers.push(pinTrigger);
-        const scaleAnimation = gsap.fromTo(
-          card,
-          { scale: scaleVal },
-          {
-            scale: maxScale,
-            scrollTrigger: {
-              trigger: card,
-              start: `top-=${tabsOffset + 20 + index * spacer} top`,
-              end: `top+=${tabsOffset} top`,
-              scrub: 1,
-              invalidateOnRefresh: true,
-              id: `scale-${activeTab}-${index}`,
-            },
-            ease: "none",
-          }
-        );
-        const scaleTrigger = scaleAnimation.scrollTrigger;
-        if (scaleTrigger) {
-          triggers.push(scaleTrigger);
-        }
-      });
-      ScrollTrigger.refresh();
-      if (isMountedRef.current) {
-      } else {
-        triggersRef.current = [...triggers];
-        triggers.forEach(trigger => {
-          try {
-            trigger.kill(false);
-          } catch (e) {
-          }
-        });
-      }
-    }, 100);
-    return () => {
-      clearTimeout(timeoutId);
-      const currentTriggers = triggersRef.current;
-      currentTriggers.forEach(trigger => {
-        try {
-          if (trigger) {
-            trigger.kill(false);
-          }
-        } catch (e) {
-        }
-      });
-    };
+    // const triggers: ScrollTrigger[] = [];
+    // const timeoutId = setTimeout(() => {
+    //   if (!isMountedRef.current || !cardsContainerRef.current) return;
+    //   const cards = gsap.utils.toArray<HTMLElement>(
+    //     cardsContainer.querySelectorAll(`[data-card="true"]`)
+    //   );
+    //   if (cards.length === 0) return;
+    //   const validCards = cards.filter(card => document.contains(card));
+    //   if (validCards.length === 0) return;
+    //   const spacer = 20;
+    //   const maxScale = 1.0;
+    //   const minScale = 0.8;
+    //   const distributor = gsap.utils.distribute({
+    //     base: maxScale,
+    //     amount: minScale - maxScale, 
+    //   });
+    //   const tabsOffset = 120;
+    //   validCards.forEach((card, index) => {
+    //     if (!document.contains(card)) return;
+    //     const scaleVal = distributor(index, card, validCards);
+    //     gsap.set(card, { scale: scaleVal });
+    //     const pinTrigger = ScrollTrigger.create({
+    //       trigger: card,
+    //       start: `top-=${tabsOffset + 20 + index * spacer} top`,
+    //       endTrigger: cardsContainer,
+    //       end: `bottom top+=${200 + validCards.length * spacer}`,
+    //       pin: true,
+    //       pinSpacing: false,
+    //       invalidateOnRefresh: true,
+    //       id: `pin-${activeTab}-${index}`,
+    //       markers: false,
+    //     });
+    //     triggers.push(pinTrigger);
+    //     const scaleAnimation = gsap.fromTo(
+    //       card,
+    //       { scale: scaleVal },
+    //       {
+    //         scale: maxScale,
+    //         scrollTrigger: {
+    //           trigger: card,
+    //           start: `top-=${tabsOffset + 20 + index * spacer} top`,
+    //           end: `top+=${tabsOffset} top`,
+    //           scrub: 1,
+    //           invalidateOnRefresh: true,
+    //           id: `scale-${activeTab}-${index}`,
+    //         },
+    //         ease: "none",
+    //       }
+    //     );
+    //     const scaleTrigger = scaleAnimation.scrollTrigger;
+    //     if (scaleTrigger) {
+    //       triggers.push(scaleTrigger);
+    //     }
+    //   });
+    //   ScrollTrigger.refresh();
+    //   if (isMountedRef.current) {
+    //   } else {
+    //     triggersRef.current = [...triggers];
+    //     triggers.forEach(trigger => {
+    //       try {
+    //         trigger.kill(false);
+    //       } catch (e) {
+    //       }
+    //     });
+    //   }
+    // }, 100);
+    // return () => {
+    //   clearTimeout(timeoutId);
+    //   const currentTriggers = triggersRef.current;
+    //   currentTriggers.forEach(trigger => {
+    //     try {
+    //       if (trigger) {
+    //         trigger.kill(false);
+    //       }
+    //     } catch (e) {
+    //     }
+    //   });
+    // };
   }, [activeTab]);
   return (
     <section ref={sectionRef} className={styles.section}>

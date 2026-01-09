@@ -52,6 +52,17 @@
   will-change: transform;
   align-items: center;
   position: relative;
+  animation: scroll 60s linear infinite;
+  width: fit-content;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .rail h4 {

@@ -2,11 +2,11 @@
 
 import React, { useLayoutEffect, useMemo, useRef } from "react";
 import Image from "next/image";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+// import gsap from "gsap";
+// import { ScrollTrigger } from "gsap/ScrollTrigger";
 import styles from "./TwentytwoDayNew.module.css";
 
-gsap.registerPlugin(ScrollTrigger);
+// gsap.registerPlugin(ScrollTrigger);
 
 type Phase = {
   id: number;
@@ -175,148 +175,148 @@ export default function TwentytwoDayNew() {
   );
 
   useLayoutEffect(() => {
-    if (!sectionRef.current) return;
+    // if (!sectionRef.current) return;
 
-    const ctx = gsap.context(() => {
-      const boxes = boxesRef.current;
-      const images = imagesRef.current;
-      const listWrap = listWrapRef.current;
-      const viewport = viewportRef.current;
-      const leftCol = leftColumnRef.current;
+    // const ctx = gsap.context(() => {
+    //   const boxes = boxesRef.current;
+    //   const images = imagesRef.current;
+    //   const listWrap = listWrapRef.current;
+    //   const viewport = viewportRef.current;
+    //   const leftCol = leftColumnRef.current;
 
-      if (!boxes.length || !images.length || !listWrap || !viewport || !leftCol) return;
+    //   if (!boxes.length || !images.length || !listWrap || !viewport || !leftCol) return;
 
-      const COLLAPSED = 118;
-      const EXPANDED = 290;
-      const GAP = 52; // double gap
-      const STEP_Y = COLLAPSED + GAP;
+    //   const COLLAPSED = 118;
+    //   const EXPANDED = 290;
+    //   const GAP = 52; // double gap
+    //   const STEP_Y = COLLAPSED + GAP;
 
-      // Make viewport height safe so last card never cuts:
-      // use available column height and add bottom breathing space
-      const applyViewportHeight = () => {
-        const colH = leftCol.getBoundingClientRect().height;
-        // keep viewport at least enough to show one expanded card fully + some padding
-        const minH = EXPANDED + 120;
-        const target = Math.max(minH, Math.min(colH, 720));
-        viewport.style.height = `${target}px`;
-      };
+    //   // Make viewport height safe so last card never cuts:
+    //   // use available column height and add bottom breathing space
+    //   const applyViewportHeight = () => {
+    //     const colH = leftCol.getBoundingClientRect().height;
+    //     // keep viewport at least enough to show one expanded card fully + some padding
+    //     const minH = EXPANDED + 120;
+    //     const target = Math.max(minH, Math.min(colH, 720));
+    //     viewport.style.height = `${target}px`;
+    //   };
 
-      applyViewportHeight();
+    //   applyViewportHeight();
 
-      // Initial states
-      gsap.set(images, { autoAlpha: 0 });
-      gsap.set(images[0], { autoAlpha: 1 });
+    //   // Initial states
+    //   gsap.set(images, { autoAlpha: 0 });
+    //   gsap.set(images[0], { autoAlpha: 1 });
 
-      gsap.set(boxes, { height: COLLAPSED, opacity: 0.55 });
-      gsap.set(boxes[0], { height: EXPANDED, opacity: 1 });
+    //   gsap.set(boxes, { height: COLLAPSED, opacity: 0.55 });
+    //   gsap.set(boxes[0], { height: EXPANDED, opacity: 1 });
 
-      gsap.set(listWrap, { y: 0 });
+    //   gsap.set(listWrap, { y: 0 });
 
-      // Calculates exact translateY to center active box inside viewport (top/bottom center)
-      const calcCenterY = (activeIndex: number) => {
-        const vpRect = viewport.getBoundingClientRect();
-        const active = boxes[activeIndex];
-        const activeRect = active.getBoundingClientRect();
+    //   // Calculates exact translateY to center active box inside viewport (top/bottom center)
+    //   const calcCenterY = (activeIndex: number) => {
+    //     const vpRect = viewport.getBoundingClientRect();
+    //     const active = boxes[activeIndex];
+    //     const activeRect = active.getBoundingClientRect();
 
-        // current translateY
-        const currentY = gsap.getProperty(listWrap, "y") as number;
+    //     // current translateY
+    //     const currentY = gsap.getProperty(listWrap, "y") as number;
 
-        // active center relative to viewport (current)
-        const activeCenter = activeRect.top + activeRect.height / 2;
-        const viewportCenter = vpRect.top + vpRect.height / 2;
+    //     // active center relative to viewport (current)
+    //     const activeCenter = activeRect.top + activeRect.height / 2;
+    //     const viewportCenter = vpRect.top + vpRect.height / 2;
 
-        // need to move list by delta to align centers
-        const delta = viewportCenter - activeCenter;
-        return currentY + delta;
-      };
+    //     // need to move list by delta to align centers
+    //     const delta = viewportCenter - activeCenter;
+    //     return currentY + delta;
+    //   };
 
-      const applyStep = (activeIndex: number) => {
-        // First set heights (previous stay expanded)
-        gsap.to(boxes, {
-          height: (i: number) => (i <= activeIndex ? EXPANDED : COLLAPSED),
-          opacity: (i: number) =>
-            i === activeIndex ? 1 : i < activeIndex ? 0.82 : 0.55,
-          duration: 0.6,
-          ease: "power3.out",
-          overwrite: true,
-        });
+    //   const applyStep = (activeIndex: number) => {
+    //     // First set heights (previous stay expanded)
+    //     gsap.to(boxes, {
+    //       height: (i: number) => (i <= activeIndex ? EXPANDED : COLLAPSED),
+    //       opacity: (i: number) =>
+    //         i === activeIndex ? 1 : i < activeIndex ? 0.82 : 0.55,
+    //       duration: 0.6,
+    //       ease: "power3.out",
+    //       overwrite: true,
+    //     });
 
-        // Fade images (only active visible)
-        gsap.to(images, {
-          autoAlpha: (i: number) => (i === activeIndex ? 1 : 0),
-          duration: 0.6,
-          ease: "power2.out",
-          overwrite: true,
-        });
+    //     // Fade images (only active visible)
+    //     gsap.to(images, {
+    //       autoAlpha: (i: number) => (i === activeIndex ? 1 : 0),
+    //       duration: 0.6,
+    //       ease: "power2.out",
+    //       overwrite: true,
+    //     });
 
-        // Base move so next comes in (predictive)
-        const baseY = -(activeIndex * STEP_Y);
+    //     // Base move so next comes in (predictive)
+    //     const baseY = -(activeIndex * STEP_Y);
 
-        gsap.to(listWrap, {
-          y: baseY,
-          duration: 0.01,
-          overwrite: true,
-          onComplete: () => {
-            // Now compute exact center and animate smoothly to center
-            const centerY = calcCenterY(activeIndex);
-            gsap.to(listWrap, {
-              y: centerY,
-              duration: 0.65,
-              ease: "power3.out",
-              overwrite: true,
-            });
-          },
-        });
-      };
+    //     gsap.to(listWrap, {
+    //       y: baseY,
+    //       duration: 0.01,
+    //       overwrite: true,
+    //       onComplete: () => {
+    //         // Now compute exact center and animate smoothly to center
+    //         const centerY = calcCenterY(activeIndex);
+    //         gsap.to(listWrap, {
+    //           y: centerY,
+    //           duration: 0.65,
+    //           ease: "power3.out",
+    //           overwrite: true,
+    //         });
+    //       },
+    //     });
+    //   };
 
-      // Snap-based scroll
-      const segments = phases.length - 1;
+    //   // Snap-based scroll
+    //   const segments = phases.length - 1;
 
-      const st = ScrollTrigger.create({
-        trigger: sectionRef.current,
-        start: "top top",
-        end: `+=${phases.length * 1100}`, // more stable scroll distance
-        pin: true,
-        anticipatePin: 1,
-        scrub: false,
-        invalidateOnRefresh: true,
-        onRefresh: (self) => {
-            applyViewportHeight();
-            const idx = Math.round(self.progress * segments);
-            applyStep(idx);
-          },
-        snap: {
-          snapTo: (value: number) => Math.round(value * segments) / segments,
-          duration: { min: 0.18, max: 0.35 },
-          delay: 0.02,
-          ease: "power2.out",
-          onComplete: (self) => {
-            const idx = Math.round(self.progress * segments);
-            applyStep(idx);
-          },
-        },
-      });
+    //   const st = ScrollTrigger.create({
+    //     trigger: sectionRef.current,
+    //     start: "top top",
+    //     end: `+=${phases.length * 1100}`, // more stable scroll distance
+    //     pin: true,
+    //     anticipatePin: 1,
+    //     scrub: false,
+    //     invalidateOnRefresh: true,
+    //     onRefresh: (self) => {
+    //         applyViewportHeight();
+    //         const idx = Math.round(self.progress * segments);
+    //         applyStep(idx);
+    //       },
+    //     snap: {
+    //       snapTo: (value: number) => Math.round(value * segments) / segments,
+    //       duration: { min: 0.18, max: 0.35 },
+    //       delay: 0.02,
+    //       ease: "power2.out",
+    //       onComplete: (self) => {
+    //         const idx = Math.round(self.progress * segments);
+    //         applyStep(idx);
+    //       },
+    //     },
+    //   });
 
-      // Initial center correction
-      applyStep(0);
+    //   // Initial center correction
+    //   applyStep(0);
 
-      // Resize handler
-      const onResize = () => {
-        applyViewportHeight();
-        const idx = Math.round(st.progress * segments);
-        applyStep(idx);
-        ScrollTrigger.refresh();
-      };
+    //   // Resize handler
+    //   const onResize = () => {
+    //     applyViewportHeight();
+    //     const idx = Math.round(st.progress * segments);
+    //     applyStep(idx);
+    //     ScrollTrigger.refresh();
+    //   };
 
-      window.addEventListener("resize", onResize);
+    //   window.addEventListener("resize", onResize);
 
-      return () => {
-        window.removeEventListener("resize", onResize);
-        st.kill();
-      };
-    }, sectionRef);
+    //   return () => {
+    //     window.removeEventListener("resize", onResize);
+    //     st.kill();
+    //   };
+    // }, sectionRef);
 
-    return () => ctx.revert();
+    // return () => ctx.revert();
   }, [phases.length]);
 
   return (

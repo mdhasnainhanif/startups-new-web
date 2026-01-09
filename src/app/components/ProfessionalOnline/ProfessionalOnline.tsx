@@ -193,9 +193,9 @@ const ProfessionalOnline = () => {
                     </div>
                   </div>
                   <div>
-                    <h3 className={styles.bottomHeading}>
+                    <h2 className={styles.bottomHeading}>
                       {parseBrackets(PROFESSIONAL_ONLINE.bottomHeading.part1)}
-                    </h3>
+                    </h2>
                   </div>
                 </div>
               </div>

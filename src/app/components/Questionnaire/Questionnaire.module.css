@@ -572,7 +572,7 @@ select.formInput option {
 
 .formInput:focus {
   outline: none;
-  transform: translateY(-2px);
+  /* transform: translateY(-2px); */
 }
 
 /* Select dropdown options styling - only for dropdown list */

@@ -17,6 +17,7 @@ export default function Footer() {
               <img
                 src="/assets/images/logo.webp"
                 className={`${styles.footerlogo}`}
+                alt="Logo"
               />
             </div>
 

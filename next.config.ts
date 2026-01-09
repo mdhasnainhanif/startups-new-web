@@ -15,7 +15,6 @@ const nextConfig: NextConfig = {
       "swiper",
       "react-phone-number-input",
       "recharts",
-      "gsap",
       "react-icons",
       "lucide-react",
     ],
@@ -34,13 +33,6 @@ const nextConfig: NextConfig = {
           cacheGroups: {
             default: false,
             vendors: false,
-            // GSAP bundle
-            gsap: {
-              name: 'gsap',
-              test: /[\\/]node_modules[\\/](gsap)[\\/]/,
-              priority: 40,
-              reuseExistingChunk: true,
-            },
             // Swiper bundle
             swiper: {
               name: 'swiper',
