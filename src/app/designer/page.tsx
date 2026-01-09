@@ -54,6 +54,14 @@ const designerProvenSuccessData = {
         '/assets/images/portfolio/branding-kit/10.webp',
         '/assets/images/portfolio/branding-kit/11.webp',
         '/assets/images/portfolio/branding-kit/12.webp',
+        '/assets/images/portfolio/branding-kit/13.webp',
+        '/assets/images/portfolio/branding-kit/14.webp',
+        '/assets/images/portfolio/branding-kit/15.webp',
+        '/assets/images/portfolio/branding-kit/16.webp',
+        '/assets/images/portfolio/branding-kit/17.webp',
+        '/assets/images/portfolio/branding-kit/18.webp',
+        '/assets/images/portfolio/branding-kit/19.webp',
+        '/assets/images/portfolio/branding-kit/20.webp'
       ],
       gridItems: [
         { id: '1', label: 'Logo Design' },
