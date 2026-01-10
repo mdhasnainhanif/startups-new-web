@@ -7,9 +7,9 @@ const nextConfig: NextConfig = {
     unoptimized: true,
   },
   // Explicitly use webpack instead of Turbopack (Next.js 16 default)
-  turbopack: {},
+  turbopack: {},  
   experimental: {
-    optimizeCss: true,
+    // optimizeCss: true,
     optimizePackageImports: [
       "@fancyapps/ui",
       "swiper",

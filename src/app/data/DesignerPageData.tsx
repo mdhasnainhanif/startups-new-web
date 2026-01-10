@@ -117,7 +117,7 @@ export const caseStudyDesignerPageData: CaseStudySectionData = {
         "Brand guideline document",
         "Full brand identity system",
       ],
-      buttonText: "Hire Your Design Team",
+      buttonText: "Hire My Design Team",
       image: "/assets/images/avatar/brand-designer.webp",
     },
     {
@@ -137,7 +137,7 @@ export const caseStudyDesignerPageData: CaseStudySectionData = {
         "UX improvements",
         "Full UI UX redesign",
       ],
-      buttonText: "Hire UI/UX Designer",
+      buttonText: "Hire My Design Team",
       image: "/assets/images/avatar/ui-ux-designer.webp",
     },
     {
@@ -157,7 +157,7 @@ export const caseStudyDesignerPageData: CaseStudySectionData = {
         "Print ready marketing assets",
         "Full visual campaign design",
       ],
-      buttonText: "Hire Graphic Designer",
+      buttonText: "Hire My Design Team",
       image: "/assets/images/avatar/graphic-designer.webp",
     },
   ],
@@ -237,6 +237,60 @@ export const DESIGNER_GROWTH_GUIDES = [
     excerpt:
       "By 2026, design teams have evolved from isolated creative units into core operators within product, marketing, and growth organizations. Faster release cycles, multi-platform demands, and rising expectations for consistency require design teams to operate with systems, not just talent.",
     href: "/blog-detail/the-future-of-design-teams-in-2026-tools-workflows-and-AI assisted-creative-systems/",
+  },
+];
+
+// Designer FAQ data
+export const designerFAQ = [
+  {
+    question: "What designer services does StartupAdvisory.ai offer?",
+    answer:
+      "We provide full-service design solutions, including branding, UI/UX, graphic design, motion graphics, packaging, social media visuals, and more—powered by a combined AI and human creative team.",
+  },
+  {
+    question: "How is StartupAdvisory.ai different from hiring freelancers or agencies?",
+    answer:
+      "Unlike freelancers or traditional agencies, we provide a complete design team at a fraction of the cost. You get fast, professional-quality output with consistent branding and no long-term hiring overhead.",
+  },
+  {
+    question: "Who works on the designs?",
+    answer:
+      "Our team consists of experienced human designers with over 40 years of combined expertise, supported by advanced AI tools to accelerate creation and ensure high-quality, innovative designs.",
+  },
+  {
+    question: "Can StartupAdvisory.ai handle branding for my business?",
+    answer:
+      "Yes. We create logos, color palettes, typography, business cards, packaging, brand identity kits, and full brand systems with clear guidelines for consistent branding across all channels.",
+  },
+  {
+    question: "Do you provide website and app design?",
+    answer:
+      "Absolutely. We design landing pages, UI screens, user flows, wireframes, mobile responsive layouts, and interactive prototypes that enhance user experience and boost conversions.",
+  },
+  {
+    question: "Can you create marketing and social media visuals?",
+    answer:
+      "Yes. We produce social media posts, banners, flyers, brochures, ad creatives, infographics, presentations, and full visual campaigns that strengthen your brand presence.",
+  },
+  {
+    question: "How quickly can I get design work completed?",
+    answer:
+      "Thanks to our AI-enhanced workflow, we deliver high-quality designs faster than traditional teams, without compromising creativity or accuracy.",
+  },
+  {
+    question: "Is StartupAdvisory.ai affordable for small businesses and startups?",
+    answer:
+      "Yes. We provide professional-level design services at a fraction of the cost of hiring in-house or agency teams, making premium design accessible for lean budgets.",
+  },
+  {
+    question: "How does good design impact my business?",
+    answer:
+      "Professional design builds credibility, increases customer trust, boosts perceived value, and can improve lead conversions and sales by 15–25% for local and service-based businesses.",
+  },
+  {
+    question: "How do I get started with StartupAdvisory.ai Designer Services?",
+    answer:
+      "Simply schedule a discovery session. We assess your design needs, craft a customized plan, and implement your brand, marketing, and UI/UX design strategies with full support from our AI-assisted team.",
   },
 ];
 

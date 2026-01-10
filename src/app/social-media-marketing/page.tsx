@@ -9,7 +9,7 @@ import Technologies from '../components/Technologies/Technologies';
 import TextSlider1 from '../components/HomenewPage/TextSlider/TextSlider';
 import Reviews from '../components/Reviews/Reviews';
 import ProfessionalDesign from '../components/ProfessionalDesign/ProfessionalDesign';
-import { socialMediaMarketingProfessionalData, socialMediaMarketingCaseStudyData, socialMediaMarketingBlogGuides } from '../data/SocialMediaMarketingPageData';
+import { socialMediaMarketingProfessionalData, socialMediaMarketingCaseStudyData, socialMediaMarketingBlogGuides, socialMediaMarketingFAQ } from '../data/SocialMediaMarketingPageData';
 import AiPowerDesign from '../components/AiPowerDesign/AiPowerDesign';
 import CaseStudySection from '../components/CaseStudySection';
 import RealCost from '../components/RealCost/RealCost';
@@ -60,7 +60,7 @@ export default function SocialMediaMarketingPage() {
       <Reviews/>
       {/* <GrowthSlider items={socialMediaMarketingBlogGuides} /> */}
       <BlogCarousel category="Social Media Marketing" />
-      <FAQ faqs={FAQ_CONTACT} sectionData={FAQ_SECTION} />
+      <FAQ faqs={socialMediaMarketingFAQ} sectionData={FAQ_SECTION} />
       <Contact/>
     </>
   )

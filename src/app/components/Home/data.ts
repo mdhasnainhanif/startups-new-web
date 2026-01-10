@@ -62,54 +62,54 @@ export const FAQ_DATA = [
 
 export const FAQ_CONTACT = [
   {
-    question: "What exactly does StartupAdvisory.ai do?",
+    question: "What is StartupAdvisory.ai?",
     answer:
-      "StartupAdvisory.ai builds AI powered digital teams for founders so they can scale operations, create content, launch campaigns, and grow without hiring full time staff.",
+      "StartupAdvisory.ai is an AI-powered growth platform that combines human creativity with AI efficiency to act as a full digital growth team for startups and small businesses—delivering premium services at a fraction of traditional agency costs.",
   },
   {
-    question: "How is this different from hiring freelancers or agencies?",
+    question: "How does StartupAdvisory.ai help startups grow?",
     answer:
-      "Freelancers take time to manage. Agencies are expensive. StartupAdvisory gives you a dedicated AI enhanced team that works faster, stays consistent, and costs far less.",
+      "We provide end-to-end support—from branding, design, marketing, and development to strategic growth management—helping startups scale faster while avoiding common pitfalls, all at a fraction of the usual cost.",
   },
   {
-    question: "Who is this service best for?",
+    question: "What makes StartupAdvisory.ai different from traditional agencies?",
     answer:
-      "Early stage founders, solo entrepreneurs, and small businesses that need growth, branding, content, marketing, or automation support without hiring full time staff.",
+      "Unlike traditional agencies, we integrate AI-driven insights with human expertise, delivering faster results, actionable strategies, and a full-service growth team—without the high price tag of hiring a full team.",
   },
   {
-    question: "Do I need to be tech savvy to use StartupAdvisory.ai?",
+    question: "Can StartupAdvisory.ai handle my branding and design needs?",
     answer:
-      "Not at all. We handle the AI stack, the tools, and the workflows so you can focus on growing your business.",
+      "Yes. We create brand identities, logos, typography, packaging, and social media visuals, offering the same quality as top agencies but at significantly lower costs.",
   },
   {
-    question: "What kind of tasks can your AI powered teams handle?",
+    question: "Does StartupAdvisory.ai manage marketing campaigns?",
     answer:
-      "Brand design, website content, social media posts, ads, SEO, automation setup, CRM workflows, pitch decks, research tasks, and overall growth strategy.",
+      "Absolutely. We craft social media strategies, content campaigns, and ad campaigns tailored to your growth goals, giving startups professional-level marketing at a fraction of the typical agency spend.",
   },
   {
-    question: "How fast can I start seeing results?",
+    question: "Can you help with website and app design?",
     answer:
-      "Most founders see value within the first 7 days because tasks start getting delivered immediately.",
+      "Yes. We design intuitive UI/UX for websites and apps, including wireframes, prototypes, and responsive designs—delivering premium results without premium costs.",
   },
   {
-    question: "Does StartupAdvisory replace my internal team?",
+    question: "Is StartupAdvisory.ai suitable for early-stage startups?",
     answer:
-      "No. We amplify what you already have and accelerate your operations, whether you're solo or have a small team.",
+      "Yes. We specialize in early-stage and bootstrapped startups, providing high-quality, full-service growth support at a price designed for lean teams and tight budgets.",
   },
   {
-    question: "How much does it cost?",
+    question: "How quickly can I see results using StartupAdvisory.ai?",
     answer:
-      "Our pricing is designed for early stage companies. You get a full AI enhanced digital team for less than the cost of one part time hire.",
+      "While results vary by startup stage, most clients notice improved operations, marketing efficiency, and growth momentum within weeks—all without the heavy overhead of traditional consulting.",
   },
   {
-    question: "Is my information and data secure?",
+    question: "Do I need technical expertise to use StartupAdvisory.ai?",
     answer:
-      "Yes. All workflows, documents, and systems are handled with strict confidentiality and secure processes.",
+      "No. Our AI-powered platform and human experts handle all technical, creative, and strategic work, providing professional services at a fraction of the cost, so founders can focus on growth.",
   },
   {
-    question: "Can StartupAdvisory help with ongoing scaling?",
+    question: "How do I get started with StartupAdvisory.ai?",
     answer:
-      "Absolutely. Our digital teams grow with you, supporting branding, marketing, automation, and long term growth.",
+      "Schedule a discovery session on our platform. We assess your startup's needs, create a personalized growth plan, and implement strategies alongside you—delivering premium results without premium pricing.",
   },
 ];
 

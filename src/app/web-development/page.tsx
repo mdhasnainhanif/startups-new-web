@@ -9,7 +9,7 @@ import Technologies from '../components/Technologies/Technologies';
 import TextSlider1 from '../components/HomenewPage/TextSlider/TextSlider';
 import Reviews from '../components/Reviews/Reviews';
 import ProfessionalDesign from '../components/ProfessionalDesign/ProfessionalDesign';
-import { webDevelopmentProfessionalData, webDevelopmentCaseStudyData, webDevelopmentBlogGuides } from '../data/WebDevelopmentPageData';
+import { webDevelopmentProfessionalData, webDevelopmentCaseStudyData, webDevelopmentBlogGuides, webDevelopmentFAQ } from '../data/WebDevelopmentPageData';
 import AiPowerDesign from '../components/AiPowerDesign/AiPowerDesign';
 import CaseStudySection from '../components/CaseStudySection';
 import ProvenSuccess from '../components/ProvenSuccess/ProvenSuccess';
@@ -61,7 +61,7 @@ export default function WebDevelopmentPage() {
       <Reviews/>
       {/* <GrowthSlider items={webDevelopmentBlogGuides} /> */}
       <BlogCarousel category="Web Development" />
-      <FAQ faqs={FAQ_CONTACT} sectionData={FAQ_SECTION} />
+      <FAQ faqs={webDevelopmentFAQ} sectionData={FAQ_SECTION} />
       <Contact/>
     </>
   )

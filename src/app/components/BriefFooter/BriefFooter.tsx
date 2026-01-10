@@ -37,10 +37,10 @@ export default function BriefFooter({
           <Button
             type="button"
             onClick={handleBack}
-            variant="primary"
+            variant="green"
             size="md"
             className={styles.backButton}
-            icon={<ArrowLeftIcon />}
+            icon={<ArrowLeftIcon style={{ fill: "#000" }} />}
             iconPosition="left"
           >
             Back
@@ -50,10 +50,10 @@ export default function BriefFooter({
           <Button
             type="button"
             onClick={onContinue}
-            variant="primary"
+            variant="green"
             size="md"
             className={`${styles.continueButton} ${continueDisabled ? styles.disabled : ''}`}
-            icon={<ArrowRightIcon />}
+            icon={<ArrowRightIcon style={{ fill: "#000" }} />}
             iconPosition="right"
             disabled={continueDisabled}
           >

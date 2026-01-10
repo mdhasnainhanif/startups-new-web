@@ -9,6 +9,8 @@ import '@fancyapps/ui/dist/fancybox/fancybox.css';
 import 'swiper/css';
 import styles from './ProvenSuccess.module.css';
 import Container from '../Container';
+import CalendlyPopup from '../CalendlyPopup/CalendlyPopup';
+import Button from '../Button';
 
 interface TabData {
   id: string;
@@ -331,6 +333,9 @@ const ProvenSuccess = ({ data, variant }: ProvenSuccessProps) => {
   
   // Image lightbox state
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  
+  // Calendly popup state
+  const [isCalendlyPopupOpen, setIsCalendlyPopupOpen] = useState<boolean>(false);
 
   const currentTab = filteredTabs.find((tab) => tab.id === activeTab) || filteredTabs[0];
   const displayedTab = filteredTabs.find((tab) => tab.id === displayedTabId) || filteredTabs[0];
@@ -607,12 +612,94 @@ const ProvenSuccess = ({ data, variant }: ProvenSuccessProps) => {
           </div>
         )}
 
+        {/* Theme Button for Web Development */}
+        {isWebDevelopment && (
+          <div className="flex justify-center mt-8">
+            <Button
+              variant="green"
+              size="lg"
+              onClick={() => setIsCalendlyPopupOpen(true)}
+            >
+              Design My Website
+            </Button>
+          </div>
+        )}
+
+        {/* Theme Button - Only show for specific tabs on designer page */}
+        {!isWebDevelopment && displayedTab && (
+          <div className={`flex justify-center mt-8 transition-opacity duration-300 ease-in-out ${isFading ? "opacity-0" : "opacity-100"}`}>
+            {displayedTabId === 'branding-kit' && (
+              <Button
+                variant="green"
+                size="lg"
+                onClick={() => setIsCalendlyPopupOpen(true)}
+              >
+                Design My Branding Kit
+              </Button>
+            )}
+            {displayedTabId === 'logo-design' && (
+              <Button
+                variant="green"
+                size="lg"
+                onClick={() => setIsCalendlyPopupOpen(true)}
+              >
+                Design My Logo
+              </Button>
+            )}
+            {displayedTabId === 'stationary' && (
+              <Button
+                variant="green"
+                size="lg"
+                onClick={() => setIsCalendlyPopupOpen(true)}
+              >
+                Design My Stationary
+              </Button>
+            )}
+            {/* Social Media Marketing Page Buttons */}
+            {displayedTabId === 'social-posts' && (
+              <Button
+                variant="green"
+                size="lg"
+                onClick={() => setIsCalendlyPopupOpen(true)}
+              >
+                Design Social Posts
+              </Button>
+            )}
+            {displayedTabId === 'social-covers' && (
+              <Button
+                variant="green"
+                size="lg"
+                onClick={() => setIsCalendlyPopupOpen(true)}
+              >
+                Design My Social Covers
+              </Button>
+            )}
+            {displayedTabId === 'carousel' && (
+              <Button
+                variant="green"
+                size="lg"
+                onClick={() => setIsCalendlyPopupOpen(true)}
+              >
+                Design My Carousel
+              </Button>
+            )}
+          </div>
+        )}
+
         {/* Image Lightbox */}
         <ImageLightbox
           isOpen={selectedImage !== null}
           onClose={() => setSelectedImage(null)}
           imageUrl={selectedImage}
           isWebDevelopment={isWebDevelopment}
+        />
+
+        {/* Calendly Popup */}
+        <CalendlyPopup
+          isOpen={isCalendlyPopupOpen}
+          onClose={() => setIsCalendlyPopupOpen(false)}
+          calLink="inhouse-team-loexw9/30min"
+          layout="month_view"
         />
       </Container>
     </section>

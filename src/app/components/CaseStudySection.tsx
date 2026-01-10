@@ -55,7 +55,8 @@ const CaseStudySection = ({ data = DEFAULT_CASE_STUDY_DATA, isShowTabs = true, c
            buttonText === "Hire Content Curator" ||
            buttonText === "Hire Reels Creator" ||
            buttonText === "Hire Campaign Writer" ||
-           buttonText === "Hire Your Design Team";
+           buttonText === "Hire Your Design Team" ||
+           buttonText === "Hire My Design Team";
  };
 
   

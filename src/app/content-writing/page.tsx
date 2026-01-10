@@ -8,7 +8,7 @@ import Technologies from '../components/Technologies/Technologies';
 import TextSlider1 from '../components/HomenewPage/TextSlider/TextSlider';
 import Reviews from '../components/Reviews/Reviews';
 import ProfessionalDesign from '../components/ProfessionalDesign/ProfessionalDesign';
-import { contentWritingProfessionalData, contentWritingCaseStudyData, contentWritingBlogGuides } from '../data/ContentWritingPageData';
+import { contentWritingProfessionalData, contentWritingCaseStudyData, contentWritingBlogGuides, contentWritingFAQ } from '../data/ContentWritingPageData';
 import AiPowerDesign from '../components/AiPowerDesign/AiPowerDesign';
 import CaseStudySection from '../components/CaseStudySection';
 import RealCost from '../components/RealCost/RealCost';
@@ -55,7 +55,7 @@ export default function ContentWritingPage() {
       <Reviews/>
       {/* <GrowthSlider items={contentWritingBlogGuides} /> */}
       <BlogCarousel category="Content Writing" />
-      <FAQ faqs={FAQ_CONTACT} sectionData={FAQ_SECTION} />
+      <FAQ faqs={contentWritingFAQ} sectionData={FAQ_SECTION} />
       <Contact/>
     </>
   )

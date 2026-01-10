@@ -507,6 +507,59 @@
     { sliderDataPara: "$48,000 plus Worth of [Web Production Capability] Working on Your Build" },
   ];
 
+// Web Development FAQ data
+export const webDevelopmentFAQ = [
+  {
+    question: "What web development services does StartupAdvisory.ai provide?",
+    answer:
+      "We deliver end-to-end web development including frontend, backend, full stack, web apps, e-commerce, CMS, API integration, UI/UX, SEO optimization, landing pages, and website redesign—powered by AI-assisted teams.",
+  },
+  {
+    question: "How is StartupAdvisory.ai different from hiring in-house developers or agencies?",
+    answer:
+      "Unlike hiring full-time developers or traditional agencies, we provide a complete web team with specialists for each part of the build at a fraction of the cost, delivering high-quality, market-ready websites in just one month.",
+  },
+  {
+    question: "Who builds my website?",
+    answer:
+      "Your dedicated web team includes web designers, UI/UX designers, and developers with decades of combined experience, supported by AI tools to ensure fast, precise, and professional results.",
+  },
+  {
+    question: "How fast can I get a website built?",
+    answer:
+      "Our 1-month web team package delivers a fully functional, market-ready website within a month, complete with responsive design, SEO, performance optimization, and secure deployment.",
+  },
+  {
+    question: "Is StartupAdvisory.ai affordable for startups and small businesses?",
+    answer:
+      "Yes. We provide premium web development services that would normally cost hundreds of thousands annually if hiring full-time developers, but at a fractional cost using our AI + human hybrid team.",
+  },
+  {
+    question: "Will my website be optimized for performance and conversions?",
+    answer:
+      "Absolutely. We focus on speed, layout, clarity, mobile responsiveness, SEO, and structured navigation to maximize engagement, reduce ad spend, and increase inquiries and revenue.",
+  },
+  {
+    question: "Does StartupAdvisory.ai provide ongoing maintenance and support?",
+    answer:
+      "Yes. Our team ensures long-term stability, security, and updates so your website remains a reliable business foundation for sales, visibility, and customer trust.",
+  },
+  {
+    question: "Can you handle complex web solutions like e-commerce or web apps?",
+    answer:
+      "Yes. We specialize in e-commerce platforms, web apps, API integration, CMS development, database management, and even enterprise-level solutions with full-stack implementation.",
+  },
+  {
+    question: "How does good web development impact my business?",
+    answer:
+      "Professionally built websites enhance credibility, increase conversions by up to 30%, reduce ad spend by 20–40%, and can boost revenue by 15–25% in the first year.",
+  },
+  {
+    question: "How do I get started with StartupAdvisory.ai Web Development Services?",
+    answer:
+      "Schedule a discovery session. We analyze your objectives, assign a dedicated AI-assisted web team, and deliver a fully structured, market-ready website optimized for real business results.",
+  },
+];
 
   // Web Development specific blog guides
   export const webDevelopmentBlogGuides = [

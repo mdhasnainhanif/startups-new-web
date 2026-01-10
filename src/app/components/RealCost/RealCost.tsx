@@ -74,7 +74,18 @@ const REAL_COST_DATA: RealCostData = {
         icon: 'designer',
         placeholder: 'Designer Type',
         type: 'select',
-        options: ['Junior Designer', 'Mid Level Designer', 'Senior Designer', 'Design Director'],
+        options: [
+          'Graphic Designer',
+          'Logo Designer',
+          'UI Designer (User Interface)',
+          'UX Designer (User Experience)',
+          'Web Designer',
+          'Product Designer',
+          'Motion Designer',
+          'Brand Designer',
+          'Social Media Designer',
+          'Digital Illustrator'
+        ],
       },
       {
         id: 'monthlyCost',
@@ -117,6 +128,17 @@ const ROLE_COSTS: Record<string, { monthly: number; annual: number }> = {
   'Senior Designer': { monthly: 4999, annual: 4999 * 12 },
   'Design Director': { monthly: 7999, annual: 7999 * 12 },
   'Creative Director': { monthly: 7999, annual: 7999 * 12 },
+  // New Designer Roles
+  'Graphic Designer': { monthly: 4900, annual: 4900 * 12 },
+  'Logo Designer': { monthly: 4800, annual: 4800 * 12 },
+  'UI Designer (User Interface)': { monthly: 7100, annual: 7100 * 12 },
+  'UX Designer (User Experience)': { monthly: 7500, annual: 7500 * 12 },
+  'Web Designer': { monthly: 6400, annual: 6400 * 12 },
+  'Product Designer': { monthly: 8700, annual: 8700 * 12 },
+  'Motion Designer': { monthly: 6300, annual: 6300 * 12 },
+  'Brand Designer': { monthly: 5400, annual: 5400 * 12 },
+  'Social Media Designer': { monthly: 4700, annual: 4700 * 12 },
+  'Digital Illustrator': { monthly: 5000, annual: 5000 * 12 },
   // Writer types
   'Junior Writer': { monthly: 1499, annual: 1499 * 12 },
   'Mid Level Writer': { monthly: 2499, annual: 2499 * 12 },
@@ -149,8 +171,8 @@ const formatNumber = (value: string): string => {
 };
 
 const RealCost = ({ data = REAL_COST_DATA }: RealCostProps) => {
-  // Get the first option from data or default to 'Junior Designer'
-  const firstOption = data.calculator.fields[0]?.options?.[0] || 'Junior Designer';
+  // Get the first option from data or default to 'Graphic Designer'
+  const firstOption = data.calculator.fields[0]?.options?.[0] || 'Graphic Designer';
   const [selectedRoleType, setSelectedRoleType] = useState<string>(firstOption);
   const [monthlyCost, setMonthlyCost] = useState<string>('');
   const [annualCost, setAnnualCost] = useState<string>('');
@@ -160,7 +182,7 @@ const RealCost = ({ data = REAL_COST_DATA }: RealCostProps) => {
 
   // Initialize with first option when component mounts or data changes
   useEffect(() => {
-    const firstOpt = data.calculator.fields[0]?.options?.[0] || 'Junior Designer';
+    const firstOpt = data.calculator.fields[0]?.options?.[0] || 'Graphic Designer';
     setSelectedRoleType(firstOpt);
   }, [data]);
 

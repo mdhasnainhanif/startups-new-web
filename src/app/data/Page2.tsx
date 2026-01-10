@@ -541,5 +541,59 @@ export interface HomeBannerData {
       href: "/blog-detail/inside-the-key-growth-manager-playbook-frameworks-metrics-and-execution-models-for-2026/",
     },
   ];
+
+// Key Growth FAQ data
+export const keyGrowthFAQ = [
+  {
+    question: "What is a Key Growth Manager?",
+    answer:
+      "A Key Growth Manager is a dedicated team member who handles day-to-day operational tasks, clears backlogs, keeps your business moving, and ensures momentum while you focus on high-level strategy.",
+  },
+  {
+    question: "How does a Key Growth Manager help my business?",
+    answer:
+      "They streamline daily workflow, manage communications, automate repetitive tasks, monitor performance metrics, support scheduling, and maintain client and financial systems to keep your business running smoothly.",
+  },
+  {
+    question: "How is this different from hiring an agency or freelancer?",
+    answer:
+      "Unlike agencies or freelancers, a Key Growth Manager is embedded in your business, acting as a strategic executor who proactively manages operations and ensures continuity—without the overhead of multiple hires.",
+  },
+  {
+    question: "Who supports the Key Growth Manager?",
+    answer:
+      "Each Key Growth Manager is backed by a full support team that ensures consistency, performance, and alignment with your business goals.",
+  },
+  {
+    question: "What tasks does a Key Growth Manager handle?",
+    answer:
+      "Daily flow control, content and communication rhythm, schedule and planning, process cleanup, documentation, market and competitor checks, offer and customer support alignment, financial organization, task automation, client management, analytics, social media handling, and telesales support.",
+  },
+  {
+    question: "Is the Key Growth Manager service affordable for startups?",
+    answer:
+      "Yes. You get a full operational growth team at a fraction of the cost of hiring multiple full-time staff or agencies.",
+  },
+  {
+    question: "How quickly can I see results?",
+    answer:
+      "The first month focuses on smoothing workflows, clearing backlogs, and establishing steady momentum. If we don't improve your workflow in the first month, your next month is free.",
+  },
+  {
+    question: "What guarantees are offered?",
+    answer:
+      "- Momentum First: Next month free if workflows don't improve. - Immediate Replacement: If the manager needs to be swapped, no gaps or slowdowns occur. - Direct Access: Senior operators step in when needed for instant resolution.",
+  },
+  {
+    question: "How does a Key Growth Manager impact business performance?",
+    answer:
+      "By keeping operations organized, reducing bottlenecks, maintaining client relationships, tracking metrics, and automating repetitive tasks, businesses increase productivity, efficiency, and revenue potential.",
+  },
+  {
+    question: "How do I get started with a Key Growth Manager?",
+    answer:
+      "Schedule a free discovery call. We assess your business needs, assign a dedicated Key Growth Manager, and integrate them into your operations for seamless execution and growth.",
+  },
+];
   
   

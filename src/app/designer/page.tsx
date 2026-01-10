@@ -9,7 +9,7 @@ import TextSlider1 from '../components/HomenewPage/TextSlider/TextSlider';
 import { sliderData } from '../data/HomeNewData';
 import Reviews from '../components/Reviews/Reviews';
 import ProfessionalDesign from '../components/ProfessionalDesign/ProfessionalDesign';
-import { designProfessionalPageData, caseStudyDesignerPageData, designerGuessWorkData, designerSliderData1, DESIGNER_GROWTH_GUIDES } from '../data/DesignerPageData';
+import { designProfessionalPageData, caseStudyDesignerPageData, designerGuessWorkData, designerSliderData1, DESIGNER_GROWTH_GUIDES, designerFAQ } from '../data/DesignerPageData';
 import AiPowerDesign from '../components/AiPowerDesign/AiPowerDesign';
 import CaseStudySection from '../components/CaseStudySection';
 import ProvenSuccess from '../components/ProvenSuccess/ProvenSuccess';
@@ -198,7 +198,7 @@ export default function DesignerPage() {
       <Reviews/>
       {/* <GrowthSlider items={DESIGNER_GROWTH_GUIDES} /> */}
       <BlogCarousel category="Design" />
-      <FAQ faqs={FAQ_CONTACT} sectionData={FAQ_SECTION} />
+      <FAQ faqs={designerFAQ} sectionData={FAQ_SECTION} />
       <Contact/>
     </>
   )

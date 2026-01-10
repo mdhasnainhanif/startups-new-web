@@ -586,6 +586,60 @@ export const contentWritingSliderData3 = [
   { sliderDataPara: "Hiring a [content team] $85,000+ a year" },
 ];
 
+// Content Writing FAQ data
+export const contentWritingFAQ = [
+  {
+    question: "What content writing services does StartupAdvisory.ai provide?",
+    answer:
+      "We offer full-scale content production including web content, copywriting, social media posts, email marketing, ad copy, UX/UI text, technical writing, creative writing, product descriptions, press releases, and more—all powered by an AI-assisted human team.",
+  },
+  {
+    question: "How is StartupAdvisory.ai different from hiring freelancers or agencies?",
+    answer:
+      "Unlike hiring individual writers or agencies, we provide a complete content team delivering consistent, high-quality, market-ready content in a single production cycle at a fraction of the cost of full-time hires.",
+  },
+  {
+    question: "Who creates the content?",
+    answer:
+      "Our team consists of experienced content specialists with 40+ years of combined experience across industries, supported by AI-enhanced research and structured writing systems to ensure speed, clarity, and commercial alignment.",
+  },
+  {
+    question: "Can StartupAdvisory.ai handle website and marketing content?",
+    answer:
+      "Yes. We create website copy, sales pages, service pages, landing pages, email campaigns, lead magnets, and all marketing collateral with a consistent tone and persuasive messaging.",
+  },
+  {
+    question: "Does the service cover UX and UI writing?",
+    answer:
+      "Absolutely. Our UX/UI writers craft concise, intuitive microcopy, navigation text, button labels, onboarding instructions, and other interface content to guide user actions and improve experience.",
+  },
+  {
+    question: "How quickly can I get content delivered?",
+    answer:
+      "Our 1-month content package produces a full suite of market-ready content in just one month, replacing fragmented writing, inconsistent tone, and prolonged revisions.",
+  },
+  {
+    question: "Is StartupAdvisory.ai affordable for startups and small businesses?",
+    answer:
+      "Yes. Our AI-assisted content team delivers professional-level output equivalent to hiring multiple full-time content professionals, but at a fractional cost that is accessible for lean budgets.",
+  },
+  {
+    question: "How does good content impact my business?",
+    answer:
+      "High-quality content builds brand credibility, improves customer engagement, boosts conversions, supports marketing and sales, and strengthens overall brand communication across all touchpoints.",
+  },
+  {
+    question: "Does StartupAdvisory.ai provide content strategy and SEO optimization?",
+    answer:
+      "Yes. We integrate content frameworks, SEO best practices, and structured messaging to ensure your content performs well for search engines and engages your audience effectively.",
+  },
+  {
+    question: "How do I get started with StartupAdvisory.ai Content Writing Services?",
+    answer:
+      "Schedule a discovery session. We assess your content needs, assign a dedicated AI-assisted team, and deliver a full content production cycle optimized for clarity, persuasion, and commercial impact.",
+  },
+];
+
 // Content Writing specific blog guides
 export const contentWritingBlogGuides = [
   {

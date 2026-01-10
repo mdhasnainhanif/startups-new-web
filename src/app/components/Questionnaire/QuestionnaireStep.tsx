@@ -2,7 +2,7 @@
 
 import styles from "./Questionnaire.module.css";
 import Button from "../Button";
-import { ArrowLeftIcon } from "../../icons";
+import { ArrowLeftIcon, ArrowRightIcon } from "../../icons";
 
 export interface Option {
   id: string;
@@ -150,10 +150,10 @@ export default function QuestionnaireStep({
           <Button
             type="button"
             onClick={onBack}
-            variant="primary"
+            variant="green"
             size="md"
             className={styles.backButton}
-            icon={<ArrowLeftIcon />}
+            icon={<ArrowLeftIcon style={{ fill: "#000" }} />}
             iconPosition="left"
           >
             Back
@@ -178,9 +178,11 @@ export default function QuestionnaireStep({
               }
             }
           }}
-          variant="primary"
+          variant="green"
           size="md"
           className={styles.continueButton}
+          icon={<ArrowRightIcon style={{ fill: "#000" }} />}
+          iconPosition="right"
           disabled={isMultiSelect ? selectedValues.length === 0 : !selectedValue || (typeof selectedValue === 'string' && selectedValue.trim() === '')}
         >
           Continue

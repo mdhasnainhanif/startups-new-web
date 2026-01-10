@@ -126,7 +126,7 @@ export const questionnaireData: { steps: Step[] } = {
     // STEP 3 - Q3: Business type + how customers buy
     {
       id: "step-3",
-      title: "Business type + how customers buy",
+      title: "What's your business and what's your customer's buying behaviour?",
       progress: 37.5,
       backTo: "step-2",
       columns: 3,
@@ -187,7 +187,7 @@ export const questionnaireData: { steps: Step[] } = {
     // STEP 4 - Q4: Stage + monthly revenue
     {
       id: "step-4",
-      title: "Stage + monthly revenue",
+      title: "What is your business stage and average monthly revenue?",
       progress: 50,
       backTo: "step-3",
       columns: 3,
@@ -249,7 +249,7 @@ export const questionnaireData: { steps: Step[] } = {
     // STEP 5 - Q5: How much is manual vs systemized?
     {
       id: "step-5",
-      title: "How much is manual vs systemized?",
+      title: "How much of your work is manual vs systemized?",
       progress: 62.5,
       backTo: "step-4",
       columns: 2,
@@ -290,7 +290,7 @@ export const questionnaireData: { steps: Step[] } = {
     // STEP 6 - Q6: Team size
     {
       id: "step-6",
-      title: "Team size",
+      title: "How many people are on your team?",
       progress: 75,
       backTo: "step-5",
       columns: 2,
@@ -331,7 +331,7 @@ export const questionnaireData: { steps: Step[] } = {
     // STEP 7 - Q7: Offer clarity + brand strength
     {
       id: "step-7",
-      title: "Offer clarity + brand strength",
+      title: "How clear is your core offer and brand to your customers?",
       progress: 87.5,
       backTo: "step-6",
       columns: 2,
@@ -372,7 +372,7 @@ export const questionnaireData: { steps: Step[] } = {
     // STEP 8 - Q8: What support would help most?
     {
       id: "step-8",
-      title: "What support would help most?",
+      title: "What kind of support from us would help your business grow the most?",
       progress: 100,
       backTo: "step-7",
       columns: 3,

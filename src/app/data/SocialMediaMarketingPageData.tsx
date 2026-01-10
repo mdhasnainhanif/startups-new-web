@@ -531,6 +531,60 @@ export const socialMediaMarketingSliderData3 = [
   { sliderDataPara: "Hiring a [social media team] $85,000+ a year" },
 ];
 
+// Social Media Marketing FAQ data
+export const socialMediaMarketingFAQ = [
+  {
+    question: "What social media marketing services does StartupAdvisory.ai offer?",
+    answer:
+      "We provide a full suite of social media services, including strategy development, content creation, graphics, reels, captions, campaigns, community management, paid advertising, influencer collaborations, analytics, SEO, automation, lead generation, and more—all powered by AI-assisted human teams.",
+  },
+  {
+    question: "How is StartupAdvisory.ai different from hiring freelancers or agencies?",
+    answer:
+      "Unlike freelancers or agencies, we provide a complete social media team that delivers consistent, high-quality, market-ready social content in a single 1-month production cycle, at a fraction of the cost of full-time hires.",
+  },
+  {
+    question: "Who handles my social media accounts?",
+    answer:
+      "Your dedicated team includes social media designers, content curators, reels creators, and campaign writers—all experienced professionals using AI tools to ensure efficiency, quality, and strategic alignment.",
+  },
+  {
+    question: "Can StartupAdvisory.ai produce visuals and short-form videos?",
+    answer:
+      "Yes. We create platform-ready graphics, carousels, reels, videos, templates, color and typography systems, and all visual content needed to boost engagement and brand perception.",
+  },
+  {
+    question: "Does the service include captions, campaigns, and messaging?",
+    answer:
+      "Absolutely. Our content curators and campaign writers deliver captions, hook lines, promotional messaging, audience-targeted content, seasonal campaigns, and platform-specific variations.",
+  },
+  {
+    question: "How quickly can I get social media content delivered?",
+    answer:
+      "Our 1-month package produces a full set of social media assets—graphics, videos, captions, and campaigns—ready for immediate posting across all major platforms.",
+  },
+  {
+    question: "Is StartupAdvisory.ai affordable for startups and small businesses?",
+    answer:
+      "Yes. We deliver the output of a full social media team that would normally cost $50k–$75k annually in just one month, at a fractional cost, making professional social media management accessible for lean budgets.",
+  },
+  {
+    question: "How does professional social media management impact my business?",
+    answer:
+      "High-quality social content improves brand perception, engagement, reach, leads, and conversions, while saving time and reducing ad spend inefficiencies.",
+  },
+  {
+    question: "Does the service include analytics and strategy adjustments?",
+    answer:
+      "Yes. We provide performance tracking, reporting, competitor benchmarking, audience insights, and strategic adjustments to ensure maximum impact of your social media campaigns.",
+  },
+  {
+    question: "How do I get started with StartupAdvisory.ai Social Media Marketing Services?",
+    answer:
+      "Schedule a discovery session. We assess your brand goals, assign your AI-assisted social media team, and deliver a structured 1-month content cycle optimized for engagement, visibility, and growth.",
+  },
+];
+
 
 export const socialMediaMarketingBlogGuides = [
   {

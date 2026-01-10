@@ -258,26 +258,11 @@
 }
 
 .fixedButtonsContainer .continueButton {
-  padding: 0.35rem 1rem 0.45rem;
-  background: var(--color-purple);
-  border: 2px solid var(--color-purple);
-  border-radius: 8px;
-  color: #ffffff;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-family: var(--font-graphik-regular), Arial, Helvetica, sans-serif;
-  box-shadow: 0 0 20px rgba(100, 59, 255, 0.3);
   width: fit-content;
   align-items: center;
   /* min-width: 120px;  */
+  /* Theme button effects are handled by Button component variant="green" */
 }
-
-/* .fixedButtonsContainer .continueButton:hover:not(:disabled) {
-  box-shadow: 0 0 30px rgba(100, 59, 255, 0.5);
-  transform: translateY(-2px);
-} */
 
 .fixedButtonsContainer .continueButton:disabled {
   opacity: 0.5;

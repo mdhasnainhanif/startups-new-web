@@ -273,10 +273,10 @@ export default function PoppupStepQuestionnaire({
               <Button
                 type="button"
                 onClick={handleBack}
-                variant="primary"
+                variant="green"
                 size="md"
                 className={styles.backButton}
-                icon={<ArrowLeftIcon />}
+                icon={<ArrowLeftIcon style={{ fill: "#000" }} />}
                 iconPosition="left"
               >
                 Back
@@ -308,10 +308,10 @@ export default function PoppupStepQuestionnaire({
                   }
                 }
               }}
-              variant="primary"
+              variant="green"
               size="md"
               className={styles.continueButton}
-              icon={<ArrowRightIcon />}
+              icon={<ArrowRightIcon style={{ fill: "#000" }} />}
               iconPosition="right"
               disabled={
                 isTransitioning ||
@@ -345,10 +345,10 @@ export default function PoppupStepQuestionnaire({
             <Button
               type="button"
               onClick={handleBack}
-              variant="primary"
+              variant="green"
               size="md"
               className={styles.backButton}
-              icon={<ArrowLeftIcon />}
+              icon={<ArrowLeftIcon style={{ fill: "#000" }} />}
               iconPosition="left"
             >
               Back
